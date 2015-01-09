@@ -110,3 +110,5 @@ names(shpSCHLUESSEL)[names(shpSCHLUESSEL)=="HB@data$SCHLUESSEL"] <- "SCHLUESSEL"
 
 ziel<- merge(shpSCHLUESSEL,B_EWdata_agg, by.x="SCHLUESSEL", by.y="SCHLUESSEL", all.x=T)
 sum(ziel$Einwohneranzahl, na.rm=T)
+
+#Problem mit shp vs. BlockTabelle
