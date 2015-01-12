@@ -70,22 +70,40 @@ LOR2 <- spTransform(LOR1, zielCRS)
 PGR2 <- spTransform(PGR1, zielCRS)
 BZR2 <- spTransform(BZR1, zielCRS)
 
-plot(PLZ4)
-plot(LOR2, add=T)
-
-plot(IS)
-plot(LOR2,add=T)
-plot(PLZ4, add=T)
-plot(PGR2)
-
 proj4string(HB)  <- zielCRS
 proj4string(MB)  <- zielCRS
 proj4string(TB)  <- zielCRS
 proj4string(STR) <- zielCRS
 proj4string(SG)  <- zielCRS
 
-plot(HB, add=T)
-plot(LOR2)
+#plot(PLZ4)
+#plot(LOR2, add=T)
+#plot(IS)
+#plot(LOR2,add=T)
+#plot(PLZ4, add=T)
+#plot(PGR2)
+#plot(HB, add=T)
+#plot(LOR2)
+
+#HB@data$SCHLUESSEL <- (substr(HB@data$SCHLUESSEL,1,9))
+shpSCHLUESSEL <- as.data.frame(HB@data$SCHLUESSEL)
+names(shpSCHLUESSEL)[names(shpSCHLUESSEL)=="HB@data$SCHLUESSEL"] <- "SCHLUESSEL"
+
+#TB@data$SCHLUESSEL <- (substr(TB@data$SCHLUESSEL,1,9))
+shpSCHLUESSEL <- as.data.frame(TB@data$SCHLUESSEL)
+names(shpSCHLUESSEL)[names(shpSCHLUESSEL)=="TB@data$SCHLUESSEL"] <- "SCHLUESSEL"
+
+row.names(HB) <- as.character(HB@data$SCHLUESSEL)
+row.names(TB) <- as.character(TB@data$SCHLUESSEL)
+
+row.names(HB)
+str(HB@data$SCHLUESSEL)
+
+#Problem mit shp vs. BlockTabelle
+
+
+bloeckeSHP <- spRbind(HB, TB)
+summary(bloeckeSHP@data$SCHLUESSEL)
 
 
 B_EWdata_full   <- read.table("Einwohnerdaten/bloecke_nutzung_PLR_ewdaten.csv", header = TRUE, sep=",", 
@@ -104,11 +122,12 @@ B_EWdata_agg <-aggregate(Einwohneranzahl ~ SCHLUESSEL, data=B_EWdata, FUN=sum)
 B_EWdata_agg <- B_EWdata_agg[B_EWdata_agg$Einwohneranzahl>0,]
 #B_EWdata_agg$SCHLUESSEL <- B_EWdata_agg$SCHLUESSEL_BLOCKshort
 
-HB@data$SCHLUESSEL <- (substr(HB@data$SCHLUESSEL,1,9))
-shpSCHLUESSEL <- as.data.frame(HB@data$SCHLUESSEL)
-names(shpSCHLUESSEL)[names(shpSCHLUESSEL)=="HB@data$SCHLUESSEL"] <- "SCHLUESSEL"
+
+B_EWdata_full   <- read.table("Einwohnerdaten/nurbloecke_mitEinwohnern.csv", header = TRUE, sep=",", 
+                              colClasses="character")
+B_EWdata_full$SCHLUESSEL <- formatC(as.numeric(B_EWdata_full$SCHLUESSEL),width=16,format='f',digits=0,flag='0')
+
+B_EWdata$SCHLUESSEL <- as.factor(substr(B_EWdata$SCHLUESSEL_BLOCK,1,9))
 
 ziel<- merge(shpSCHLUESSEL,B_EWdata_agg, by.x="SCHLUESSEL", by.y="SCHLUESSEL", all.x=T)
 sum(ziel$Einwohneranzahl, na.rm=T)
-
-#Problem mit shp vs. BlockTabelle
