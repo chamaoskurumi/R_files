@@ -39,16 +39,10 @@ LOR1     <- readOGR(dsn="LOR/LORneu/LOR_SHP_EPSG_3068/", layer="Planungsraum_EPS
 PGR1     <- readOGR(dsn="LOR/LORneu/LOR_SHP_EPSG_3068/", layer="Prognoseraum_EPSG_3068")
 BZR1     <- readOGR(dsn="LOR/LORneu/LOR_SHP_EPSG_3068/", layer="Bezirksregion_EPSG_3068")
 
-HB      <- readOGR(dsn="Geoinstitut/Geoinstitut/", layer="Digk5_Hauptblock")
-MB      <- readOGR(dsn="Geoinstitut/Geoinstitut/", layer="Digk5_Metablock")
-TB      <- readOGR(dsn="Geoinstitut/Geoinstitut/", layer="Digk5_Teilblock")
-STR     <- readOGR(dsn="Geoinstitut/Geoinstitut/", layer="Digk5_strassen")
 SG      <- readOGR(dsn="Geoinstitut/Geoinstitut/", layer="Digk5_StatGeb")
 
-
-
 proj4string(PLZ1)    <- CRS("+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 ")
-proj4string(PLZgeb1) <- CRS(" +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 ")
+proj4string(PLZgeb1) <- CRS("+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 ")
 
 PLZ2    <- spTransform(PLZ1, zielCRS)
 PLZgeb2 <- spTransform(PLZgeb1, zielCRS)
@@ -58,6 +52,7 @@ PLZgeb2@data$plzstr(PLZgeb2@data$plz)
 PLZ3 <- PLZ2[PLZ2@data$PLZ99_N>=10115, ]
 PLZ4 <- PLZ3[PLZ3@data$PLZ99_N<=14199, ]
 
+PLZ <- PLZ4
 
 proj4string(LOR1) <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 
                          +x_0=40000 +y_0=10000 +ellps=bessel +datum=potsdam +units=m +no_defs ")
@@ -66,14 +61,10 @@ proj4string(PGR1) <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366
 proj4string(BZR1) <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 
                          +x_0=40000 +y_0=10000 +ellps=bessel +datum=potsdam +units=m +no_defs ")
 
-LOR2 <- spTransform(LOR1, zielCRS)
-PGR2 <- spTransform(PGR1, zielCRS)
-BZR2 <- spTransform(BZR1, zielCRS)
+LOR <- spTransform(LOR1, zielCRS)
+PGR <- spTransform(PGR1, zielCRS)
+BZR <- spTransform(BZR1, zielCRS)
 
-proj4string(HB)  <- zielCRS
-proj4string(MB)  <- zielCRS
-proj4string(TB)  <- zielCRS
-proj4string(STR) <- zielCRS
 proj4string(SG)  <- zielCRS
 
 #plot(PLZ4)
@@ -85,49 +76,33 @@ proj4string(SG)  <- zielCRS
 #plot(HB, add=T)
 #plot(LOR2)
 
-#HB@data$SCHLUESSEL <- (substr(HB@data$SCHLUESSEL,1,9))
-shpSCHLUESSEL <- as.data.frame(HB@data$SCHLUESSEL)
-names(shpSCHLUESSEL)[names(shpSCHLUESSEL)=="HB@data$SCHLUESSEL"] <- "SCHLUESSEL"
-
-#TB@data$SCHLUESSEL <- (substr(TB@data$SCHLUESSEL,1,9))
-shpSCHLUESSEL <- as.data.frame(TB@data$SCHLUESSEL)
-names(shpSCHLUESSEL)[names(shpSCHLUESSEL)=="TB@data$SCHLUESSEL"] <- "SCHLUESSEL"
-
-row.names(HB) <- as.character(HB@data$SCHLUESSEL)
-row.names(TB) <- as.character(TB@data$SCHLUESSEL)
-
-row.names(HB)
-str(HB@data$SCHLUESSEL)
-
-#Problem mit shp vs. BlockTabelle
+bloecke1 <- readOGR(dsn="Bloecke_GS/", layer="bloecke_EW")
+bloecke1@data
+bloecke  <- spTransform(bloecke1, zielCRS)
+bloecke@data[is.na(bloecke@data)] <- 0
+bloecke@data$EW2013 <- as.numeric(bloecke@data$EW2013)
+bloecke@data$EW2012 <- as.numeric(bloecke@data$EW2012)
+bloecke@data$EW2011 <- as.numeric(bloecke@data$EW2011)
+bloecke@data$EW2010 <- as.numeric(bloecke@data$EW2010)
 
 
-bloeckeSHP <- spRbind(HB, TB)
-summary(bloeckeSHP@data$SCHLUESSEL)
-
-
-B_EWdata_full   <- read.table("Einwohnerdaten/bloecke_nutzung_PLR_ewdaten.csv", header = TRUE, sep=",", 
-                              colClasses="character")
-B_EWdata_full$Einwohneranzahl  <- as.numeric(B_EWdata_full$Einwohneranzahl)
-B_EWdata_full$Fläche.in.ha     <- as.numeric(B_EWdata_full$Fläche.in.ha)
-B_EWdata_full$Einwohner.pro.ha <- as.numeric(B_EWdata_full$Einwohner.pro.ha)
-B_EWdata_full$Einwohneranzahl[is.na(B_EWdata_full$Einwohneranzahl)]   <- 0
-B_EWdata_full$Einwohner.pro.ha[is.na(B_EWdata_full$Einwohner.pro.ha)] <- 0
-keeps <- c("SCHLUESSEL_BLOCK","SCHLUESSEL_PLR","Einwohneranzahl")
-B_EWdata <- B_EWdata_full[keeps]
-B_EWdata$SCHLUESSEL <- as.factor(substr(B_EWdata$SCHLUESSEL_BLOCK,1,9))
-
-B_EWdata_agg <-aggregate(Einwohneranzahl ~ SCHLUESSEL, data=B_EWdata, FUN=sum)
-
-B_EWdata_agg <- B_EWdata_agg[B_EWdata_agg$Einwohneranzahl>0,]
-#B_EWdata_agg$SCHLUESSEL <- B_EWdata_agg$SCHLUESSEL_BLOCKshort
+sum(as.numeric(bloecke1@data$EW2013), na.rm=T)
+View(bloecke1)
 
 
 B_EWdata_full   <- read.table("Einwohnerdaten/nurbloecke_mitEinwohnern.csv", header = TRUE, sep=",", 
                               colClasses="character")
-B_EWdata_full$SCHLUESSEL <- formatC(as.numeric(B_EWdata_full$SCHLUESSEL),width=16,format='f',digits=0,flag='0')
 
-B_EWdata$SCHLUESSEL <- as.factor(substr(B_EWdata$SCHLUESSEL_BLOCK,1,9))
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
+WHNDAUER_files <- dir(path="EW_Wohndauer_-LOR-/", pattern = glob2rx("*.csv"))
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_Wohndauer_-LOR-/")
+WHNDAUER <- lapply(WHNDAUER_files, FUN = read.table, header = TRUE, fill=TRUE)
 
-ziel<- merge(shpSCHLUESSEL,B_EWdata_agg, by.x="SCHLUESSEL", by.y="SCHLUESSEL", all.x=T)
-sum(ziel$Einwohneranzahl, na.rm=T)
+files <- dir(path = "/home/dao/Desktop/MasterArbeit/R_data/EW_Wohndauer_-LOR-/"
+             ,pattern="*.csv")
+for(f in files) {
+  line=read.table(file = ,head=T)
+}
+
+
+
