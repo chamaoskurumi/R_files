@@ -96,13 +96,31 @@ B_EWdata_full   <- read.table("Einwohnerdaten/nurbloecke_mitEinwohnern.csv", hea
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 WHNDAUER_files <- dir(path="EW_Wohndauer_-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_Wohndauer_-LOR-/")
-WHNDAUER <- lapply(WHNDAUER_files, FUN = read.table, header = TRUE, fill=TRUE)
+WHNDAUER <- lapply(WHNDAUER_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE)
+names(WHNDAUER[[2]])
+#View(WHNDAUER[[2]])
 
-files <- dir(path = "/home/dao/Desktop/MasterArbeit/R_data/EW_Wohndauer_-LOR-/"
-             ,pattern="*.csv")
-for(f in files) {
-  line=read.table(file = ,head=T)
-}
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
+WHNLAGE_files <- dir(path="EW_Wohnlage_-LOR-/", pattern = glob2rx("*.csv"))
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_Wohnlage_-LOR-/")
+WHNLAGE <- lapply(WHNLAGE_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE)
+names(WHNLAGE[[2]])
+#View(WHNLAGE[[2]])
+
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
+ALTERAUSLAENDER_files <- dir(path="EW_Alter_Auslaender_-LOR-/", pattern = glob2rx("*.csv"))
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_Alter_Auslaender_-LOR-/")
+ALTERAUSLAENDER <- lapply(ALTERAUSLAENDER_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE)
+ALTERAUSLAENDER <- lapply(ALTERAUSLAENDER, FUN = substr )
+ALTERAUSLAENDER[[1$ZEIT]]
+names(ALTERAUSLAENDER[[2]])
+
+jahre <- list(2007, 2008, 2009, 2010, 2011, 2012, 2013)
+Map(cbind, WHNLAGE, ZEIT = jahre)
+
+
+#View(ALTERAUSLAENDER[[2]])
+
 
 
 
