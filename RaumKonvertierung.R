@@ -86,6 +86,7 @@ proj4string(SG)  <- zielCRS
 # Bloecke 2007
 #*******************
 
+setwd(dir="/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/Bloecke_GS/")
 EW_07_raw <- read.dbf(file = "2007_EPSG3068/Sachdaten/e06_06ewdichte2007.dbf")
 head(EW_07_raw)
 bloecke07_attributes <- read.dbf(file = "2007_EPSG3068/06_06ewdichte2007_Flaechen.DBF")
@@ -94,15 +95,18 @@ head(bloecke07_attributes)
 
 EW_07 <- merge(bloecke07_attributes, EW_07_raw, by="SCHLUESSEL", all.x=T, all.y=T)
 head(EW_07)
-length(EW_07$SCHLUESSEL)
+length(EW_07_raw$SCHLUESSEL)
 length(bloecke07_attributes$SCHLUESSEL)
+length(EW_07$SCHLUESSEL)
+subset(EW_07_raw, EW_07_raw$EINWOHNER>0 & is.na(EW_07_raw$EW_PRO_HA)) # diese 38 Fälle sind das Problem
+
 
 table(EW_07$KLASSENNAM, useNA=c("always"))
 subset(EW_07,is.na(EW_07$KLASSENNAM))
 subset(EW_07, EW_07$EINWOHNER>0 & (is.na(EW_07$FLAECHE_IN)))
 is.na(EW_07$KLASSENNAM)
 
-bloecke07  <- readOGR(dsn="/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/Bloecke_GS/2007_EPSG3068/", layer="bloecke_EW")
+bloecke07  <- readOGR(dsn="/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/Bloecke_GS/2007_EPSG3068/", layer="06_06ewdichte2007_Flaechen.shp")
 bloecke07  <- spTransform(bloecke07, zielCRS)
 #sum(as.numeric(bloecke07@data$EW2013), na.rm=T)
 #str(bloecke07@data)
@@ -202,12 +206,34 @@ bloecke10_13  <- bloecke10_13[bloecke10_13@data$EW2013>0 |
 
 # Daten -------------------------------------------------------------------
 
+#~~~~~~~~~~~~~~~~~~~~~~~~
+# Einwohner
+#~~~~~~~~~~~~~~~~~~~~~~~~
+
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
+EW_files <- dir(path="EW_-LOR-/", pattern = glob2rx("*.csv"))
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_-LOR-/")
+EW <- lapply(EW_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE)
+head(EW[[2]])
+names(EW[[2]])
+EW <- lapply(EW, function(x) {x$ZEIT <- substr(x$ZEIT,1,4)
+                              x})
+#View(EW[[2]])
+
+#~~~~~~~~~~~~~~~~~~~~~~~~
+# Wohndauer
+#~~~~~~~~~~~~~~~~~~~~~~~~
+
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 WHNDAUER_files <- dir(path="EW_Wohndauer_-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_Wohndauer_-LOR-/")
 WHNDAUER <- lapply(WHNDAUER_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE)
 names(WHNDAUER[[2]])
 #View(WHNDAUER[[2]])
+
+#~~~~~~~~~~~~~~~~~~~~~~~~
+# Wohnlage
+#~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 WHNLAGE_files <- dir(path="EW_Wohnlage_-LOR-/", pattern = glob2rx("*.csv"))
@@ -216,18 +242,37 @@ WHNLAGE <- lapply(WHNLAGE_files, FUN = read.table, header = TRUE, sep=";",fill=T
 names(WHNLAGE[[2]])
 #View(WHNLAGE[[2]])
 
+#~~~~~~~~~~~~~~~~~~~~~~~~
+# Ausländer und Alter
+#~~~~~~~~~~~~~~~~~~~~~~~~
+
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 ALTERAUSLAENDER_files <- dir(path="EW_Alter_Auslaender_-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_Alter_Auslaender_-LOR-/")
 ALTERAUSLAENDER <- lapply(ALTERAUSLAENDER_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE)
 head(ALTERAUSLAENDER[[2]])
+names(ALTERAUSLAENDER[[2]])
 
 ALTERAUSLAENDER <- lapply(ALTERAUSLAENDER, function(x) {x$ZEIT <- substr(x$ZEIT,1,4)
                                             x})
-
-
-
 #View(ALTERAUSLAENDER[[2]])
+
+#~~~~~~~~~~~~~~~~~~~~~~~~
+# Migrationshintergrund
+#~~~~~~~~~~~~~~~~~~~~~~~~
+
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
+MIGHINTER_files <- dir(path="EW_Migrationshintergrund_-LOR-/", pattern = glob2rx("*.csv"))
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_Migrationshintergrund_-LOR-/")
+MIGHINTER <- lapply(MIGHINTER_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE)
+head(MIGHINTER[[2]])
+names(MIGHINTER[[2]])
+MIGHINTER <- lapply(MIGHINTER, function(x) {x$ZEIT <- substr(x$ZEIT,1,4)
+                                                        x})
+#View(MIGHINTER[[2]])
+
+
+
 
 
 
