@@ -10,7 +10,8 @@ Sys.setenv(LANG = "en_US.UTF-8")
 # Packages ----------------------------------------------------------------
 
 install.packages(c("spdep",      "sp",      "maptools", "lattice", 
-                   "rgdal",      "rgeos",   "foreign",  "PBSmapping"))
+                   "rgdal",      "rgeos",   "foreign",  "PBSmapping",
+                   "reshape",    "plyr"))
 library("spdep")
 library("sp")
 library("maptools")
@@ -19,6 +20,8 @@ library("rgdal")
 library("rgeos")
 library("foreign")
 library("PBSmapping")
+library("reshape")
+library("plyr")
 
 #                   "car",        "ggplot2", "spatstat", "RColorBrewer",
 #                   "colorspace", "ggplot2", "hexbin",   "vioplot",
@@ -27,35 +30,38 @@ library("PBSmapping")
 #install.packages("gdal")
 #library("gdal")
 
-setwd("/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten")
+# Shape files --------------------------------------------------------------
 
-IS      <- readOGR(dsn="ImmoScout", layer="Berlin_BGID_projected")
-IS@proj4string -> zielCRS
+#~~~~~~~~~~~~~~~~~~~~~~~~
+# ImmoScout Ortsteile
+#~~~~~~~~~~~~~~~~~~~~~~~~
+
+setwd("/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten")
+IS       <- readOGR(dsn="ImmoScout", layer="Berlin_BGID_projected")
+zielCRS  <- IS@proj4string
 # EPSG 3068 SOLDNER BERLIN
 #zielCRS <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 +x_0=40000 +y_0=10000 +datum=potsdam +units=m
 #+no_defs +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 ")
 
-PLZ1     <- readOGR(dsn="PLZ/PLZ", layer="post_pl")
-PLZgeb1  <- readOGR(dsn="PLZ/plz-gebiete.shp", layer="plz-gebiete")
+#~~~~~~~~~~~~~~~~~~~~~~~~
+# Postleitzahlen PLZ
+#~~~~~~~~~~~~~~~~~~~~~~~~
 
+setwd("/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten")
+PLZ1     <- readOGR(dsn="PLZ_GS/RBS_OD_PLZ_01_2014/", layer="RBS_OD_PLZ_1312")
+proj4string(PLZ1)    <- CRS("+proj=utm +zone=33 +ellps=GRS80 +units=m +no_defs") # EPSG:25833
+PLZ    <- spTransform(PLZ1, zielCRS)
+#plot(PLZ)
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Stat. Landesamt LOR (Prognose-, Planungsräume, Bezirksregionen)
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+setwd("/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten")
 LOR1     <- readOGR(dsn="LOR/LORneu/LOR_SHP_EPSG_3068/", layer="Planungsraum_EPSG_3068")
 PGR1     <- readOGR(dsn="LOR/LORneu/LOR_SHP_EPSG_3068/", layer="Prognoseraum_EPSG_3068")
 BZR1     <- readOGR(dsn="LOR/LORneu/LOR_SHP_EPSG_3068/", layer="Bezirksregion_EPSG_3068")
-
-SG      <- readOGR(dsn="Geoinstitut/Geoinstitut/", layer="Digk5_StatGeb")
-
-proj4string(PLZ1)    <- CRS("+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 ")
-proj4string(PLZgeb1) <- CRS("+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 ")
-
-PLZ2    <- spTransform(PLZ1, zielCRS)
-PLZgeb2 <- spTransform(PLZgeb1, zielCRS)
-
-PLZgeb2@data$plzstr(PLZgeb2@data$plz)
-
-PLZ3 <- PLZ2[PLZ2@data$PLZ99_N>=10115, ]
-PLZ4 <- PLZ3[PLZ3@data$PLZ99_N<=14199, ]
-
-PLZ <- PLZ4
+#SG       <- readOGR(dsn="Geoinstitut/Geoinstitut/", layer="Digk5_StatGeb")
 
 proj4string(LOR1) <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 
                          +x_0=40000 +y_0=10000 +ellps=bessel +datum=potsdam +units=m +no_defs ")
@@ -63,22 +69,32 @@ proj4string(PGR1) <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366
                          +x_0=40000 +y_0=10000 +ellps=bessel +datum=potsdam +units=m +no_defs ")
 proj4string(BZR1) <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 
                          +x_0=40000 +y_0=10000 +ellps=bessel +datum=potsdam +units=m +no_defs ")
+#SG@proj4string
+#proj4string(SG)   <- zielCRS
 
 LOR <- spTransform(LOR1, zielCRS)
 PGR <- spTransform(PGR1, zielCRS)
 BZR <- spTransform(BZR1, zielCRS)
+#plot(LOR)
+#plot(BZR)
 
-proj4string(SG)  <- zielCRS
+#~~~~~~~~~~~~~~~~~~~~~~~~
+# Sanierungsgebiete
+#~~~~~~~~~~~~~~~~~~~~~~~~
 
-#plot(PLZ4)
-#plot(LOR2, add=T)
-#plot(IS)
-#plot(LOR2,add=T)
-#plot(PLZ4, add=T)
-#plot(PGR2)
-#plot(HB, add=T)
-#plot(LOR2)
+setwd("/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten")
+SanGebiete1                <- readOGR(dsn="Sanierungsgebiete_GS/Sanierungsgebiete_EPSG_25833/",
+                                         layer="Sanierungsgebiete_EPSG_25833")
+proj4string(SanGebiete1)   <- CRS("+proj=utm +zone=33 +ellps=GRS80 +units=m +no_defs") # EPSG:25833
+SanGebiete                 <- spTransform(SanGebiete1, zielCRS)
 
+SanGebiete@data$KLASSENNAM <- revalue(SanGebiete@data$KLASSENNAM, c("Verfahren_aufgehoben"  = "aufgehoben",
+                                                                    "Verfahren_Umfassend"   = "umfassend",
+                                                                    "Verfahren_Vereinfacht" = "vereinfacht"))
+#SanGebiete@data$KLASSENNAM
+
+#plot(PLZ)
+#plot(SanGebiete, col="red", add=T)
 
 # Bloecke ----------------------------------------------------------------
 
@@ -271,9 +287,32 @@ MIGHINTER <- lapply(MIGHINTER, function(x) {x$ZEIT <- substr(x$ZEIT,1,4)
                                                         x})
 #View(MIGHINTER[[2]])
 
+#~~~~~~~~~~~~~~~~~~~~~~~~
+# Binnenwanderung LOR 
+#~~~~~~~~~~~~~~~~~~~~~~~~
+install.packages("reshape2")
+library("reshape2")
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
+BINNENWAND_files <- dir(path="Binnenwanderungen_-LOR-/", pattern = glob2rx("*.csv"))
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/Binnenwanderungen_-LOR-/")
+BINNENWAND <- lapply(BINNENWAND_files, FUN = read.table, header = TRUE, sep=",",fill=TRUE)
+colnames(BINNENWAND[[6]])[1] <- "VonLOR"
+colnames(BINNENWAND[[6]])[2] <- "NachLOR"
+colnames(BINNENWAND[[7]])[1] <- "VonLOR"
+colnames(BINNENWAND[[7]])[2] <- "NachLOR"
+  
+head(BINNENWAND[[2]])
+str(BINNENWAND)
+names(BINNENWAND[[1]])
+BINNENWANDnew <- lapply(BINNENWAND, function(x) {cast(data = x, VonLOR ~ NachLOR)
+                                              x})
+BINNENWANDnew <- lapply(BINNENWAND, function(x) {dcast(data = x, VonLOR ~ NachLOR)
+                                              x})
 
 
-
-
-
+BINNENWAND[[1]] <- cast(data = BINNENWAND[[1]], formula = VonLOR ~ NachLOR)
+BINNENWAND[[1]][is.na(BINNENWAND[[1]])] <- 0
+diag(BINNENWAND[[1]]) <- NA
+head(BINNENWAND[[1]])
+names(BINNENWAND[[1]])
 
