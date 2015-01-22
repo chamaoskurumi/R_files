@@ -11,7 +11,7 @@ Sys.setenv(LANG = "en_US.UTF-8")
 
 install.packages(c("spdep",      "sp",      "maptools", "lattice", 
                    "rgdal",      "rgeos",   "foreign",  "PBSmapping",
-                   "reshape",    "plyr"))
+                   "reshape",    "plyr",    "reshape2"))
 library("spdep")
 library("sp")
 library("maptools")
@@ -22,6 +22,7 @@ library("foreign")
 library("PBSmapping")
 library("reshape")
 library("plyr")
+library("reshape2")
 
 #                   "car",        "ggplot2", "spatstat", "RColorBrewer",
 #                   "colorspace", "ggplot2", "hexbin",   "vioplot",
@@ -230,11 +231,15 @@ setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 EW_files <- dir(path="EW_-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_-LOR-/")
 EW <- lapply(EW_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE)
-head(EW[[2]])
-names(EW[[2]])
-EW <- lapply(EW, function(x) {x$ZEIT <- substr(x$ZEIT,1,4)
-                              x})
-#View(EW[[2]])
+EW <- do.call("rbind", EW) # aus Liste von data.frames einen long Datensatz machen
+EW$ZEIT[EW$ZEIT == 200712] <- 2008
+EW$ZEIT[EW$ZEIT == 200812] <- 2009
+EW$ZEIT[EW$ZEIT == 200912] <- 2010
+EW$ZEIT[EW$ZEIT == 201012] <- 2011
+EW$ZEIT[EW$ZEIT == 201112] <- 2012
+EW$ZEIT[EW$ZEIT == 201212] <- 2013
+EW$ZEIT[EW$ZEIT == 201312] <- 2014
+#View(EW)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
 # Wohndauer
@@ -244,8 +249,8 @@ setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 WHNDAUER_files <- dir(path="EW_Wohndauer_-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_Wohndauer_-LOR-/")
 WHNDAUER <- lapply(WHNDAUER_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE)
-names(WHNDAUER[[2]])
-#View(WHNDAUER[[2]])
+WHNDAUER <- do.call("rbind", WHNDAUER) # aus Liste von data.frames einen long Datensatz machen
+#View(WHNDAUER)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
 # Wohnlage
@@ -255,8 +260,18 @@ setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 WHNLAGE_files <- dir(path="EW_Wohnlage_-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_Wohnlage_-LOR-/")
 WHNLAGE <- lapply(WHNLAGE_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE)
-names(WHNLAGE[[2]])
-#View(WHNLAGE[[2]])
+names(WHNLAGE[[4]]) <- names(WHNLAGE[[5]])
+WHNLAGE <- lapply(WHNLAGE, FUN = function(x) {names(x) <- toupper(names(x))
+                                              x}) # Variablennamen vereinheitlichen (alle upper case)
+WHNLAGE <- do.call("rbind", WHNLAGE) # aus Liste von data.frames einen long Datensatz machen
+WHNLAGE$WLEINFOL <- as.numeric(WHNLAGE$WLEINFOL)
+WHNLAGE$WLEINFML <- as.numeric(WHNLAGE$WLEINFML)
+WHNLAGE$WLMITOL  <- as.numeric(WHNLAGE$WLMITOL)
+WHNLAGE$WLMITML  <- as.numeric(WHNLAGE$WLMITML)
+WHNLAGE$WLGUTOL  <- as.numeric(WHNLAGE$WLGUTOL)
+WHNLAGE$WLGUTML  <- as.numeric(WHNLAGE$WLGUTML)
+WHNLAGE$WLNZORD  <- as.numeric(WHNLAGE$WLNZORD)
+#View(WOHNLAGE)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
 # Ausländer und Alter
@@ -266,12 +281,15 @@ setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 ALTERAUSLAENDER_files <- dir(path="EW_Alter_Auslaender_-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_Alter_Auslaender_-LOR-/")
 ALTERAUSLAENDER <- lapply(ALTERAUSLAENDER_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE)
-head(ALTERAUSLAENDER[[2]])
-names(ALTERAUSLAENDER[[2]])
-
-ALTERAUSLAENDER <- lapply(ALTERAUSLAENDER, function(x) {x$ZEIT <- substr(x$ZEIT,1,4)
-                                            x})
-#View(ALTERAUSLAENDER[[2]])
+ALTERAUSLAENDER <- do.call("rbind", ALTERAUSLAENDER) # aus Liste von data.frames einen long Datensatz machen
+ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 200712] <- 2008
+ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 200812] <- 2009
+ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 200912] <- 2010
+ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 201012] <- 2011
+ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 201112] <- 2012
+ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 201212] <- 2013
+ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 201312] <- 2014
+#View(ALTERAUSLAENDER)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
 # Migrationshintergrund
@@ -281,17 +299,22 @@ setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 MIGHINTER_files <- dir(path="EW_Migrationshintergrund_-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_Migrationshintergrund_-LOR-/")
 MIGHINTER <- lapply(MIGHINTER_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE)
-head(MIGHINTER[[2]])
-names(MIGHINTER[[2]])
-MIGHINTER <- lapply(MIGHINTER, function(x) {x$ZEIT <- substr(x$ZEIT,1,4)
-                                                        x})
-#View(MIGHINTER[[2]])
+MIGHINTER[[7]][,10] <- NA # für 2014 gibt es nur EU28 und nicht EU27
+colnames(MIGHINTER[[7]])[10] <- "HK_EU27"
+MIGHINTER <- do.call("rbind", MIGHINTER) # aus Liste von data.frames einen long Datensatz machen
+MIGHINTER$ZEIT[MIGHINTER$ZEIT == 200712] <- 2008
+MIGHINTER$ZEIT[MIGHINTER$ZEIT == 200812] <- 2009
+MIGHINTER$ZEIT[MIGHINTER$ZEIT == 200912] <- 2010
+MIGHINTER$ZEIT[MIGHINTER$ZEIT == 201012] <- 2011
+MIGHINTER$ZEIT[MIGHINTER$ZEIT == 201112] <- 2012
+MIGHINTER$ZEIT[MIGHINTER$ZEIT == 201212] <- 2013
+MIGHINTER$ZEIT[MIGHINTER$ZEIT == 201312] <- 2014
+#View(MIGHINTER)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
 # Binnenwanderung LOR 
 #~~~~~~~~~~~~~~~~~~~~~~~~
-install.packages("reshape2")
-library("reshape2")
+
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 BINNENWAND_files <- dir(path="Binnenwanderungen_-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/Binnenwanderungen_-LOR-/")
@@ -316,3 +339,8 @@ diag(BINNENWAND[[1]]) <- NA
 head(BINNENWAND[[1]])
 names(BINNENWAND[[1]])
 
+init matrix (12000,12000)
+1 12000
+ 1 12000
+
+matrix[i,j] <- df$umzug[df$von=i, df$zu=j]
