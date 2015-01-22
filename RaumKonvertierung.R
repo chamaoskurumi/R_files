@@ -310,6 +310,21 @@ MIGHINTER$ZEIT[MIGHINTER$ZEIT == 201112] <- 2012
 MIGHINTER$ZEIT[MIGHINTER$ZEIT == 201212] <- 2013
 MIGHINTER$ZEIT[MIGHINTER$ZEIT == 201312] <- 2014
 #View(MIGHINTER)
+##names(MIGHINTER)
+
+#~~~~~~~~~~~~~~~~~~~~~~~~
+# Monitoring SozStadtentwicklung
+#~~~~~~~~~~~~~~~~~~~~~~~~
+
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
+MONITORING_files <- dir(path="MonitoringSozStadtEnt_-LOR-/", pattern = glob2rx("*.csv"))
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/MonitoringSozStadtEnt_-LOR-/")
+MONITORING <- lapply(MONITORING_files, FUN = read.table, header = TRUE, sep=",",fill=TRUE)
+MONITORING <- do.call("rbind", MONITORING) # aus Liste von data.frames einen long Datensatz machen
+#View(MONITORING)
+#names(MONITORING)
+
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
 # Binnenwanderung LOR 
