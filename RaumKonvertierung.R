@@ -315,7 +315,7 @@ MIGHINTER$ZEIT[MIGHINTER$ZEIT == 201312] <- 2014
 #~~~~~~~~~~~~~~~~~~~~~~~~
 # Monitoring SozStadtentwicklung
 #~~~~~~~~~~~~~~~~~~~~~~~~
-
+#upper case fehlt noch!!!????
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 MONITORING_files <- dir(path="MonitoringSozStadtEnt_-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/MonitoringSozStadtEnt_-LOR-/")
@@ -324,6 +324,19 @@ MONITORING <- do.call("rbind", MONITORING) # aus Liste von data.frames einen lon
 #View(MONITORING)
 #names(MONITORING)
 
+#~~~~~~~~~~~~~~~~~~~~~~~~
+# Kontext Indikatoren
+#~~~~~~~~~~~~~~~~~~~~~~~~
+
+#upper case fehlt noch!!!
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
+KONTEXTIND_files <- dir(path="KontextIndikatoren_-LOR-/", pattern = glob2rx("*.csv"))
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/KontextIndikatoren_-LOR-/")
+KONTEXTIND <- lapply(KONTEXTIND_files, FUN = read.table, header = TRUE, sep=",",fill=TRUE)
+KONTEXTIND <- do.call("rbind", KONTEXTIND) # aus Liste von data.frames einen long Datensatz machen
+table(KONTEXTIND$Zeit) 
+#View(KONTEXTIND)
+#names(KONTEXTIND)
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
