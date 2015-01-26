@@ -338,6 +338,41 @@ table(KONTEXTIND$Zeit)
 #View(KONTEXTIND)
 #names(KONTEXTIND)
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ImmoScout Mieten, Whg Kauf Preise , Haus Kauf Preise
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/ImmoScout_-ISOT-/")
+ISmieten        <- read.table(file = "ImmoScout_Mieten.csv", header = TRUE, sep=",", fill=TRUE)
+colnames(ISmieten)  <- c("Bezirk","BGID","2007","2008","2009","2010","2011","2012","2013")
+ISmieten <-  melt(data = ISmieten, id.vars=c("Bezirk","BGID"), 
+                  variable.name = "Zeit", 
+                  value.name= "ISmiete",
+                  na.rm= FALSE)
+#View(ISmieten)
+
+ISwhgpreise     <- read.table(file = "ImmoScout_WhgKauf.csv", header = TRUE, sep=",", fill=TRUE) 
+colnames(ISwhgpreise)  <- c("Bezirk","BGID","2007","2008","2009","2010","2011","2012","2013")
+ISwhgpreise <-  melt(data = ISwhgpreise, id.vars=c("Bezirk","BGID"), 
+                  variable.name = "Zeit", 
+                  value.name= "ISwhgpreis",
+                  na.rm= FALSE)
+#View(ISwhgpreise)
+
+IShauspreise    <- read.table(file = "ImmoScout_HausKauf.csv", header = TRUE, sep=",", fill=TRUE)
+colnames(IShauspreise)  <- c("Bezirk","BGID","2007","2008","2009","2010","2011","2012","2013")
+IShauspreise <-  melt(data = IShauspreise, id.vars=c("Bezirk","BGID"), 
+                     variable.name = "Zeit", 
+                     value.name= "IShauspreis",
+                     na.rm= FALSE)
+#View(IShauspreise)
+
+# Merge all 3 datasets
+ISmieten_whgpreise <- merge(x=ISmieten, y=ISwhgpreise, all.x=T, all.y=T)
+ISdata             <- merge(x=ISmieten_whgpreise, y=IShauspreise, all.x=T, all.y=T)
+remove(ISmieten, ISwhgpreise, IShauspreise, ISmieten_whgpreise)
+#View(ISdata)
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
 # Binnenwanderung LOR 
