@@ -373,6 +373,13 @@ ISdata             <- merge(x=ISmieten_whgpreise, y=IShauspreise, all.x=T, all.y
 remove(ISmieten, ISwhgpreise, IShauspreise, ISmieten_whgpreise)
 #View(ISdata)
 
+#~~~~~~~~~~~~~~~~~~~~~~~~
+# GSW Daten
+#~~~~~~~~~~~~~~~~~~~~~~~~
+
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
+GSWdata <- read.table("GSW_-PLZ-/GSW_Daten_long.csv", header = TRUE, sep=",", fill=TRUE)
+#View(GSWdata)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
 # Binnenwanderung LOR 
@@ -407,3 +414,15 @@ init matrix (12000,12000)
  1 12000
 
 matrix[i,j] <- df$umzug[df$von=i, df$zu=j]
+
+# Verschneidungen -------------------------------------------
+
+GSWdata <- subset(GSWdata, select=-Bezirk)
+GSW2008 <- GSWdata[GSWdata$Zeit==2008,]; GSW2008
+GSW2008 <- unique(GSW2008)
+PLZ2008 <- PLZ
+PLZ2008@data <- data.frame(PLZ2008@data, GSW2008[match(PLZ2008@data[,PLZ], df[,PLZ]),])
+
+GSW2008$PLZ[duplicated(GSW2008$PLZ)]
+GSW2008[GSW2008$PLZ==10787,]
+unique(GSW2008$PLZ)
