@@ -28,6 +28,7 @@ library("maptools")
 library("sp")
 library("leafletR")
 library("rgdal")
+library("classInt")
 
 setwd("/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten")
 PLZ                 <- readOGR(dsn="PLZ_GS/RBS_OD_PLZ_01_2014/", layer="RBS_OD_PLZ_1312", encoding = "UTF-8")
@@ -46,3 +47,18 @@ SPleaflet  <- leaflet(data=PLZjson, dest=tempdir(),
                       title="Trying to plot Kaltmiete Median", base.map="tonerlite",
                       style=stl, popup="*")
 SPleaflet
+
+
+  
+LORjson <- toGeoJSON(data=LOR, dest=tempdir())
+brksIntervalls <- classIntervals(LOR@data$EWdichte2013, n=10)
+brks           <- round(brksIntervalls$brks, digits=-3)
+#brks <- seq(3, max(LOR@data$EWdichte2013, na.rm=T), by=1000); length(brks)
+clrs <- colorRampPalette(c("yellow", "red"))(length(brks))
+stl <- styleGrad(prop="EWdichte2013", breaks=brks, style.val=clrs, 
+                 out=1, leg="Einwohner Dichte pro km²", lwd=2)
+SPleaflet  <- leaflet(data=LORjson, dest=tempdir(),
+                      title="Einwohner Dichte pro km²", base.map="tls",
+                      style=stl, popup="*")
+SPleaflet
+View(LOR@data)
