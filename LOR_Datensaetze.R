@@ -112,8 +112,7 @@ DF7 <- merge(x = DF6, y = KONTEXTIND4merge, by = c("ZEIT","RAUMID"), all.x=T)
 names(DF7)
 #View(DF7)
 
-#library(sp)
-#LOR@data <- merge(LOR@data, LORinfo, by="SCHLUESSEL"); View(LOR@data)
+LORdata <- DF7
 
 #********************************************
 # Merge LOR Shape mit LOR Wide Datensatz  ***
@@ -125,53 +124,65 @@ library("reshape2")
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Long to wide LOR Datensatz ===================================
 
-names(DF7)
-dcast(DF7, ZEIT + RAUMID + RAUMID_NAME +
+DF7molten <- melt(DF7, id.vars = c("ZEIT",    "RAUMID",  "RAUMID_NAME", "BZR",
+                                   "BZR_NAME","PGR",     "PRG_NAME","BEZ",    
+                                   "BEZ_NAME","STADTRAUM","FL_HA")); head(DF7molten)
+DF7wide <- dcast(DF7molten, ZEIT + RAUMID + RAUMID_NAME +
            BZR  + BZR_NAME + PGR + PRG_NAME +
-           BEZ  + BEZ_NAME + STADTRAUM + FL_HA ~ varname + ZEIT)
+           BEZ  + BEZ_NAME + STADTRAUM + FL_HA ~ variable, value.var="value"); head(DF7wide)
+
+reshape(DF7, idvar = "name", timevar = "ZEIT", direction = "wide")
+
+DF7 <- arrange(DF7, RAUMID, ZEIT)
+
+DF7wide <- reshape(DF7,
+                  idvar = c("RAUMID",  "RAUMID_NAME", "BZR",
+                            "BZR_NAME","PGR",     "PRG_NAME","BEZ",    
+                            "BEZ_NAME","STADTRAUM","FL_HA"),
+                  v.names = c("E_E" ,                  
+                              "E_U1",                   "E_1U6"           ,       "E_6U15",                 "E_15U18"               ,
+                              "E_18U25",                "E_25U55"         ,       "E_55U65",                "E_65U80"               ,
+                              "E_80U110",               "E_A"             ,       "E_AU1"   ,               "E_A1U6"                ,
+                              "E_A6U15",                "E_A15U18"        ,       "E_A18U25" ,              "E_A25U55"              ,
+                              "E_A55U65",               "E_A65U80"        ,       "E_A80U110" ,             "MH_E"                  ,
+                              "HK_EU15",                "HK_EU27"         ,       "HK_Polen"   ,            "HK_EheJug"             ,
+                              "HK_EheSU",               "HK_Turk"         ,       "HK_Arab"     ,           "HK_Sonst"              ,
+                              "HK_NZOrd",               "EINW10"          ,       "EINW5"        ,          "DAU10"                 ,
+                              "DAU5",                   "PDAU10"          ,       "PDAU5"         ,         "WLEINFOL"              ,
+                              "WLEINFML",               "WLMITOL"         ,       "WLMITML"         ,       "WLGUTOL"               ,
+                              "WLGUTML",                "WLNZORD"         ,       "Alose"            ,      "Alose_u25"             ,
+                              "Alose_langzeit",         "nicht_Alose_Hartz",      "Hartz_u15"      ,        "MigHinter_u18"         ,
+                              "WanderVol",              "WanderSaldo"      ,      "WanderSaldo_u6",         "Veraend_HartzEmpf_D"   ,
+                              "Veraend_HartzEmpf_Ausl", "Veraend_Hartz_u15",      "StaedtWohnungen",        "EinfWhnlageLaerm"),
+                  timevar = "ZEIT",
+                  direction = "wide")
+#View(DF7wide)
+LORdata_wide <- DF7wide
+
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Merge LOR Shape file mit LOR Wide Datensatz ==================
 
-####### neuer versuch #############
-names(LOR@data)
-LORdf  <- as(LOR, "data.frame")
-LORdf1 <- merge(LORdf, LORinfoFULL , sort=F, by.x="SCHLUESSEL", by.y="SCHLUESSEL", all.x=T, all.y=T) ; View(LORdf1)
+library("rgdal")
+setwd("/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten")
+LOR1     <- readOGR(dsn="LOR/LORneu/LOR_SHP_EPSG_3068/", layer="Planungsraum_EPSG_3068")
+proj4string(LOR1) <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 
+                         +x_0=40000 +y_0=10000 +ellps=bessel +datum=potsdam +units=m +no_defs ")
+zielCRS <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 +x_0=40000 +y_0=10000 +datum=potsdam +units=m
+                +no_defs +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 ")
+LOR <- spTransform(LOR1, zielCRS)
 
-LOR@data <- LORdf1
-LOR@data$EWdichte2013 <- (LOR@data$EW2013/LOR@data$FL_HA.x)*100
-#spplot(LOR, zcol="EWdichte2013")
-#names(LOR@data)
+colnames(LOR@data)[1]  <- "RAUMID"
+LORdf         <- as(LOR, "data.frame")
+LORattr       <- merge(LORdf, LORdata_wide, sort=F, by.x="RAUMID", by.y="RAUMID", all.x=T, all.y=T) ; View(LORattr)
 
-#identical(EW2013info$SCHLUESSEL, LORinfo$SCHLUESSEL)
-LORinfo$SCHLUESSEL <- as.factor(as.numeric(as.character(LORinfo$SCHLUESSEL)))
+LOR@data <- LORattr
+names(LORattr)
 
-#LORinfoFULL <- (data.frame(cbind(LORinfo, EW2013info)))
-#LORinfoFULL <- subset(LORinfoFULL, select=-c(PLR, SCHLUESSEL.1))
+LOR@data$EWdichte.2013 <- (LOR@data$E_E.2013/LOR@data$FL_HA)*100
 
-View(data.frame(LORinfo$SCHLUESSEL, EW2013info$SCHLUESSEL))
-
-LORinfoFULL <- cbind(LORinfo, EW2013info)
-names(LORinfoFULL)
-View(LORinfoFULL)
-
-LORinfoFULL <- subset(LORinfoFULL, select=c(SCHLUESSEL,PLR_NAME,BZR,BZR_NAME, PGR, PRG_NAME, 
-                                            BEZIRK, BEZIRK_NAME, STADTRAUM, FL_HA, EW2013))
-
-View(LORinfoFULL)
-LORinfoFULL -> LORinfo
-LORinfo <- LORinfo[order(as.numeric(as.character(LORinfo$SCHLUESSEL))),]
-View(LORinfo)
-LORinfo
-LOR@data <- cbind(LOR@data, LORinfoFULL)
-View(LOR@data)
-names(LOR@data)
-colnames(LOR@data)[3] <- "SCHLUESSEL.1"
-LOR@data <- subset(LOR@data, select=-c(SCHLUESSEL.1))
-View(LOR@data)
-LOR@data$EWdichte2013 <- (LOR@data$EW2013/LOR@data$FL_HA)*100
 write.dbf(dataframe = LOR@data, file = "/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/LOR/LORinfo.dbf")
-View(LOR@data)
-spplot(LOR, zcol="EWdichte2013")
+
+spplot(LOR, zcol="EWdichte.2013")
 
 
