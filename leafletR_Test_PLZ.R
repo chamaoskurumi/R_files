@@ -49,7 +49,7 @@ SPleaflet  <- leaflet(data=PLZjson, dest=tempdir(),
 SPleaflet
 
 
-
+  
 LORjson <- toGeoJSON(data=LOR, dest=tempdir())
 brksIntervalls <- classIntervals(LOR@data$EWdichte2013, n=10)
 brks           <- round(brksIntervalls$brks, digits=-3)
@@ -58,7 +58,35 @@ clrs <- colorRampPalette(c("yellow", "red"))(length(brks))
 stl <- styleGrad(prop="EWdichte2013", breaks=brks, style.val=clrs, 
                  out=1, leg="Einwohner Dichte pro km²", lwd=2)
 SPleaflet  <- leaflet(data=LORjson, dest=tempdir(),
-                      title="Einwohner Dichte pro km²", base.map="tonerlite",
+                      title="Einwohner Dichte pro km²", base.map="tls",
+                      style=stl, popup="*")
+SPleaflet
+
+LOR4leaflet <- LOR
+LOR4leaflet@data <- subset(LOR4leaflet@data, select=c(RAUMID, RAUMID_NAME,BZR,BZR_NAME,
+                                                      PGR,PRG_NAME,BEZ,BEZ_NAME,                   
+                                                      STADTRAUM,FL_HA,
+                                                      EWdichte.2013))
+LORjson <- toGeoJSON(data=LOR4leaflet, dest=tempdir())
+brksIntervalls <- classIntervals(LOR@data$EWdichte.2013, n=10)
+brks           <- round(brksIntervalls$brks, digits=-3)
+#brks <- seq(3, max(LOR@data$EWdichte2013, na.rm=T), by=1000); length(brks)
+clrs <- colorRampPalette(c("yellow", "red"))(length(brks))
+stl <- styleGrad(prop="EWdichte.2013", breaks=brks, style.val=clrs, 
+                 out=1, leg="Einwohner 2013", lwd=2)
+SPleaflet  <- leaflet(data=LORjson, dest=tempdir(),
+                      title="Einwohner Dichte 2013", base.map="tls",
                       style=stl, popup="*")
 SPleaflet
 View(LOR@data)
+
+install.packages("plotGoogleMaps")
+install.packages("RColorBrewer")
+library(plotGoogleMaps)
+library(RColorBrewer)
+m<-plotGoogleMaps(LOR4leaflet,zcol="EWdichte.2013",filename='MyMap6.htm',
+                  mapTypeId='TERRAIN',colPalette= brewer.pal(7,"Reds"),
+                  strokeColor="white")
+m
+
+
