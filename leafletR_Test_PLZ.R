@@ -68,10 +68,10 @@ LOR4leaflet@data <- subset(LOR4leaflet@data, select=c(RAUMID, RAUMID_NAME,BZR,BZ
                                                       STADTRAUM,FL_HA,
                                                       EWdichte.2013))
 LORjson <- toGeoJSON(data=LOR4leaflet, dest=tempdir())
-brksIntervalls <- classIntervals(LOR@data$EWdichte.2013, n=10)
-brks           <- round(brksIntervalls$brks, digits=-3)
+brksIntervalls <- classIntervals(LOR@data$EWdichte.2013, n=10); brksIntervalls
+brks           <- round(brksIntervalls$brks, digits=-3); brks
 #brks <- seq(3, max(LOR@data$EWdichte2013, na.rm=T), by=1000); length(brks)
-clrs <- colorRampPalette(c("yellow", "red"))(length(brks))
+clrs <- colorRampPalette(c("yellow", "red","blue"))(length(brks))
 stl <- styleGrad(prop="EWdichte.2013", breaks=brks, style.val=clrs, 
                  out=1, leg="Einwohner 2013", lwd=2)
 SPleaflet  <- leaflet(data=LORjson, dest=tempdir(),
@@ -85,7 +85,7 @@ install.packages("RColorBrewer")
 library(plotGoogleMaps)
 library(RColorBrewer)
 m<-plotGoogleMaps(LOR4leaflet,zcol="EWdichte.2013",filename='MyMap6.htm',
-                  mapTypeId='TERRAIN',colPalette= brewer.pal(7,"Reds"),
+                  mapTypeId='TERRAIN',colPalette= colorRampPalette(c("yellow", "red","blue"))(length(brks)),
                   strokeColor="white")
 m
 
