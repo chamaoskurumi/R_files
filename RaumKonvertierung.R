@@ -318,10 +318,6 @@ PLZ2013@data <- merge(PLZ2013@data, GSW2013, all.x=T)
 cuts = seq(from=4, to=11, by=0.1)
 spplot(PLZ2013, zcol="GSWmiete_kaltMEDIAN", col.regions = heat.colors(200))
 
-  summary(PLZ2013@data$GSWmiete_kaltMEDIAN)
-labelat = c(4, 5, 6, 7, 8, 9 , 10, 11, 12)
-labeltext = c("4", "5", "6", "7", "8", "9", "10", "11", "12")
-
 PLZ2013@data$GSWmiete_kaltMEDIAN
 
 
