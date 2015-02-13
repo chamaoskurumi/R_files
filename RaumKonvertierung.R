@@ -259,6 +259,8 @@ colnames(BINNENWAND[[6]])[1] <- "VonLOR"
 colnames(BINNENWAND[[6]])[2] <- "NachLOR"
 colnames(BINNENWAND[[7]])[1] <- "VonLOR"
 colnames(BINNENWAND[[7]])[2] <- "NachLOR"
+colnames(BINNENWAND[[8]])[1] <- "VonLOR"
+colnames(BINNENWAND[[8]])[2] <- "NachLOR"
   
 head(BINNENWAND[[2]])
 str(BINNENWAND)
@@ -280,49 +282,6 @@ init matrix (12000,12000)
  1 12000
 
 matrix[i,j] <- df$umzug[df$von=i, df$zu=j]
-
-# Verschneidungen -------------------------------------------
-
-#~~~~~~~~~~~~~~~~~~~~~~~~
-# GSW Data & PLZ mergen
-#~~~~~~~~~~~~~~~~~~~~~~~~
-
-GSWdata <- subset(GSWdata, select=-Bezirk)
-GSW2008 <- GSWdata[GSWdata$Zeit==2008,]
-GSW2008 <- unique(GSW2008); length(GSW2008$PLZ)
-GSW2009 <- GSWdata[GSWdata$Zeit==2009,]
-GSW2009 <- unique(GSW2009); length(GSW2009$PLZ)
-GSW2010 <- GSWdata[GSWdata$Zeit==2010,]
-GSW2010 <- unique(GSW2010); length(GSW2010$PLZ)
-GSW2011 <- GSWdata[GSWdata$Zeit==2011,]
-GSW2011 <- unique(GSW2011); length(GSW2011$PLZ)
-GSW2012 <- GSWdata[GSWdata$Zeit==2012,]
-GSW2012 <- unique(GSW2012); length(GSW2012$PLZ)
-GSW2013 <- GSWdata[GSWdata$Zeit==2013,]
-GSW2013 <- unique(GSW2013); length(GSW2013$PLZ)
-
-PLZ2008 <- PLZ; length(PLZ2008@data$PLZ)
-PLZ2009 <- PLZ
-PLZ2010 <- PLZ
-PLZ2011 <- PLZ
-PLZ2012 <- PLZ
-PLZ2013 <- PLZ
-
-PLZ2008@data <- merge(PLZ2008@data, GSW2008, all.x=T)
-PLZ2009@data <- merge(PLZ2009@data, GSW2009, all.x=T)
-PLZ2010@data <- merge(PLZ2010@data, GSW2010, all.x=T)
-PLZ2011@data <- merge(PLZ2011@data, GSW2011, all.x=T)
-PLZ2012@data <- merge(PLZ2012@data, GSW2012, all.x=T)
-PLZ2013@data <- merge(PLZ2013@data, GSW2013, all.x=T)
-
-cuts = seq(from=4, to=11, by=0.1)
-spplot(PLZ2013, zcol="GSWmiete_kaltMEDIAN", col.regions = heat.colors(200))
-
-PLZ2013@data$GSWmiete_kaltMEDIAN
-
-
-
-names(PLZ2013@data)
 
 # Shape files --------------------------------------------------------------
 
@@ -450,6 +409,7 @@ bloecke08  <- spTransform(bloecke08, zielCRS)
 bloecke08@data$EINWOHNER[is.na(bloecke08@data$EINWOHNER)] <- 0
 bloecke08@data$EW_PRO_HA[is.na(bloecke08@data$EW_PRO_HA)] <- 0
 bloecke08 <- bloecke08[bloecke08@data$EINWOHNER>0, ] # alle Blöcke löschen, wo niemand wohnt
+bloecke08@data$order <- seq(1:length(bloecke08@data$SCHLUESSEL))
 #length(bloecke08@data$SCHLUESSEL)
 #sum(as.numeric(bloecke08@data$EW2013), na.rm=T)
 #str(bloecke08@data)
@@ -484,6 +444,7 @@ bloecke09@data$EW_GESAMT[is.na(bloecke09@data$EW_GESAMT)] <- 0
 bloecke09@data$EW_PRO_HA[is.na(bloecke09@data$EW_PRO_HA)] <- 0
 bloecke09@data <- bloecke09@data[,-(3)] # leere LOR Variable löschen
 bloecke09 <- bloecke09[bloecke09@data$EW_GESAMT>0, ] # alle Blöcke löschen, wo niemand wohnt
+bloecke09@data$order <- seq(1:length(bloecke09@data$SCHLUESSEL))
 # length(bloecke09@data$SCHLUESSEL)
 #sum(as.numeric(bloecke09@data$EW2013), na.rm=T)
 #str(bloecke09@data)
@@ -507,6 +468,12 @@ bloecke10_13  <- bloecke10_13[bloecke10_13@data$EW2013>0 |
                                 bloecke10_13@data$EW2012>0 |
                                 bloecke10_13@data$EW2011>0 |
                                 bloecke10_13@data$EW2010>0, ] # alle Blöcke löschen, wo niemand wohnt
+bloecke10_13@data$SCHLUESSEL <- as.factor(substr(bloecke10_13@data$gml_id, 24,39)) # ID Variable isolieren --> SCHLUESSEL generieren
+bloecke10_13@data <- subset(bloecke10_13@data, select=-c(gml_id,spatial_na,spatial_al,spatial_ty)) # unnötige Variabeln löschen
+bloecke10_13@data <- bloecke10_13@data[c(10,1,2,3,4,5,6,7,8,9)] # ID Variable SCHLUESSEL im Datensatz nach ganz vorne ziehen (=zur 1.Spalte machen)
+bloecke10_13@data$order <- seq(1:length(bloecke10_13@data$SCHLUESSEL))
+#names(bloecke10_13)
+#View(bloecke10_13@data)
 #length(bloecke10_13@data$EW2013)
 #sum(as.numeric(bloecke10_13@data$EW2012), na.rm=T)
 #sum(EW_10_13$EW2012) # die beiden Summen sollten gleich sein für alle Jahre - passt!

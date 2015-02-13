@@ -124,17 +124,7 @@ library("reshape2")
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Long to wide LOR Datensatz ===================================
 
-DF7molten <- melt(DF7, id.vars = c("ZEIT",    "RAUMID",  "RAUMID_NAME", "BZR",
-                                   "BZR_NAME","PGR",     "PRG_NAME","BEZ",    
-                                   "BEZ_NAME","STADTRAUM","FL_HA")); head(DF7molten)
-DF7wide <- dcast(DF7molten, ZEIT + RAUMID + RAUMID_NAME +
-           BZR  + BZR_NAME + PGR + PRG_NAME +
-           BEZ  + BEZ_NAME + STADTRAUM + FL_HA ~ variable, value.var="value"); head(DF7wide)
-
-reshape(DF7, idvar = "name", timevar = "ZEIT", direction = "wide")
-
 DF7 <- arrange(DF7, RAUMID, ZEIT)
-
 DF7wide <- reshape(DF7,
                   idvar = c("RAUMID",  "RAUMID_NAME", "BZR",
                             "BZR_NAME","PGR",     "PRG_NAME","BEZ",    
@@ -158,7 +148,6 @@ DF7wide <- reshape(DF7,
                   direction = "wide")
 #View(DF7wide)
 LORdata_wide <- DF7wide
-
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Merge LOR Shape file mit LOR Wide Datensatz ==================
