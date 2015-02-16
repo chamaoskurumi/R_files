@@ -159,19 +159,16 @@ proj4string(LOR1) <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366
                          +x_0=40000 +y_0=10000 +ellps=bessel +datum=potsdam +units=m +no_defs ")
 zielCRS <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 +x_0=40000 +y_0=10000 +datum=potsdam +units=m
                 +no_defs +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 ")
-LOR <- spTransform(LOR1, zielCRS)
+LORshape <- spTransform(LOR1, zielCRS)
 
-colnames(LOR@data)[1]  <- "RAUMID"
-LORdf         <- as(LOR, "data.frame")
+colnames(LORshape@data)[1]  <- "RAUMID"
+LORdf         <- as(LORshape, "data.frame")
 LORattr       <- merge(LORdf, LORdata_wide, sort=F, by.x="RAUMID", by.y="RAUMID", all.x=T, all.y=T) ; View(LORattr)
 
 LOR@data <- LORattr
 names(LORattr)
 
 LOR@data$EWdichte.2013 <- (LOR@data$E_E.2013/LOR@data$FL_HA)*100
-
-write.dbf(dataframe = LOR@data, file = "/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/LOR/LORinfo.dbf")
-
 spplot(LOR, zcol="EWdichte.2013")
 
-
+write.dbf(dataframe = LOR@data, file = "/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/LOR/LORinfo.dbf")
