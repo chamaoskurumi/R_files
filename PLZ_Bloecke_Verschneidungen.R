@@ -7,6 +7,9 @@
 library("rgdal")
 library("rgeos")
 library("sp")
+library("plyr")
+library("reshape2")
+library("devtools")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
 # GSW Daten einlesen -------------------
@@ -97,7 +100,7 @@ PLZ2010_2013@data <- merge(PLZ2010_2013@data, PLZ2010_2013dfwide, all.x=T)
 
 zielCRS <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 
                 +x_0=40000 +y_0=10000 +datum=potsdam +units=m
-                +no_defs +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 "))
+                +no_defs +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 ")
 
 bloecke08_pt    <- gCentroid(bloecke08    ,byid=TRUE); plot(bloecke08_pt)
 bloecke08_ptdf  <- SpatialPointsDataFrame(coords = bloecke08_pt, 
@@ -209,7 +212,7 @@ plot(bloeckePLZ10_13_ptdf[is.na(bloeckePLZ10_13_ptdf@data$PLZ),],add=T, cex=1, c
 #plot(bloecke10_13, add=T, col="red")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Blockdaten den LORs zuschreiben und auf LOR Ebene mit EW Zahl der Blöcke gewichtet aggregieren  -------------------
+# Blockdaten nach EW Zahl gewichtet auf LOR Niveau aggregieren  -------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #+++++++++++++
@@ -226,7 +229,7 @@ LOR_GSWagg_08 <- ddply(bloecke2LOR_08,
       Whgsgroesse_wmean.2008 = round(weighted.mean(GSWwhgsgroesse, EINWOHNER), digits=2),
       Miete_wmean.2008       = round(weighted.mean(GSWmiete_kalt, EINWOHNER), digits=2))
 head(LOR_GSWagg_08)
-LOR_GSWagg_08 <- subset(LOR_GSWagg_09, !is.na(LOR_GSWagg_08$RAUMID))
+LOR_GSWagg_08 <- subset(LOR_GSWagg_08, !is.na(LOR_GSWagg_08$RAUMID))
 sum(is.na(LOR_GSWagg_08$Miete_wmean.2008)) # für soviele LORs fehlen uns die Mietpreisdaten
 
 #+++++++++++++
@@ -283,7 +286,49 @@ LOR_GSWagg <- join_all(list(LOR_GSWagg_08,
                             LOR_GSWagg_10_13), 
                             by = "RAUMID")
 head(LOR_GSWagg)
-str(LOR_GSWagg)
+
+LOR_GSWagg$Miete_wmean.2010       <- NA
+LOR_GSWagg$Miete_wmean.2011       <- NA
+LOR_GSWagg$Miete_wmean.2012       <- NA
+LOR_GSWagg$Miete_wmean.2013       <- NA
+LOR_GSWagg$MieteMEDIAN_wmean.2008 <- NA
+LOR_GSWagg$MieteMEDIAN_wmean.2009 <- NA
+
+names(LOR_GSWagg)
+
+LOR_GSWaggWIDE <-LOR_GSWagg[c("RAUMID",
+             "Whgsgroesse_wmean.2008", "Miete_wmean.2008", "MieteMEDIAN_wmean.2008",
+             "Whgsgroesse_wmean.2009", "Miete_wmean.2009", "MieteMEDIAN_wmean.2009",
+             "Whgsgroesse_wmean.2010", "Miete_wmean.2010", "MieteMEDIAN_wmean.2010", 
+             "Whgsgroesse_wmean.2011", "Miete_wmean.2011", "MieteMEDIAN_wmean.2011",
+             "Whgsgroesse_wmean.2012", "Miete_wmean.2012", "MieteMEDIAN_wmean.2012",
+             "Whgsgroesse_wmean.2013", "Miete_wmean.2013", "MieteMEDIAN_wmean.2013")]
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Aggregierte Daten mit LOR Shapefile assoziieren & den LOR FULL long Datensatz erstellen ------
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# Mit LOR Shapefile assoziieren
+
+LORattr_df             <- as(LOR, "data.frame")
+LORattrFULLwide        <- merge(LORattr_df, LOR_GSWaggWIDE, sort=F, by.x="RAUMID", by.y="RAUMID", all.x=T, all.y=T)
+names(LORattrFULLwide)
+LOR@data <- LORattrFULLwide
+
+LOR_GSWagg <- reshape(LOR_GSWaggWIDE,
+                      idvar   = "RAUMID",
+                      varying = names(LOR_GSWaggWIDE)[2:19],
+                      timevar = "ZEIT",
+                      sep = ".",
+                      direction = "long")
+View(LOR_GSWagg)
+
+LORdataFULL <- merge(LORdata, LOR_GSWagg, sort=F, 
+                     by.x=c("RAUMID","ZEIT"), 
+                     by.y=c("RAUMID","ZEIT"), 
+                     all.x=T, all.y=T))
+str(LOR_dataFULL)
+
 
 plot(LORshape, add=T, lty=2)
 plot(PLZ, lwd=3)

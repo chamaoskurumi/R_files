@@ -112,7 +112,9 @@ DF7 <- merge(x = DF6, y = KONTEXTIND4merge, by = c("ZEIT","RAUMID"), all.x=T)
 names(DF7)
 #View(DF7)
 
+DF7$ZEIT <- as.factor(DF7$ZEIT)
 LORdata <- DF7
+names(LORdata) # das ist der vollständige LOR long Datensatz
 
 #********************************************
 # Merge LOR Shape mit LOR Wide Datensatz  ***
