@@ -6,7 +6,7 @@
 
 install.packages("googleVis","ggplot2", "beanplot","rgdal","sp",
                  "leafletR","plotGoogleMaps","GeoXp",
-                 "gridExtra")
+                 "gridExtra", "plyr")
 require(devtools)
 install_github('rCharts', 'ramnathv')
 library("rCharts")
@@ -19,6 +19,7 @@ library("leafletR")
 library("plotGoogleMaps")
 library("GeoXp")
 library("gridExtra")
+library("plyr")
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Variablen für Explorative Datenanalys generieren  =================
@@ -31,22 +32,72 @@ names(ExDF)
 
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Violin Plots  =================
+# Scatter Plots mit size proportional zur EW Zahl =================
 
-vio_PDAU5chg <- ggplot(ExDF, 
-                       aes(BEZ_NAME, PDAU5chg)) + 
-                geom_violin(weights=ExDF$E.E.2013)
+sctr_PDAU5chg <- ggplot(ExDF, aes(BEZ_NAME, PDAU5chg), weight=E_E.2013) + 
+                 geom_jitter(aes(colour=BEZ_NAME, size = E_E.2013), 
+                             position = position_jitter(width = .3)) +
+                 scale_size_continuous(breaks=c(1000,5000,10000,20000), range=c(1,10)) +
+                 geom_hline(yintercept=0, col="black") 
+sctr_PDAU5chg
 
-vio_PDAU5chg2 <- ggplot(ExDF, 
-                       aes(BEZ_NAME, PDAU5chg))+
-                geom_violin() + geom_jitter(height = 0)
-vio_PDAU5chg2
+sctr_PDAU10chg <- ggplot(ExDF, aes(BEZ_NAME, PDAU10chg), weight=E_E.2013) + 
+  geom_jitter(aes(colour=BEZ_NAME, size = E_E.2013), 
+              position = position_jitter(width = .3)) +
+  scale_size_continuous(breaks=c(1000,5000,10000,20000), range=c(1,10)) +
+  geom_hline(yintercept=0, col="black") 
+sctr_PDAU10chg
 
-grid.arrange(vio_PDAU5chg, vio_PDAU5chg2, nrow=2)
+sctr_PDAU5chg <- ggplot(ExDF, aes(BEZ_NAME, PDAU5chg), weight=E_E.2013) + 
+  geom_jitter(aes(colour=BEZ_NAME, size = E_E.2013), 
+              position = position_jitter(width = .3)) +
+  scale_size(breaks=c(1000,5000,10000,20000), range=c(1,10)) +
+  geom_hline(yintercept=0, col="black") 
+sctr_PDAU5chg
 
-vio_PDAU5chg <- ggplot(ExDF, 
-                       aes(BEZ_NAME, PDAU10chg))
-vio_PDAU5chg + geom_violin()
+ExLOR <- LORshape
+ExLORdf       <- as(ExLOR, "data.frame")
+Exattr        <- merge(ExLORdf, ExDF, sort=F, 
+                    by.x="RAUMID", by.y="RAUMID", all.x=T, all.y=T)
+ExLOR@data <- Exattr 
+
+ExLORjson      <- toGeoJSON(data=ExLOR, dest=tempdir())
+brksIntervalls <- classIntervals(ExLOR@data$PDAU5chg, n=10); brksIntervalls
+brks           <- round(brksIntervalls$brks, digits=1); brks
+#brks <- seq(3, max(LOR@data$EWdichte2013, na.rm=T), by=1000); length(brks)
+clrs <- colorRampPalette(c("yellow", "red"))(length(brks))
+stl <- styleGrad(prop="PDAU5chg", breaks=brks, style.val=clrs, 
+                 out=1, 
+                 leg="Veränderung des Anteils der Bev. mit Wohndauer > 5 Jahre", lwd=2)
+SPleaflet  <- leaflet(data=ExLORjson, dest=tempdir(),
+                      title="Veränderung Wohndauer > 5 Jahre", base.map="tls",
+                      style=stl, popup=c("RAUMID",
+                                         "RAUMID_NAME",
+                                         "BEZ_NAME",
+                                         "E_E.2013",
+                                         "PDAU5chg",
+                                         "PDAU5.2008",
+                                         "PDAU5.2013"))
+SPleaflet
+
+
+brksIntervalls <- classIntervals(ExLOR@data$PDAU10chg, n=10); brksIntervalls
+brks           <- round(brksIntervalls$brks, digits=1); brks
+#brks <- seq(3, max(LOR@data$EWdichte2013, na.rm=T), by=1000); length(brks)
+clrs <- colorRampPalette(c("yellow", "red"))(length(brks))
+stl <- styleGrad(prop="PDAU10chg", breaks=brks, style.val=clrs, 
+                 out=1, 
+                 leg="Veränderung des Anteils der Bev. mit Wohndauer > 10 Jahre", lwd=2)
+SPleaflet  <- leaflet(data=ExLORjson, dest=tempdir(),
+                      title="Veränderung Wohndauer > 10 Jahre", base.map="tls",
+                      style=stl, popup=c("RAUMID",
+                                         "RAUMID_NAME",
+                                         "BEZ_NAME",
+                                         "E_E.2013",
+                                         "PDAU10chg",
+                                         "PDAU10.2008",
+                                         "PDAU10.2013"))
+SPleaflet
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
