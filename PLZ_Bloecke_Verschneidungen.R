@@ -326,9 +326,8 @@ View(LOR_GSWagg)
 LORdataFULL <- merge(LORdata, LOR_GSWagg, sort=F, 
                      by.x=c("RAUMID","ZEIT"), 
                      by.y=c("RAUMID","ZEIT"), 
-                     all.x=T, all.y=T))
-str(LOR_dataFULL)
-
+                     all.x=T, all.y=T)
+View(LORdataFULL)
 
 plot(LORshape, add=T, lty=2)
 plot(PLZ, lwd=3)

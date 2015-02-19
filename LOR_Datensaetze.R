@@ -170,7 +170,7 @@ LORattr       <- merge(LORdf, LORdata_wide, sort=F, by.x="RAUMID", by.y="RAUMID"
 LOR@data <- LORattr
 names(LORattr)
 
-LOR@data$EWdichte.2013 <- (LOR@data$E_E.2013/LOR@data$FL_HA)*100
-spplot(LOR, zcol="EWdichte.2013")
+#LOR@data$EWdichte.2013 <- (LOR@data$E_E.2013/LOR@data$FL_HA)*100
+#spplot(LOR, zcol="EWdichte.2013")
 
 write.dbf(dataframe = LOR@data, file = "/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/LOR/LORinfo.dbf")
