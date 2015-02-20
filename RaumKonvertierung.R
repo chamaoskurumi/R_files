@@ -238,13 +238,27 @@ remove(ISmieten, ISwhgpreise, IShauspreise, ISmieten_whgpreise)
 #View(ISdata)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
-# GSW Daten
+# JLL JonesLangLasalle Daten
 #~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
-GSWdata <- read.table("GSW_-PLZ-/GSW_Daten_long.csv", header = TRUE, sep=",", fill=TRUE, dec=",",
+JLLdataWIDE <- read.table("GSW_-PLZ-/JonesLangLasalle_Mietpreise_2004-2014_modified.csv", 
+                          header = TRUE, sep=";", fill=TRUE, dec=",",
                       na.strings="NA", stringsAsFactors=F)
-#View(GSWdata)
+JLLdataWIDE$PLZ <- as.factor(JLLdataWIDE$PLZ)
+JLLdata         <- reshape(JLLdataWIDE,
+                      idvar   = "PLZ",
+                      varying = names(JLLdataWIDE)[2:23],
+                      timevar = "Zeit",
+                      sep = ".",
+                      direction = "long")
+#names(JLLdataWIDE)
+#View(JLLdata)
+#str(JLLdata)
+JLLdata08_13 <- subset(JLLdata, 
+                       JLLdata$Zeit>=2008 & JLLdata$Zeit<=2013)
+JLLdata08_13$Zeit <- as.factor(JLLdata08_13$Zeit)
+#str(JLLdata08_13)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
 # Binnenwanderung LOR 
@@ -262,26 +276,26 @@ colnames(BINNENWAND[[7]])[2] <- "NachLOR"
 colnames(BINNENWAND[[8]])[1] <- "VonLOR"
 colnames(BINNENWAND[[8]])[2] <- "NachLOR"
   
-head(BINNENWAND[[2]])
-str(BINNENWAND)
-names(BINNENWAND[[1]])
-BINNENWANDnew <- lapply(BINNENWAND, function(x) {cast(data = x, VonLOR ~ NachLOR)
-                                              x})
-BINNENWANDnew <- lapply(BINNENWAND, function(x) {dcast(data = x, VonLOR ~ NachLOR)
-                                              x})
+# head(BINNENWAND[[2]])
+# str(BINNENWAND)
+# names(BINNENWAND[[1]])
+# BINNENWANDnew <- lapply(BINNENWAND, function(x) {cast(data = x, VonLOR ~ NachLOR)
+#                                               x})
+# BINNENWANDnew <- lapply(BINNENWAND, function(x) {dcast(data = x, VonLOR ~ NachLOR)
+#                                               x})
 
-
-BINNENWAND[[1]] <- cast(data = BINNENWAND[[1]], formula = VonLOR ~ NachLOR)
-BINNENWAND[[1]][is.na(BINNENWAND[[1]])] <- 0
-diag(BINNENWAND[[1]]) <- NA
-head(BINNENWAND[[1]])
-names(BINNENWAND[[1]])
-
-init matrix (12000,12000)
-1 12000
- 1 12000
-
-matrix[i,j] <- df$umzug[df$von=i, df$zu=j]
+# 
+# BINNENWAND[[1]] <- cast(data = BINNENWAND[[1]], formula = VonLOR ~ NachLOR)
+# BINNENWAND[[1]][is.na(BINNENWAND[[1]])] <- 0
+# diag(BINNENWAND[[1]]) <- NA
+# head(BINNENWAND[[1]])
+# names(BINNENWAND[[1]])
+# 
+# init matrix (12000,12000)
+# 1 12000
+#  1 12000
+# 
+# matrix[i,j] <- df$umzug[df$von=i, df$zu=j]
 
 # Shape files --------------------------------------------------------------
 

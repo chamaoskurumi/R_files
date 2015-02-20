@@ -80,6 +80,21 @@ SPleaflet  <- leaflet(data=LORjson, dest=tempdir(),
 SPleaflet
 View(LOR@data)
 
+
+
+SanGebietejson <- toGeoJSON(data=SanGebiete, dest=tempdir())
+sty <- styleCat(prop="KLASSENNAM", val=c("aufgehoben",
+                                         "umfassend",
+                                         "vereinfacht"),
+                style.val=c("green", "red", "blue"), leg="Sanierungsgebiete")
+SanGebieteleaflet  <- leaflet(data=SanGebietejson, dest=tempdir(),
+                              title="Sanierungsgebiete", 
+                              base.map="positron",
+                              style=sty, 
+                              popup=c("GEBIETSNAM","KLASSENNAM"))
+SanGebieteleaflet
+
+
 install.packages("plotGoogleMaps")
 install.packages("RColorBrewer")
 library(plotGoogleMaps)

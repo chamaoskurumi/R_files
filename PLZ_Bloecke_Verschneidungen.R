@@ -12,16 +12,28 @@ library("reshape2")
 library("devtools")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
-# GSW Daten einlesen -------------------
+# JLL Daten einlesen -------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
-GSWdata <- read.table("GSW_-PLZ-/GSW_Daten_long.csv", header = TRUE, sep=",", fill=TRUE, dec=",",
-                      na.strings="NA", stringsAsFactors=F)
-GSWdata$PLZ  <- as.factor(GSWdata$PLZ); length(levels(GSWdata$PLZ))
-GSWdata$Zeit <- as.factor(GSWdata$Zeit); levels(GSWdata$Zeit)
-#View(GSWdata)
-str(GSWdata)
+JLLdataWIDE <- read.table("GSW_-PLZ-/JonesLangLasalle_Mietpreise_2004-2014_modified.csv", 
+                          header = TRUE, sep=";", fill=TRUE, dec=",",
+                          na.strings="NA", stringsAsFactors=F)
+JLLdataWIDE$PLZ <- as.factor(JLLdataWIDE$PLZ)
+JLLdata         <- reshape(JLLdataWIDE,
+                           idvar   = "PLZ",
+                           varying = names(JLLdataWIDE)[2:23],
+                           timevar = "Zeit",
+                           sep = ".",
+                           direction = "long")
+#names(JLLdataWIDE)
+#View(JLLdata)
+#str(JLLdata)
+JLLdata08_13 <- subset(JLLdata, 
+                       JLLdata$Zeit>=2008 & JLLdata$Zeit<=2013)
+JLLdata08_13$Zeit <- as.factor(JLLdata08_13$Zeit)
+#str(JLLdata08_13)
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
 # Postleitzahlen PLZ -------------------
@@ -35,28 +47,27 @@ PLZ    <- spTransform(PLZ1, zielCRS)
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
-# GSW Data & PLZ mergen -------------------
+# JLL Data & PLZ mergen -------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~
 
-GSWdata <- subset(GSWdata, select=-Bezirk)
-GSW2008 <- GSWdata[GSWdata$Zeit==2008,]
-GSW2008 <- unique(GSW2008); length(GSW2008$PLZ)
-GSW2008$PLZ <- factor(GSW2008$PLZ); length(levels(GSW2008$PLZ))
-GSW2009 <- GSWdata[GSWdata$Zeit==2009,]
-GSW2009 <- unique(GSW2009); length(GSW2009$PLZ)
-GSW2009$PLZ <- factor(GSW2009$PLZ); length(levels(GSW2009$PLZ))
-GSW2010 <- GSWdata[GSWdata$Zeit==2010,]
-GSW2010 <- unique(GSW2010); length(GSW2010$PLZ)
-GSW2010$PLZ <- factor(GSW2010$PLZ); length(levels(GSW2010$PLZ))
-GSW2011 <- GSWdata[GSWdata$Zeit==2011,]
-GSW2011 <- unique(GSW2011); length(GSW2011$PLZ)
-GSW2011$PLZ <- factor(GSW2011$PLZ); length(levels(GSW2011$PLZ))
-GSW2012 <- GSWdata[GSWdata$Zeit==2012,]
-GSW2012 <- unique(GSW2012); length(GSW2012$PLZ)
-GSW2012$PLZ <- factor(GSW2012$PLZ); length(levels(GSW2012$PLZ))
-GSW2013 <- GSWdata[GSWdata$Zeit==2013,]
-GSW2013 <- unique(GSW2013); length(GSW2013$PLZ)
-GSW2013$PLZ <- factor(GSW2013$PLZ); length(levels(GSW2013$PLZ))
+JLL2008 <- JLLdata[JLLdata$Zeit==2008,]
+JLL2008 <- unique(JLL2008); length(JLL2008$PLZ)
+JLL2008$PLZ <- factor(JLL2008$PLZ); length(levels(JLL2008$PLZ))
+JLL2009 <- JLLdata[JLLdata$Zeit==2009,]
+JLL2009 <- unique(JLL2009); length(JLL2009$PLZ)
+JLL2009$PLZ <- factor(JLL2009$PLZ); length(levels(JLL2009$PLZ))
+JLL2010 <- JLLdata[JLLdata$Zeit==2010,]
+JLL2010 <- unique(JLL2010); length(JLL2010$PLZ)
+JLL2010$PLZ <- factor(JLL2010$PLZ); length(levels(JLL2010$PLZ))
+JLL2011 <- JLLdata[JLLdata$Zeit==2011,]
+JLL2011 <- unique(JLL2011); length(JLL2011$PLZ)
+JLL2011$PLZ <- factor(JLL2011$PLZ); length(levels(JLL2011$PLZ))
+JLL2012 <- JLLdata[JLLdata$Zeit==2012,]
+JLL2012 <- unique(JLL2012); length(JLL2012$PLZ)
+JLL2012$PLZ <- factor(JLL2012$PLZ); length(levels(JLL2012$PLZ))
+JLL2013 <- JLLdata[JLLdata$Zeit==2013,]
+JLL2013 <- unique(JLL2013); length(JLL2013$PLZ)
+JLL2013$PLZ <- factor(JLL2013$PLZ); length(levels(JLL2013$PLZ))
 
 PLZ2008      <- PLZ; length(PLZ2008@data$PLZ)
 PLZ2009      <- PLZ
@@ -66,12 +77,12 @@ PLZ2012      <- PLZ
 PLZ2013      <- PLZ
 PLZ2010_2013 <- PLZ
 
-PLZ2008@data <- merge(PLZ2008@data, GSW2008, all.x=T);PLZ2008@data$Zeit <- "2008"
-PLZ2009@data <- merge(PLZ2009@data, GSW2009, all.x=T);PLZ2009@data$Zeit <- "2009"
-PLZ2010@data <- merge(PLZ2010@data, GSW2010, all.x=T);PLZ2010@data$Zeit <- "2010"
-PLZ2011@data <- merge(PLZ2011@data, GSW2011, all.x=T);PLZ2011@data$Zeit <- "2011"
-PLZ2012@data <- merge(PLZ2012@data, GSW2012, all.x=T);PLZ2012@data$Zeit <- "2012"
-PLZ2013@data <- merge(PLZ2013@data, GSW2013, all.x=T);PLZ2013@data$Zeit <- "2013"
+PLZ2008@data <- merge(PLZ2008@data, JLL2008, all.x=T);PLZ2008@data$Zeit <- "2008"
+PLZ2009@data <- merge(PLZ2009@data, JLL2009, all.x=T);PLZ2009@data$Zeit <- "2009"
+PLZ2010@data <- merge(PLZ2010@data, JLL2010, all.x=T);PLZ2010@data$Zeit <- "2010"
+PLZ2011@data <- merge(PLZ2011@data, JLL2011, all.x=T);PLZ2011@data$Zeit <- "2011"
+PLZ2012@data <- merge(PLZ2012@data, JLL2012, all.x=T);PLZ2012@data$Zeit <- "2012"
+PLZ2013@data <- merge(PLZ2013@data, JLL2013, all.x=T);PLZ2013@data$Zeit <- "2013"
 table(PLZ2010_2013df$Zeit)
 #spplot(PLZ2013, zcol="GSWmiete_kaltMEDIAN", col.regions = rev(heat.colors(200)))
 
@@ -79,20 +90,17 @@ PLZ2010_2013df <- data.frame(rbind(PLZ2010@data,
                                    PLZ2011@data,
                                    PLZ2012@data,
                                    PLZ2013@data))
-#View(PLZ2010_2013df)
+names(PLZ2010_2013df)
 
 PLZ2010_2013dfwide <- reshape(PLZ2010_2013df,                 
                             idvar = c("PLZ", "FLAECHE_HA"),
-                            v.names = c("GSWwhgsgroesse",
-                                        "GSWmiete_kalt",
-                                        "GSWmiete_kaltMEDIAN",
-                                        "GSWangebote"),
+                            v.names = c("Miete_H1",
+                                        "Miete_H2"),
                             timevar = "Zeit",
                             direction = "wide")
-#View(PLZ2010_2013wide)
+#str(PLZ2010_2013dfwide)
 
-PLZ2010_2013@data <- merge(PLZ2010_2013@data, PLZ2010_2013dfwide, all.x=T)
-
+PLZ2010_2013@data <- merge(PLZ2010_2013@data, PLZ2010_2013dfwide, all.x=T); names(PLZ2010_2013@data)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # bloecke in SpatialPoints verwandeln -------------------
@@ -224,13 +232,14 @@ bloecke2LOR_08 <- subset(bloecke2LOR_08, select=-c(FLAECHE_HA, FLAECHE_HA.1, x, 
 names(bloecke2LOR_08)
 #str(bloecke2LOR_08)
 
-LOR_GSWagg_08 <- ddply(bloecke2LOR_08, 
+LOR_JLLagg_08 <- ddply(bloecke2LOR_08, 
       "RAUMID", summarise, 
-      Whgsgroesse_wmean.2008 = round(weighted.mean(GSWwhgsgroesse, EINWOHNER), digits=2),
-      Miete_wmean.2008       = round(weighted.mean(GSWmiete_kalt, EINWOHNER), digits=2))
-head(LOR_GSWagg_08)
-LOR_GSWagg_08 <- subset(LOR_GSWagg_08, !is.na(LOR_GSWagg_08$RAUMID))
-sum(is.na(LOR_GSWagg_08$Miete_wmean.2008)) # für soviele LORs fehlen uns die Mietpreisdaten
+      Miete_H1_wmean.2008 = round(weighted.mean(Miete_H1, EINWOHNER), digits=2),
+      Miete_H2_wmean.2008 = round(weighted.mean(Miete_H2, EINWOHNER), digits=2))
+head(LOR_JLLagg_08)
+LOR_JLLagg_08 <- subset(LOR_JLLagg_08, !is.na(LOR_JLLagg_08$RAUMID))
+sum(is.na(LOR_JLLagg_08$Miete_H1_wmean.2008)) # für soviele LORs fehlen uns die Mietpreisdaten
+sum(is.na(LOR_JLLagg_08$Miete_H2_wmean.2008)) # für soviele LORs fehlen uns die Mietpreisdaten
 
 #+++++++++++++
 # 2009
@@ -241,13 +250,14 @@ bloecke2LOR_09 <- subset(bloecke2LOR_09, select=-c(FLAECH_HA, FLAECHE_HA, x, y))
 names(bloecke2LOR_09)
 #str(bloecke2LOR_09)
 
-LOR_GSWagg_09 <- ddply(bloecke2LOR_09, 
+LOR_JLLagg_09 <- ddply(bloecke2LOR_09, 
                        "RAUMID", summarise, 
-                       Whgsgroesse_wmean.2009 = round(weighted.mean(GSWwhgsgroesse, EW_GESAMT), digits=2),
-                       Miete_wmean.2009       = round(weighted.mean(GSWmiete_kalt, EW_GESAMT), digits=2))
-head(LOR_GSWagg_09)
-LOR_GSWagg_09 <- subset(LOR_GSWagg_09, !is.na(LOR_GSWagg_09$RAUMID))
-sum(is.na(LOR_GSWagg_09$Miete_wmean.2009)) # für soviele LORs fehlen uns die Mietpreisdaten
+                       Miete_H1_wmean.2009 = round(weighted.mean(Miete_H1, EW_GESAMT), digits=2),
+                       Miete_H2_wmean.2009 = round(weighted.mean(Miete_H2, EW_GESAMT), digits=2))
+head(LOR_JLLagg_09)
+LOR_JLLagg_09 <- subset(LOR_JLLagg_09, !is.na(LOR_JLLagg_09$RAUMID))
+sum(is.na(LOR_JLLagg_09$Miete_H1_wmean.2009)) # für soviele LORs fehlen uns die Mietpreisdaten
+sum(is.na(LOR_JLLagg_09$Miete_H2_wmean.2009)) # für soviele LORs fehlen uns die Mietpreisdaten
 
 #+++++++++++++
 # 2010-2013
@@ -256,53 +266,45 @@ sum(is.na(LOR_GSWagg_09$Miete_wmean.2009)) # für soviele LORs fehlen uns die Mi
 bloecke2LOR_10_13 <- data.frame(bloeckePLZ10_13_ptdf,over(bloeckePLZ10_13_ptdf, LORshape))
 bloecke2LOR_10_13 <- subset(bloecke2LOR_10_13, select=-c(FLAECHE_HA, x, y))
 names(bloecke2LOR_10_13)
-#str(bloecke2LOR_10_13)
+str(bloecke2LOR_10_13)
 
-LOR_GSWagg_10_13 <- ddply(bloecke2LOR_10_13, 
+LOR_JLLagg_10_13 <- ddply(bloecke2LOR_10_13, 
                        "RAUMID", summarise, 
                        # 2010 #
-                       Whgsgroesse_wmean.2010 = round(weighted.mean(GSWwhgsgroesse.2010, EW2010), digits=2),
-                       MieteMEDIAN_wmean.2010 = round(weighted.mean(GSWmiete_kaltMEDIAN.2010, EW2010), digits=2),
+                       Miete_H1_wmean.2010 = round(weighted.mean(Miete_H1.2010, EW2010), digits=2),
+                       Miete_H2_wmean.2010 = round(weighted.mean(Miete_H2.2010, EW2010), digits=2),
                        # 2011 #
-                       Whgsgroesse_wmean.2011 = round(weighted.mean(GSWwhgsgroesse.2011, EW2011), digits=2),
-                       MieteMEDIAN_wmean.2011 = round(weighted.mean(GSWmiete_kaltMEDIAN.2011, EW2011), digits=2),
+                       Miete_H1_wmean.2011 = round(weighted.mean(Miete_H1.2011, EW2011), digits=2),
+                       Miete_H2_wmean.2011 = round(weighted.mean(Miete_H2.2011, EW2011), digits=2),
                        # 2012 #
-                       Whgsgroesse_wmean.2012 = round(weighted.mean(GSWwhgsgroesse.2012, EW2012), digits=2),
-                       MieteMEDIAN_wmean.2012 = round(weighted.mean(GSWmiete_kaltMEDIAN.2012, EW2012), digits=2),
+                       Miete_H1_wmean.2012 = round(weighted.mean(Miete_H1.2012, EW2012), digits=2),
+                       Miete_H2_wmean.2012 = round(weighted.mean(Miete_H2.2012, EW2012), digits=2),
                        # 2013 #
-                       Whgsgroesse_wmean.2013 = round(weighted.mean(GSWwhgsgroesse.2013, EW2013), digits=2),
-                       MieteMEDIAN_wmean.2013 = round(weighted.mean(GSWmiete_kaltMEDIAN.2013, EW2013), digits=2))
-sum(is.na(LOR_GSWagg_10_13$MieteMEDIAN_wmean.2010)) # für soviele LORs fehlen uns die Mietpreisdaten 2010
-sum(is.na(LOR_GSWagg_10_13$MieteMEDIAN_wmean.2011)) # für soviele LORs fehlen uns die Mietpreisdaten 2011
-sum(is.na(LOR_GSWagg_10_13$MieteMEDIAN_wmean.2012)) # für soviele LORs fehlen uns die Mietpreisdaten 2012
-sum(is.na(LOR_GSWagg_10_13$MieteMEDIAN_wmean.2013)) # für soviele LORs fehlen uns die Mietpreisdaten 2013
-LOR_GSWagg_10_13 <- subset(LOR_GSWagg_10_13, !is.na(LOR_GSWagg_10_13$RAUMID))
-names(LOR_GSWagg_10_13)
+                       Miete_H1_wmean.2013 = round(weighted.mean(Miete_H1.2013, EW2013), digits=2),
+                       Miete_H2_wmean.2013 = round(weighted.mean(Miete_H2.2013, EW2013), digits=2))
 
-#merge(LOR_GSWagg08, by="RAUMID"))
+sum(is.na(LOR_JLLagg_10_13$Miete_H1_wmean.2010)) # für soviele LORs fehlen uns die Mietpreisdaten 2010
+sum(is.na(LOR_JLLagg_10_13$Miete_H2_wmean.2010)) # für soviele LORs fehlen uns die Mietpreisdaten 2010
+sum(is.na(LOR_JLLagg_10_13$Miete_H1_wmean.2011)) # für soviele LORs fehlen uns die Mietpreisdaten 2011
+sum(is.na(LOR_JLLagg_10_13$Miete_H2_wmean.2011)) # für soviele LORs fehlen uns die Mietpreisdaten 2011
+sum(is.na(LOR_JLLagg_10_13$Miete_H1_wmean.2012)) # für soviele LORs fehlen uns die Mietpreisdaten 2012
+sum(is.na(LOR_JLLagg_10_13$Miete_H2_wmean.2012)) # für soviele LORs fehlen uns die Mietpreisdaten 2012
+sum(is.na(LOR_JLLagg_10_13$Miete_H1_wmean.2013)) # für soviele LORs fehlen uns die Mietpreisdaten 2013
+sum(is.na(LOR_JLLagg_10_13$Miete_H2_wmean.2013)) # für soviele LORs fehlen uns die Mietpreisdaten 2013
 
-LOR_GSWagg <- join_all(list(LOR_GSWagg_08,
-                            LOR_GSWagg_09,
-                            LOR_GSWagg_10_13), 
+LOR_JLLagg_10_13 <- subset(LOR_JLLagg_10_13, !is.na(LOR_JLLagg_10_13$RAUMID))
+names(LOR_JLLagg_10_13)
+
+#merge(LOR_JLLagg08, by="RAUMID"))
+
+LOR_JLLagg <- join_all(list(LOR_JLLagg_08,
+                            LOR_JLLagg_09,
+                            LOR_JLLagg_10_13), 
                             by = "RAUMID")
-head(LOR_GSWagg)
+head(LOR_JLLagg)
+#names(LOR_JLLagg)
 
-LOR_GSWagg$Miete_wmean.2010       <- NA
-LOR_GSWagg$Miete_wmean.2011       <- NA
-LOR_GSWagg$Miete_wmean.2012       <- NA
-LOR_GSWagg$Miete_wmean.2013       <- NA
-LOR_GSWagg$MieteMEDIAN_wmean.2008 <- NA
-LOR_GSWagg$MieteMEDIAN_wmean.2009 <- NA
-
-names(LOR_GSWagg)
-
-LOR_GSWaggWIDE <-LOR_GSWagg[c("RAUMID",
-             "Whgsgroesse_wmean.2008", "Miete_wmean.2008", "MieteMEDIAN_wmean.2008",
-             "Whgsgroesse_wmean.2009", "Miete_wmean.2009", "MieteMEDIAN_wmean.2009",
-             "Whgsgroesse_wmean.2010", "Miete_wmean.2010", "MieteMEDIAN_wmean.2010", 
-             "Whgsgroesse_wmean.2011", "Miete_wmean.2011", "MieteMEDIAN_wmean.2011",
-             "Whgsgroesse_wmean.2012", "Miete_wmean.2012", "MieteMEDIAN_wmean.2012",
-             "Whgsgroesse_wmean.2013", "Miete_wmean.2013", "MieteMEDIAN_wmean.2013")]
+LOR_JLLaggWIDE <-LOR_JLLagg
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Aggregierte Daten mit LOR Shapefile assoziieren & den LOR FULL long Datensatz erstellen ------
@@ -311,23 +313,22 @@ LOR_GSWaggWIDE <-LOR_GSWagg[c("RAUMID",
 # Mit LOR Shapefile assoziieren
 
 LORattr_df             <- as(LOR, "data.frame")
-LORattrFULLwide        <- merge(LORattr_df, LOR_GSWaggWIDE, sort=F, by.x="RAUMID", by.y="RAUMID", all.x=T, all.y=T)
+LORattrFULLwide        <- merge(LORattr_df, LOR_JLLaggWIDE, sort=F, by.x="RAUMID", by.y="RAUMID", all.x=T, all.y=T)
 names(LORattrFULLwide)
 LOR@data <- LORattrFULLwide
 
-LOR_GSWagg <- reshape(LOR_GSWaggWIDE,
+LOR_JLLagg <- reshape(LOR_JLLaggWIDE,
                       idvar   = "RAUMID",
-                      varying = names(LOR_GSWaggWIDE)[2:19],
+                      varying = names(LOR_JLLaggWIDE)[2:13],
                       timevar = "ZEIT",
                       sep = ".",
                       direction = "long")
-View(LOR_GSWagg)
+View(LOR_JLLagg)
 
-LORdataFULL <- merge(LORdata, LOR_GSWagg, sort=F, 
+LORdataFULL <- merge(LORdata, LOR_JLLagg, sort=F, 
                      by.x=c("RAUMID","ZEIT"), 
                      by.y=c("RAUMID","ZEIT"), 
                      all.x=T, all.y=T)
-View(LORdataFULL)
 
 plot(LORshape, add=T, lty=2)
 plot(PLZ, lwd=3)
