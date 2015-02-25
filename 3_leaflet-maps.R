@@ -13,7 +13,27 @@ library("leafletR")
 library("rgdal")
 library("classInt")
 
-# ----  
+
+# ---- myleaflet function
+##############################################
+
+
+myleaflet <- function(SPdata.frame, layer, popupNAMES, base.mapNAME, 
+                      colorNAMES, roundDIGITS, intervallBRKno,
+                      titleNAME) {
+  SPdata.framejson <- toGeoJSON(data=SPdata.frame, dest=tempdir())
+  brksIntervalls <- classIntervals(SPdata.frame@data[[layer]], n=intervallBRKno)
+  brks           <- round(brksIntervalls$brks, digits=roundDIGITS)
+  clrs <- colorRampPalette(colorNAMES)(length(brks))
+  stl <- styleGrad(prop=layer, breaks=brks, style.val=clrs, 
+                   out=1, leg=titleNAME, lwd=2)
+  MYleaflet  <- leaflet(data=SPdata.framejson, dest=tempdir(),
+                        title=titleNAME, base.map=base.mapNAME,
+                        style=stl, popup=popupNAMES)
+  return(MYleaflet)}
+
+
+# ---- Choreopleth Map
 ##############################################
 
 LOR4leaflet <- LOR
@@ -23,7 +43,7 @@ LOR4leaflet@data <- subset(LOR4leaflet@data, select=c(RAUMID, RAUMID_NAME,BZR,BZ
                                                       Miete_H1_wmean.2013))
 LORjson <- toGeoJSON(data=LOR4leaflet, dest=tempdir())
 brksIntervalls <- classIntervals(LOR4leaflet@data$Miete_H1_wmean.2013, n=10); brksIntervalls
-brks           <- round(brksIntervalls$brks, digits=-3); brks
+brks           <- round(brksIntervalls$brks, digits=1); brks
 #brks <- seq(3, max(LOR@data$EWdichte2013, na.rm=T), by=1000); length(brks)
 clrs <- colorRampPalette(c("yellow", "red"))(length(brks))
 stl <- styleGrad(prop="Miete_H1_wmean.2013", breaks=brks, style.val=clrs, 
