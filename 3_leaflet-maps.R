@@ -13,25 +13,7 @@ library("leafletR")
 library("rgdal")
 library("classInt")
 
-
-# ---- myleaflet function
-##############################################
-
-
-myleaflet <- function(SPdata.frame, layer, popupNAMES, base.mapNAME, 
-                      colorNAMES, roundDIGITS, intervallBRKno,
-                      titleNAME) {
-  SPdata.framejson <- toGeoJSON(data=SPdata.frame, dest=tempdir())
-  brksIntervalls <- classIntervals(SPdata.frame@data[[layer]], n=intervallBRKno)
-  brks           <- round(brksIntervalls$brks, digits=roundDIGITS)
-  clrs <- colorRampPalette(colorNAMES)(length(brks))
-  stl <- styleGrad(prop=layer, breaks=brks, style.val=clrs, 
-                   out=1, leg=titleNAME, lwd=2)
-  MYleaflet  <- leaflet(data=SPdata.framejson, dest=tempdir(),
-                        title=titleNAME, base.map=base.mapNAME,
-                        style=stl, popup=popupNAMES)
-  return(MYleaflet)}
-
+source("/home/dao/Desktop/MasterArbeit/R_files/functions/myleaflet_FUNCTION.R")
 
 # ---- Choreopleth Maps
 ##############################################
@@ -48,23 +30,56 @@ brks           <- round(brksIntervalls$brks, digits=1); brks
 clrs <- colorRampPalette(c("yellow", "red"))(length(brks))
 stl <- styleGrad(prop="Miete_H1_wmean.2013", breaks=brks, style.val=clrs, 
                  out=1, leg="Median Angebotsmiete 1.Halbjahr 2013", 
-                 lwd=2.5, col="black", alpha=0.4 )
+                 lwd=1, col="blue", alpha=0.4)
 SPleaflet  <- leaflet(data=LORjson, dest=tempdir(),
                       title="Median Angebotsmiete 1.Halbjahr 2013", base.map="positron",
                       style=stl, popup="*")
 SPleaflet
-View(LOR@data)
+#View(LOR@data)
+names(LOR@data)
 
-myleaflet(SPdata.frame = PLZ2013  ,
-          layer = "Miete_H2",
-          popupNAMES = "*", 
-          base.mapNAME = "darkmatter", 
+
+myleaflet(SPdata.frame = LOR,
+          layer = "Miete_H2_wmean.2008",
+          popupNAMES = c("RAUMID", "RAUMID_NAME",
+                         "BZR_NAME",
+                         "Miete_H2_wmean.2008"), 
+          base.mapNAME = "positron", 
+          colorNAMES = c("yellow", "red"),
+          roundDIGITS = 1, 
+          intervallBRKno = 10,
+          titleNAME = "Miete pro LOR 2.Hjahr 2008")
+
+myleaflet(SPdata.frame = LOR,
+          layer = "Miete_H2_wmean.2013",
+          popupNAMES = c("RAUMID", "RAUMID_NAME",
+                         "BZR_NAME",
+                         "Miete_H2_wmean.2008"), 
+          base.mapNAME = "positron", 
           colorNAMES = c("yellow", "red"),
           roundDIGITS = 1, 
           intervallBRKno = 10,
           titleNAME = "Miete pro PLZ 2.Hjahr 2013")
-names(PLZ2013@data)
 
+
+myleaflet(SPdata.frame = PLZ2013  ,
+          layer = "Miete_H2",
+          popupNAMES = "*", 
+          base.mapNAME = "tls", 
+          colorNAMES = c("yellow", "red"),
+          roundDIGITS = 1, 
+          intervallBRKno = 10,
+          titleNAME = "Miete pro PLZ 2.Hjahr 2013")
+
+myleaflet(SPdata.frame = PLZ2008  ,
+          layer = "Miete_H2",
+          popupNAMES = "*", 
+          base.mapNAME = "tls", 
+          colorNAMES = c("yellow", "red"),
+          roundDIGITS = 1, 
+          intervallBRKno = 10,
+          titleNAME = "Miete pro PLZ 2.Hjahr 2008")
+names(PLZ2013@data)
 
 # ----  Sanierungsgebiete
 ##############################################

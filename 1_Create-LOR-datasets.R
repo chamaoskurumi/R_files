@@ -165,8 +165,15 @@ LORshape <- spTransform(LOR1, zielCRS)
 
 colnames(LORshape@data)[1]  <- "RAUMID"
 LORdf         <- as(LORshape, "data.frame")
-LORattr       <- merge(LORdf, LORdata_wide, sort=F, by.x="RAUMID", by.y="RAUMID", all.x=T, all.y=T)
+source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
+LORattr       <- merge.with.order(
+                       LORdf, LORdata_wide, sort=F,
+                       by.x="RAUMID", by.y="RAUMID",
+                       all.x=T, all.y=T,
+                       keep_order=1)
 #View(LORattr)
+
+rbind(LORshape@data$RAUMID, LORattr$RAUMID)
 
 LOR@data <- LORattr
 names(LORattr)
@@ -174,4 +181,5 @@ names(LORattr)
 #LOR@data$EWdichte.2013 <- (LOR@data$E_E.2013/LOR@data$FL_HA)*100
 #spplot(LOR, zcol="EWdichte.2013")
 
+library(foreign)
 write.dbf(dataframe = LOR@data, file = "/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/LOR/LORinfo.dbf")

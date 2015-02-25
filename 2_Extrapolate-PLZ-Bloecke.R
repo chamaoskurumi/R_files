@@ -4,13 +4,17 @@
 #                                           #
 #********************************************
 
-install.packages("plyr","devtools","rgeos","reshape2")
+#install.packages("plyr","devtools","rgeos","reshape2")
+#install.packages("gridExtra", "lattice")
 library("rgdal")
 library("rgeos")
 library("sp")
 library("plyr")
 library("reshape2")
 library("devtools")
+require("gridExtra")
+require("lattice")
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
 # JLL Daten einlesen -------------------
@@ -88,16 +92,54 @@ PLZ2010_2013 <- PLZ
 
 identical(levels(JLL2013$PLZ),levels(PLZ@data$PLZ))
 
-# sort=F Option hier extrem wichtig, sonst kommt wird der plotting order im shape file falsch
-PLZ2008@data <- merge(PLZ2013@data, JLL2013, all.x=T,  by="PLZ", sort=F);PLZ2009@data$Zeit <- "2008"
-PLZ2009@data <- merge(PLZ2009@data, JLL2009, all.x=T,  by="PLZ", sort=F);PLZ2009@data$Zeit <- "2009"
-PLZ2010@data <- merge(PLZ2010@data, JLL2010, all.x=T,  by="PLZ", sort=F);PLZ2010@data$Zeit <- "2010"
-PLZ2011@data <- merge(PLZ2011@data, JLL2011, all.x=T,  by="PLZ", sort=F);PLZ2011@data$Zeit <- "2011"
-PLZ2012@data <- merge(PLZ2012@data, JLL2012, all.x=T,  by="PLZ", sort=F);PLZ2012@data$Zeit <- "2012"
-PLZ2013@data <- merge(PLZ2013@data, JLL2013, all.x=T,  by="PLZ", sort=F);PLZ2013@data$Zeit <- "2013"
+source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
+# sort=F Option hier extrem wichtig, sonst kommt wird der plotting order im shape file falsch 
+# sorf= F würde reichen, aber wir gehen auf Nummer sicher und mergen mit keep_order
+PLZ2008@data <- merge(PLZ2008@data, JLL2008, all.x=T,  by="PLZ", 
+                      sort=F, keep_order=1);PLZ2008@data$Zeit <- "2008"
+PLZ2009@data <- merge(PLZ2009@data, JLL2009, all.x=T,  by="PLZ", 
+                      sort=F, keep_order=1);PLZ2009@data$Zeit <- "2009"
+PLZ2010@data <- merge(PLZ2010@data, JLL2010, all.x=T,  by="PLZ", 
+                      sort=F, keep_order=1);PLZ2010@data$Zeit <- "2010"
+PLZ2011@data <- merge(PLZ2011@data, JLL2011, all.x=T,  by="PLZ", 
+                      sort=F, keep_order=1);PLZ2011@data$Zeit <- "2011"
+PLZ2012@data <- merge(PLZ2012@data, JLL2012, all.x=T,  by="PLZ", 
+                      sort=F, keep_order=1);PLZ2012@data$Zeit <- "2012"
+PLZ2013@data <- merge(PLZ2013@data, JLL2013, all.x=T,  by="PLZ", 
+                      sort=F, keep_order=1);PLZ2013@data$Zeit <- "2013"
 table(PLZ2010_2013df$Zeit)
 
-spplot(PLZ2013, zcol="Miete_H2", col.regions = rev(heat.colors(200)))
+PLZMiete08_plot <-  spplot(PLZ2008, zcol="Miete_H2", 
+                          col.regions = rev(heat.colors(200)),
+                          at=seq(4,15, length.out=201),
+                          xlab="Miete 2.HJahr 2008")
+PLZMiete09_plot <-  spplot(PLZ2009, zcol="Miete_H2", 
+                           col.regions = rev(heat.colors(200)),
+                           at=seq(4,15, length.out=201),
+                           xlab="Miete 2.HJahr 2009")
+PLZMiete10_plot <-  spplot(PLZ2010, zcol="Miete_H2", 
+                           col.regions = rev(heat.colors(200)),
+                           at=seq(4,15, length.out=201),
+                           xlab="Miete 2.HJahr 2010")
+PLZMiete11_plot <-  spplot(PLZ2011, zcol="Miete_H2", 
+                           col.regions = rev(heat.colors(200)),
+                           at=seq(4,15, length.out=201),
+                           xlab="Miete 2.HJahr 2011")
+PLZMiete12_plot <-  spplot(PLZ2012, zcol="Miete_H2", 
+                           col.regions = rev(heat.colors(200)),
+                           at=seq(4,15, length.out=201),
+                           xlab="Miete 2.HJahr 2012")
+PLZMiete13_plot <- spplot(PLZ2013, zcol="Miete_H2", 
+                          col.regions = rev(heat.colors(200)),
+                          at=seq(4,15, length.out=201),
+                          xlab="Miete 2.HJahr 2013")
+#grid.arrange(PLZMiete08_plot,
+#             PLZMiete09_plot,
+#             PLZMiete10_plot,
+#             PLZMiete11_plot,
+#             PLZMiete12_plot,
+#             PLZMiete13_plot, 
+#             nrow=3, ncol=2)
 
 PLZ2010_2013df <- data.frame(rbind(PLZ2010@data,
                                    PLZ2011@data,
@@ -111,9 +153,11 @@ PLZ2010_2013dfwide <- reshape(PLZ2010_2013df,
                                         "Miete_H2"),
                             timevar = "Zeit",
                             direction = "wide")
-#head(PLZ2010_2013dfwide)
+View(PLZ2010_2013dfwide)
 
-PLZ2010_2013@data <- merge(PLZ2010_2013@data, PLZ2010_2013dfwide, all.x=T, sort=F)
+PLZ2010_2013@data <- merge.with.order(PLZ2010_2013@data, PLZ2010_2013dfwide, 
+                                      all.x=T, sort=F,
+                                      keep_order=1)
 #head(PLZ2010_2013@data)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -241,7 +285,7 @@ plot(bloeckePLZ10_13_ptdf[is.na(bloeckePLZ10_13_ptdf@data$PLZ),],add=T, cex=1, c
 # 2008
 #+++++++++++++
 
-bloecke2LOR_08 <- data.frame(bloeckePLZ08_ptdf,over(bloeckePLZ08_ptdf, LORshape))
+bloecke2LOR_08 <- data.frame(bloeckePLZ08_ptdf,over(bloeckePLZ08_ptdf, LORshape)); head(bloecke2LOR_08)
 bloecke2LOR_08 <- subset(bloecke2LOR_08, select=-c(FLAECHE_HA, FLAECHE_HA.1, x, y))
 names(bloecke2LOR_08)
 #str(bloecke2LOR_08)
@@ -308,17 +352,26 @@ sum(is.na(LOR_JLLagg_10_13$Miete_H2_wmean.2013)) # für soviele LORs fehlen uns 
 
 LOR_JLLagg_10_13 <- subset(LOR_JLLagg_10_13, !is.na(LOR_JLLagg_10_13$RAUMID))
 names(LOR_JLLagg_10_13)
+head(LOR_JLLagg_08)
+head(LOR_JLLagg_10_13)
 
-#merge(LOR_JLLagg08, by="RAUMID"))
+identical(LOR_JLLagg_08$RAUMID, LOR_JLLagg_09$RAUMID)    # passt
+identical(LOR_JLLagg_08$RAUMID, LOR_JLLagg_10_13$RAUMID) # passt. Ein einfacher "cbind" reicht um die Datensätze miteinander zu mergen
+LOR_JLLagg <- data.frame(cbind(LOR_JLLagg_08,
+                               LOR_JLLagg_09,
+                               LOR_JLLagg_10_13))
+LOR_JLLagg <- subset(LOR_JLLagg, select=-c(RAUMID.1,RAUMID.2))
 
-LOR_JLLagg <- join_all(list(LOR_JLLagg_08,
-                            LOR_JLLagg_09,
-                            LOR_JLLagg_10_13), 
-                            by = "RAUMID")
-head(LOR_JLLagg)
-#names(LOR_JLLagg)
+str(LOR_JLLagg)
+#LOR_JLLagg <- join_all(list(LOR_JLLagg_08,
+#                            LOR_JLLagg_09,
+#                            LOR_JLLagg_10_13), 
+#                       by = "RAUMID")
 
-LOR_JLLaggWIDE <-LOR_JLLagg
+str(LOR_JLLagg)
+
+LOR_JLLaggWIDE <- LOR_JLLagg
+View(LOR_JLLaggWIDE)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Aggregierte Daten mit LOR Shapefile assoziieren & den LOR FULL long Datensatz erstellen ------
@@ -327,16 +380,24 @@ LOR_JLLaggWIDE <-LOR_JLLagg
 # Mit LOR Shapefile assoziieren
 
 source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
-
-LORattr_df             <- as(LORslim, "data.frame")
-LORattrFULLwide        <- merge.with.order(LORattr_df, LOR_JLLaggWIDE, 
+colnames(LORslim@data)[1]  <- "RAUMID"
+LORslim_df             <- as(LORslim, "data.frame")
+LORattrFULLwide <- merge(LORattr, LOR_JLLaggWIDE, by="RAUMID", 
+                         all.x=T, all.y=T,
+                         sort=F)
+LORattrFULLwide4shape        <- merge.with.order(LORslim_df, LORattrFULLwide, 
                                            by.x="RAUMID", by.y="RAUMID", 
                                            all.x=T, all.y=T,
                                            sort=F, keep_order=1)
-names(LORattrFULLwide)
-LOR@data <- LORattrFULLwide
+LOR@data <- LORattrFULLwide4shape
+names(LOR)
 
-identical(LOR@data$RAUMID,LORattrFULLwide$RAUMID)
+spplot(LOR, zcol="Miete_H2_wmean.2013",
+       col.regions = rev(heat.colors(200)),
+       at=seq(4,15, length.out=201),
+       xlab="Miete 2.HJahr 2013")
+
+#### hier in den nächsten zeilen muss noch korrigiert werden
 
 LOR_JLLagg <- reshape(LOR_JLLaggWIDE,
                       idvar   = "RAUMID",

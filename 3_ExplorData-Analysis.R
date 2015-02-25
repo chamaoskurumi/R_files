@@ -6,7 +6,7 @@
 
 install.packages("googleVis","ggplot2", "beanplot","rgdal","sp",
                  "leafletR","plotGoogleMaps","GeoXp",
-                 "gridExtra", "plyr")
+                 "gridExtra", "plyr","vioplot")
 require(devtools)
 install_github('rCharts', 'ramnathv')
 library("rCharts")
@@ -20,6 +20,7 @@ library("plotGoogleMaps")
 library("GeoXp")
 library("gridExtra")
 library("plyr")
+library("vioplot")
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Variablen für Explorative Datenanalys generieren  =================
@@ -29,6 +30,35 @@ ExDF$PDAU5chg  <- ExDF$PDAU5.2008-ExDF$PDAU5.2013
 ExDF$PDAU10chg <- ExDF$PDAU10.2008-ExDF$PDAU10.2013
 
 names(ExDF)
+
+JLLdataEx <- subset(JLLdata, JLLdata$Zeit>=2008)
+JLLdataExwide <- reshape(JLLdataEx,                 
+                         idvar = c("PLZ"),
+                         v.names = c("Miete_H1",
+                                     "Miete_H2"),
+                         timevar = "Zeit",
+                         direction = "wide")
+View(JLLdataEx)
+
+JLLdataSUMMARY <- ddply(JLLdataEx, 
+                       "PLZ", summarize, 
+                       MieteH1_min   = min(Miete_H1),
+                       MieteH1_max   = max(Miete_H1),
+                       MieteH1_range = max(Miete_H1)-min(Miete_H1),
+                       MieteH1_sd    = round(sd(Miete_H1), digits = 2))
+
+par(mfrow=c(1,1))
+vioMIN   <- vioplot(na.omit(JLLdataSUMMARY$MieteH1_min)  , horizontal=F, names="min")
+vioMAX   <- vioplot(na.omit(JLLdataSUMMARY$MieteH1_max)  , horizontal=F, names="max")
+vioRANGE <- vioplot(na.omit(JLLdataSUMMARY$MieteH1_range), horizontal=F, names="range")
+vioSD    <- vioplot(na.omit(JLLdataSUMMARY$MieteH1_sd)   , horizontal=F, names="sd")
+
+vioplot(na.omit(JLLdataSUMMARY$MieteH1_min),
+        na.omit(JLLdataSUMMARY$MieteH1_max),
+        horizontal=F,
+        names=c("min","max"))
+
+
 
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
