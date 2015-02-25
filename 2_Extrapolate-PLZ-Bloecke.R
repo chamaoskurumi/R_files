@@ -324,7 +324,7 @@ LOR_JLLagg <- reshape(LOR_JLLaggWIDE,
                       timevar = "ZEIT",
                       sep = ".",
                       direction = "long")
-View(LOR_JLLagg)
+#View(LOR_JLLagg)
 
 LORdataFULL <- merge(LORdata, LOR_JLLagg, sort=F, 
                      by.x=c("RAUMID","ZEIT"), 
