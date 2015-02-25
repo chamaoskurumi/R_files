@@ -340,7 +340,6 @@ proj4string(BZR1) <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366
 #proj4string(SG)   <- zielCRS
 
 LOR <- spTransform(LOR1, zielCRS)
-LORslim <- LOR
 PGR <- spTransform(PGR1, zielCRS)
 BZR <- spTransform(BZR1, zielCRS)
 #plot(LOR)

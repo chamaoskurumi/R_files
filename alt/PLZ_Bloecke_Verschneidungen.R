@@ -78,32 +78,20 @@ PLZ2012      <- PLZ
 PLZ2013      <- PLZ
 PLZ2010_2013 <- PLZ
 
-#PLZ2008@data$order      <- seq(1:190)
-#PLZ2009@data$order      <- seq(1:190)
-#PLZ2010@data$order      <- seq(1:190)
-#PLZ2011@data$order      <- seq(1:190)
-#PLZ2012@data$order      <- seq(1:190)
-#PLZ2013@data$order      <- seq(1:190)
-#PLZ2010_2013@data$order <- seq(1:190)
-
-identical(levels(JLL2013$PLZ),levels(PLZ@data$PLZ))
-
-# sort=F Option hier extrem wichtig, sonst kommt wird der plotting order im shape file falsch
-PLZ2008@data <- merge(PLZ2013@data, JLL2013, all.x=T,  by="PLZ", sort=F);PLZ2009@data$Zeit <- "2008"
-PLZ2009@data <- merge(PLZ2009@data, JLL2009, all.x=T,  by="PLZ", sort=F);PLZ2009@data$Zeit <- "2009"
-PLZ2010@data <- merge(PLZ2010@data, JLL2010, all.x=T,  by="PLZ", sort=F);PLZ2010@data$Zeit <- "2010"
-PLZ2011@data <- merge(PLZ2011@data, JLL2011, all.x=T,  by="PLZ", sort=F);PLZ2011@data$Zeit <- "2011"
-PLZ2012@data <- merge(PLZ2012@data, JLL2012, all.x=T,  by="PLZ", sort=F);PLZ2012@data$Zeit <- "2012"
-PLZ2013@data <- merge(PLZ2013@data, JLL2013, all.x=T,  by="PLZ", sort=F);PLZ2013@data$Zeit <- "2013"
+PLZ2008@data <- merge(PLZ2008@data, JLL2008, all.x=T);PLZ2008@data$Zeit <- "2008"
+PLZ2009@data <- merge(PLZ2009@data, JLL2009, all.x=T);PLZ2009@data$Zeit <- "2009"
+PLZ2010@data <- merge(PLZ2010@data, JLL2010, all.x=T);PLZ2010@data$Zeit <- "2010"
+PLZ2011@data <- merge(PLZ2011@data, JLL2011, all.x=T);PLZ2011@data$Zeit <- "2011"
+PLZ2012@data <- merge(PLZ2012@data, JLL2012, all.x=T);PLZ2012@data$Zeit <- "2012"
+PLZ2013@data <- merge(PLZ2013@data, JLL2013, all.x=T);PLZ2013@data$Zeit <- "2013"
 table(PLZ2010_2013df$Zeit)
-
-spplot(PLZ2013, zcol="Miete_H2", col.regions = rev(heat.colors(200)))
+#spplot(PLZ2013, zcol="GSWmiete_kaltMEDIAN", col.regions = rev(heat.colors(200)))
 
 PLZ2010_2013df <- data.frame(rbind(PLZ2010@data,
                                    PLZ2011@data,
                                    PLZ2012@data,
                                    PLZ2013@data))
-head(PLZ2010_2013df)
+names(PLZ2010_2013df)
 
 PLZ2010_2013dfwide <- reshape(PLZ2010_2013df,                 
                             idvar = c("PLZ", "FLAECHE_HA"),
@@ -111,10 +99,9 @@ PLZ2010_2013dfwide <- reshape(PLZ2010_2013df,
                                         "Miete_H2"),
                             timevar = "Zeit",
                             direction = "wide")
-#head(PLZ2010_2013dfwide)
+#str(PLZ2010_2013dfwide)
 
-PLZ2010_2013@data <- merge(PLZ2010_2013@data, PLZ2010_2013dfwide, all.x=T, sort=F)
-#head(PLZ2010_2013@data)
+PLZ2010_2013@data <- merge(PLZ2010_2013@data, PLZ2010_2013dfwide, all.x=T); names(PLZ2010_2013@data)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # bloecke in SpatialPoints verwandeln -------------------
@@ -326,17 +313,10 @@ LOR_JLLaggWIDE <-LOR_JLLagg
 
 # Mit LOR Shapefile assoziieren
 
-source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
-
-LORattr_df             <- as(LORslim, "data.frame")
-LORattrFULLwide        <- merge.with.order(LORattr_df, LOR_JLLaggWIDE, 
-                                           by.x="RAUMID", by.y="RAUMID", 
-                                           all.x=T, all.y=T,
-                                           sort=F, keep_order=1)
+LORattr_df             <- as(LOR, "data.frame")
+LORattrFULLwide        <- merge(LORattr_df, LOR_JLLaggWIDE, sort=F, by.x="RAUMID", by.y="RAUMID", all.x=T, all.y=T)
 names(LORattrFULLwide)
 LOR@data <- LORattrFULLwide
-
-identical(LOR@data$RAUMID,LORattrFULLwide$RAUMID)
 
 LOR_JLLagg <- reshape(LOR_JLLaggWIDE,
                       idvar   = "RAUMID",
@@ -344,7 +324,7 @@ LOR_JLLagg <- reshape(LOR_JLLaggWIDE,
                       timevar = "ZEIT",
                       sep = ".",
                       direction = "long")
-#View(LOR_JLLagg)
+View(LOR_JLLagg)
 
 LORdataFULL <- merge(LORdata, LOR_JLLagg, sort=F, 
                      by.x=c("RAUMID","ZEIT"), 

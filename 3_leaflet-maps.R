@@ -33,7 +33,7 @@ myleaflet <- function(SPdata.frame, layer, popupNAMES, base.mapNAME,
   return(MYleaflet)}
 
 
-# ---- Choreopleth Map
+# ---- Choreopleth Maps
 ##############################################
 
 LOR4leaflet <- LOR
@@ -47,12 +47,24 @@ brks           <- round(brksIntervalls$brks, digits=1); brks
 #brks <- seq(3, max(LOR@data$EWdichte2013, na.rm=T), by=1000); length(brks)
 clrs <- colorRampPalette(c("yellow", "red"))(length(brks))
 stl <- styleGrad(prop="Miete_H1_wmean.2013", breaks=brks, style.val=clrs, 
-                 out=1, leg="Median Angebotsmiete 1.Halbjahr 2013", lwd=1)
+                 out=1, leg="Median Angebotsmiete 1.Halbjahr 2013", 
+                 lwd=2.5, col="black", alpha=0.4 )
 SPleaflet  <- leaflet(data=LORjson, dest=tempdir(),
-                      title="Median Angebotsmiete 1.Halbjahr 2013", base.map="tls",
+                      title="Median Angebotsmiete 1.Halbjahr 2013", base.map="positron",
                       style=stl, popup="*")
 SPleaflet
 View(LOR@data)
+
+myleaflet(SPdata.frame = PLZ2013  ,
+          layer = "Miete_H2",
+          popupNAMES = "*", 
+          base.mapNAME = "darkmatter", 
+          colorNAMES = c("yellow", "red"),
+          roundDIGITS = 1, 
+          intervallBRKno = 10,
+          titleNAME = "Miete pro PLZ 2.Hjahr 2013")
+names(PLZ2013@data)
+
 
 # ----  Sanierungsgebiete
 ##############################################
