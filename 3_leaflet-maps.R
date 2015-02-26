@@ -32,7 +32,7 @@ stl <- styleGrad(prop="Miete_H1_wmean.2013", breaks=brks, style.val=clrs,
                  out=1, leg="Median Angebotsmiete 1.Halbjahr 2013", 
                  lwd=1, col="blue", alpha=0.4)
 SPleaflet  <- leaflet(data=LORjson, dest=tempdir(),
-                      title="Median Angebotsmiete 1.Halbjahr 2013", base.map="positron",
+                      title="Median Angebotsmiete 1.Halbjahr 2013", base.map="darkmatter",
                       style=stl, popup="*")
 SPleaflet
 #View(LOR@data)
