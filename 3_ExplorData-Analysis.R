@@ -7,9 +7,11 @@
 #install.packages("googleVis","ggplot2", "beanplot","rgdal","sp",
 #                 "leafletR","plotGoogleMaps","GeoXp",
 #                 "gridExtra", "plyr","vioplot")
+#install.packages(c("devtools","RJSONIO", "knitr", "shiny", "httpuv"))
 require(devtools)
 install_github('rCharts', 'ramnathv')
 library("rCharts")
+install_github("mages/googleVis")
 library("googleVis")
 library("ggplot2")
 library("beanplot")
@@ -21,6 +23,7 @@ library("GeoXp")
 library("gridExtra")
 library("plyr")
 library("vioplot")
+
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Variablen für Explorative Datenanalys generieren  =================
@@ -41,8 +44,8 @@ ExDF$MIETE_chg      <- (ExDF$MIETE_H1chg+ExDF$MIETE_H2chg)/2
 ExDF$MIETE_chgr     <- round((ExDF$MIETE_H1chgr+ExDF$MIETE_H2chgr)/2,digits=0)
 # Änderung Arbeitslosigkeit
 ExDF$Alosechg      <- ExDF$Alose.2013 - ExDF$Alose.2008
-ExDF$Alosechg      <- ExDF$Alose_u25.2013 - ExDF$Alose_u25.2008
-ExDF$Alose_Hartzchg <-ExDF$Alose_Hartz.2013 - ExDF$Alose_Hartz.2008
+ExDF$Alose_u25chg  <- ExDF$Alose_u25.2013 - ExDF$Alose_u25.2008
+ExDF$Alose_Hartzchg<-ExDF$Alose_Hartz.2013 - ExDF$Alose_Hartz.2008
 ExDF$Hartz_u15chg  <- ExDF$Hartz_u15.2013 - ExDF$Hartz_u15.2008
 # Ausländeranteil
 ExDF$E_Ar.2013        <- round((ExDF$E_A.2013       /ExDF$E_E.2013)*100,digits=1)
@@ -60,7 +63,6 @@ ExDF$HK_EU15chgr    <- round((((ExDF$HK_EU15.2013     /ExDF$E_E.2013)*100) -  ((
 ExDF$HK_EU27chgr    <- round((((ExDF$HK_EU27.2013     /ExDF$E_E.2013)*100) -  ((ExDF$HK_EU27.2008   /ExDF$E_E.2008)*100)),digits=1)
 ExDF$HK_EheJugchgr  <- round((((ExDF$HK_EheJug.2013   /ExDF$E_E.2013)*100) -  ((ExDF$HK_EheJug.2008 /ExDF$E_E.2008)*100)),digits=1)
 ExDF$HK_EheSUchgr   <- round((((ExDF$HK_EheSU.2013    /ExDF$E_E.2013)*100) -  ((ExDF$HK_EheSU.2008  /ExDF$E_E.2008)*100)),digits=1)
-
 names(ExDF)
 
 JLLdataEx <- subset(JLLdata, JLLdata$Zeit>=2008)
@@ -93,6 +95,13 @@ vioplot(na.omit(JLLdataSUMMARY$MieteH1_min),
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Scatter Plots mit size proportional zur EW Zahl =================
+
+MieteE_Abubble <- gvisBubbleChart(ExDF, idvar="RAUMID_NAME", 
+                          xvar="MIETE_chgr", yvar="HK_Turkchgr",
+                          colorvar="BEZ_NAME", sizevar="E_E.2013",
+                          options=list(width=1200, height=700))
+plot(MieteE_Abubble)
+
 
 sctr_PDAU5chg <- ggplot(ExDF, aes(BEZ_NAME, PDAU5chg), weight=E_E.2013) + 
                  geom_jitter(aes(colour=BEZ_NAME, size = E_E.2013), 
@@ -140,7 +149,6 @@ SPleaflet  <- leaflet(data=ExLORjson, dest=tempdir(),
                                          "PDAU5.2013"))
 SPleaflet
 
-
 brksIntervalls <- classIntervals(ExLOR@data$PDAU10chg, n=10); brksIntervalls
 brks           <- round(brksIntervalls$brks, digits=1); brks
 #brks <- seq(3, max(LOR@data$EWdichte2013, na.rm=T), by=1000); length(brks)
@@ -159,15 +167,27 @@ SPleaflet  <- leaflet(data=ExLORjson, dest=tempdir(),
                                          "PDAU10.2013"))
 SPleaflet
 
-LORdata4ggvis <- LORdata
+# LOR Motion Chart
+names(LORdataFULL)
+LORdata4ggvis <- LORdataFULL
 LORdata4ggvis$ZEIT <- as.numeric(as.character(LORdata4ggvis$ZEIT))
-
 LORgvisMotion <- gvisMotionChart(LORdata4ggvis, 
                                  idvar   = "RAUMID_NAME",
                                  timevar = "ZEIT",
                                  sizevar = "E_E",
-                                 colorvar= "BEZ_NAME")
+                                 colorvar= "BEZ_NAME",
+                                 options=list(width=1200, height=700))
 plot(LORgvisMotion)
+
+# PLZ Miete Motion Chart --> 12049 Schillerpromenade mal anschauen!
+str(JLLdata)
+JLLdata4ggvis <- JLLdata
+JLLgvisMotion <- gvisMotionChart(JLLdata4ggvis, 
+                                 idvar   = "PLZ",
+                                 timevar = "Zeit",
+                                 options=list(width=1200, height=700))
+plot(JLLgvisMotion)
+
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
