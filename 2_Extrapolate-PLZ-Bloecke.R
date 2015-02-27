@@ -392,27 +392,28 @@ LORattrFULLwide4shape        <- merge.with.order(LORslim_df, LORattrFULLwide,
 LOR@data <- LORattrFULLwide4shape
 names(LOR)
 
+# Test ob Zuordnung zu LORs korrekt war
 spplot(LOR, zcol="Miete_H2_wmean.2013",
        col.regions = rev(heat.colors(200)),
        at=seq(4,15, length.out=201),
        xlab="Miete 2.HJahr 2013")
 
-#### hier in den nächsten zeilen muss noch korrigiert werden
-
-LOR_JLLagg <- reshape(LOR_JLLaggWIDE,
+### Long Mietpreisdatensatz auf LOR Niveau
+LOR_JLL    <- reshape(LOR_JLLaggWIDE,
                       idvar   = "RAUMID",
                       varying = names(LOR_JLLaggWIDE)[2:13],
                       timevar = "ZEIT",
                       sep = ".",
                       direction = "long")
-#View(LOR_JLLagg)
+#View(LOR_JLL)
 
-LORdataFULL <- merge(LORdata, LOR_JLLagg, sort=F, 
+### Long VOLLSTÄNDIGER LOR Datensatz
+LORdataFULL     <- merge(LORdata, LOR_JLL, sort=F, 
                      by.x=c("RAUMID","ZEIT"), 
                      by.y=c("RAUMID","ZEIT"), 
                      all.x=T, all.y=T)
+#View(LORdataFULL)
 
 plot(LORshape, add=T, lty=2)
 plot(PLZ, lwd=3)
-
-
+dim(LORdata)
