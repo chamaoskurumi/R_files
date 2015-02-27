@@ -9,9 +9,9 @@ Sys.setenv(LANG = "en_US.UTF-8")
 
 # Packages ----------------------------------------------------------------
 
-install.packages(c("spdep",      "sp",      "maptools", "lattice", 
-                   "rgdal",      "rgeos",   "foreign",  "PBSmapping",
-                   "reshape",    "plyr",    "reshape2"))
+#install.packages(c("spdep",      "sp",      "maptools", "lattice", 
+#                   "rgdal",      "rgeos",   "foreign",  "PBSmapping",
+#                   "reshape",    "plyr",    "reshape2"))
 library("spdep")
 library("sp")
 library("maptools")

@@ -4,9 +4,9 @@
 #                                           #
 #********************************************
 
-install.packages("googleVis","ggplot2", "beanplot","rgdal","sp",
-                 "leafletR","plotGoogleMaps","GeoXp",
-                 "gridExtra", "plyr","vioplot")
+#install.packages("googleVis","ggplot2", "beanplot","rgdal","sp",
+#                 "leafletR","plotGoogleMaps","GeoXp",
+#                 "gridExtra", "plyr","vioplot")
 require(devtools)
 install_github('rCharts', 'ramnathv')
 library("rCharts")
@@ -158,6 +158,16 @@ SPleaflet  <- leaflet(data=ExLORjson, dest=tempdir(),
                                          "PDAU10.2008",
                                          "PDAU10.2013"))
 SPleaflet
+
+LORdata4ggvis <- LORdata
+LORdata4ggvis$ZEIT <- as.numeric(as.character(LORdata4ggvis$ZEIT))
+
+LORgvisMotion <- gvisMotionChart(LORdata4ggvis, 
+                                 idvar   = "RAUMID_NAME",
+                                 timevar = "ZEIT",
+                                 sizevar = "E_E",
+                                 colorvar= "BEZ_NAME")
+plot(LORgvisMotion)
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
