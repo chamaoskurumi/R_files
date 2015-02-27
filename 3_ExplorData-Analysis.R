@@ -29,7 +29,7 @@ ExDF                <- LORattrFULLwide
 ExDF$PDAU5chg       <- ExDF$PDAU5.2008-ExDF$PDAU5.2013
 ExDF$PDAU10chg      <- ExDF$PDAU10.2008-ExDF$PDAU10.2013
 ExDF$MIETE_H2chg    <- ExDF$Miete_H2_wmean.2013 - ExDF$Miete_H2_wmean.2008
-ExDF$MIETE_H2chgrel <- ExDF$Miete_H2_wmean.2013 - ExDF$Miete_H2_wmean.2008
+ExDF$MIETE_H2chgr   <- (ExDF$Miete_H2_wmean.2013 - ExDF$Miete_H2_wmean.2008)/ExDF$Miete_H2_wmean.2008
 names(ExDF)
 
 JLLdataEx <- subset(JLLdata, JLLdata$Zeit>=2008)
