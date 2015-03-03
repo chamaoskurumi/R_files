@@ -360,7 +360,9 @@ SanGebiete@data$KLASSENNAM <- revalue(SanGebiete@data$KLASSENNAM, c("Verfahren_a
                                                                     "Verfahren_Umfassend"   = "umfassend",
                                                                     "Verfahren_Vereinfacht" = "vereinfacht"))
 #SanGebiete@data$KLASSENNAM
-
+SanGebieteNAMEN <- read.csv("Sanierungsgebiete_GS/Sanierungsgebiete_EPSG_25833/SanGebiet_NAMEN.csv", 
+                            head=F)[,1]
+SanGebiete@data$SanGebiet_NAME <- SanGebieteNAMEN
 #plot(PLZ)
 #plot(SanGebiete, col="red", add=T)
 
