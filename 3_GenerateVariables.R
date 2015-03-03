@@ -14,7 +14,7 @@ names(LORdataFULL)
 
 # Miete
 LORdataFULL$Miete        <- round(( LORdataFULL$Miete_H1_wmean+LORdataFULL$Miete_H2_wmean)/2, digits=2)
-LORdataFULL$Mietechg     <- 
+LORdataFULL$Mietechg     <- #keine Ahnung wie man das in long brechnet
 
 # Altersgruppen
 LORdataFULL$E_U1R         <- round(( LORdataFULL$E_U1       / LORdataFULL$E_E )*100,digits=1)
