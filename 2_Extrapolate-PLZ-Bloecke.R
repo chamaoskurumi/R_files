@@ -1,11 +1,16 @@
 #********************************************
+#********************************************
+#********************************************
 #                                           #
-#   PLZ-Blöcke Räumliche Verschneidungen    #
+#       Räumliche Verschneidungen           #
+#         Spatial Intersections             #
 #                                           #
+#********************************************
+#********************************************
 #********************************************
 
 #install.packages("plyr","devtools","rgeos","reshape2")
-#install.packages("gridExtra", "lattice")
+#install.packages("gridExtra", "lattice", "latticeExtra)
 library("rgdal")
 library("rgeos")
 library("sp")
@@ -14,7 +19,13 @@ library("reshape2")
 library("devtools")
 require("gridExtra")
 require("lattice")
+library("latticeExtra") # For layer spplot
 
+#********************************************
+#                                           #
+#---------- 1.) PLZ Blöcke   ----------
+#                                           #
+#********************************************
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
 # JLL Daten einlesen -------------------
@@ -413,29 +424,45 @@ LORdataFULL     <- merge(LORdata, LOR_JLL, sort=F,
                      by.y=c("RAUMID","ZEIT"), 
                      all.x=T, all.y=T)
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Zusätzliche Variablen erstellen im LOR FULL long Datensatz ------
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-names(LORdataFULL)
-#View(LORdataFULL)
+#********************************************
+#                                           #
+#---------- 2.) Sanierungsgebiete-LORs ------
+#                                           #
+#********************************************
 
-LORdataFULL$Miete         <- (LORdataFULL$Miete_H1_wmean+LORdataFULL$Miete_H2_wmean)/2
+plot(LOR)
+plot(SanGebiete, add=T, col="red")
 
-LORdataFULL$E_AR         <- round(( LORdataFULL$E_A        / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$HK_TurkR     <- round(( LORdataFULL$HK_Turk    / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$HK_ArabR     <- round(( LORdataFULL$HK_Arab    / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$HK_EU15R     <- round(( LORdataFULL$HK_EU15    / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$HK_EU27R     <- round(( LORdataFULL$HK_EU27    / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$HK_EheJugR   <- round(( LORdataFULL$HK_EheJug  / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$HK_EheSUR    <- round(( LORdataFULL$HK_EheSU   / LORdataFULL$E_E )*100,digits=1)
+zielCRS <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 
+                +x_0=40000 +y_0=10000 +datum=potsdam +units=m
+                +no_defs +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 ")
 
-# schleife zur ---R generierung der variablen
-"E_U1",     "E_1U6",    "E_6U15",  
-"E_15U18",  "E_18U25",  "E_25U55",  "E_55U65",  "E_65U80", 
-"E_80U110", "E_A",      "E_AU1",    "E_A1U6",   "E_A6U15", 
-"E_A15U18", "E_A18U25", "E_A25U55", "E_A55U65", "E_A65U80",
-"E_A80U110","MH_E",     "HK_EU15",  "HK_EU27",  "HK_Polen",
-"HK_EheJug","HK_EheSU", "HK_Turk",  "HK_Arab",  "HK_Sonst"  
+SanGebiete_pt    <- gCentroid(SanGebiete,byid=TRUE); plot(SanGebiete_pt)
+SanGebiete_ptdf  <- SpatialPointsDataFrame(coords = SanGebiete_pt, 
+                                          data = SanGebiete@data, 
+                                          proj4string = zielCRS)
 
-dim(LORdata)
+LORSanGebieteDF <- data.frame(LOR@data, over(LOR, SanGebiete_ptdf))
+levels(LORSanGebieteDF$SanGebiet_KLASSE) <- c(levels(LORSanGebieteDF$SanGebiet_KLASSE), 
+                                              "nein")
+LORSanGebieteDF$SanGebiet_KLASSE[is.na(LORSanGebieteDF$SanGebiet_KLASSE)] <- "nein"
+head(LORSanGebieteDF)
+
+LOR@data <- LORSanGebieteDF
+
+spplot(LOR, zcol="SanGebiet_KLASSE", 
+       col.regions=c("green","red","yellow","grey"))
+spplot(SanGebiete, zcol="SanGebiet_KLASSE", 
+       col.regions=c("green","red","yellow"))
+
+spplot(LOR, zcol="SanGebiet_KLASSE",
+       col.regions=c("green","red","yellow","grey")) + layer(sp.polygons(SanGebiete, fill="black"))
+
+SanGebietsData <- subset(LOR@data, select=c(SanGebiet, 
+                                            SanGebiet_NAME, 
+                                            SanGebiet_KLASSE)) 
+
+# LOR LONG FULL Datensatz ergänzen
+LORdataFULL <- cbind(LORdataFULL, SanGebietsData[rep(seq_len(nrow(SanGebietsData)),6), ])
+tail(LORdataFULL)
