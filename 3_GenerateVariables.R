@@ -6,35 +6,56 @@
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Zusätzliche Variablen erstellen im LOR FULL long Datensatz ------
+# LOR long Datensatz ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 names(LORdataFULL)
 #View(LORdataFULL)
 
-LORdataFULL$Miete         <- (LORdataFULL$Miete_H1_wmean+LORdataFULL$Miete_H2_wmean)/2
+# Miete
+LORdataFULL$Miete        <- round(( LORdataFULL$Miete_H1_wmean+LORdataFULL$Miete_H2_wmean)/2, digits=2)
+LORdataFULL$Mietechg     <- 
 
+# Altersgruppen
+LORdataFULL$E_U1R         <- round(( LORdataFULL$E_U1       / LORdataFULL$E_E )*100,digits=1)
+LORdataFULL$E_1U6R        <- round(( LORdataFULL$E_1U6      / LORdataFULL$E_E )*100,digits=1)
+LORdataFULL$E_6U15R       <- round(( LORdataFULL$E_6U15     / LORdataFULL$E_E )*100,digits=1)
+LORdataFULL$E_15U18R      <- round(( LORdataFULL$E_15U18    / LORdataFULL$E_E )*100,digits=1)
+LORdataFULL$E_18U25R      <- round(( LORdataFULL$E_18U25    / LORdataFULL$E_E )*100,digits=1)
+LORdataFULL$E_25U55R      <- round(( LORdataFULL$E_25U55    / LORdataFULL$E_E )*100,digits=1)
+LORdataFULL$E_55U65R      <- round(( LORdataFULL$E_55U65    / LORdataFULL$E_E )*100,digits=1)
+LORdataFULL$E_65U80R      <- round(( LORdataFULL$E_65U80    / LORdataFULL$E_E )*100,digits=1)
+LORdataFULL$E_80U110R     <- round(( LORdataFULL$E_80U110   / LORdataFULL$E_E )*100,digits=1)
+
+# Altersgruppen Ausländer
+LORdataFULL$E_AU1R         <- round(( LORdataFULL$E_AU1       / LORdataFULL$E_E )*100,digits=1)
+LORdataFULL$E_A1U6R        <- round(( LORdataFULL$E_A1U6      / LORdataFULL$E_E )*100,digits=1)
+LORdataFULL$E_A6U15R       <- round(( LORdataFULL$E_A6U15     / LORdataFULL$E_E )*100,digits=1)
+LORdataFULL$E_A15U18R      <- round(( LORdataFULL$E_A15U18    / LORdataFULL$E_E )*100,digits=1)
+LORdataFULL$E_A18U25R      <- round(( LORdataFULL$E_A18U25    / LORdataFULL$E_E )*100,digits=1)
+LORdataFULL$E_A25U55R      <- round(( LORdataFULL$E_A25U55    / LORdataFULL$E_E )*100,digits=1)
+LORdataFULL$E_A55U65R      <- round(( LORdataFULL$E_A55U65    / LORdataFULL$E_E )*100,digits=1)
+LORdataFULL$E_A65U80R      <- round(( LORdataFULL$E_A65U80    / LORdataFULL$E_E )*100,digits=1)
+LORdataFULL$E_A80U110R     <- round(( LORdataFULL$E_A80U110   / LORdataFULL$E_E )*100,digits=1)
+
+# Ausländeranteil & Migrationshintergrund
 LORdataFULL$E_AR         <- round(( LORdataFULL$E_A        / LORdataFULL$E_E )*100,digits=1)
 LORdataFULL$HK_TurkR     <- round(( LORdataFULL$HK_Turk    / LORdataFULL$E_E )*100,digits=1)
 LORdataFULL$HK_ArabR     <- round(( LORdataFULL$HK_Arab    / LORdataFULL$E_E )*100,digits=1)
 LORdataFULL$HK_EU15R     <- round(( LORdataFULL$HK_EU15    / LORdataFULL$E_E )*100,digits=1)
 LORdataFULL$HK_EU27R     <- round(( LORdataFULL$HK_EU27    / LORdataFULL$E_E )*100,digits=1)
+LORdataFULL$HK_PolenR    <- round(( LORdataFULL$HK_Polen   / LORdataFULL$E_E )*100,digits=1)
 LORdataFULL$HK_EheJugR   <- round(( LORdataFULL$HK_EheJug  / LORdataFULL$E_E )*100,digits=1)
 LORdataFULL$HK_EheSUR    <- round(( LORdataFULL$HK_EheSU   / LORdataFULL$E_E )*100,digits=1)
+LORdataFULL$HK_SonstR    <- round(( LORdataFULL$HK_Sonst   / LORdataFULL$E_E )*100,digits=1)
+LORdataFULL$MH_ER        <- round(( LORdataFULL$MH_E       / LORdataFULL$E_E )*100,digits=1)
 
-# schleife zur ---R generierung der variablen
-"E_U1",     "E_1U6",    "E_6U15",  
-"E_15U18",  "E_18U25",  "E_25U55",  "E_55U65",  "E_65U80", 
-"E_80U110", "E_A",      "E_AU1",    "E_A1U6",   "E_A6U15", 
-"E_A15U18", "E_A18U25", "E_A25U55", "E_A55U65", "E_A65U80",
-"E_A80U110","MH_E",     "HK_EU15",  "HK_EU27",  "HK_Polen",
-"HK_EheJug","HK_EheSU", "HK_Turk",  "HK_Arab",  "HK_Sonst"  
 
 dim(LORdata)
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Zusätzliche Variablen erstellen im LOR FULL wide Datensatz ------
+# LOR wide Datensatz ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ExDF                <- LORattrFULLwide4shape
