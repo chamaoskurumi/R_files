@@ -51,7 +51,7 @@ EW$ZEIT[EW$ZEIT == 201012] <- 2011
 EW$ZEIT[EW$ZEIT == 201112] <- 2012
 EW$ZEIT[EW$ZEIT == 201212] <- 2013
 EW$ZEIT[EW$ZEIT == 201312] <- 2014
-#str(EW)
+str(EW)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
 # Wohndauer

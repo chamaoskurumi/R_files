@@ -31,7 +31,8 @@ LORdataFULLv2$E_U18         <- (LORdataFULLv2$E_U1    +
                                 LORdataFULLv2$E_6U15  +
                                 LORdataFULLv2$E_15U18)
 
-LORdataFULLv2$E_18U65       <- (LORdataFULLv2$E_18U55 + 
+LORdataFULLv2$E_18U65       <- (LORdataFULLv2$E_18U25 +
+                                LORdataFULLv2$E_25U55 +
                                 LORdataFULLv2$E_55U65)
 
 LORdataFULLv2$E_65U110      <- (LORdataFULLv2$E_65U80 +
