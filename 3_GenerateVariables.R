@@ -120,8 +120,9 @@ LORdataFULLv2$WGUTR       <- round(( LORdataFULLv2$WLGUT       / LORdataFULLv2$E
 LORdataFULLv2 <- subset(LORdataFULLv2, select=-c(Miete_H1_wmean,
                                                 Miete_H2_wmean,
                                                 HK_NZOrd,
-                                                WLNZORD))
-
+                                                WLNZORD,
+                                                EinfWhnlageLaerm,
+                                                MigHinter_u18))
 names(LORdataFULLv2)
 
 

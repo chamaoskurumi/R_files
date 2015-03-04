@@ -26,6 +26,7 @@ DF1 <- subset(DF1, select=-c(E_EM,      E_EW,      E_E00_01,  E_E01_02,  E_E02_0
                              E_A80_85,  E_A85_90,  E_A90_95,  E_A95_110))
 str(DF1)
 names(DF1)
+table(DF1$ZEIT)
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # MIGRATIONSHINTERGRUND E =======================
@@ -40,6 +41,7 @@ DF1b <- subset(DF1b, select=-c(MH_E,
                                MH_E80_85, MH_E85_90, MH_E90_95, MH_E95_110))
 str(DF1b)
 names(DF1b)
+table(DF1b$ZEIT)
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # MIGRATIONSHINTERGRUND H =======================
@@ -71,8 +73,8 @@ names(DF4)
 MONITORING4merge <- subset(MONITORING, select=-c(EW), ZEIT>=2008)
 DF5 <- merge(x = DF4, y = MONITORING4merge, by = c("RAUMID", "ZEIT"))
 # Variablenanordnung ändern
-DF5 <- DF5[c(2,1,51,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37
-             ,38,39,40,41,42,43,44,45,46,47,48,49,50,52,53,54,55,56,57,58,59,60,61,62,63)]
+DF5 <- DF5[c(2,1,60,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,
+             38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,61,62,63,64,65,66,67,68,69,70,71,72)]
 Gebietsnamen <- DF5[!duplicated(DF5$RAUMID, fromLast=F),"GEBIET"]
 Gebietsnamen <- factor(rep(Gebietsnamen, each=6)); str(Gebietsnamen)
 DF5$GEBIET   <- Gebietsnamen
@@ -101,20 +103,31 @@ DF6  <- DF6a[c("ZEIT",
              "PGR",        "PRG_NAME",
              "BEZ",        "BEZ_NAME",       
              "STADTRAUM",  "FL_HA",
-             "E_E",        "E_U1",       "E_1U6",      "E_6U15",    
+             "E_E",        
+             "E_U1",       "E_1U6",      "E_6U15",    
              "E_15U18",    "E_18U25",    "E_25U55",    "E_55U65",   
-             "E_65U80",    "E_80U110",   "E_A",        "E_AU1",     
-             "E_A1U6",     "E_A6U15",    "E_A15U18",   "E_A18U25",  
-             "E_A25U55",   "E_A55U65",   "E_A65U80",   "E_A80U110", 
-             "MH_E",       "HK_EU15",    "HK_EU27",    "HK_Polen",  
+             "E_65U80",    "E_80U110",   
+             "E_A",        
+             "E_AU1",      "E_A1U6",     "E_A6U15",    
+             "E_A15U18",   "E_A18U25",   "E_A25U55",   "E_A55U65",   
+             "E_A65U80",   "E_A80U110", 
+             "MH_E",       
+             "MH_U1",      "MH_1U6",     "MH_6U15",    
+             "MH_15U18",   "MH_18U25",   "MH_25U55",  "MH_55U65",
+             "MH_65U80",   "MH_80U110",             
+             "HK_EU15",    "HK_EU27",    "HK_Polen",  
              "HK_EheJug",  "HK_EheSU",   "HK_Turk",    "HK_Arab",   
-             "HK_Sonst",   "HK_NZOrd",   "EINW10",     "EINW5",     
-             "DAU10",      "DAU5",       "PDAU10",     "PDAU5",     
-             "WLEINFOL",   "WLEINFML",   "WLMITOL",    "WLMITML",   
-             "WLGUTOL",    "WLGUTML",    "WLNZORD",    "Alose",     
-             "Alose_u25",  "Alose_langzeit",           "nicht_Alose_Hartz",      "Hartz_u15", 
-             "MigHinter_u18",            "WanderVol",  "WanderSaldo",            "WanderSaldo_u6",        
-             "Veraend_HartzEmpf_D",    "Veraend_HartzEmpf_Ausl",                 "Veraend_Hartz_u15")]
+             "HK_Sonst",   "HK_NZOrd",   
+             "EINW10",     "EINW5",     
+             "DAU10",      "DAU5",       
+             "PDAU10",     "PDAU5",     
+             "WLEINFOL",   "WLEINFML",   
+             "WLMITOL",    "WLMITML",   
+             "WLGUTOL",    "WLGUTML",    
+             "WLNZORD",    
+             "Alose",      "Alose_u25",  "Alose_langzeit", "nicht_Alose_Hartz", "Hartz_u15", 
+             "MigHinter_u18",           "WanderVol",       "WanderSaldo",       "WanderSaldo_u6",        
+             "Veraend_HartzEmpf_D",    "Veraend_HartzEmpf_Ausl",                "Veraend_Hartz_u15")]
 
 # STADTRAUM in Factor umwandln und labeln
 DF6$STADTRAUM         <- as.factor(DF6$STADTRAUM)
@@ -155,9 +168,15 @@ DF7wide <- reshape(DF7,
                   v.names = c("E_E" ,                  
                               "E_U1",                   "E_1U6"           ,       "E_6U15",                 "E_15U18"               ,
                               "E_18U25",                "E_25U55"         ,       "E_55U65",                "E_65U80"               ,
-                              "E_80U110",               "E_A"             ,       "E_AU1"   ,               "E_A1U6"                ,
-                              "E_A6U15",                "E_A15U18"        ,       "E_A18U25" ,              "E_A25U55"              ,
-                              "E_A55U65",               "E_A65U80"        ,       "E_A80U110" ,             "MH_E"                  ,
+                              "E_80U110",               
+                              "E_A",       
+                              "E_AU1"   ,               "E_A1U6"          ,       "E_A6U15",                "E_A15U18"              ,
+                              "E_A18U25" ,              "E_A25U55"        ,       "E_A55U65",               "E_A65U80"              ,
+                              "E_A80U110" ,             
+                              "MH_E",
+                              "MH_U1",                  "MH_1U6"          ,       "MH_6U15"   ,             "MH_15U18"              ,
+                              "MH_18U25",               "MH_25U55"        ,       "MH_55U65"  ,             "MH_65U80"              ,
+                              "MH_80U110",
                               "HK_EU15",                "HK_EU27"         ,       "HK_Polen"   ,            "HK_EheJug"             ,
                               "HK_EheSU",               "HK_Turk"         ,       "HK_Arab"     ,           "HK_Sonst"              ,
                               "HK_NZOrd",               "EINW10"          ,       "EINW5"        ,          "DAU10"                 ,
