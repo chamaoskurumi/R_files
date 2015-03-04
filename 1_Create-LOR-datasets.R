@@ -158,8 +158,6 @@ library("reshape2")
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Long to wide LOR Datensatz ===================================
 
-##---> HIER MUSS NOCH MIGHINTERE aufgenommen werden!
-
 DF7 <- arrange(DF7, RAUMID, ZEIT)
 DF7wide <- reshape(DF7,
                   idvar = c("RAUMID",  "RAUMID_NAME", "BZR",

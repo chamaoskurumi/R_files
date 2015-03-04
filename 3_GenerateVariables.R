@@ -4,7 +4,9 @@
 #                                           #
 #********************************************
 
-library(plyr)
+library("plyr")
+library("reshape")
+library("reshape2")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # LOR long Datensatz ------
@@ -58,10 +60,13 @@ LORdataFULLv2$E_AU18         <- (LORdataFULLv2$E_AU1    +
                                   LORdataFULLv2$E_A1U6   +
                                   LORdataFULLv2$E_A6U15  +
                                   LORdataFULLv2$E_A15U18)
-LORdataFULLv2$E_A18U65       <- (LORdataFULLv2$E_A18U55 +
-                                  LORdataFULLv2$E_A55U65)
+
+LORdataFULLv2$E_A18U65       <- (LORdataFULLv2$E_A18U25 +
+                                 LORdataFULLv2$E_A25U55 +
+                                 LORdataFULLv2$E_A55U65)
+
 LORdataFULLv2$E_A65U110      <- (LORdataFULLv2$E_A65U80 +
-                                  LORdataFULLv2$E_A80U110)
+                                 LORdataFULLv2$E_A80U110)
 
 LORdataFULLv2$E_AU1R         <- round(( LORdataFULLv2$E_AU1       / LORdataFULLv2$E_E )*100,digits=1)
 LORdataFULLv2$E_A1U6R        <- round(( LORdataFULLv2$E_A1U6      / LORdataFULLv2$E_E )*100,digits=1)
@@ -84,13 +89,16 @@ LORdataFULLv2$E_A65U110R65U110 <- round(( LORdataFULLv2$E_A65U110   / LORdataFUL
 ###### d.) Altergruppen Migrationshintergrund ######
 
 LORdataFULLv2$MH_U18         <- (LORdataFULLv2$MH_U1    +
-                                  LORdataFULLv2$MH_1U6   +
-                                  LORdataFULLv2$MH_6U15  +
-                                  LORdataFULLv2$MH_15U18)
-LORdataFULLv2$MH_18U65       <- (LORdataFULLv2$MH_18U55 +
-                                  LORdataFULLv2$MH_55U65)
+                                 LORdataFULLv2$MH_1U6   +
+                                 LORdataFULLv2$MH_6U15  +
+                                 LORdataFULLv2$MH_15U18)
+
+LORdataFULLv2$MH_18U65       <- (LORdataFULLv2$MH_18U25 +
+                                 LORdataFULLv2$MH_25U55 +
+                                 LORdataFULLv2$MH_55U65)
+
 LORdataFULLv2$MH_65U110      <- (LORdataFULLv2$MH_65U80 +
-                                  LORdataFULLv2$MH_80U110)
+                                 LORdataFULLv2$MH_80U110)
 
 LORdataFULLv2$MH_U1R         <- round(( LORdataFULLv2$MH_U1       / LORdataFULLv2$E_E )*100,digits=1)
 LORdataFULLv2$MH_1U6R        <- round(( LORdataFULLv2$MH_1U6      / LORdataFULLv2$E_E )*100,digits=1)
@@ -145,7 +153,7 @@ LORdataFULLv2$WLML    <- (LORdataFULLv2$WLEINFML +
 
 LORdataFULLv2$WLEINF    <- (LORdataFULLv2$WLEINFOL + LORdataFULLv2$WLEINFML) 
 LORdataFULLv2$WLMIT     <- (LORdataFULLv2$WLMITOL  + LORdataFULLv2$WLMITML)        
-LORdataFULLv2$WLGUT     <- (LORdataFULLv2$WLGUTOL  + LORdataFULLv2$WLGUTFML)     
+LORdataFULLv2$WLGUT     <- (LORdataFULLv2$WLGUTOL  + LORdataFULLv2$WLGUTML)     
 
 LORdataFULLv2$WLEINFOLR     <- round(( LORdataFULLv2$WLEINFOL  / LORdataFULLv2$E_E )*100,digits=1)          
 LORdataFULLv2$WLEINFMLR     <- round(( LORdataFULLv2$WLEINFML  / LORdataFULLv2$E_E )*100,digits=1)   
@@ -155,61 +163,261 @@ LORdataFULLv2$WLGUTOLR      <- round(( LORdataFULLv2$WLGUTOL   / LORdataFULLv2$E
 LORdataFULLv2$WLGUTMLR      <- round(( LORdataFULLv2$WLGUTML   / LORdataFULLv2$E_E )*100,digits=1)
 #LORdataFULLv2$WLNZORDR      <- round(( LORdataFULLv2$WLNZORD   / LORdataFULLv2$E_E )*100,digits=1)      
 
-LORdataFULLv2$WLNZORDR      <- round(( LORdataFULLv2$WLNZORD   / LORdataFULLv2$E_E )*100,digits=1)    
-LORdataFULLv2$WLNZORDR      <- round(( LORdataFULLv2$WLNZORD   / LORdataFULLv2$E_E )*100,digits=1)    
+LORdataFULLv2$WLOLR      <- round(( LORdataFULLv2$WLOL   / LORdataFULLv2$E_E )*100,digits=1)    
+LORdataFULLv2$WLMLR      <- round(( LORdataFULLv2$WLML   / LORdataFULLv2$E_E )*100,digits=1)    
 
-LORdataFULLv2$WLEINFR     <- round(( LORdataFULLv2$WLEINF      / LORdataFULLv2$E_E )*100,digits=1)    
-LORdataFULLv2$WMITR       <- round(( LORdataFULLv2$WLMIT       / LORdataFULLv2$E_E )*100,digits=1)    
-LORdataFULLv2$WGUTR       <- round(( LORdataFULLv2$WLGUT       / LORdataFULLv2$E_E )*100,digits=1)    
+LORdataFULLv2$WLEINFR      <- round(( LORdataFULLv2$WLEINF      / LORdataFULLv2$E_E )*100,digits=1)    
+LORdataFULLv2$WLMITR       <- round(( LORdataFULLv2$WLMIT       / LORdataFULLv2$E_E )*100,digits=1)    
+LORdataFULLv2$WLGUTR       <- round(( LORdataFULLv2$WLGUT       / LORdataFULLv2$E_E )*100,digits=1)  
 
-###### g.) Unnötige Vars droppen & Var order ändern ######
+###### g.) Wohndauer ######
 
-LORdataFULLv2 <- subset(LORdataFULLv2, select=-c(Miete_H1_wmean,
+LORdataFULLv2              <- ddply(LORdataFULLv2,"RAUMID", transform,
+                                    PDAU10chg = c(NA,diff(PDAU10)))
+LORdataFULLv2              <- ddply(LORdataFULLv2,"RAUMID", transform,
+                                    PDAU5chg  = c(NA,diff(PDAU5)))
+
+
+###### h.) Unnötige Vars droppen & Var order ändern ######
+
+names(LORdataFULLv2)
+LORdataFULLv3 <- subset(LORdataFULLv2, select=-c(Miete_H1_wmean,
                                                 Miete_H2_wmean,
                                                 HK_NZOrd,
                                                 WLNZORD,
                                                 EinfWhnlageLaerm,
-                                                MigHinter_u18))
-names(LORdataFULLv2)
+                                                MigHinter_u18,
+                                                E_U1, E_1U6, E_6U15, E_15U18, E_18U25, E_25U55, E_55U65, E_65U80, E_80U110,
+                                                E_U1R, E_1U6R, E_6U15R, E_15U18R, E_18U25R, E_25U55R, E_55U65R, E_65U80R, E_80U110R,  
+                                                E_AU1, E_A1U6, E_A6U15, E_A15U18, E_A18U25, E_A25U55, E_A55U65, E_A65U80, E_A80U110,
+                                                E_AU1R, E_A1U6R, E_A6U15R, E_A15U18R, E_A18U25R, E_A25U55R, E_A55U65R, E_A65U80R, E_A80U110R, 
+                                                MH_U1, MH_1U6, MH_6U15, MH_15U18, MH_18U25, MH_25U55, MH_55U65, MH_65U80, MH_80U110,
+                                                MH_U1R, MH_1U6R, MH_6U15R, MH_15U18R, MH_18U25R, MH_25U55R, MH_55U65R, MH_65U80R, MH_80U110R))
+names(LORdataFULLv3)
 
+LORdataFULLv4 <- LORdataFULLv3[c("ZEIT", 
+               # ID Variablen
+               "RAUMID",     "RAUMID_NAME",
+               "BZR",        "BZR_NAME", 
+               "PGR",        "PRG_NAME",
+               "BEZ",        "BEZ_NAME",       
+               "STADTRAUM",  "FL_HA",
+               # Gesamteinwohner
+               "E_E",        
+               "E_U18",      "E_18U65",     "E_65U110",
+               "E_U18R",     "E_18U65R",    "E_65U110R",
+               # Ausländer
+               "E_A",         "E_AR",       
+               "E_AU18",      "E_A18U65",      "E_A65U110",
+               "E_AU18R",     "E_A18U65R",     "E_A65U110R",
+               "E_AU18RU18",  "E_A18U65R18U65","E_A65U110R65U110", 
+               # Migrationshintergrund
+               "MH_E",        "MH_ER",  
+               "MH_U18",      "MH_18U65",      "MH_65U110",
+               "MH_U18R",     "MH_18U65R",     "MH_65U110R",
+               "MH_U18RU18",  "MH_18U65R18U65","MH_65U110R65U110",
+               "HK_EU15",     "HK_EU27",    "HK_Polen",  
+               "HK_EheJug",   "HK_EheSU",   "HK_Turk",      "HK_Arab",   
+               "HK_Sonst",  
+               "HK_EU15R",    "HK_EU27R",    "HK_PolenR",  
+               "HK_EheJugR",  "HK_EheSUR",   "HK_TurkR",    "HK_ArabR",   
+               "HK_SonstR",                 
+               "HK_EU15RMH",  "HK_EU27R",    "HK_PolenRMH",  
+               "HK_EheJugRMH","HK_EheSUR",   "HK_TurkRMH",  "HK_ArabR",
+               "HK_SonstRMH", 
+               # Wohndauer
+               "EINW10",     "EINW5",     
+               "DAU10",      "DAU5",       
+               "PDAU10",     "PDAU5", 
+               "PDAU10chg",  "PDAU5chg",
+               # Wohnlage
+               "WLEINFOL",   "WLEINFML",   
+               "WLMITOL",    "WLMITML",   
+               "WLGUTOL",    "WLGUTML",    
+               "WLEINFOLR",  "WLEINFMLR",
+               "WLMITOLR",   "WLMITMLR",
+               "WLGUTOLR",   "WLGUTMLR",
+               "WLOL",       "WLML",                  
+               "WLOLR",      "WLMLR",  
+               "WLEINF",     "WLMIT",      "WLGUT",
+               "WLEINFR",    "WLMITR",     "WLGUTR",
+               # Sozialindikatoren
+               "Alose",      "Alose_u25",  "Alose_langzeit", "nicht_Alose_Hartz", "Hartz_u15", 
+               "Veraend_HartzEmpf_D",    "Veraend_HartzEmpf_Ausl",  "Veraend_Hartz_u15", "StaedtWohnungen",
+               # Wanderdaten
+               "WanderVol",       "WanderSaldo",       "WanderSaldo_u6",    
+               # SanierungsGebiete
+               "SanGebiet",       "SanGebiet_NAME",    "SanGebiet_KLASSE",       
+               # Mietdaten
+               "Miete", "Mietechg", "Mietechgr")]
+
+remove(LORdataFULLv2)
+remove(LORdataFULLv3)
+
+LORdataFULL <- LORdataFULLv4
+remove(LORdataFULLv4)
+names(LORdataFULL)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # LOR wide Datensatz ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-ExDF                <- LORattrFULLwide4shape
-names(ExDF)
-# Änderung der Wohndauer
-ExDF$PDAU5chg       <- ExDF$PDAU5.2008-ExDF$PDAU5.2013
-ExDF$PDAU10chg      <- ExDF$PDAU10.2008-ExDF$PDAU10.2013
-# Mietniveau 2013 mitteln 
-ExDF$Miete.2013     <- (ExDF$Miete_H1_wmean.2013 + ExDF$Miete_H2_wmean.2013)/2
-# Mietpreisänderung
-ExDF$MIETE_H1chg    <- ExDF$Miete_H1_wmean.2013 - ExDF$Miete_H1_wmean.2008
-ExDF$MIETE_H1chgr   <- ((ExDF$Miete_H1_wmean.2013 - ExDF$Miete_H1_wmean.2008)/ExDF$Miete_H1_wmean.2008)*100
-ExDF$MIETE_H2chg    <- ExDF$Miete_H2_wmean.2013 - ExDF$Miete_H2_wmean.2008
-ExDF$MIETE_H2chgr   <- ((ExDF$Miete_H2_wmean.2013 - ExDF$Miete_H2_wmean.2008)/ExDF$Miete_H2_wmean.2008)*100
-ExDF$MIETE_chg      <- (ExDF$MIETE_H1chg+ExDF$MIETE_H2chg)/2
-ExDF$MIETE_chgr     <- round((ExDF$MIETE_H1chgr+ExDF$MIETE_H2chgr)/2,digits=0)
-# Änderung Arbeitslosigkeit
-ExDF$Alosechg      <- ExDF$Alose.2013 - ExDF$Alose.2008
-ExDF$Alose_u25chg  <- ExDF$Alose_u25.2013 - ExDF$Alose_u25.2008
-ExDF$Alose_Hartzchg<-ExDF$Alose_Hartz.2013 - ExDF$Alose_Hartz.2008
-ExDF$Hartz_u15chg  <- ExDF$Hartz_u15.2013 - ExDF$Hartz_u15.2008
-# Ausländeranteil
-ExDF$E_Ar.2013        <- round((ExDF$E_A.2013       /ExDF$E_E.2013)*100,digits=1)
-ExDF$HK_Turkr.2013    <- round((ExDF$HK_Turk.2013   /ExDF$E_E.2013)*100,digits=1)
-ExDF$HK_Arabr.2013    <- round((ExDF$HK_Arab.2013   /ExDF$E_E.2013)*100,digits=1)
-ExDF$HK_EU15r.2013    <- round((ExDF$HK_EU15.2013   /ExDF$E_E.2013)*100,digits=1)
-ExDF$HK_EU27r.2013    <- round((ExDF$HK_EU27.2013   /ExDF$E_E.2013)*100,digits=1)
-ExDF$HK_EheJugr.2013  <- round((ExDF$HK_EheJug.2013 /ExDF$E_E.2013)*100,digits=1)
-ExDF$HK_EheSUr.2013   <- round((ExDF$HK_EheSU.2013  /ExDF$E_E.2013)*100,digits=1)
-# Änderung Ausländeranteil
-ExDF$E_Achgr        <- round((((ExDF$E_A.2013         /ExDF$E_E.2013)*100) -  ((ExDF$E_A.2008       /ExDF$E_E.2008)*100)),digits=1)
-ExDF$HK_Turkchgr    <- round((((ExDF$HK_Turk.2013     /ExDF$E_E.2013)*100) -  ((ExDF$HK_Turk.2008   /ExDF$E_E.2008)*100)),digits=1)
-ExDF$HK_Arabchgr    <- round((((ExDF$HK_Arab.2013     /ExDF$E_E.2013)*100) -  ((ExDF$HK_Arab.2008   /ExDF$E_E.2008)*100)),digits=1)
-ExDF$HK_EU15chgr    <- round((((ExDF$HK_EU15.2013     /ExDF$E_E.2013)*100) -  ((ExDF$HK_EU15.2008   /ExDF$E_E.2008)*100)),digits=1)
-ExDF$HK_EU27chgr    <- round((((ExDF$HK_EU27.2013     /ExDF$E_E.2013)*100) -  ((ExDF$HK_EU27.2008   /ExDF$E_E.2008)*100)),digits=1)
-ExDF$HK_EheJugchgr  <- round((((ExDF$HK_EheJug.2013   /ExDF$E_E.2013)*100) -  ((ExDF$HK_EheJug.2008 /ExDF$E_E.2008)*100)),digits=1)
-ExDF$HK_EheSUchgr   <- round((((ExDF$HK_EheSU.2013    /ExDF$E_E.2013)*100) -  ((ExDF$HK_EheSU.2008  /ExDF$E_E.2008)*100)),digits=1)
-names(ExDF)
+###### a.) Reshape long to wide ######
+
+LORdataFULL4wide     <- arrange(LORdataFULL, RAUMID, ZEIT)
+LORdataFULLwidev1    <- reshape(LORdataFULL4wide,
+                            idvar = c("RAUMID",  "RAUMID_NAME", "BZR",
+                             "BZR_NAME","PGR",     "PRG_NAME","BEZ",    
+                             "BEZ_NAME","STADTRAUM","FL_HA"),
+                            v.names = c(
+                              # Gesamteinwohner
+                              "E_E",        
+                              "E_U18",      "E_18U65",     "E_65U110",
+                              "E_U18R",     "E_18U65R",    "E_65U110R",
+                              # Ausländer
+                              "E_A",         "E_AR",       
+                              "E_AU18",      "E_A18U65",      "E_A65U110",
+                              "E_AU18R",     "E_A18U65R",     "E_A65U110R",
+                              "E_AU18RU18",  "E_A18U65R18U65","E_A65U110R65U110", 
+                              # Migrationshintergrund
+                              "MH_E",        "MH_ER",  
+                              "MH_U18",      "MH_18U65",      "MH_65U110",
+                              "MH_U18R",     "MH_18U65R",     "MH_65U110R",
+                              "MH_U18RU18",  "MH_18U65R18U65","MH_65U110R65U110",
+                              "HK_EU15",     "HK_EU27",    "HK_Polen",  
+                              "HK_EheJug",   "HK_EheSU",   "HK_Turk",      "HK_Arab",   
+                              "HK_Sonst",  
+                              "HK_EU15R",    "HK_EU27R",    "HK_PolenR",  
+                              "HK_EheJugR",  "HK_EheSUR",   "HK_TurkR",    "HK_ArabR",   
+                              "HK_SonstR",                 
+                              "HK_EU15RMH",  "HK_EU27R",    "HK_PolenRMH",  
+                              "HK_EheJugRMH","HK_EheSUR",   "HK_TurkRMH",  "HK_ArabR",
+                              "HK_SonstRMH", 
+                              # Wohndauer
+                              "EINW10",     "EINW5",     
+                              "DAU10",      "DAU5",       
+                              "PDAU10",     "PDAU5", 
+                              "PDAU10chg",  "PDAU5chg",
+                              # Wohnlage
+                              "WLEINFOL",   "WLEINFML",   
+                              "WLMITOL",    "WLMITML",   
+                              "WLGUTOL",    "WLGUTML",    
+                              "WLEINFOLR",  "WLEINFMLR",
+                              "WLMITOLR",   "WLMITMLR",
+                              "WLGUTOLR",   "WLGUTMLR",
+                              "WLOL",       "WLML",                  
+                              "WLOLR",      "WLMLR",  
+                              "WLEINF",     "WLMIT",      "WLGUT",
+                              "WLEINFR",    "WLMITR",     "WLGUTR",
+                              # Sozialindikatoren
+                              "Alose",      "Alose_u25",  "Alose_langzeit", "nicht_Alose_Hartz", "Hartz_u15", 
+                              "Veraend_HartzEmpf_D",    "Veraend_HartzEmpf_Ausl",  "Veraend_Hartz_u15", "StaedtWohnungen",
+                              # Wanderdaten
+                              "WanderVol",       "WanderSaldo",       "WanderSaldo_u6",    
+                              # SanierungsGebiete
+                              "SanGebiet",       "SanGebiet_NAME",    "SanGebiet_KLASSE",       
+                              # Mietdaten
+                              "Miete", "Mietechg", "Mietechgr"),
+                   timevar = "ZEIT",
+                   direction = "wide") 
+# ich verstehe die Warnmeldung hier nicht und ignoiere sie bzw. lösche die duplicated variables:
+# View(data.frame(LORdataWIDE$HK_EU27R.1,LORdataWIDE$HK_EU27R.2008,LORdataWIDE$HK_EU27R.2008.1))
+# View(data.frame(LORdataWIDE$HK_EU27R.2013,LORdataWIDE$HK_EU27R.2013.1))
+
+names(LORdataFULLwidev1)
+
+LORdataFULLwidev1 <- subset(LORdataFULLwidev1, select=-c(
+  HK_EU27R.1,
+  HK_EU27R.2008.1,
+  HK_EU27R.2009.1,
+  HK_EU27R.2010.1,
+  HK_EU27R.2011.1,
+  HK_EU27R.2012.1,
+  HK_EU27R.2013.1,
+  HK_EU27R.1,
+  HK_EU27R.2008.1,
+  HK_EU27R.2009.1,
+  HK_EU27R.2010.1,
+  HK_EU27R.2011.1,
+  HK_EU27R.2012.1,
+  HK_EU27R.2013.1,
+  HK_EheSUR.1,
+  HK_EheSUR.2008.1,
+  HK_EheSUR.2009.1,
+  HK_EheSUR.2010.1,
+  HK_EheSUR.2011.1,
+  HK_EheSUR.2012.1,
+  HK_EheSUR.2013.1,
+  HK_ArabR.1,
+  HK_ArabR.2008.1,
+  HK_ArabR.2009.1,
+  HK_ArabR.2010.1,
+  HK_ArabR.2011.1,
+  HK_ArabR.2012.1,
+  HK_ArabR.2013.1))
+
+###### b.) Generierung von speziellen WIDE Variablen #####
+# 
+# ExDF                <- LORattrFULLwide4shape
+# names(ExDF)
+# # Änderung der Wohndauer
+# ExDF$PDAU5chg       <- ExDF$PDAU5.2008-ExDF$PDAU5.2013
+# ExDF$PDAU10chg      <- ExDF$PDAU10.2008-ExDF$PDAU10.2013
+# # Mietniveau 2013 mitteln 
+# ExDF$Miete.2013     <- (ExDF$Miete_H1_wmean.2013 + ExDF$Miete_H2_wmean.2013)/2
+# # Mietpreisänderung
+# ExDF$MIETE_H1chg    <- ExDF$Miete_H1_wmean.2013 - ExDF$Miete_H1_wmean.2008
+# ExDF$MIETE_H1chgr   <- ((ExDF$Miete_H1_wmean.2013 - ExDF$Miete_H1_wmean.2008)/ExDF$Miete_H1_wmean.2008)*100
+# ExDF$MIETE_H2chg    <- ExDF$Miete_H2_wmean.2013 - ExDF$Miete_H2_wmean.2008
+# ExDF$MIETE_H2chgr   <- ((ExDF$Miete_H2_wmean.2013 - ExDF$Miete_H2_wmean.2008)/ExDF$Miete_H2_wmean.2008)*100
+# ExDF$MIETE_chg      <- (ExDF$MIETE_H1chg+ExDF$MIETE_H2chg)/2
+# ExDF$MIETE_chgr     <- round((ExDF$MIETE_H1chgr+ExDF$MIETE_H2chgr)/2,digits=0)
+# # Änderung Arbeitslosigkeit
+# ExDF$Alosechg      <- ExDF$Alose.2013 - ExDF$Alose.2008
+# ExDF$Alose_u25chg  <- ExDF$Alose_u25.2013 - ExDF$Alose_u25.2008
+# ExDF$Alose_Hartzchg<-ExDF$Alose_Hartz.2013 - ExDF$Alose_Hartz.2008
+# ExDF$Hartz_u15chg  <- ExDF$Hartz_u15.2013 - ExDF$Hartz_u15.2008
+# # Ausländeranteil
+# ExDF$E_Ar.2013        <- round((ExDF$E_A.2013       /ExDF$E_E.2013)*100,digits=1)
+# ExDF$HK_Turkr.2013    <- round((ExDF$HK_Turk.2013   /ExDF$E_E.2013)*100,digits=1)
+# ExDF$HK_Arabr.2013    <- round((ExDF$HK_Arab.2013   /ExDF$E_E.2013)*100,digits=1)
+# ExDF$HK_EU15r.2013    <- round((ExDF$HK_EU15.2013   /ExDF$E_E.2013)*100,digits=1)
+# ExDF$HK_EU27r.2013    <- round((ExDF$HK_EU27.2013   /ExDF$E_E.2013)*100,digits=1)
+# ExDF$HK_EheJugr.2013  <- round((ExDF$HK_EheJug.2013 /ExDF$E_E.2013)*100,digits=1)
+# ExDF$HK_EheSUr.2013   <- round((ExDF$HK_EheSU.2013  /ExDF$E_E.2013)*100,digits=1)
+# # Änderung Ausländeranteil
+# ExDF$E_Achgr        <- round((((ExDF$E_A.2013         /ExDF$E_E.2013)*100) -  ((ExDF$E_A.2008       /ExDF$E_E.2008)*100)),digits=1)
+# ExDF$HK_Turkchgr    <- round((((ExDF$HK_Turk.2013     /ExDF$E_E.2013)*100) -  ((ExDF$HK_Turk.2008   /ExDF$E_E.2008)*100)),digits=1)
+# ExDF$HK_Arabchgr    <- round((((ExDF$HK_Arab.2013     /ExDF$E_E.2013)*100) -  ((ExDF$HK_Arab.2008   /ExDF$E_E.2008)*100)),digits=1)
+# ExDF$HK_EU15chgr    <- round((((ExDF$HK_EU15.2013     /ExDF$E_E.2013)*100) -  ((ExDF$HK_EU15.2008   /ExDF$E_E.2008)*100)),digits=1)
+# ExDF$HK_EU27chgr    <- round((((ExDF$HK_EU27.2013     /ExDF$E_E.2013)*100) -  ((ExDF$HK_EU27.2008   /ExDF$E_E.2008)*100)),digits=1)
+# ExDF$HK_EheJugchgr  <- round((((ExDF$HK_EheJug.2013   /ExDF$E_E.2013)*100) -  ((ExDF$HK_EheJug.2008 /ExDF$E_E.2008)*100)),digits=1)
+# ExDF$HK_EheSUchgr   <- round((((ExDF$HK_EheSU.2013    /ExDF$E_E.2013)*100) -  ((ExDF$HK_EheSU.2008  /ExDF$E_E.2008)*100)),digits=1)
+# names(ExDF)
+
+
+
+
+
+LORdataWIDE <- LORdataFULLwidev1 
+names(LORdataWIDE)
+
+###### c.) Merge LOR Shape file mit LOR Wide FULL Datensatz #########
+
+source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
+LORattrFULL   <- merge.with.order(LORdf, LORdataWIDE, sort=F,
+                                  by.x="RAUMID", by.y="RAUMID",
+                                  all.x=T, all.y=T,
+                                  keep_order=1)
+#View(LORattrFULL)
+LOR@data <- LORattrFULL
+
+#LOR@data$E_E.2013
+#LOR@data$EWdichte.2013 <- (LOR@data$E_E.2013/LOR@data$FL_HA)*100
+#library("sp")
+#spplot(LOR, zcol="Miete.2013")
+
+library(foreign)
+write.dbf(dataframe = LOR@data, file = "/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/LOR/LORinfo.dbf")
+
+

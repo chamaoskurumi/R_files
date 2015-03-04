@@ -8,48 +8,11 @@ devtools::install_github('rstudio/shinyapps')
 library("shinyapps")
 library(googleVis)
 library(shiny)
+
+
 names(LORdataFULL)
 LORdata4ggvis <- LORdataFULL
 LORdata4ggvis$ZEIT <- as.numeric(as.character(LORdata4ggvis$ZEIT))
-
-GentriMotionChartUI <- shinyUI(pageWithSidebar(
-  headerPanel("Gentri-MotionChart"),
-  sidebarPanel(
-    checkboxGroupInput("AusgewaehlteBezirke","Bezirke:",
-                       choices = levels(LORdata4ggvis$BEZ_NAME),
-                       selected = "Friedrichshain-Kreuzberg"),
-    submitButton(text="Update!"),
-    width = 3),
-  mainPanel(tabsetPanel(
-    tabPanel("Motion Chart", helpText("blabla")),
-    tabPanel("Daten", dataTableOutput("LORggvisDaten"))
-  ))))
-  
-  GentriMotionChartSERVER <- shinyServer(function (input, output, session) {
-    LORdata4ggvisSUBSET <- reactive({
-      b <- subset(LORdata4ggvis, BEZ_NAME %in% input$AusgewaehlteBezirke)
-      b <- droplevels(b)
-      return(b)
-    })
-    output$LORggvisDaten <- renderDataTable({
-      newData <- LORdata4ggvisSUBSET()
-      newData})#options = list(lengthMenu = c(10, 50, 100), pageLength = 50))  
-  })
-  
-  GentriMotionChart <- runApp(
-    list(server = GentriMotionChartSERVER, 
-         ui     = GentriMotionChartUI))
-  GentriMotionChart
-
-#######################
-
-
-library(googleVis)
-library(shiny)
-names(LORdataFULL)
-LORdata4ggvis <- LORdataFULL
-LORdata4ggvis$ZEIT <- as.numeric(as.character(LORdata4ggvis$ZEIT))
-LORdata4ggvis$STADTRAUM <- as.factor(LORdata4ggvis$STADTRAUM)
 
 write.table(LORdata4ggvis, 
             file = "/home/dao/Desktop/MasterArbeit/R_files/ShinyApps/LORdata4ggvis.csv", 

@@ -22,17 +22,17 @@ LOR4leaflet <- LOR
 LOR4leaflet@data <- subset(LOR4leaflet@data, select=c(RAUMID, RAUMID_NAME,BZR,BZR_NAME,
                                                       PGR,PRG_NAME,BEZ,BEZ_NAME,                   
                                                       STADTRAUM,FL_HA,
-                                                      Miete_H1_wmean.2013))
+                                                      Miete.2013))
 LORjson <- toGeoJSON(data=LOR4leaflet, dest=tempdir())
-brksIntervalls <- classIntervals(LOR4leaflet@data$Miete_H1_wmean.2013, n=10); brksIntervalls
+brksIntervalls <- classIntervals(LOR4leaflet@data$Miete.2013, n=10); brksIntervalls
 brks           <- round(brksIntervalls$brks, digits=1); brks
 #brks <- seq(3, max(LOR@data$EWdichte2013, na.rm=T), by=1000); length(brks)
 clrs <- colorRampPalette(c("yellow", "red"))(length(brks))
-stl <- styleGrad(prop="Miete_H1_wmean.2013", breaks=brks, style.val=clrs, 
-                 out=1, leg="Median Angebotsmiete 1.Halbjahr 2013", 
-                 lwd=1, col="blue", alpha=0.4)
+stl <- styleGrad(prop="Miete.2013", breaks=brks, style.val=clrs, 
+                 out=1, leg="Median Angebotsmiete 2013", 
+                 lwd=1, col="white", alpha=0.4)
 SPleaflet  <- leaflet(data=LORjson, dest=tempdir(),
-                      title="Median Angebotsmiete 1.Halbjahr 2013", base.map="darkmatter",
+                      title="Median Angebotsmiete 2013", base.map="darkmatter",
                       style=stl, popup="*")
 SPleaflet
 #View(LOR@data)
@@ -40,7 +40,7 @@ names(LOR@data)
 
 
 myleaflet(SPdata.frame = LOR,
-          layer = "Miete_H2_wmean.2008",
+          layer = "Miete.2008",
           popupNAMES = c("RAUMID", "RAUMID_NAME",
                          "BZR_NAME",
                          "Miete_H2_wmean.2008"), 
@@ -48,7 +48,7 @@ myleaflet(SPdata.frame = LOR,
           colorNAMES = c("yellow", "red"),
           roundDIGITS = 1, 
           intervallBRKno = 10,
-          titleNAME = "Miete pro LOR 2.Hjahr 2008")
+          titleNAME = "Miete pro LOR 2008")
 
 myleaflet(SPdata.frame = LOR,
           layer = "Miete_H2_wmean.2013",
