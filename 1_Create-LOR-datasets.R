@@ -28,10 +28,24 @@ str(DF1)
 names(DF1)
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# MIGRATIONSHINTERGRUND =======================
+# MIGRATIONSHINTERGRUND E =======================
 
-MIGHINTER4merge <- subset(MIGHINTER, select=-c(BEZ,PGR,BZR,PLR,STADTRAUM))
-DF2 <- merge(x = DF1, y = MIGHINTER4merge, by = c("RAUMID", "ZEIT"))
+MIGHINTERE4merge <- subset(MIGHINTERE, select=-c(BEZ,PGR,BZR,PLR,STADTRAUM))
+DF1b <- merge(x = DF1, y = MIGHINTERE4merge, by = c("RAUMID", "ZEIT"))
+# unnütze/zu detailierte Altersvariablen löschen
+DF1b <- subset(DF1b, select=-c(MH_E,
+                               MH_EM,     MH_EW,     MH_E00_01, MH_E01_02, MH_E02_03, MH_E03_05, MH_E05_06, MH_E06_07, MH_E07_08, MH_E08_10,
+                               MH_E10_12, MH_E12_14, MH_E14_15, MH_E15_18, MH_E18_21, MH_E21_25, MH_E25_27, MH_E27_30, MH_E30_35, MH_E35_40,
+                               MH_E40_45, MH_E45_50, MH_E50_55, MH_E55_60, MH_E60_63, MH_E63_65, MH_E65_67, MH_E67_70, MH_E70_75, MH_E75_80,
+                               MH_E80_85, MH_E85_90, MH_E90_95, MH_E95_110))
+str(DF1b)
+names(DF1b)
+
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# MIGRATIONSHINTERGRUND H =======================
+
+MIGHINTERH4merge <- subset(MIGHINTERH, select=-c(BEZ,PGR,BZR,PLR,STADTRAUM))
+DF2 <- merge(x = DF1b, y = MIGHINTERH4merge, by = c("RAUMID", "ZEIT"))
 str(DF2)
 names(DF2)
 
@@ -130,6 +144,8 @@ library("reshape2")
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Long to wide LOR Datensatz ===================================
+
+##---> HIER MUSS NOCH MIGHINTERE aufgenommen werden!
 
 DF7 <- arrange(DF7, RAUMID, ZEIT)
 DF7wide <- reshape(DF7,

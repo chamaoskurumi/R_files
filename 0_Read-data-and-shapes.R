@@ -125,27 +125,51 @@ ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 201312] <- 2014
 #View(ALTERAUSLAENDER)
 #str(ALTERAUSLAENDER)
 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Migrationshintergrund E (Alter)
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
+MIGHINTERE_files <- dir(path="EW_Migrationshintergrund_E-LOR-/", pattern = glob2rx("*.csv"))
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_Migrationshintergrund_E-LOR-/")
+MIGHINTERE <- lapply(MIGHINTERE_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE,
+                     dec=",", stringsAsFactors =F, colClasses=c(RAUMID="factor"))
+
+MIGHINTERE <- do.call("rbind", MIGHINTERE) # aus Liste von data.frames einen long Datensatz machen
+MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 200712] <- 2008
+MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 200812] <- 2009
+MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 200912] <- 2010
+MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 201012] <- 2011
+MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 201112] <- 2012
+MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 201212] <- 2013
+MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 201312] <- 2014
+#View(MIGHINTERE)
+#str(MIGHINTERE)
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~
-# Migrationshintergrund
+# Migrationshintergrund H
 #~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
-MIGHINTER_files <- dir(path="EW_Migrationshintergrund_-LOR-/", pattern = glob2rx("*.csv"))
-setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_Migrationshintergrund_-LOR-/")
-MIGHINTER <- lapply(MIGHINTER_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE,
+MIGHINTERH_files <- dir(path="EW_Migrationshintergrund_H-LOR-/", pattern = glob2rx("*.csv"))
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_Migrationshintergrund_H-LOR-/")
+MIGHINTERH <- lapply(MIGHINTERH_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE,
                     dec=",", stringsAsFactors =F, colClasses=c(RAUMID="factor"))
-MIGHINTER[[7]][,10] <- NA # für 2014 gibt es nur EU28 und nicht EU27
-colnames(MIGHINTER[[7]])[10] <- "HK_EU27"
-MIGHINTER <- do.call("rbind", MIGHINTER) # aus Liste von data.frames einen long Datensatz machen
-MIGHINTER$ZEIT[MIGHINTER$ZEIT == 200712] <- 2008
-MIGHINTER$ZEIT[MIGHINTER$ZEIT == 200812] <- 2009
-MIGHINTER$ZEIT[MIGHINTER$ZEIT == 200912] <- 2010
-MIGHINTER$ZEIT[MIGHINTER$ZEIT == 201012] <- 2011
-MIGHINTER$ZEIT[MIGHINTER$ZEIT == 201112] <- 2012
-MIGHINTER$ZEIT[MIGHINTER$ZEIT == 201212] <- 2013
-MIGHINTER$ZEIT[MIGHINTER$ZEIT == 201312] <- 2014
-#View(MIGHINTER)
-#str(MIGHINTER)
+MIGHINTERH[[7]][,10] <- NA # für 2014 gibt es nur EU28 und nicht EU27
+colnames(MIGHINTERH[[7]])[10] <- "HK_EU27"
+MIGHINTERH <- do.call("rbind", MIGHINTERH) # aus Liste von data.frames einen long Datensatz machen
+MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 200712] <- 2008
+MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 200812] <- 2009
+MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 200912] <- 2010
+MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 201012] <- 2011
+MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 201112] <- 2012
+MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 201212] <- 2013
+MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 201312] <- 2014
+#View(MIGHINTERH)
+#str(MIGHINTERH)
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
 # Monitoring SozStadtentwicklung
