@@ -101,6 +101,11 @@ DF6  <- DF6a[c("ZEIT",
              "Alose_u25",  "Alose_langzeit",           "nicht_Alose_Hartz",      "Hartz_u15", 
              "MigHinter_u18",            "WanderVol",  "WanderSaldo",            "WanderSaldo_u6",        
              "Veraend_HartzEmpf_D",    "Veraend_HartzEmpf_Ausl",                 "Veraend_Hartz_u15")]
+
+# STADTRAUM in Factor umwandln und labeln
+DF6$STADTRAUM         <- as.factor(DF6$STADTRAUM)
+levels(DF6$STADTRAUM) <- c("innere Stadt", "äußere Stadt")
+
 names(DF6)
 #View(DF6)
 

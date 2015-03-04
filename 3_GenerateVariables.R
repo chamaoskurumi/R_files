@@ -4,54 +4,125 @@
 #                                           #
 #********************************************
 
+library(plyr)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # LOR long Datensatz ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-names(LORdataFULL)
-#View(LORdataFULL)
+LORdataFULLv2 <- LORdataFULLv1
 
-# Miete
-LORdataFULL$Miete        <- round(( LORdataFULL$Miete_H1_wmean+LORdataFULL$Miete_H2_wmean)/2, digits=2)
-LORdataFULL$Mietechg     <- #keine Ahnung wie man das in long brechnet
+names(LORdataFULLv2)
+#View(LORdataFULLv2)
 
-# Altersgruppen
-LORdataFULL$E_U1R         <- round(( LORdataFULL$E_U1       / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$E_1U6R        <- round(( LORdataFULL$E_1U6      / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$E_6U15R       <- round(( LORdataFULL$E_6U15     / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$E_15U18R      <- round(( LORdataFULL$E_15U18    / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$E_18U25R      <- round(( LORdataFULL$E_18U25    / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$E_25U55R      <- round(( LORdataFULL$E_25U55    / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$E_55U65R      <- round(( LORdataFULL$E_55U65    / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$E_65U80R      <- round(( LORdataFULL$E_65U80    / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$E_80U110R     <- round(( LORdataFULL$E_80U110   / LORdataFULL$E_E )*100,digits=1)
+###### a.) Miete #####
 
-# Altersgruppen Ausländer
-LORdataFULL$E_AU1R         <- round(( LORdataFULL$E_AU1       / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$E_A1U6R        <- round(( LORdataFULL$E_A1U6      / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$E_A6U15R       <- round(( LORdataFULL$E_A6U15     / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$E_A15U18R      <- round(( LORdataFULL$E_A15U18    / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$E_A18U25R      <- round(( LORdataFULL$E_A18U25    / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$E_A25U55R      <- round(( LORdataFULL$E_A25U55    / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$E_A55U65R      <- round(( LORdataFULL$E_A55U65    / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$E_A65U80R      <- round(( LORdataFULL$E_A65U80    / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$E_A80U110R     <- round(( LORdataFULL$E_A80U110   / LORdataFULL$E_E )*100,digits=1)
+LORdataFULLv2$Miete        <- round(( LORdataFULLv2$Miete_H1_wmean+LORdataFULLv2$Miete_H2_wmean)/2, digits=2)
+LORdataFULLv2              <- ddply(LORdataFULLv2,"RAUMID", transform,
+                                  Mietechg = c(NA,diff(Miete)))
+LORdataFULLv2              <- ddply(LORdataFULLv2,"RAUMID", transform,
+                                  Mietechgr = c(NA,exp(diff(log(Miete)))-1))
+LORdataFULLv2$Mietechgr    <- round((LORdataFULLv2$Mietechgr*100), digits=0)
 
-# Ausländeranteil & Migrationshintergrund
-LORdataFULL$E_AR         <- round(( LORdataFULL$E_A        / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$HK_TurkR     <- round(( LORdataFULL$HK_Turk    / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$HK_ArabR     <- round(( LORdataFULL$HK_Arab    / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$HK_EU15R     <- round(( LORdataFULL$HK_EU15    / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$HK_EU27R     <- round(( LORdataFULL$HK_EU27    / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$HK_PolenR    <- round(( LORdataFULL$HK_Polen   / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$HK_EheJugR   <- round(( LORdataFULL$HK_EheJug  / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$HK_EheSUR    <- round(( LORdataFULL$HK_EheSU   / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$HK_SonstR    <- round(( LORdataFULL$HK_Sonst   / LORdataFULL$E_E )*100,digits=1)
-LORdataFULL$MH_ER        <- round(( LORdataFULL$MH_E       / LORdataFULL$E_E )*100,digits=1)
+###### b.) Altergruppen Inländer ######
 
+LORdataFULLv2$E_U18         <- (LORdataFULLv2$E_U1    +
+                                LORdataFULLv2$E_1U6   +
+                                LORdataFULLv2$E_6U15  +
+                                LORdataFULLv2$E_15U18)
+LORdataFULLv2$E_18U65       <- (LORdataFULLv2$E_18U55 +
+                                LORdataFULLv2$E_55U65)
+LORdataFULLv2$E_65U110      <- (LORdataFULLv2$E_65U80 +
+                                LORdataFULLv2$E_80U110)
 
-dim(LORdata)
+LORdataFULLv2$E_U1R         <- round(( LORdataFULLv2$E_U1       / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_1U6R        <- round(( LORdataFULLv2$E_1U6      / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_6U15R       <- round(( LORdataFULLv2$E_6U15     / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_15U18R      <- round(( LORdataFULLv2$E_15U18    / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_18U25R      <- round(( LORdataFULLv2$E_18U25    / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_25U55R      <- round(( LORdataFULLv2$E_25U55    / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_55U65R      <- round(( LORdataFULLv2$E_55U65    / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_65U80R      <- round(( LORdataFULLv2$E_65U80    / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_80U110R     <- round(( LORdataFULLv2$E_80U110   / LORdataFULLv2$E_E )*100,digits=1)
+
+LORdataFULLv2$E_U18R        <- round(( LORdataFULLv2$E_U18      / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_18U65R      <- round(( LORdataFULLv2$E_18U65    / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_65U110R     <- round(( LORdataFULLv2$E_65U110   / LORdataFULLv2$E_E )*100,digits=1)
+
+###### c.) Altergruppen Ausländer ######
+
+LORdataFULLv2$E_AU18         <- (LORdataFULLv2$E_AU1    +
+                                  LORdataFULLv2$E_A1U6   +
+                                  LORdataFULLv2$E_A6U15  +
+                                  LORdataFULLv2$E_A15U18)
+LORdataFULLv2$E_A18U65       <- (LORdataFULLv2$E_A18U55 +
+                                  LORdataFULLv2$E_A55U65)
+LORdataFULLv2$E_A65U110      <- (LORdataFULLv2$E_A65U80 +
+                                  LORdataFULLv2$E_A80U110)
+
+LORdataFULLv2$E_AU1R         <- round(( LORdataFULLv2$E_AU1       / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_A1U6R        <- round(( LORdataFULLv2$E_A1U6      / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_A6U15R       <- round(( LORdataFULLv2$E_A6U15     / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_A15U18R      <- round(( LORdataFULLv2$E_A15U18    / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_A18U25R      <- round(( LORdataFULLv2$E_A18U25    / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_A25U55R      <- round(( LORdataFULLv2$E_A25U55    / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_A55U65R      <- round(( LORdataFULLv2$E_A55U65    / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_A65U80R      <- round(( LORdataFULLv2$E_A65U80    / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_A80U110R     <- round(( LORdataFULLv2$E_A80U110   / LORdataFULLv2$E_E )*100,digits=1)
+
+LORdataFULLv2$E_AU18R        <- round(( LORdataFULLv2$E_AU18      / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_A18U65R      <- round(( LORdataFULLv2$E_A18U65    / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_A65U110R     <- round(( LORdataFULLv2$E_A65U110   / LORdataFULLv2$E_E )*100,digits=1)
+
+###### d.) Ausländeranteil & Migrationshintergrund ######
+
+LORdataFULLv2$E_AR         <- round(( LORdataFULLv2$E_A        / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$HK_TurkR     <- round(( LORdataFULLv2$HK_Turk    / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$HK_ArabR     <- round(( LORdataFULLv2$HK_Arab    / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$HK_EU15R     <- round(( LORdataFULLv2$HK_EU15    / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$HK_EU27R     <- round(( LORdataFULLv2$HK_EU27    / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$HK_PolenR    <- round(( LORdataFULLv2$HK_Polen   / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$HK_EheJugR   <- round(( LORdataFULLv2$HK_EheJug  / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$HK_EheSUR    <- round(( LORdataFULLv2$HK_EheSU   / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$HK_SonstR    <- round(( LORdataFULLv2$HK_Sonst   / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$MH_ER        <- round(( LORdataFULLv2$MH_E       / LORdataFULLv2$E_E )*100,digits=1)
+
+###### e.) Wohnlage ######
+
+LORdataFULLv2$WLOL    <- (LORdataFULLv2$WLEINFOL + 
+                          LORdataFULLv2$WLMITOL  +
+                          LORdataFULLv2$WLGUTOL) 
+LORdataFULLv2$WLML    <- (LORdataFULLv2$WLEINFML + 
+                          LORdataFULLv2$WLMITML  +
+                          LORdataFULLv2$WLGUTML) 
+
+LORdataFULLv2$WLEINF    <- (LORdataFULLv2$WLEINFOL + LORdataFULLv2$WLEINFML) 
+LORdataFULLv2$WLMIT     <- (LORdataFULLv2$WLMITOL  + LORdataFULLv2$WLMITML)        
+LORdataFULLv2$WLGUT     <- (LORdataFULLv2$WLGUTOL  + LORdataFULLv2$WLGUTFML)     
+
+LORdataFULLv2$WLEINFOLR     <- round(( LORdataFULLv2$WLEINFOL  / LORdataFULLv2$E_E )*100,digits=1)          
+LORdataFULLv2$WLEINFMLR     <- round(( LORdataFULLv2$WLEINFML  / LORdataFULLv2$E_E )*100,digits=1)   
+LORdataFULLv2$WLMITOLR      <- round(( LORdataFULLv2$WLMITOL   / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$WLMITMLR      <- round(( LORdataFULLv2$WLMITML   / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$WLGUTOLR      <- round(( LORdataFULLv2$WLGUTOL   / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$WLGUTMLR      <- round(( LORdataFULLv2$WLGUTML   / LORdataFULLv2$E_E )*100,digits=1)
+#LORdataFULLv2$WLNZORDR      <- round(( LORdataFULLv2$WLNZORD   / LORdataFULLv2$E_E )*100,digits=1)      
+
+LORdataFULLv2$WLNZORDR      <- round(( LORdataFULLv2$WLNZORD   / LORdataFULLv2$E_E )*100,digits=1)    
+LORdataFULLv2$WLNZORDR      <- round(( LORdataFULLv2$WLNZORD   / LORdataFULLv2$E_E )*100,digits=1)    
+
+LORdataFULLv2$WLEINFR     <- round(( LORdataFULLv2$WLEINF      / LORdataFULLv2$E_E )*100,digits=1)    
+LORdataFULLv2$WMITR       <- round(( LORdataFULLv2$WLMIT       / LORdataFULLv2$E_E )*100,digits=1)    
+LORdataFULLv2$WGUTR       <- round(( LORdataFULLv2$WLGUT       / LORdataFULLv2$E_E )*100,digits=1)    
+
+###### f.) Unnötige Vars droppen & Var order ändern ######
+
+LORdataFULLv2 <- subset(LORdataFULLv2, select=-c(Miete_H1_wmean,
+                                                Miete_H2_wmean,
+                                                HK_NZOrd,
+                                                WLNZORD))
+
+names(LORdataFULLv2)
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

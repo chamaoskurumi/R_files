@@ -164,7 +164,7 @@ PLZ2010_2013dfwide <- reshape(PLZ2010_2013df,
                                         "Miete_H2"),
                             timevar = "Zeit",
                             direction = "wide")
-View(PLZ2010_2013dfwide)
+#View(PLZ2010_2013dfwide)
 
 PLZ2010_2013@data <- merge.with.order(PLZ2010_2013@data, PLZ2010_2013dfwide, 
                                       all.x=T, sort=F,
@@ -382,7 +382,7 @@ str(LOR_JLLagg)
 str(LOR_JLLagg)
 
 LOR_JLLaggWIDE <- LOR_JLLagg
-View(LOR_JLLaggWIDE)
+#View(LOR_JLLaggWIDE)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Aggregierte Daten mit LOR Shapefile assoziieren & den LOR FULL long Datensatz erstellen ------
@@ -419,10 +419,10 @@ LOR_JLL    <- reshape(LOR_JLLaggWIDE,
 #View(LOR_JLL)
 
 ### Long VOLLSTÄNDIGER LOR Datensatz
-LORdataFULL     <- merge(LORdata, LOR_JLL, sort=F, 
-                     by.x=c("RAUMID","ZEIT"), 
-                     by.y=c("RAUMID","ZEIT"), 
-                     all.x=T, all.y=T)
+LORdataFULLv1     <- merge(LORdata, LOR_JLL, sort=F, 
+                           by.x=c("RAUMID","ZEIT"), 
+                           by.y=c("RAUMID","ZEIT"), 
+                           all.x=T, all.y=T)
 
 
 #********************************************
@@ -464,5 +464,6 @@ SanGebietsData <- subset(LOR@data, select=c(SanGebiet,
                                             SanGebiet_KLASSE)) 
 
 # LOR LONG FULL Datensatz ergänzen
-LORdataFULL <- cbind(LORdataFULL, SanGebietsData[rep(seq_len(nrow(SanGebietsData)),6), ])
-tail(LORdataFULL)
+# --> SenGebietsData Datensatz 6 mal replizieren damit er an long rangemerged werden kann
+LORdataFULLv1 <- cbind(LORdataFULLv1, SanGebietsData[rep(seq_len(nrow(SanGebietsData)),6), ])
+tail(LORdataFULLv1)
