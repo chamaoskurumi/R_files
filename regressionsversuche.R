@@ -79,7 +79,7 @@ no.na.LMdata <- na.omit(subset(LOR@data, select=c(WanderSaldosum, DAU5chg, DAU10
                                                   HK_EheJugchg,  HK_EU15Rchg,   HK_EU27Rhg,    HK_TurkRchg,  
                                                   HK_ArabRchg,   HK_EheJugRchg, HK_EU15RMHchg, HK_EU27RMHhg, 
                                                   HK_TurkRMHchg, HK_ArabRMHchg, HK_EheJugRMHchg, 
-                                                  Mietechg,Mietechgr)))#; View(no.na.LMdata)
+                                                  Mietechg,Mietechgr,E_E.2013)))#; View(no.na.LMdata)
 
 summary(lm.1 <- lm(WanderSaldosum ~  DAU5chg+ DAU10chg+     
   PDAU5chg+PDAU10chg+     WLEINFchg+     WLMITchg+     
@@ -90,15 +90,43 @@ summary(lm.1 <- lm(WanderSaldosum ~  DAU5chg+ DAU10chg+
   HK_EheJugchg+  HK_EU15Rchg+   HK_EU27Rhg+    HK_TurkRchg+  
   HK_ArabRchg+   HK_EheJugRchg+ HK_EU15RMHchg+ HK_EU27RMHhg+ 
   HK_TurkRMHchg+ HK_ArabRMHchg+ HK_EheJugRMHchg +            
-  Mietechg+Mietechgr, data=no.na.LMdata))
+  Mietechg+Mietechgr, data=no.na.LMdata, weights=(1/sqrt(E_E.2013))))
 
 library("MASS")
 steplm.1 <- step(lm.1, data= no.na.LMdata,
-             direction = "both", na.action = na.omit)
+             direction = "both")
 steplm.1$anova
 
 step <- stepAIC(lm.1, direction="both",na.action = na.omit)
 step$anova # display results 
+
+summary(WanderSaldosum ~ DAU5chg + DAU10chg + PDAU5chg + PDAU10chg + 
+  WLEINFchg + WLMITchg + WLGUTchg + WLMITRchg + Alosechg + 
+  Alose_langzeitchg + Alose_u25chg + MH_Echg + MH_ERchg + HK_EU15Rchg + 
+  HK_EU27Rhg + HK_EU27RMHhg + Mietechg + Mietechgr
+  
+summary(lm2 <- lm(WanderSaldosum ~ PDAU10chg + WLEINFchg + WLMITchg + WLGUTchg + 
+          WLMITRchg + Alosechg + Alose_langzeitchg + MH_ERchg + HK_EU27hg + 
+          HK_EheJugchg + HK_EU15Rchg + HK_EU27Rhg + HK_ArabRchg + HK_EheJugRchg + 
+          HK_EU15RMHchg + HK_EU27RMHhg + HK_ArabRMHchg + HK_EheJugRMHchg + 
+          Mietechg + Mietechgr,data=no.na.LMdata, weights=(1/sqrt(E_E.2013))))
+
+summary(lm3 <- lm(Alosechg ~ Mietechg + Mietechgr,data=no.na.LMdata, weights=(1/sqrt(E_E.2013))))
+
+install.packages("GGally")
+library(GGally)
+source("/home/dao/Desktop/MasterArbeit/R_files/functions/ggally_cor_FUNCTION.R")
+assignInNamespace("ggally_cor", ggally_cor, "GGally")
+ggpairs(LOR@data[ ,c("Miete.2013","Mietechgr",
+                     "Alosechg","Alose_langzeitchg")],
+        lower=list(continuous="smooth", params=c(colour="blue")),
+        diag=list(continuous="density",params=c(colour="blue")), 
+        upper=list(params=list(corSize=15)), axisLabels='show') 
+
+
+data <- data.frame()
+
+
 
 
 
