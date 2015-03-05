@@ -9,7 +9,6 @@ library("shinyapps")
 library(googleVis)
 library(shiny)
 
-
 names(LORdataFULL)
 LORdata4ggvis <- LORdataFULL
 LORdata4ggvis$ZEIT <- as.numeric(as.character(LORdata4ggvis$ZEIT))
