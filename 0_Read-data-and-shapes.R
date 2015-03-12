@@ -364,97 +364,91 @@ levels(BINNENWAND.2007$NachLOR)[which(levels(BINNENWAND.2007$NachLOR) == "123020
 levels(BINNENWAND.2007$NachLOR)[which(levels(BINNENWAND.2007$NachLOR) == "12302011")] <- "12302211"
 levels(BINNENWAND.2007$NachLOR)[which(levels(BINNENWAND.2007$NachLOR) == "12302012")] <- "12302212"
 
-BINNENWAND.2007$VonLOR  <- factor(BINNENWAND.2007$VonLOR)
-BINNENWAND.2007$NachLOR <- factor(BINNENWAND.2007$NachLOR)
+#BINNENWAND.2007$VonLOR  <- factor(BINNENWAND.2007$VonLOR)
+#BINNENWAND.2007$NachLOR <- factor(BINNENWAND.2007$NachLOR)
 
 
 # ----- Binnenwanderungen 2008 -----
-levels(BINNENWAND.2008$VonLOR)[BINNENWAND.2008$VonLOR == "12103015"] <- "12103115"
-levels(BINNENWAND.2008$VonLOR)[BINNENWAND.2008$VonLOR == "12103015"] <- "12103115"
-levels(BINNENWAND.2008$VonLOR)[BINNENWAND.2008$VonLOR == "12103016"] <- "12103116"
-levels(BINNENWAND.2008$VonLOR)[BINNENWAND.2008$VonLOR == "12103017"] <- "12103117"
-levels(BINNENWAND.2008$VonLOR)[BINNENWAND.2008$VonLOR == "12103018"] <- "12103218"
-levels(BINNENWAND.2008$VonLOR)[BINNENWAND.2008$VonLOR == "12103019"] <- "12103219"
-levels(BINNENWAND.2008$VonLOR)[BINNENWAND.2008$VonLOR == "12103020"] <- "12103220"
-levels(BINNENWAND.2008$VonLOR)[BINNENWAND.2008$VonLOR == "12214121"] <- "12214421"
-levels(BINNENWAND.2008$VonLOR)[BINNENWAND.2008$VonLOR == "12214122"] <- "12214422"
-levels(BINNENWAND.2008$VonLOR)[BINNENWAND.2008$VonLOR == "12214123"] <- "12214423"
-levels(BINNENWAND.2008$VonLOR)[BINNENWAND.2008$VonLOR == "12214124"] <- "12214424"
-levels(BINNENWAND.2008$VonLOR)[BINNENWAND.2008$VonLOR == "12214127"] <- "12214527"
-levels(BINNENWAND.2008$VonLOR)[BINNENWAND.2008$VonLOR == "12214128"] <- "12214528"
-levels(BINNENWAND.2008$VonLOR)[BINNENWAND.2008$VonLOR == "12302008"] <- "12302107"
-levels(BINNENWAND.2008$VonLOR)[BINNENWAND.2008$VonLOR == "12302008"] <- "12302108"
-levels(BINNENWAND.2008$VonLOR)[BINNENWAND.2008$VonLOR == "12302009"] <- "12302109"
-levels(BINNENWAND.2008$VonLOR)[BINNENWAND.2008$VonLOR == "12302010"] <- "12302110"
-levels(BINNENWAND.2008$VonLOR)[BINNENWAND.2008$VonLOR == "12302011"] <- "12302211"
-levels(BINNENWAND.2008$VonLOR)[BINNENWAND.2008$VonLOR == "12302012"] <- "12302212"
+levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12103015")] <- "12103115"
+levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12103015")] <- "12103115"
+levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12103016")] <- "12103116"
+levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12103017")] <- "12103117"
+levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12103018")] <- "12103218"
+levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12103019")] <- "12103219"
+levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12103020")] <- "12103220"
+levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12214121")] <- "12214421"
+levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12214122")] <- "12214422"
+levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12214123")] <- "12214423"
+levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12214124")] <- "12214424"
+levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12214127")] <- "12214527"
+levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12214128")] <- "12214528"
+levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12302007")] <- "12302107"
+levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12302008")] <- "12302108"
+levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12302009")] <- "12302109"
+levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12302010")] <- "12302110"
+levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12302011")] <- "12302211"
+levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12302012")] <- "12302212"
 
-levels(BINNENWAND.2008$NachLOR)[BINNENWAND.2008$NachLOR == "12103015"] <- "12103115"
-levels(BINNENWAND.2008$NachLOR)[BINNENWAND.2008$NachLOR == "12103016"] <- "12103116"
-levels(BINNENWAND.2008$NachLOR)[BINNENWAND.2008$NachLOR == "12103017"] <- "12103117"
-levels(BINNENWAND.2008$NachLOR)[BINNENWAND.2008$NachLOR == "12103018"] <- "12103218"
-levels(BINNENWAND.2008$NachLOR)[BINNENWAND.2008$NachLOR == "12103019"] <- "12103219"
-levels(BINNENWAND.2008$NachLOR)[BINNENWAND.2008$NachLOR == "12103020"] <- "12103220"
-levels(BINNENWAND.2008$NachLOR)[BINNENWAND.2008$NachLOR == "12214121"] <- "12214421"
-levels(BINNENWAND.2008$NachLOR)[BINNENWAND.2008$NachLOR == "12214122"] <- "12214422"
-levels(BINNENWAND.2008$NachLOR)[BINNENWAND.2008$NachLOR == "12214123"] <- "12214423"
-levels(BINNENWAND.2008$NachLOR)[BINNENWAND.2008$NachLOR == "12214124"] <- "12214424"
-levels(BINNENWAND.2008$NachLOR)[BINNENWAND.2008$NachLOR == "12214127"] <- "12214527"
-levels(BINNENWAND.2008$NachLOR)[BINNENWAND.2008$NachLOR == "12214128"] <- "12214528"
-levels(BINNENWAND.2008$NachLOR)[BINNENWAND.2008$NachLOR == "12302008"] <- "12302107"
-levels(BINNENWAND.2008$NachLOR)[BINNENWAND.2008$NachLOR == "12302008"] <- "12302108"
-levels(BINNENWAND.2008$NachLOR)[BINNENWAND.2008$NachLOR == "12302009"] <- "12302109"
-levels(BINNENWAND.2008$NachLOR)[BINNENWAND.2008$NachLOR == "12302010"] <- "12302110"
-levels(BINNENWAND.2008$NachLOR)[BINNENWAND.2008$NachLOR == "12302011"] <- "12302211"
-levels(BINNENWAND.2008$NachLOR)[BINNENWAND.2008$NachLOR == "12302012"] <- "12302212"
-
-BINNENWAND.2008$VonLOR  <- factor(BINNENWAND.2008$VonLOR)
-BINNENWAND.2008$NachLOR <- factor(BINNENWAND.2008$NachLOR)
+levels(BINNENWAND.2008$NachLOR)[which(levels(BINNENWAND.2008$NachLOR) == "12103015")] <- "12103115"
+levels(BINNENWAND.2008$NachLOR)[which(levels(BINNENWAND.2008$NachLOR) == "12103016")] <- "12103116"
+levels(BINNENWAND.2008$NachLOR)[which(levels(BINNENWAND.2008$NachLOR) == "12103017")] <- "12103117"
+levels(BINNENWAND.2008$NachLOR)[which(levels(BINNENWAND.2008$NachLOR) == "12103018")] <- "12103218"
+levels(BINNENWAND.2008$NachLOR)[which(levels(BINNENWAND.2008$NachLOR) == "12103019")] <- "12103219"
+levels(BINNENWAND.2008$NachLOR)[which(levels(BINNENWAND.2008$NachLOR) == "12103020")] <- "12103220"
+levels(BINNENWAND.2008$NachLOR)[which(levels(BINNENWAND.2008$NachLOR) == "12214121")] <- "12214421"
+levels(BINNENWAND.2008$NachLOR)[which(levels(BINNENWAND.2008$NachLOR) == "12214122")] <- "12214422"
+levels(BINNENWAND.2008$NachLOR)[which(levels(BINNENWAND.2008$NachLOR) == "12214123")] <- "12214423"
+levels(BINNENWAND.2008$NachLOR)[which(levels(BINNENWAND.2008$NachLOR) == "12214124")] <- "12214424"
+levels(BINNENWAND.2008$NachLOR)[which(levels(BINNENWAND.2008$NachLOR) == "12214127")] <- "12214527"
+levels(BINNENWAND.2008$NachLOR)[which(levels(BINNENWAND.2008$NachLOR) == "12214128")] <- "12214528"
+levels(BINNENWAND.2008$NachLOR)[which(levels(BINNENWAND.2008$NachLOR) == "12302007")] <- "12302107"
+levels(BINNENWAND.2008$NachLOR)[which(levels(BINNENWAND.2008$NachLOR) == "12302008")] <- "12302108"
+levels(BINNENWAND.2008$NachLOR)[which(levels(BINNENWAND.2008$NachLOR) == "12302009")] <- "12302109"
+levels(BINNENWAND.2008$NachLOR)[which(levels(BINNENWAND.2008$NachLOR) == "12302010")] <- "12302110"
+levels(BINNENWAND.2008$NachLOR)[which(levels(BINNENWAND.2008$NachLOR) == "12302011")] <- "12302211"
+levels(BINNENWAND.2008$NachLOR)[which(levels(BINNENWAND.2008$NachLOR) == "12302012")] <- "12302212"
 
 
 
 # ----- Binnenwanderungen 2009 -----
-levels(BINNENWAND.2009$VonLOR)[BINNENWAND.2009$VonLOR == "12103015"] <- "12103115"
-levels(BINNENWAND.2009$VonLOR)[BINNENWAND.2009$VonLOR == "12103015"] <- "12103115"
-levels(BINNENWAND.2009$VonLOR)[BINNENWAND.2009$VonLOR == "12103016"] <- "12103116"
-levels(BINNENWAND.2009$VonLOR)[BINNENWAND.2009$VonLOR == "12103017"] <- "12103117"
-levels(BINNENWAND.2009$VonLOR)[BINNENWAND.2009$VonLOR == "12103018"] <- "12103218"
-levels(BINNENWAND.2009$VonLOR)[BINNENWAND.2009$VonLOR == "12103019"] <- "12103219"
-levels(BINNENWAND.2009$VonLOR)[BINNENWAND.2009$VonLOR == "12103020"] <- "12103220"
-levels(BINNENWAND.2009$VonLOR)[BINNENWAND.2009$VonLOR == "12214121"] <- "12214421"
-levels(BINNENWAND.2009$VonLOR)[BINNENWAND.2009$VonLOR == "12214122"] <- "12214422"
-levels(BINNENWAND.2009$VonLOR)[BINNENWAND.2009$VonLOR == "12214123"] <- "12214423"
-levels(BINNENWAND.2009$VonLOR)[BINNENWAND.2009$VonLOR == "12214124"] <- "12214424"
-levels(BINNENWAND.2009$VonLOR)[BINNENWAND.2009$VonLOR == "12214127"] <- "12214527"
-levels(BINNENWAND.2009$VonLOR)[BINNENWAND.2009$VonLOR == "12214128"] <- "12214528"
-levels(BINNENWAND.2009$VonLOR)[BINNENWAND.2009$VonLOR == "12302009"] <- "12302107"
-levels(BINNENWAND.2009$VonLOR)[BINNENWAND.2009$VonLOR == "12302009"] <- "12302108"
-levels(BINNENWAND.2009$VonLOR)[BINNENWAND.2009$VonLOR == "12302009"] <- "12302109"
-levels(BINNENWAND.2009$VonLOR)[BINNENWAND.2009$VonLOR == "12302010"] <- "12302110"
-levels(BINNENWAND.2009$VonLOR)[BINNENWAND.2009$VonLOR == "12302011"] <- "12302211"
-levels(BINNENWAND.2009$VonLOR)[BINNENWAND.2009$VonLOR == "12302012"] <- "12302212"
+levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12103015")] <- "12103115"
+levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12103015")] <- "12103115"
+levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12103016")] <- "12103116"
+levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12103017")] <- "12103117"
+levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12103018")] <- "12103218"
+levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12103019")] <- "12103219"
+levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12103020")] <- "12103220"
+levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12214121")] <- "12214421"
+levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12214122")] <- "12214422"
+levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12214123")] <- "12214423"
+levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12214124")] <- "12214424"
+levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12214127")] <- "12214527"
+levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12214128")] <- "12214528"
+levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12302007")] <- "12302107"
+levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12302008")] <- "12302108"
+levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12302009")] <- "12302109"
+levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12302010")] <- "12302110"
+levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12302011")] <- "12302211"
+levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12302012")] <- "12302212"
 
-levels(BINNENWAND.2009$NachLOR)[BINNENWAND.2009$NachLOR == "12103015"] <- "12103115"
-levels(BINNENWAND.2009$NachLOR)[BINNENWAND.2009$NachLOR == "12103016"] <- "12103116"
-levels(BINNENWAND.2009$NachLOR)[BINNENWAND.2009$NachLOR == "12103017"] <- "12103117"
-levels(BINNENWAND.2009$NachLOR)[BINNENWAND.2009$NachLOR == "12103018"] <- "12103218"
-levels(BINNENWAND.2009$NachLOR)[BINNENWAND.2009$NachLOR == "12103019"] <- "12103219"
-levels(BINNENWAND.2009$NachLOR)[BINNENWAND.2009$NachLOR == "12103020"] <- "12103220"
-levels(BINNENWAND.2009$NachLOR)[BINNENWAND.2009$NachLOR == "12214121"] <- "12214421"
-levels(BINNENWAND.2009$NachLOR)[BINNENWAND.2009$NachLOR == "12214122"] <- "12214422"
-levels(BINNENWAND.2009$NachLOR)[BINNENWAND.2009$NachLOR == "12214123"] <- "12214423"
-levels(BINNENWAND.2009$NachLOR)[BINNENWAND.2009$NachLOR == "12214124"] <- "12214424"
-levels(BINNENWAND.2009$NachLOR)[BINNENWAND.2009$NachLOR == "12214127"] <- "12214527"
-levels(BINNENWAND.2009$NachLOR)[BINNENWAND.2009$NachLOR == "12214128"] <- "12214528"
-levels(BINNENWAND.2009$NachLOR)[BINNENWAND.2009$NachLOR == "12302009"] <- "12302107"
-levels(BINNENWAND.2009$NachLOR)[BINNENWAND.2009$NachLOR == "12302009"] <- "12302108"
-levels(BINNENWAND.2009$NachLOR)[BINNENWAND.2009$NachLOR == "12302009"] <- "12302109"
-levels(BINNENWAND.2009$NachLOR)[BINNENWAND.2009$NachLOR == "12302010"] <- "12302110"
-levels(BINNENWAND.2009$NachLOR)[BINNENWAND.2009$NachLOR == "12302011"] <- "12302211"
-levels(BINNENWAND.2009$NachLOR)[BINNENWAND.2009$NachLOR == "12302012"] <- "12302212"
-
-BINNENWAND.2009$VonLOR  <- factor(BINNENWAND.2009$VonLOR)
-BINNENWAND.2009$NachLOR <- factor(BINNENWAND.2009$NachLOR)
+levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "12103015")] <- "12103115"
+levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "12103016")] <- "12103116"
+levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "12103017")] <- "12103117"
+levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "12103018")] <- "12103218"
+levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "12103019")] <- "12103219"
+levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "12103020")] <- "12103220"
+levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "12214121")] <- "12214421"
+levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "12214122")] <- "12214422"
+levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "12214123")] <- "12214423"
+levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "12214124")] <- "12214424"
+levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "12214127")] <- "12214527"
+levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "12214128")] <- "12214528"
+levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "12302007")] <- "12302107"
+levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "12302008")] <- "12302108"
+levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "12302009")] <- "12302109"
+levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "12302010")] <- "12302110"
+levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "12302011")] <- "12302211"
+levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "12302012")] <- "12302212"
 
 
 
@@ -483,39 +477,107 @@ BINNENWAND.2009$NachLOR <- factor(BINNENWAND.2009$NachLOR)
 
 # ------- Merge Binnenwanderungen mit ODdf ----------
 
-
-setdiff(levels(ODdf$VonLOR),levels(BINNENWAND.2007$VonLOR))
-setdiff(levels(BINNENWAND.2007$VonLOR),levels(ODdf$VonLOR))
-
-source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
-
-TEST <- merge.with.order(ODdf,
-                 BINNENWAND.2007,
-                 by=c("VonLOR","NachLOR"),
-                 all.x=T,
-                 all.y=F,
-                 sort=F,
-                 keep_order=1)
-
-(ODdf$dyad)
-levels(ODdf$VonLOR)
-levels(ODdf$NachLOR)
-
-levels(BINNENWAND.2007$VonLOR)
-
-str(TEST)
-head(TEST)
-TEST$dyad[unique(TEST$dyad)]
-summary(ODdf$dyad)
-max(as.numeric(unique(TEST$dyad)))
-unique(TEST[duplicated(TEST),])
-dim(unique(TEST[!duplicated(TEST),]))
+setdiff(levels(ODdf$VonLOR),levels(BINNENWAND.2008$VonLOR))
+setdiff(levels(BINNENWAND.2008$VonLOR),levels(ODdf$VonLOR))
 
 source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
 
-#merge.with.order(ODdf,
-#                 BinnenWand.2007,
-#                 )
+ODdf_v1 <- merge.with.order(ODdf,
+                            BINNENWAND.2007,
+                            by=c("VonLOR","NachLOR"),
+                            all.x=T,
+                            all.y=F,
+                            sort=F,
+                            keep_order=1)
+
+ODdf_v2 <- merge.with.order(ODdf_v1,
+                            BINNENWAND.2008,
+                            by=c("VonLOR","NachLOR"),
+                            all.x=T,
+                            all.y=F,
+                            sort=F,
+                            keep_order=1)
+
+ODdf_v3 <- merge.with.order(ODdf_v2,
+                            BINNENWAND.2009,
+                            by=c("VonLOR","NachLOR"),
+                            all.x=T,
+                            all.y=F,
+                            sort=F,
+                            keep_order=1)
+
+ODdf_v4 <- merge.with.order(ODdf_v3,
+                            BINNENWAND.2010,
+                            by=c("VonLOR","NachLOR"),
+                            all.x=T,
+                            all.y=F,
+                            sort=F,
+                            keep_order=1)
+
+ODdf_v5 <- merge.with.order(ODdf_v4,
+                            BINNENWAND.2011,
+                            by=c("VonLOR","NachLOR"),
+                            all.x=T,
+                            all.y=F,
+                            sort=F,
+                            keep_order=1)
+
+
+ODdf_v6 <- merge.with.order(ODdf_v5,
+                            BINNENWAND.2012,
+                            by=c("VonLOR","NachLOR"),
+                            all.x=T,
+                            all.y=F,
+                            sort=F,
+                            keep_order=1)
+
+ODdf_v7 <- merge.with.order(ODdf_v6,
+                            BINNENWAND.2013,
+                            by=c("VonLOR","NachLOR"),
+                            all.x=T,
+                            all.y=F,
+                            sort=F,
+                            keep_order=1)
+
+remove(ODdf_v1, ODdf_v2, ODdf_v3, ODdf_v4, ODdf_v5, ODdf_v6)
+
+ODdf <- ODdf_v7
+ODdf[is.na(ODdf)]   <- 0
+ODdf$BinnenWand.Sum <-    (ODdf$BinnenWand.2007+
+                           ODdf$BinnenWand.2008+
+                           ODdf$BinnenWand.2009+
+                           ODdf$BinnenWand.2010+
+                           ODdf$BinnenWand.2011+
+                           ODdf$BinnenWand.2012+
+                           ODdf$BinnenWand.2013) 
+
+str(ODdf)
+head(ODdf)
+
+plot(density(ODdf$BinnenWand.Sum))
+hist(log(ODdf$BinnenWand.Sum), breaks=100)
+summary(ODdf$BinnenWand.Sum)
+table(ODdf$BinnenWand.Sum)
+
+ODdf
+library(plyr)
+FORTZUEGEdf <- ddply(ODdf, "VonLOR", summarise, 
+                     Fortzuege = sum(BinnenWand.Sum))
+plot(density(FORTZUEGEdf$Fortzuege))
+hist(FORTZUEGEdf$Fortzuege, breaks=100)
+
+ZUZUEGEdf <- ddply(ODdf, "NachLOR", summarise, 
+                   Zuzuege = sum(BinnenWand.Sum))
+plot(density(ZUZUEGEdf$Zuzuege))
+hist(ZUZUEGEdf$Zuzuege, breaks=100)
+
+install.packages("vcd")
+library(vcd) ## loading vcd package
+gf <- goodfit(ODdf$BinnenWand.Sum, type = "poisson", method = "MinChisq")
+summary(gf)
+hist(ODdf$BinnenWand.Sum[ODdf$BinnenWand.Sum<100], breaks=100)
+
+var(ODdf$BinnenWand.Sum)
 
 
 # Shape files --------------------------------------------------------------
