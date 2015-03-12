@@ -61,8 +61,25 @@ LORshape4ZUZUEGE@data          <- ZUZUEGEattr
 LORshape4ZUZUEGE@data$E_E.2013 <- LOR@data$E_E.2013
 plot(LORshape4ZUZUEGE@data$Zuzuege,
      LORshape4ZUZUEGE@data$E_E.2013)
-LORshape4ZUZUEGE@data$ZuzuegeRel <- ((LORshape4ZUZUEGE@data$Zuzuege)/LORshape4ZUZUEGE@data$E_E.2013)
-spplot(LORshape4ZUZUEGE, zcol="Zuzuege")
+LORshape4ZUZUEGE@data$ZuzuegeRel <- (((LORshape4ZUZUEGE@data$Zuzuege/7)/LORshape4ZUZUEGE@data$E_E.2013)*100)
+spplot(LORshape4ZUZUEGE, zcol="ZuzuegeRel")
+
+spdep::spautolm()
+
+hist(LORshape4ZUZUEGE$ZuzuegeRel*100, breaks=100)
+hist(LORshape4FORTZUEGE$FortzuegeRel*100, breaks=100)
 
 
+plot(density(LORshape4ZUZUEGE$ZuzuegeRel*100))
+plot(density(LORshape4FORTZUEGE$FortzuegeRel*100))
 
+x2 <- rnorm(447, 
+            mean=mean(LORshape4FORTZUEGE$FortzuegeRel),
+            sd=sd(LORshape4FORTZUEGE$FortzuegeRel))
+ks.test(LORshape4FORTZUEGE$FortzuegeRel, x2)
+
+plot(LORshape4ZUZUEGE@data$ZuzuegeRel*100,
+     LOR@data$Miete.2013)
+
+plot(LORshape4FORTZUEGE@data$FortzuegeRel*100,
+     LOR@data$Mietechr.2013)
