@@ -82,4 +82,4 @@ plot(LORshape4ZUZUEGE@data$ZuzuegeRel*100,
      LOR@data$Miete.2013)
 
 plot(LORshape4FORTZUEGE@data$FortzuegeRel*100,
-     LOR@data$Mietechr.2013)
+     LOR@data$PDAU10chg)

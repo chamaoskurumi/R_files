@@ -285,6 +285,16 @@ JLLdata08_13$Zeit <- as.factor(JLLdata08_13$Zeit)
 #str(JLLdata08_13)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
+# Verbraucherpreisindex
+#~~~~~~~~~~~~~~~~~~~~~~~~
+
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
+VPI <- read.table("Verbraucherpreisindex/Verbraucherpreisindex2004_2014.csv", 
+                          header = TRUE, sep=";", fill=TRUE, dec=".",
+                          na.strings="NA", stringsAsFactors=F)
+#str(VPI)
+
+#~~~~~~~~~~~~~~~~~~~~~~~~
 # Binnenwanderung LOR 
 #~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -521,7 +531,6 @@ ODdf_v5 <- merge.with.order(ODdf_v4,
                             all.y=F,
                             sort=F,
                             keep_order=1)
-
 
 ODdf_v6 <- merge.with.order(ODdf_v5,
                             BINNENWAND.2012,
