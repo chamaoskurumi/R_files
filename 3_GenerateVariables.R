@@ -19,7 +19,7 @@ names(LORdataFULLv2)
 
 ###### a.) Miete #####
 
-LORdataFULLv2$Miete        <- round(( LORdataFULLv2$Miete_H1_wmean+LORdataFULLv2$Miete_H2_wmean)/2, digits=2)
+LORdataFULLv2$Miete        <- round((LORdataFULLv2$Miete_H1_wmean+LORdataFULLv2$Miete_H2_wmean)/2, digits=2)
 LORdataFULLv2              <- ddply(LORdataFULLv2,"RAUMID", transform,
                                   Mietechg = c(NA,diff(Miete)))
 LORdataFULLv2              <- ddply(LORdataFULLv2,"RAUMID", transform,
@@ -408,12 +408,12 @@ LORattrFULL   <- merge.with.order(LORdf, LORdataWIDE, sort=F,
 #View(LORattrFULL)
 LOR@data <- LORattrFULL
 
-#LOR@data$E_E.2013
-#LOR@data$EWdichte.2013 <- (LOR@data$E_E.2013/LOR@data$FL_HA)*100
+#LOR@data$E_E.2012
+#LOR@data$EWdichte.2012 <- (LOR@data$E_E.2012/LOR@data$FL_HA)*100
 #library("sp")
-#spplot(LOR, zcol="Miete.2013")
+#spplot(LOR, zcol="Miete.2012")
 
 library(foreign)
 write.dbf(dataframe = LOR@data, file = "/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/LOR/LORinfo.dbf")
 
-
+View(LOR@data)

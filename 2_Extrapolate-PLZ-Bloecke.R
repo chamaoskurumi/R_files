@@ -50,7 +50,6 @@ JLLdata07_12 <- subset(JLLdata,
 JLLdata07_12$Zeit <- as.factor(JLLdata07_12$Zeit)
 #str(JLLdata07_12)
 
-
 #~~~~~~~~~~~~~~~~~~~~~~~~
 # Postleitzahlen PLZ -------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~
@@ -340,9 +339,9 @@ plot(bloeckePLZ10_12_ptdf[is.na(bloeckePLZ10_12_ptdf@data$PLZ),],add=T, cex=1, c
 #+++++++++++++
 
 bloecke2LOR_07 <- data.frame(bloeckePLZ07_ptdf,over(bloeckePLZ07_ptdf, LORshape)); head(bloecke2LOR_07)
-bloecke2LOR_07 <- subset(bloecke2LOR_07, select=-c(FLAECHE_HA, FLAECHE_HA.1, x, y))
-names(bloecke2LOR_07)
+bloecke2LOR_07 <- subset(bloecke2LOR_07, select=-c(AUFSCHRIFT, FLAECHE_IN, FLAECHE_HA, x, y))
 #str(bloecke2LOR_07)
+
 
 LOR_JLLagg_07 <- ddply(bloecke2LOR_07, 
                        "RAUMID", summarise, 
@@ -360,7 +359,7 @@ sum(is.na(LOR_JLLagg_07$Miete_H2_wmean.2007)) # für soviele LORs fehlen uns die
 
 bloecke2LOR_08 <- data.frame(bloeckePLZ08_ptdf,over(bloeckePLZ08_ptdf, LORshape)); head(bloecke2LOR_08)
 bloecke2LOR_08 <- subset(bloecke2LOR_08, select=-c(FLAECHE_HA, FLAECHE_HA.1, x, y))
-names(bloecke2LOR_08)
+#names(bloecke2LOR_08)
 #str(bloecke2LOR_08)
 
 LOR_JLLagg_08 <- ddply(bloecke2LOR_08, 
@@ -423,7 +422,14 @@ names(LOR_JLLagg_10_12)
 head(LOR_JLLagg_08)
 head(LOR_JLLagg_10_12)
 
-identical(LOR_JLLagg_07$RAUMID, LOR_JLLagg_09$RAUMID)    # passt
+
+
+
+identical(LOR_JLLagg_07$RAUMID, LOR_JLLagg_09$RAUMID)    # passt  NICHT
+
+# MUSS GEKLÄRT WERDEN
+
+
 identical(LOR_JLLagg_08$RAUMID, LOR_JLLagg_09$RAUMID)    # passt
 identical(LOR_JLLagg_08$RAUMID, LOR_JLLagg_10_12$RAUMID) # passt. Ein einfacher "cbind" reicht um die Datensätze miteinander zu mergen
 LOR_JLLagg <- data.frame(cbind(LOR_JLLagg_07,

@@ -697,9 +697,9 @@ proj4string(bloecke07) <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.627
                               +x_0=40000 +y_0=10000 +ellps=bessel +datum=potsdam +units=m +no_defs")
 bloecke07  <- spTransform(bloecke07, zielCRS)
 sum(as.numeric(bloecke07@data$EINWOHNER), na.rm=T)
-bloecke07@data$EINWOHNER[is.na(bloecke08@data$EINWOHNER)] <- 0
-bloecke07@data$EW_PRO_HA[is.na(bloecke08@data$EW_PRO_HA)] <- 0
-bloecke07 <- bloecke08[bloecke08@data$EINWOHNER>0, ] # alle Blöcke löschen, wo niemand wohnt
+bloecke07@data$EINWOHNER[is.na(bloecke07@data$EINWOHNER)] <- 0
+bloecke07@data$EW_PRO_HA[is.na(bloecke07@data$EW_PRO_HA)] <- 0
+bloecke07 <- bloecke07[bloecke07@data$EINWOHNER>0, ] # alle Blöcke löschen, wo niemand wohnt
 bloecke07@data$order <- seq(1:length(bloecke08@data$SCHLUESSEL))
 length(bloecke07@data$SCHLUESSEL)
 #sum(as.numeric(bloecke07@data$EINWOHNER), na.rm=T)
