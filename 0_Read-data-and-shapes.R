@@ -44,13 +44,13 @@ setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_-LOR-/")
 EW <- lapply(EW_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE,
              dec=",", stringsAsFactors =F, colClasses=c(RAUMID="factor"))
 EW <- do.call("rbind", EW) # aus Liste von data.frames einen long Datensatz machen
-EW$ZEIT[EW$ZEIT == 200712] <- 2008
-EW$ZEIT[EW$ZEIT == 200812] <- 2009
-EW$ZEIT[EW$ZEIT == 200912] <- 2010
-EW$ZEIT[EW$ZEIT == 201012] <- 2011
-EW$ZEIT[EW$ZEIT == 201112] <- 2012
-EW$ZEIT[EW$ZEIT == 201212] <- 2013
-EW$ZEIT[EW$ZEIT == 201312] <- 2014
+EW$ZEIT[EW$ZEIT == 200712] <- 2007
+EW$ZEIT[EW$ZEIT == 200812] <- 2008
+EW$ZEIT[EW$ZEIT == 200912] <- 2009
+EW$ZEIT[EW$ZEIT == 201012] <- 2010
+EW$ZEIT[EW$ZEIT == 201112] <- 2011
+EW$ZEIT[EW$ZEIT == 201212] <- 2012
+EW$ZEIT[EW$ZEIT == 201312] <- 2013
 str(EW)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
@@ -63,13 +63,6 @@ setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_Wohndauer_-LOR-/")
 WHNDAUER <- lapply(WHNDAUER_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE,
                    dec=",", stringsAsFactors =F, colClasses=c(RAUMID="factor"))
 WHNDAUER <- do.call("rbind", WHNDAUER) # aus Liste von data.frames einen long Datensatz machen
-WHNDAUER$ZEIT[WHNDAUER$ZEIT == 2013] <- 2014
-WHNDAUER$ZEIT[WHNDAUER$ZEIT == 2012] <- 2013
-WHNDAUER$ZEIT[WHNDAUER$ZEIT == 2011] <- 2012
-WHNDAUER$ZEIT[WHNDAUER$ZEIT == 2010] <- 2011
-WHNDAUER$ZEIT[WHNDAUER$ZEIT == 2009] <- 2010
-WHNDAUER$ZEIT[WHNDAUER$ZEIT == 2008] <- 2009
-WHNDAUER$ZEIT[WHNDAUER$ZEIT == 2007] <- 2008
 
 WHNDAUER <- WHNDAUER[WHNDAUER$RAUMID!="",] # 2 leere Zeilen löschen
 WHNDAUER$RAUMID <- factor(WHNDAUER$RAUMID) # leeres Level "" für RAUMID droppen
@@ -95,13 +88,13 @@ WHNLAGE$WLMITML  <- as.numeric(WHNLAGE$WLMITML)
 WHNLAGE$WLGUTOL  <- as.numeric(WHNLAGE$WLGUTOL)
 WHNLAGE$WLGUTML  <- as.numeric(WHNLAGE$WLGUTML)
 WHNLAGE$WLNZORD  <- as.numeric(WHNLAGE$WLNZORD)
-WHNLAGE$ZEIT[WHNLAGE$ZEIT == 200712] <- 2008
-WHNLAGE$ZEIT[WHNLAGE$ZEIT == 200812] <- 2009
-WHNLAGE$ZEIT[WHNLAGE$ZEIT == 200912] <- 2010
-WHNLAGE$ZEIT[WHNLAGE$ZEIT == 201012] <- 2011
-WHNLAGE$ZEIT[WHNLAGE$ZEIT == 201112] <- 2012
-WHNLAGE$ZEIT[WHNLAGE$ZEIT == 201212] <- 2013
-WHNLAGE$ZEIT[WHNLAGE$ZEIT == 201312] <- 2014
+WHNLAGE$ZEIT[WHNLAGE$ZEIT == 200712] <- 2007
+WHNLAGE$ZEIT[WHNLAGE$ZEIT == 200812] <- 2008
+WHNLAGE$ZEIT[WHNLAGE$ZEIT == 200912] <- 2009
+WHNLAGE$ZEIT[WHNLAGE$ZEIT == 201012] <- 2010
+WHNLAGE$ZEIT[WHNLAGE$ZEIT == 201112] <- 2011
+WHNLAGE$ZEIT[WHNLAGE$ZEIT == 201212] <- 2012
+WHNLAGE$ZEIT[WHNLAGE$ZEIT == 201312] <- 2013
 #View(WHNLAGE)
 #str(WHNLAGE)
 
@@ -115,13 +108,13 @@ setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_Alter_Auslaender_-LOR-/")
 ALTERAUSLAENDER <- lapply(ALTERAUSLAENDER_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE,
                           dec=",", stringsAsFactors =F, colClasses=c(RAUMID="factor"))
 ALTERAUSLAENDER <- do.call("rbind", ALTERAUSLAENDER) # aus Liste von data.frames einen long Datensatz machen
-ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 200712] <- 2008
-ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 200812] <- 2009
-ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 200912] <- 2010
-ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 201012] <- 2011
-ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 201112] <- 2012
-ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 201212] <- 2013
-ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 201312] <- 2014
+ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 200712] <- 2007
+ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 200812] <- 2008
+ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 200912] <- 2009
+ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 201012] <- 2010
+ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 201112] <- 2011
+ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 201212] <- 2012
+ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 201312] <- 2013
 #View(ALTERAUSLAENDER)
 #str(ALTERAUSLAENDER)
 
@@ -137,13 +130,13 @@ MIGHINTERE <- lapply(MIGHINTERE_files, FUN = read.table, header = TRUE, sep=";",
                      dec=",", stringsAsFactors =F, colClasses=c(RAUMID="factor"))
 
 MIGHINTERE <- do.call("rbind", MIGHINTERE) # aus Liste von data.frames einen long Datensatz machen
-MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 200712] <- 2008
-MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 200812] <- 2009
-MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 200912] <- 2010
-MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 201012] <- 2011
-MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 201112] <- 2012
-MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 201212] <- 2013
-MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 201312] <- 2014
+MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 200712] <- 2007
+MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 200812] <- 2008
+MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 200912] <- 2009
+MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 201012] <- 2010
+MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 201112] <- 2011
+MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 201212] <- 2012
+MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 201312] <- 2013
 #View(MIGHINTERE)
 str(MIGHINTERE)
 
@@ -160,13 +153,13 @@ MIGHINTERH <- lapply(MIGHINTERH_files, FUN = read.table, header = TRUE, sep=";",
 MIGHINTERH[[7]][,10] <- NA # für 2014 gibt es nur EU28 und nicht EU27
 colnames(MIGHINTERH[[7]])[10] <- "HK_EU27"
 MIGHINTERH <- do.call("rbind", MIGHINTERH) # aus Liste von data.frames einen long Datensatz machen
-MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 200712] <- 2008
-MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 200812] <- 2009
-MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 200912] <- 2010
-MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 201012] <- 2011
-MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 201112] <- 2012
-MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 201212] <- 2013
-MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 201312] <- 2014
+MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 200712] <- 2007
+MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 200812] <- 2008
+MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 200912] <- 2009
+MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 201012] <- 2010
+MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 201112] <- 2011
+MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 201212] <- 2012
+MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 201312] <- 2013
 #View(MIGHINTERH)
 #str(MIGHINTERH)
 
@@ -216,7 +209,7 @@ MONITORING$GEBIET <- factor(MONITORING$GEBIET)
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 KONTEXTIND_files <- dir(path="KontextIndikatoren_-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/KontextIndikatoren_-LOR-/")
-KONTEXTIND <- lapply(KONTEXTIND_files, FUN = read.table, header = TRUE, sep=",",fill=TRUE,
+KONTEXTIND <- lapply(KONTEXTIND_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE,
                      dec=",", stringsAsFactors =F, colClasses=c(RAUMID="factor"))
 KONTEXTIND <- do.call("rbind", KONTEXTIND) # aus Liste von data.frames einen long Datensatz machen
 str(KONTEXTIND)
@@ -279,9 +272,9 @@ JLLdata         <- reshape(JLLdataWIDE,
 #names(JLLdataWIDE)
 #View(JLLdata)
 #str(JLLdata)
-JLLdata08_13 <- subset(JLLdata, 
-                       JLLdata$Zeit>=2008 & JLLdata$Zeit<=2013)
-JLLdata08_13$Zeit <- as.factor(JLLdata08_13$Zeit)
+JLLdata07_12 <- subset(JLLdata, 
+                       JLLdata$Zeit>=2007 & JLLdata$Zeit<=2012)
+JLLdata07_12$Zeit <- as.factor(JLLdata08_13$Zeit)
 #str(JLLdata08_13)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
@@ -580,7 +573,7 @@ ZUZUEGEdf <- ddply(ODdf, "NachLOR", summarise,
 plot(density(ZUZUEGEdf$Zuzuege))
 hist(ZUZUEGEdf$Zuzuege, breaks=100)
 
-install.packages("vcd")
+#install.packages("vcd")
 library(vcd) ## loading vcd package
 gf <- goodfit(ODdf$BinnenWand.Sum, type = "poisson", method = "MinChisq")
 summary(gf)
@@ -670,39 +663,56 @@ SanGebiete@data$SanGebiet_NAME <- SanGebieteNAMEN
 # Bloecke 2007
 #*******************
 
-# --- 2007 benötige ich gar nicht, außerdem passen die Attribute nicht zum shapefile ---
+setwd(dir="/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/Bloecke_GS/")
+EW_07_raw <- read.dbf(file = "2007_EPSG3068/Sachdaten/e06_06ewdichte2007.dbf")
+head(EW_07_raw)
+bloecke07_attributes <- read.dbf(file = "2007_EPSG3068/06_06ewdichte2007_Flaechen_ORIGINAL.dbf")
+bloecke07_attributes$order <- seq(1:length(bloecke07_attributes$SCHLUESSEL))
+head(bloecke07_attributes)
 
-# setwd(dir="/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/Bloecke_GS/")
-# EW_07_raw <- read.dbf(file = "2007_EPSG3068/Sachdaten/e06_06ewdichte2007.dbf")
-# head(EW_07_raw)
-# bloecke07_attributes <- read.dbf(file = "2007_EPSG3068/06_06ewdichte2007_Flaechen.DBF")
-# bloecke07_attributes$order <- seq(1:length(bloecke07_attributes$SCHLUESSEL))
-# head(bloecke07_attributes)
-# 
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+# Problem mit Attributsdaten; Es werden nicht alle Blöcke zugeordnet! Aber nur 5555 Einwohner
 # EW_07 <- merge(bloecke07_attributes, EW_07_raw, by="SCHLUESSEL", all.x=T, all.y=T)
-# head(EW_07)
-# length(EW_07_raw$SCHLUESSEL)
-# length(bloecke07_attributes$SCHLUESSEL)
-# length(EW_07$SCHLUESSEL)
-# subset(EW_07_raw, EW_07_raw$EINWOHNER>0 & is.na(EW_07_raw$EW_PRO_HA)) # diese 38 Fälle sind das Problem
-# 
-# 
+# nichtZuordenbar07 <- subset(EW_07_raw, EW_07_raw$EINWOHNER>0 & is.na(EW_07_raw$EW_PRO_HA)) # diese 38 Fälle sind das Problem
+# sum(nichtZuordenbar07$EINWOHNER) # 5555 Einwohner sind dadurch nicht zuordenbar
+# sum(EW_07$EINWOHNER, na.rm=T)
 # table(EW_07$KLASSENNAM, useNA=c("always"))
 # subset(EW_07,is.na(EW_07$KLASSENNAM))
 # subset(EW_07, EW_07$EINWOHNER>0 & (is.na(EW_07$FLAECHE_IN)))
-# is.na(EW_07$KLASSENNAM)
-# 
-# bloecke07  <- readOGR(dsn="/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/Bloecke_GS/2007_EPSG3068/", layer="06_06ewdichte2007_Flaechen.shp")
-# bloecke07  <- spTransform(bloecke07, zielCRS)
-#sum(as.numeric(bloecke07@data$EW2013), na.rm=T)
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+# Deswegen nocmal, ohne alle Y
+
+EW_07 <- merge(bloecke07_attributes, EW_07_raw, by="SCHLUESSEL", all.x=T, all.y=F)
+EW_07 <- EW_07[with(EW_07, order(order)), ]
+head(EW_07)
+str(EW_07)
+
+setwd(dir="2007_EPSG3068/")
+write.dbf(EW_07, file="06_06ewdichte2007_Flaechen", factor2char = TRUE)
+
+bloecke07  <- readOGR(dsn="/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/Bloecke_GS/2007_EPSG3068/", 
+                      layer="06_06ewdichte2007_Flaechen")
+proj4string(bloecke07) <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 
+                              +x_0=40000 +y_0=10000 +ellps=bessel +datum=potsdam +units=m +no_defs")
+bloecke07  <- spTransform(bloecke07, zielCRS)
+sum(as.numeric(bloecke07@data$EINWOHNER), na.rm=T)
+bloecke07@data$EINWOHNER[is.na(bloecke08@data$EINWOHNER)] <- 0
+bloecke07@data$EW_PRO_HA[is.na(bloecke08@data$EW_PRO_HA)] <- 0
+bloecke07 <- bloecke08[bloecke08@data$EINWOHNER>0, ] # alle Blöcke löschen, wo niemand wohnt
+bloecke07@data$order <- seq(1:length(bloecke08@data$SCHLUESSEL))
+length(bloecke07@data$SCHLUESSEL)
+#sum(as.numeric(bloecke07@data$EINWOHNER), na.rm=T)
 #str(bloecke07@data)
 #plot(bloecke07)
+#View(bloecke07@data)
 
 #*******************
 # Bloecke 2008
 #*******************
 
-EW_08_raw <- read.dbf(file = "2008_EPSG3068/Sachdaten/06_06EWdichte2008.DBF")
+setwd(dir="/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/Bloecke_GS/")
+EW_08_raw <- read.dbf(file = "2008_EPSG3068/Sachdaten/06_06EWdichte2008.dbf")
 head(EW_08_raw)
 bloecke08_attributes <- read.dbf(file = "2008_EPSG3068/alt/06_06ewdichte2008.DBF")
 bloecke08_attributes$order <- seq(1:length(bloecke08_attributes$SCHLUESSEL))
@@ -728,7 +738,7 @@ bloecke08@data$EW_PRO_HA[is.na(bloecke08@data$EW_PRO_HA)] <- 0
 bloecke08 <- bloecke08[bloecke08@data$EINWOHNER>0, ] # alle Blöcke löschen, wo niemand wohnt
 bloecke08@data$order <- seq(1:length(bloecke08@data$SCHLUESSEL))
 #length(bloecke08@data$SCHLUESSEL)
-#sum(as.numeric(bloecke08@data$EW2013), na.rm=T)
+#sum(as.numeric(bloecke08@data$EINWOHNER), na.rm=T)
 #str(bloecke08@data)
 #plot(bloecke08)
 #View(bloecke08@data)
@@ -762,33 +772,33 @@ bloecke09@data$EW_PRO_HA[is.na(bloecke09@data$EW_PRO_HA)] <- 0
 bloecke09@data <- bloecke09@data[,-(3)] # leere LOR Variable löschen
 bloecke09 <- bloecke09[bloecke09@data$EW_GESAMT>0, ] # alle Blöcke löschen, wo niemand wohnt
 bloecke09@data$order <- seq(1:length(bloecke09@data$SCHLUESSEL))
-# length(bloecke09@data$SCHLUESSEL)
+#length(bloecke09@data$SCHLUESSEL)
 #sum(as.numeric(bloecke09@data$EW2013), na.rm=T)
 #str(bloecke09@data)
 #View(bloecke09@data)
 #plot(bloecke09)
 
 #*******************
-# Bloecke 2010-2013
+# Bloecke 2010-2012
 #*******************
 
 setwd(dir="/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/Bloecke_GS")
-EW_10_13 <- read.table(file ="EW_2010-2013.csv", header=T, sep=",")
-EW_10_13$spatial_na <- as.factor(data$spatial_na)
-EW_10_13$spatial_al <- as.factor(data$spatial_al)
-EW_10_13[is.na(EW_10_13)] <- 0
-write.dbf(EW_10_13, file="bloecke_EW", factor2char = TRUE)
+EW_10_12 <- read.table(file ="EW_2010-2013.csv", header=T, sep=",")
+EW_10_12$spatial_na <- as.factor(data$spatial_na)
+EW_10_12$spatial_al <- as.factor(data$spatial_al)
+EW_10_12[is.na(EW_10_12)] <- 0
+write.dbf(EW_10_12, file="bloecke_EW", factor2char = TRUE)
 
-bloecke10_13  <- readOGR(dsn="/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/Bloecke_GS", layer="bloecke_EW")
-bloecke10_13  <- spTransform(bloecke10_13, zielCRS)
-bloecke10_13  <- bloecke10_13[bloecke10_13@data$EW2013>0 | 
-                                bloecke10_13@data$EW2012>0 |
-                                bloecke10_13@data$EW2011>0 |
-                                bloecke10_13@data$EW2010>0, ] # alle Blöcke löschen, wo niemand wohnt
-bloecke10_13@data$SCHLUESSEL <- as.factor(substr(bloecke10_13@data$gml_id, 24,39)) # ID Variable isolieren --> SCHLUESSEL generieren
-bloecke10_13@data <- subset(bloecke10_13@data, select=-c(gml_id,spatial_na,spatial_al,spatial_ty)) # unnötige Variabeln löschen
-bloecke10_13@data <- bloecke10_13@data[c(10,1,2,3,4,5,6,7,8,9)] # ID Variable SCHLUESSEL im Datensatz nach ganz vorne ziehen (=zur 1.Spalte machen)
-bloecke10_13@data$order <- seq(1:length(bloecke10_13@data$SCHLUESSEL))
+bloecke10_12  <- readOGR(dsn="/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/Bloecke_GS", layer="bloecke_EW")
+bloecke10_12  <- spTransform(bloecke10_12, zielCRS)
+bloecke10_12  <- bloecke10_12[bloecke10_12@data$EW2012>0 |
+                              bloecke10_12@data$EW2011>0 |
+                              bloecke10_12@data$EW2010>0, ] # alle Blöcke löschen, wo niemand wohnt
+bloecke10_12@data$SCHLUESSEL <- as.factor(substr(bloecke10_12@data$gml_id, 24,39)) # ID Variable isolieren --> SCHLUESSEL generieren
+bloecke10_12@data <- subset(bloecke10_12@data, select=-c(gml_id,spatial_na,spatial_al,spatial_ty,
+                                                         EW2013,EW_HA2013,HA2013)) # unnötige Variabeln löschen
+bloecke10_12@data <- bloecke10_12@data[c(7,1,2,3,4,5,6)] # ID Variable SCHLUESSEL im Datensatz nach ganz vorne ziehen (=zur 1.Spalte machen)
+bloecke10_12@data$order <- seq(1:length(bloecke10_12@data$SCHLUESSEL))
 #names(bloecke10_13)
 #View(bloecke10_13@data)
 #length(bloecke10_13@data$EW2013)

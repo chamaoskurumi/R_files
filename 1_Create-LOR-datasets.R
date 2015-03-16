@@ -70,7 +70,7 @@ names(DF4)
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # MONITORING =================
 
-MONITORING4merge <- subset(MONITORING, select=-c(EW), ZEIT>=2008)
+MONITORING4merge <- subset(MONITORING, select=-c(EW), ZEIT>=2007)
 DF5 <- merge(x = DF4, y = MONITORING4merge, by = c("RAUMID", "ZEIT"))
 # Variablenanordnung ändern
 DF5 <- DF5[c(2,1,60,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,
@@ -137,12 +137,12 @@ names(DF6)
 #View(DF6)
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# KONTEXTINDIKATOREN 2013 ======================================
+# KONTEXTINDIKATOREN 2012 ======================================
 
 KONTEXTIND4merge <- subset(KONTEXTIND, select=-c(GEBIET, EW))
 DF7 <- merge(x = DF6, y = KONTEXTIND4merge, by = c("ZEIT","RAUMID"), all.x=T)
 names(DF7)
-#View(DF7)
+tail(DF7)
 
 DF7$ZEIT <- as.factor(DF7$ZEIT)
 LORdata <- DF7
@@ -183,7 +183,8 @@ DF7wide <- reshape(DF7,
                               "WLGUTML",                "WLNZORD"         ,       "Alose"            ,      "Alose_u25"             ,
                               "Alose_langzeit",         "nicht_Alose_Hartz",      "Hartz_u15"      ,        "MigHinter_u18"         ,
                               "WanderVol",              "WanderSaldo"      ,      "WanderSaldo_u6",         "Veraend_HartzEmpf_D"   ,
-                              "Veraend_HartzEmpf_Ausl", "Veraend_Hartz_u15",      "StaedtWohnungen",        "EinfWhnlageLaerm"),
+                              "Veraend_HartzEmpf_Ausl", "Veraend_Hartz_u15",      "StaedtWohnungen",        "EinfWhnlageLaerm",
+                              "AlleinerzHH",            "Altersarmut"),
                   timevar = "ZEIT",
                   direction = "wide")
 #View(DF7wide)

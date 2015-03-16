@@ -245,6 +245,7 @@ LORdataFULLv4 <- LORdataFULLv3[c("ZEIT",
                # Sozialindikatoren
                "Alose",      "Alose_u25",  "Alose_langzeit", "nicht_Alose_Hartz", "Hartz_u15", 
                "Veraend_HartzEmpf_D",    "Veraend_HartzEmpf_Ausl",  "Veraend_Hartz_u15", "StaedtWohnungen",
+               "AlleinerzHH",            "Altersarmut", 
                # Wanderdaten
                "WanderVol",       "WanderSaldo",       "WanderSaldo_u6",    
                # SanierungsGebiete
@@ -313,6 +314,7 @@ LORdataFULLwidev1    <- reshape(LORdataFULL4wide,
                               # Sozialindikatoren
                               "Alose",      "Alose_u25",  "Alose_langzeit", "nicht_Alose_Hartz", "Hartz_u15", 
                               "Veraend_HartzEmpf_D",    "Veraend_HartzEmpf_Ausl",  "Veraend_Hartz_u15", "StaedtWohnungen",
+                              "AlleinerzHH",            "Altersarmut",  
                               # Wanderdaten
                               "WanderVol",       "WanderSaldo",       "WanderSaldo_u6",    
                               # SanierungsGebiete
@@ -329,69 +331,68 @@ LORdataFULLwidev2   <- LORdataFULLwidev1
 names(LORdataFULLwidev2)
 
 # Rentner 
-LORdataFULLwidev2$E_65U110chg       <- LORdataFULLwidev2$E_65U110.2008-  LORdataFULLwidev2$E_65U110.2013
-LORdataFULLwidev2$E_65U110Rchg       <- LORdataFULLwidev2$E_65U110R.2008-  LORdataFULLwidev2$E_65U110R.2013
+LORdataFULLwidev2$E_65U110chg       <- LORdataFULLwidev2$E_65U110.2007-  LORdataFULLwidev2$E_65U110.2012
+LORdataFULLwidev2$E_65U110Rchg      <- LORdataFULLwidev2$E_65U110R.2007-  LORdataFULLwidev2$E_65U110R.2012
 
 # Änderung der Wohndauer
-LORdataFULLwidev2$DAU5chg        <- LORdataFULLwidev2$DAU5.2008-  LORdataFULLwidev2$DAU5.2013
-LORdataFULLwidev2$DAU10chg       <- LORdataFULLwidev2$DAU10.2008- LORdataFULLwidev2$DAU10.2013
-LORdataFULLwidev2$PDAU5chg       <- LORdataFULLwidev2$PDAU5.2008- LORdataFULLwidev2$PDAU5.2013
-LORdataFULLwidev2$PDAU10chg      <- LORdataFULLwidev2$PDAU10.2008-LORdataFULLwidev2$PDAU10.2013
+LORdataFULLwidev2$DAU5chg        <- LORdataFULLwidev2$DAU5.2007-  LORdataFULLwidev2$DAU5.2012
+LORdataFULLwidev2$DAU10chg       <- LORdataFULLwidev2$DAU10.2007- LORdataFULLwidev2$DAU10.2012
+LORdataFULLwidev2$PDAU5chg       <- LORdataFULLwidev2$PDAU5.2007- LORdataFULLwidev2$PDAU5.2012
+LORdataFULLwidev2$PDAU10chg      <- LORdataFULLwidev2$PDAU10.2007-LORdataFULLwidev2$PDAU10.2012
 
 # Änderung Wohnlage
-LORdataFULLwidev2$WLEINFchg        <- LORdataFULLwidev2$WLEINF.2008-LORdataFULLwidev2$WLEINF.2013
-LORdataFULLwidev2$WLMITchg         <- LORdataFULLwidev2$WLMIT.2008-LORdataFULLwidev2$WLMIT.2013
-LORdataFULLwidev2$WLGUTchg         <- LORdataFULLwidev2$WLGUT.2008-LORdataFULLwidev2$WLGUT.2013
+LORdataFULLwidev2$WLEINFchg        <- LORdataFULLwidev2$WLEINF.2007-LORdataFULLwidev2$WLEINF.2012
+LORdataFULLwidev2$WLMITchg         <- LORdataFULLwidev2$WLMIT.2007-LORdataFULLwidev2$WLMIT.2012
+LORdataFULLwidev2$WLGUTchg         <- LORdataFULLwidev2$WLGUT.2007-LORdataFULLwidev2$WLGUT.2012
 
-LORdataFULLwidev2$WLEINFRchg        <- LORdataFULLwidev2$WLEINFR.2008-LORdataFULLwidev2$WLEINFR.2013
-LORdataFULLwidev2$WLMITRchg         <- LORdataFULLwidev2$WLMITR.2008-LORdataFULLwidev2$WLMITR.2013
-LORdataFULLwidev2$WLGUTRchg         <- LORdataFULLwidev2$WLGUTR.2008-LORdataFULLwidev2$WLGUTR.2013
+LORdataFULLwidev2$WLEINFRchg        <- LORdataFULLwidev2$WLEINFR.2007-LORdataFULLwidev2$WLEINFR.2012
+LORdataFULLwidev2$WLMITRchg         <- LORdataFULLwidev2$WLMITR.2007-LORdataFULLwidev2$WLMITR.2012
+LORdataFULLwidev2$WLGUTRchg         <- LORdataFULLwidev2$WLGUTR.2007-LORdataFULLwidev2$WLGUTR.2012
 
 # Änderung Arbeitslosigkeit
-LORdataFULLwidev2$Alosechg          <- LORdataFULLwidev2$Alose.2008 -            LORdataFULLwidev2$Alose.2013
-LORdataFULLwidev2$Alose_langzeitchg <- LORdataFULLwidev2$Alose_langzeit.2008  -  LORdataFULLwidev2$Alose_langzeit.2013
-LORdataFULLwidev2$Alose_u25chg      <- LORdataFULLwidev2$Alose_u25.2008 -        LORdataFULLwidev2$Alose_u25.2013
-LORdataFULLwidev2$Hartz_u15chg      <- LORdataFULLwidev2$Hartz_u15.2008 -        LORdataFULLwidev2$Hartz_u15.2013
+LORdataFULLwidev2$Alosechg          <- LORdataFULLwidev2$Alose.2007 -            LORdataFULLwidev2$Alose.2012
+LORdataFULLwidev2$Alose_langzeitchg <- LORdataFULLwidev2$Alose_langzeit.2007  -  LORdataFULLwidev2$Alose_langzeit.2012
+LORdataFULLwidev2$Alose_u25chg      <- LORdataFULLwidev2$Alose_u25.2007 -        LORdataFULLwidev2$Alose_u25.2012
+LORdataFULLwidev2$Hartz_u15chg      <- LORdataFULLwidev2$Hartz_u15.2007 -        LORdataFULLwidev2$Hartz_u15.2012
 
 # Änderung Ausländeranteil
-LORdataFULLwidev2$MH_Echg           <-  LORdataFULLwidev2$MH_E.2008 -            LORdataFULLwidev2$MH_E.2013
-LORdataFULLwidev2$MH_ERchg          <-  LORdataFULLwidev2$MH_ER.2008 -           LORdataFULLwidev2$MH_ER.2013
+LORdataFULLwidev2$MH_Echg           <-  LORdataFULLwidev2$MH_E.2007 -            LORdataFULLwidev2$MH_E.2012
+LORdataFULLwidev2$MH_ERchg          <-  LORdataFULLwidev2$MH_ER.2007 -           LORdataFULLwidev2$MH_ER.2012
 
-LORdataFULLwidev2$MH_U18chg         <-  LORdataFULLwidev2$MH_U18.2008 -           LORdataFULLwidev2$MH_U18.2013
-LORdataFULLwidev2$MH_U18RU18chg     <-  LORdataFULLwidev2$MH_U18RU18.2008 -       LORdataFULLwidev2$MH_U18RU18.2013
-LORdataFULLwidev2$MH_65U110R65U110chg <-  LORdataFULLwidev2$MH_65U110R65U110.2008-LORdataFULLwidev2$65U110R65U110.2013
+LORdataFULLwidev2$MH_U18chg         <-  LORdataFULLwidev2$MH_U18.2007 -           LORdataFULLwidev2$MH_U18.2012
+LORdataFULLwidev2$MH_U18RU18chg     <-  LORdataFULLwidev2$MH_U18RU18.2007 -       LORdataFULLwidev2$MH_U18RU18.2012
+LORdataFULLwidev2$MH_65U110R65U110chg <-  LORdataFULLwidev2$MH_65U110R65U110.2007-LORdataFULLwidev2$65U110R65U110.2012
 
-LORdataFULLwidev2$HK_EU15chg        <-  LORdataFULLwidev2$HK_EU15.2008 -         LORdataFULLwidev2$HK_EU15.2013
-LORdataFULLwidev2$HK_EU27hg         <-  LORdataFULLwidev2$HK_EU27.2008 -         LORdataFULLwidev2$HK_EU27.2013
-LORdataFULLwidev2$HK_Turkchg        <-  LORdataFULLwidev2$HK_Turk.2008 -         LORdataFULLwidev2$HK_Turk.2013
-LORdataFULLwidev2$HK_Arabchg        <-  LORdataFULLwidev2$HK_Arab.2008 -         LORdataFULLwidev2$HK_Arab.2013
-LORdataFULLwidev2$HK_EheJugchg      <-  LORdataFULLwidev2$HK_EheJug.2008 -       LORdataFULLwidev2$HK_EheJug.2013
+LORdataFULLwidev2$HK_EU15chg        <-  LORdataFULLwidev2$HK_EU15.2007 -         LORdataFULLwidev2$HK_EU15.2012
+LORdataFULLwidev2$HK_EU27hg         <-  LORdataFULLwidev2$HK_EU27.2007 -         LORdataFULLwidev2$HK_EU27.2012
+LORdataFULLwidev2$HK_Turkchg        <-  LORdataFULLwidev2$HK_Turk.2007 -         LORdataFULLwidev2$HK_Turk.2012
+LORdataFULLwidev2$HK_Arabchg        <-  LORdataFULLwidev2$HK_Arab.2007 -         LORdataFULLwidev2$HK_Arab.2012
+LORdataFULLwidev2$HK_EheJugchg      <-  LORdataFULLwidev2$HK_EheJug.2007 -       LORdataFULLwidev2$HK_EheJug.2012
 
-LORdataFULLwidev2$HK_EU15Rchg        <-  LORdataFULLwidev2$HK_EU15R.2008 -         LORdataFULLwidev2$HK_EU15R.2013
-LORdataFULLwidev2$HK_EU27Rhg         <-  LORdataFULLwidev2$HK_EU27R.2008 -         LORdataFULLwidev2$HK_EU27R.2013
-LORdataFULLwidev2$HK_TurkRchg        <-  LORdataFULLwidev2$HK_TurkR.2008 -         LORdataFULLwidev2$HK_TurkR.2013
-LORdataFULLwidev2$HK_ArabRchg        <-  LORdataFULLwidev2$HK_ArabR.2008 -         LORdataFULLwidev2$HK_ArabR.2013
-LORdataFULLwidev2$HK_EheJugRchg      <-  LORdataFULLwidev2$HK_EheJugR.2008 -       LORdataFULLwidev2$HK_EheJugR.2013
+LORdataFULLwidev2$HK_EU15Rchg        <-  LORdataFULLwidev2$HK_EU15R.2007 -         LORdataFULLwidev2$HK_EU15R.2012
+LORdataFULLwidev2$HK_EU27Rhg         <-  LORdataFULLwidev2$HK_EU27R.2007 -         LORdataFULLwidev2$HK_EU27R.2012
+LORdataFULLwidev2$HK_TurkRchg        <-  LORdataFULLwidev2$HK_TurkR.2007 -         LORdataFULLwidev2$HK_TurkR.2012
+LORdataFULLwidev2$HK_ArabRchg        <-  LORdataFULLwidev2$HK_ArabR.2007 -         LORdataFULLwidev2$HK_ArabR.2012
+LORdataFULLwidev2$HK_EheJugRchg      <-  LORdataFULLwidev2$HK_EheJugR.2007 -       LORdataFULLwidev2$HK_EheJugR.2012
 
-LORdataFULLwidev2$HK_EU15RMHchg        <-  LORdataFULLwidev2$HK_EU15RMH.2008 -         LORdataFULLwidev2$HK_EU15RMH.2013
-LORdataFULLwidev2$HK_EU27RMHhg         <-  LORdataFULLwidev2$HK_EU27RMH.2008 -         LORdataFULLwidev2$HK_EU27RMH.2013
-LORdataFULLwidev2$HK_TurkRMHchg        <-  LORdataFULLwidev2$HK_TurkRMH.2008 -         LORdataFULLwidev2$HK_TurkRMH.2013
-LORdataFULLwidev2$HK_ArabRMHchg        <-  LORdataFULLwidev2$HK_ArabRMH.2008 -         LORdataFULLwidev2$HK_ArabRMH.2013
-LORdataFULLwidev2$HK_EheJugRMHchg      <-  LORdataFULLwidev2$HK_EheJugRMH.2008 -       LORdataFULLwidev2$HK_EheJugRMH.2013
+LORdataFULLwidev2$HK_EU15RMHchg        <-  LORdataFULLwidev2$HK_EU15RMH.2007 -         LORdataFULLwidev2$HK_EU15RMH.2012
+LORdataFULLwidev2$HK_EU27RMHhg         <-  LORdataFULLwidev2$HK_EU27RMH.2007 -         LORdataFULLwidev2$HK_EU27RMH.2012
+LORdataFULLwidev2$HK_TurkRMHchg        <-  LORdataFULLwidev2$HK_TurkRMH.2007 -         LORdataFULLwidev2$HK_TurkRMH.2012
+LORdataFULLwidev2$HK_ArabRMHchg        <-  LORdataFULLwidev2$HK_ArabRMH.2007 -         LORdataFULLwidev2$HK_ArabRMH.2012
+LORdataFULLwidev2$HK_EheJugRMHchg      <-  LORdataFULLwidev2$HK_EheJugRMH.2007 -       LORdataFULLwidev2$HK_EheJugRMH.2012
 
 # Wanderungssaldo Summe in Prozent (ungenau)
-LORdataFULLwidev2$WanderSaldosum <-   (LORdataFULLwidev2$Miete.2008 +
-                                         LORdataFULLwidev2$Miete.2008 +
-                                         LORdataFULLwidev2$Miete.2009 +
-                                         LORdataFULLwidev2$Miete.2010 +
-                                         LORdataFULLwidev2$Miete.2011 +
-                                         LORdataFULLwidev2$Miete.2012 +
-                                         LORdataFULLwidev2$Miete.2013)
+LORdataFULLwidev2$WanderSaldosum <-   (LORdataFULLwidev2$Miete.2007 +
+                                       LORdataFULLwidev2$Miete.2008 +
+                                       LORdataFULLwidev2$Miete.2009 +
+                                       LORdataFULLwidev2$Miete.2010 +
+                                       LORdataFULLwidev2$Miete.2011 +
+                                       LORdataFULLwidev2$Miete.2012)
 
 # Mietpreisänderung
-LORdataFULLwidev2$Mietechg    <-   LORdataFULLwidev2$Miete.2013 - LORdataFULLwidev2$Miete.2008
-LORdataFULLwidev2$Mietechgr   <-   round(((LORdataFULLwidev2$Miete.2013 - LORdataFULLwidev2$Miete.2008)/
-                                            LORdataFULLwidev2$Miete.2008)*100, digits=0)
+LORdataFULLwidev2$Mietechg    <-   LORdataFULLwidev2$Miete.2012 - LORdataFULLwidev2$Miete.2007
+LORdataFULLwidev2$Mietechgr   <-   round(((LORdataFULLwidev2$Miete.2012 - LORdataFULLwidev2$Miete.2007)/
+                                            LORdataFULLwidev2$Miete.2007)*100, digits=0)
 names(LORdataFULLwidev2)
 
 LORdataWIDE <- LORdataFULLwidev2

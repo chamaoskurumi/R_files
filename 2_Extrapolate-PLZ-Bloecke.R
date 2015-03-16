@@ -45,10 +45,10 @@ JLLdata         <- reshape(JLLdataWIDE,
 #names(JLLdataWIDE)
 #View(JLLdata)
 #str(JLLdata)
-JLLdata08_13 <- subset(JLLdata, 
-                       JLLdata$Zeit>=2008 & JLLdata$Zeit<=2013)
-JLLdata08_13$Zeit <- as.factor(JLLdata08_13$Zeit)
-#str(JLLdata08_13)
+JLLdata07_12 <- subset(JLLdata, 
+                       JLLdata$Zeit>=2007 & JLLdata$Zeit<=2012)
+JLLdata07_12$Zeit <- as.factor(JLLdata07_12$Zeit)
+#str(JLLdata07_12)
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
@@ -66,46 +66,53 @@ PLZ    <- spTransform(PLZ1, zielCRS)
 # JLL Data & PLZ mergen -------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~
 
+JLL2007 <- JLLdata[JLLdata$Zeit==2007,]
+JLL2007 <- unique(JLL2007); length(JLL2007$PLZ)
+JLL2007$PLZ <- factor(JLL2007$PLZ); length(levels(JLL2007$PLZ))
+
 JLL2008 <- JLLdata[JLLdata$Zeit==2008,]
 JLL2008 <- unique(JLL2008); length(JLL2008$PLZ)
 JLL2008$PLZ <- factor(JLL2008$PLZ); length(levels(JLL2008$PLZ))
+
 JLL2009 <- JLLdata[JLLdata$Zeit==2009,]
 JLL2009 <- unique(JLL2009); length(JLL2009$PLZ)
 JLL2009$PLZ <- factor(JLL2009$PLZ); length(levels(JLL2009$PLZ))
+
 JLL2010 <- JLLdata[JLLdata$Zeit==2010,]
 JLL2010 <- unique(JLL2010); length(JLL2010$PLZ)
 JLL2010$PLZ <- factor(JLL2010$PLZ); length(levels(JLL2010$PLZ))
+
 JLL2011 <- JLLdata[JLLdata$Zeit==2011,]
 JLL2011 <- unique(JLL2011); length(JLL2011$PLZ)
 JLL2011$PLZ <- factor(JLL2011$PLZ); length(levels(JLL2011$PLZ))
+
 JLL2012 <- JLLdata[JLLdata$Zeit==2012,]
 JLL2012 <- unique(JLL2012); length(JLL2012$PLZ)
 JLL2012$PLZ <- factor(JLL2012$PLZ); length(levels(JLL2012$PLZ))
-JLL2013 <- JLLdata[JLLdata$Zeit==2013,]
-JLL2013 <- unique(JLL2013); length(JLL2013$PLZ)
-JLL2013$PLZ <- factor(JLL2013$PLZ); length(levels(JLL2013$PLZ))
 
-PLZ2008      <- PLZ; length(PLZ2008@data$PLZ)
+PLZ2007      <- PLZ; length(PLZ2007@data$PLZ)
+PLZ2008      <- PLZ
 PLZ2009      <- PLZ
 PLZ2010      <- PLZ
 PLZ2011      <- PLZ
 PLZ2012      <- PLZ
-PLZ2013      <- PLZ
-PLZ2010_2013 <- PLZ
+PLZ2010_2012 <- PLZ
 
+#PLZ2007@data$order      <- seq(1:190)
 #PLZ2008@data$order      <- seq(1:190)
 #PLZ2009@data$order      <- seq(1:190)
 #PLZ2010@data$order      <- seq(1:190)
 #PLZ2011@data$order      <- seq(1:190)
 #PLZ2012@data$order      <- seq(1:190)
-#PLZ2013@data$order      <- seq(1:190)
-#PLZ2010_2013@data$order <- seq(1:190)
+#PLZ2010-2012@data$order <- seq(1:190)
 
-identical(levels(JLL2013$PLZ),levels(PLZ@data$PLZ))
+identical(levels(JLL2007$PLZ),levels(PLZ@data$PLZ))
 
 source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
 # sort=F Option hier extrem wichtig, sonst kommt wird der plotting order im shape file falsch 
 # sorf= F würde reichen, aber wir gehen auf Nummer sicher und mergen mit keep_order
+PLZ2007@data <- merge(PLZ2007@data, JLL2007, all.x=T,  by="PLZ", 
+                      sort=F, keep_order=1);PLZ2007@data$Zeit <- "2007"
 PLZ2008@data <- merge(PLZ2008@data, JLL2008, all.x=T,  by="PLZ", 
                       sort=F, keep_order=1);PLZ2008@data$Zeit <- "2008"
 PLZ2009@data <- merge(PLZ2009@data, JLL2009, all.x=T,  by="PLZ", 
@@ -116,10 +123,12 @@ PLZ2011@data <- merge(PLZ2011@data, JLL2011, all.x=T,  by="PLZ",
                       sort=F, keep_order=1);PLZ2011@data$Zeit <- "2011"
 PLZ2012@data <- merge(PLZ2012@data, JLL2012, all.x=T,  by="PLZ", 
                       sort=F, keep_order=1);PLZ2012@data$Zeit <- "2012"
-PLZ2013@data <- merge(PLZ2013@data, JLL2013, all.x=T,  by="PLZ", 
-                      sort=F, keep_order=1);PLZ2013@data$Zeit <- "2013"
-table(PLZ2010_2013df$Zeit)
+table(PLZ2010_2012df$Zeit)
 
+PLZMiete07_plot <- spplot(PLZ2007, zcol="Miete_H2", 
+                          col.regions = rev(heat.colors(200)),
+                          at=seq(4,15, length.out=201),
+                          xlab="Miete 2.HJahr 2007")
 PLZMiete08_plot <-  spplot(PLZ2008, zcol="Miete_H2", 
                           col.regions = rev(heat.colors(200)),
                           at=seq(4,15, length.out=201),
@@ -140,36 +149,32 @@ PLZMiete12_plot <-  spplot(PLZ2012, zcol="Miete_H2",
                            col.regions = rev(heat.colors(200)),
                            at=seq(4,15, length.out=201),
                            xlab="Miete 2.HJahr 2012")
-PLZMiete13_plot <- spplot(PLZ2013, zcol="Miete_H2", 
-                          col.regions = rev(heat.colors(200)),
-                          at=seq(4,15, length.out=201),
-                          xlab="Miete 2.HJahr 2013")
-#grid.arrange(PLZMiete08_plot,
-#             PLZMiete09_plot,
-#             PLZMiete10_plot,
-#             PLZMiete11_plot,
-#             PLZMiete12_plot,
-#             PLZMiete13_plot, 
-#             nrow=3, ncol=2)
 
-PLZ2010_2013df <- data.frame(rbind(PLZ2010@data,
+# grid.arrange(PLZMiete07_plot,
+#              PLZMiete08_plot,
+#              PLZMiete09_plot,
+#              PLZMiete10_plot,
+#              PLZMiete11_plot,
+#              PLZMiete12_plot, 
+#              nrow=3, ncol=2)
+
+PLZ2010_2012df <- data.frame(rbind(PLZ2010@data,
                                    PLZ2011@data,
-                                   PLZ2012@data,
-                                   PLZ2013@data))
-head(PLZ2010_2013df)
+                                   PLZ2012@data))
+head(PLZ2010_2012df)
 
-PLZ2010_2013dfwide <- reshape(PLZ2010_2013df,                 
+PLZ2010_2012dfwide <- reshape(PLZ2010_2012df,                 
                             idvar = c("PLZ", "FLAECHE_HA"),
                             v.names = c("Miete_H1",
                                         "Miete_H2"),
                             timevar = "Zeit",
                             direction = "wide")
-#View(PLZ2010_2013dfwide)
+#View(PLZ2010_2012dfwide)
 
-PLZ2010_2013@data <- merge.with.order(PLZ2010_2013@data, PLZ2010_2013dfwide, 
+PLZ2010_2012@data <- merge.with.order(PLZ2010_2012@data, PLZ2010_2012dfwide, 
                                       all.x=T, sort=F,
                                       keep_order=1)
-#head(PLZ2010_2013@data)
+#head(PLZ2010_2012@data)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # bloecke in SpatialPoints verwandeln -------------------
@@ -178,6 +183,11 @@ PLZ2010_2013@data <- merge.with.order(PLZ2010_2013@data, PLZ2010_2013dfwide,
 zielCRS <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 
                 +x_0=40000 +y_0=10000 +datum=potsdam +units=m
                 +no_defs +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 ")
+
+bloecke07_pt    <- gCentroid(bloecke07    ,byid=TRUE); plot(bloecke07_pt)
+bloecke07_ptdf  <- SpatialPointsDataFrame(coords = bloecke07_pt, 
+                                          data = bloecke07@data, 
+                                          proj4string = zielCRS)
 
 bloecke08_pt    <- gCentroid(bloecke08    ,byid=TRUE); plot(bloecke08_pt)
 bloecke08_ptdf  <- SpatialPointsDataFrame(coords = bloecke08_pt, 
@@ -189,14 +199,47 @@ bloecke09_ptdf  <- SpatialPointsDataFrame(coords = bloecke09_pt,
                                           data = bloecke09@data, 
                                           proj4string = zielCRS)
                                           
-bloecke10_13_pt    <- gCentroid(bloecke10_13 ,byid=TRUE)
-bloecke10_13_ptdf  <- SpatialPointsDataFrame(coords = bloecke10_13_pt, 
-                                          data = bloecke10_13@data, 
+bloecke10_12_pt    <- gCentroid(bloecke10_12 ,byid=TRUE)
+bloecke10_12_ptdf  <- SpatialPointsDataFrame(coords = bloecke10_12_pt, 
+                                          data = bloecke10_12@data, 
                                           proj4string = zielCRS)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Overlay von bloecke-Schwerpunkten in PLZ shpfile: Zuordnung bloecke <--> PLZ -------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#+++++++++++++
+# 2007
+#+++++++++++++
+
+bloeckePLZ07_ptdf <- SpatialPointsDataFrame(coords = bloecke07_pt, 
+                                            data   = data.frame(bloecke07_ptdf@data,
+                                                                over(bloecke07_ptdf, PLZ2007)),
+                                            proj4string = zielCRS) 
+head(bloeckePLZ07_ptdf@data)
+# Für soviele Blöcke hat die Zoordnung nicht funktioniert:
+dim(bloeckePLZ07_ptdf@data[is.na(bloeckePLZ07_ptdf@data$PLZ),])[1]
+# D.h. soviele Einwohner können nicht zugeordenet werden:
+nichtZuordenbarEW07 <- sum(bloeckePLZ07_ptdf@data[is.na(bloeckePLZ07_ptdf@data$PLZ),]["EINWOHNER"])
+nichtZuordenbarEW07 
+# Das entspricht einem nicht zugeeordnetem Anteil an der Berliner Gesamtbevölkerung:
+round(nichtZuordenbarEW07/sum(bloeckePLZ07_ptdf@data$EINWOHNER), digits = 3)
+# --> Eh nicht schlimm, da genau andere Blöcke in unmittelbarer Nachbarschaft 
+#     gültig zugeordnet werden konnten. Die daraus resultierende Verzerrung ist minimal, wie der 
+#     plot gegenüber den LORs zeigt 
+
+plot(bloeckePLZ07_ptdf[!is.na(bloeckePLZ07_ptdf@data$PLZ),], col="green", pch = 4, cex=0.5)
+plot(LOR, add=T)
+plot(bloeckePLZ07_ptdf[is.na(bloeckePLZ07_ptdf@data$PLZ),],add=T, cex=1, col="red", pch = 16)
+
+#plot(PLZ2007)
+#plot(bloeckePLZ07_ptdf[is.na(bloeckePLZ07_ptdf@data$PLZ),], add=T, col="red", pch = 2)
+#plot(PLZ2007)
+#plot(bloecke07, add=T, col="red")
+
+# Ein Versuch per polygon-polygon overlay die bloecke den richtigen PLZs zuzuordnen per rgeos::over
+#   stellte sich als sehr kompliziert heraus. 
+
 
 #+++++++++++++
 # 2008
@@ -262,35 +305,54 @@ plot(bloeckePLZ09_ptdf[is.na(bloeckePLZ09_ptdf@data$PLZ),],add=T, cex=1, col="re
 
 
 #+++++++++++++
-# 2010-2013
+# 2010-2012
 #+++++++++++++
 
-bloeckePLZ10_13_ptdf <- SpatialPointsDataFrame(coords = bloecke10_13_pt, 
-                                               data   = data.frame(bloecke10_13_ptdf@data,
-                                                                   over(bloecke10_13_ptdf, PLZ2010_2013)),
+bloeckePLZ10_12_ptdf <- SpatialPointsDataFrame(coords = bloecke10_12_pt, 
+                                               data   = data.frame(bloecke10_12_ptdf@data,
+                                                                   over(bloecke10_12_ptdf, PLZ2010_2012)),
                                                proj4string = zielCRS) 
-head(bloeckePLZ10_13_ptdf@data)
+head(bloeckePLZ10_12_ptdf@data)
 # Für soviele Blöcke hat die Zoordnung nicht funktioniert:
-dim(bloeckePLZ10_13_ptdf@data[is.na(bloeckePLZ10_13_ptdf@data$PLZ),])[1]
+dim(bloeckePLZ10_12_ptdf@data[is.na(bloeckePLZ10_12_ptdf@data$PLZ),])[1]
 # D.h. soviele Einwohner können nicht zugeordenet werden:
-nichtZuordenbarEW10_13 <- sum(bloeckePLZ10_13_ptdf@data[is.na(bloeckePLZ10_13_ptdf@data$PLZ),]["EW2013"])
-nichtZuordenbarEW10_13 
+nichtZuordenbarEW10_12 <- sum(bloeckePLZ10_12_ptdf@data[is.na(bloeckePLZ10_12_ptdf@data$PLZ),]["EW2012"])
+nichtZuordenbarEW10_12 
 # Das entspricht einem nicht zugeeordnetem Anteil an der Berliner Gesamtbevölkerung:
-round(nichtZuordenbarEW10_13/sum(bloeckePLZ10_13_ptdf@data$EW2013), digits = 3)
+round(nichtZuordenbarEW10_12/sum(bloeckePLZ10_12_ptdf@data$EW2012), digits = 3)
 # --> Ditt is ja nuscht. 57 Leute nur!
 
-plot(bloeckePLZ10_13_ptdf[!is.na(bloeckePLZ10_13_ptdf@data$PLZ),], col="green", pch = 4, cex=0.5)
+plot(bloeckePLZ10_12_ptdf[!is.na(bloeckePLZ10_12_ptdf@data$PLZ),], col="green", pch = 4, cex=0.5)
 plot(LOR, add=T)
-plot(bloeckePLZ10_13_ptdf[is.na(bloeckePLZ10_13_ptdf@data$PLZ),],add=T, cex=1, col="red", pch = 16)
+plot(bloeckePLZ10_12_ptdf[is.na(bloeckePLZ10_12_ptdf@data$PLZ),],add=T, cex=1, col="red", pch = 16)
 
-#plot(PLZ2010_13)
-#plot(bloeckePLZ10_13_ptdf[is.na(bloeckePLZ10_13_ptdf@data$PLZ),], add=T, col="red", pch = 2)
-#plot(PLZ2010_13)
-#plot(bloecke10_13, add=T, col="red")
+#plot(PLZ2010_12)
+#plot(bloeckePLZ10_12_ptdf[is.na(bloeckePLZ10_12_ptdf@data$PLZ),], add=T, col="red", pch = 2)
+#plot(PLZ2010_12)
+#plot(bloecke10_12, add=T, col="red")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Blockdaten nach EW Zahl gewichtet auf LOR Niveau aggregieren  -------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#+++++++++++++
+# 2007
+#+++++++++++++
+
+bloecke2LOR_07 <- data.frame(bloeckePLZ07_ptdf,over(bloeckePLZ07_ptdf, LORshape)); head(bloecke2LOR_07)
+bloecke2LOR_07 <- subset(bloecke2LOR_07, select=-c(FLAECHE_HA, FLAECHE_HA.1, x, y))
+names(bloecke2LOR_07)
+#str(bloecke2LOR_07)
+
+LOR_JLLagg_07 <- ddply(bloecke2LOR_07, 
+                       "RAUMID", summarise, 
+                       Miete_H1_wmean.2007 = round(weighted.mean(Miete_H1, EINWOHNER), digits=2),
+                       Miete_H2_wmean.2007 = round(weighted.mean(Miete_H2, EINWOHNER), digits=2))
+head(LOR_JLLagg_07)
+LOR_JLLagg_07 <- subset(LOR_JLLagg_07, !is.na(LOR_JLLagg_07$RAUMID))
+sum(is.na(LOR_JLLagg_07$Miete_H1_wmean.2007)) # für soviele LORs fehlen uns die Mietpreisdaten
+sum(is.na(LOR_JLLagg_07$Miete_H2_wmean.2007)) # für soviele LORs fehlen uns die Mietpreisdaten
+
 
 #+++++++++++++
 # 2008
@@ -329,15 +391,15 @@ sum(is.na(LOR_JLLagg_09$Miete_H1_wmean.2009)) # für soviele LORs fehlen uns die
 sum(is.na(LOR_JLLagg_09$Miete_H2_wmean.2009)) # für soviele LORs fehlen uns die Mietpreisdaten
 
 #+++++++++++++
-# 2010-2013
+# 2010-2012
 #+++++++++++++
 
-bloecke2LOR_10_13 <- data.frame(bloeckePLZ10_13_ptdf,over(bloeckePLZ10_13_ptdf, LORshape))
-bloecke2LOR_10_13 <- subset(bloecke2LOR_10_13, select=-c(FLAECHE_HA, x, y))
-names(bloecke2LOR_10_13)
-str(bloecke2LOR_10_13)
+bloecke2LOR_10_12 <- data.frame(bloeckePLZ10_12_ptdf,over(bloeckePLZ10_12_ptdf, LORshape))
+bloecke2LOR_10_12 <- subset(bloecke2LOR_10_12, select=-c(FLAECHE_HA, x, y))
+names(bloecke2LOR_10_12)
+str(bloecke2LOR_10_12)
 
-LOR_JLLagg_10_13 <- ddply(bloecke2LOR_10_13, 
+LOR_JLLagg_10_12 <- ddply(bloecke2LOR_10_12, 
                        "RAUMID", summarise, 
                        # 2010 #
                        Miete_H1_wmean.2010 = round(weighted.mean(Miete_H1.2010, EW2010), digits=2),
@@ -347,36 +409,34 @@ LOR_JLLagg_10_13 <- ddply(bloecke2LOR_10_13,
                        Miete_H2_wmean.2011 = round(weighted.mean(Miete_H2.2011, EW2011), digits=2),
                        # 2012 #
                        Miete_H1_wmean.2012 = round(weighted.mean(Miete_H1.2012, EW2012), digits=2),
-                       Miete_H2_wmean.2012 = round(weighted.mean(Miete_H2.2012, EW2012), digits=2),
-                       # 2013 #
-                       Miete_H1_wmean.2013 = round(weighted.mean(Miete_H1.2013, EW2013), digits=2),
-                       Miete_H2_wmean.2013 = round(weighted.mean(Miete_H2.2013, EW2013), digits=2))
+                       Miete_H2_wmean.2012 = round(weighted.mean(Miete_H2.2012, EW2012), digits=2))
 
-sum(is.na(LOR_JLLagg_10_13$Miete_H1_wmean.2010)) # für soviele LORs fehlen uns die Mietpreisdaten 2010
-sum(is.na(LOR_JLLagg_10_13$Miete_H2_wmean.2010)) # für soviele LORs fehlen uns die Mietpreisdaten 2010
-sum(is.na(LOR_JLLagg_10_13$Miete_H1_wmean.2011)) # für soviele LORs fehlen uns die Mietpreisdaten 2011
-sum(is.na(LOR_JLLagg_10_13$Miete_H2_wmean.2011)) # für soviele LORs fehlen uns die Mietpreisdaten 2011
-sum(is.na(LOR_JLLagg_10_13$Miete_H1_wmean.2012)) # für soviele LORs fehlen uns die Mietpreisdaten 2012
-sum(is.na(LOR_JLLagg_10_13$Miete_H2_wmean.2012)) # für soviele LORs fehlen uns die Mietpreisdaten 2012
-sum(is.na(LOR_JLLagg_10_13$Miete_H1_wmean.2013)) # für soviele LORs fehlen uns die Mietpreisdaten 2013
-sum(is.na(LOR_JLLagg_10_13$Miete_H2_wmean.2013)) # für soviele LORs fehlen uns die Mietpreisdaten 2013
+sum(is.na(LOR_JLLagg_10_12$Miete_H1_wmean.2010)) # für soviele LORs fehlen uns die Mietpreisdaten 2010
+sum(is.na(LOR_JLLagg_10_12$Miete_H2_wmean.2010)) # für soviele LORs fehlen uns die Mietpreisdaten 2010
+sum(is.na(LOR_JLLagg_10_12$Miete_H1_wmean.2011)) # für soviele LORs fehlen uns die Mietpreisdaten 2011
+sum(is.na(LOR_JLLagg_10_12$Miete_H2_wmean.2011)) # für soviele LORs fehlen uns die Mietpreisdaten 2011
+sum(is.na(LOR_JLLagg_10_12$Miete_H1_wmean.2012)) # für soviele LORs fehlen uns die Mietpreisdaten 2012
+sum(is.na(LOR_JLLagg_10_12$Miete_H2_wmean.2012)) # für soviele LORs fehlen uns die Mietpreisdaten 2012
 
-LOR_JLLagg_10_13 <- subset(LOR_JLLagg_10_13, !is.na(LOR_JLLagg_10_13$RAUMID))
-names(LOR_JLLagg_10_13)
+LOR_JLLagg_10_12 <- subset(LOR_JLLagg_10_12, !is.na(LOR_JLLagg_10_12$RAUMID))
+names(LOR_JLLagg_10_12)
 head(LOR_JLLagg_08)
-head(LOR_JLLagg_10_13)
+head(LOR_JLLagg_10_12)
 
+identical(LOR_JLLagg_07$RAUMID, LOR_JLLagg_09$RAUMID)    # passt
 identical(LOR_JLLagg_08$RAUMID, LOR_JLLagg_09$RAUMID)    # passt
-identical(LOR_JLLagg_08$RAUMID, LOR_JLLagg_10_13$RAUMID) # passt. Ein einfacher "cbind" reicht um die Datensätze miteinander zu mergen
-LOR_JLLagg <- data.frame(cbind(LOR_JLLagg_08,
+identical(LOR_JLLagg_08$RAUMID, LOR_JLLagg_10_12$RAUMID) # passt. Ein einfacher "cbind" reicht um die Datensätze miteinander zu mergen
+LOR_JLLagg <- data.frame(cbind(LOR_JLLagg_07,
+                               LOR_JLLagg_08,
                                LOR_JLLagg_09,
-                               LOR_JLLagg_10_13))
-LOR_JLLagg <- subset(LOR_JLLagg, select=-c(RAUMID.1,RAUMID.2))
+                               LOR_JLLagg_10_12))
+LOR_JLLagg <- subset(LOR_JLLagg, select=-c(RAUMID.1,RAUMID.2,RAUMID.3))
 
 str(LOR_JLLagg)
-#LOR_JLLagg <- join_all(list(LOR_JLLagg_08,
+#LOR_JLLagg <- join_all(list(LOR_JLLagg_07,
+#                            LOR_JLLagg_08,
 #                            LOR_JLLagg_09,
-#                            LOR_JLLagg_10_13), 
+#                            LOR_JLLagg_10_12), 
 #                       by = "RAUMID")
 
 str(LOR_JLLagg)
@@ -404,10 +464,10 @@ LOR@data <- LORattrFULLwide4shape
 names(LOR)
 
 # Test ob Zuordnung zu LORs korrekt war
-spplot(LOR, zcol="Miete_H2_wmean.2013",
+spplot(LOR, zcol="Miete_H2_wmean.2012",
        col.regions = rev(heat.colors(200)),
        at=seq(4,15, length.out=201),
-       xlab="Miete 2.HJahr 2013")
+       xlab="Miete 2.HJahr 2012")
 
 ### Long Mietpreisdatensatz auf LOR Niveau
 LOR_JLL    <- reshape(LOR_JLLaggWIDE,
@@ -467,3 +527,4 @@ SanGebietsData <- subset(LOR@data, select=c(SanGebiet,
 # --> SenGebietsData Datensatz 6 mal replizieren damit er an long rangemerged werden kann
 LORdataFULLv1 <- cbind(LORdataFULLv1, SanGebietsData[rep(seq_len(nrow(SanGebietsData)),6), ])
 tail(LORdataFULLv1)
+
