@@ -132,9 +132,8 @@ DF6  <- DF6a[c("ZEIT",
 # STADTRAUM in Factor umwandln und labeln
 DF6$STADTRAUM         <- as.factor(DF6$STADTRAUM)
 levels(DF6$STADTRAUM) <- c("innere Stadt", "äußere Stadt")
-
-names(DF6)
-View(DF6)
+str(DF6)
+#View(DF6)
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # KONTEXTINDIKATOREN 2012 ======================================
@@ -145,15 +144,18 @@ DF7 <- merge(x = DF6,
              y = KONTEXTIND4merge, 
              by = c("ZEIT","RAUMID"), 
              all.x=T, 
+             all.y=T,
              sort=T,
              keep_order=1)
 #head(DF7)
 #View(DF7)
+str(DF7) # Order jetzt falsch.
+DF7 <- DF7[order(DF7[,"RAUMID"],DF7[,"ZEIT"]), ] # alte Reihenfolge wieder herstellen
 
 DF7$ZEIT <- as.factor(DF7$ZEIT)
 LORdata <- DF7
-names(LORdata) # das ist der vollständige LOR long Datensatz
-View(subset(LORdata,ZEIT=="2012",select=c(AlleinerzHH,Altersarmut))) # das ist der vollständige LOR long Datensatz
+str(LORdata) # das ist der vollständige LOR long Datensatz
+head(subset(LORdata,ZEIT=="2012",select=c(AlleinerzHH,Altersarmut))) 
 
 #********************************************
 # Merge LOR Shape mit LOR Wide Datensatz  ***

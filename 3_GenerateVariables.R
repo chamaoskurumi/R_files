@@ -14,8 +14,8 @@ library("reshape2")
 
 LORdataFULLv2 <- LORdataFULLv1
 
-names(LORdataFULLv2)
-#View(LORdataFULLv2)
+#names(LORdataFULLv2)
+View(LORdataFULLv2)
 
 ###### a.) Miete #####
 
@@ -38,9 +38,14 @@ Miete2merge <- rbind(Mdef07,Mdef08,Mdef09,Mdef10,Mdef11,Mdef12)
 colnames(Miete2merge) <- "Miete"
 remove(Mdef07,Mdef08,Mdef09,Mdef10,Mdef11,Mdef12)
 
-LORdataFULLv2 <- data.frame(LORdataFULLv2,Miete2merge$Miete)
-colnames(LORdataFULLv2)[dim(LORdataFULLv2)[2]] <- "Miete"
-names(LORdataFULLv2)
+LORdataFULLv2ORD <- LORdataFULLv2[order(LORdataFULLv2[,"ZEIT"]), ]
+View(LORdataFULLv2ORD) 
+
+LORdataFULLv2ORD <- data.frame(LORdataFULLv2ORD,Miete2merge$Miete)
+colnames(LORdataFULLv2ORD)[dim(LORdataFULLv2ORD)[2]] <- "Miete"
+
+LORdataFULLv2 <- LORdataFULLv2ORD[order(LORdataFULLv2ORD[,"RAUMID"],LORdataFULLv2ORD[,"ZEIT"]), ]
+View(LORdataFULLv2)
 
 LORdataFULLv2              <- ddply(LORdataFULLv2,"RAUMID", transform,
                                   Mietechg = c(NA,diff(Miete)))
@@ -280,7 +285,7 @@ remove(LORdataFULLv3)
 
 LORdataFULL <- LORdataFULLv4
 remove(LORdataFULLv4)
-names(LORdataFULL)
+head(LORdataFULL)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # LOR wide Datensatz ------

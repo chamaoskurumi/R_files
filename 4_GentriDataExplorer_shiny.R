@@ -9,13 +9,16 @@ library("shinyapps")
 library(googleVis)
 library(shiny)
 
-names(LORdataFULL)
 LORdata4ggvis <- LORdataFULL
 LORdata4ggvis$ZEIT <- as.numeric(as.character(LORdata4ggvis$ZEIT))
+# Charlottenburg-Wilmersdorf funktioniert nicht aus irgendwelchen Gründen. Ich dachte erst es liegt an der Länge des Names, ist aber nicht so:
+levels(LORdata4ggvis$BEZ_NAME)[which(levels(LORdata4ggvis$BEZ_NAME) == "Charlottenburg-Wilmersdorf")] <- "Cburg-Wilmersdorf"
+# Charlottenburg funktioniert trotzdem nicht
 
 write.table(LORdata4ggvis, 
             file = "/home/dao/Desktop/MasterArbeit/R_files/ShinyApps/LORdata4ggvis.csv", 
             append = FALSE, quote = TRUE, sep = ";", na = "NA", dec = ".", col.names = TRUE)
+
 
 GentriMotionChartUI <- 
   shinyUI(navbarPage("GentriData Explorer",
@@ -24,7 +27,19 @@ GentriMotionChartUI <-
                                 headerPanel("Motion Chart"),
                                 sidebarPanel(
                                   checkboxGroupInput("AusgewaehlteBezirke","Bezirke:",
-                                                     choices = levels(LORdata4ggvis$BEZ_NAME),
+                                                     choices = c("Cburg-Wilmersdorf"  = 	"Cburg-Wilmersdorf",
+                                                                 "Friedrichshain-Kreuzberg"  	 = 	"Friedrichshain-Kreuzberg",  
+                                                                 "Lichtenberg"               	 = 	"Lichtenberg"             ,  
+                                                                 "Marzahn-Hellersdorf"       	 = 	"Marzahn-Hellersdorf"      , 
+                                                                 "Mitte"                     	 = 	"Mitte"                    , 
+                                                                 "Neukölln"                  	 = 	"Neukölln"                  ,
+                                                                 "Pankow"                    	 = 	"Pankow"                    ,
+                                                                 "Reinickendorf"             	 = 	"Reinickendorf"             ,
+                                                                 "Spandau"                   	 = 	"Spandau"                   ,
+                                                                 "Steglitz-Zehlendorf"       	 = 	"Steglitz-Zehlendorf"       ,
+                                                                 "Tempelhof-Schöneberg"      	 = 	"Tempelhof-Schöneberg"      ,
+                                                                 "Treptow-Köpenick"  	         = 	"Treptow-Köpenick"),
+                                                     #levels(LORdata4ggvis$BEZ_NAME),
                                                      selected = "Friedrichshain-Kreuzberg"),
                                   submitButton(text="Update!")),
                                 mainPanel("LOR Planungsräume von Berlin", htmlOutput("LORggvis")))

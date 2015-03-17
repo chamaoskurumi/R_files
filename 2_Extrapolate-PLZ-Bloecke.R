@@ -494,10 +494,14 @@ LOR_JLL    <- reshape(LOR_JLLaggWIDE,
 #View(LOR_JLL)
 
 ### Long VOLLSTÄNDIGER LOR Datensatz
-LORdataFULLv1     <- merge(LORdata, LOR_JLL, sort=F, 
+source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
+LORdataFULLv1     <- merge(LORdata, LOR_JLL, 
+                           sort=T, 
                            by.x=c("RAUMID","ZEIT"), 
                            by.y=c("RAUMID","ZEIT"), 
-                           all.x=T, all.y=T)
+                           all.x=T, 
+                           all.y=T,
+                           keep_order=1)
 
 
 #********************************************
