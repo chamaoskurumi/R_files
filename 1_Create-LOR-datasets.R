@@ -134,19 +134,26 @@ DF6$STADTRAUM         <- as.factor(DF6$STADTRAUM)
 levels(DF6$STADTRAUM) <- c("innere Stadt", "äußere Stadt")
 
 names(DF6)
-#View(DF6)
+View(DF6)
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # KONTEXTINDIKATOREN 2012 ======================================
 
 KONTEXTIND4merge <- subset(KONTEXTIND, select=-c(GEBIET, EW))
-DF7 <- merge(x = DF6, y = KONTEXTIND4merge, by = c("ZEIT","RAUMID"), all.x=T)
-names(DF7)
-tail(DF7)
+source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
+DF7 <- merge(x = DF6, 
+             y = KONTEXTIND4merge, 
+             by = c("ZEIT","RAUMID"), 
+             all.x=T, 
+             sort=T,
+             keep_order=1)
+#head(DF7)
+#View(DF7)
 
 DF7$ZEIT <- as.factor(DF7$ZEIT)
 LORdata <- DF7
 names(LORdata) # das ist der vollständige LOR long Datensatz
+View(subset(LORdata,ZEIT=="2012",select=c(AlleinerzHH,Altersarmut))) # das ist der vollständige LOR long Datensatz
 
 #********************************************
 # Merge LOR Shape mit LOR Wide Datensatz  ***

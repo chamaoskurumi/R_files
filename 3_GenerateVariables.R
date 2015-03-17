@@ -383,7 +383,7 @@ LORdataFULLwidev2$MH_ERchg          <-  LORdataFULLwidev2$MH_ER.2007 -          
 
 LORdataFULLwidev2$MH_U18chg           <-  LORdataFULLwidev2$MH_U18.2007 -           LORdataFULLwidev2$MH_U18.2012
 LORdataFULLwidev2$MH_U18RU18chg       <-  LORdataFULLwidev2$MH_U18RU18.2007 -       LORdataFULLwidev2$MH_U18RU18.2012
-LORdataFULLwidev2$MH_65U110R65U110chg <-  LORdataFULLwidev2$MH_65U110R65U110.2007-LORdataFULLwidev2$65U110R65U110.2012
+LORdataFULLwidev2$MH_65U110R65U110chg <-  LORdataFULLwidev2$MH_65U110R65U110.2007-  LORdataFULLwidev2$MH_65U110R65U110.2012
 
 LORdataFULLwidev2$HK_EU15chg        <-  LORdataFULLwidev2$HK_EU15.2007 -         LORdataFULLwidev2$HK_EU15.2012
 LORdataFULLwidev2$HK_EU27hg         <-  LORdataFULLwidev2$HK_EU27.2007 -         LORdataFULLwidev2$HK_EU27.2012
@@ -440,3 +440,4 @@ library(foreign)
 write.dbf(dataframe = LOR@data, file = "/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/LOR/LORinfo.dbf")
 
 #View(LOR@data)
+

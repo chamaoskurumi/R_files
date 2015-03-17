@@ -210,7 +210,7 @@ setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 KONTEXTIND_files <- dir(path="KontextIndikatoren_-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/KontextIndikatoren_-LOR-/")
 KONTEXTIND <- lapply(KONTEXTIND_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE,
-                     dec=",", stringsAsFactors =F, colClasses=c(RAUMID="factor"))
+                     dec=",", stringsAsFactors=F, colClasses=c(RAUMID="factor"))
 KONTEXTIND <- do.call("rbind", KONTEXTIND) # aus Liste von data.frames einen long Datensatz machen
 str(KONTEXTIND)
 #View(KONTEXTIND)
