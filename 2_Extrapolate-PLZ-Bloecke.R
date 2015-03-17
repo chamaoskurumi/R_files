@@ -215,7 +215,8 @@ bloeckePLZ07_ptdf <- SpatialPointsDataFrame(coords = bloecke07_pt,
                                             data   = data.frame(bloecke07_ptdf@data,
                                                                 over(bloecke07_ptdf, PLZ2007)),
                                             proj4string = zielCRS) 
-head(bloeckePLZ07_ptdf@data)
+#head(bloeckePLZ07_ptdf@data)
+
 # Für soviele Blöcke hat die Zoordnung nicht funktioniert:
 dim(bloeckePLZ07_ptdf@data[is.na(bloeckePLZ07_ptdf@data$PLZ),])[1]
 # D.h. soviele Einwohner können nicht zugeordenet werden:
@@ -248,7 +249,8 @@ bloeckePLZ08_ptdf <- SpatialPointsDataFrame(coords = bloecke08_pt,
                                             data   = data.frame(bloecke08_ptdf@data,
                                                                 over(bloecke08_ptdf, PLZ2008)),
                                             proj4string = zielCRS) 
-head(bloeckePLZ08_ptdf@data)
+#head(bloeckePLZ08_ptdf@data)
+
 # Für soviele Blöcke hat die Zoordnung nicht funktioniert:
 dim(bloeckePLZ08_ptdf@data[is.na(bloeckePLZ08_ptdf@data$PLZ),])[1]
 # D.h. soviele Einwohner können nicht zugeordenet werden:
@@ -281,7 +283,8 @@ bloeckePLZ09_ptdf <- SpatialPointsDataFrame(coords = bloecke09_pt,
                                             data   = data.frame(bloecke09_ptdf@data,
                                                                 over(bloecke09_ptdf, PLZ2009)),
                                             proj4string = zielCRS) 
-head(bloeckePLZ09_ptdf@data)
+#head(bloeckePLZ09_ptdf@data)
+
 # Für soviele Blöcke hat die Zoordnung nicht funktioniert:
 dim(bloeckePLZ09_ptdf@data[is.na(bloeckePLZ09_ptdf@data$PLZ),])[1]
 # D.h. soviele Einwohner können nicht zugeordenet werden:
@@ -340,18 +343,27 @@ plot(bloeckePLZ10_12_ptdf[is.na(bloeckePLZ10_12_ptdf@data$PLZ),],add=T, cex=1, c
 
 bloecke2LOR_07 <- data.frame(bloeckePLZ07_ptdf,over(bloeckePLZ07_ptdf, LORshape)); head(bloecke2LOR_07)
 bloecke2LOR_07 <- subset(bloecke2LOR_07, select=-c(AUFSCHRIFT, FLAECHE_IN, FLAECHE_HA, x, y))
-#str(bloecke2LOR_07)
-
+length(unique(bloecke2LOR_07$RAUMID))
 
 LOR_JLLagg_07 <- ddply(bloecke2LOR_07, 
                        "RAUMID", summarise, 
                        Miete_H1_wmean.2007 = round(weighted.mean(Miete_H1, EINWOHNER), digits=2),
                        Miete_H2_wmean.2007 = round(weighted.mean(Miete_H2, EINWOHNER), digits=2))
-head(LOR_JLLagg_07)
+str(LOR_JLLagg_07)
 LOR_JLLagg_07 <- subset(LOR_JLLagg_07, !is.na(LOR_JLLagg_07$RAUMID))
+
+# Für den Planungsraunm "04041133" haben wir keine Infos. Er ist gar nicht im Datensatz:
+setdiff(LORshape$RAUMID,bloecke2LOR_07$RAUMID) 
+# Müssen ihn manuell als NA Zeile an LOR_JLLagg07 anhängen:
+LOR04041133   <- c("04041133",NA,NA)
+LOR_JLLagg_07 <- rbind(LOR_JLLagg_07[1:139,],LOR04041133,LOR_JLLagg_07[-(1:139),]) # LOR04041133 muss in die 140ste Zeile
+#LOR_JLLagg_07 <- rbind(LOR_JLLagg_07, LOR04041133)
+LOR_JLLagg_07$Miete_H1_wmean.2007 <- as.numeric(LOR_JLLagg_07$Miete_H1_wmean.2007) # war chr, soll numeric werden
+LOR_JLLagg_07$Miete_H2_wmean.2007 <- as.numeric(LOR_JLLagg_07$Miete_H2_wmean.2007) # war chr, soll numeric werden
+
 sum(is.na(LOR_JLLagg_07$Miete_H1_wmean.2007)) # für soviele LORs fehlen uns die Mietpreisdaten
 sum(is.na(LOR_JLLagg_07$Miete_H2_wmean.2007)) # für soviele LORs fehlen uns die Mietpreisdaten
-
+#View(LOR_JLLagg_07$RAUMID)
 
 #+++++++++++++
 # 2008
@@ -366,7 +378,7 @@ LOR_JLLagg_08 <- ddply(bloecke2LOR_08,
       "RAUMID", summarise, 
       Miete_H1_wmean.2008 = round(weighted.mean(Miete_H1, EINWOHNER), digits=2),
       Miete_H2_wmean.2008 = round(weighted.mean(Miete_H2, EINWOHNER), digits=2))
-head(LOR_JLLagg_08)
+#tail(LOR_JLLagg_08)
 LOR_JLLagg_08 <- subset(LOR_JLLagg_08, !is.na(LOR_JLLagg_08$RAUMID))
 sum(is.na(LOR_JLLagg_08$Miete_H1_wmean.2008)) # für soviele LORs fehlen uns die Mietpreisdaten
 sum(is.na(LOR_JLLagg_08$Miete_H2_wmean.2008)) # für soviele LORs fehlen uns die Mietpreisdaten
@@ -377,7 +389,7 @@ sum(is.na(LOR_JLLagg_08$Miete_H2_wmean.2008)) # für soviele LORs fehlen uns die
 
 bloecke2LOR_09 <- data.frame(bloeckePLZ09_ptdf,over(bloeckePLZ09_ptdf, LORshape))
 bloecke2LOR_09 <- subset(bloecke2LOR_09, select=-c(FLAECH_HA, FLAECHE_HA, x, y))
-names(bloecke2LOR_09)
+#names(bloecke2LOR_09)
 #str(bloecke2LOR_09)
 
 LOR_JLLagg_09 <- ddply(bloecke2LOR_09, 
@@ -395,8 +407,8 @@ sum(is.na(LOR_JLLagg_09$Miete_H2_wmean.2009)) # für soviele LORs fehlen uns die
 
 bloecke2LOR_10_12 <- data.frame(bloeckePLZ10_12_ptdf,over(bloeckePLZ10_12_ptdf, LORshape))
 bloecke2LOR_10_12 <- subset(bloecke2LOR_10_12, select=-c(FLAECHE_HA, x, y))
-names(bloecke2LOR_10_12)
-str(bloecke2LOR_10_12)
+#names(bloecke2LOR_10_12)
+#str(bloecke2LOR_10_12)
 
 LOR_JLLagg_10_12 <- ddply(bloecke2LOR_10_12, 
                        "RAUMID", summarise, 
@@ -418,20 +430,17 @@ sum(is.na(LOR_JLLagg_10_12$Miete_H1_wmean.2012)) # für soviele LORs fehlen uns 
 sum(is.na(LOR_JLLagg_10_12$Miete_H2_wmean.2012)) # für soviele LORs fehlen uns die Mietpreisdaten 2012
 
 LOR_JLLagg_10_12 <- subset(LOR_JLLagg_10_12, !is.na(LOR_JLLagg_10_12$RAUMID))
-names(LOR_JLLagg_10_12)
-head(LOR_JLLagg_08)
-head(LOR_JLLagg_10_12)
+#names(LOR_JLLagg_10_12)
+#head(LOR_JLLagg_08)
+#head(LOR_JLLagg_10_12)
 
 
 
-
-identical(LOR_JLLagg_07$RAUMID, LOR_JLLagg_09$RAUMID)    # passt  NICHT
-
-# MUSS GEKLÄRT WERDEN
-
-
+# Ein einfacher "cbind" reicht um die Datensätze miteinander zu mergen:
+#  Alle sind in der selben Reihenfolge und haben die selbe Länge
+identical(LOR_JLLagg_07$RAUMID, LOR_JLLagg_09$RAUMID)    # passt  
 identical(LOR_JLLagg_08$RAUMID, LOR_JLLagg_09$RAUMID)    # passt
-identical(LOR_JLLagg_08$RAUMID, LOR_JLLagg_10_12$RAUMID) # passt. Ein einfacher "cbind" reicht um die Datensätze miteinander zu mergen
+identical(LOR_JLLagg_08$RAUMID, LOR_JLLagg_10_12$RAUMID) # passt. 
 LOR_JLLagg <- data.frame(cbind(LOR_JLLagg_07,
                                LOR_JLLagg_08,
                                LOR_JLLagg_09,
@@ -467,7 +476,7 @@ LORattrFULLwide4shape        <- merge.with.order(LORslim_df, LORattrFULLwide,
                                            all.x=T, all.y=T,
                                            sort=F, keep_order=1)
 LOR@data <- LORattrFULLwide4shape
-names(LOR)
+#names(LOR)
 
 # Test ob Zuordnung zu LORs korrekt war
 spplot(LOR, zcol="Miete_H2_wmean.2012",
@@ -513,7 +522,7 @@ LORSanGebieteDF <- data.frame(LOR@data, over(LOR, SanGebiete_ptdf))
 levels(LORSanGebieteDF$SanGebiet_KLASSE) <- c(levels(LORSanGebieteDF$SanGebiet_KLASSE), 
                                               "nein")
 LORSanGebieteDF$SanGebiet_KLASSE[is.na(LORSanGebieteDF$SanGebiet_KLASSE)] <- "nein"
-head(LORSanGebieteDF)
+#head(LORSanGebieteDF)
 
 LOR@data <- LORSanGebieteDF
 
@@ -532,5 +541,5 @@ SanGebietsData <- subset(LOR@data, select=c(SanGebiet,
 # LOR LONG FULL Datensatz ergänzen
 # --> SenGebietsData Datensatz 6 mal replizieren damit er an long rangemerged werden kann
 LORdataFULLv1 <- cbind(LORdataFULLv1, SanGebietsData[rep(seq_len(nrow(SanGebietsData)),6), ])
-tail(LORdataFULLv1)
+#tail(LORdataFULLv1)
 

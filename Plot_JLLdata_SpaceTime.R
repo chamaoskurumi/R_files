@@ -37,7 +37,7 @@ stplotGMAPS <- stplotGoogleMaps(JLLstfdf,
                                 mapTypeId='ROADMAP',
                                 w='49%',
                                 h='49%', 
-                                fillOpacity=0.6)
+                                fillOpacity=0.8)
 
 JLLstfdf[JLLstfdf@time[c(1,6,11)]
 JLLstfdf_subset <- JLLstfdf[JLLstfdf@time[c(1,6,11)]]

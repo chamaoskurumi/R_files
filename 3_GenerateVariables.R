@@ -19,7 +19,29 @@ names(LORdataFULLv2)
 
 ###### a.) Miete #####
 
-LORdataFULLv2$Miete        <- round((LORdataFULLv2$Miete_H1_wmean+LORdataFULLv2$Miete_H2_wmean)/2, digits=2)
+LORdataFULLv2$MieteNom     <- round((LORdataFULLv2$Miete_H1_wmean+LORdataFULLv2$Miete_H2_wmean)/2, digits=2)
+
+# Miete Deflationieren: Basisjahr 2012 Index=1
+Mdef12 <- subset(LORdataFULLv2, ZEIT=="2012", select=c(MieteNom))
+Mdef11 <- round(subset(LORdataFULLv2, ZEIT=="2011", 
+                select=c(MieteNom))/VPI$VPIbasis2012[VPI$Zeit==2011], digits=2)
+Mdef10 <- round(subset(LORdataFULLv2, ZEIT=="2010", 
+                select=c(MieteNom))/VPI$VPIbasis2012[VPI$Zeit==2010], digits=2)
+Mdef09 <- round(subset(LORdataFULLv2, ZEIT=="2009", 
+                select=c(MieteNom))/VPI$VPIbasis2012[VPI$Zeit==2009], digits=2)
+Mdef08 <- round(subset(LORdataFULLv2, ZEIT=="2008", 
+                select=c(MieteNom))/VPI$VPIbasis2012[VPI$Zeit==2008], digits=2)
+Mdef07 <- round(subset(LORdataFULLv2, ZEIT=="2007", 
+                select=c(MieteNom))/VPI$VPIbasis2012[VPI$Zeit==2007], digits=2)
+
+Miete2merge <- rbind(Mdef07,Mdef08,Mdef09,Mdef10,Mdef11,Mdef12)
+colnames(Miete2merge) <- "Miete"
+remove(Mdef07,Mdef08,Mdef09,Mdef10,Mdef11,Mdef12)
+
+LORdataFULLv2 <- data.frame(LORdataFULLv2,Miete2merge$Miete)
+colnames(LORdataFULLv2)[dim(LORdataFULLv2)[2]] <- "Miete"
+names(LORdataFULLv2)
+
 LORdataFULLv2              <- ddply(LORdataFULLv2,"RAUMID", transform,
                                   Mietechg = c(NA,diff(Miete)))
 LORdataFULLv2              <- ddply(LORdataFULLv2,"RAUMID", transform,
@@ -251,7 +273,7 @@ LORdataFULLv4 <- LORdataFULLv3[c("ZEIT",
                # SanierungsGebiete
                "SanGebiet",       "SanGebiet_NAME",    "SanGebiet_KLASSE",       
                # Mietdaten
-               "Miete", "Mietechg", "Mietechgr")]
+               "Miete", "Mietechg", "Mietechgr", "MieteNom")]
 
 remove(LORdataFULLv2)
 remove(LORdataFULLv3)
@@ -320,15 +342,15 @@ LORdataFULLwidev1    <- reshape(LORdataFULL4wide,
                               # SanierungsGebiete
                               "SanGebiet",       "SanGebiet_NAME",    "SanGebiet_KLASSE",       
                               # Mietdaten
-                              "Miete", "Mietechg", "Mietechgr"),
+                              "Miete", "Mietechg", "Mietechgr", "MieteNom"),
                    timevar = "ZEIT",
                    direction = "wide") 
-names(LORdataFULLwidev1)
+#names(LORdataFULLwidev1)
 
 ###### b.) Generierung von speziellen WIDE Variablen #####
 
 LORdataFULLwidev2   <- LORdataFULLwidev1
-names(LORdataFULLwidev2)
+#names(LORdataFULLwidev2)
 
 # Rentner 
 LORdataFULLwidev2$E_65U110chg       <- LORdataFULLwidev2$E_65U110.2007-  LORdataFULLwidev2$E_65U110.2012
@@ -359,8 +381,8 @@ LORdataFULLwidev2$Hartz_u15chg      <- LORdataFULLwidev2$Hartz_u15.2007 -       
 LORdataFULLwidev2$MH_Echg           <-  LORdataFULLwidev2$MH_E.2007 -            LORdataFULLwidev2$MH_E.2012
 LORdataFULLwidev2$MH_ERchg          <-  LORdataFULLwidev2$MH_ER.2007 -           LORdataFULLwidev2$MH_ER.2012
 
-LORdataFULLwidev2$MH_U18chg         <-  LORdataFULLwidev2$MH_U18.2007 -           LORdataFULLwidev2$MH_U18.2012
-LORdataFULLwidev2$MH_U18RU18chg     <-  LORdataFULLwidev2$MH_U18RU18.2007 -       LORdataFULLwidev2$MH_U18RU18.2012
+LORdataFULLwidev2$MH_U18chg           <-  LORdataFULLwidev2$MH_U18.2007 -           LORdataFULLwidev2$MH_U18.2012
+LORdataFULLwidev2$MH_U18RU18chg       <-  LORdataFULLwidev2$MH_U18RU18.2007 -       LORdataFULLwidev2$MH_U18RU18.2012
 LORdataFULLwidev2$MH_65U110R65U110chg <-  LORdataFULLwidev2$MH_65U110R65U110.2007-LORdataFULLwidev2$65U110R65U110.2012
 
 LORdataFULLwidev2$HK_EU15chg        <-  LORdataFULLwidev2$HK_EU15.2007 -         LORdataFULLwidev2$HK_EU15.2012
@@ -382,21 +404,22 @@ LORdataFULLwidev2$HK_ArabRMHchg        <-  LORdataFULLwidev2$HK_ArabRMH.2007 -  
 LORdataFULLwidev2$HK_EheJugRMHchg      <-  LORdataFULLwidev2$HK_EheJugRMH.2007 -       LORdataFULLwidev2$HK_EheJugRMH.2012
 
 # Wanderungssaldo Summe in Prozent (ungenau)
-LORdataFULLwidev2$WanderSaldosum <-   (LORdataFULLwidev2$Miete.2007 +
-                                       LORdataFULLwidev2$Miete.2008 +
-                                       LORdataFULLwidev2$Miete.2009 +
-                                       LORdataFULLwidev2$Miete.2010 +
-                                       LORdataFULLwidev2$Miete.2011 +
-                                       LORdataFULLwidev2$Miete.2012)
+LORdataFULLwidev2$WanderSaldosum <-   (LORdataFULLwidev2$WanderSaldo.2007 +
+                                       LORdataFULLwidev2$WanderSaldo.2008 +
+                                       LORdataFULLwidev2$WanderSaldo.2009 +
+                                       LORdataFULLwidev2$WanderSaldo.2010 +
+                                       LORdataFULLwidev2$WanderSaldo.2011 +
+                                       LORdataFULLwidev2$WanderSaldo.2012)
 
 # Mietpreisänderung
 LORdataFULLwidev2$Mietechg    <-   LORdataFULLwidev2$Miete.2012 - LORdataFULLwidev2$Miete.2007
 LORdataFULLwidev2$Mietechgr   <-   round(((LORdataFULLwidev2$Miete.2012 - LORdataFULLwidev2$Miete.2007)/
                                             LORdataFULLwidev2$Miete.2007)*100, digits=0)
+LORdataFULLwidev2$MieteNomchg <-   LORdataFULLwidev2$MieteNom.2012 - LORdataFULLwidev2$MieteNom.2007
 names(LORdataFULLwidev2)
 
 LORdataWIDE <- LORdataFULLwidev2
-names(LORdataWIDE)
+#names(LORdataWIDE)
 
 ###### c.) Merge LOR Shape file mit LOR Wide FULL Datensatz #########
 
@@ -416,4 +439,4 @@ LOR@data <- LORattrFULL
 library(foreign)
 write.dbf(dataframe = LOR@data, file = "/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/LOR/LORinfo.dbf")
 
-View(LOR@data)
+#View(LOR@data)
