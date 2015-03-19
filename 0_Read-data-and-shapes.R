@@ -573,13 +573,8 @@ ZUZUEGEdf <- ddply(ODdf, "NachLOR", summarise,
 plot(density(ZUZUEGEdf$Zuzuege))
 hist(ZUZUEGEdf$Zuzuege, breaks=100)
 
-#install.packages("vcd")
-library(vcd) ## loading vcd package
-gf <- goodfit(ODdf$BinnenWand.Sum, type = "poisson", method = "MinChisq")
-summary(gf)
-hist(ODdf$BinnenWand.Sum[ODdf$BinnenWand.Sum<100], breaks=100)
-
-var(ODdf$BinnenWand.Sum)
+colnames(FORTZUEGEdf)[1] <- "RAUMID"
+colnames(ZUZUEGEdf)[1] <- "RAUMID"
 
 
 # Shape files --------------------------------------------------------------

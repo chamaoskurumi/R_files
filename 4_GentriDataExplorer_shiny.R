@@ -9,7 +9,7 @@ library("shinyapps")
 library(googleVis)
 library(shiny)
 
-LORdata4ggvis <- LORdataFULL
+LORdata4ggvis <- LORdataFULL # muss LONG datensatz sein!
 LORdata4ggvis$ZEIT <- as.numeric(as.character(LORdata4ggvis$ZEIT))
 # Charlottenburg-Wilmersdorf funktioniert nicht aus irgendwelchen Gründen. Ich dachte erst es liegt an der Länge des Names, ist aber nicht so:
 levels(LORdata4ggvis$BEZ_NAME)[which(levels(LORdata4ggvis$BEZ_NAME) == "Charlottenburg-Wilmersdorf")] <- "Cburg-Wilmersdorf"

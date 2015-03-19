@@ -64,32 +64,12 @@ title("Violinplots der LOR Einwohnerzahlen 2007 und 2012")
 summary(LOR_BWANDdf$E_E.2007)
 summary(LOR_BWANDdf$E_E.2012)
 
-spplot(LORshape4FORTZUEGE, zcol="FortzuegeRel")
+spplot(LOR, zcol="FortzuegeRel")
 
-install.packages("vcd")
-library(vcd) ## loading vcd package
-gf <- goodfit(ODdf$BinnenWand.Sum, type = "poisson", method = "MinChisq")
-summary(gf)
-hist(ODdf$BinnenWand.Sum[ODdf$BinnenWand.Sum<100], breaks=100)
+#### ----- FortzuegeRel VERTEILUNG --------
+FZrel <- LOR@data$FortzuegeRel
 
-var(ODdf$BinnenWand.Sum)
-
-LORshape4FORTZUEGE <- LORshape
-colnames(LORshape4FORTZUEGE@data)[1]  <- "RAUMID"
-LORdf         <- as(LORshape4FORTZUEGE, "data.frame")
-source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
-
-LORshape4FORTZUEGE@data          <- FORTZUEGEattr
-LORshape4FORTZUEGE@data$E_E.2012 <- LOR@data$E_E.2012
-plot(LORshape4FORTZUEGE@data$Fortzuege,
-     LORshape4FORTZUEGE@data$E_E.2013)
-LORshape4FORTZUEGE@data$FortzuegeRel <- ((LORshape4FORTZUEGE@data$Fortzuege)/LORshape4FORTZUEGE@data$E_E.2012)
-spplot(LORshape4FORTZUEGE, zcol="FortzuegeRel")
-
-hist(LORshape4FORTZUEGE@data$FortzuegeRel, breaks=200)
-FZrel <- LORshape4FORTZUEGE@data$FortzuegeRel
-
-h<-hist(FZrel, breaks=200, density=10, col="blue", xlab="Accuracy", main="Overall") 
+h<-hist(FZrel, breaks=200, density=10, col="blue", xlab="Relative Binnen-Zuzüge") 
 xfit<-seq(min(FZrel),max(FZrel),length=length(FZrel)) 
 yfit<-dnorm(xfit,mean=median(FZrel),sd=mad(FZrel)) 
 yfit <- yfit*diff(h$mids[1:2])*length(FZrel) 
@@ -97,42 +77,67 @@ lines(xfit, yfit, col="black", lwd=2)
 
 qqplot(FZrel, rnorm(n=length(FZrel),
                     mean=median(FZrel),
-                    sd=mad(FZrel)))
+                    sd=mad(FZrel)),
+       ylab="~N Perzentil",
+       xlab="Relative Binnen-Fortzüge")
 qqline(FZrel,
        distribution = function(p) qnorm(p,mean=median(FZrel),sd=mad(FZrel)),
-       prob = c(0.1, 0.6), col = 2)
-mtext("qqline Relative Fortzüege")
+       prob = c(0.1, 0.6), col = 2, lwd=3)
+mtext("qqline: Relative Fortzüge")
 
-colnames(ZUZUEGEdf)[1] <- "RAUMID"
-LORshape4ZUZUEGE <- LORshape
-colnames(LORshape4ZUZUEGE@data)[1]  <- "RAUMID"
-LORdf         <- as(LORshape4ZUZUEGE, "data.frame")
-source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
-ZUZUEGEattr       <- merge.with.order(
-  LORdf, ZUZUEGEdf, sort=F,
-  by.x="RAUMID", by.y="RAUMID",
-  all.x=T, all.y=T,
-  keep_order=1)
+plot(FZrel,LOR@data$E_E.2012)
+identify(FZrel,LOR@data$E_E.2012)
+# Ausreisser: 104 105 123 197 332 416
 
+#### ----- ZuzuegeRel VERTEILUNG --------
+ZZrel <- LOR@data$ZuzuegeRel
 
-LORshape4ZUZUEGE@data          <- ZUZUEGEattr
-LORshape4ZUZUEGE@data$E_E.2013 <- LOR@data$E_E.2013
-plot(LORshape4ZUZUEGE@data$Zuzuege,LORshape4ZUZUEGE@data$E_E.2013)
-LORshape4ZUZUEGE@data$ZuzuegeRel <- (((LORshape4ZUZUEGE@data$Zuzuege/7)/LORshape4ZUZUEGE@data$E_E.2013)*100)
-spplot(LORshape4ZUZUEGE, zcol="ZuzuegeRel")
+h<-hist(ZZrel, breaks=200, density=10, col="blue", xlab="Relative Binnen-Zuzüge") 
+xfit<-seq(min(ZZrel),max(ZZrel),length=length(ZZrel)) 
+yfit<-dnorm(xfit,mean=median(ZZrel),sd=mad(ZZrel)) 
+yfit <- yfit*diff(h$mids[1:2])*length(ZZrel) 
+lines(xfit, yfit, col="black", lwd=2)
 
-hist(LORshape4ZUZUEGE$ZuzuegeRel*100, breaks=100)
-hist(LORshape4FORTZUEGE$FortzuegeRel*100, breaks=100)
+qqplot(ZZrel, rnorm(n=length(ZZrel),
+                    mean=median(ZZrel),
+                    sd=mad(ZZrel)),
+       ylab="~N Perzentil",
+       xlab="Relative Binnen-Zuzüge")
+qqline(ZZrel,
+       distribution = function(p) qnorm(p,mean=median(ZZrel),sd=mad(ZZrel)),
+       prob = c(0.1, 0.6), col = 2, lwd=3,
+       ylab="~N Perzentil")
+mtext("qqline: Relative Zuzüge")
+
+plot(ZZrel,LOR@data$E_E.2012)
+identify(ZZrel,LOR@data$E_E.2012)
+# Ausreisser: 104 123 197 332 416
 
 plot(density(LORshape4ZUZUEGE$ZuzuegeRel*100))
 plot(density(LORshape4FORTZUEGE$FortzuegeRel*100))
 
-plot(LORshape4ZUZUEGE@data$ZuzuegeRel*100,
-     LOR@data$Miete.2013)
-
-plot(LORshape4FORTZUEGE@data$FortzuegeRel*100,
-     LOR@data$PDAU10chg)
-
 save(LOR_BWANDdf, file="/home/dao/Desktop/MasterArbeit/R_4_SUBLIME/LOR_BWANDdf.Rdata")
 save(LOR, file="/home/dao/Desktop/MasterArbeit/R_4_SUBLIME/LOR.Rdata")
 
+LOR@data$E_E_u400 <- as.factor(ifelse(LOR@data$E_E.2012 < 400, 
+                                           c("unter 400EW"), 
+                                           c("über 400EW")))
+spplot(LOR, zcol="E_E_u400")
+
+LOR@data$E_E_u500 <- as.factor(ifelse(LOR@data$E_E.2012 < 500, 
+                                   c("unter 500EW"), 
+                                   c("über 500EW")))
+spplot(LOR, zcol="E_E_u500")
+
+LOR@data <- subset(LOR@data, select=-c(E_E_u500.2012,
+                                       E_E_u400.2012))
+
+LOR4reg <- LOR
+
+delvars <- c("Fortzuege","Zuzuege","FortzuegeRel","ZuzuegeRel")
+LOR4reg@data[LOR4reg@data$E_E_u500=="unter 500EW",][,delvars]
+
+delvarsinfo <- c("RAUMID_NAME","BEZ_NAME","E_E.2007","Miete.2007",
+                 "Fortzuege","Zuzuege","FortzuegeRel","ZuzuegeRel")
+delcases <- c(104,105,123,197,332,416)
+LOR4reg@data[delcases,][,delvarsinfo]
