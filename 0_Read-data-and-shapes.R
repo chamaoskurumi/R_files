@@ -274,7 +274,7 @@ JLLdata         <- reshape(JLLdataWIDE,
 #str(JLLdata)
 JLLdata07_12 <- subset(JLLdata, 
                        JLLdata$Zeit>=2007 & JLLdata$Zeit<=2012)
-JLLdata07_12$Zeit <- as.factor(JLLdata08_13$Zeit)
+JLLdata07_12$Zeit <- as.factor(JLLdata07_12$Zeit)
 #str(JLLdata08_13)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~

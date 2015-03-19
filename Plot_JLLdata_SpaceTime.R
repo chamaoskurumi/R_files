@@ -1,3 +1,6 @@
+#install.packages("plotKML")
+#install.packages("spacetime")
+library("plotKML")
 library("spacetime")
 
 JLLdata$Miete <- (JLLdata$Miete_H1 + JLLdata$Miete_H2)/2
@@ -25,8 +28,6 @@ stplot(JLLstfdf, mode="xy")
 stplot(JLLstfdf, animate=2)
 names(JLLstfdf@data)
 
-
-
 library("plotGoogleMaps")
 library("RColorBrewer")
 stplotGMAPS <- stplotGoogleMaps(JLLstfdf,
@@ -38,6 +39,18 @@ stplotGMAPS <- stplotGoogleMaps(JLLstfdf,
                                 w='49%',
                                 h='49%', 
                                 fillOpacity=0.8)
+
+plotKML(JLLstfdf)
+
+PLZ20074KML <- PLZ2007
+
+row.names(PLZ20074KML) <- (as.numeric(row.names(PLZ20074KML))+1)
+          
+plotKML(PLZ2007, var.name="Miete_H1")
+
+
+
+Produc.st[,index(Produc.st@time[c(1,5,17)])]
 
 JLLstfdf[JLLstfdf@time[c(1,6,11)]
 JLLstfdf_subset <- JLLstfdf[JLLstfdf@time[c(1,6,11)]]
