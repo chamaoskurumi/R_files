@@ -98,6 +98,30 @@ SanGebieteleaflet  <- leaflet(data=SanGebietejson, dest=tempdir(),
                               popup=c("GEBIETSNAM","KLASSENNAM"))
 SanGebieteleaflet
 
+sty <- styleCat(prop="STADTRAUM", val=c("innere Stadt",
+                                        "äußere Stadt"),
+                style.val=c("green", "red"), leg="Stadtraum",
+                lwd=1, col="white", alpha=0.4)
+Stadtraumleaflet  <- leaflet(data=LORjson, dest=tempdir(),
+                              title="Innere und äußere Stadt", 
+                              base.map="positron",
+                              style=sty, 
+                              popup=c("RAUMID_NAME","BEZ_NAME"))
+Stadtraumleaflet
+
+sty <- styleCat(prop="Gentri", val=c("Gentri hi",
+                                     "Gentri lo",
+                                     "Non Gentri"),
+                style.val=c("red","orange","blue"), leg="Gentri Klassifizierung",
+                lwd=1, col="grey", alpha=0.5)
+Gentrileaflet  <- leaflet(data=LORjson, dest=tempdir(),
+                             title="Gentri Klassifizierung", 
+                             base.map="positron",
+                             style=sty, 
+                             popup=c("RAUMID_NAME","BEZ_NAME"))
+Gentrileaflet
+
+
 
 # ----  plotGoogleMaps Alternative
 ##############################################
