@@ -377,10 +377,11 @@ LORdataFULLwidev2$WLMITRchg         <- LORdataFULLwidev2$WLMITR.2007-LORdataFULL
 LORdataFULLwidev2$WLGUTRchg         <- LORdataFULLwidev2$WLGUTR.2007-LORdataFULLwidev2$WLGUTR.2012
 
 # Änderung Arbeitslosigkeit
-LORdataFULLwidev2$Alosechg          <- LORdataFULLwidev2$Alose.2007 -            LORdataFULLwidev2$Alose.2012
-LORdataFULLwidev2$Alose_langzeitchg <- LORdataFULLwidev2$Alose_langzeit.2007  -  LORdataFULLwidev2$Alose_langzeit.2012
-LORdataFULLwidev2$Alose_u25chg      <- LORdataFULLwidev2$Alose_u25.2007 -        LORdataFULLwidev2$Alose_u25.2012
-LORdataFULLwidev2$Hartz_u15chg      <- LORdataFULLwidev2$Hartz_u15.2007 -        LORdataFULLwidev2$Hartz_u15.2012
+LORdataFULLwidev2$Alosechg             <- LORdataFULLwidev2$Alose.2007 -            LORdataFULLwidev2$Alose.2012
+LORdataFULLwidev2$Alose_langzeitchg    <- LORdataFULLwidev2$Alose_langzeit.2007  -  LORdataFULLwidev2$Alose_langzeit.2012
+LORdataFULLwidev2$Alose_u25chg         <- LORdataFULLwidev2$Alose_u25.2007 -        LORdataFULLwidev2$Alose_u25.2012
+LORdataFULLwidev2$Hartz_u15chg         <- LORdataFULLwidev2$Hartz_u15.2007 -        LORdataFULLwidev2$Hartz_u15.2012
+LORdataFULLwidev2$nicht_Alose_Hartzchg <- LORdataFULLwidev2$nicht_Alose_Hartz.2007- LORdataFULLwidev2$nicht_Alose_Hartz.2012
 
 # Änderung Ausländeranteil
 LORdataFULLwidev2$MH_Echg           <-  LORdataFULLwidev2$MH_E.2007 -            LORdataFULLwidev2$MH_E.2012

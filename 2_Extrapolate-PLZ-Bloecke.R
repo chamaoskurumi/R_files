@@ -187,6 +187,7 @@ bloecke07_pt    <- gCentroid(bloecke07    ,byid=TRUE); plot(bloecke07_pt)
 bloecke07_ptdf  <- SpatialPointsDataFrame(coords = bloecke07_pt, 
                                           data = bloecke07@data, 
                                           proj4string = zielCRS)
+#plot(bloecke07_pt)
 
 bloecke08_pt    <- gCentroid(bloecke08    ,byid=TRUE); plot(bloecke08_pt)
 bloecke08_ptdf  <- SpatialPointsDataFrame(coords = bloecke08_pt, 
@@ -347,8 +348,8 @@ length(unique(bloecke2LOR_07$RAUMID))
 
 LOR_JLLagg_07 <- ddply(bloecke2LOR_07, 
                        "RAUMID", summarise, 
-                       Miete_H1_wmean.2007 = round(weighted.mean(Miete_H1, EINWOHNER), digits=2),
-                       Miete_H2_wmean.2007 = round(weighted.mean(Miete_H2, EINWOHNER), digits=2))
+                       Miete_H1_wmean.2007 = round(weighted.mean(Miete_H1, EINWOHNER, na.rm =T), digits=2),
+                       Miete_H2_wmean.2007 = round(weighted.mean(Miete_H2, EINWOHNER, na.rm =T), digits=2))
 str(LOR_JLLagg_07)
 LOR_JLLagg_07 <- subset(LOR_JLLagg_07, !is.na(LOR_JLLagg_07$RAUMID))
 
@@ -376,8 +377,8 @@ bloecke2LOR_08 <- subset(bloecke2LOR_08, select=-c(FLAECHE_HA, FLAECHE_HA.1, x, 
 
 LOR_JLLagg_08 <- ddply(bloecke2LOR_08, 
       "RAUMID", summarise, 
-      Miete_H1_wmean.2008 = round(weighted.mean(Miete_H1, EINWOHNER), digits=2),
-      Miete_H2_wmean.2008 = round(weighted.mean(Miete_H2, EINWOHNER), digits=2))
+      Miete_H1_wmean.2008 = round(weighted.mean(Miete_H1, EINWOHNER, na.rm =T), digits=2),
+      Miete_H2_wmean.2008 = round(weighted.mean(Miete_H2, EINWOHNER, na.rm =T), digits=2))
 #tail(LOR_JLLagg_08)
 LOR_JLLagg_08 <- subset(LOR_JLLagg_08, !is.na(LOR_JLLagg_08$RAUMID))
 sum(is.na(LOR_JLLagg_08$Miete_H1_wmean.2008)) # für soviele LORs fehlen uns die Mietpreisdaten
@@ -394,8 +395,8 @@ bloecke2LOR_09 <- subset(bloecke2LOR_09, select=-c(FLAECH_HA, FLAECHE_HA, x, y))
 
 LOR_JLLagg_09 <- ddply(bloecke2LOR_09, 
                        "RAUMID", summarise, 
-                       Miete_H1_wmean.2009 = round(weighted.mean(Miete_H1, EW_GESAMT), digits=2),
-                       Miete_H2_wmean.2009 = round(weighted.mean(Miete_H2, EW_GESAMT), digits=2))
+                       Miete_H1_wmean.2009 = round(weighted.mean(Miete_H1, EW_GESAMT, na.rm =T), digits=2),
+                       Miete_H2_wmean.2009 = round(weighted.mean(Miete_H2, EW_GESAMT, na.rm =T), digits=2))
 head(LOR_JLLagg_09)
 LOR_JLLagg_09 <- subset(LOR_JLLagg_09, !is.na(LOR_JLLagg_09$RAUMID))
 sum(is.na(LOR_JLLagg_09$Miete_H1_wmean.2009)) # für soviele LORs fehlen uns die Mietpreisdaten
@@ -413,14 +414,14 @@ bloecke2LOR_10_12 <- subset(bloecke2LOR_10_12, select=-c(FLAECHE_HA, x, y))
 LOR_JLLagg_10_12 <- ddply(bloecke2LOR_10_12, 
                        "RAUMID", summarise, 
                        # 2010 #
-                       Miete_H1_wmean.2010 = round(weighted.mean(Miete_H1.2010, EW2010), digits=2),
-                       Miete_H2_wmean.2010 = round(weighted.mean(Miete_H2.2010, EW2010), digits=2),
+                       Miete_H1_wmean.2010 = round(weighted.mean(Miete_H1.2010, EW2010, na.rm =T), digits=2),
+                       Miete_H2_wmean.2010 = round(weighted.mean(Miete_H2.2010, EW2010, na.rm =T), digits=2),
                        # 2011 #
-                       Miete_H1_wmean.2011 = round(weighted.mean(Miete_H1.2011, EW2011), digits=2),
-                       Miete_H2_wmean.2011 = round(weighted.mean(Miete_H2.2011, EW2011), digits=2),
+                       Miete_H1_wmean.2011 = round(weighted.mean(Miete_H1.2011, EW2011, na.rm =T), digits=2),
+                       Miete_H2_wmean.2011 = round(weighted.mean(Miete_H2.2011, EW2011, na.rm =T), digits=2),
                        # 2012 #
-                       Miete_H1_wmean.2012 = round(weighted.mean(Miete_H1.2012, EW2012), digits=2),
-                       Miete_H2_wmean.2012 = round(weighted.mean(Miete_H2.2012, EW2012), digits=2))
+                       Miete_H1_wmean.2012 = round(weighted.mean(Miete_H1.2012, EW2012, na.rm =T), digits=2),
+                       Miete_H2_wmean.2012 = round(weighted.mean(Miete_H2.2012, EW2012, na.rm =T), digits=2))
 
 sum(is.na(LOR_JLLagg_10_12$Miete_H1_wmean.2010)) # für soviele LORs fehlen uns die Mietpreisdaten 2010
 sum(is.na(LOR_JLLagg_10_12$Miete_H2_wmean.2010)) # für soviele LORs fehlen uns die Mietpreisdaten 2010
