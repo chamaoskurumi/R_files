@@ -15,7 +15,7 @@ library("reshape2")
 LORdataFULLv2 <- LORdataFULLv1
 
 #names(LORdataFULLv2)
-View(LORdataFULLv2)
+#View(LORdataFULLv2)
 
 ###### a.) Miete #####
 
@@ -39,13 +39,13 @@ colnames(Miete2merge) <- "Miete"
 remove(Mdef07,Mdef08,Mdef09,Mdef10,Mdef11,Mdef12)
 
 LORdataFULLv2ORD <- LORdataFULLv2[order(LORdataFULLv2[,"ZEIT"]), ]
-View(LORdataFULLv2ORD) 
+#View(LORdataFULLv2ORD) 
 
 LORdataFULLv2ORD <- data.frame(LORdataFULLv2ORD,Miete2merge$Miete)
 colnames(LORdataFULLv2ORD)[dim(LORdataFULLv2ORD)[2]] <- "Miete"
 
 LORdataFULLv2 <- LORdataFULLv2ORD[order(LORdataFULLv2ORD[,"RAUMID"],LORdataFULLv2ORD[,"ZEIT"]), ]
-View(LORdataFULLv2)
+#View(LORdataFULLv2)
 
 LORdataFULLv2              <- ddply(LORdataFULLv2,"RAUMID", transform,
                                   Mietechg = c(NA,diff(Miete)))
@@ -205,8 +205,18 @@ LORdataFULLv2              <- ddply(LORdataFULLv2,"RAUMID", transform,
 LORdataFULLv2              <- ddply(LORdataFULLv2,"RAUMID", transform,
                                     PDAU5chg  = c(NA,diff(PDAU5)))
 
+####### h.) Binnen-Wanderungen ######
 
-###### h.) Unnötige Vars droppen & Var order ändern ######
+LORdataFULLv2$FortzuegeR      <- round(( LORdataFULLv2$Fortzuege   / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$ZuzuegeR        <- round(( LORdataFULLv2$Zuzuege     / LORdataFULLv2$E_E )*100,digits=1)
+
+####### i.) Außen-Wanderungen #######
+
+# FEHLT NOCH
+
+
+
+###### j.) Unnötige Vars droppen & Var order ändern ######
 
 names(LORdataFULLv2)
 LORdataFULLv3 <- subset(LORdataFULLv2, select=-c(Miete_H1_wmean,
@@ -278,7 +288,11 @@ LORdataFULLv4 <- LORdataFULLv3[c("ZEIT",
                # SanierungsGebiete
                "SanGebiet",       "SanGebiet_NAME",    "SanGebiet_KLASSE",       
                # Mietdaten
-               "Miete", "Mietechg", "Mietechgr", "MieteNom")]
+               "Miete", "Mietechg", "Mietechgr", "MieteNom",
+               # Binnenwanderungen
+               "Fortzuege","Zuzuege","FortzuegeR","ZuzuegeR"
+               # Außenwanderungen
+               )]
 
 remove(LORdataFULLv2)
 remove(LORdataFULLv3)
@@ -347,7 +361,11 @@ LORdataFULLwidev1    <- reshape(LORdataFULL4wide,
                               # SanierungsGebiete
                               "SanGebiet",       "SanGebiet_NAME",    "SanGebiet_KLASSE",       
                               # Mietdaten
-                              "Miete", "Mietechg", "Mietechgr", "MieteNom"),
+                              "Miete", "Mietechg", "Mietechgr", "MieteNom",
+                              # Binnenwanderungen
+                              "Fortzuege","Zuzuege","FortzuegeR","ZuzuegeR"
+                              # Außenwanderungen
+                              ),
                    timevar = "ZEIT",
                    direction = "wide") 
 #names(LORdataFULLwidev1)
@@ -422,6 +440,25 @@ LORdataFULLwidev2$Mietechg    <-   LORdataFULLwidev2$Miete.2012 - LORdataFULLwid
 LORdataFULLwidev2$Mietechgr   <-   round(((LORdataFULLwidev2$Miete.2012 - LORdataFULLwidev2$Miete.2007)/
                                             LORdataFULLwidev2$Miete.2007)*100, digits=0)
 LORdataFULLwidev2$MieteNomchg <-   LORdataFULLwidev2$MieteNom.2012 - LORdataFULLwidev2$MieteNom.2007
+
+# Fortzuege und Zuzuege
+LORdataFULLwidev2$Fortzuege        <-   (LORdataFULLwidev2$Fortzuege.2007 +
+                                         LORdataFULLwidev2$Fortzuege.2008 +
+                                         LORdataFULLwidev2$Fortzuege.2009 +
+                                         LORdataFULLwidev2$Fortzuege.2010 +
+                                         LORdataFULLwidev2$Fortzuege.2011 +
+                                         LORdataFULLwidev2$Fortzuege.2012)
+
+LORdataFULLwidev2$Zuzuege          <-   (LORdataFULLwidev2$Zuzuege.2007 +
+                                         LORdataFULLwidev2$Zuzuege.2008 +
+                                         LORdataFULLwidev2$Zuzuege.2009 +
+                                         LORdataFULLwidev2$Zuzuege.2010 +
+                                         LORdataFULLwidev2$Zuzuege.2011 +
+                                         LORdataFULLwidev2$Zuzuege.2012)
+
+LORdataFULLwidev2$FortzuegeR <- round(((LORdataFULLwidev2$Fortzuege/6)/LORdataFULLwidev2$E_E.2012)*100, digits=1)
+LORdataFULLwidev2$ZuzuegeR   <- round(((LORdataFULLwidev2$Zuzuege  /6)/LORdataFULLwidev2$E_E.2012)*100, digits=1)
+
 names(LORdataFULLwidev2)
 
 LORdataWIDE <- LORdataFULLwidev2

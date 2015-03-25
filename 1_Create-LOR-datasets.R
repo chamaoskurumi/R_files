@@ -4,12 +4,20 @@
 #                                           #
 #********************************************
 
-#********************************************
-# LOR Long Datensatz  ***********************
-#********************************************
+
+# ____ Packages ______ ------------------------------------------
+library("plyr")
+library("reshape2")
+
+
+#§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# I.) LONG Datensatz ------
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# ALTERAUSLAENDER =================
+# a.) ALTERAUSLAENDER =================
 
 ALTERAUSLAENDER4merge <- subset(ALTERAUSLAENDER, select=-c(BEZ,PGR,BZR,PLR,STADTRAUM))
 DF1 <- merge(x = EW, y = ALTERAUSLAENDER4merge, by = c("RAUMID", "ZEIT"))
@@ -29,7 +37,7 @@ names(DF1)
 table(DF1$ZEIT)
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# MIGRATIONSHINTERGRUND E =======================
+# b.) MIGRATIONSHINTERGRUND E =======================
 
 MIGHINTERE4merge <- subset(MIGHINTERE, select=-c(BEZ,PGR,BZR,PLR,STADTRAUM))
 DF1b <- merge(x = DF1, y = MIGHINTERE4merge, by = c("RAUMID", "ZEIT"))
@@ -44,7 +52,7 @@ names(DF1b)
 table(DF1b$ZEIT)
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# MIGRATIONSHINTERGRUND H =======================
+# c.) MIGRATIONSHINTERGRUND H =======================
 
 MIGHINTERH4merge <- subset(MIGHINTERH, select=-c(BEZ,PGR,BZR,PLR,STADTRAUM))
 DF2 <- merge(x = DF1b, y = MIGHINTERH4merge, by = c("RAUMID", "ZEIT"))
@@ -52,7 +60,7 @@ str(DF2)
 names(DF2)
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# WOHNDAUER =================
+# d.) WOHNDAUER =================
 
 WHNDAUER4merge <- subset(WHNDAUER, select=-c(BEZ,PGR,BZR,PLR,STADTRAUM))
 DF3 <- merge(x = DF2, y = WHNDAUER4merge, by = c("RAUMID", "ZEIT"))
@@ -60,7 +68,7 @@ str(DF3)
 names(DF3)
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# WOHNLAGE =================
+# e.) WOHNLAGE =================
 
 WHNLAGE4merge <- subset(WHNLAGE, select=-c(BEZ,PGR,BZR,PLR,STADTRAUM))
 DF4 <- merge(x = DF3, y = WHNLAGE4merge, by = c("RAUMID", "ZEIT"))
@@ -68,7 +76,7 @@ str(DF4)
 names(DF4)
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# MONITORING =================
+# f.) MONITORING =================
 
 MONITORING4merge <- subset(MONITORING, select=-c(EW), ZEIT>=2007)
 DF5 <- merge(x = DF4, y = MONITORING4merge, by = c("RAUMID", "ZEIT"))
@@ -84,7 +92,7 @@ names(DF5)
 #View(DF5)
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# LORinfo von WFS Fis Broker einlesen ======================================
+# g.) LORinfo von WFS Fis Broker einlesen ======================================
 
 library("foreign")
 LORinfo <- read.dbf("/home/dao/Desktop/MasterArbeit/R_data/LOR_Systematik_PLR-BZR-PRR_-LOR-/LORinfo_WFS-FisBroker.dbf")
@@ -136,7 +144,7 @@ str(DF6)
 #View(DF6)
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# KONTEXTINDIKATOREN 2012 ======================================
+# h.) KONTEXTINDIKATOREN 2012 ======================================
 
 KONTEXTIND4merge <- subset(KONTEXTIND, select=-c(GEBIET, EW))
 source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
@@ -152,23 +160,61 @@ DF7 <- merge(x = DF6,
 str(DF7) # Order jetzt falsch.
 DF7 <- DF7[order(DF7[,"RAUMID"],DF7[,"ZEIT"]), ] # alte Reihenfolge wieder herstellen
 
-DF7$ZEIT <- as.factor(DF7$ZEIT)
-LORdata <- DF7
-str(LORdata) # das ist der vollständige LOR long Datensatz
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# i.) BINNENWANDERUNGEN ======================================
+
+FORTZUEGEZUZUEGEdf4long <- subset(FORTZUEGEZUZUEGEdf, select=-c(Fortzuege,Zuzuege))
+str(FORTZUEGEZUZUEGEdf4long)
+
+FORTZUEGEZUZUEGEdflong <- data.frame(rep(FORTZUEGEdf$RAUMID, times=6),
+                                     rep(2007:2012, each=447),
+                                     c(FORTZUEGEdf$Fortzuege.2007,
+                                       FORTZUEGEdf$Fortzuege.2008,
+                                       FORTZUEGEdf$Fortzuege.2009,
+                                       FORTZUEGEdf$Fortzuege.2010,
+                                       FORTZUEGEdf$Fortzuege.2011,
+                                       FORTZUEGEdf$Fortzuege.2012),
+                                     c(ZUZUEGEdf$Zuzuege.2007,
+                                       ZUZUEGEdf$Zuzuege.2008,
+                                       ZUZUEGEdf$Zuzuege.2009,
+                                       ZUZUEGEdf$Zuzuege.2010,
+                                       ZUZUEGEdf$Zuzuege.2011,
+                                       ZUZUEGEdf$Zuzuege.2012))
+colnames(FORTZUEGEZUZUEGEdflong) <- c("RAUMID","ZEIT","Fortzuege","Zuzuege")
+FORTZUEGEZUZUEGEdflong <- FORTZUEGEZUZUEGEdflong[order(FORTZUEGEZUZUEGEdflong[,"RAUMID"],
+                                                       FORTZUEGEZUZUEGEdflong[,"ZEIT"]), ] 
+#str(FORTZUEGEZUZUEGEdflong)
+
+source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
+DF8 <- merge(x = DF7, 
+             y = FORTZUEGEZUZUEGEdflong, 
+             by = c("RAUMID","ZEIT"), 
+             all.x=T, 
+             all.y=T,
+             sort=T,
+             keep_order=1)
+DF8$ZEIT <- as.factor(DF7$ZEIT)
+str(DF8)
+LORdata <- DF8 # das ist der vollständige LOR long Datensatz
 head(subset(LORdata,ZEIT=="2012",select=c(AlleinerzHH,Altersarmut))) 
 
-#********************************************
-# Merge LOR Shape mit LOR Wide Datensatz  ***
-#********************************************
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# j.) AUSSENWANDERUNGEN ======================================
 
-#install.packages("reshape2")
-library("reshape2")
+# FEHLT NOCH
+
+
+#§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# II.) WIDE Datensatz und merge mit LOR Shape File ------
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Long to wide LOR Datensatz ===================================
+# a.) Long to wide LOR Datensatz ===================================
 
-DF7 <- arrange(DF7, RAUMID, ZEIT)
-DF7wide <- reshape(DF7,
+DF8 <- arrange(DF8, RAUMID, ZEIT)
+DF8wide <- reshape(DF8,
                   idvar = c("RAUMID",  "RAUMID_NAME", "BZR",
                             "BZR_NAME","PGR",     "PRG_NAME","BEZ",    
                             "BEZ_NAME","STADTRAUM","FL_HA"),
@@ -193,14 +239,15 @@ DF7wide <- reshape(DF7,
                               "Alose_langzeit",         "nicht_Alose_Hartz",      "Hartz_u15"      ,        "MigHinter_u18"         ,
                               "WanderVol",              "WanderSaldo"      ,      "WanderSaldo_u6",         "Veraend_HartzEmpf_D"   ,
                               "Veraend_HartzEmpf_Ausl", "Veraend_Hartz_u15",      "StaedtWohnungen",        "EinfWhnlageLaerm",
-                              "AlleinerzHH",            "Altersarmut"),
+                              "AlleinerzHH",            "Altersarmut",
+                              "Fortzuege",              "Zuzuege"),
                   timevar = "ZEIT",
                   direction = "wide")
-#View(DF7wide)
-LORdata_wide <- DF7wide
+#View(DF8wide)
+LORdata_wide <- DF8wide
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Merge LOR Shape file mit LOR Wide Datensatz ==================
+# b.) Merge LOR Shape file mit LOR Wide Datensatz ==================
 
 library("rgdal")
 setwd("/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten")

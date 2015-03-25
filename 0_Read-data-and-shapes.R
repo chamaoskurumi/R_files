@@ -1,13 +1,14 @@
 #******************************************
 #
-# "Räumliche Konvertierung"
+#  Read data and shapes
 #
-# by Guido Schulz
+# 
 #******************************************
-Sys.setlocale("LC_MESSAGES", 'en_GB.UTF-8')
+
+Sys.setlocale("LC_ALL", 'en_GB.UTF-8')
 Sys.setenv(LANG = "en_US.UTF-8")
 
-# Packages ----------------------------------------------------------------
+# ____ Packages ______ ----------------------------------------------------------------
 
 #install.packages(c("spdep",      "sp",      "maptools", "lattice", 
 #                   "rgdal",      "rgeos",   "foreign",  "PBSmapping",
@@ -31,11 +32,14 @@ library("reshape2")
 #install.packages("gdal")
 #library("gdal")
 
-
-# Daten -------------------------------------------------------------------
+#§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# I.) Rohdaten einlesen ------
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
-# Einwohner
+# ---- a.) Einwohner -----
 #~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
@@ -54,7 +58,7 @@ EW$ZEIT[EW$ZEIT == 201312] <- 2013
 str(EW)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
-# Wohndauer
+# ---- b.) Wohndauer ----
 #~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
@@ -69,7 +73,7 @@ WHNDAUER$RAUMID <- factor(WHNDAUER$RAUMID) # leeres Level "" für RAUMID droppen
 str(WHNDAUER)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~
-# Wohnlage
+# ---- c.) Wohnlage -----
 #~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
@@ -98,9 +102,9 @@ WHNLAGE$ZEIT[WHNLAGE$ZEIT == 201312] <- 2013
 #View(WHNLAGE)
 #str(WHNLAGE)
 
-#~~~~~~~~~~~~~~~~~~~~~~~~
-# Ausländer und Alter
-#~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ---- d.) Ausländer und Alter ----
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 ALTERAUSLAENDER_files <- dir(path="EW_Alter_Auslaender_-LOR-/", pattern = glob2rx("*.csv"))
@@ -119,9 +123,9 @@ ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 201312] <- 2013
 #str(ALTERAUSLAENDER)
 
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Migrationshintergrund E (Alter)
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ---- e.) Migrationshintergrund E (Alter) -----
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 MIGHINTERE_files <- dir(path="EW_Migrationshintergrund_E-LOR-/", pattern = glob2rx("*.csv"))
@@ -141,9 +145,9 @@ MIGHINTERE$ZEIT[MIGHINTERE$ZEIT == 201312] <- 2013
 str(MIGHINTERE)
 
 
-#~~~~~~~~~~~~~~~~~~~~~~~~
-# Migrationshintergrund H
-#~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ---- f.) Migrationshintergrund H ----
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 MIGHINTERH_files <- dir(path="EW_Migrationshintergrund_H-LOR-/", pattern = glob2rx("*.csv"))
@@ -164,9 +168,9 @@ MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 201312] <- 2013
 #str(MIGHINTERH)
 
 
-#~~~~~~~~~~~~~~~~~~~~~~~~
-# Monitoring SozStadtentwicklung
-#~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ---- g.) Monitoring SozStadtentwicklung ----
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 MONITORING_files <- dir(path="MonitoringSozStadtEnt_-LOR-/", pattern = glob2rx("*.csv"))
@@ -202,9 +206,9 @@ MONITORING$GEBIET <- factor(MONITORING$GEBIET)
 
 
 
-#~~~~~~~~~~~~~~~~~~~~~~~~
-# Kontext Indikatoren
-#~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ----- h.) Kontext Indikatoren -----
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 KONTEXTIND_files <- dir(path="KontextIndikatoren_-LOR-/", pattern = glob2rx("*.csv"))
@@ -217,7 +221,7 @@ str(KONTEXTIND)
 #names(KONTEXTIND)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# ImmoScout Mieten, Whg Kauf Preise , Haus Kauf Preise
+# ----- i.) ImmoScout Mieten, Whg Kauf Preise , Haus Kauf Preise -----
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/ImmoScout_-ISOT-/")
@@ -254,9 +258,9 @@ ISdata             <- merge(x=ISmieten_whgpreise, y=IShauspreise, all.x=T, all.y
 remove(ISmieten, ISwhgpreise, IShauspreise, ISmieten_whgpreise)
 #View(ISdata)
 
-#~~~~~~~~~~~~~~~~~~~~~~~~
-# JLL JonesLangLasalle Daten
-#~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ---- j.) JLL JonesLangLasalle Daten ------
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 JLLdataWIDE <- read.table("GSW_-PLZ-/JonesLangLasalle_Mietpreise_2004-2014_modified.csv", 
@@ -277,9 +281,9 @@ JLLdata07_12 <- subset(JLLdata,
 JLLdata07_12$Zeit <- as.factor(JLLdata07_12$Zeit)
 #str(JLLdata08_13)
 
-#~~~~~~~~~~~~~~~~~~~~~~~~
-# Verbraucherpreisindex
-#~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ---- k.) Verbraucherpreisindex ----
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 VPI <- read.table("Verbraucherpreisindex/Verbraucherpreisindex2004_2014.csv", 
@@ -287,9 +291,9 @@ VPI <- read.table("Verbraucherpreisindex/Verbraucherpreisindex2004_2014.csv",
                           na.strings="NA", stringsAsFactors=F)
 #str(VPI)
 
-#~~~~~~~~~~~~~~~~~~~~~~~~
-# Binnenwanderung LOR 
-#~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ---- l.) Binnenwanderung LOR  ------
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 BINNENWAND_files <- dir(path="Binnenwanderungen_-LOR-/", pattern = glob2rx("*.csv"))
@@ -327,7 +331,7 @@ colnames(ODdf) <- c("dyad","VonLOR","NachLOR")
 
 setdiff(levels(ODdf$VonLOR),levels(BINNENWAND.2007$VonLOR))
 
-# ----- Binnenwanderungen 2007 -----
+# ----- i.     Binnenwanderungen 2007 -----
 levels(BINNENWAND.2007$VonLOR)[which(levels(BINNENWAND.2007$VonLOR) == "12103015")] <- "12103115"
 levels(BINNENWAND.2007$VonLOR)[which(levels(BINNENWAND.2007$VonLOR) == "12103015")] <- "12103115"
 levels(BINNENWAND.2007$VonLOR)[which(levels(BINNENWAND.2007$VonLOR) == "12103016")] <- "12103116"
@@ -371,7 +375,7 @@ levels(BINNENWAND.2007$NachLOR)[which(levels(BINNENWAND.2007$NachLOR) == "123020
 #BINNENWAND.2007$NachLOR <- factor(BINNENWAND.2007$NachLOR)
 
 
-# ----- Binnenwanderungen 2008 -----
+# ----- ii.    Binnenwanderungen 2008 -----
 levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12103015")] <- "12103115"
 levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12103015")] <- "12103115"
 levels(BINNENWAND.2008$VonLOR)[which(levels(BINNENWAND.2008$VonLOR) == "12103016")] <- "12103116"
@@ -413,7 +417,7 @@ levels(BINNENWAND.2008$NachLOR)[which(levels(BINNENWAND.2008$NachLOR) == "123020
 
 
 
-# ----- Binnenwanderungen 2009 -----
+# ----- iii.    Binnenwanderungen 2009 -----
 levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12103015")] <- "12103115"
 levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12103015")] <- "12103115"
 levels(BINNENWAND.2009$VonLOR)[which(levels(BINNENWAND.2009$VonLOR) == "12103016")] <- "12103116"
@@ -478,7 +482,7 @@ levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "123020
 # matrix[i,j] <- df$umzug[df$von=i, df$zu=j]
 
 
-# ------- Merge Binnenwanderungen mit ODdf ----------
+# ------- vi.    Merge Binnenwanderungen mit ODdf ----------
 
 setdiff(levels(ODdf$VonLOR),levels(BINNENWAND.2008$VonLOR))
 setdiff(levels(BINNENWAND.2008$VonLOR),levels(ODdf$VonLOR))
@@ -553,35 +557,49 @@ ODdf$BinnenWand.Sum <-    (ODdf$BinnenWand.2007+
                            ODdf$BinnenWand.2012+
                            ODdf$BinnenWand.2013) 
 
-str(ODdf)
-head(ODdf)
-
-plot(density(ODdf$BinnenWand.Sum))
-hist(log(ODdf$BinnenWand.Sum), breaks=100)
-summary(ODdf$BinnenWand.Sum)
-table(ODdf$BinnenWand.Sum)
-
-ODdf
-library(plyr)
 FORTZUEGEdf <- ddply(ODdf, "VonLOR", summarise, 
-                     Fortzuege = sum(BinnenWand.Sum))
-plot(density(FORTZUEGEdf$Fortzuege))
-hist(FORTZUEGEdf$Fortzuege, breaks=100)
+                     Fortzuege.2007 = sum(BinnenWand.2007),
+                     Fortzuege.2008 = sum(BinnenWand.2008),
+                     Fortzuege.2009 = sum(BinnenWand.2009),
+                     Fortzuege.2010 = sum(BinnenWand.2010),
+                     Fortzuege.2011 = sum(BinnenWand.2011),
+                     Fortzuege.2012 = sum(BinnenWand.2012),
+                     Fortzuege      = sum(BinnenWand.Sum))
+#plot(density(FORTZUEGEdf$Fortzuege))
+#hist(FORTZUEGEdf$Fortzuege, breaks=100)
 
-ZUZUEGEdf <- ddply(ODdf, "NachLOR", summarise, 
+ZUZUEGEdf <- ddply(ODdf, "NachLOR", summarise,
+                   Zuzuege.2007 = sum(BinnenWand.2007),
+                   Zuzuege.2008 = sum(BinnenWand.2008),
+                   Zuzuege.2009 = sum(BinnenWand.2009),
+                   Zuzuege.2010 = sum(BinnenWand.2010),
+                   Zuzuege.2011 = sum(BinnenWand.2011),
+                   Zuzuege.2012 = sum(BinnenWand.2012),
                    Zuzuege = sum(BinnenWand.Sum))
-plot(density(ZUZUEGEdf$Zuzuege))
-hist(ZUZUEGEdf$Zuzuege, breaks=100)
+#plot(density(ZUZUEGEdf$Zuzuege))
+#hist(ZUZUEGEdf$Zuzuege, breaks=100)
 
 colnames(FORTZUEGEdf)[1] <- "RAUMID"
 colnames(ZUZUEGEdf)[1] <- "RAUMID"
 
+FORTZUEGEZUZUEGEdf <- merge(FORTZUEGEdf,ZUZUEGEdf,by="RAUMID")
 
-# Shape files --------------------------------------------------------------
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ----- m.) Außenwanderungen LOR  -----
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#~~~~~~~~~~~~~~~~~~~~~~~~
-# ImmoScout Ortsteile
-#~~~~~~~~~~~~~~~~~~~~~~~~
+# FEHLT NOCH
+
+
+#§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# II.) Shape Files einlesen ------
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ---- a.) ImmoScout Ortsteile -----
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd("/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten")
 IS       <- readOGR(dsn="ImmoScout", layer="Berlin_BGID_projected")
@@ -590,9 +608,9 @@ zielCRS  <- IS@proj4string
 #zielCRS <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 +x_0=40000 +y_0=10000 +datum=potsdam +units=m
 #+no_defs +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 ")
 
-#~~~~~~~~~~~~~~~~~~~~~~~~
-# Postleitzahlen PLZ
-#~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ---- b.) Postleitzahlen PLZ ----
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd("/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten")
 PLZ1     <- readOGR(dsn="PLZ_GS/RBS_OD_PLZ_01_2014/", layer="RBS_OD_PLZ_1312", encoding = "UTF-8")
@@ -600,9 +618,9 @@ proj4string(PLZ1)    <- CRS("+proj=utm +zone=33 +ellps=GRS80 +units=m +no_defs")
 PLZ    <- spTransform(PLZ1, zielCRS)
 #plot(PLZ)
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Stat. Landesamt LOR (Prognose-, Planungsräume, Bezirksregionen)
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ---- c.) Stat. Landesamt LOR (Prognose-, Planungsräume, Bezirksregionen) ----
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd("/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten")
 LOR1     <- readOGR(dsn="LOR/LORneu/LOR_SHP_EPSG_3068/", layer="Planungsraum_EPSG_3068")
@@ -626,9 +644,9 @@ BZR <- spTransform(BZR1, zielCRS)
 #plot(LOR)
 #plot(BZR)
 
-#~~~~~~~~~~~~~~~~~~~~~~~~
-# Sanierungsgebiete
-#~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ---- d.) Sanierungsgebiete ----
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd("/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten")
 SanGebiete1                <- readOGR(dsn="Sanierungsgebiete_GS/Sanierungsgebiete_EPSG_25833/",
@@ -652,7 +670,9 @@ SanGebiete@data$SanGebiet_NAME <- SanGebieteNAMEN
 #plot(SanGebiete, col="red", add=T)
 #View(SanGebiete@data)
 
-# Bloecke ----------------------------------------------------------------
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ---- e.) Bloecke ------------------------------------------------------
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #*******************
 # Bloecke 2007
