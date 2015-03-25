@@ -31,44 +31,27 @@ source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTI
 #&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 #&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
-
-
 LOR@data <- LORattrFULL
 
 LOR4BWAND <- subset(LOR@data, select=c(RAUMID:STADTRAUM,
                                        E_E.2007,
-                                       E_E.2012))
-
-LOR_BWANDdf <- merge.with.order(LOR4BWAND, FORTZUEGEdf,
-                                sort=F,
-                                by.x="RAUMID", by.y="RAUMID",
-                                all.x=T, all.y=T,
-                                keep_order=1)
-
-LOR_BWANDdf <- merge.with.order(LOR_BWANDdf, ZUZUEGEdf,
-                                sort=F,
-                                by.x="RAUMID", by.y="RAUMID",
-                                all.x=T, all.y=T,
-                                keep_order=1)
-
-LOR_BWANDdf$FortzuegeRel <- round(((LOR_BWANDdf$Fortzuege/6)/LOR_BWANDdf$E_E.2012)*100, digits=1)
-LOR_BWANDdf$ZuzuegeRel   <- round(((LOR_BWANDdf$Zuzuege  /6)/LOR_BWANDdf$E_E.2012)*100, digits=1)
-
-LOR_BWANDdfsubset <- subset(LOR_BWANDdf, select=c(RAUMID,Fortzuege,Zuzuege,FortzuegeRel,ZuzuegeRel))
-
-LOR@data <- merge.with.order(LOR@data, LOR_BWANDdfsubset,
-                             sort=F,
-                             by.x="RAUMID", by.y="RAUMID",
-                             all.x=T, all.y=T,
-                             keep_order=1)
-names(LOR@data)
+                                       E_E.2012,
+                                       Fortzuege,
+                                       Zuzuege,
+                                       FortzuegeR,
+                                       ZuzuegeR))
 
 #### ---- Verteilungscheck und Außreisser Identifizieren ---- #####
 
-#View(LOR_BWANDdf)
+p1 <- hist(LOR4BWAND$Fortzuege, breaks=50)
+p2 <- hist(LOR_BWANDdf$Fortzuege, breaks=50)
 
-hist(LOR_BWANDdf$Fortzuege, breaks=50)
+plot( p1, col=rgb(0,0,1,1/4), xlim=c(0,30000))  # first histogram
+plot( p2, col=rgb(1,0,0,1/4), xlim=c(0,30000), add=T) 
+# PROBLEM: WERTE SIND VERSCHIEDEN
 hist(LOR_BWANDdf$Zuzuege, breaks=50)
+
+data.frame(LOR4BWAND$Fortzuege,LOR_BWANDdf$Fortzuege)
 
 # Einwohner Verteilungen pro LOR 2007 & 2012
 vioplot(LOR_BWANDdf$E_E.2007, 
@@ -181,6 +164,7 @@ LOR4reg@data$valid <- as.factor(ifelse(is.na(LOR4reg@data$FortzuegeRel),
                                             c("gültig")))
 spplot(LOR4reg, zcol="valid", col.regions=c("green","red"))
 
+
 #&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 #&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 ###### -------- II.) LOR4reg exklusive Ausreisser LORs      --------------
@@ -243,128 +227,3 @@ qqline(ZZrel,
        prob = c(0.1, 0.6), col = 2, lwd=3,
        ylab="~N Perzentil")
 mtext("qqline: Relative Zuzüge")
-
-#******************************************************************************************
-#******************************************************************************************
-# C.) Auswählen der LORs für Gentri-Kategorisierung  --------------------------------------
-#******************************************************************************************
-#******************************************************************************************
-
-LOR4reg <- LOR
-# Wir überschreiben die Miete & Alosingkeit
-# mit NAs, damit sie nicht bei der Kategorisierung und Regression mitverwendet werden
-LOR4reg@data[LOR4reg@data$E_E_u300=="unter 300EW" | 
-               LOR4reg@data$RAUMID_NAME=="Motardstr.",][,c("Mietechg",
-                                                           "Mietechgr",
-                                                           "Alosechg",
-                                                           "nicht_Alose_Hartzchg")] <- NA
-LOR4reg@data$valid <- as.factor(ifelse(is.na(LOR4reg@data$FortzuegeRel), 
-                                       c("ungültig"), 
-                                       c("gültig")))
-
-# hier sollte eigentlich gewichtet werden...vielleicht mit weighted quantiles oder so?!?
-# weighted boxplot?
-vioplot(na.omit(LOR4reg@data$Mietechg))
-vioplot(na.omit(LOR4reg@data$nicht_Alose_Hartzchg))
-
-qntl <- quantile(LOR4reg@data$Mietechg, na.rm=T); qntl 
-LOR4reg@data$MietechgQNTL <- cut(LOR4reg@data$Mietechg, 
-    qntl,
-    labels=c("1.Quartil",
-             "2.Quartil",
-             "3.Quartil",
-             "4.Quartil"))
-table(LOR4reg@data$MietechgQNTL)
-spplot(LOR4reg, zcol="MietechgQNTL", 
-       col.regions=c("darkblue","lightblue","orange","red"))
-
-
-qntl <- quantile(LOR4reg@data$Mietechgr, na.rm=T); qntl 
-LOR4reg@data$MietechgrQNTL <- cut(LOR4reg@data$Mietechgr, 
-                             qntl,
-                             labels=c("1.Quartil",
-                                      "2.Quartil",
-                                      "3.Quartil",
-                                      "4.Quartil"))
-table(LOR4reg@data$MietechgrQNTL)
-spplot(LOR4reg, zcol="MietechgrQNTL", 
-       col.regions=c("darkblue","lightblue","orange","red"))
-
-qntl <- quantile(LOR4reg@data$Alosechg, na.rm=T); qntl 
-LOR4reg@data$AlosechgQNTL <- cut(LOR4reg@data$Alosechg, 
-                              qntl,
-                              labels=c("1.Quartil",
-                                       "2.Quartil",
-                                       "3.Quartil",
-                                       "4.Quartil"))
-table(LOR4reg@data$AlosechgQNTL)
-spplot(LOR4reg, zcol="AlosechgQNTL", 
-       col.regions=c("darkblue","lightblue","orange","red"))
-
-qntl <- quantile(LOR4reg@data$nicht_Alose_Hartzchg, na.rm=T); qntl 
-LOR4reg@data$nicht_Alose_HartzchgQNTL <- cut(LOR4reg@data$nicht_Alose_Hartzchg, 
-                                 qntl,
-                                 labels=c("1.Quartil",
-                                          "2.Quartil",
-                                          "3.Quartil",
-                                          "4.Quartil"))
-table(LOR4reg@data$nicht_Alose_HartzchgQNTL)
-spplot(LOR4reg, zcol="nicht_Alose_HartzchgQNTL", 
-       col.regions=c("darkblue","lightblue","orange","red"))
-
-LOR4reg@data$Gentri <- -1
-LOR4reg@data$Gentri[LOR4reg@data$AlosechgQNTL=="4.Quartil" & LOR4reg@data$MietechgrQNTL=="4.Quartil"] <- "Gentri hi"
-LOR4reg@data$Gentri[LOR4reg@data$AlosechgQNTL=="3.Quartil" & LOR4reg@data$MietechgrQNTL=="4.Quartil" | 
-                    LOR4reg@data$AlosechgQNTL=="4.Quartil" & LOR4reg@data$MietechgrQNTL=="3.Quartil" | 
-                    LOR4reg@data$AlosechgQNTL=="3.Quartil" & LOR4reg@data$MietechgrQNTL=="3.Quartil" ] <- "Gentri lo"
-LOR4reg@data$Gentri[(LOR4reg@data$Gentri!="Gentri hi" & 
-                     LOR4reg@data$Gentri!="Gentri lo")] <- "Non Gentri"
-LOR4reg@data$Gentri[is.na(LOR4reg@data$MietechgrQNTL) |
-                    is.na(LOR4reg@data$AlosechgQNTL)  |
-                    LOR4reg@data$valid=="ungültig"] <- NA
-LOR4reg@data$Gentri <- as.factor(LOR4reg@data$Gentri)
-table(LOR4reg@data$Gentri)
-spplot(LOR4reg, zcol="Gentri", 
-       col.regions=c("red","yellow","darkblue"))
-
-boxplot(Miete.2007 ~ Gentri, data=LOR4reg@data)
-boxplot(Alose.2007 ~ Gentri, data=LOR4reg@data)
-boxplot(nicht_Alose_Hartz.2007 ~ Gentri, data=LOR4reg@data)
-
-vioplot(na.omit(LOR4reg@data$Miete.2007[LOR4reg@data$Gentri=="Gentri hi"]), 
-        na.omit(LOR4reg@data$Miete.2007[LOR4reg@data$Gentri=="Gentri lo"]), 
-        na.omit(LOR4reg@data$Miete.2007[LOR4reg@data$Gentri=="Non Gentri"]), 
-        names=c("Gentri hi", "Gentri lo", "Non Gentri"),
-        col="gold")
-
-vioplot(na.omit(LOR4reg@data$Alose.2007[LOR4reg@data$Gentri=="Gentri hi"]), 
-        na.omit(LOR4reg@data$Alose.2007[LOR4reg@data$Gentri=="Gentri lo"]), 
-        na.omit(LOR4reg@data$Alose.2007[LOR4reg@data$Gentri=="Non Gentri"]), 
-        names=c("Gentri hi", "Gentri lo", "Non Gentri"),
-        col="gold")
-
-vioplot(na.omit(LOR4reg@data$nicht_Alose_Hartz.2007[LOR4reg@data$Gentri=="Gentri hi"]), 
-        na.omit(LOR4reg@data$nicht_Alose_Hartz.2007[LOR4reg@data$Gentri=="Gentri lo"]), 
-        na.omit(LOR4reg@data$nicht_Alose_Hartz.2007[LOR4reg@data$Gentri=="Non Gentri"]), 
-        names=c("Gentri hi", "Gentri lo", "Non Gentri"),
-        col="gold")
-
-by(LOR4reg@data$Miete.2007, LOR4reg@data$Gentri, summary)
-by(LOR4reg@data$Alose.2007, LOR4reg@data$Gentri, summary)
-by(LOR4reg@data$nicht_Alose_Hartz.2007, LOR4reg@data$Gentri, summary)
-
-GentriMiete.2007_1quartil <- quantile(LOR4reg@data$Miete.2007[LOR4reg@data$Gentri=="Gentri hi"], na.rm=T)[[2]]
-GentriMiete.2007_3quartil <- quantile(LOR4reg@data$Miete.2007[LOR4reg@data$Gentri=="Gentri hi"], na.rm=T)[[4]]
-
-GentriAlose.2007_1quartil <- quantile(LOR4reg@data$Alose.2007[LOR4reg@data$Gentri=="Gentri hi"], na.rm=T)[[2]]
-GentriAlose.2007_3quartil <- quantile(LOR4reg@data$Alose.2007[LOR4reg@data$Gentri=="Gentri hi"], na.rm=T)[[4]]
-
-subset(LOR4reg@data,
-       (Miete.2007 > GentriMiete.2007_1quartil &
-        Miete.2007 < GentriMiete.2007_3quartil &
-        Alose.2007 > GentriAlose.2007_1quartil &
-        Alose.2007 < GentriAlose.2007_3quartil &
-        (Gentri=="Non Gentri" | Gentri=="Gentri lo")),
-        select=c(RAUMID_NAME,BEZ_NAME,STADTRAUM))
-LOR4reg@data$RAUM_NAME[LOR4reg@data$Alose.2007)
-

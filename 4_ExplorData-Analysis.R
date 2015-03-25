@@ -103,8 +103,8 @@ MieteE_Abubble <- gvisBubbleChart(ExDF, idvar="RAUMID_NAME",
 plot(MieteE_Abubble)
 
 
-sctr_PDAU5chg <- ggplot(ExDF, aes(BEZ_NAME, PDAU5chg), weight=E_E.2013) + 
-                 geom_jitter(aes(colour=BEZ_NAME, size = E_E.2013), 
+sctr_PDAU5chg <- ggplot(ExDF, aes(BEZ_NAME, PDAU5chg), weight=E_E.2012) + 
+                 geom_jitter(aes(colour=BEZ_NAME, size = E_E.2012), 
                              position = position_jitter(width = .3)) +
                  scale_size_continuous(breaks=c(1000,5000,10000,20000), range=c(1,10)) +
                  geom_hline(yintercept=0, col="black") 

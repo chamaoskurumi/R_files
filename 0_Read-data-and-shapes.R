@@ -557,7 +557,8 @@ ODdf$BinnenWand.Sum <-    (ODdf$BinnenWand.2007+
                            ODdf$BinnenWand.2012+
                            ODdf$BinnenWand.2013) 
 
-FORTZUEGEdf <- ddply(ODdf, "VonLOR", summarise, 
+ODdf4FORTZUEGEdf <- ODdf[order(ODdf[,"VonLOR"]), ] 
+FORTZUEGEdf <- ddply(ODdf4FORTZUEGEdf, "VonLOR", summarise, 
                      Fortzuege.2007 = sum(BinnenWand.2007),
                      Fortzuege.2008 = sum(BinnenWand.2008),
                      Fortzuege.2009 = sum(BinnenWand.2009),
@@ -568,7 +569,8 @@ FORTZUEGEdf <- ddply(ODdf, "VonLOR", summarise,
 #plot(density(FORTZUEGEdf$Fortzuege))
 #hist(FORTZUEGEdf$Fortzuege, breaks=100)
 
-ZUZUEGEdf <- ddply(ODdf, "NachLOR", summarise,
+ODdf4ZUZUEGEdf <- ODdf[order(ODdf[,"NachLOR"]), ] 
+ZUZUEGEdf <- ddply(ODdf4ZUZUEGEdf, "NachLOR", summarise,
                    Zuzuege.2007 = sum(BinnenWand.2007),
                    Zuzuege.2008 = sum(BinnenWand.2008),
                    Zuzuege.2009 = sum(BinnenWand.2009),
@@ -582,7 +584,12 @@ ZUZUEGEdf <- ddply(ODdf, "NachLOR", summarise,
 colnames(FORTZUEGEdf)[1] <- "RAUMID"
 colnames(ZUZUEGEdf)[1] <- "RAUMID"
 
-FORTZUEGEZUZUEGEdf <- merge(FORTZUEGEdf,ZUZUEGEdf,by="RAUMID")
+source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
+FORTZUEGEZUZUEGEdf <- merge(FORTZUEGEdf,
+                            ZUZUEGEdf,
+                            by="RAUMID",
+                            sort=T,
+                            keep_order=1)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ----- m.) Außenwanderungen LOR  -----
