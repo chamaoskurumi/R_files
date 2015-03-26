@@ -4,12 +4,15 @@
 #                                           #
 #********************************************
 
+# ____ Packages ______ ----------------------------------------------------------------
+
 library("plyr")
 library("reshape")
 library("reshape2")
+library("foreign")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# LOR long Datensatz ------
+# I.) LOR long Datensatz ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 LORdataFULLv2 <- LORdataFULLv1
@@ -302,7 +305,7 @@ remove(LORdataFULLv4)
 head(LORdataFULL)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# LOR wide Datensatz ------
+# II.) LOR wide Datensatz ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ###### a.) Reshape long to wide ######
@@ -479,7 +482,6 @@ LOR@data <- LORattrFULL
 #library("sp")
 #spplot(LOR, zcol="Miete.2012")
 
-library(foreign)
 write.dbf(dataframe = LOR@data, file = "/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/LOR/LORinfo.dbf")
 
 #View(LOR@data)

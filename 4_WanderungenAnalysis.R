@@ -44,10 +44,17 @@ LOR4BWAND <- subset(LOR@data, select=c(RAUMID:STADTRAUM,
 #### ---- Verteilungscheck und Außreisser Identifizieren ---- #####
 
 p1 <- hist(LOR4BWAND$Fortzuege, breaks=50)
-p2 <- hist(LOR_BWANDdf$Fortzuege, breaks=50)
+p2 <- hist(LOR4BWAND$Zuzuege, breaks=50)
+
+plot( p1, col=rgb(0,0,1,1/4), xlim=c(0,25000))  # first histogram
+plot( p2, col=rgb(1,0,0,1/4), xlim=c(0,25000), add=T) 
+
+
+p2 <- hist(LOR_BWANDdf$Zuzuege, breaks=50)
 
 plot( p1, col=rgb(0,0,1,1/4), xlim=c(0,30000))  # first histogram
 plot( p2, col=rgb(1,0,0,1/4), xlim=c(0,30000), add=T) 
+
 # PROBLEM: WERTE SIND VERSCHIEDEN
 hist(LOR_BWANDdf$Zuzuege, breaks=50)
 
@@ -62,21 +69,21 @@ title("Violinplots der LOR Einwohnerzahlen 2007 und 2012")
 summary(LOR_BWANDdf$E_E.2007)
 summary(LOR_BWANDdf$E_E.2012)
 
-spplot(LOR, zcol="FortzuegeRel")
+spplot(LOR, zcol="FortzuegeR")
 
 ##### ------ Übersicht FortzügeRel & ZuzügeRel Vioplot ------
 
-vioplot(LOR_BWANDdf$FortzuegeRel, 
-        LOR_BWANDdf$ZuzuegeRel, 
+vioplot(LOR_BWANDdf$FortzuegeR, 
+        LOR_BWANDdf$ZuzuegeR, 
         names=c("Fortzüge Relativ", "Zuzüge Relativ"),
         col="gold")
 title("Violinplots der durchschn. rel. Fort- & Zuzüge 2007-2012")
-summary(LOR_BWANDdf$FortzuegeRel)
-summary(LOR_BWANDdf$ZuzuegeRel)
+summary(LOR_BWANDdf$FortzuegeR)
+summary(LOR_BWANDdf$ZuzuegeR)
 
 
-#### ----- FortzuegeRel VERTEILUNG --------
-FZrel <- LOR@data$FortzuegeRel
+#### ----- FortzuegeR VERTEILUNG --------
+FZrel <- LOR@data$FortzuegeR
 
 h<-hist(FZrel, breaks=200, density=10, col="blue", xlab="Relative Binnen-Zuzüge") 
 xfit<-seq(min(FZrel),max(FZrel),length=length(FZrel)) 
@@ -98,8 +105,8 @@ plot(FZrel,LOR@data$E_E.2012)
 #identify(FZrel,LOR@data$E_E.2012)
 # Ausreisser: 104 105 123 197 332 416
 
-#### ----- ZuzuegeRel VERTEILUNG --------
-ZZrel <- LOR@data$ZuzuegeRel
+#### ----- ZuzuegeR VERTEILUNG --------
+ZZrel <- LOR@data$ZuzuegeR
 
 h<-hist(ZZrel, breaks=200, density=10, col="blue", xlab="Relative Binnen-Zuzüge") 
 xfit<-seq(min(ZZrel),max(ZZrel),length=length(ZZrel)) 
@@ -122,8 +129,8 @@ plot(ZZrel,LOR@data$E_E.2012)
 #identify(ZZrel,LOR@data$E_E.2012)
 # Ausreisser: 104 123 197 332 416
 
-plot(density(LOR_BWANDdf$ZuzuegeRel))
-plot(density(LOR_BWANDdf$FortzuegeRel))
+plot(density(LOR_BWANDdf$ZuzuegeR))
+plot(density(LOR_BWANDdf$FortzuegeR))
 
 save(LOR_BWANDdf, file="/home/dao/Desktop/MasterArbeit/R_4_SUBLIME/LOR_BWANDdf.Rdata")
 save(LOR, file="/home/dao/Desktop/MasterArbeit/R_4_SUBLIME/LOR.Rdata")
@@ -151,15 +158,15 @@ LOR4reg <- LOR
 
 # das hier sind die bösen Ausreisser
 delvarsinfo <- c("RAUMID_NAME","BEZ_NAME","E_E.2007","Miete.2007",
-                 "Fortzuege","Zuzuege","FortzuegeRel","ZuzuegeRel")
+                 "Fortzuege","Zuzuege","FortzuegeR","ZuzuegeR")
 delcases <- c(104,105,123,197,332,416)
 LOR4reg@data[delcases,][,delvarsinfo]
 
 # das hier sind die auszuschließenden Fälle: Alle LORs mit <300EW 2012 und Motardstr.
 LOR4reg@data[LOR4reg@data$E_E_u300=="unter 300EW" | LOR4reg@data$RAUMID_NAME=="Motardstr.",][,delvarsinfo]
 # Wir überschreiben die Binnenwandeurngen mit NAs, damit sie später nicht bei der Regression mitverwendet werden
-LOR4reg@data[LOR4reg@data$E_E_u300=="unter 300EW" | LOR4reg@data$RAUMID_NAME=="Motardstr.",][,c("FortzuegeRel","ZuzuegeRel")] <- NA
-LOR4reg@data$valid <- as.factor(ifelse(is.na(LOR4reg@data$FortzuegeRel), 
+LOR4reg@data[LOR4reg@data$E_E_u300=="unter 300EW" | LOR4reg@data$RAUMID_NAME=="Motardstr.",][,c("FortzuegeR","ZuzuegeR")] <- NA
+LOR4reg@data$valid <- as.factor(ifelse(is.na(LOR4reg@data$FortzuegeR), 
                                             c("ungültig"), 
                                             c("gültig")))
 spplot(LOR4reg, zcol="valid", col.regions=c("green","red"))
@@ -171,22 +178,22 @@ spplot(LOR4reg, zcol="valid", col.regions=c("green","red"))
 #&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 #&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
-spplot(LOR4reg, zcol="FortzuegeRel")
-spplot(LOR4reg, zcol="ZuzuegeRel")
+spplot(LOR4reg, zcol="FortzuegeR")
+spplot(LOR4reg, zcol="ZuzuegeR")
 
 ##### ------ Übersicht FortzügeRel & ZuzügeRel Vioplot ------
 
-vioplot(na.omit(LOR4reg@data$FortzuegeRel), 
-        na.omit(LOR4reg@data$ZuzuegeRel), 
+vioplot(na.omit(LOR4reg@data$FortzuegeR), 
+        na.omit(LOR4reg@data$ZuzuegeR), 
         names=c("Fortzüge Relativ", "Zuzüge Relativ"),
         col="gold")
 title("Violinplots der durchschn. rel. Fort- & Zuzüge 2007-2012")
-summary(LOR4reg@data$FortzuegeRel)
-summary(LOR4reg@data$ZuzuegeRel)
+summary(LOR4reg@data$FortzuegeR)
+summary(LOR4reg@data$ZuzuegeR)
 
 
-#### ----- FortzuegeRel VERTEILUNG --------
-FZrel <- na.omit(LOR4reg@data$FortzuegeRel)
+#### ----- FortzuegeR VERTEILUNG --------
+FZrel <- na.omit(LOR4reg@data$FortzuegeR)
 
 h<-hist(FZrel, breaks=50, density=10, col="blue", xlab="Relative Binnen-Zuzüge") 
 xfit<-seq(min(FZrel),max(FZrel),length=length(FZrel)) 
@@ -208,8 +215,8 @@ plot(FZrel,LOR4reg@data$E_E.2012)
 #identify(FZrel,LOR4reg@data$E_E.2012)
 # Ausreisser: 104 105 123 197 332 416
 
-#### ----- ZuzuegeRel VERTEILUNG --------
-ZZrel <- na.omit(LOR4reg@data$ZuzuegeRel)
+#### ----- ZuzuegeR VERTEILUNG --------
+ZZrel <- na.omit(LOR4reg@data$ZuzuegeR)
 
 h<-hist(ZZrel, breaks=40, density=10, col="blue", xlab="Relative Binnen-Zuzüge") 
 xfit<-seq(min(ZZrel),max(ZZrel),length=length(ZZrel)) 
