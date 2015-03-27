@@ -40,15 +40,16 @@ names(LOR@data)
 
 
 myleaflet(SPdata.frame = LOR,
-          layer = "Miete.2007",
+          layer = "E_E.2007",
           popupNAMES = c("RAUMID", "RAUMID_NAME",
                          "BZR_NAME",
+                         "E_E.2007",
                          "Miete.2007"), 
           base.mapNAME = "positron", 
           colorNAMES = c("yellow", "red"),
           roundDIGITS = 1, 
           intervallBRKno = 10,
-          titleNAME = "Miete pro LOR 2007")
+          titleNAME = "EW pro LOR 2007")
 
 myleaflet(SPdata.frame = LOR,
           layer = "Miete.2012",
