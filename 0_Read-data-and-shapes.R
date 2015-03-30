@@ -457,29 +457,10 @@ levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "123020
 levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "12302011")] <- "12302211"
 levels(BINNENWAND.2009$NachLOR)[which(levels(BINNENWAND.2009$NachLOR) == "12302012")] <- "12302212"
 
-
-
 #BINNENWANDnew <- lapply(BINNENWAND, function(x) {cast(data = x, VonLOR ~ NachLOR)
 #                                               x})
 #BINNENWANDnew <- lapply(BINNENWAND, function(x) {dcast(data = x, VonLOR ~ NachLOR)
 #                                               x})
-# 
-# BINNENWAND[[1]] <- cast(data = BINNENWAND[[1]], formula = VonLOR ~ NachLOR)
-# BINNENWAND[[1]][is.na(BINNENWAND[[1]])] <- 0
-# diag(BINNENWAND[[1]]) <- NA
-# head(BINNENWAND[[1]])
-# names(BINNENWAND[[1]])
-#  
-# BINNENWAND[[6]] <- cast(data = BINNENWAND[[6]], formula = VonLOR ~ NachLOR)
-# BINNENWAND[[6]][is.na(BINNENWAND[[6]])] <- 0
-# View(BINNENWAND[[6]])
-# str(BINNENWAND[[6]][1,])
-
-# init matrix (12000,12000)
-# 1 12000
-#  1 12000
-# 
-# matrix[i,j] <- df$umzug[df$von=i, df$zu=j]
 
 
 # ------- vi.    Merge Binnenwanderungen mit ODdf ----------
@@ -592,11 +573,279 @@ FORTZUEGEZUZUEGEdf <- merge(FORTZUEGEdf,
                             keep_order=1)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# ----- m.) Außenwanderungen LOR  -----
+# ----- m.) Außenwanderungen Umland LOR  -----
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# FEHLT NOCH
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
+AUSSENWANDU_files <- dir(path="Aussenwanderungen_Umland_-LOR-/", pattern = glob2rx("*.csv"))
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/Aussenwanderungen_Umland_-LOR-/")
+AUSSENWANDU <- lapply(AUSSENWANDU_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE,
+                     dec=",", stringsAsFactors =F, colClasses=c("factor","factor","integer","integer"))
 
+AUSSENWANDU[[1]] -> AUSSENWANDU.2007
+AUSSENWANDU[[2]] -> AUSSENWANDU.2008
+AUSSENWANDU[[3]] -> AUSSENWANDU.2009
+AUSSENWANDU[[4]] -> AUSSENWANDU.2010
+AUSSENWANDU[[5]] -> AUSSENWANDU.2011
+AUSSENWANDU[[6]] -> AUSSENWANDU.2012
+
+# i.) Änderung der LOR-Einteilung ----
+# Es gab aber eine Änderung der LOR-Einteilung im Bezirk Reinickendorf (Schlüsseltabelle Stand: März 2009)
+# Die Änderungen werden nun gemäss dem Mitteilungs PDF des Amtes für Statistik umgesetzt
+levels(AUSSENWANDU.2007$RAUMID)[which(levels(AUSSENWANDU.2007$RAUMID) == "12103015")] <- "12103115"
+levels(AUSSENWANDU.2007$RAUMID)[which(levels(AUSSENWANDU.2007$RAUMID) == "12103016")] <- "12103116"
+levels(AUSSENWANDU.2007$RAUMID)[which(levels(AUSSENWANDU.2007$RAUMID) == "12103017")] <- "12103117"
+levels(AUSSENWANDU.2007$RAUMID)[which(levels(AUSSENWANDU.2007$RAUMID) == "12103018")] <- "12103218"
+levels(AUSSENWANDU.2007$RAUMID)[which(levels(AUSSENWANDU.2007$RAUMID) == "12103019")] <- "12103219"
+levels(AUSSENWANDU.2007$RAUMID)[which(levels(AUSSENWANDU.2007$RAUMID) == "12103020")] <- "12103220"
+levels(AUSSENWANDU.2007$RAUMID)[which(levels(AUSSENWANDU.2007$RAUMID) == "12214121")] <- "12214421"
+levels(AUSSENWANDU.2007$RAUMID)[which(levels(AUSSENWANDU.2007$RAUMID) == "12214122")] <- "12214422"
+levels(AUSSENWANDU.2007$RAUMID)[which(levels(AUSSENWANDU.2007$RAUMID) == "12214123")] <- "12214423"
+levels(AUSSENWANDU.2007$RAUMID)[which(levels(AUSSENWANDU.2007$RAUMID) == "12214124")] <- "12214424"
+levels(AUSSENWANDU.2007$RAUMID)[which(levels(AUSSENWANDU.2007$RAUMID) == "12214127")] <- "12214527"
+levels(AUSSENWANDU.2007$RAUMID)[which(levels(AUSSENWANDU.2007$RAUMID) == "12214128")] <- "12214528"
+levels(AUSSENWANDU.2007$RAUMID)[which(levels(AUSSENWANDU.2007$RAUMID) == "12302007")] <- "12302107"
+levels(AUSSENWANDU.2007$RAUMID)[which(levels(AUSSENWANDU.2007$RAUMID) == "12302008")] <- "12302108"
+levels(AUSSENWANDU.2007$RAUMID)[which(levels(AUSSENWANDU.2007$RAUMID) == "12302009")] <- "12302109"
+levels(AUSSENWANDU.2007$RAUMID)[which(levels(AUSSENWANDU.2007$RAUMID) == "12302010")] <- "12302110"
+levels(AUSSENWANDU.2007$RAUMID)[which(levels(AUSSENWANDU.2007$RAUMID) == "12302011")] <- "12302211"
+levels(AUSSENWANDU.2007$RAUMID)[which(levels(AUSSENWANDU.2007$RAUMID) == "12302012")] <- "12302212"
+
+levels(AUSSENWANDU.2008$RAUMID)[which(levels(AUSSENWANDU.2008$RAUMID) == "12103015")] <- "12103115"
+levels(AUSSENWANDU.2008$RAUMID)[which(levels(AUSSENWANDU.2008$RAUMID) == "12103016")] <- "12103116"
+levels(AUSSENWANDU.2008$RAUMID)[which(levels(AUSSENWANDU.2008$RAUMID) == "12103017")] <- "12103117"
+levels(AUSSENWANDU.2008$RAUMID)[which(levels(AUSSENWANDU.2008$RAUMID) == "12103018")] <- "12103218"
+levels(AUSSENWANDU.2008$RAUMID)[which(levels(AUSSENWANDU.2008$RAUMID) == "12103019")] <- "12103219"
+levels(AUSSENWANDU.2008$RAUMID)[which(levels(AUSSENWANDU.2008$RAUMID) == "12103020")] <- "12103220"
+levels(AUSSENWANDU.2008$RAUMID)[which(levels(AUSSENWANDU.2008$RAUMID) == "12214121")] <- "12214421"
+levels(AUSSENWANDU.2008$RAUMID)[which(levels(AUSSENWANDU.2008$RAUMID) == "12214122")] <- "12214422"
+levels(AUSSENWANDU.2008$RAUMID)[which(levels(AUSSENWANDU.2008$RAUMID) == "12214123")] <- "12214423"
+levels(AUSSENWANDU.2008$RAUMID)[which(levels(AUSSENWANDU.2008$RAUMID) == "12214124")] <- "12214424"
+levels(AUSSENWANDU.2008$RAUMID)[which(levels(AUSSENWANDU.2008$RAUMID) == "12214127")] <- "12214527"
+levels(AUSSENWANDU.2008$RAUMID)[which(levels(AUSSENWANDU.2008$RAUMID) == "12214128")] <- "12214528"
+levels(AUSSENWANDU.2008$RAUMID)[which(levels(AUSSENWANDU.2008$RAUMID) == "12302008")] <- "12302107"
+levels(AUSSENWANDU.2008$RAUMID)[which(levels(AUSSENWANDU.2008$RAUMID) == "12302008")] <- "12302108"
+levels(AUSSENWANDU.2008$RAUMID)[which(levels(AUSSENWANDU.2008$RAUMID) == "12302009")] <- "12302109"
+levels(AUSSENWANDU.2008$RAUMID)[which(levels(AUSSENWANDU.2008$RAUMID) == "12302010")] <- "12302110"
+levels(AUSSENWANDU.2008$RAUMID)[which(levels(AUSSENWANDU.2008$RAUMID) == "12302011")] <- "12302211"
+levels(AUSSENWANDU.2008$RAUMID)[which(levels(AUSSENWANDU.2008$RAUMID) == "12302012")] <- "12302212"
+
+# ii.) Fehlende LOR Beobachtungen generieren -----
+# --> LORs mit 0 Aussenwanderungen fehlen nämlich in den Datensätzen
+RAUMIDdf <- data.frame(as.factor(levels(MONITORING$RAUMID)))
+colnames(RAUMIDdf) <- "RAUMID"
+
+source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
+AUSSENWANDU.2007 <- merge.with.order(x=RAUMIDdf, 
+                                     y=AUSSENWANDU.2007,
+                                     by="RAUMID",
+                                     all.x=T,
+                                     all.y=T,
+                                     sort=T,
+                                     keep_order=1)
+AUSSENWANDU.2008 <- merge.with.order(x=RAUMIDdf, 
+                                     y=AUSSENWANDU.2008,
+                                     by="RAUMID",
+                                     all.x=T,
+                                     #all.y=T, auskommentiert, weil es sonst hier ein level zu viel aus AUSSENWANDU.2008 entsteht
+                                     sort=T,
+                                     keep_order=1)
+AUSSENWANDU.2009 <- merge.with.order(x=RAUMIDdf, 
+                                     y=AUSSENWANDU.2009,
+                                     by="RAUMID",
+                                     all.x=T,
+                                     all.y=T,
+                                     sort=T,
+                                     keep_order=1)
+AUSSENWANDU.2010 <- merge.with.order(x=RAUMIDdf, 
+                                     y=AUSSENWANDU.2010,
+                                     by="RAUMID",
+                                     all.x=T,
+                                     all.y=T,
+                                     sort=T,
+                                     keep_order=1)
+AUSSENWANDU.2011 <- merge.with.order(x=RAUMIDdf, 
+                                     y=AUSSENWANDU.2011,
+                                     by="RAUMID",
+                                     all.x=T,
+                                     all.y=T,
+                                     sort=T,
+                                     keep_order=1)
+AUSSENWANDU.2012 <- merge.with.order(x=RAUMIDdf, 
+                                     y=AUSSENWANDU.2012,
+                                     by="RAUMID",
+                                     all.x=T,
+                                     all.y=T,
+                                     sort=T,
+                                     keep_order=1)
+
+# iii.) Daten säubern und WIDE erstellen -----
+AUSSENWANDU.2007$ZEIT[is.na(AUSSENWANDU.2007$ZEIT)] <- "2007"
+AUSSENWANDU.2008$ZEIT[is.na(AUSSENWANDU.2008$ZEIT)] <- "2008"
+AUSSENWANDU.2009$ZEIT[is.na(AUSSENWANDU.2009$ZEIT)] <- "2009"
+AUSSENWANDU.2010$ZEIT[is.na(AUSSENWANDU.2010$ZEIT)] <- "2010"
+AUSSENWANDU.2011$ZEIT[is.na(AUSSENWANDU.2011$ZEIT)] <- "2011"
+AUSSENWANDU.2012$ZEIT[is.na(AUSSENWANDU.2012$ZEIT)] <- "2012"
+
+AUSSENWANDU.2007[is.na(AUSSENWANDU.2007)] <- 0
+AUSSENWANDU.2008[is.na(AUSSENWANDU.2008)] <- 0
+AUSSENWANDU.2009[is.na(AUSSENWANDU.2009)] <- 0
+AUSSENWANDU.2010[is.na(AUSSENWANDU.2010)] <- 0
+AUSSENWANDU.2011[is.na(AUSSENWANDU.2011)] <- 0
+AUSSENWANDU.2012[is.na(AUSSENWANDU.2012)] <- 0
+
+colnames(AUSSENWANDU.2007)[3:4] <- c("ZuzuegeU.2007","FortzuegeU.2007")
+colnames(AUSSENWANDU.2008)[3:4] <- c("ZuzuegeU.2008","FortzuegeU.2008")
+colnames(AUSSENWANDU.2009)[3:4] <- c("ZuzuegeU.2009","FortzuegeU.2009")
+colnames(AUSSENWANDU.2010)[3:4] <- c("ZuzuegeU.2010","FortzuegeU.2010")
+colnames(AUSSENWANDU.2011)[3:4] <- c("ZuzuegeU.2011","FortzuegeU.2011")
+colnames(AUSSENWANDU.2012)[3:4] <- c("ZuzuegeU.2012","FortzuegeU.2012")
+
+AUSSENWANDUdf <- data.frame(AUSSENWANDU.2007[,c(1,3,4)],AUSSENWANDU.2008[,3:4],AUSSENWANDU.2009[,3:4],
+                            AUSSENWANDU.2010[,3:4],AUSSENWANDU.2011[,3:4],AUSSENWANDU.2012[,3:4])
+
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ----- n.) Außenwanderungen Inland & Ausland LOR  -----
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
+AUSSENWANDIA_files <- dir(path="Aussenwanderungen_InAusland_-LOR-/", pattern = glob2rx("*.csv"))
+setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/Aussenwanderungen_InAusland_-LOR-/")
+AUSSENWANDIA <- lapply(AUSSENWANDIA_files, FUN = read.table, header = TRUE, sep=",",fill=TRUE,
+                      dec=",", stringsAsFactors =F, colClasses=c("factor","factor","integer",
+                                                                 "integer","integer","integer"))
+
+AUSSENWANDIA[[1]] -> AUSSENWANDIA.2007
+AUSSENWANDIA[[2]] -> AUSSENWANDIA.2008
+AUSSENWANDIA[[3]] -> AUSSENWANDIA.2009
+AUSSENWANDIA[[4]] -> AUSSENWANDIA.2010
+AUSSENWANDIA[[5]] -> AUSSENWANDIA.2011
+AUSSENWANDIA[[6]] -> AUSSENWANDIA.2012
+
+# i.) Änderung der LOR-Einteilung ----
+# Es gab aber eine Änderung der LOR-Einteilung im Bezirk Reinickendorf (Schlüsseltabelle Stand: März 2009)
+# Die Änderungen werden nun gemäss dem Mitteilungs PDF des Amtes für Statistik umgesetzt
+levels(AUSSENWANDIA.2007$RAUMID)[which(levels(AUSSENWANDIA.2007$RAUMID) == "12103015")] <- "12103115"
+levels(AUSSENWANDIA.2007$RAUMID)[which(levels(AUSSENWANDIA.2007$RAUMID) == "12103016")] <- "12103116"
+levels(AUSSENWANDIA.2007$RAUMID)[which(levels(AUSSENWANDIA.2007$RAUMID) == "12103017")] <- "12103117"
+levels(AUSSENWANDIA.2007$RAUMID)[which(levels(AUSSENWANDIA.2007$RAUMID) == "12103018")] <- "12103218"
+levels(AUSSENWANDIA.2007$RAUMID)[which(levels(AUSSENWANDIA.2007$RAUMID) == "12103019")] <- "12103219"
+levels(AUSSENWANDIA.2007$RAUMID)[which(levels(AUSSENWANDIA.2007$RAUMID) == "12103020")] <- "12103220"
+levels(AUSSENWANDIA.2007$RAUMID)[which(levels(AUSSENWANDIA.2007$RAUMID) == "12214121")] <- "12214421"
+levels(AUSSENWANDIA.2007$RAUMID)[which(levels(AUSSENWANDIA.2007$RAUMID) == "12214122")] <- "12214422"
+levels(AUSSENWANDIA.2007$RAUMID)[which(levels(AUSSENWANDIA.2007$RAUMID) == "12214123")] <- "12214423"
+levels(AUSSENWANDIA.2007$RAUMID)[which(levels(AUSSENWANDIA.2007$RAUMID) == "12214124")] <- "12214424"
+levels(AUSSENWANDIA.2007$RAUMID)[which(levels(AUSSENWANDIA.2007$RAUMID) == "12214127")] <- "12214527"
+levels(AUSSENWANDIA.2007$RAUMID)[which(levels(AUSSENWANDIA.2007$RAUMID) == "12214128")] <- "12214528"
+levels(AUSSENWANDIA.2007$RAUMID)[which(levels(AUSSENWANDIA.2007$RAUMID) == "12302007")] <- "12302107"
+levels(AUSSENWANDIA.2007$RAUMID)[which(levels(AUSSENWANDIA.2007$RAUMID) == "12302008")] <- "12302108"
+levels(AUSSENWANDIA.2007$RAUMID)[which(levels(AUSSENWANDIA.2007$RAUMID) == "12302009")] <- "12302109"
+levels(AUSSENWANDIA.2007$RAUMID)[which(levels(AUSSENWANDIA.2007$RAUMID) == "12302010")] <- "12302110"
+levels(AUSSENWANDIA.2007$RAUMID)[which(levels(AUSSENWANDIA.2007$RAUMID) == "12302011")] <- "12302211"
+levels(AUSSENWANDIA.2007$RAUMID)[which(levels(AUSSENWANDIA.2007$RAUMID) == "12302012")] <- "12302212"
+
+levels(AUSSENWANDIA.2008$RAUMID)[which(levels(AUSSENWANDIA.2008$RAUMID) == "12103015")] <- "12103115"
+levels(AUSSENWANDIA.2008$RAUMID)[which(levels(AUSSENWANDIA.2008$RAUMID) == "12103016")] <- "12103116"
+levels(AUSSENWANDIA.2008$RAUMID)[which(levels(AUSSENWANDIA.2008$RAUMID) == "12103017")] <- "12103117"
+levels(AUSSENWANDIA.2008$RAUMID)[which(levels(AUSSENWANDIA.2008$RAUMID) == "12103018")] <- "12103218"
+levels(AUSSENWANDIA.2008$RAUMID)[which(levels(AUSSENWANDIA.2008$RAUMID) == "12103019")] <- "12103219"
+levels(AUSSENWANDIA.2008$RAUMID)[which(levels(AUSSENWANDIA.2008$RAUMID) == "12103020")] <- "12103220"
+levels(AUSSENWANDIA.2008$RAUMID)[which(levels(AUSSENWANDIA.2008$RAUMID) == "12214121")] <- "12214421"
+levels(AUSSENWANDIA.2008$RAUMID)[which(levels(AUSSENWANDIA.2008$RAUMID) == "12214122")] <- "12214422"
+levels(AUSSENWANDIA.2008$RAUMID)[which(levels(AUSSENWANDIA.2008$RAUMID) == "12214123")] <- "12214423"
+levels(AUSSENWANDIA.2008$RAUMID)[which(levels(AUSSENWANDIA.2008$RAUMID) == "12214124")] <- "12214424"
+levels(AUSSENWANDIA.2008$RAUMID)[which(levels(AUSSENWANDIA.2008$RAUMID) == "12214127")] <- "12214527"
+levels(AUSSENWANDIA.2008$RAUMID)[which(levels(AUSSENWANDIA.2008$RAUMID) == "12214128")] <- "12214528"
+levels(AUSSENWANDIA.2008$RAUMID)[which(levels(AUSSENWANDIA.2008$RAUMID) == "12302008")] <- "12302107"
+levels(AUSSENWANDIA.2008$RAUMID)[which(levels(AUSSENWANDIA.2008$RAUMID) == "12302008")] <- "12302108"
+levels(AUSSENWANDIA.2008$RAUMID)[which(levels(AUSSENWANDIA.2008$RAUMID) == "12302009")] <- "12302109"
+levels(AUSSENWANDIA.2008$RAUMID)[which(levels(AUSSENWANDIA.2008$RAUMID) == "12302010")] <- "12302110"
+levels(AUSSENWANDIA.2008$RAUMID)[which(levels(AUSSENWANDIA.2008$RAUMID) == "12302011")] <- "12302211"
+levels(AUSSENWANDIA.2008$RAUMID)[which(levels(AUSSENWANDIA.2008$RAUMID) == "12302012")] <- "12302212"
+
+# ii.) Fehlende LOR Beobachtungen generieren -----
+# --> LORs mit 0 Aussenwanderungen fehlen nämlich in den Datensätzen
+source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
+AUSSENWANDIA.2007 <- merge.with.order(x=RAUMIDdf, 
+                                     y=AUSSENWANDIA.2007,
+                                     by="RAUMID",
+                                     all.x=T,
+                                     all.y=T,
+                                     sort=T,
+                                     keep_order=1)
+AUSSENWANDIA.2008 <- merge.with.order(x=RAUMIDdf, 
+                                     y=AUSSENWANDIA.2008,
+                                     by="RAUMID",
+                                     all.x=T,
+                                     #all.y=T, auskommentiert, weil es sonst hier ein level zu viel aus AUSSENWANDIA.2008 entsteht
+                                     sort=T,
+                                     keep_order=1)
+AUSSENWANDIA.2009 <- merge.with.order(x=RAUMIDdf, 
+                                     y=AUSSENWANDIA.2009,
+                                     by="RAUMID",
+                                     all.x=T,
+                                     all.y=T,
+                                     sort=T,
+                                     keep_order=1)
+AUSSENWANDIA.2010 <- merge.with.order(x=RAUMIDdf, 
+                                     y=AUSSENWANDIA.2010,
+                                     by="RAUMID",
+                                     all.x=T,
+                                     all.y=T,
+                                     sort=T,
+                                     keep_order=1)
+AUSSENWANDIA.2011 <- merge.with.order(x=RAUMIDdf, 
+                                     y=AUSSENWANDIA.2011,
+                                     by="RAUMID",
+                                     all.x=T,
+                                     all.y=T,
+                                     sort=T,
+                                     keep_order=1)
+AUSSENWANDIA.2012 <- merge.with.order(x=RAUMIDdf, 
+                                     y=AUSSENWANDIA.2012,
+                                     by="RAUMID",
+                                     all.x=T,
+                                     all.y=T,
+                                     sort=T,
+                                     keep_order=1)
+
+# iii.) Daten säubern und WIDE erstellen -----
+AUSSENWANDIA.2007$ZEIT[is.na(AUSSENWANDIA.2007$ZEIT)] <- "2007"
+AUSSENWANDIA.2008$ZEIT[is.na(AUSSENWANDIA.2008$ZEIT)] <- "2008"
+AUSSENWANDIA.2009$ZEIT[is.na(AUSSENWANDIA.2009$ZEIT)] <- "2009"
+AUSSENWANDIA.2010$ZEIT[is.na(AUSSENWANDIA.2010$ZEIT)] <- "2010"
+AUSSENWANDIA.2011$ZEIT[is.na(AUSSENWANDIA.2011$ZEIT)] <- "2011"
+AUSSENWANDIA.2012$ZEIT[is.na(AUSSENWANDIA.2012$ZEIT)] <- "2012"
+
+AUSSENWANDIA.2007[is.na(AUSSENWANDIA.2007)] <- 0
+AUSSENWANDIA.2008[is.na(AUSSENWANDIA.2008)] <- 0
+AUSSENWANDIA.2009[is.na(AUSSENWANDIA.2009)] <- 0
+AUSSENWANDIA.2010[is.na(AUSSENWANDIA.2010)] <- 0
+AUSSENWANDIA.2011[is.na(AUSSENWANDIA.2011)] <- 0
+AUSSENWANDIA.2012[is.na(AUSSENWANDIA.2012)] <- 0
+
+colnames(AUSSENWANDIA.2007)[3:6] <- c("ZuzuegeA.2007","ZuzuegeD.2007","FortzuegeA.2007","FortzuegeD.2007")
+colnames(AUSSENWANDIA.2008)[3:6] <- c("ZuzuegeA.2008","ZuzuegeD.2008","FortzuegeA.2008","FortzuegeD.2008")
+colnames(AUSSENWANDIA.2009)[3:6] <- c("ZuzuegeA.2009","ZuzuegeD.2009","FortzuegeA.2009","FortzuegeD.2009")
+colnames(AUSSENWANDIA.2010)[3:6] <- c("ZuzuegeA.2010","ZuzuegeD.2010","FortzuegeA.2010","FortzuegeD.2010")
+colnames(AUSSENWANDIA.2011)[3:6] <- c("ZuzuegeA.2011","ZuzuegeD.2011","FortzuegeA.2011","FortzuegeD.2011")
+colnames(AUSSENWANDIA.2012)[3:6] <- c("ZuzuegeA.2012","ZuzuegeD.2012","FortzuegeA.2012","FortzuegeD.2012")
+
+AUSSENWANDIAdf <- data.frame(AUSSENWANDIA.2007[,c(1,3:6)],AUSSENWANDIA.2008[,3:6],AUSSENWANDIA.2009[,3:6],
+                             AUSSENWANDIA.2010[,3:6],AUSSENWANDIA.2011[,3:6],AUSSENWANDIA.2012[,3:6])
+
+# iv.) Aussenwanderungen Umland, D und Ausland WIDE zusammenfassen -----
+AUSSENWANDdf <- data.frame(AUSSENWANDUdf,AUSSENWANDIAdf[,-1])
+AUSSENWANDdf <- AUSSENWANDdf[c("RAUMID",
+                               "ZuzuegeU.2007","ZuzuegeU.2008","ZuzuegeU.2009","ZuzuegeU.2010","ZuzuegeU.2011","ZuzuegeU.2012",
+                               "ZuzuegeD.2007","ZuzuegeD.2008","ZuzuegeD.2009","ZuzuegeD.2010","ZuzuegeD.2011","ZuzuegeD.2012",
+                               "ZuzuegeA.2007","ZuzuegeA.2008","ZuzuegeA.2009","ZuzuegeA.2010","ZuzuegeA.2011","ZuzuegeA.2012",
+                               "FortzuegeU.2007","FortzuegeU.2008","FortzuegeU.2009","FortzuegeU.2010","FortzuegeU.2011","FortzuegeU.2012",
+                               "FortzuegeD.2007","FortzuegeD.2008","FortzuegeD.2009","FortzuegeD.2010","FortzuegeD.2011","FortzuegeD.2012",
+                               "FortzuegeA.2007","FortzuegeA.2008","FortzuegeA.2009","FortzuegeA.2010","FortzuegeA.2011","FortzuegeA.2012")]
+remove(AUSSENWANDUdf,AUSSENWANDIAdf)
 
 #§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

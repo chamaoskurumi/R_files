@@ -193,16 +193,69 @@ DF8 <- merge(x = DF7,
              all.y=T,
              sort=T,
              keep_order=1)
-DF8$ZEIT <- as.factor(DF7$ZEIT)
-str(DF8)
-LORdata <- DF8 # das ist der vollständige LOR long Datensatz
-head(subset(LORdata,ZEIT=="2012",select=c(AlleinerzHH,Altersarmut))) 
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# j.) AUSSENWANDERUNGEN ======================================
+# j.) AUSSENWANDERUNGEN =================================
 
-# FEHLT NOCH
+AUSSENWANDdflong <- data.frame(rep(AUSSENWANDdf$RAUMID, times=6),
+                               rep(2007:2012, each=447),
+                               c(AUSSENWANDdf$FortzuegeU.2007,
+                                 AUSSENWANDdf$FortzuegeU.2008,
+                                 AUSSENWANDdf$FortzuegeU.2009,                                       
+                                 AUSSENWANDdf$FortzuegeU.2010,
+                                 AUSSENWANDdf$FortzuegeU.2011,
+                                 AUSSENWANDdf$FortzuegeU.2012),
+                               c(AUSSENWANDdf$FortzuegeD.2007,
+                                 AUSSENWANDdf$FortzuegeD.2008,
+                                 AUSSENWANDdf$FortzuegeD.2009,                                       
+                                 AUSSENWANDdf$FortzuegeD.2010,
+                                 AUSSENWANDdf$FortzuegeD.2011,
+                                 AUSSENWANDdf$FortzuegeD.2012),
+                               c(AUSSENWANDdf$FortzuegeA.2007,
+                                 AUSSENWANDdf$FortzuegeA.2008,
+                                 AUSSENWANDdf$FortzuegeA.2009,                                       
+                                 AUSSENWANDdf$FortzuegeA.2010,
+                                 AUSSENWANDdf$FortzuegeA.2011,
+                                 AUSSENWANDdf$FortzuegeA.2012),
+                               c(AUSSENWANDdf$ZuzuegeU.2007,
+                                 AUSSENWANDdf$ZuzuegeU.2008,
+                                 AUSSENWANDdf$ZuzuegeU.2009,                                       
+                                 AUSSENWANDdf$ZuzuegeU.2010,
+                                 AUSSENWANDdf$ZuzuegeU.2011,
+                                 AUSSENWANDdf$ZuzuegeU.2012),
+                               c(AUSSENWANDdf$ZuzuegeD.2007,
+                                 AUSSENWANDdf$ZuzuegeD.2008,
+                                 AUSSENWANDdf$ZuzuegeD.2009,                                       
+                                 AUSSENWANDdf$ZuzuegeD.2010,
+                                 AUSSENWANDdf$ZuzuegeD.2011,
+                                 AUSSENWANDdf$ZuzuegeD.2012),
+                               c(AUSSENWANDdf$ZuzuegeA.2007,
+                                 AUSSENWANDdf$ZuzuegeA.2008,
+                                 AUSSENWANDdf$ZuzuegeA.2009,                                       
+                                 AUSSENWANDdf$ZuzuegeA.2010,
+                                 AUSSENWANDdf$ZuzuegeA.2011,
+                                 AUSSENWANDdf$ZuzuegeA.2012))
 
+colnames(AUSSENWANDdflong) <- c("RAUMID","ZEIT",
+                                "FortzuegeU","FortzuegeD","FortzuegeA",
+                                "ZuzuegeU","ZuzuegeD","ZuzuegeA")
+AUSSENWANDdflong <- AUSSENWANDdflong[order(AUSSENWANDdflong[,"RAUMID"],
+                                           AUSSENWANDdflong[,"ZEIT"]), ] 
+#str(AUSSENWANDdflong)
+
+source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
+DF9 <- merge(x = DF8, 
+             y = AUSSENWANDdflong, 
+             by = c("RAUMID","ZEIT"), 
+             all.x=T, 
+             all.y=T,
+             sort=T,
+             keep_order=1)
+
+DF9$ZEIT <- as.factor(DF9$ZEIT)
+str(DF9)
+LORdata <- DF9 # das ist der vollständige LOR long Datensatz
+names(LORdata)
 
 #§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -213,8 +266,8 @@ head(subset(LORdata,ZEIT=="2012",select=c(AlleinerzHH,Altersarmut)))
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # a.) Long to wide LOR Datensatz ===================================
 
-DF8 <- arrange(DF8, RAUMID, ZEIT)
-DF8wide <- reshape(DF8,
+DF9 <- arrange(DF9, RAUMID, ZEIT)
+DF9wide <- reshape(DF9,
                   idvar = c("RAUMID",  "RAUMID_NAME", "BZR",
                             "BZR_NAME","PGR",     "PRG_NAME","BEZ",    
                             "BEZ_NAME","STADTRAUM","FL_HA"),
@@ -240,11 +293,13 @@ DF8wide <- reshape(DF8,
                               "WanderVol",              "WanderSaldo"      ,      "WanderSaldo_u6",         "Veraend_HartzEmpf_D"   ,
                               "Veraend_HartzEmpf_Ausl", "Veraend_Hartz_u15",      "StaedtWohnungen",        "EinfWhnlageLaerm",
                               "AlleinerzHH",            "Altersarmut",
-                              "Fortzuege",              "Zuzuege"),
+                              "Fortzuege",              "Zuzuege",
+                              "FortzuegeU",             "FortzuegeD",             "FortzuegeA",            
+                              "ZuzuegeU",               "ZuzuegeD",               "ZuzuegeA"),
                   timevar = "ZEIT",
                   direction = "wide")
-#View(DF8wide)
-LORdata_wide <- DF8wide
+#View(DF9wide)
+LORdata_wide <- DF9wide
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # b.) Merge LOR Shape file mit LOR Wide Datensatz ==================

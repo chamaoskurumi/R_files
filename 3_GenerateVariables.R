@@ -54,7 +54,7 @@ LORdataFULLv2              <- ddply(LORdataFULLv2,"RAUMID", transform,
                                   Mietechg = c(NA,diff(Miete)))
 LORdataFULLv2              <- ddply(LORdataFULLv2,"RAUMID", transform,
                                   Mietechgr = c(NA,exp(diff(log(Miete)))-1))
-LORdataFULLv2$Mietechgr    <- round((LORdataFULLv2$Mietechgr*100), digits=0)
+LORdataFULLv2$Mietechgr    <- round((LORdataFULLv2$Mietechgr*100), digits=1)
 
 ###### b.) Altergruppen Inländer ######
 
@@ -208,16 +208,30 @@ LORdataFULLv2              <- ddply(LORdataFULLv2,"RAUMID", transform,
 LORdataFULLv2              <- ddply(LORdataFULLv2,"RAUMID", transform,
                                     PDAU5chg  = c(NA,diff(PDAU5)))
 
-####### h.) Binnen-Wanderungen ######
+####### h.) Binnenwanderungen ######
 
 LORdataFULLv2$FortzuegeR      <- round(( LORdataFULLv2$Fortzuege   / LORdataFULLv2$E_E )*100,digits=1)
 LORdataFULLv2$ZuzuegeR        <- round(( LORdataFULLv2$Zuzuege     / LORdataFULLv2$E_E )*100,digits=1)
 
-####### i.) Außen-Wanderungen #######
+####### i.) Aussenwanderungen #######
 
-# FEHLT NOCH
+LORdataFULLv2$FortzuegeUD      <- (LORdataFULLv2$FortzuegeU  + LORdataFULLv2$FortzuegeD ) 
+LORdataFULLv2$FortzuegeUDA     <- (LORdataFULLv2$FortzuegeU  + LORdataFULLv2$FortzuegeD + LORdataFULLv2$FortzuegeA ) 
 
+LORdataFULLv2$FortzuegeUR      <- round(( LORdataFULLv2$FortzuegeU   / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$FortzuegeDR      <- round(( LORdataFULLv2$FortzuegeD   / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$FortzuegeAR      <- round(( LORdataFULLv2$FortzuegeA   / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$FortzuegeUDR     <- round(( LORdataFULLv2$FortzuegeUD  / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$FortzuegeUDAR    <- round(( LORdataFULLv2$FortzuegeUDA / LORdataFULLv2$E_E )*100,digits=1)
 
+LORdataFULLv2$ZuzuegeUD      <- (LORdataFULLv2$ZuzuegeU  + LORdataFULLv2$ZuzuegeD ) 
+LORdataFULLv2$ZuzuegeUDA     <- (LORdataFULLv2$ZuzuegeU  + LORdataFULLv2$ZuzuegeD + LORdataFULLv2$ZuzuegeA ) 
+
+LORdataFULLv2$ZuzuegeUR      <- round(( LORdataFULLv2$ZuzuegeU   / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$ZuzuegeDR      <- round(( LORdataFULLv2$ZuzuegeD   / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$ZuzuegeAR      <- round(( LORdataFULLv2$ZuzuegeA   / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$ZuzuegeUDR     <- round(( LORdataFULLv2$ZuzuegeUD  / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$ZuzuegeUDAR    <- round(( LORdataFULLv2$ZuzuegeUDA / LORdataFULLv2$E_E )*100,digits=1)
 
 ###### j.) Unnötige Vars droppen & Var order ändern ######
 
@@ -293,10 +307,12 @@ LORdataFULLv4 <- LORdataFULLv3[c("ZEIT",
                # Mietdaten
                "Miete", "Mietechg", "Mietechgr", "MieteNom",
                # Binnenwanderungen
-               "Fortzuege","Zuzuege","FortzuegeR","ZuzuegeR"
+               "Fortzuege","Zuzuege","FortzuegeR","ZuzuegeR",
                # Außenwanderungen
-               )]
-
+               "FortzuegeU","FortzuegeD","FortzuegeA","FortzuegeUD","FortzuegeUDA",
+               "FortzuegeUR","FortzuegeDR","FortzuegeAR","FortzuegeUDR","FortzuegeUDAR",
+               "ZuzuegeU","ZuzuegeD","ZuzuegeA","ZuzuegeUD","ZuzuegeUDA",
+               "ZuzuegeUR","ZuzuegeDR","ZuzuegeAR","ZuzuegeUDR","ZuzuegeUDAR")]
 remove(LORdataFULLv2)
 remove(LORdataFULLv3)
 
@@ -366,9 +382,12 @@ LORdataFULLwidev1    <- reshape(LORdataFULL4wide,
                               # Mietdaten
                               "Miete", "Mietechg", "Mietechgr", "MieteNom",
                               # Binnenwanderungen
-                              "Fortzuege","Zuzuege","FortzuegeR","ZuzuegeR"
+                              "Fortzuege","Zuzuege","FortzuegeR","ZuzuegeR",
                               # Außenwanderungen
-                              ),
+                              "FortzuegeU","FortzuegeD","FortzuegeA","FortzuegeUD","FortzuegeUDA",
+                              "FortzuegeUR","FortzuegeDR","FortzuegeAR","FortzuegeUDR","FortzuegeUDAR",
+                              "ZuzuegeU","ZuzuegeD","ZuzuegeA","ZuzuegeUD","ZuzuegeUDA",
+                              "ZuzuegeUR","ZuzuegeDR","ZuzuegeAR","ZuzuegeUDR","ZuzuegeUDAR"),
                    timevar = "ZEIT",
                    direction = "wide") 
 #names(LORdataFULLwidev1)
@@ -378,17 +397,17 @@ LORdataFULLwidev1    <- reshape(LORdataFULL4wide,
 LORdataFULLwidev2   <- LORdataFULLwidev1
 #names(LORdataFULLwidev2)
 
-# Rentner 
+# ---- Rentner  ----
 LORdataFULLwidev2$E_65U110chg       <- LORdataFULLwidev2$E_65U110.2007-  LORdataFULLwidev2$E_65U110.2012
 LORdataFULLwidev2$E_65U110Rchg      <- LORdataFULLwidev2$E_65U110R.2007-  LORdataFULLwidev2$E_65U110R.2012
 
-# Änderung der Wohndauer
+# ---- Änderung der Wohndauer ----
 LORdataFULLwidev2$DAU5chg        <- LORdataFULLwidev2$DAU5.2007-  LORdataFULLwidev2$DAU5.2012
 LORdataFULLwidev2$DAU10chg       <- LORdataFULLwidev2$DAU10.2007- LORdataFULLwidev2$DAU10.2012
 LORdataFULLwidev2$PDAU5chg       <- LORdataFULLwidev2$PDAU5.2007- LORdataFULLwidev2$PDAU5.2012
 LORdataFULLwidev2$PDAU10chg      <- LORdataFULLwidev2$PDAU10.2007-LORdataFULLwidev2$PDAU10.2012
 
-# Änderung Wohnlage
+# ---- Änderung Wohnlage ----
 LORdataFULLwidev2$WLEINFchg        <- LORdataFULLwidev2$WLEINF.2007-LORdataFULLwidev2$WLEINF.2012
 LORdataFULLwidev2$WLMITchg         <- LORdataFULLwidev2$WLMIT.2007-LORdataFULLwidev2$WLMIT.2012
 LORdataFULLwidev2$WLGUTchg         <- LORdataFULLwidev2$WLGUT.2007-LORdataFULLwidev2$WLGUT.2012
@@ -397,14 +416,14 @@ LORdataFULLwidev2$WLEINFRchg        <- LORdataFULLwidev2$WLEINFR.2007-LORdataFUL
 LORdataFULLwidev2$WLMITRchg         <- LORdataFULLwidev2$WLMITR.2007-LORdataFULLwidev2$WLMITR.2012
 LORdataFULLwidev2$WLGUTRchg         <- LORdataFULLwidev2$WLGUTR.2007-LORdataFULLwidev2$WLGUTR.2012
 
-# Änderung Arbeitslosigkeit
+# ---- Änderung Arbeitslosigkeit ----
 LORdataFULLwidev2$Alosechg             <- LORdataFULLwidev2$Alose.2007 -            LORdataFULLwidev2$Alose.2012
 LORdataFULLwidev2$Alose_langzeitchg    <- LORdataFULLwidev2$Alose_langzeit.2007  -  LORdataFULLwidev2$Alose_langzeit.2012
 LORdataFULLwidev2$Alose_u25chg         <- LORdataFULLwidev2$Alose_u25.2007 -        LORdataFULLwidev2$Alose_u25.2012
 LORdataFULLwidev2$Hartz_u15chg         <- LORdataFULLwidev2$Hartz_u15.2007 -        LORdataFULLwidev2$Hartz_u15.2012
 LORdataFULLwidev2$nicht_Alose_Hartzchg <- LORdataFULLwidev2$nicht_Alose_Hartz.2007- LORdataFULLwidev2$nicht_Alose_Hartz.2012
 
-# Änderung Ausländeranteil
+# ---- Änderung Ausländeranteil ----
 LORdataFULLwidev2$MH_Echg           <-  LORdataFULLwidev2$MH_E.2007 -            LORdataFULLwidev2$MH_E.2012
 LORdataFULLwidev2$MH_ERchg          <-  LORdataFULLwidev2$MH_ER.2007 -           LORdataFULLwidev2$MH_ER.2012
 
@@ -444,7 +463,7 @@ LORdataFULLwidev2$Mietechgr   <-   round(((LORdataFULLwidev2$Miete.2012 - LORdat
                                             LORdataFULLwidev2$Miete.2007)*100, digits=0)
 LORdataFULLwidev2$MieteNomchg <-   LORdataFULLwidev2$MieteNom.2012 - LORdataFULLwidev2$MieteNom.2007
 
-# Fortzuege und Zuzuege
+# ---- Binnenwanderungen ----
 LORdataFULLwidev2$Fortzuege        <-   (LORdataFULLwidev2$Fortzuege.2007 +
                                          LORdataFULLwidev2$Fortzuege.2008 +
                                          LORdataFULLwidev2$Fortzuege.2009 +
@@ -459,11 +478,87 @@ LORdataFULLwidev2$Zuzuege          <-   (LORdataFULLwidev2$Zuzuege.2007 +
                                          LORdataFULLwidev2$Zuzuege.2011 +
                                          LORdataFULLwidev2$Zuzuege.2012)
 
-LORdataFULLwidev2$FortzuegeR <- round(((LORdataFULLwidev2$Fortzuege/6)/LORdataFULLwidev2$E_E.2012)*100, digits=1)
-LORdataFULLwidev2$ZuzuegeR   <- round(((LORdataFULLwidev2$Zuzuege  /6)/LORdataFULLwidev2$E_E.2012)*100, digits=1)
+LORdataFULLwidev2$FortzuegeR <- round(((LORdataFULLwidev2$Fortzuege/6)/LORdataFULLwidev2$E_E.2012)*100, digits=2)
+LORdataFULLwidev2$ZuzuegeR   <- round(((LORdataFULLwidev2$Zuzuege  /6)/LORdataFULLwidev2$E_E.2012)*100, digits=2)
+
+# ---- Aussenwanderungen ----
+LORdataFULLwidev2$FortzuegeU        <-   (LORdataFULLwidev2$FortzuegeU.2007 +
+                                           LORdataFULLwidev2$FortzuegeU.2008 +
+                                           LORdataFULLwidev2$FortzuegeU.2009 +
+                                           LORdataFULLwidev2$FortzuegeU.2010 +
+                                           LORdataFULLwidev2$FortzuegeU.2011 +
+                                           LORdataFULLwidev2$FortzuegeU.2012)
+LORdataFULLwidev2$FortzuegeD        <-   (LORdataFULLwidev2$FortzuegeD.2007 +
+                                            LORdataFULLwidev2$FortzuegeD.2008 +
+                                            LORdataFULLwidev2$FortzuegeD.2009 +
+                                            LORdataFULLwidev2$FortzuegeD.2010 +
+                                            LORdataFULLwidev2$FortzuegeD.2011 +
+                                            LORdataFULLwidev2$FortzuegeD.2012)
+LORdataFULLwidev2$FortzuegeA        <-   (LORdataFULLwidev2$FortzuegeA.2007 +
+                                            LORdataFULLwidev2$FortzuegeA.2008 +
+                                            LORdataFULLwidev2$FortzuegeA.2009 +
+                                            LORdataFULLwidev2$FortzuegeA.2010 +
+                                            LORdataFULLwidev2$FortzuegeA.2011 +
+                                            LORdataFULLwidev2$FortzuegeA.2012)
+LORdataFULLwidev2$FortzuegeUD       <-   (LORdataFULLwidev2$FortzuegeUD.2007 +
+                                            LORdataFULLwidev2$FortzuegeUD.2008 +
+                                            LORdataFULLwidev2$FortzuegeUD.2009 +
+                                            LORdataFULLwidev2$FortzuegeUD.2010 +
+                                            LORdataFULLwidev2$FortzuegeUD.2011 +
+                                            LORdataFULLwidev2$FortzuegeUD.2012)
+LORdataFULLwidev2$FortzuegeUDA      <-   (LORdataFULLwidev2$FortzuegeUDA.2007 +
+                                            LORdataFULLwidev2$FortzuegeUDA.2008 +
+                                            LORdataFULLwidev2$FortzuegeUDA.2009 +
+                                            LORdataFULLwidev2$FortzuegeUDA.2010 +
+                                            LORdataFULLwidev2$FortzuegeUDA.2011 +
+                                            LORdataFULLwidev2$FortzuegeUDA.2012)
+
+LORdataFULLwidev2$ZuzuegeU        <-   (LORdataFULLwidev2$ZuzuegeU.2007 +
+                                            LORdataFULLwidev2$ZuzuegeU.2008 +
+                                            LORdataFULLwidev2$ZuzuegeU.2009 +
+                                            LORdataFULLwidev2$ZuzuegeU.2010 +
+                                            LORdataFULLwidev2$ZuzuegeU.2011 +
+                                            LORdataFULLwidev2$ZuzuegeU.2012)
+LORdataFULLwidev2$ZuzuegeD        <-   (LORdataFULLwidev2$ZuzuegeD.2007 +
+                                            LORdataFULLwidev2$ZuzuegeD.2008 +
+                                            LORdataFULLwidev2$ZuzuegeD.2009 +
+                                            LORdataFULLwidev2$ZuzuegeD.2010 +
+                                            LORdataFULLwidev2$ZuzuegeD.2011 +
+                                            LORdataFULLwidev2$ZuzuegeD.2012)
+LORdataFULLwidev2$ZuzuegeA        <-   (LORdataFULLwidev2$ZuzuegeA.2007 +
+                                            LORdataFULLwidev2$ZuzuegeA.2008 +
+                                            LORdataFULLwidev2$ZuzuegeA.2009 +
+                                            LORdataFULLwidev2$ZuzuegeA.2010 +
+                                            LORdataFULLwidev2$ZuzuegeA.2011 +
+                                            LORdataFULLwidev2$ZuzuegeA.2012)
+LORdataFULLwidev2$ZuzuegeUD       <-   (LORdataFULLwidev2$ZuzuegeUD.2007 +
+                                            LORdataFULLwidev2$ZuzuegeUD.2008 +
+                                            LORdataFULLwidev2$ZuzuegeUD.2009 +
+                                            LORdataFULLwidev2$ZuzuegeUD.2010 +
+                                            LORdataFULLwidev2$ZuzuegeUD.2011 +
+                                            LORdataFULLwidev2$ZuzuegeUD.2012)
+LORdataFULLwidev2$ZuzuegeUDA      <-   (LORdataFULLwidev2$ZuzuegeUDA.2007 +
+                                            LORdataFULLwidev2$ZuzuegeUDA.2008 +
+                                            LORdataFULLwidev2$ZuzuegeUDA.2009 +
+                                            LORdataFULLwidev2$ZuzuegeUDA.2010 +
+                                            LORdataFULLwidev2$ZuzuegeUDA.2011 +
+                                            LORdataFULLwidev2$ZuzuegeUDA.2012)
+
+LORdataFULLwidev2$FortzuegeUR   <- round(((LORdataFULLwidev2$FortzuegeU/6)  /LORdataFULLwidev2$E_E.2012)*100, digits=2)
+LORdataFULLwidev2$FortzuegeDR   <- round(((LORdataFULLwidev2$FortzuegeD/6)  /LORdataFULLwidev2$E_E.2012)*100, digits=2)
+LORdataFULLwidev2$FortzuegeAR   <- round(((LORdataFULLwidev2$FortzuegeA/6)  /LORdataFULLwidev2$E_E.2012)*100, digits=2)
+LORdataFULLwidev2$FortzuegeUDR  <- round(((LORdataFULLwidev2$FortzuegeUD/6) /LORdataFULLwidev2$E_E.2012)*100, digits=2)
+LORdataFULLwidev2$FortzuegeUDAR <- round(((LORdataFULLwidev2$FortzuegeUDA/6)/LORdataFULLwidev2$E_E.2012)*100, digits=2)
+
+LORdataFULLwidev2$ZuzuegeUR   <- round(((LORdataFULLwidev2$ZuzuegeU/6)  /LORdataFULLwidev2$E_E.2012)*100, digits=2)
+LORdataFULLwidev2$ZuzuegeDR   <- round(((LORdataFULLwidev2$ZuzuegeD/6)  /LORdataFULLwidev2$E_E.2012)*100, digits=2)
+LORdataFULLwidev2$ZuzuegeAR   <- round(((LORdataFULLwidev2$ZuzuegeA/6)  /LORdataFULLwidev2$E_E.2012)*100, digits=2)
+LORdataFULLwidev2$ZuzuegeUDR  <- round(((LORdataFULLwidev2$ZuzuegeUD/6) /LORdataFULLwidev2$E_E.2012)*100, digits=2)
+LORdataFULLwidev2$ZuzuegeUDAR <- round(((LORdataFULLwidev2$ZuzuegeUDA/6)/LORdataFULLwidev2$E_E.2012)*100, digits=2)
+
+# ---- _____ Fertiger WIDE Datensatz _____ ----
 
 names(LORdataFULLwidev2)
-
 LORdataWIDE <- LORdataFULLwidev2
 #names(LORdataWIDE)
 
