@@ -118,5 +118,14 @@ r1 <- rPlot(mpg ~ wt | am + vs, data = mtcars, type = "point", color = "gear");r
 
 hair_eye_male <- subset(as.data.frame(HairEyeColor), Sex == "Male")
 n1 <- nPlot(Freq ~ Hair, group = "Eye", data = hair_eye_male, type = "multiBarChart");n1
+
+h1 <- hPlot(x = "Wr.Hnd", y = "NW.Hnd",
+            data = MASS::survey,
+            type = c("line", "bubble", "scatter"),
+            group = "Clap",
+            size = "Age")
+h1
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

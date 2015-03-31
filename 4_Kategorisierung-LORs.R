@@ -447,4 +447,9 @@ p <- ggplot(LOR4reg@data, aes(nicht_Alose_Hartz.2007, Alose_u25.2007, weight=E_E
   scale_y_continuous("Alose_u25.2007")
 p
 
+##### sollte noch gemacht werden #####
+# Alterarmut.2012
+# AlleinerzHH.2012
+# PDAU5chg
+# PDAU10chg
 

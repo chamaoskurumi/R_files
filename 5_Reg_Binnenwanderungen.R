@@ -13,6 +13,7 @@ library("sp")
 library("spdep")
 library("vioplot")
 library("ggplot2")
+library("GGally")
 require("gridExtra")
 require("lattice")
 require("Hmisc")
@@ -157,7 +158,23 @@ summary(lm2)
 moran.test(LOR4reg@data$FortzuegeR, listw = W_polyIDWs, na.action=na.omit)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# IV.) SAR Spatialerror Model ------
+# IV.) VIF step um Multicollinerarity innerhalb der Predictors auszuschließen ------
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ggpairs(mtcars[ ,c("mpg", "wt", "disp", "qsec")], columns = 1:3, size = "qsec")
+library("GGally")
+data(iris)
+ggpairs(iris[, 1:4], lower=list(continuous="smooth", params=c(colour="blue")),
+        diag=list(continuous="bar", params=c(colour="blue")), 
+        upper=list(params=list(corSize=6)), axisLabels='show')
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# V.) Scatterplots generieren mit Response ------
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# V.) SAR Spatialerror Model ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 spautolm(formula=,
