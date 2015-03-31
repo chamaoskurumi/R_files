@@ -328,8 +328,8 @@ rbind(LORshape@data$RAUMID, LORattr$RAUMID)
 LOR@data <- LORattr
 names(LORattr)
 
-#LOR@data$EWdichte.2013 <- (LOR@data$E_E.2013/LOR@data$FL_HA)*100
-#spplot(LOR, zcol="EWdichte.2013")
+#LOR@data$EWdichte.2012 <- (LOR@data$E_E.2012/LOR@data$FL_HA)*100
+#spplot(LOR, zcol="EWdichte.2012")
 
 library(foreign)
 write.dbf(dataframe = LOR@data, file = "/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/LOR/LORinfo.dbf")

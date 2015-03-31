@@ -147,6 +147,13 @@ lm1 <- lm(formula=FortzuegeR ~ STADTRAUM + StaedtWohnungen.2012 +
    weights=E_E.2012)
 summary(lm1)
 
+lm2 <- lm(formula=FortzuegeR ~ STADTRAUM + StaedtWohnungen.2012 +
+            Alose.2012 + Gentri + 
+            AlleinerzHH.2012,
+          data=LOR4reg@data,
+          weights=E_E.2012)
+summary(lm2)
+
 moran.test(LOR4reg@data$FortzuegeR, listw = W_polyIDWs, na.action=na.omit)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

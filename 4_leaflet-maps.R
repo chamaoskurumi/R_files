@@ -39,6 +39,26 @@ SPleaflet
 names(LOR@data)
 
 
+LOR4leaflet <- LOR
+LOR4leaflet@data <- subset(LOR4leaflet@data, select=c(RAUMID, RAUMID_NAME,BEZ_NAME,
+                                                      Mietechg,  Mietechgr, MieteNomchg,     Fortzuege, Zuzuege,   FortzuegeR,     
+                                                      ZuzuegeR,  FortzuegeU,FortzuegeD,FortzuegeA,FortzuegeUD,     FortzuegeUDA,   
+                                                      ZuzuegeU,  ZuzuegeD,  ZuzuegeA,  ZuzuegeUD, ZuzuegeUDA,FortzuegeUR,    
+                                                      FortzuegeDR,     FortzuegeAR,     FortzuegeUDR,    FortzuegeUDAR,   
+                                                      ZuzuegeUR, ZuzuegeDR,ZuzuegeAR,ZuzuegeUDR,ZuzuegeUDAR,   
+                                                      Miete.2012))
+LORjson <- toGeoJSON(data=LOR4leaflet, dest=tempdir())
+brksIntervalls <- classIntervals(LOR4leaflet@data$ZuzuegeUDAR, n=20); brksIntervalls
+brks           <- round(brksIntervalls$brks, digits=1); brks
+clrs <- colorRampPalette(c("yellow", "red"))(length(brks))
+stl <- styleGrad(prop="ZuzuegeUDAR", breaks=brks, style.val=clrs, 
+                 out=1, leg="Aussen Wanderungen: Zuzüege Relativ", 
+                 lwd=1, col="white", alpha=0.4)
+SPleaflet  <- leaflet(data=LORjson, dest=tempdir(),
+                      title="Aussen Wanderungen: Zuzüege Relativ", base.map="positron",
+                      style=stl, popup="*")
+SPleaflet
+
 myleaflet(SPdata.frame = LOR,
           layer = "E_E.2007",
           popupNAMES = c("RAUMID", "RAUMID_NAME",

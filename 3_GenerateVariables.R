@@ -247,7 +247,8 @@ LORdataFULLv3 <- subset(LORdataFULLv2, select=-c(Miete_H1_wmean,
                                                 E_AU1, E_A1U6, E_A6U15, E_A15U18, E_A18U25, E_A25U55, E_A55U65, E_A65U80, E_A80U110,
                                                 E_AU1R, E_A1U6R, E_A6U15R, E_A15U18R, E_A18U25R, E_A25U55R, E_A55U65R, E_A65U80R, E_A80U110R, 
                                                 MH_U1, MH_1U6, MH_6U15, MH_15U18, MH_18U25, MH_25U55, MH_55U65, MH_65U80, MH_80U110,
-                                                MH_U1R, MH_1U6R, MH_6U15R, MH_15U18R, MH_18U25R, MH_25U55R, MH_55U65R, MH_65U80R, MH_80U110R))
+                                                MH_U1R, MH_1U6R, MH_6U15R, MH_15U18R, MH_18U25R, MH_25U55R, MH_55U65R, MH_65U80R, MH_80U110R,
+                                                WanderVol,WanderSaldo,WanderSaldo_u6))
 names(LORdataFULLv3)
 
 LORdataFULLv4 <- LORdataFULLv3[c("ZEIT", 
@@ -299,9 +300,7 @@ LORdataFULLv4 <- LORdataFULLv3[c("ZEIT",
                # Sozialindikatoren
                "Alose",      "Alose_u25",  "Alose_langzeit", "nicht_Alose_Hartz", "Hartz_u15", 
                "Veraend_HartzEmpf_D",    "Veraend_HartzEmpf_Ausl",  "Veraend_Hartz_u15", "StaedtWohnungen",
-               "AlleinerzHH",            "Altersarmut", 
-               # Wanderdaten
-               "WanderVol",       "WanderSaldo",       "WanderSaldo_u6",    
+               "AlleinerzHH",            "Altersarmut",  
                # SanierungsGebiete
                "SanGebiet",       "SanGebiet_NAME",    "SanGebiet_KLASSE",       
                # Mietdaten
@@ -375,8 +374,6 @@ LORdataFULLwidev1    <- reshape(LORdataFULL4wide,
                               "Alose",      "Alose_u25",  "Alose_langzeit", "nicht_Alose_Hartz", "Hartz_u15", 
                               "Veraend_HartzEmpf_D",    "Veraend_HartzEmpf_Ausl",  "Veraend_Hartz_u15", "StaedtWohnungen",
                               "AlleinerzHH",            "Altersarmut",  
-                              # Wanderdaten
-                              "WanderVol",       "WanderSaldo",       "WanderSaldo_u6",    
                               # SanierungsGebiete
                               "SanGebiet",       "SanGebiet_NAME",    "SanGebiet_KLASSE",       
                               # Mietdaten
@@ -448,14 +445,6 @@ LORdataFULLwidev2$HK_EU27RMHhg         <-  LORdataFULLwidev2$HK_EU27RMH.2007 -  
 LORdataFULLwidev2$HK_TurkRMHchg        <-  LORdataFULLwidev2$HK_TurkRMH.2007 -         LORdataFULLwidev2$HK_TurkRMH.2012
 LORdataFULLwidev2$HK_ArabRMHchg        <-  LORdataFULLwidev2$HK_ArabRMH.2007 -         LORdataFULLwidev2$HK_ArabRMH.2012
 LORdataFULLwidev2$HK_EheJugRMHchg      <-  LORdataFULLwidev2$HK_EheJugRMH.2007 -       LORdataFULLwidev2$HK_EheJugRMH.2012
-
-# Wanderungssaldo Summe in Prozent (ungenau)
-LORdataFULLwidev2$WanderSaldosum <-   (LORdataFULLwidev2$WanderSaldo.2007 +
-                                       LORdataFULLwidev2$WanderSaldo.2008 +
-                                       LORdataFULLwidev2$WanderSaldo.2009 +
-                                       LORdataFULLwidev2$WanderSaldo.2010 +
-                                       LORdataFULLwidev2$WanderSaldo.2011 +
-                                       LORdataFULLwidev2$WanderSaldo.2012)
 
 # Mietpreisänderung
 LORdataFULLwidev2$Mietechg    <-   LORdataFULLwidev2$Miete.2012 - LORdataFULLwidev2$Miete.2007
