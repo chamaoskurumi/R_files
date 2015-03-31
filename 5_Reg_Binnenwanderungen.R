@@ -23,6 +23,7 @@ library("RColorBrewer")
 library("colorspace") 
 library("RANN")
 library("Imap")
+library("usdm")
 
 I#*************************************************
 
@@ -160,6 +161,10 @@ moran.test(LOR4reg@data$FortzuegeR, listw = W_polyIDWs, na.action=na.omit)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # IV.) VIF step um Multicollinerarity innerhalb der Predictors auszuschließen ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+v2 <- vifstep(r, th=10) # identify collinear variables that should be excluded
+v2
+re2 <- exclude(r, v2) # e
 
 ggpairs(mtcars[ ,c("mpg", "wt", "disp", "qsec")], columns = 1:3, size = "qsec")
 library("GGally")
