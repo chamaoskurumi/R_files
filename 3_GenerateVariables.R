@@ -570,3 +570,24 @@ write.dbf(dataframe = LOR@data, file = "/home/dao/Desktop/MasterArbeit/GentriMap
 
 #View(LOR@data)
 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# III.) R Global Environment ausmisten - überflüssige Objekte löschen ------
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+remove(bloecke07,                     bloecke07_attributes,          bloecke07_pt,                 
+       bloecke07_ptdf,                bloecke08,                     bloecke08_attributes,         
+       bloecke08_pt,                  bloecke08_ptdf,                bloecke09,                    
+       bloecke09_attributes,          bloecke09_pt,                  bloecke09_ptdf,               
+       bloecke10_12,                  bloecke10_12_pt,               bloecke10_12_ptdf,            
+       bloecke2LOR_07,                bloecke2LOR_08,                bloecke2LOR_09,               
+       bloecke2LOR_10_12,             bloeckePLZ07_ptdf,             bloeckePLZ08_ptdf,            
+       bloeckePLZ09_ptdf,             bloeckePLZ10_12_ptdf,
+       DF1,                           DF1b,                         
+       DF2,                           DF3,                           DF4,                          
+       DF5,                           DF6,                           DF6a,                         
+       DF6test,                       DF7,                           DF7wide,                      
+       DF8,                           DF8wide,
+       EW_07, EW_07_raw,
+       ODdf_v7,
+       PLZ2007, PLZ2008, PLZ2009, PLZ2010, PLZ2011, PLZ2012, PLZ2010_2012)
