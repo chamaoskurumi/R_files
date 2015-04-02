@@ -142,9 +142,18 @@ str(W_1500mIDWc$weights)
 # III.) LM Regression und Moran's I Test ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-lm1 <- lm(formula=FortzuegeR ~ STADTRAUM + StaedtWohnungen.2012 +
-                               Alosechg + Alose.2012 + Miete.2012 + SanGebiet_KLASSE.2012 + 
-                               AlleinerzHH.2012 + GentriOLD,
+Mietechgr + Alosechg + 
+  PDAU5chg + nicht_Alose_Hartzchg + Alose_langzeitchg + Alose_u25chg +
+  AlleinerzHH.2012 + Altersarmut.2012 + StaedtWohnungen.2012 + SanGebiet_KLASSE.2012 +
+  PDAU5.2012 + Miete.2012 + Alose.2012 + Alose_langzeit.2012 + nicht_Alose_Hartz.2012 + 
+  STADTRAUM  + PDAU10.2012 + E_U18R.2007 + E_65U110R.2007
+
+
+lm1 <- lm(formula=FortzuegeR ~ Mietechgr + Alosechg + 
+            PDAU5chg + nicht_Alose_Hartzchg + Alose_langzeitchg + Alose_u25chg +
+            AlleinerzHH.2012 + Altersarmut.2012 + StaedtWohnungen.2012 + SanGebiet_KLASSE.2012 +
+            PDAU5.2012 + Miete.2012 + Alose.2012 + Alose_langzeit.2012 + nicht_Alose_Hartz.2012 + 
+            STADTRAUM  + PDAU10.2012 + E_U18R.2007 + E_65U110R.2007,
    data=LOR4reg@data,
    weights=E_E.2012)
 summary(lm1)
@@ -162,16 +171,31 @@ moran.test(LOR4reg@data$FortzuegeR, listw = W_polyIDWs, na.action=na.omit)
 # IV.) VIF step um Multicollinerarity innerhalb der Predictors auszuschließen ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-v2 <- vifstep(r, th=10) # identify collinear variables that should be excluded
-v2
-re2 <- exclude(r, v2) # e
+predictors4vifcheck <- subset(LOR4reg@data, 
+                              select=c(Mietechgr , Alosechg , 
+                                       PDAU5chg , nicht_Alose_Hartzchg , Alose_langzeitchg , Alose_u25chg ,
+                                       AlleinerzHH.2012 , Altersarmut.2012 , StaedtWohnungen.2012 , 
+                                       PDAU5.2012 , Miete.2012 , Alose.2012 , Alose_langzeit.2012 , nicht_Alose_Hartz.2012 , 
+                                       PDAU10.2012 , E_U18R.2007 , E_65U110R.2007))
 
-ggpairs(mtcars[ ,c("mpg", "wt", "disp", "qsec")], columns = 1:3, size = "qsec")
-library("GGally")
-data(iris)
-ggpairs(iris[, 1:4], lower=list(continuous="smooth", params=c(colour="blue")),
-        diag=list(continuous="bar", params=c(colour="blue")), 
-        upper=list(params=list(corSize=6)), axisLabels='show')
+str(predictors4vifcheck)
+vifstep1 <- vifstep(predictors4vifcheck, th=5) # identify collinear variables that should be excluded
+predictors <- exclude(predictors4vifcheck, vifstep1) 
+
+lm1 <- lm(formula=FortzuegeR ~ Alosechg + 
+          nicht_Alose_Hartzchg+   Mietechg+   Miete.2012 +        
+          StaedtWohnungen.2012+   Alose.2012+  
+          Altersarmut.2012 +      AlleinerzHH.2012 + STADTRAUM,
+          data=LOR4reg@data,
+          weights=E_E.2012)
+summary(lm1)
+
+weight <- qsec/sum(qsec)
+ggpairs(mtcars[ ,c("mpg", "wt", "disp", "qsec")], columns = 1:3, size = "qsec", weight="qsec",
+        lower=list(continuous="smooth", params=c(colour="blue")),
+        diag=list(continuous="bar", params=c(colour="blue")),
+        upper=list(params=list(corSize=8)))
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # V.) Scatterplots generieren mit Response ------

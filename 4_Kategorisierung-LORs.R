@@ -439,8 +439,8 @@ p <- ggplot(LOR4reg@data, aes(Alosechg, Mietechgr, weight=E_E.2012)) +
   scale_y_continuous("Rel. Änderung des Mietpreises")
 p
 
-View(LOR4reg@data[,c("RAUMID_NAME","BEZ_NAME","Alosechg","Mietechgr","E_E.2012")])
-View(LOR4reg@data[,c("RAUMID_NAME","BEZ_NAME","Alose.2007","Mietechgr","E_E.2007")])
+#View(LOR4reg@data[,c("RAUMID_NAME","BEZ_NAME","Alosechg","Mietechgr","E_E.2012")])
+#View(LOR4reg@data[,c("RAUMID_NAME","BEZ_NAME","Alose.2007","Mietechgr","E_E.2007")])
 
 p <- ggplot(LOR4reg@data, aes(Alose.2007, Miete.2007, weight=E_E.2007)) + 
   geom_point(aes(size = E_E.2007, colour = Gentri)) + 
