@@ -15,3 +15,6 @@ source("2_Extrapolate-PLZ-Bloecke.R")
 
 setwd("/home/dao/Desktop/MasterArbeit/R_files/")
 source("3_GenerateVariables.R")
+
+setwd("/home/dao/Desktop/MasterArbeit/R_files/")
+source("4_Kategorisierung-LORs.R")

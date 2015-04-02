@@ -1,5 +1,6 @@
 #*************************************************
 #*************************************************
+#*************************************************
 #
 # Kategorisierung der LORs in Gentri-Kategorien 
 #
@@ -48,7 +49,13 @@ LOR4reg@data[LOR4reg@data$E_E_u300=="unter 300EW" |
                                                            "Fortzuege",
                                                            "Zuzuege",
                                                            "FortzuegeR",
-                                                           "ZuzuegeR")] <- NA
+                                                           "ZuzuegeR",
+                                                           "FortzuegeU", "FortzuegeD", "FortzuegeA",                 
+                                                           "FortzuegeUD","FortzuegeUDA","ZuzuegeU","ZuzuegeD",
+                                                           "ZuzuegeA","ZuzuegeUD","ZuzuegeUDA","FortzuegeUR",
+                                                           "FortzuegeDR","FortzuegeAR","FortzuegeUDR","FortzuegeUDAR",
+                                                           "ZuzuegeUR","ZuzuegeDR","ZuzuegeAR","ZuzuegeUDR",        
+                                                           "ZuzuegeUDAR")] <- NA
 LOR4reg@data$valid <- as.factor(ifelse(is.na(LOR4reg@data$FortzuegeR), 
                                        c("ungültig"), 
                                        c("gültig")))
@@ -187,72 +194,9 @@ by(LOR4reg@data$Miete.2007, LOR4reg@data$Gentri, summary)
 by(LOR4reg@data$Alose.2007, LOR4reg@data$Gentri, summary)
 by(LOR4reg@data$nicht_Alose_Hartz.2007, LOR4reg@data$Gentri, summary)
 
-### b.) ---- 0.10 < "Non Gentri" < 0.90 -----
-
-LOR4reg@data$Gentri <- -1
-LOR4reg@data$Gentri[LOR4reg@data$AlosechgQNTL=="4.Quartil" & LOR4reg@data$MietechgrQNTL=="4.Quartil"] <- "Gentri"
-
-# Gewichtete deskriptive Statistiken von Miete.2007 nur für LORs der Kategorie "Gentri hi" 
-Gentri_Miete.2007_DESCR <- describe(x=LOR4reg@data$Miete.2007[LOR4reg@data$Gentri=="Gentri"],
-                                    weights=LOR4reg@data$E_E.2007[LOR4reg@data$Gentri=="Gentri"],
-                                    exclude.missing=TRUE)
-Gentri_Miete.2007_DESCR
-# Zum Vergleich die ungewichteten deskriptiven Statistiken
-describe(x=LOR4reg@data$Miete.2007[LOR4reg@data$Gentri=="Gentri"],
-         #weights=LOR4reg@data$E_E.2007[LOR4reg@data$Gentri=="Gentri"],
-         exclude.missing=TRUE)
-
-Gentri_Miete.2007_0.05 <- as.numeric(Gentri_Miete.2007_DESCR$counts[6])  # 0.05 Quantil
-Gentri_Miete.2007_0.10 <- as.numeric(Gentri_Miete.2007_DESCR$counts[7])  # 0.10 Quantil
-Gentri_Miete.2007_0.25 <- as.numeric(Gentri_Miete.2007_DESCR$counts[8])  # 0.25 Quantil
-Gentri_Miete.2007_0.75 <- as.numeric(Gentri_Miete.2007_DESCR$counts[10]) # 0.75 Quantil
-Gentri_Miete.2007_0.90 <- as.numeric(Gentri_Miete.2007_DESCR$counts[11]) # 0.90 Quantil
-Gentri_Miete.2007_0.95 <- as.numeric(Gentri_Miete.2007_DESCR$counts[12]) # 0.95 Quantil
-
-# Gewichtete deskriptive Statistiken von Alose.2007 nur für LORs der Kategorie "Gentri hi" 
-Gentri_Alose.2007_DESCR <- describe(x=LOR4reg@data$Alose.2007[LOR4reg@data$Gentri=="Gentri"],
-                                    weights=LOR4reg@data$E_E.2007[LOR4reg@data$Gentri=="Gentri"],
-                                    exclude.missing=TRUE)
-Gentri_Alose.2007_DESCR
-# Zum Vergleich die ungewichteten deskriptiven Statistiken
-describe(x=LOR4reg@data$Alose.2007[LOR4reg@data$Gentri=="Gentri"],
-         #weights=LOR4reg@data$E_E.2007[LOR4reg@data$Gentri=="Gentri"],
-         exclude.missing=TRUE)
-
-Gentri_Alose.2007_0.05 <- as.numeric(Gentri_Alose.2007_DESCR$counts[6])  # 0.05 Quantil
-Gentri_Alose.2007_0.10 <- as.numeric(Gentri_Alose.2007_DESCR$counts[7])  # 0.10 Quantil
-Gentri_Alose.2007_0.25 <- as.numeric(Gentri_Alose.2007_DESCR$counts[8])  # 0.25 Quantil
-Gentri_Alose.2007_0.75 <- as.numeric(Gentri_Alose.2007_DESCR$counts[10]) # 0.75 Quantil
-Gentri_Alose.2007_0.90 <- as.numeric(Gentri_Alose.2007_DESCR$counts[11]) # 0.90 Quantil
-Gentri_Alose.2007_0.95 <- as.numeric(Gentri_Alose.2007_DESCR$counts[12]) # 0.95 Quantil
-
-LOR4reg@data$Gentri[LOR4reg@data$Alose.2007 > Gentri_Alose.2007_0.10 & 
-                      LOR4reg@data$Alose.2007 < Gentri_Alose.2007_0.90 & 
-                      LOR4reg@data$Miete.2007 > Gentri_Miete.2007_0.10 & 
-                      LOR4reg@data$Miete.2007 < Gentri_Miete.2007_0.90 &
-                      LOR4reg@data$Gentri!="Gentri"] <- "Non Gentri"
-LOR4reg@data$Gentri[(LOR4reg@data$Gentri!="Gentri" & LOR4reg@data$Gentri!="Non Gentri")] <- "Other"
-LOR4reg@data$Gentri[is.na(LOR4reg@data$MietechgrQNTL) |
-                      is.na(LOR4reg@data$AlosechgQNTL)  |
-                      LOR4reg@data$valid=="ungültig"] <- NA
-LOR4reg@data$Gentri <- as.factor(LOR4reg@data$Gentri)
-table(LOR4reg@data$Gentri,useNA="ifany")
-spplot(LOR4reg, zcol="Gentri", 
-       col.regions=c("red","blue","grey"))
-
-boxplot(Miete.2007 ~ Gentri, data=LOR4reg@data)
-boxplot(Alose.2007 ~ Gentri, data=LOR4reg@data)
-boxplot(nicht_Alose_Hartz.2007 ~ Gentri, data=LOR4reg@data)
-
-boxplot(LOR4reg@data$FortzuegeR ~ LOR4reg@data$Gentri)
-boxplot(LOR4reg@data$ZuzuegeR ~ LOR4reg@data$Gentri)
-
-by(LOR4reg@data$Miete.2007, LOR4reg@data$Gentri, summary)
-by(LOR4reg@data$Alose.2007, LOR4reg@data$Gentri, summary)
-by(LOR4reg@data$nicht_Alose_Hartz.2007, LOR4reg@data$Gentri, summary)
 
 
-### c.) ---- 0.05 < "Non Gentri" < 0.95 -----
+### b.) ---- 0.05 < "Non Gentri" < 0.95 -----
 
 LOR4reg@data$Gentri <- -1
 LOR4reg@data$Gentri[LOR4reg@data$AlosechgQNTL=="4.Quartil" & LOR4reg@data$MietechgrQNTL=="4.Quartil"] <- "Gentri"
@@ -312,6 +256,71 @@ boxplot(WLEINFR.2007 ~ Gentri, data=LOR4reg@data)
 boxplot(Alose_u25.2007 ~ Gentri, data=LOR4reg@data)
 boxplot(E_U18R.2007 ~ Gentri, data=LOR4reg@data)
 boxplot(E_65U110R.2007 ~ Gentri, data=LOR4reg@data)
+
+boxplot(LOR4reg@data$FortzuegeR ~ LOR4reg@data$Gentri)
+boxplot(LOR4reg@data$ZuzuegeR ~ LOR4reg@data$Gentri)
+
+by(LOR4reg@data$Miete.2007, LOR4reg@data$Gentri, summary)
+by(LOR4reg@data$Alose.2007, LOR4reg@data$Gentri, summary)
+by(LOR4reg@data$nicht_Alose_Hartz.2007, LOR4reg@data$Gentri, summary)
+
+
+### c.) ---- 0.10 < "Non Gentri" < 0.90 = ENDGÜLTIGE DEFINITION -----
+
+LOR4reg@data$Gentri <- -1
+LOR4reg@data$Gentri[LOR4reg@data$AlosechgQNTL=="4.Quartil" & LOR4reg@data$MietechgrQNTL=="4.Quartil"] <- "Gentri"
+
+# Gewichtete deskriptive Statistiken von Miete.2007 nur für LORs der Kategorie "Gentri hi" 
+Gentri_Miete.2007_DESCR <- describe(x=LOR4reg@data$Miete.2007[LOR4reg@data$Gentri=="Gentri"],
+                                    weights=LOR4reg@data$E_E.2007[LOR4reg@data$Gentri=="Gentri"],
+                                    exclude.missing=TRUE)
+Gentri_Miete.2007_DESCR
+# Zum Vergleich die ungewichteten deskriptiven Statistiken
+describe(x=LOR4reg@data$Miete.2007[LOR4reg@data$Gentri=="Gentri"],
+         #weights=LOR4reg@data$E_E.2007[LOR4reg@data$Gentri=="Gentri"],
+         exclude.missing=TRUE)
+
+Gentri_Miete.2007_0.05 <- as.numeric(Gentri_Miete.2007_DESCR$counts[6])  # 0.05 Quantil
+Gentri_Miete.2007_0.10 <- as.numeric(Gentri_Miete.2007_DESCR$counts[7])  # 0.10 Quantil
+Gentri_Miete.2007_0.25 <- as.numeric(Gentri_Miete.2007_DESCR$counts[8])  # 0.25 Quantil
+Gentri_Miete.2007_0.75 <- as.numeric(Gentri_Miete.2007_DESCR$counts[10]) # 0.75 Quantil
+Gentri_Miete.2007_0.90 <- as.numeric(Gentri_Miete.2007_DESCR$counts[11]) # 0.90 Quantil
+Gentri_Miete.2007_0.95 <- as.numeric(Gentri_Miete.2007_DESCR$counts[12]) # 0.95 Quantil
+
+# Gewichtete deskriptive Statistiken von Alose.2007 nur für LORs der Kategorie "Gentri hi" 
+Gentri_Alose.2007_DESCR <- describe(x=LOR4reg@data$Alose.2007[LOR4reg@data$Gentri=="Gentri"],
+                                    weights=LOR4reg@data$E_E.2007[LOR4reg@data$Gentri=="Gentri"],
+                                    exclude.missing=TRUE)
+Gentri_Alose.2007_DESCR
+# Zum Vergleich die ungewichteten deskriptiven Statistiken
+describe(x=LOR4reg@data$Alose.2007[LOR4reg@data$Gentri=="Gentri"],
+         #weights=LOR4reg@data$E_E.2007[LOR4reg@data$Gentri=="Gentri"],
+         exclude.missing=TRUE)
+
+Gentri_Alose.2007_0.05 <- as.numeric(Gentri_Alose.2007_DESCR$counts[6])  # 0.05 Quantil
+Gentri_Alose.2007_0.10 <- as.numeric(Gentri_Alose.2007_DESCR$counts[7])  # 0.10 Quantil
+Gentri_Alose.2007_0.25 <- as.numeric(Gentri_Alose.2007_DESCR$counts[8])  # 0.25 Quantil
+Gentri_Alose.2007_0.75 <- as.numeric(Gentri_Alose.2007_DESCR$counts[10]) # 0.75 Quantil
+Gentri_Alose.2007_0.90 <- as.numeric(Gentri_Alose.2007_DESCR$counts[11]) # 0.90 Quantil
+Gentri_Alose.2007_0.95 <- as.numeric(Gentri_Alose.2007_DESCR$counts[12]) # 0.95 Quantil
+
+LOR4reg@data$Gentri[LOR4reg@data$Alose.2007 > Gentri_Alose.2007_0.10 & 
+                      LOR4reg@data$Alose.2007 < Gentri_Alose.2007_0.90 & 
+                      LOR4reg@data$Miete.2007 > Gentri_Miete.2007_0.10 & 
+                      LOR4reg@data$Miete.2007 < Gentri_Miete.2007_0.90 &
+                      LOR4reg@data$Gentri!="Gentri"] <- "Non Gentri"
+LOR4reg@data$Gentri[(LOR4reg@data$Gentri!="Gentri" & LOR4reg@data$Gentri!="Non Gentri")] <- "Other"
+LOR4reg@data$Gentri[is.na(LOR4reg@data$MietechgrQNTL) |
+                      is.na(LOR4reg@data$AlosechgQNTL)  |
+                      LOR4reg@data$valid=="ungültig"] <- NA
+LOR4reg@data$Gentri <- as.factor(LOR4reg@data$Gentri)
+table(LOR4reg@data$Gentri,useNA="ifany")
+spplot(LOR4reg, zcol="Gentri", 
+       col.regions=c("red","blue","grey"))
+
+boxplot(Miete.2007 ~ Gentri, data=LOR4reg@data)
+boxplot(Alose.2007 ~ Gentri, data=LOR4reg@data)
+boxplot(nicht_Alose_Hartz.2007 ~ Gentri, data=LOR4reg@data)
 
 boxplot(LOR4reg@data$FortzuegeR ~ LOR4reg@data$Gentri)
 boxplot(LOR4reg@data$ZuzuegeR ~ LOR4reg@data$Gentri)
