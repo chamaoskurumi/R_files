@@ -14,8 +14,8 @@ library("foreign")
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # I.) LOR long Datensatz ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-LORdataFULLv2 <- LORdataFULLv1
+LORdataFULL4GenerateVARIABLES <- LORdataFULLv1
+LORdataFULLv2 <- LORdataFULL4GenerateVARIABLES
 
 #names(LORdataFULLv2)
 #View(LORdataFULLv2)
@@ -257,7 +257,7 @@ LORdataFULLv4 <- LORdataFULLv3[c("ZEIT",
                "BZR",        "BZR_NAME", 
                "PGR",        "PRG_NAME",
                "BEZ",        "BEZ_NAME",       
-               "STADTRAUM",  "FL_HA",
+               "STADTRAUM",  "FL_HA", "dist2STADTMITTE",
                # Gesamteinwohner
                "E_E",        
                "E_U18",      "E_18U65",     "E_65U110",
@@ -329,7 +329,7 @@ LORdataFULL4wide     <- arrange(LORdataFULL, RAUMID, ZEIT)
 LORdataFULLwidev1    <- reshape(LORdataFULL4wide,
                             idvar = c("RAUMID",  "RAUMID_NAME", "BZR",
                              "BZR_NAME","PGR",     "PRG_NAME","BEZ",    
-                             "BEZ_NAME","STADTRAUM","FL_HA"),
+                             "BEZ_NAME","STADTRAUM","FL_HA","dist2STADTMITTE"),
                             v.names = c(
                               # Gesamteinwohner
                               "E_E",        
@@ -585,9 +585,8 @@ remove(bloecke07,                     bloecke07_attributes,          bloecke07_p
        bloeckePLZ09_ptdf,             bloeckePLZ10_12_ptdf,
        DF1,                           DF1b,                         
        DF2,                           DF3,                           DF4,                          
-       DF5,                           DF6,                           DF6a,                         
-       DF6test,                       DF7,                           DF7wide,                      
-       DF8,                           DF8wide,
+       DF5,                           DF6,                           DF6a,                    
+       DF7,                           DF8,                           DF9,
        EW_07, EW_07_raw,
        ODdf_v7,
        PLZ2007, PLZ2008, PLZ2009, PLZ2010, PLZ2011, PLZ2012, PLZ2010_2012)

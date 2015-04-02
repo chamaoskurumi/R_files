@@ -241,20 +241,39 @@ colnames(AUSSENWANDdflong) <- c("RAUMID","ZEIT",
                                 "ZuzuegeU","ZuzuegeD","ZuzuegeA")
 AUSSENWANDdflong <- AUSSENWANDdflong[order(AUSSENWANDdflong[,"RAUMID"],
                                            AUSSENWANDdflong[,"ZEIT"]), ] 
-#str(AUSSENWANDdflong)
+str(AUSSENWANDdflong)
 
 source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
-DF9 <- merge(x = DF8, 
-             y = AUSSENWANDdflong, 
-             by = c("RAUMID","ZEIT"), 
-             all.x=T, 
-             all.y=T,
-             sort=T,
-             keep_order=1)
-
-DF9$ZEIT <- as.factor(DF9$ZEIT)
+DF9 <- merge.with.order(x = DF8, 
+                        y = AUSSENWANDdflong, 
+                        by = c("RAUMID","ZEIT"), 
+                        all.x=T, 
+                        all.y=T,
+                        sort=T,
+                        keep_order=1)
 str(DF9)
-LORdata <- DF9 # das ist der vollständige LOR long Datensatz
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# k.) Entfernunung zur STADTMITTE (RAUMID_NAME==Alexanderplatzviertel =================================
+
+LORslim_pt    <- gCentroid(LORslim,byid=TRUE); plot(LORslim_pt)
+LORslim_ptdf  <- SpatialPointsDataFrame(coords = LORslim_pt@coords, 
+                                         data = LORslim@data, 
+                                         proj4string = zielCRS)
+colnames(LORslim_ptdf@data)[1] <- "RAUMID"
+# Koordinaten des Alexanderplatzviertels (RAUMID==01011303) definieren wir als BERLINS STADTMITTE
+AlexCoords <- LORslim_ptdf@coords[LORslim_ptdf@data$RAUMID=="01011303",]
+# Entfernungsmessung zwischen BERLINS STADTMITTE und dem Schwepunkt eines jeden LORs
+dist2STADTMITTE   <- round(spDistsN1(LORslim_pt@coords,AlexCoords),0)
+dist2STADTMITTEdf <- data.frame(LORslim_ptdf@data$RAUMID,dist2STADTMITTE)
+colnames(dist2STADTMITTEdf)[1] <- "RAUMID"
+dist2STADTMITTEdf <- dist2STADTMITTEdf[order(dist2STADTMITTEdf[,"RAUMID"]), ]
+
+DF10 <- data.frame(DF9, rep(dist2STADTMITTEdf$dist2STADTMITTE,each=6))
+colnames(DF10)[length(colnames(DF10))] <- "dist2STADTMITTE"
+
+DF10$ZEIT <- as.factor(DF10$ZEIT)
+LORdata <- DF10 # das ist der vollständige LOR long Datensatz
 names(LORdata)
 
 #§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
@@ -266,11 +285,11 @@ names(LORdata)
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # a.) Long to wide LOR Datensatz ===================================
 
-DF9 <- arrange(DF9, RAUMID, ZEIT)
-DF9wide <- reshape(DF9,
+DF10 <- arrange(DF10, RAUMID, ZEIT)
+DF10wide <- reshape(DF10,
                   idvar = c("RAUMID",  "RAUMID_NAME", "BZR",
                             "BZR_NAME","PGR",     "PRG_NAME","BEZ",    
-                            "BEZ_NAME","STADTRAUM","FL_HA"),
+                            "BEZ_NAME","STADTRAUM","FL_HA", "dist2STADTMITTE"),
                   v.names = c("E_E" ,                  
                               "E_U1",                   "E_1U6"           ,       "E_6U15",                 "E_15U18"               ,
                               "E_18U25",                "E_25U55"         ,       "E_55U65",                "E_65U80"               ,
@@ -298,8 +317,8 @@ DF9wide <- reshape(DF9,
                               "ZuzuegeU",               "ZuzuegeD",               "ZuzuegeA"),
                   timevar = "ZEIT",
                   direction = "wide")
-#View(DF9wide)
-LORdata_wide <- DF9wide
+#View(DF10wide)
+LORdata_wide <- DF10wide
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # b.) Merge LOR Shape file mit LOR Wide Datensatz ==================

@@ -952,7 +952,8 @@ head(bloecke07_attributes)
 # subset(EW_07,is.na(EW_07$KLASSENNAM))
 # subset(EW_07, EW_07$EINWOHNER>0 & (is.na(EW_07$FLAECHE_IN)))
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-# Deswegen nocmal, ohne alle Y
+
+#### --> Deswegen nochmal mit all.y=FALSE
 
 EW_07 <- merge(bloecke07_attributes, EW_07_raw, by="SCHLUESSEL", all.x=T, all.y=F)
 EW_07 <- EW_07[with(EW_07, order(order)), ]
@@ -971,7 +972,7 @@ sum(as.numeric(bloecke07@data$EINWOHNER), na.rm=T)
 bloecke07@data$EINWOHNER[is.na(bloecke07@data$EINWOHNER)] <- 0
 bloecke07@data$EW_PRO_HA[is.na(bloecke07@data$EW_PRO_HA)] <- 0
 bloecke07 <- bloecke07[bloecke07@data$EINWOHNER>0, ] # alle Blöcke löschen, wo niemand wohnt
-bloecke07@data$order <- seq(1:length(bloecke08@data$SCHLUESSEL))
+bloecke07@data$order <- seq(1:length(bloecke07@data$SCHLUESSEL))
 length(bloecke07@data$SCHLUESSEL)
 #sum(as.numeric(bloecke07@data$EINWOHNER), na.rm=T)
 #str(bloecke07@data)
@@ -1055,8 +1056,6 @@ bloecke09@data$order <- seq(1:length(bloecke09@data$SCHLUESSEL))
 
 setwd(dir="/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten/Bloecke_GS")
 EW_10_12 <- read.table(file ="EW_2010-2013.csv", header=T, sep=",")
-EW_10_12$spatial_na <- as.factor(data$spatial_na)
-EW_10_12$spatial_al <- as.factor(data$spatial_al)
 EW_10_12[is.na(EW_10_12)] <- 0
 write.dbf(EW_10_12, file="bloecke_EW", factor2char = TRUE)
 
