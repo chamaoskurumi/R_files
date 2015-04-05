@@ -11,10 +11,13 @@
 
 library("vioplot")
 library("ggplot2")
+library("scales")
 library("sp")
+library("ENmisc")
 require("gridExtra")
 require("lattice")
 require("Hmisc")
+
 
 #*************************************************
 
@@ -325,10 +328,59 @@ boxplot(nicht_Alose_Hartz.2007 ~ Gentri, data=LOR4reg@data)
 boxplot(LOR4reg@data$FortzuegeR ~ LOR4reg@data$Gentri)
 boxplot(LOR4reg@data$ZuzuegeR ~ LOR4reg@data$Gentri)
 
+bpDF <- subset(LOR4reg@data, !is.na(Gentri))
+
+GENTRIplot <- function(data,var)
+{
+  localenv <- environment()
+  p  <- ggplot(data, aes_string(x="Gentri", 
+                                y=var, 
+                                weight="E_E.2012",                         
+                                fill="Gentri"),
+               environment = localenv) + 
+    scale_y_continuous(breaks=pretty_breaks(n=10))+ 
+    geom_violin(scale = "area") +
+    theme(text = element_text(size=20),
+          axis.text.x = element_text(face="bold"),
+          axis.title.x = element_blank(),
+          axis.title.y = element_blank(),
+          legend.position="none") 
+  p + geom_boxplot(width=.3)
+}
+
+GENTRIplot(bpDF,"E_65U110Rchg")
+
+p  <- ggplot(bpDF, aes(Gentri, 
+                       E_65U110Rchg, 
+                       weight=E_E.2012,
+                       fill=Gentri)) + 
+  scale_y_continuous(breaks=pretty_breaks(n=10))+ 
+  geom_violin(scale = "area") +
+  theme(text = element_text(size=20),
+        axis.text.x = element_text(face="bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        legend.position="none") 
+p + geom_boxplot(width=.3)
+
+p  <- ggplot(bpDF, aes(Gentri, 
+                       FortzuegeR, 
+                       weight=E_E.2012,
+                       fill=Gentri)) + 
+  scale_y_continuous(breaks=pretty_breaks(n=10))+ 
+  geom_violin(scale = "area") +
+  theme(text = element_text(size=20),
+        axis.text.x = element_text(face="bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        legend.position="none") 
+p + geom_boxplot(width=.1)
+
+
 by(LOR4reg@data$Miete.2007, LOR4reg@data$Gentri, summary)
 by(LOR4reg@data$Alose.2007, LOR4reg@data$Gentri, summary)
 by(LOR4reg@data$nicht_Alose_Hartz.2007, LOR4reg@data$Gentri, summary)
-
+by(LOR4reg@data$E_65U110Rchg, LOR4reg@data$Gentri, summary)
 
 ### d.) ---- OLD: "Non Gentri"== 3,3; 3,4; 4,3 Quartile -----
 
