@@ -12,7 +12,7 @@ Sys.setenv(LANG = "en_US.UTF-8")
 
 #install.packages(c("spdep",      "sp",      "maptools", "lattice", 
 #                   "rgdal",      "rgeos",   "foreign",  "PBSmapping",
-#                   "reshape",    "plyr",    "reshape2"))
+#                   "plyr",    "reshape2"))
 library("spdep")
 library("sp")
 library("maptools")
@@ -21,7 +21,6 @@ library("rgdal")
 library("rgeos")
 library("foreign")
 library("PBSmapping")
-library("reshape")
 library("plyr")
 library("reshape2")
 
