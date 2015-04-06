@@ -9,6 +9,9 @@
 
 # ____ Packages ______ ----------------------------------------------------------------
 
+install.packages("vioplot","ggplot2","sp","gridExtra","lattice",
+                 "scales","ENmisc","Hmisc","dplyr","grid")
+
 library("vioplot")
 library("ggplot2")
 library("scales")
@@ -17,7 +20,8 @@ library("ENmisc")
 require("gridExtra")
 require("lattice")
 require("Hmisc")
-
+library("dplyr")
+library("grid") # needed for arrow() function
 
 #*************************************************
 
@@ -367,8 +371,8 @@ p  <- ggplot(bpDF, aes(Gentri,
                        FortzuegeR, 
                        weight=E_E.2012,
                        fill=Gentri)) + 
-  scale_y_continuous(breaks=pretty_breaks(n=10))+ 
-  geom_violin(scale = "area") +
+  scale_y_continuous(breaks=pretty_breaks(n=10), limits=c(3,17)) + 
+  geom_violin(scale = "width") +
   theme(text = element_text(size=20),
         axis.text.x = element_text(face="bold"),
         axis.title.x = element_blank(),
@@ -377,10 +381,89 @@ p  <- ggplot(bpDF, aes(Gentri,
 p + geom_boxplot(width=.1)
 
 
+p  <- ggplot(bpDF, aes(Gentri, 
+                       ZuzuegeUDAR, 
+                       weight=E_E.2012,
+                       fill=Gentri)) + 
+  scale_y_continuous(breaks=pretty_breaks(n=10), limits=c(0,15)) + 
+  geom_violin(scale = "width") +
+  theme(text = element_text(size=20),
+        axis.text.x = element_text(face="bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        legend.position="none") 
+p + geom_boxplot(width=.1)
+
+
+p  <- ggplot(bpDF, aes(Gentri, 
+                       ZuzuegeAR, 
+                       weight=E_E.2012,
+                       fill=Gentri)) + 
+  scale_y_continuous(breaks=pretty_breaks(n=10), limits=c(0,7)) + 
+  geom_violin(scale = "width") +
+  theme(text = element_text(size=20),
+        axis.text.x = element_text(face="bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        legend.position="none") 
+p + geom_boxplot(width=.1)
+
+p  <- ggplot(bpDF, aes(Gentri, 
+                       FortzuegeUR, 
+                       weight=E_E.2012,
+                       fill=Gentri)) + 
+  scale_y_continuous(breaks=pretty_breaks(n=10), limits=c(0,2.5)) + 
+  geom_violin(scale = "width") +
+  theme(text = element_text(size=20),
+        axis.text.x = element_text(face="bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        legend.position="none") 
+p + geom_boxplot(width=.1)
+
+
+p  <- ggplot(bpDF, aes(Gentri, 
+                       ZuzuegeDR, 
+                       weight=E_E.2012,
+                       fill=Gentri)) + 
+  scale_y_continuous(breaks=pretty_breaks(n=10)) + 
+  geom_violin(scale = "width") +
+  theme(text = element_text(size=20),
+        axis.text.x = element_text(face="bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        legend.position="none") 
+p + geom_boxplot(width=.1)
+
 by(LOR4reg@data$Miete.2007, LOR4reg@data$Gentri, summary)
 by(LOR4reg@data$Alose.2007, LOR4reg@data$Gentri, summary)
 by(LOR4reg@data$nicht_Alose_Hartz.2007, LOR4reg@data$Gentri, summary)
 by(LOR4reg@data$E_65U110Rchg, LOR4reg@data$Gentri, summary)
+
+### --- Versuch auf extreme Outliers extern per Arrow zu verweisen ----
+p  <- ggplot(bpDF, aes(Gentri, 
+                       FortzuegeR, 
+                       weight=E_E.2012,
+                       fill=Gentri)) + 
+  #  scale_y_continuous(breaks=pretty_breaks(n=10))+ 
+  geom_violin(scale = "area") 
+theme(text = element_text(size=20),
+      axis.text.x = element_text(face="bold"),
+      axis.title.x = element_blank(),
+      axis.title.y = element_blank(),
+      legend.position="none") 
+p1 <- p + geom_boxplot(width=.1)
+
+maxval <- 17
+dd <- bpDF %>% filter(FortzuegeR>maxval) %>%  group_by(Gentri) %>%  summarise(outlier_txt=paste(FortzuegeR,collapse=","))
+p2 <- p1 + scale_y_continuous(limits=c(3,maxval)) +
+  geom_text(data=dd,aes(y=maxval,label=outlier_txt),size=3,vjust=1.5,hjust=-0.5)
+  geom_segment(data=dd,aes(y=maxval*0.95,yend=maxval,
+                           xend=factor(Gentri)),
+               arrow = arrow(length = unit(0.1,"cm")))
+p2
+
+
 
 ### d.) ---- OLD: "Non Gentri"== 3,3; 3,4; 4,3 Quartile -----
 
