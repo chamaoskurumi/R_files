@@ -394,6 +394,78 @@ p  <- ggplot(bpDF, aes(Gentri,
         legend.position="none") 
 p + geom_boxplot(width=.1)
 
+p  <- ggplot(bpDF, aes(Gentri, 
+                       nicht_Alose_Hartz.2007, 
+                       weight=E_E.2012,
+                       fill=Gentri)) + 
+  scale_y_continuous(breaks=pretty_breaks(n=10)) + 
+  geom_violin(scale = "area") +
+  theme(text = element_text(size=20),
+        axis.text.x = element_text(face="bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        legend.position="none") 
+p + geom_boxplot(width=.05)
+
+
+p  <- ggplot(bpDF, aes(Gentri, 
+                       Alose_u25.2007, 
+                       weight=E_E.2012,
+                       fill=Gentri)) + 
+  scale_y_continuous(breaks=pretty_breaks(n=10)) + 
+  geom_violin(scale = "area") +
+  theme(text = element_text(size=20),
+        axis.text.x = element_text(face="bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        legend.position="none") 
+p + geom_boxplot(width=.05)
+
+GentriDEFalose0.1_0.9 <- wtd.quantile(x=bpDF$Alose.2007[bpDF$Gentri=="Gentri"], 
+                                      weights=bpDF$E_E.2012[bpDF$Gentri=="Gentri"],             
+                                      probs=c(0.1,0.9))
+p  <- ggplot(bpDF, aes(Gentri, 
+                       Alose.2007, 
+                       weight=E_E.2012,
+                       fill=Gentri)) + 
+  scale_y_continuous(breaks=pretty_breaks(n=10)) + 
+  geom_violin(scale = "area") +
+  theme(text = element_text(size=20),
+        axis.text.x = element_text(face="bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        legend.position="none") 
+p <- p + geom_boxplot(width=.05)
+p <- p + geom_segment(mapping=aes(x="Gentri", y=GentriDEFalose0.1_0.9[1], 
+                                  xend="Non Gentri", yend=GentriDEFalose0.1_0.9[1]), 
+                      linetype="dashed", color="red") +
+  geom_segment(mapping=aes(x="Gentri", y=GentriDEFalose0.1_0.9[2], 
+                           xend="Non Gentri", yend=GentriDEFalose0.1_0.9[2]), 
+               linetype="dashed", color="red") 
+p
+
+GentriDEFmiete0.1_0.9 <- wtd.quantile(x=bpDF$Miete.2007[bpDF$Gentri=="Gentri"], 
+                                      weights=bpDF$E_E.2012[bpDF$Gentri=="Gentri"],             
+                                      probs=c(0.1,0.9))
+p  <- ggplot(bpDF, aes(Gentri, 
+                       Miete.2007, 
+                       weight=E_E.2012,
+                       fill=Gentri)) + 
+  scale_y_continuous(breaks=pretty_breaks(n=10)) + 
+  geom_violin(scale = "area") +
+  theme(text = element_text(size=20),
+        axis.text.x = element_text(face="bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        legend.position="none") 
+p <- p + geom_boxplot(width=.05) 
+p <- p + geom_segment(mapping=aes(x="Gentri", y=GentriDEFmiete0.1_0.9[1], 
+                                  xend="Non Gentri", yend=GentriDEFmiete0.1_0.9[1]), 
+                      linetype="dashed", color="red") +
+         geom_segment(mapping=aes(x="Gentri", y=GentriDEFmiete0.1_0.9[2], 
+                           xend="Non Gentri", yend=GentriDEFmiete0.1_0.9[2]), 
+                      linetype="dashed", color="red") 
+p
 
 p  <- ggplot(bpDF, aes(Gentri, 
                        ZuzuegeAR, 
