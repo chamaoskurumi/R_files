@@ -130,16 +130,19 @@ Stadtraumleaflet  <- leaflet(data=LORjson, dest=tempdir(),
                               popup=c("RAUMID_NAME","BEZ_NAME"))
 Stadtraumleaflet
 
-sty <- styleCat(prop="Gentri", val=c("Gentri hi",
-                                     "Gentri lo",
-                                     "Non Gentri"),
-                style.val=c("red","orange","blue"), leg="Gentri Klassifizierung",
-                lwd=1, col="grey", alpha=0.5)
-Gentrileaflet  <- leaflet(data=LORjson, dest=tempdir(),
+
+LOR4regleaflet <- LOR4reg
+LOR4regjson <- toGeoJSON(data=LOR4regleaflet, dest=tempdir())
+sty <- styleCat(prop="Gentri", val=c("Gentri",
+                                     "Non Gentri",
+                                     "Other"),
+                style.val=c("red","green","blue"), leg="Gentri Klassifizierung",
+                lwd=1, col="white", alpha=0.8)
+Gentrileaflet  <- leaflet(data=LOR4regjson, dest=tempdir(),
                              title="Gentri Klassifizierung", 
                              base.map="positron",
                              style=sty, 
-                             popup=c("RAUMID_NAME","BEZ_NAME"))
+                             popup=c("RAUMID_NAME","BEZ_NAME","Gentri"))
 Gentrileaflet
 
 

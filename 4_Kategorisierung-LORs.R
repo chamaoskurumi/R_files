@@ -22,6 +22,7 @@ require("lattice")
 require("Hmisc")
 library("dplyr")
 library("grid") # needed for arrow() function
+library("quantreg")
 
 #*************************************************
 
