@@ -277,7 +277,7 @@ LORdataFULLv4 <- LORdataFULLv3[c("ZEIT",
                "STADTRAUM",  "FL_HA", "dist2STADTMITTE",
                # Gesamteinwohner
                "E_E",        
-               "E_U18",      "E_18U35R",    "E_15U65",     "E_18U65",     "E_65U110",
+               "E_U18",      "E_18U35",     "E_15U65",     "E_18U65",     "E_65U110",
                "E_U18R",     "E_18U35R",    "E_15U65R",    "E_18U65R",    "E_65U110R",
                # Ausländer
         #       "E_A",         "E_AR",       
@@ -350,7 +350,7 @@ LORdataFULLwidev1    <- reshape(LORdataFULL4wide,
                             v.names = c(
                               # Gesamteinwohner
                               "E_E",        
-                              "E_U18",      "E_18U35R",    "E_15U65",     "E_18U65",     "E_65U110",
+                              "E_U18",      "E_18U35",     "E_15U65",     "E_18U65",     "E_65U110",
                               "E_U18R",     "E_18U35R",    "E_15U65R",    "E_18U65R",    "E_65U110R",
                               # Ausländer
                 #              "E_A",         "E_AR",       

@@ -1051,10 +1051,19 @@ geom_segment(data=dd,aes(y=maxval*0.95,yend=maxval,
 p2
 
 ##### ---- spplot 2ter Layer für Stadtraum -------- #########
-test <- LOR4reg
-test@data <- subset(test@data, select=c(STADTRAUM))
-test <- test[test@data$STADTRAUM=="innere Stadt",]
-spplot(LOR4reg, zcol="Armutchg") + layer(sp.polygons(test), fill='white', alpha=0.3)
-spplot(LOR4reg, zcol="Gentri", col=NA) + as.layer(test1)
-test1 <- spplot(test, zcol="STADTRAUM",fill='transparent', col="red", lwd=2)
+LOR4STADTRAUM <- LOR
+LOR4STADTRAUM@data <- subset(LOR4STADTRAUM@data, select=c(STADTRAUM))
+remove(LOR4STADTRAUM)
+INNERESTADT        <- LOR4STADTRAUM[LOR4STADTRAUM@data$STADTRAUM=="innere Stadt",]
 
+INNERESTADT <- gBuffer(INNERESTADT, byid=TRUE, width=0)
+if (rgeosStatus()) {
+  ID <- as.factor(rep(1,times=length(INNERESTADT@polygons)))
+  INNERESTADT <- unionSpatialPolygons(INNERESTADT, ID)
+}
+plot(INNERESTADT)
+
+INNERESTADT <- SpatialPolygonsDataFrame(INNERESTADT,data=data.frame(c("innere Stadt")))
+INNERESTADTplot <- spplot(INNERESTADT, zcol="c..innere.Stadt..",fill='transparent', col="red", lwd=3); INNERESTADTplot
+
+spplot(LOR4reg, zcol="Gentri") + as.layer(INNERESTADTplot)
