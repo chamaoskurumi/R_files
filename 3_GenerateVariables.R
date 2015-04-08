@@ -7,7 +7,6 @@
 # ____ Packages ______ ----------------------------------------------------------------
 
 library("plyr")
-library("reshape")
 library("reshape2")
 library("foreign")
 
@@ -63,6 +62,16 @@ LORdataFULLv2$E_U18         <- (LORdataFULLv2$E_U1    +
                                 LORdataFULLv2$E_6U15  +
                                 LORdataFULLv2$E_15U18)
 
+LORdataFULLv2$E_15U65       <- (LORdataFULLv2$E_15U18 +
+                                  LORdataFULLv2$E_18U25 +
+                                  LORdataFULLv2$E_25U55 +
+                                  LORdataFULLv2$E_55U65)
+
+LORdataFULLv2$E_18U35       <- (LORdataFULLv2$E_18U25 +
+                                  LORdataFULLv2$E_E25_27 +
+                                  LORdataFULLv2$E_E27_30 +
+                                  LORdataFULLv2$E_E30_35)
+
 LORdataFULLv2$E_18U65       <- (LORdataFULLv2$E_18U25 +
                                 LORdataFULLv2$E_25U55 +
                                 LORdataFULLv2$E_55U65)
@@ -81,6 +90,8 @@ LORdataFULLv2$E_65U80R      <- round(( LORdataFULLv2$E_65U80    / LORdataFULLv2$
 LORdataFULLv2$E_80U110R     <- round(( LORdataFULLv2$E_80U110   / LORdataFULLv2$E_E )*100,digits=1)
 
 LORdataFULLv2$E_U18R        <- round(( LORdataFULLv2$E_U18      / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_18U35R      <- round(( LORdataFULLv2$E_18U35    / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$E_15U65R      <- round(( LORdataFULLv2$E_15U65    / LORdataFULLv2$E_E )*100,digits=1) 
 LORdataFULLv2$E_18U65R      <- round(( LORdataFULLv2$E_18U65    / LORdataFULLv2$E_E )*100,digits=1)
 LORdataFULLv2$E_65U110R     <- round(( LORdataFULLv2$E_65U110   / LORdataFULLv2$E_E )*100,digits=1)
 
@@ -148,7 +159,6 @@ LORdataFULLv2$MH_U18RU18       <- round(( LORdataFULLv2$MH_U18      / LORdataFUL
 LORdataFULLv2$MH_18U65R18U65   <- round(( LORdataFULLv2$MH_18U65    / LORdataFULLv2$E_18U65  )*100,digits=1)
 LORdataFULLv2$MH_65U110R65U110 <- round(( LORdataFULLv2$MH_65U110   / LORdataFULLv2$E_65U110 )*100,digits=1)
 
-
 ###### e.) Ausländeranteil & Migrationshintergrund ######
 
 LORdataFULLv2$E_AR         <- round(( LORdataFULLv2$E_A        / LORdataFULLv2$E_E )*100,digits=1)
@@ -171,7 +181,6 @@ LORdataFULLv2$HK_PolenRMH    <- round(( LORdataFULLv2$HK_Polen   / LORdataFULLv2
 LORdataFULLv2$HK_EheJugRMH   <- round(( LORdataFULLv2$HK_EheJug  / LORdataFULLv2$MH_E )*100,digits=1)
 LORdataFULLv2$HK_EheSURMH    <- round(( LORdataFULLv2$HK_EheSU   / LORdataFULLv2$MH_E )*100,digits=1)
 LORdataFULLv2$HK_SonstRMH    <- round(( LORdataFULLv2$HK_Sonst   / LORdataFULLv2$MH_E )*100,digits=1)
-
 
 ###### f.) Wohnlage ######
 
@@ -208,12 +217,18 @@ LORdataFULLv2              <- ddply(LORdataFULLv2,"RAUMID", transform,
 LORdataFULLv2              <- ddply(LORdataFULLv2,"RAUMID", transform,
                                     PDAU5chg  = c(NA,diff(PDAU5)))
 
-####### h.) Binnenwanderungen ######
+###### h.) Sozialindikatoren ######
+
+LORdataFULLv2$AloseABS        <- round(((LORdataFULLv2$Alose/100)*LORdataFULLv2$E_15U65), digits=0)
+LORdataFULLv2$AloseR          <- round((LORdataFULLv2$AloseABS/LORdataFULLv2$E_E)*100,digits=1)
+LORdataFULLv2$Armut           <- round((LORdataFULLv2$AloseR + LORdataFULLv2$nicht_Alose_Hartz),digits=1)
+
+####### i.) Binnenwanderungen ######
 
 LORdataFULLv2$FortzuegeR      <- round(( LORdataFULLv2$Fortzuege   / LORdataFULLv2$E_E )*100,digits=1)
 LORdataFULLv2$ZuzuegeR        <- round(( LORdataFULLv2$Zuzuege     / LORdataFULLv2$E_E )*100,digits=1)
 
-####### i.) Aussenwanderungen #######
+####### j.) Aussenwanderungen #######
 
 LORdataFULLv2$FortzuegeUD      <- (LORdataFULLv2$FortzuegeU  + LORdataFULLv2$FortzuegeD ) 
 LORdataFULLv2$FortzuegeUDA     <- (LORdataFULLv2$FortzuegeU  + LORdataFULLv2$FortzuegeD + LORdataFULLv2$FortzuegeA ) 
@@ -233,7 +248,7 @@ LORdataFULLv2$ZuzuegeAR      <- round(( LORdataFULLv2$ZuzuegeA   / LORdataFULLv2
 LORdataFULLv2$ZuzuegeUDR     <- round(( LORdataFULLv2$ZuzuegeUD  / LORdataFULLv2$E_E )*100,digits=1)
 LORdataFULLv2$ZuzuegeUDAR    <- round(( LORdataFULLv2$ZuzuegeUDA / LORdataFULLv2$E_E )*100,digits=1)
 
-###### j.) Unnötige Vars droppen & Var order ändern ######
+###### k.) Unnötige Vars droppen & Var order ändern ######
 
 names(LORdataFULLv2)
 LORdataFULLv3 <- subset(LORdataFULLv2, select=-c(Miete_H1_wmean,
@@ -242,6 +257,8 @@ LORdataFULLv3 <- subset(LORdataFULLv2, select=-c(Miete_H1_wmean,
                                                 WLNZORD,
                                                 EinfWhnlageLaerm,
                                                 MigHinter_u18,
+                                                E_E15_18,E_E18_21,E_E21_25,              
+                                                E_E25_27,E_E27_30,E_E30_35,
                                                 E_U1, E_1U6, E_6U15, E_15U18, E_18U25, E_25U55, E_55U65, E_65U80, E_80U110,
                                                 E_U1R, E_1U6R, E_6U15R, E_15U18R, E_18U25R, E_25U55R, E_55U65R, E_65U80R, E_80U110R,  
                                                 E_AU1, E_A1U6, E_A6U15, E_A15U18, E_A18U25, E_A25U55, E_A55U65, E_A65U80, E_A80U110,
@@ -260,13 +277,13 @@ LORdataFULLv4 <- LORdataFULLv3[c("ZEIT",
                "STADTRAUM",  "FL_HA", "dist2STADTMITTE",
                # Gesamteinwohner
                "E_E",        
-               "E_U18",      "E_18U65",     "E_65U110",
-               "E_U18R",     "E_18U65R",    "E_65U110R",
+               "E_U18",      "E_18U35R",    "E_15U65",     "E_18U65",     "E_65U110",
+               "E_U18R",     "E_18U35R",    "E_15U65R",    "E_18U65R",    "E_65U110R",
                # Ausländer
-               "E_A",         "E_AR",       
-               "E_AU18",      "E_A18U65",      "E_A65U110",
-               "E_AU18R",     "E_A18U65R",     "E_A65U110R",
-               "E_AU18RU18",  "E_A18U65R18U65","E_A65U110R65U110", 
+        #       "E_A",         "E_AR",       
+        #       "E_AU18",      "E_A18U65",      "E_A65U110",
+        #       "E_AU18R",     "E_A18U65R",     "E_A65U110R",
+        #       "E_AU18RU18",  "E_A18U65R18U65","E_A65U110R65U110", 
                # Migrationshintergrund
                "MH_E",        "MH_ER",  
                "MH_U18",      "MH_18U65",      "MH_65U110",
@@ -298,9 +315,9 @@ LORdataFULLv4 <- LORdataFULLv3[c("ZEIT",
                "WLEINF",     "WLMIT",      "WLGUT",
                "WLEINFR",    "WLMITR",     "WLGUTR",
                # Sozialindikatoren
-               "Alose",      "Alose_u25",  "Alose_langzeit", "nicht_Alose_Hartz", "Hartz_u15", 
+               "Alose",     "AloseABS", "AloseR", "Alose_u25",  "Alose_langzeit", "nicht_Alose_Hartz", "Hartz_u15", 
                "Veraend_HartzEmpf_D",    "Veraend_HartzEmpf_Ausl",  "Veraend_Hartz_u15", "StaedtWohnungen",
-               "AlleinerzHH",            "Altersarmut",  
+               "AlleinerzHH",            "Altersarmut",  "Armut",  
                # SanierungsGebiete
                "SanGebiet",       "SanGebiet_NAME",    "SanGebiet_KLASSE",       
                # Mietdaten
@@ -333,13 +350,13 @@ LORdataFULLwidev1    <- reshape(LORdataFULL4wide,
                             v.names = c(
                               # Gesamteinwohner
                               "E_E",        
-                              "E_U18",      "E_18U65",     "E_65U110",
-                              "E_U18R",     "E_18U65R",    "E_65U110R",
+                              "E_U18",      "E_18U35R",    "E_15U65",     "E_18U65",     "E_65U110",
+                              "E_U18R",     "E_18U35R",    "E_15U65R",    "E_18U65R",    "E_65U110R",
                               # Ausländer
-                              "E_A",         "E_AR",       
-                              "E_AU18",      "E_A18U65",      "E_A65U110",
-                              "E_AU18R",     "E_A18U65R",     "E_A65U110R",
-                              "E_AU18RU18",  "E_A18U65R18U65","E_A65U110R65U110", 
+                #              "E_A",         "E_AR",       
+                #              "E_AU18",      "E_A18U65",      "E_A65U110",
+                #              "E_AU18R",     "E_A18U65R",     "E_A65U110R",
+                #              "E_AU18RU18",  "E_A18U65R18U65","E_A65U110R65U110", 
                               # Migrationshintergrund
                               "MH_E",        "MH_ER",  
                               "MH_U18",      "MH_18U65",      "MH_65U110",
@@ -371,9 +388,9 @@ LORdataFULLwidev1    <- reshape(LORdataFULL4wide,
                               "WLEINF",     "WLMIT",      "WLGUT",
                               "WLEINFR",    "WLMITR",     "WLGUTR",
                               # Sozialindikatoren
-                              "Alose",      "Alose_u25",  "Alose_langzeit", "nicht_Alose_Hartz", "Hartz_u15", 
+                              "Alose",     "AloseABS", "AloseR", "Alose_u25",  "Alose_langzeit", "nicht_Alose_Hartz", "Hartz_u15", 
                               "Veraend_HartzEmpf_D",    "Veraend_HartzEmpf_Ausl",  "Veraend_Hartz_u15", "StaedtWohnungen",
-                              "AlleinerzHH",            "Altersarmut",  
+                              "AlleinerzHH",            "Altersarmut",  "Armut",  
                               # SanierungsGebiete
                               "SanGebiet",       "SanGebiet_NAME",    "SanGebiet_KLASSE",       
                               # Mietdaten
@@ -393,6 +410,10 @@ LORdataFULLwidev1    <- reshape(LORdataFULL4wide,
 
 LORdataFULLwidev2   <- LORdataFULLwidev1
 #names(LORdataFULLwidev2)
+
+# ---- Junge Erwachsene  ----
+LORdataFULLwidev2$E_18U35chg       <- LORdataFULLwidev2$E_18U35.2007-  LORdataFULLwidev2$E_18U35.2012
+LORdataFULLwidev2$E_18U35Rchg      <- LORdataFULLwidev2$E_18U35R.2007-  LORdataFULLwidev2$E_18U35R.2012
 
 # ---- Rentner  ----
 LORdataFULLwidev2$E_65U110chg       <- LORdataFULLwidev2$E_65U110.2007-  LORdataFULLwidev2$E_65U110.2012
@@ -419,8 +440,9 @@ LORdataFULLwidev2$Alose_langzeitchg    <- LORdataFULLwidev2$Alose_langzeit.2007 
 LORdataFULLwidev2$Alose_u25chg         <- LORdataFULLwidev2$Alose_u25.2007 -        LORdataFULLwidev2$Alose_u25.2012
 LORdataFULLwidev2$Hartz_u15chg         <- LORdataFULLwidev2$Hartz_u15.2007 -        LORdataFULLwidev2$Hartz_u15.2012
 LORdataFULLwidev2$nicht_Alose_Hartzchg <- LORdataFULLwidev2$nicht_Alose_Hartz.2007- LORdataFULLwidev2$nicht_Alose_Hartz.2012
+LORdataFULLwidev2$Armutchg             <- LORdataFULLwidev2$Armut.2007 -            LORdataFULLwidev2$Armut.2012
 
-# ---- Änderung Ausländeranteil ----
+# ---- Änderung Migrationshintergrunsanteil ----
 LORdataFULLwidev2$MH_Echg           <-  LORdataFULLwidev2$MH_E.2007 -            LORdataFULLwidev2$MH_E.2012
 LORdataFULLwidev2$MH_ERchg          <-  LORdataFULLwidev2$MH_ER.2007 -           LORdataFULLwidev2$MH_ER.2012
 

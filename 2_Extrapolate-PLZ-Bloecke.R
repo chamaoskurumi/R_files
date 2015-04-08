@@ -122,7 +122,6 @@ PLZ2011@data <- merge(PLZ2011@data, JLL2011, all.x=T,  by="PLZ",
                       sort=F, keep_order=1);PLZ2011@data$Zeit <- "2011"
 PLZ2012@data <- merge(PLZ2012@data, JLL2012, all.x=T,  by="PLZ", 
                       sort=F, keep_order=1);PLZ2012@data$Zeit <- "2012"
-table(PLZ2010_2012df$Zeit)
 
 PLZMiete07_plot <- spplot(PLZ2007, zcol="Miete_H2", 
                           col.regions = rev(heat.colors(200)),

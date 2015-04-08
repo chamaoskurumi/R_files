@@ -24,8 +24,8 @@ DF1 <- merge(x = EW, y = ALTERAUSLAENDER4merge, by = c("RAUMID", "ZEIT"))
 # unnütze/zu detailierte Altersvariablen löschen
 DF1 <- subset(DF1, select=-c(E_EM,      E_EW,      E_E00_01,  E_E01_02,  E_E02_03, 
                              E_E03_05,  E_E05_06,  E_E06_07,  E_E07_08,  E_E08_10,  E_E10_12,  
-                             E_E12_14,  E_E14_15,  E_E15_18,  E_E18_21,  E_E21_25,  E_E25_27,  E_E27_30, 
-                             E_E30_35,  E_E35_40,  E_E40_45,  E_E45_50,  E_E50_55,  E_E55_60,  E_E60_63,  
+                             E_E12_14,  E_E14_15, 
+                             E_E35_40,  E_E40_45,  E_E45_50,  E_E50_55,  E_E55_60,  E_E60_63,  
                              E_E63_65,  E_E65_67,  E_E67_70,  E_E70_75,  E_E75_80,  E_E80_85, 
                              E_E85_90,  E_E90_95,  E_E95_110,
                              E_AM,      E_AW,      E_A00_01,  E_A01_02,  E_A02_03,  E_A03_05,  E_A05_06,  E_A06_07,  E_A07_08,  E_A08_10, 
@@ -81,8 +81,7 @@ names(DF4)
 MONITORING4merge <- subset(MONITORING, select=-c(EW), ZEIT>=2007)
 DF5 <- merge(x = DF4, y = MONITORING4merge, by = c("RAUMID", "ZEIT"))
 # Variablenanordnung ändern
-DF5 <- DF5[c(2,1,60,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,
-             38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,61,62,63,64,65,66,67,68,69,70,71,72)]
+DF5 <- DF5[c(2,1,66,3:65,67:78)]
 Gebietsnamen <- DF5[!duplicated(DF5$RAUMID, fromLast=F),"GEBIET"]
 Gebietsnamen <- factor(rep(Gebietsnamen, each=6)); str(Gebietsnamen)
 DF5$GEBIET   <- Gebietsnamen
@@ -111,8 +110,9 @@ DF6  <- DF6a[c("ZEIT",
              "PGR",        "PRG_NAME",
              "BEZ",        "BEZ_NAME",       
              "STADTRAUM",  "FL_HA",
-             "E_E",        
-             "E_U1",       "E_1U6",      "E_6U15",    
+             "E_E",     
+             "E_E15_18",   "E_E18_21",   "E_E21_25",  "E_E25_27",  "E_E27_30", "E_E30_35",     
+             "E_U1",       "E_1U6",      "E_6U15",     
              "E_15U18",    "E_18U25",    "E_25U55",    "E_55U65",   
              "E_65U80",    "E_80U110",   
              "E_A",        
@@ -290,7 +290,9 @@ DF10wide <- reshape(DF10,
                   idvar = c("RAUMID",  "RAUMID_NAME", "BZR",
                             "BZR_NAME","PGR",     "PRG_NAME","BEZ",    
                             "BEZ_NAME","STADTRAUM","FL_HA", "dist2STADTMITTE"),
-                  v.names = c("E_E" ,                  
+                  v.names = c("E_E" ,    
+                              "E_E15_18",               "E_E18_21",               "E_E21_25",               "E_E25_27",  
+                              "E_E27_30",               "E_E30_35",    
                               "E_U1",                   "E_1U6"           ,       "E_6U15",                 "E_15U18"               ,
                               "E_18U25",                "E_25U55"         ,       "E_55U65",                "E_65U80"               ,
                               "E_80U110",               
