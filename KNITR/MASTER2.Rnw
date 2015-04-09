@@ -1,0 +1,65 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}    % Typical maths resource packages
+\usepackage{graphicx}                           % Packages to allow inclusion of graphics
+\usepackage{hyperref}                           % For creating hyperlinks in cross references
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage[backend=bibtex, style=authoryear, language=ngerman]{biblatex}
+\bibliography{Bibliographie}
+ 
+\usepackage[automark]{scrpage2}
+\pagestyle{scrheadings}
+\automark{section}
+\clearscrheadings
+\ohead{\headmark}
+
+\setlength{\headheight}{2\baselineskip}
+\voffset=-2cm
+\hoffset=-3cm
+\textheight24cm
+\textwidth15.5cm
+\topmargin1cm
+\oddsidemargin3cm
+\evensidemargin3cm
+
+\renewcommand{\baselinestretch}{1.5}
+\renewcommand{\labelitemii}{-}
+
+\begin{document}
+
+
+
+<<include=FALSE>>=
+library(knitr)
+opts_chunk$set(
+concordance=TRUE,echo=FALSE, cache=TRUE, 
+message=FALSE,warning=FALSE,
+tidy=TRUE, self.contained=FALSE
+)
+@
+
+<<include=FALSE>>=
+load("/home/dao/Desktop/MasterArbeit/R_files/KNITR/ALLdata.Rdata")
+setwd("/home/dao/Desktop/MasterArbeit/R_files/KNITR/")
+@
+
+
+
+<<setup, include=FALSE, cache=FALSE, echo=FALSE>>=
+options(replace.assign=TRUE,width=80)
+Sys.setenv(TEXINPUTS=getwd(),
+           BIBINPUTS=getwd(),
+           BSTINPUTS=getwd())
+@
+ 
+
+This document was produced in RStudio using the knitr package \cite{Robson2009}.
+\nocite{Freeman2005}
+ 
+\newpage
+
+\printbibliography
+
+\end{document}

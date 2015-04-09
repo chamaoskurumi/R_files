@@ -1,0 +1,184 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}    % Typical maths resource packages
+\usepackage{graphicx}                           % Packages to allow inclusion of graphics
+\usepackage{hyperref}                           % For creating hyperlinks in cross references
+\usepackage[ngerman]{babel}
+\usepackage[backend=bibtex, style=authoryear, language=ngerman, isbn=false, url=false, doi=false, eprint=false, natbib=true, citestyle=authoryear]{biblatex}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+
+\bibliography{Bibliographie}
+% -------------------------------
+% --- some layout definitions ---
+% -------------------------------
+
+% define topline
+\usepackage[automark]{scrpage2}
+\pagestyle{scrheadings}
+\automark{section}
+\clearscrheadings
+\ohead{\headmark}
+
+% define page size, margin size
+\setlength{\headheight}{2\baselineskip}
+\voffset=-2cm
+\hoffset=-3cm
+\textheight24cm
+\textwidth15.5cm
+\topmargin1cm
+\oddsidemargin3cm
+\evensidemargin3cm
+
+\renewcommand{\baselinestretch}{1.5}
+\renewcommand{\labelitemii}{-}
+
+\begin{document}
+
+
+
+<<include=FALSE>>=
+library(knitr)
+opts_chunk$set(
+concordance=TRUE,echo=FALSE, cache=TRUE, 
+message=FALSE,warning=FALSE,
+tidy=TRUE, self.contained=FALSE
+)
+@
+
+<<include=FALSE>>=
+load("/home/dao/Desktop/MasterArbeit/R_files/KNITR/ALLdata.Rdata")
+setwd("/home/dao/Desktop/MasterArbeit/R_files/KNITR/")
+@
+
+
+<<setup, include=FALSE, cache=FALSE, echo=FALSE>>=
+options(replace.assign=TRUE,width=80)
+Sys.setenv(TEXINPUTS=getwd(),
+           BIBINPUTS=getwd(),
+           BSTINPUTS=getwd())
+@
+
+% -------------------------------
+% --- frontmatter: Title page ---
+% -------------------------------
+
+\thispagestyle{empty}
+\input{Andere/Titelseite}
+
+% ------------------------------------
+% --- frontmatter: Acknowledgement ---
+% ------------------------------------
+\newpage
+\pagestyle{plain}
+\pagenumbering{roman}   % define page number in roman style
+\setcounter{page}{1}    % start page numbering
+\input{Andere/Danksagung}
+
+
+
+% -----------------------------
+% --- frontmatter: Abstract ---
+% -----------------------------
+\newpage
+\input{Andere/Abstract}
+
+% -----------------------------
+% --- frontmatter: Contents ---
+% -----------------------------
+\newpage
+\tableofcontents
+\clearpage
+
+
+
+% ----------------------------------------------------
+% --- frontmatter: List of Figures (not mandatory) ---
+% ----------------------------------------------------
+\newpage
+\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
+\ohead[]{Abkürzungsverzeichnis}
+\input{Andere/Abkuerzungen}
+
+
+
+% ----------------------------------------------------
+% --- frontmatter: List of Figures (not mandatory) ---
+% ----------------------------------------------------
+\newpage
+\addcontentsline{toc}{section}{Abbildungsverzeichnis}
+\ohead[]{\rightmark}
+\listoffigures
+
+
+
+% ---------------------------------------------------
+% --- frontmatter: List of Tables (not mandatory) ---
+% ---------------------------------------------------
+\newpage
+\addcontentsline{toc}{section}{Tabellenverzeichnis}
+\listoftables
+
+
+
+% -------------------------------
+% --- main body of the thesis ---
+% -------------------------------
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}    % start page numbering anew
+\pagenumbering{arabic}  % page numbers in arabic style
+
+\newpage
+
+<<'child-Daten/Daten.Rnw', child='Daten/Daten.Rnw'>>=
+@
+
+
+\input{Einleitung/Einleitung}
+
+<<'child-Methoden/Methoden.Rnw', child='Methoden/Methoden.Rnw'>>=
+@
+
+\newpage
+
+<<'child-Ergebnisse/Ergebnisse.Rnw', child='Ergebnisse/Ergebnisse.Rnw'>>=
+@
+
+
+This document was produced in RStudio using the knitr package \citep{Robson2009}.
+\nocite{Freeman2005}
+\citet{Freeman2005} is auch schön
+ 
+
+
+% ----------------
+% --- appendix ---
+% ----------------
+\appendix
+
+% literature
+\newpage
+\addcontentsline{toc}{section}{Literatur}
+
+\printbibliography
+
+
+% figures (not mandatory)
+\newpage
+\input{Anhang/Anhang_Abbildungen}
+
+% tables (not mandatory)
+\newpage
+\input{Anhang/Anhang_Tabellen}
+
+
+% --------------------------------------------
+% --- last page: Declaration of Authorship ---
+% --------------------------------------------
+
+\newpage
+\thispagestyle{empty}
+\input{Andere/Eigenstaendigkeitserklaerung}
+
+\end{document}

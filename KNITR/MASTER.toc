@@ -1,0 +1,23 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {ngerman}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Abk\IeC {\"u}rzungsverzeichnis}{iv}{section*.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Abbildungsverzeichnis}{v}{section*.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Tabellenverzeichnis}{vi}{section*.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}Method/Model/Theory}{1}{section.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}Data}{3}{section.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Results}{5}{section.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Literatur}{7}{equation.4.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A}Abbildungen}{8}{appendix.A}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {B}Tables}{9}{appendix.B}
