@@ -75,8 +75,6 @@ Sys.setenv(TEXINPUTS=getwd(),
 \setcounter{page}{1}    % start page numbering
 \input{Andere/Danksagung}
 
-
-
 % -----------------------------
 % --- frontmatter: Abstract ---
 % -----------------------------
@@ -89,8 +87,6 @@ Sys.setenv(TEXINPUTS=getwd(),
 \newpage
 \tableofcontents
 \clearpage
-
-
 
 % ----------------------------------------------------
 % --- frontmatter: List of Figures (not mandatory) ---
