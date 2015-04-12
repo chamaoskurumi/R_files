@@ -1,0 +1,25 @@
+\Sexpr{set_parent("MASTER.Rnw")}
+
+\section{Analyse}\label{Sec:Analyse}
+
+  	\subsection{Kategorisierung \& Explorative Datenananalyse}
+		\subsection{Spatially Autoregressive Regressions}
+		\subsection{Wanderungsanalyse für Gentri Gebiete}
+
+\begin{itemize}
+    \item Deskriptives Kategorisierung
+    \item Regressionsergebnisse
+    \item Diagnostik und Residualanalyse
+\end{itemize}
+
+
+\begin{itemize}
+    \item Discuss results:
+        \begin{itemize}
+            \item Do the results support or do they contradict economic theory ?
+            \item What does the reader learn from the results?
+            \item Try to give an intuition for your results.
+            \item Provide robustness checks.
+            \item Compare to previous research.
+        \end{itemize}
+\end{itemize}

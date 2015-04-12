@@ -25,7 +25,7 @@ library("RANN")
 library("Imap")
 library("usdm")
 
-I#*************************************************
+#*************************************************
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # I.) Nachbarschaftslisten ------
@@ -124,10 +124,10 @@ str(W_polyIDWs$weights)
 
 dsts <- nbdists(LOR1500m_nb, coordinates(LORshape))
 idw <- lapply(dsts, function(x) 1/x)
-W_1500mIDWs <- nb2listw(LOR1500m_nb, glist = idw, style = "S")
+W_1500mIDWs <- nb2listw(LOR1500m_nb, glist = idw, style = "S", zero.policy=T)
 summary(unlist(W_1500mIDWs$weights))
 summary(sapply(W_1500mIDWs$weights, sum))
-print(W_1500mIDWs)
+print(W_1500mIDWs, zero.policy=T)
 str(W_1500mIDWs$weights)
 
 dsts <- nbdists(LOR1500m_nb, coordinates(LORshape))
@@ -142,12 +142,12 @@ str(W_1500mIDWc$weights)
 # III.) LM Regression und Moran's I Test ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Mietechgr + Alosechg + 
-  PDAU5chg + nicht_Alose_Hartzchg + Alose_langzeitchg + Alose_u25chg +
-  AlleinerzHH.2012 + Altersarmut.2012 + StaedtWohnungen.2012 + SanGebiet_KLASSE.2012 +
-  PDAU5.2012 + Miete.2012 + Alose.2012 + Alose_langzeit.2012 + nicht_Alose_Hartz.2012 + 
-  STADTRAUM  + PDAU10.2012 + E_U18R.2007 + E_65U110R.2007
-
+# Mietechgr + Alosechg + 
+#   PDAU5chg + nicht_Alose_Hartzchg + Alose_langzeitchg + Alose_u25chg +
+#   AlleinerzHH.2012 + Altersarmut.2012 + StaedtWohnungen.2012 + SanGebiet_KLASSE.2012 +
+#   PDAU5.2012 + Miete.2012 + Alose.2012 + Alose_langzeit.2012 + nicht_Alose_Hartz.2012 + 
+#   STADTRAUM  + PDAU10.2012 + E_U18R.2007 + E_65U110R.2007
+# 
 
 lm1 <- lm(formula=FortzuegeR ~ Mietechgr + Alosechg + 
             PDAU5chg + nicht_Alose_Hartzchg + Alose_langzeitchg + Alose_u25chg +
@@ -158,8 +158,7 @@ lm1 <- lm(formula=FortzuegeR ~ Mietechgr + Alosechg +
    weights=E_E.2012)
 summary(lm1)
 
-lm2 <- lm(formula=FortzuegeR ~ STADTRAUM + StaedtWohnungen.2012 +
-            Alose.2012 + Gentri + 
+lm2 <- lm(formula=FortzuegeR ~ STADTRAUM*Gentri + StaedtWohnungen.2012 +
             AlleinerzHH.2012,
           data=LOR4reg@data,
           weights=E_E.2012)
@@ -182,10 +181,10 @@ str(predictors4vifcheck)
 vifstep1 <- vifstep(predictors4vifcheck, th=5) # identify collinear variables that should be excluded
 predictors <- exclude(predictors4vifcheck, vifstep1) 
 
-lm1 <- lm(formula=FortzuegeR ~ Alosechg + 
-          nicht_Alose_Hartzchg+   Mietechg+   Miete.2012 +        
+lm1 <- lm(formula=FortzuegeR ~ Alosechg*STADTRAUM + 
+          nicht_Alose_Hartzchg+   Mietechg*STADTRAUM+   Miete.2012 +        
           StaedtWohnungen.2012+   Alose.2012+  
-          Altersarmut.2012 +      AlleinerzHH.2012 + STADTRAUM,
+          Altersarmut.2012 +      AlleinerzHH.2012,
           data=LOR4reg@data,
           weights=E_E.2012)
 summary(lm1)

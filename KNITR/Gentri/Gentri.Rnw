@@ -1,0 +1,58 @@
+\Sexpr{set_parent("MASTER.Rnw")}
+
+\section{Gentrification und wohnräumliche Mobilität: Der Verdrägungsdiskurs}\label{Sec:Gentri}
+
+  \subsection{Forschungsstand}
+
+Was ist zum Thema bekannt? Was trägt die bisherige Forschung zur Beantwortung Ihrer
+Fragen bei? Resultate referieren, Details nur, wenn Sie für die Ergebnisse bedeutsam sind.
+Thematisch gruppieren, nicht an Studien entlang vorarbeiten. In der Regel sollten hier keine
+detaillierten Ergebnistabellen früherer Untersuchungen abgedruckt werden. Statt dessen
+Befunde in eigene Begriffe fassen und Relevanz für die eigene Frage erkennbar machen. \\
+
+Welche Begriffe werden von welchen Forschern benutzt? Wie unterscheiden sie sich? Wie
+zweckmäßig sind sie für die eigene Arbeit? \\
+
+Werden Kausalaussagen gemacht oder nur deskriptive Befunde publiziert? Suchen Sie nach
+inhaltlichen Erklärungen empirischer Befunde!\\
+
+Welche Lücken weist die Forschung auf?\\
+Welche Widersprüche sind zu erkennen? \\
+
+
+		\subsubsection{Quantitative Studien zu Gentrification und Wohnmobilität}
+    
+    
+\citet{Atkinson2000} This paper presents evidence suggesting that gentrification was an active and extensive
+process during the 1980s in Greater L ondon
+and that, where this occurred, it was associ-
+ated with above-average levels of losses of
+groups who have been associated with dis-
+placem ent in the past. Labour market
+changes, tenure preferences and housing
+
+Wichtigste Studien \citet{Atkinson2000}
+
+	
+		\subsubsection{Gentrification und Wohnmobilität Berlin}
+		
+	
+	\subsection{Begriffe und Definitionen}
+
+	\subsection{Forschungsfragen \& Hypothesenformulierung}
+	
+Die Darstellung muss zweckgebunden bleiben und Ihren Analysen den
+Weg ebnen. Prüfen Sie bei der Darstellung aller begrifflichen Festlegungen und
+Differenzierungen, Zusammenhangsaussagen und Befunde, ob sie für Ihr Thema relevant
+sind.
+
+Welche eigenen Vermutungen (Hypothesen) haben Sie als Autor? Wie lassen sie sich durch
+den bisherigen Erkenntnisstand begründen? Stellen Sie Bezüge zu zitierten
+Forschungsergebnissen her! \\
+
+\textbf{Ein häufiger Fehler ist die Begründung von Hypothesen durch empirische Beobachtungen
+oder Verweise auf frühere Studien, die vergleichbare Ergebnisse erzielt haben. Begründungen
+müssen Erklärungen beinhalten, d. h. vermittelnde Mechanismen. Sagen Sie also nicht, daß
+ein Zusammenhang schon oft beobachtet wurde, sondern warum es zu dem Zusammenhang
+kommen soll.}
+

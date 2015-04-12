@@ -1,27 +1,38 @@
-
 \Sexpr{set_parent("MASTER.Rnw")}
 
-\section{Method/Model/Theory}\label{Sec:Method}
+\section{Methodik}\label{Sec:Methodik}
 
+  \subsection{Operationalisierung der theoretischen Konzepte	}
+	\subsection{Kategorisierung \& Explorative Datenananalyse}
+	\subsection{Spatially Autoregressive Regressions}
+	\subsection{Wanderungsanalyse für Gentri Gebiete}
+
+
+Sagen Sie außerdem, wie Sie die unterstellten Zusammenhänge statistisch prüfen wollen und
+unter welchen Umständen Sie Ihre Hypothesen bestätigt sehen. Das kann in einem Satz
+geschehen. Beispiel: "Ich werde dazu die Korrelation von x und y prüfen und die Hypothese
+annehmen, wenn eine statistische signifikante Korrelation besteht." \\
+
+Chronologisch durchgehen:
 \begin{itemize}
+	\item Kategorisierung
+	\item Operationalisierung der theoretischen Konzepte
+	\item Kategorisierung \& Explorative Datenananalyse
+	\item Spatially Autoregressive Regressions
+	\item Wanderungsanalyse für Gentri Gebiete
+\end{itemize}
 
-    \item How was the data analyzed ?
 
-    \item Present the underlying economic model/theory and
-        give reasons why it is suitable to answer the given problem.
-
-    \item Present econometric/statistical estimation method and
-        give reasons why it is suitable to answer the given problem.
-
-    \item Allows the reader to judge the validity of the study and
-        its findings.
-
-    \item Depending on the topic this section can also be split up
-        into separate sections.
+\begin{align*}
+  Kat(LOR_{i})=\begin{cases}
+      Gentri \qquad \mathrm{falls }  & MietechgR_{i} > Q_{0.75}(MietechgR) \quad  \wedge \\
+				      		 & Alosechg_{i} > Q_{0.75}(Alosechg), \\
+      Control \qquad \mathrm{falls } & Miete^{2007}_{i} \in [Q_{0.1}(Miete^{2007}_{Gentri},Q_{0.9}(Miete^{2007}_{Gentri})]  \quad \wedge \\
+         	   				 & Alose^{2007}_{i} \in [Q_{0.1}(Alose^{2007}_{Gentri},Q_{0.9}(Alose^{2007}_{Gentri})],\\
+      Other  \qquad  \mathrm{sonst}
+    						\end{cases}
+\end{align*}
 
 <<>>=
 boxplot(PDAU5.2012~Gentri,data=LOR4reg)
 @
-
-
-\end{itemize}
