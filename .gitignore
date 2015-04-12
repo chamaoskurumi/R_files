@@ -10,3 +10,10 @@ ExploDatenAnalyse.R
 3_leaflet-maps.R
 shiny_gvisBubble_TEST.R
 Fort&Zuzuege_Test.R
+*.toc
+*.lot
+*.log
+*.gz
+*.rdx
+*.rdb
+*.dcf
