@@ -515,3 +515,16 @@ p
 # PDAU5chg
 # PDAU10chg
 
+library(car)
+scatterplot(FortzuegeR ~ Mietechgr | Gentri, data=bpDF,
+            xlab="Miete % Änderung", ylab="Rel. Fortzüge in %",
+            main="Enhanced Scatter Plot",
+            labels=row.names(bpDF)) 
+
+library("lattice")
+xyplot(FortzuegeR ~ Mietechgr | Gentri, bpDF, groups = bpDF$Gentri, pch= 20,
+       type = c("p","r"))
+summary(bpDF$FortzuegeR)
+
+bpDF$RAUMID_NAME[bpDF$Mietechgr>60]
+

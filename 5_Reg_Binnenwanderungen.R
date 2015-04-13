@@ -200,6 +200,24 @@ ggpairs(mtcars[ ,c("mpg", "wt", "disp", "qsec")], columns = 1:3, size = "qsec", 
 # V.) Scatterplots generieren mit Response ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+corrDF <- subset(bpDF, select=c(FortzuegeR, Mietechgr, Armutchg, Alosechg))
+names(corrDF)
+
+library(corrgram)
+corrgram(corrDF, order=FALSE, lower.panel=panel.shade,
+         upper.panel=panel.pie, text.panel=panel.txt,
+         main="Correlations") 
+
+corrgram(corrDF, order=FALSE, lower.panel=panel.ellipse,
+         upper.panel=panel.pts, text.panel=panel.txt,
+         diag.panel=panel.minmax,
+         main="Correlations") 
+
+library(weights)
+#wpct()
+#wtd.cors(x, y=NULL, weight=NULL)
+
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # V.) SAR Spatialerror Model ------
