@@ -24,6 +24,8 @@ library("colorspace")
 library("RANN")
 library("Imap")
 library("usdm")
+library("corrgram")
+library("weights")
 
 #*************************************************
 
@@ -33,11 +35,10 @@ library("usdm")
 
 # beliebige Distanz berechnen
 # weil gdist nur long/lat erkennt müssen wir zunächst umprojezieren auf wgs84
-LORwgs84       <- spTransform(LORshape,CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")) 
+LORwgs84       <- spTransform(LORshape4reg,CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")) 
 coordslonglat  <- coordinates(LORwgs84)
-# Distanz zwischen 1 & 11 Polygon
+# Distanz zwischen 1. & 11. Polygon
 gdist(coordslonglat[1,1], coordslonglat[1,2], coordslonglat[11,1], coordslonglat[11,2], units="m") 
-
 # --> In LOR4reg sind die units schon Meter!
 
 # a.) Creating Contiguity Neighbours ----
@@ -106,7 +107,7 @@ hist(card(LORmax_k1_nb), breaks=25)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Bivand p.254
-dsts <- nbdists(LORpoly_nb, coordinates(LORshape))
+dsts <- nbdists(LORpoly_nb, coordinates(LORshape4reg))
 idw <- lapply(dsts, function(x) 1/x)
 W_polyIDWs <- nb2listw(LORpoly_nb, glist = idw, style = "S")
 summary(unlist(W_polyIDWs$weights))
@@ -114,7 +115,7 @@ summary(sapply(W_polyIDWs$weights, sum))
 print(W_polyIDWs)
 str(W_polyIDWs$weights)
 
-dsts <- nbdists(LORpoly_nb, coordinates(LORshape))
+dsts <- nbdists(LORpoly_nb, coordinates(LORshape4reg))
 idw <- lapply(dsts, function(x) 1/x)
 W_polyIDWc <- nb2listw(LORpoly_nb, glist = idw, style = "C")
 summary(unlist(W_polyIDWc$weights))
@@ -122,7 +123,7 @@ summary(sapply(W_polyIDWc$weights, sum))
 print(W_polyIDWs)
 str(W_polyIDWs$weights)
 
-dsts <- nbdists(LOR1500m_nb, coordinates(LORshape))
+dsts <- nbdists(LOR1500m_nb, coordinates(LORshape4reg))
 idw <- lapply(dsts, function(x) 1/x)
 W_1500mIDWs <- nb2listw(LOR1500m_nb, glist = idw, style = "S", zero.policy=T)
 summary(unlist(W_1500mIDWs$weights))
@@ -130,13 +131,29 @@ summary(sapply(W_1500mIDWs$weights, sum))
 print(W_1500mIDWs, zero.policy=T)
 str(W_1500mIDWs$weights)
 
-dsts <- nbdists(LOR1500m_nb, coordinates(LORshape))
+dsts <- nbdists(LOR1500m_nb, coordinates(LORshape4reg))
 idw <- lapply(dsts, function(x) 1/x)
-W_1500mIDWc <- nb2listw(LOR1500m_nb, glist = idw, style = "C")
+W_1500mIDWc <- nb2listw(LOR1500m_nb, glist = idw, style = "C", zero.policy=T)
 summary(unlist(W_1500mIDWc$weights))
 summary(sapply(W_1500mIDWc$weights, sum))
-print(W_1500mIDWc)
+print(W_1500mIDWc, zero.policy=T)
 str(W_1500mIDWc$weights)
+
+dsts <- nbdists(LOR2000m_nb, coordinates(LORshape4reg))
+idw <- lapply(dsts, function(x) 1/x)
+W_2000mIDWs <- nb2listw(LOR2000m_nb, glist = idw, style = "S", zero.policy=T)
+summary(unlist(W_2000mIDWs$weights))
+summary(sapply(W_2000mIDWs$weights, sum))
+print(W_2000mIDWs, zero.policy=T)
+str(W_2000mIDWs$weights)
+
+dsts <- nbdists(LOR2000m_nb, coordinates(LORshape4reg))
+idw <- lapply(dsts, function(x) 1/x)
+W_2000mIDWc <- nb2listw(LOR2000m_nb, glist = idw, style = "C", zero.policy=T)
+summary(unlist(W_2000mIDWc$weights))
+summary(sapply(W_2000mIDWc$weights, sum))
+print(W_2000mIDWc, zero.policy=T)
+str(W_2000mIDWc$weights)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # III.) LM Regression und Moran's I Test ------
@@ -170,16 +187,35 @@ moran.test(LOR4reg@data$FortzuegeR, listw = W_polyIDWs, na.action=na.omit)
 # IV.) VIF step um Multicollinerarity innerhalb der Predictors auszuschließen ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+# PDAU5.2012 und PDAU10.2012 geht nicht --> nur PDAU10.2012
+# Alose_langzeit und Armut.2012 geht nicht --> Armut.2012
+# Altersarmut und Armut.2012 geht nicht --> Armut.2012
+# --> alle Alose/Armutschg raus ausser --> Armutchg
+# Miete.2012 und Mietechgr muss geklärt werden
+
 predictors4vifcheck <- subset(LOR4reg@data, 
-                              select=c(Mietechgr , Alosechg , 
-                                       PDAU5chg , nicht_Alose_Hartzchg , Alose_langzeitchg , Alose_u25chg ,
+                              select=c(Mietechgr, 
+                                       Armutchg,
+                                       PDAU5chg, nicht_Alose_Hartzchg , Alose_langzeitchg , Alose_u25chg ,
                                        AlleinerzHH.2012 , Altersarmut.2012 , StaedtWohnungen.2012 , 
-                                       PDAU5.2012 , Miete.2012 , Alose.2012 , Alose_langzeit.2012 , nicht_Alose_Hartz.2012 , 
-                                       PDAU10.2012 , E_U18R.2007 , E_65U110R.2007))
+                                       PDAU5.2012 , Miete.2012 , Alose_langzeit.2012, 
+                                       PDAU10.2012 , E_U18R.2007 , E_65U110R.2007, Armut.2012))
+
+corrgram(predictors4vifcheck, order=FALSE, lower.panel=panel.shade,
+         upper.panel=panel.pie, text.panel=panel.txt,
+         main="Correlations") 
 
 str(predictors4vifcheck)
-vifstep1 <- vifstep(predictors4vifcheck, th=5) # identify collinear variables that should be excluded
-predictors <- exclude(predictors4vifcheck, vifstep1) 
+vifstep1 <- 
+  vifstep(predictors4vifcheck, th=5)
+
+vifcor(predictors4vifcheck, th=5)# identify collinear variables that should be excluded
+predictors <- exclude(predictors4vifcheck, vifstep1)
+names(predictors)
+
+Mietechgr, Armutchg, STADTRAUM, Sanierung
+
+levels(LOR4reg@data$SanGebiet_KLASSE.2012)
 
 lm1 <- lm(formula=FortzuegeR ~ Alosechg*STADTRAUM + 
           nicht_Alose_Hartzchg+   Mietechg*STADTRAUM+   Miete.2012 +        
@@ -200,10 +236,9 @@ ggpairs(mtcars[ ,c("mpg", "wt", "disp", "qsec")], columns = 1:3, size = "qsec", 
 # V.) Scatterplots generieren mit Response ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-corrDF <- subset(bpDF, select=c(FortzuegeR, Mietechgr, Armutchg, Alosechg))
+corrDF <- subset(LOR4reg@data, select=c(FortzuegeR, Mietechgr, Armutchg, Alosechg))
 names(corrDF)
 
-library(corrgram)
 corrgram(corrDF, order=FALSE, lower.panel=panel.shade,
          upper.panel=panel.pie, text.panel=panel.txt,
          main="Correlations") 
@@ -213,18 +248,49 @@ corrgram(corrDF, order=FALSE, lower.panel=panel.ellipse,
          diag.panel=panel.minmax,
          main="Correlations") 
 
-library(weights)
+
 #wpct()
 #wtd.cors(x, y=NULL, weight=NULL)
-
-
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # V.) SAR Spatialerror Model ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-spautolm(formula=,
-         data=LOR4reg,
-         weights=E_E.2012,
-         family="SAR",
-         correlation=T)
+#LOR4reg$RAUMID_NAME=="Blankenfelde" hier fehlt Miete.2007 und Miete.2008. Kicken wir raus.
+
+
+dsts <- nbdists(LOR1500m_nb, coordinates(LORshape4reg))
+idw <- lapply(dsts, function(x) 1/x)
+W_1500mIDWs <- nb2listw(LOR1500m_nb, glist = idw, style = "S", zero.policy=T)
+summary(unlist(W_1500mIDWs$weights))
+summary(sapply(W_1500mIDWs$weights, sum))
+print(W_1500mIDWs, zero.policy=T)
+str(W_1500mIDWs$weights)
+
+SAR1 <- spautolm(formula=FortzuegeR ~ Alosechg + Mietechg + STADTRAUM,
+                 data=LOR4reg,
+                 listw=W_polyIDWs, 
+                 weights=E_E.2012,
+                 family="SAR")
+summary(SAR1, correlation=T, Nagelkerke=T)
+
+
+
+SAR2 <- spautolm(formula=FortzuegeR ~ Mietechgr + Armutchg + PDAU5chg + 
+                 AlleinerzHH.2012 + Altersarmut.2012 + StaedtWohnungen.2012 + 
+                 Alose.2012  + Alose_langzeit.2012 + nicht_Alose_Hartz.2012+ 
+                 PDAU10.2012 + E_U18R.2007 + E_65U110R.2007,
+                 data=LOR4reg,
+listw=W_polyIDWs, 
+weights=E_E.2012,
+family="SAR")
+summary(SAR2, Nagelkerke=T)#, adj.se=T)
+
+
+SAR1 <- spautolm(formula=FortzuegeR ~ Gentri*STADTRAUM,
+                 data=LOR4reg,
+                 listw=W_polyIDWs, 
+                 weights=E_E.2012,
+                 family="SAR")
+summary(SAR1, correlation=T, Nagelkerke=T)
+

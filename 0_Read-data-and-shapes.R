@@ -24,12 +24,6 @@ library("PBSmapping")
 library("plyr")
 library("reshape2")
 
-#                   "car",        "ggplot2", "spatstat", "RColorBrewer",
-#                   "colorspace", "ggplot2", "hexbin",   "vioplot",
-#                   "vcd",        "ncf",     "spgwr",    "leaps",
-#                   "RANN",       "lmtest"))
-#install.packages("gdal")
-#library("gdal")
 
 #§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1068,11 +1062,11 @@ bloecke10_12@data <- subset(bloecke10_12@data, select=-c(gml_id,spatial_na,spati
                                                          EW2013,EW_HA2013,HA2013)) # unnötige Variabeln löschen
 bloecke10_12@data <- bloecke10_12@data[c(7,1,2,3,4,5,6)] # ID Variable SCHLUESSEL im Datensatz nach ganz vorne ziehen (=zur 1.Spalte machen)
 bloecke10_12@data$order <- seq(1:length(bloecke10_12@data$SCHLUESSEL))
-#names(bloecke10_13)
-#View(bloecke10_13@data)
-#length(bloecke10_13@data$EW2013)
-#sum(as.numeric(bloecke10_13@data$EW2012), na.rm=T)
-#sum(EW_10_13$EW2012) # die beiden Summen sollten gleich sein für alle Jahre - passt!
-#str(bloecke10_13@data)
-#plot(bloecke10_13)
-#View(bloecke10_13@data)
+#names(bloecke10_12)
+#View(bloecke10_12@data)
+#length(bloecke10_12@data$EW2013)
+#sum(as.numeric(bloecke10_12@data$EW2012), na.rm=T)
+#sum(EW_10_12$EW2012) # die beiden Summen sollten gleich sein für alle Jahre - passt!
+#str(bloecke10_12@data)
+#plot(bloecke10_12)
+#View(bloecke10_12@data)

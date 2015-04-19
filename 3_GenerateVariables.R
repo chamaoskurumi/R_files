@@ -9,6 +9,7 @@
 library("plyr")
 library("reshape2")
 library("foreign")
+library("sp")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # I.) LOR long Datensatz ------
@@ -210,6 +211,13 @@ LORdataFULLv2$WLEINFR      <- round(( LORdataFULLv2$WLEINF      / LORdataFULLv2$
 LORdataFULLv2$WLMITR       <- round(( LORdataFULLv2$WLMIT       / LORdataFULLv2$E_E )*100,digits=1)    
 LORdataFULLv2$WLGUTR       <- round(( LORdataFULLv2$WLGUT       / LORdataFULLv2$E_E )*100,digits=1)  
 
+LORdataFULLv2$WL[LORdataFULLv2$WLEINFR > 33.3] <-  "einfach"
+LORdataFULLv2$WL[LORdataFULLv2$WLMITR  > 33.3] <-  "mittel"
+LORdataFULLv2$WL[LORdataFULLv2$WLGUTR  > 33.3] <-  "gut"
+LORdataFULLv2$WL <- factor(LORdataFULLv2$WL)
+
+LORdataFULLv2$WL
+
 ###### g.) Wohndauer ######
 
 LORdataFULLv2              <- ddply(LORdataFULLv2,"RAUMID", transform,
@@ -231,24 +239,42 @@ LORdataFULLv2$ZuzuegeR        <- round(( LORdataFULLv2$Zuzuege     / LORdataFULL
 ####### j.) Aussenwanderungen #######
 
 LORdataFULLv2$FortzuegeUD      <- (LORdataFULLv2$FortzuegeU  + LORdataFULLv2$FortzuegeD ) 
+LORdataFULLv2$FortzuegeDA      <- (LORdataFULLv2$FortzuegeD  + LORdataFULLv2$FortzuegeA ) 
 LORdataFULLv2$FortzuegeUDA     <- (LORdataFULLv2$FortzuegeU  + LORdataFULLv2$FortzuegeD + LORdataFULLv2$FortzuegeA ) 
 
 LORdataFULLv2$FortzuegeUR      <- round(( LORdataFULLv2$FortzuegeU   / LORdataFULLv2$E_E )*100,digits=1)
 LORdataFULLv2$FortzuegeDR      <- round(( LORdataFULLv2$FortzuegeD   / LORdataFULLv2$E_E )*100,digits=1)
 LORdataFULLv2$FortzuegeAR      <- round(( LORdataFULLv2$FortzuegeA   / LORdataFULLv2$E_E )*100,digits=1)
 LORdataFULLv2$FortzuegeUDR     <- round(( LORdataFULLv2$FortzuegeUD  / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$FortzuegeDAR     <- round(( LORdataFULLv2$FortzuegeDA  / LORdataFULLv2$E_E )*100,digits=1)
 LORdataFULLv2$FortzuegeUDAR    <- round(( LORdataFULLv2$FortzuegeUDA / LORdataFULLv2$E_E )*100,digits=1)
 
 LORdataFULLv2$ZuzuegeUD      <- (LORdataFULLv2$ZuzuegeU  + LORdataFULLv2$ZuzuegeD ) 
+LORdataFULLv2$ZuzuegeDA      <- (LORdataFULLv2$ZuzuegeD  + LORdataFULLv2$ZuzuegeA ) 
 LORdataFULLv2$ZuzuegeUDA     <- (LORdataFULLv2$ZuzuegeU  + LORdataFULLv2$ZuzuegeD + LORdataFULLv2$ZuzuegeA ) 
 
 LORdataFULLv2$ZuzuegeUR      <- round(( LORdataFULLv2$ZuzuegeU   / LORdataFULLv2$E_E )*100,digits=1)
 LORdataFULLv2$ZuzuegeDR      <- round(( LORdataFULLv2$ZuzuegeD   / LORdataFULLv2$E_E )*100,digits=1)
 LORdataFULLv2$ZuzuegeAR      <- round(( LORdataFULLv2$ZuzuegeA   / LORdataFULLv2$E_E )*100,digits=1)
 LORdataFULLv2$ZuzuegeUDR     <- round(( LORdataFULLv2$ZuzuegeUD  / LORdataFULLv2$E_E )*100,digits=1)
+LORdataFULLv2$ZuzuegeDAR     <- round(( LORdataFULLv2$ZuzuegeDA  / LORdataFULLv2$E_E )*100,digits=1)
 LORdataFULLv2$ZuzuegeUDAR    <- round(( LORdataFULLv2$ZuzuegeUDA / LORdataFULLv2$E_E )*100,digits=1)
 
-###### k.) Unnötige Vars droppen & Var order ändern ######
+###### k.) Referenzkategorien für kategorielle Variablen setzen #######
+
+LORdataFULLv2$STADTRAUM        <- C(LORdataFULLv2$STADTRAUM, contr.treatment, 
+                                    base=which(levels(LORdataFULLv2$STADTRAUM) == "innere Stadt")) 
+
+LORdataFULLv2$WL               <- C(LORdataFULLv2$WL, contr.treatment, 
+                                    base=which(levels(LORdataFULLv2$WL) == "einfach"))
+LORdataFULLv2$WL       <- factor(LORdataFULLv2$WL,levels(LORdataFULLv2$WL)[c(1,3,2)])
+
+LORdataFULLv2$SanGebiet_KLASSE <- C(LORdataFULLv2$SanGebiet_KLASSE, contr.treatment, 
+                                    base=which(levels(LORdataFULLv2$SanGebiet_KLASSE) == "nein"))
+LORdataFULLv2$SanGebiet_KLASSE <- factor(LORdataFULLv2$SanGebiet_KLASSE,levels(LORdataFULLv2$SanGebiet_KLASSE)[c(4,1,3,2)])
+
+
+###### l.) Unnötige Vars droppen & Var order ändern ######
 
 names(LORdataFULLv2)
 LORdataFULLv3 <- subset(LORdataFULLv2, select=-c(Miete_H1_wmean,
@@ -304,16 +330,17 @@ LORdataFULLv4 <- LORdataFULLv3[c("ZEIT",
                "PDAU10",     "PDAU5", 
                "PDAU10chg",  "PDAU5chg",
                # Wohnlage
-               "WLEINFOL",   "WLEINFML",   
-               "WLMITOL",    "WLMITML",   
-               "WLGUTOL",    "WLGUTML",    
-               "WLEINFOLR",  "WLEINFMLR",
-               "WLMITOLR",   "WLMITMLR",
-               "WLGUTOLR",   "WLGUTMLR",
+        #       "WLEINFOL",   "WLEINFML",   
+        #       "WLMITOL",    "WLMITML",   
+        #       "WLGUTOL",    "WLGUTML",    
+        #       "WLEINFOLR",  "WLEINFMLR",
+        #       "WLMITOLR",   "WLMITMLR",
+        #       "WLGUTOLR",   "WLGUTMLR",
                "WLOL",       "WLML",                  
                "WLOLR",      "WLMLR",  
                "WLEINF",     "WLMIT",      "WLGUT",
                "WLEINFR",    "WLMITR",     "WLGUTR",
+               "WL",
                # Sozialindikatoren
                "Alose",     "AloseABS", "AloseR", "Alose_u25",  "Alose_langzeit", "nicht_Alose_Hartz", "Hartz_u15", 
                "Veraend_HartzEmpf_D",    "Veraend_HartzEmpf_Ausl",  "Veraend_Hartz_u15", "StaedtWohnungen",
@@ -325,10 +352,10 @@ LORdataFULLv4 <- LORdataFULLv3[c("ZEIT",
                # Binnenwanderungen
                "Fortzuege","Zuzuege","FortzuegeR","ZuzuegeR",
                # Außenwanderungen
-               "FortzuegeU","FortzuegeD","FortzuegeA","FortzuegeUD","FortzuegeUDA",
-               "FortzuegeUR","FortzuegeDR","FortzuegeAR","FortzuegeUDR","FortzuegeUDAR",
-               "ZuzuegeU","ZuzuegeD","ZuzuegeA","ZuzuegeUD","ZuzuegeUDA",
-               "ZuzuegeUR","ZuzuegeDR","ZuzuegeAR","ZuzuegeUDR","ZuzuegeUDAR")]
+               "FortzuegeU","FortzuegeD","FortzuegeA","FortzuegeUD","FortzuegeDA","FortzuegeUDA",
+               "FortzuegeUR","FortzuegeDR","FortzuegeAR","FortzuegeUDR","FortzuegeDAR","FortzuegeUDAR",
+               "ZuzuegeU","ZuzuegeD","ZuzuegeA","ZuzuegeUD","ZuzuegeDA","ZuzuegeUDA",
+               "ZuzuegeUR","ZuzuegeDR","ZuzuegeAR","ZuzuegeUDR","ZuzuegeDAR","ZuzuegeUDAR")]
 remove(LORdataFULLv2)
 remove(LORdataFULLv3)
 
@@ -377,16 +404,17 @@ LORdataFULLwidev1    <- reshape(LORdataFULL4wide,
                               "PDAU10",     "PDAU5", 
                               "PDAU10chg",  "PDAU5chg",
                               # Wohnlage
-                              "WLEINFOL",   "WLEINFML",   
-                              "WLMITOL",    "WLMITML",   
-                              "WLGUTOL",    "WLGUTML",    
-                              "WLEINFOLR",  "WLEINFMLR",
-                              "WLMITOLR",   "WLMITMLR",
-                              "WLGUTOLR",   "WLGUTMLR",
+                #              "WLEINFOL",   "WLEINFML",   
+                #              "WLMITOL",    "WLMITML",   
+                #              "WLGUTOL",    "WLGUTML",    
+                #              "WLEINFOLR",  "WLEINFMLR",
+                #              "WLMITOLR",   "WLMITMLR",
+                #              "WLGUTOLR",   "WLGUTMLR",
                               "WLOL",       "WLML",                  
                               "WLOLR",      "WLMLR",  
                               "WLEINF",     "WLMIT",      "WLGUT",
                               "WLEINFR",    "WLMITR",     "WLGUTR",
+                              "WL",
                               # Sozialindikatoren
                               "Alose",     "AloseABS", "AloseR", "Alose_u25",  "Alose_langzeit", "nicht_Alose_Hartz", "Hartz_u15", 
                               "Veraend_HartzEmpf_D",    "Veraend_HartzEmpf_Ausl",  "Veraend_Hartz_u15", "StaedtWohnungen",
@@ -398,10 +426,10 @@ LORdataFULLwidev1    <- reshape(LORdataFULL4wide,
                               # Binnenwanderungen
                               "Fortzuege","Zuzuege","FortzuegeR","ZuzuegeR",
                               # Außenwanderungen
-                              "FortzuegeU","FortzuegeD","FortzuegeA","FortzuegeUD","FortzuegeUDA",
-                              "FortzuegeUR","FortzuegeDR","FortzuegeAR","FortzuegeUDR","FortzuegeUDAR",
-                              "ZuzuegeU","ZuzuegeD","ZuzuegeA","ZuzuegeUD","ZuzuegeUDA",
-                              "ZuzuegeUR","ZuzuegeDR","ZuzuegeAR","ZuzuegeUDR","ZuzuegeUDAR"),
+                              "FortzuegeU","FortzuegeD","FortzuegeA","FortzuegeUD","FortzuegeDA","FortzuegeUDA",
+                              "FortzuegeUR","FortzuegeDR","FortzuegeAR","FortzuegeUDR","FortzuegeDAR","FortzuegeUDAR",
+                              "ZuzuegeU","ZuzuegeD","ZuzuegeA","ZuzuegeUD","ZuzuegeDA","ZuzuegeUDA",
+                              "ZuzuegeUR","ZuzuegeDR","ZuzuegeAR","ZuzuegeUDR","ZuzuegeDAR","ZuzuegeUDAR"),
                    timevar = "ZEIT",
                    direction = "wide") 
 #names(LORdataFULLwidev1)
@@ -517,6 +545,12 @@ LORdataFULLwidev2$FortzuegeUD       <-   (LORdataFULLwidev2$FortzuegeUD.2007 +
                                             LORdataFULLwidev2$FortzuegeUD.2010 +
                                             LORdataFULLwidev2$FortzuegeUD.2011 +
                                             LORdataFULLwidev2$FortzuegeUD.2012)
+LORdataFULLwidev2$FortzuegeDA       <-   (LORdataFULLwidev2$FortzuegeDA.2007 +
+                                            LORdataFULLwidev2$FortzuegeDA.2008 +
+                                            LORdataFULLwidev2$FortzuegeDA.2009 +
+                                            LORdataFULLwidev2$FortzuegeDA.2010 +
+                                            LORdataFULLwidev2$FortzuegeDA.2011 +
+                                            LORdataFULLwidev2$FortzuegeDA.2012)
 LORdataFULLwidev2$FortzuegeUDA      <-   (LORdataFULLwidev2$FortzuegeUDA.2007 +
                                             LORdataFULLwidev2$FortzuegeUDA.2008 +
                                             LORdataFULLwidev2$FortzuegeUDA.2009 +
@@ -548,6 +582,12 @@ LORdataFULLwidev2$ZuzuegeUD       <-   (LORdataFULLwidev2$ZuzuegeUD.2007 +
                                             LORdataFULLwidev2$ZuzuegeUD.2010 +
                                             LORdataFULLwidev2$ZuzuegeUD.2011 +
                                             LORdataFULLwidev2$ZuzuegeUD.2012)
+LORdataFULLwidev2$ZuzuegeDA       <-   (LORdataFULLwidev2$ZuzuegeDA.2007 +
+                                            LORdataFULLwidev2$ZuzuegeDA.2008 +
+                                            LORdataFULLwidev2$ZuzuegeDA.2009 +
+                                            LORdataFULLwidev2$ZuzuegeDA.2010 +
+                                            LORdataFULLwidev2$ZuzuegeDA.2011 +
+                                            LORdataFULLwidev2$ZuzuegeDA.2012)
 LORdataFULLwidev2$ZuzuegeUDA      <-   (LORdataFULLwidev2$ZuzuegeUDA.2007 +
                                             LORdataFULLwidev2$ZuzuegeUDA.2008 +
                                             LORdataFULLwidev2$ZuzuegeUDA.2009 +
@@ -559,13 +599,16 @@ LORdataFULLwidev2$FortzuegeUR   <- round(((LORdataFULLwidev2$FortzuegeU/6)  /LOR
 LORdataFULLwidev2$FortzuegeDR   <- round(((LORdataFULLwidev2$FortzuegeD/6)  /LORdataFULLwidev2$E_E.2012)*100, digits=2)
 LORdataFULLwidev2$FortzuegeAR   <- round(((LORdataFULLwidev2$FortzuegeA/6)  /LORdataFULLwidev2$E_E.2012)*100, digits=2)
 LORdataFULLwidev2$FortzuegeUDR  <- round(((LORdataFULLwidev2$FortzuegeUD/6) /LORdataFULLwidev2$E_E.2012)*100, digits=2)
+LORdataFULLwidev2$FortzuegeDAR  <- round(((LORdataFULLwidev2$FortzuegeDA/6) /LORdataFULLwidev2$E_E.2012)*100, digits=2)
 LORdataFULLwidev2$FortzuegeUDAR <- round(((LORdataFULLwidev2$FortzuegeUDA/6)/LORdataFULLwidev2$E_E.2012)*100, digits=2)
 
 LORdataFULLwidev2$ZuzuegeUR   <- round(((LORdataFULLwidev2$ZuzuegeU/6)  /LORdataFULLwidev2$E_E.2012)*100, digits=2)
 LORdataFULLwidev2$ZuzuegeDR   <- round(((LORdataFULLwidev2$ZuzuegeD/6)  /LORdataFULLwidev2$E_E.2012)*100, digits=2)
 LORdataFULLwidev2$ZuzuegeAR   <- round(((LORdataFULLwidev2$ZuzuegeA/6)  /LORdataFULLwidev2$E_E.2012)*100, digits=2)
 LORdataFULLwidev2$ZuzuegeUDR  <- round(((LORdataFULLwidev2$ZuzuegeUD/6) /LORdataFULLwidev2$E_E.2012)*100, digits=2)
+LORdataFULLwidev2$ZuzuegeDAR  <- round(((LORdataFULLwidev2$ZuzuegeDA/6) /LORdataFULLwidev2$E_E.2012)*100, digits=2)
 LORdataFULLwidev2$ZuzuegeUDAR <- round(((LORdataFULLwidev2$ZuzuegeUDA/6)/LORdataFULLwidev2$E_E.2012)*100, digits=2)
+
 
 # ---- _____ Fertiger WIDE Datensatz _____ ----
 
@@ -592,9 +635,67 @@ write.dbf(dataframe = LOR@data, file = "/home/dao/Desktop/MasterArbeit/GentriMap
 
 #View(LOR@data)
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# III.) Ungültige LORs ausschliessen --> Datensätze für Kategorisierung und Regressionen erstellen ------
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+LOR@data <- LORattrFULL
+
+LOR@data$E_E_u300 <- as.factor(ifelse(LOR@data$E_E.2007 < 300, 
+                                      c("unter 300EW"), 
+                                      c("über  300EW")))
+spplot(LOR, zcol="E_E_u300")
+
+# Für die Regression und Kategorisierung arbeiten wir mit dem Datensatz LOR4reg, 
+#    um im Originaldatensatz LOR keine Daten zu überschreiben 
+LOR4reg <- LOR
+
+# Wir überschreiben die Miete & Alosingkeit
+# mit NAs, damit sie nicht bei der Kategorisierung und Regression mitverwendet werden
+LOR4reg@data[LOR4reg@data$E_E_u300=="unter 300EW" | 
+               LOR4reg@data$RAUMID_NAME=="Motardstr." | # Motardstr. raus wegen zu vielen Umzügen
+               LOR4reg@data$RAUMID_NAME=="Blankenfelde",][,c("Miete.2007", # Blankenfelde raus weil Mietdaten fehlen für 2007 und 2008
+                                                             "Miete.2012",
+                                                             "Alose.2007",
+                                                             "Alose.2012",
+                                                             "nicht_Alose_Hartz.2007",
+                                                             "nicht_Alose_Hartz.2012",
+                                                             "Armut.2007",
+                                                             "Armut.2012",
+                                                             "Mietechg",
+                                                             "Mietechgr",
+                                                             "Alosechg",
+                                                             "nicht_Alose_Hartzchg",
+                                                             "Armutchg",
+                                                             "Fortzuege",
+                                                             "Zuzuege",
+                                                             "FortzuegeR",
+                                                             "ZuzuegeR",
+                                                             "FortzuegeU", "FortzuegeD", "FortzuegeA",                 
+                                                             "FortzuegeUD","FortzuegeUDA","FortzuegeDA",
+                                                             "ZuzuegeU","ZuzuegeD","ZuzuegeA",
+                                                             "ZuzuegeUD","ZuzuegeDA","ZuzuegeUDA",
+                                                             "FortzuegeUR","FortzuegeDR","FortzuegeAR",
+                                                             "FortzuegeUDR","FortzuegeDAR","FortzuegeUDAR",
+                                                             "ZuzuegeUR","ZuzuegeDR","ZuzuegeAR",
+                                                             "ZuzuegeUDR","ZuzuegeDAR","ZuzuegeUDAR")] <- NA
+LOR4reg@data$valid <- as.factor(ifelse(is.na(LOR4reg@data$FortzuegeR), 
+                                       c("ungültig"), 
+                                       c("gültig")))
+
+# nur gültige LORs behalten --> subset by valid=="gültig"
+LOR4reg <- LOR4reg[LOR4reg$valid=="gültig",]
+# update factor levels
+LOR4reg@data$RAUMID      <- factor(LOR4reg@data$RAUMID)
+LOR4reg@data$RAUMID_NAME <- factor(LOR4reg@data$RAUMID_NAME)
+LOR4reg@data$BZR         <- factor(LOR4reg@data$BZR)
+LOR4reg@data$BZR_NAME    <- factor(LOR4reg@data$BZR_NAME )
+# Shape file für LOR4reg erstellen
+LORshape4reg <- SpatialPolygons(LOR4reg@polygons,proj4string=zielCRS)
+plot(LORshape4reg, col="red")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# III.) R Global Environment ausmisten - überflüssige Objekte löschen ------
+# IV.) R Global Environment ausmisten - überflüssige Objekte löschen ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 remove(bloecke07,                     bloecke07_attributes,          bloecke07_pt,                 
