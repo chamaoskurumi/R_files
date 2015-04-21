@@ -6,8 +6,7 @@ library("plyr")
 
 #### 0.) Daten einlesen #####
 
-load("/KISSLASPFAD/daten_fuer_kissla.Rdata")
-
+#load("/KISSLASPFAD/daten_fuer_kissla.Rdata")
 
 #### 1.) Daten vorbereiten ####
 LOR4regLONGLAT <- spTransform(LOR4reg,CRS("+proj=longlat")) #+ellps=WGS84 +datum=WGS84 +no_defs")) 
@@ -16,17 +15,26 @@ LOR4regdf <- LOR4reg@data
 colnames(LOR4regdf)[2] <- "id"
 LOR4reg.fort <- join(LOR4reg.fort, LOR4regdf, by="id")
 
+BZKLONGLAT <- spTransform(BZKt,CRS("+proj=longlat"))
+BZK.fort  <- fortify(BZKLONGLAT, region="BezName")
+BZKdf     <- BZK@data
+colnames(BZKdf)[2] <- "id"
+BZK.fort <- join(BZK.fort, BZKdf, by="id")
+
+
 #### 2.) GGPLOT ohne Map drunter - funktioniert.
 # außer das mit den Farben und so, das kann man noch schöner machen. Und weiss auf 0 setzen und so...hatten wir ja schon
 # mal kurz besprochen
 # könnten wir mal in einer nerdsession optimieren
 breaks <- c(-5,0,5,10,15)
-ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + geom_polygon(aes(fill=Armutchg, group=id)) + geom_path(color="white", alpha=0.8) +   
-  theme_grey() + 
-  scale_fill_gradientn(limits = c(min(LOR4reg.fort$Armutchg),
-                                               max(LOR4reg.fort$Armutchg)),
-                                    colours=c("blue","white","red"),
+p <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=Mietechgr, group=id)) + geom_path(color="grey", alpha=0.0) +   
+  theme_bw() + 
+  scale_fill_gradientn(limits = c(min(LOR4reg.fort$Mietechgr),
+                                               max(LOR4reg.fort$Mietechgr)),
+                                    colours=c("yellow","orange","red"),
                                     breaks=breaks) + coord_equal(ratio=1.5)
+p + geom_polygon(aes(group=id),data=BZK.fort, fill=NA, colour="black") 
 
 #### 3.) Jetzt gehts endlich um GGMAP. Als erstes muss man da ne Karte holen mit get_map. 
 # Das funktioniert auch:

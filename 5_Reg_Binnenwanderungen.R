@@ -286,11 +286,54 @@ weights=E_E.2012,
 family="SAR")
 summary(SAR2, Nagelkerke=T)#, adj.se=T)
 
-
-SAR1 <- spautolm(formula=FortzuegeR ~ Gentri*STADTRAUM,
+SAR1 <- spautolm(formula=FortzuegeR ~ Gentri*STADTRAUM +
+                   Miete.2007  + Armut.2007 +
+                   E_U18R.2007 + E_65U110R.2007 +
+                   PDAU10.2007 + SanGebiet.2012,
                  data=LOR4reg,
                  listw=W_polyIDWs, 
                  weights=E_E.2012,
                  family="SAR")
-summary(SAR1, correlation=T, Nagelkerke=T)
+summary(SAR1, Nagelkerke=T)
+
+SAR4 <- spautolm(formula=FortzuegeR ~ Mietechgr + Armutchg +
+                   Miete.2012  + Armut.2012 +
+                   E_U18R.2007 + E_65U110R.2007 +
+                   PDAU10.2007 + STADTRAUM + SanGebiet.2012,
+                 data=LOR4reg,
+                 listw=W_polyIDWs, 
+                 weights=E_E.2007,
+                 family="SAR")
+summary(SAR4, Nagelkerke=T)#, adj.se=T)
+
+SAR5 <- spautolm(formula=FortzuegeR ~ Mietechgr + Armutchg +
+                   Miete.2007  + Armut.2007 +
+                   E_U18R.2007 + E_65U110R.2007 +
+                   PDAU10.2007 + STADTRAUM,
+                 data=LOR4reg,
+                 listw=W_2000mIDWs, 
+                 weights=E_E.2007,
+                 family="SAR")
+summary(SAR5, Nagelkerke=T)#, adj.se=T)
+
+zresid <- residuals(M1)/(M1 sum$sig)
+zresid
+# standardized residuals and country names
+qqnorm(zresid, ylab="Standardized Residuals")
+# Q-Q plot
+abline(0,1)
+
+qqnorm(standardizedResiduals)
+qqline(standardizedResiduals,distribution = qnorm, probs = c(0.1, 0.9), qtype = 7)
+
+unstandardizedPredicted <- fitted(SAR1)
+unstandardizedResiduals <- residuals(SAR1)
+# Standardisierung
+standardizedPredicted <- (unstandardizedPredicted - mean(unstandardizedPredicted)) / sd(unstandardizedPredicted)
+standardizedResiduals <- (unstandardizedResiduals - mean(unstandardizedResiduals)) / sd(unstandardizedResiduals)
+#create standardized residuals plot
+plot(standardizedPredicted, standardizedResiduals, main = "Standardized Residuals Plot", xlab = "Standardized Predicted Values", ylab = "Standardized Residuals")
+#add horizontal line
+abline(0,0)
+
 

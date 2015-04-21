@@ -260,21 +260,22 @@ LORdataFULLv2$ZuzuegeUDR     <- round(( LORdataFULLv2$ZuzuegeUD  / LORdataFULLv2
 LORdataFULLv2$ZuzuegeDAR     <- round(( LORdataFULLv2$ZuzuegeDA  / LORdataFULLv2$E_E )*100,digits=1)
 LORdataFULLv2$ZuzuegeUDAR    <- round(( LORdataFULLv2$ZuzuegeUDA / LORdataFULLv2$E_E )*100,digits=1)
 
-###### k.) Referenzkategorien für kategorielle Variablen setzen #######
+###### k.) Sanierungsgebiete #######
 
-LORdataFULLv2$STADTRAUM        <- C(LORdataFULLv2$STADTRAUM, contr.treatment, 
-                                    base=which(levels(LORdataFULLv2$STADTRAUM) == "innere Stadt")) 
+LORdataFULLv2$SanGebietID <- LORdataFULLv2$SanGebiet
+LORdataFULLv2$SanGebiet   <- -1
+LORdataFULLv2$SanGebiet[is.na(LORdataFULLv2$SanGebietID)] <- "nein"
+LORdataFULLv2$SanGebiet[LORdataFULLv2$SanGebiet!="nein"]  <- "ja"
+LORdataFULLv2$SanGebiet<- factor(LORdataFULLv2$SanGebiet)
+LORdataFULLv2$SanGebiet
 
-LORdataFULLv2$WL               <- C(LORdataFULLv2$WL, contr.treatment, 
-                                    base=which(levels(LORdataFULLv2$WL) == "einfach"))
-LORdataFULLv2$WL       <- factor(LORdataFULLv2$WL,levels(LORdataFULLv2$WL)[c(1,3,2)])
+###### l.) Referenzkategorien für kategorielle Variablen setzen #######
 
-LORdataFULLv2$SanGebiet_KLASSE <- C(LORdataFULLv2$SanGebiet_KLASSE, contr.treatment, 
-                                    base=which(levels(LORdataFULLv2$SanGebiet_KLASSE) == "nein"))
+LORdataFULLv2$WL               <- factor(LORdataFULLv2$WL,levels(LORdataFULLv2$WL)[c(1,3,2)])
 LORdataFULLv2$SanGebiet_KLASSE <- factor(LORdataFULLv2$SanGebiet_KLASSE,levels(LORdataFULLv2$SanGebiet_KLASSE)[c(4,1,3,2)])
+LORdataFULLv2$SanGebiet        <- factor(LORdataFULLv2$SanGebiet, levels(LORdataFULLv2$SanGebiet)[c(2,1)])
 
-
-###### l.) Unnötige Vars droppen & Var order ändern ######
+###### m.) Unnötige Vars droppen & Var order ändern ######
 
 names(LORdataFULLv2)
 LORdataFULLv3 <- subset(LORdataFULLv2, select=-c(Miete_H1_wmean,
@@ -291,7 +292,8 @@ LORdataFULLv3 <- subset(LORdataFULLv2, select=-c(Miete_H1_wmean,
                                                 E_AU1R, E_A1U6R, E_A6U15R, E_A15U18R, E_A18U25R, E_A25U55R, E_A55U65R, E_A65U80R, E_A80U110R, 
                                                 MH_U1, MH_1U6, MH_6U15, MH_15U18, MH_18U25, MH_25U55, MH_55U65, MH_65U80, MH_80U110,
                                                 MH_U1R, MH_1U6R, MH_6U15R, MH_15U18R, MH_18U25R, MH_25U55R, MH_55U65R, MH_65U80R, MH_80U110R,
-                                                WanderVol,WanderSaldo,WanderSaldo_u6))
+                                                WanderVol,WanderSaldo,WanderSaldo_u6,
+                                                SanGebietID))
 names(LORdataFULLv3)
 
 LORdataFULLv4 <- LORdataFULLv3[c("ZEIT", 

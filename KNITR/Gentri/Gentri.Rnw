@@ -2,6 +2,37 @@
 
 \section{Gentrification und wohnräumliche Mobilität: Der Verdrägungsdiskurs}\label{Sec:Gentri}
 
+  \subsection{Begriffe und Definitionen}
+
+solitäre vs. holistische Gentridefinitionen \\
+bei holistisch viele Dimensionen
+Glatter, Rüsche
+nicht nur innenstadtgebiete, auf New-Built Gentri, of vacant areas. 
+Klassenspezifische Raumproduktion social sieve
+
+Verdrängung Teil der Definition oder nicht 
+
+Verdrängung vs. Austausch
+
+Verdrängungs Typologie
+Marcuse / Slater 
+
+Immobilienwirtschaftliche Aufwertung \\
+inwertseztung  Kapitalflüsse
+rent-gap und value gap (Smith, Glatter, Holm, Hamnett). 
+
+Soziale Aufwertung \\
+eher im deutschsprachigen Kontext gebraucht, 
+statushöhere Bevölkerung (einkommen, bildungsgrad)
+hier nicht zu verwechseln mit soziokultureller Aufwertung, ökonomische Interpretation des Begriffs.
+politsche ökonomie definition: rent gap schließen zu können, das heisst potentielle Bodengrundrente zu realisieren benötigt es zahlungskräftige MieterInnen. Insofern bedingt eine immobilienwirtschaftliche Aufwertung ökonomisch auch eine soziale Aufwertung.
+Das heisst, je größer die rent gap, desto größer der Verdrängungsdruck - entweder durch den die entstehenden Mehrkosten bei Mieterhöhungen in bestehenden Mietverträgen oder die notwendigkei
+
+gentrification = Aufwertungsdynamik. Notwendig, nicht hinreichend. Dyanmik griech., dynamiké=mächtig (Gentrimaps)
+Aber aufgrund der oben beschriebenen Bedingung besteht letzlich eine ökonomische Notwendigkeit zwischen 
+
+
+
   \subsection{Forschungsstand}
 
 Was ist zum Thema bekannt? Was trägt die bisherige Forschung zur Beantwortung Ihrer
@@ -21,25 +52,38 @@ Welche Widersprüche sind zu erkennen? \\
 
 
 		\subsubsection{Quantitative Studien zu Gentrification und Wohnmobilität}
-    
+
+Theorie 2 Phasen: erst erhöhte Mobiltät, dann niedrigere bzw. niedrigere Fortzugsraten?!? --> Literaturverweis fehlt! Andrej fragen! \\
     
 \citet{Atkinson2000} This paper presents evidence suggesting that gentrification was an active and extensive
-process during the 1980s in Greater L ondon
-and that, where this occurred, it was associ-
-ated with above-average levels of losses of
-groups who have been associated with dis-
-placem ent in the past. Labour market
-changes, tenure preferences and housing
+process during the 1980s in Greater London and that, where this occurred, it was associated with above-average levels of losses of
+groups who have been associated with displacem ent in the past. Labour market changes, tenure preferences and housing
 
-Wichtigste Studien \citet{Atkinson2000}
+Wichtigste Studien \citet{Atkinson2000} \citet{Atkinson2011}
+\citet{Freeman2004} \citet{Freeman2005} \citet{Vigdor2002} \citet{McKinnish2008} \citet{Newman2006} und \citet{Newman2006a} \\
 
+Deutschland
+\citet{Glatter2007} \citet{Holm2004} \citet{Holm2011}  \citet{Rusche2015} \citet{Czarnetzki2013} 
+
+Tabelle mit findings? daten - jahr - Ort - modell - finding
+Widersprüche: Debatte über mehr/weniger Fortzüge empirisch? 
 	
-		\subsubsection{Gentrification und Wohnmobilität Berlin}
-		
-	
-	\subsection{Begriffe und Definitionen}
+		\subsubsection{Kontext Berlin}
 
-	\subsection{Forschungsfragen \& Hypothesenformulierung}
+verdrängungs und Gentrificationdiskussion in Berlin\\
+
+Bisherige Studien: Quali und quantativ 
+\citet{Holm2004} \citet{Holm2011} \citet{Rusche2015} \citet{Czarnetzki2013} \\
+
+Aufwertungsdynamiken in Berlin: Monitoring Soziale Stadtentwicklung \& BBU Marktmonitor
+--> Entdeckung des Berliner Wohnungsmarktes - spatial fix		
+
+Widersprüche: BBU und Mieterecho: Keine erhöhte Verdrängung/Wegzug in gentrigebieten.   \citet{Rusche2015} und \citet{Holm2011} wie auch alle Protestbewegungen: öknomische Verdrängung \\
+
+Fallende Binnenwanderungsquoten (BBU 2014, S.38-39) 
+
+
+	\subsection{Forschungshypothesen}
 	
 Die Darstellung muss zweckgebunden bleiben und Ihren Analysen den
 Weg ebnen. Prüfen Sie bei der Darstellung aller begrifflichen Festlegungen und
@@ -56,3 +100,43 @@ müssen Erklärungen beinhalten, d. h. vermittelnde Mechanismen. Sagen Sie also 
 ein Zusammenhang schon oft beobachtet wurde, sondern warum es zu dem Zusammenhang
 kommen soll.}
 
+  
+Die Darstellung muss zweckgebunden bleiben und Ihren Analysen den
+Weg ebnen. Prüfen Sie bei der Darstellung aller begrifflichen Festlegungen und
+Differenzierungen, Zusammenhangsaussagen und Befunde, ob sie für Ihr Thema relevant
+sind.
+
+Welche eigenen Vermutungen (Hypothesen) haben Sie als Autor? 
+
+\textbf{Ein häufiger Fehler ist die Begründung von Hypothesen durch empirische Beobachtungen
+oder Verweise auf frühere Studien, die vergleichbare Ergebnisse erzielt haben. Begründungen
+müssen Erklärungen beinhalten, d. h. vermittelnde Mechanismen. Sagen Sie also nicht, daß
+ein Zusammenhang schon oft beobachtet wurde, sondern warum es zu dem Zusammenhang
+kommen soll.}
+
+
+
+\paragraph{Forschungsfragen}
+\begin{enumerate}
+\item Wo befinden sich in Berlin die am stärksten von Aufwertungsdynamiken (immoblienwirtschaftlich und sozialstrukturell) betroffenen Nachbarschaften und wie sind diese charakterisieren?
+\item Gibt es einen Zusammenhang zwischen Aufwertung und wohnräumlicher Mobilität / Verdrägung? Wie kann dieser Zusammenhang modelliert und quantifiziert werden?
+\item Wie lässt sich das wohnräumliche Mobilitätsverhalten in den Aufwertungsgebieten genauer beschreiben - Wo ziehen die Leute hin, wo kommen die Zugezogenen her? Untschied zu Kontroll Gebieten? Erhöhter Umzug in Nachbarschaften bei Gentri Gebieten? Oder weniger weil sie da nix finden?
+\end{enumerate}
+
+
+Wie lassen sie sich durch den bisherigen Erkenntnisstand begründen? Stellen Sie Bezüge zu zitierten Forschungsergebnissen her! \\
+\paragraph{Hypothesen}
+\begin{enumerate}
+\item Aufwertungsgebiete besitzen höherere Binnenfortzugsraten als die Kontrollgebiete. \\
+\item Aufwertungsgebiete besitzen höhere Aussenzuzugsraten als die Kontrollgebiete
+
+\item Je stärker die immobilienwirtschaftliche Aufwertungsdynamik, desto höher die relativen Fortzugsraten in den Nachbarschaften \\
+economic direct displacement (Marcuse p.205)
+
+
+\item Es besteht ein gebietsbezogener positiver Zusammenhang zwischen sozialstruktureller Aufwertungdynamik und wohnräumlicher Mobilität. \\
+Änderung der Sozialstruktur nicht in erster Linie nicht durch incumbent upgrading  (urban revitalization without the displacement) also einem aus dem Quartier heraus entstehend, sondern durch den erhöhten Zuzug (Stadt und aussen) zu erklären
+Die Zuziehenden haben mehr kohle als die Wegziehenden, 
+
+\item Aufwertungsgebiete besitzen ein qualtativ untschiedliches Umzugsverhalten als vergleichbare nicht Aufwertungsgebiete\\
+\end{enumerate}

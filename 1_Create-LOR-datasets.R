@@ -325,14 +325,16 @@ LORdata_wide <- DF10wide
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # b.) Merge LOR Shape file mit LOR Wide Datensatz ==================
 
-library("rgdal")
-setwd("/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten")
-LOR1     <- readOGR(dsn="LOR/LORneu/LOR_SHP_EPSG_3068/", layer="Planungsraum_EPSG_3068")
-proj4string(LOR1) <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 
-                         +x_0=40000 +y_0=10000 +ellps=bessel +datum=potsdam +units=m +no_defs ")
-zielCRS <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 +x_0=40000 +y_0=10000 +datum=potsdam +units=m
-                +no_defs +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 ")
-LORshape <- spTransform(LOR1, zielCRS)
+#library("rgdal")
+#setwd("/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten")
+#LOR1     <- readOGR(dsn="LOR/LORneu/LOR_SHP_EPSG_3068/", layer="Planungsraum_EPSG_3068")
+#proj4string(LOR1) <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 
+#                         +x_0=40000 +y_0=10000 +ellps=bessel +datum=potsdam +units=m +no_defs ")
+#zielCRS <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 +x_0=40000 +y_0=10000 +datum=potsdam +units=m
+#                +no_defs +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 ")
+#LORshape <- spTransform(LOR1, zielCRS)
+
+LORshape <- spTransform(LORkorrekt1, zielCRS)
 
 colnames(LORshape@data)[1]  <- "RAUMID"
 LORdf         <- as(LORshape, "data.frame")

@@ -868,33 +868,51 @@ PLZ    <- spTransform(PLZ1, zielCRS)
 #plot(PLZ)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# ---- c.) Stat. Landesamt LOR (Prognose-, Planungsräume, Bezirksregionen) ----
+# ---- c.) Stat. Landesamt LORs und Bezirke ----
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd("/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten")
-LOR1     <- readOGR(dsn="LOR/LORneu/LOR_SHP_EPSG_3068/", layer="Planungsraum_EPSG_3068")
-PGR1     <- readOGR(dsn="LOR/LORneu/LOR_SHP_EPSG_3068/", layer="Prognoseraum_EPSG_3068")
-BZR1     <- readOGR(dsn="LOR/LORneu/LOR_SHP_EPSG_3068/", layer="Bezirksregion_EPSG_3068")
-#SG       <- readOGR(dsn="Geoinstitut/Geoinstitut/", layer="Digk5_StatGeb")
+BZK1     <- readOGR(dsn="Bezirke_GS/", layer="RBS_OD_BEZ_1412")
+BZK1@proj4string
+BZK      <- spTransform(BZK1, zielCRS)
 
-proj4string(LOR1) <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 
-                         +x_0=40000 +y_0=10000 +ellps=bessel +datum=potsdam +units=m +no_defs ")
-proj4string(PGR1) <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 
-                         +x_0=40000 +y_0=10000 +ellps=bessel +datum=potsdam +units=m +no_defs ")
-proj4string(BZR1) <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 
-                         +x_0=40000 +y_0=10000 +ellps=bessel +datum=potsdam +units=m +no_defs ")
-#SG@proj4string
-#proj4string(SG)   <- zielCRS
+LORkorrekt1     <- readOGR(dsn="LOR_Korrekt_GS/", layer="RBS_OD_LOR_1412")
+LORkorrekt1@proj4string
+LOR             <- spTransform(LORkorrekt1, zielCRS)
+LORslim         <- LOR
 
-LOR <- spTransform(LOR1, zielCRS)
-LORslim <- LOR
-PGR <- spTransform(PGR1, zielCRS)
-BZR <- spTransform(BZR1, zielCRS)
+# - - - - alte shape files, mit denen es projektionsprobleme gab - - - - - - - - - - - - - - - - - -
+#LOR1     <- readOGR(dsn="LOR/LORneu/LOR_SHP_EPSG_3068/", layer="Planungsraum_EPSG_3068")
+#PGR1     <- readOGR(dsn="LOR/LORneu/LOR_SHP_EPSG_3068/", layer="Prognoseraum_EPSG_3068")
+#BZR1     <- readOGR(dsn="LOR/LORneu/LOR_SHP_EPSG_3068/", layer="Bezirksregion_EPSG_3068")
+#proj4string(LOR1) <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 
+#                         +x_0=40000 +y_0=10000 +ellps=bessel +datum=potsdam +units=m +no_defs ")
+#proj4string(PGR1) <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 
+#                         +x_0=40000 +y_0=10000 +ellps=bessel +datum=potsdam +units=m +no_defs ")
+#proj4string(BZR1) <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 
+#                         +x_0=40000 +y_0=10000 +ellps=bessel +datum=potsdam +units=m +no_defs ")
+#PGR <- spTransform(PGR1, zielCRS)
+#BZR <- spTransform(BZR1, zielCRS)
+#BZK <- spTransform(BZK1, zielCRS)
+#LOR <- spTransform(LOR1, zielCRS)
+#LORslim <- LOR
 #plot(LOR)
 #plot(BZR)
+#plot(BZK)
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# ---- d.) Sanierungsgebiete ----
+# ---- d.) S-Bahn Ring ----
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+setwd("/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten")
+S_Bahn  <- readOGR(dsn="S_BahnRing_GS/",layer="S-Bahn-Ring_LinesNeu")
+S_Bahn  <- spTransform(S_Bahn, zielCRS)
+#plot(BZK)
+#plot(S_Bahn, add=T, col="red", lwd=3)
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ---- e.) Sanierungsgebiete ----
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd("/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten")
@@ -920,7 +938,7 @@ SanGebiete@data$SanGebiet_NAME <- SanGebieteNAMEN
 #View(SanGebiete@data)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# ---- e.) Bloecke ------------------------------------------------------
+# ---- f.) Bloecke ------------------------------------------------------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #*******************

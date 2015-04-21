@@ -38,20 +38,22 @@ LOR4reg@data$MietechgQNTL <- cut(LOR4reg@data$Mietechg,
                                  labels=c("1.Quartil",
                                           "2.Quartil",
                                           "3.Quartil",
-                                          "4.Quartil"))
+                                          "4.Quartil"),
+                                 include.lowest = TRUE)
 table(LOR4reg@data$MietechgQNTL)
 PLOT_MietechgQNTL <- spplot(LOR4reg, zcol="MietechgQNTL", 
                            col.regions=c("darkblue","lightblue","orange","red"))
 
 
-qntl <- quantile(LOR4reg@data$Mietechgr, na.rm=T); qntl 
+qntl <- quantile(LOR4reg@data$Mietechgr); qntl 
 LOR4reg@data$MietechgrQNTL <- cut(LOR4reg@data$Mietechgr, 
                                   qntl,
                                   labels=c("1.Quartil",
                                            "2.Quartil",
                                            "3.Quartil",
-                                           "4.Quartil"))
-table(LOR4reg@data$MietechgrQNTL)
+                                           "4.Quartil"),
+                                  include.lowest = TRUE)
+table(LOR4reg@data$MietechgrQNTL, useNA="ifany")
 PLOT_MietechgrQNTL <- spplot(LOR4reg, zcol="MietechgrQNTL", 
                              col.regions=c("darkblue","lightblue","orange","red"))
 
@@ -61,8 +63,10 @@ LOR4reg@data$AlosechgQNTL <- cut(LOR4reg@data$Alosechg,
                                  labels=c("1.Quartil",
                                           "2.Quartil",
                                           "3.Quartil",
-                                          "4.Quartil"))
-table(LOR4reg@data$AlosechgQNTL)
+                                          "4.Quartil"),
+                                 include.lowest = TRUE)
+table(LOR4reg@data$AlosechgQNTL, useNA="ifany")
+
 PLOT_AlosechgQNTL <- spplot(LOR4reg, zcol="AlosechgQNTL", 
                             col.regions=c("darkblue","lightblue","orange","red"))
 
@@ -72,8 +76,9 @@ LOR4reg@data$nicht_Alose_HartzchgQNTL <- cut(LOR4reg@data$nicht_Alose_Hartzchg,
                                              labels=c("1.Quartil",
                                                       "2.Quartil",
                                                       "3.Quartil",
-                                                      "4.Quartil"))
-table(LOR4reg@data$nicht_Alose_HartzchgQNTL)
+                                                      "4.Quartil"),
+                                             include.lowest = TRUE)
+table(LOR4reg@data$nicht_Alose_HartzchgQNTL, useNA="ifany")
 PLOT_nicht_Alose_HartzchgQNTL <- spplot(LOR4reg, zcol="nicht_Alose_HartzchgQNTL", 
                                         col.regions=c("darkblue","lightblue","orange","red"))
 
@@ -83,10 +88,24 @@ LOR4reg@data$ArmutchgQNTL <- cut(LOR4reg@data$Armutchg,
                                              labels=c("1.Quartil",
                                                       "2.Quartil",
                                                       "3.Quartil",
-                                                      "4.Quartil"))
-table(LOR4reg@data$Armutchg)
+                                                      "4.Quartil"),
+                                 include.lowest = TRUE)
+table(LOR4reg@data$ArmutchgQNTL, useNA="ifany")
 PLOT_ArmutchgQNTL <- spplot(LOR4reg, zcol="ArmutchgQNTL", 
                                         col.regions=c("darkblue","lightblue","orange","red"))
+
+
+qntl <- quantile(LOR4reg@data$Armut.2007, na.rm=T); qntl 
+LOR4reg@data$Armut.2007QNTL <- cut(LOR4reg@data$Armut.2007, 
+                                 qntl,
+                                 labels=c("1.Quartil",
+                                          "2.Quartil",
+                                          "3.Quartil",
+                                          "4.Quartil"),
+                                 include.lowest = TRUE)
+table(LOR4reg@data$Armut.2007QNTL, useNA="ifany")
+PLOT_Armut.2007QNTL <- spplot(LOR4reg, zcol="Armut.2007QNTL", 
+                            col.regions=c("darkblue","lightblue","orange","red"))
 
 
 #grid.arrange(PLOT_MietechgQNTL,PLOT_MietechgrQNTL, nrow=2)
@@ -153,10 +172,10 @@ Gentri_Armut.2007_0.75 <- as.numeric(Gentri_Armut.2007_DESCR$counts[10]) # 0.75 
 Gentri_Armut.2007_0.90 <- as.numeric(Gentri_Armut.2007_DESCR$counts[11]) # 0.90 Quantil
 Gentri_Armut.2007_0.95 <- as.numeric(Gentri_Armut.2007_DESCR$counts[12]) # 0.95 Quantil
 
-LOR4reg@data$Gentri[LOR4reg@data$Armut.2007 > Gentri_Armut.2007_0.10 & 
-                         LOR4reg@data$Armut.2007 < Gentri_Armut.2007_0.90 & 
-                         LOR4reg@data$Miete.2007 > Gentri_Miete.2007_0.10 & 
-                         LOR4reg@data$Miete.2007 < Gentri_Miete.2007_0.90 &
+LOR4reg@data$Gentri[LOR4reg@data$Armut.2007      >= Gentri_Armut.2007_0.10 & 
+                         LOR4reg@data$Armut.2007 <= Gentri_Armut.2007_0.90 & 
+                         LOR4reg@data$Miete.2007 >= Gentri_Miete.2007_0.10 & 
+                         LOR4reg@data$Miete.2007 <= Gentri_Miete.2007_0.90 &
                          LOR4reg@data$Gentri!="Gentri"] <- "Kontroll"
 LOR4reg@data$Gentri[(LOR4reg@data$Gentri!="Gentri" & LOR4reg@data$Gentri!="Kontroll")] <- "Andere"
 LOR4reg@data$Gentri[is.na(LOR4reg@data$MietechgrQNTL) |
@@ -164,9 +183,8 @@ LOR4reg@data$Gentri[is.na(LOR4reg@data$MietechgrQNTL) |
                          LOR4reg@data$valid=="ungültig"] <- NA
 LOR4reg@data$Gentri <- as.factor(LOR4reg@data$Gentri)
 
-LOR4reg@data$Gentri <- C(LOR4reg@data$Gentri, contr.treatment, 
-                                    base=which(levels(LOR4reg@data$Gentri) == "Andere"))
-
 table(LOR4reg@data$Gentri,useNA="ifany")
+table(LOR4reg@data$Gentri,LOR4reg@data$STADTRAUM,useNA="ifany")
+
 spplot(LOR4reg, zcol="Gentri", 
        col.regions=c("blue","red","grey"))

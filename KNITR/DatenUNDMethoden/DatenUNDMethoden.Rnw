@@ -1,0 +1,104 @@
+
+\Sexpr{set_parent("MASTER.Rnw")}
+
+\section{Daten \& Methoden}\label{Sec:DatenUNDMethoden}
+
+Alles in R und knitr. Reproducable. Links zu skripten und Dokumentationen.
+
+\subsection{Daten}
+  \subsubsection{Rohdaten}
+  Übersicht und Quellen
+  Daten \& Geodaten : Projektionen etc.
+  \subsubsection{Beobachtungseinheit}
+
+Keine personenbezogenen einzeldaten wie bei Freeman, wyly etc. Kein sample, sondern vollerhebung. \\
+Plaungsräume = LORs \\
+Feiner als Gentrimaps , Schnuck 2014 
+
+LOR erklären, stat. landesamt zitieren \\
+Aggregationsproblematik: Mittelung, Verteilung nicht berücksichtigt \\
+
+deskriptive Statistiken über LORs \\
+Größenunterschiede (EW) der LORs problematisieren \\
+
+Nachbarschaft vs. Quartier vs. LOR \\
+
+Ähnlich wie monitoring ausschluss von zu kleinen LORs \\
+Moulton 1990 Problem mit standard errors 
+
+
+  \subsubsection{Räumliche Interpolation}
+  PLZ zu LOR
+    Verschneidungsschema Graphik
+  \subsubsection{Variaben}
+  Generierung und Beschreibung
+  - Control
+  - Gentri
+  - Response
+  Deskriptive
+
+
+<<Verschneidungschema, echo=FALSE, cache=FALSE>>=
+source("/home/dao/Desktop/MasterArbeit/R_files/Verschneidung_Veranschaulichung.R")
+@
+  
+  
+<<>>=
+summary(JLLdata)
+boxplot(Miete.2007 ~ Gentri , data=LOR4reg@data)
+@
+
+\cite{Wyly2010} is auchs schön
+
+	\subsubsection{Stichprobe vs. Grundgesamtheit}
+
+\subsection{Methodik}
+Auswahl der Untersuchungsform: Warum ist sie besten geeignet, die Forschungsfrage zu beantworten? Gab es Alternativen? \\
+Mit Verortung in Linteratur \\
+
+  \subsubsection{Kategorisierung \& Explorative Datenanalyse}
+Kategorisierung schütteln als robustheitscheck
+
+  \subsubsection{SAR weighted}
+  
+  \subsubsection{Umzugsortsanalyse?}
+
+
+\subsection{Operationalisierung}
+\begin{enumerate}
+\item Identifizierung und Visualisierung von Aufwertungsgebieten auf der Basis von kleinräumigen, stadtweiten statistischen Daten (Gentrimaps zitat) - potentielle gentri gebiete d.h. die notwendigen Vorraussetzungen erfüllen was starke immobilienwirtschaftliche Aufwertung und Soziale Aufwertung. Relationale Definition. Gleichzeitige Identifizierung von Vergleichsnachbarschaften, die eine anderen anderen Entwicklungspfad genommen haben, welche zwar ähnliche grundvoraussetzungen hatten, sich aber anders entwickelt haben mit weniger Dynamik.
+\item Anhand explorativer Datenanalyse eine vergleichende Charakterisierung dieser potentiellen Gentri gebieten (starke Wohn + Soziale Aufwertungs) gegenüber den Kontrollnachbarschaften
+\item Modellierung und Quantifizierung des Zusammenhangs zwischen Aufwertungsdynamik (immobilienwirtschaftliche Inwertsetzungsdynmaik (Mietpreissteigerung) und sozialer Auwertung (notwendig)) und wohnräumlicher Mobilität mit weighted SARs unter Berücksichtigung von Kontrollprädiktoren \\
+
+FortzuegeR ~ Mietechgr: Das ist kein exclusionary displacement, das ist direct economic displacement (last resident und chain nicht unterscheidbar, keine Subjektivität). Mixed Methods notwendig um genauer zu bestimmen.
+
+Mietechgr und auch Armutchg: Ganz klar displacement pressure (erste ökonomisch, das zweite sozialkulturell?). Exclusionary displacement wegen Neuvermietung = Angebotsmietpreise, aber nicht separierbar/messbar. Außerdem für messung von exclusionary displacement bräuchteman z.B. auch die Umwandlungsquote
+
+
+
+ZuzuegeUDR ~ Armutchg: Das ist exclusionary displacement? und vielleicht displacement pressure
+\item Beispielhafte Untersuchung / Spezifizierung der wohnräumlichen Mobilität in einem Gentri Gebiet vs. Control gebiet
+\end{enumerate}
+
+
+VERDRÄNGUNGSTYPOLOGIE MIT VERORTUNG WAS ICH MESSEN KANN UND WAS NICHT UND WAS ICH NICHT AUSSEINANDERHALTEN KANN (Marcuse 1985,p.205)
+
+
+Immobilienwirtschaftliche Aufwertung: Miete
+\begin{enumerate}
+ \item Begründung: Berlin als Mieterstadt
+ \item Gefährdete Personengruppen sind in erster Linie Mieterinnen und keine Eigentümer
+ \item rent gap - Glatter p.17
+\end{enumerate}
+
+Soziale Aufwertung \\
+
+gentrification = Aufwertungsdynamik. Notwendig, nicht hinreichend. Dyanmik griech., dynamiké=mächtig
+Andere Dimensionen ()
+
+Verdrängung vs. Austausch
+
+Verdrängungs Typologie
+
+
+Probleme mit meiner Operationalisierung: Confounder, räumliche interpolation etc.
