@@ -73,13 +73,13 @@ Sys.setenv(TEXINPUTS=getwd(),
 \pagestyle{plain}
 \pagenumbering{roman}   % define page number in roman style
 \setcounter{page}{1}    % start page numbering
-\input{Andere/Danksagung}
+%\input{Andere/Danksagung}
 
 % -----------------------------
 % --- frontmatter: Abstract ---
 % -----------------------------
-\newpage
-\input{Andere/Abstract}
+%\newpage
+%\input{Andere/Abstract}
 
 % -----------------------------
 % --- frontmatter: Contents ---
@@ -134,11 +134,7 @@ Sys.setenv(TEXINPUTS=getwd(),
 @
 
 \newpage
-<<'child-Daten/Daten.Rnw', child='Daten/Daten.Rnw'>>=
-@
-
-\newpage
-<<'child-Methoden/Methoden.Rnw', child='Methoden/Methoden.Rnw'>>=
+<<'child-DatenUNDMethoden/DatenUNDMethoden.Rnw', child='DatenUNDMethoden/DatenUNDMethoden.Rnw'>>=
 @
 
 \newpage
