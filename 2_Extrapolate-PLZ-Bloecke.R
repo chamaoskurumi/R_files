@@ -352,18 +352,14 @@ LOR_JLLagg_07 <- ddply(bloecke2LOR_07,
 str(LOR_JLLagg_07)
 LOR_JLLagg_07 <- subset(LOR_JLLagg_07, !is.na(LOR_JLLagg_07$RAUMID))
 
-# Für den Planungsraunm "04041133" haben wir keine Infos. Er ist gar nicht im Datensatz:
+# IDs sind identisch, wir können mergen:
 setdiff(LORshape$RAUMID,bloecke2LOR_07$RAUMID) 
-# Müssen ihn manuell als NA Zeile an LOR_JLLagg07 anhängen:
-LOR04041133   <- c("04041133",NA,NA)
-LOR_JLLagg_07 <- rbind(LOR_JLLagg_07[1:139,],LOR04041133,LOR_JLLagg_07[-(1:139),]) # LOR04041133 muss in die 140ste Zeile
-#LOR_JLLagg_07 <- rbind(LOR_JLLagg_07, LOR04041133)
 LOR_JLLagg_07$Miete_H1_wmean.2007 <- as.numeric(LOR_JLLagg_07$Miete_H1_wmean.2007) # war chr, soll numeric werden
 LOR_JLLagg_07$Miete_H2_wmean.2007 <- as.numeric(LOR_JLLagg_07$Miete_H2_wmean.2007) # war chr, soll numeric werden
 
 sum(is.na(LOR_JLLagg_07$Miete_H1_wmean.2007)) # für soviele LORs fehlen uns die Mietpreisdaten
 sum(is.na(LOR_JLLagg_07$Miete_H2_wmean.2007)) # für soviele LORs fehlen uns die Mietpreisdaten
-#View(LOR_JLLagg_07$RAUMID)
+#View(LOR_JLLagg_07)
 
 #+++++++++++++
 # 2008
@@ -466,12 +462,12 @@ LOR_JLLaggWIDE <- LOR_JLLagg
 # Mit LOR Shapefile assoziieren
 
 source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
-colnames(LORslim@data)[1]  <- "RAUMID"
-LORslim_df             <- as(LORslim, "data.frame")
+colnames(LORshape@data)[1]  <- "RAUMID"
+LORdf         <- subset(as(LORshape, "data.frame"), select=c(RAUMID))
 LORattrFULLwide <- merge(LORattr, LOR_JLLaggWIDE, by="RAUMID", 
                          all.x=T, all.y=T,
                          sort=F)
-LORattrFULLwide4shape        <- merge.with.order(LORslim_df, LORattrFULLwide, 
+LORattrFULLwide4shape        <- merge.with.order(LORdf, LORattrFULLwide, 
                                            by.x="RAUMID", by.y="RAUMID", 
                                            all.x=T, all.y=T,
                                            sort=F, keep_order=1)

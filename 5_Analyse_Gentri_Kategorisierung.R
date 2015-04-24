@@ -343,4 +343,41 @@ xyplot(FortzuegeR ~ Mietechgr | Gentri, bpDF, groups = bpDF$Gentri, pch= 20,
        type = c("p","r"))
 summary(bpDF$FortzuegeR)
 
-bpDF$RAUMID_NAME[bpDF$Mietechgr>60]
+
+boxplot(FortzuegeR~Gentri*ZEIT,data=LORdataFULLvalid, ylim=c(1,20))
+
+LORdataFULLvalidINNERESTADT <- subset(LORdataFULLvalid, STADTRAUM=="innere Stadt")
+
+boxplot(FortzuegeR~Gentri*ZEIT,data=LORdataFULLvalidINNERESTADT, ylim=c(3,18), col=c("blue","red","green"))
+boxplot(FortzuegeR~ZEIT*Gentri,data=LORdataFULLvalidINNERESTADT, 
+        ylim=c(3,18), 
+        col= c(rep(c("blue"),times=6),
+               rep(c("red"),times=6),
+               rep(c("green"),times=6)))         
+
+
+boxplot(FortzuegeR~MietechgrQNTL,data=LORdataFULLvalid, ylim=c(0,40), col=c("blue","yellow","orange","red"))
+
+boxplot(FortzuegeR~,data=LORdataFULLvalid, ylim=c(0,40), col=c("blue","yellow","orange","red"))
+boxplot(FortzuegeR~MietechgrQNTL,data=LORdataFULLvalid, 
+        ylim=c(3,18), 
+        col= c(rep(c("blue"),times=6),
+               rep(c("red"),times=6),
+               rep(c("green"),times=6)))         
+
+
+boxplot(ZuzuegeDAR~Gentri*ZEIT,data=LORdataFULLvalidINNERESTADT, ylim=c(1,14), col=c("blue","red","green"))
+boxplot(ZuzuegeDAR~ZEIT*Gentri,data=LORdataFULLvalidINNERESTADT, 
+        ylim=c(1,15), 
+        col= c(rep(c("blue"),times=6),
+               rep(c("red"),times=6),
+               rep(c("green"),times=6)))    
+
+
+
+boxplot(ZuzuegeR~Gentri*ZEIT,data=LORdataFULLvalidINNERESTADT, ylim=c(5,16), col=c("blue","red","green"))
+boxplot(ZuzuegeR~ZEIT*Gentri,data=LORdataFULLvalidINNERESTADT, 
+        ylim=c(5,16), 
+        col= c(rep(c("blue"),times=6),
+               rep(c("red"),times=6),
+               rep(c("green"),times=6)))    

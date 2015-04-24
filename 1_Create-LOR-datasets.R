@@ -337,7 +337,7 @@ LORdata_wide <- DF10wide
 LORshape <- spTransform(LORkorrekt1, zielCRS)
 
 colnames(LORshape@data)[1]  <- "RAUMID"
-LORdf         <- as(LORshape, "data.frame")
+LORdf         <- subset(as(LORshape, "data.frame"), select=c(RAUMID))
 source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
 LORattr       <- merge.with.order(
                        LORdf, LORdata_wide, sort=F,

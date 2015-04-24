@@ -15,26 +15,82 @@ LOR4regdf <- LOR4reg@data
 colnames(LOR4regdf)[2] <- "id"
 LOR4reg.fort <- join(LOR4reg.fort, LOR4regdf, by="id")
 
-BZKLONGLAT <- spTransform(BZKt,CRS("+proj=longlat"))
+BZKLONGLAT <- spTransform(BZK,CRS("+proj=longlat"))
 BZK.fort  <- fortify(BZKLONGLAT, region="BezName")
 BZKdf     <- BZK@data
 colnames(BZKdf)[2] <- "id"
 BZK.fort <- join(BZK.fort, BZKdf, by="id")
+
+S_BahnLONGLAT <- spTransform(S_Bahn,CRS("+proj=longlat"))
+S_Bahn.fort  <- fortify(S_BahnLONGLAT)
+S_Bahndf     <- S_Bahn@data
+#colnames(S_Bahndf)[2] <- "id"
+S_Bahn.fort <- join(S_Bahn.fort, S_Bahndf)#, by="id")
+
+ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + geom_polygon(aes(fill=Mietechgr, group=id)) + geom_path(data=S_Bahn.fort, aes(x=long, y=lat))
 
 
 #### 2.) GGPLOT ohne Map drunter - funktioniert.
 # außer das mit den Farben und so, das kann man noch schöner machen. Und weiss auf 0 setzen und so...hatten wir ja schon
 # mal kurz besprochen
 # könnten wir mal in einer nerdsession optimieren
-breaks <- c(-5,0,5,10,15)
+#breaks <- cut2(x, m=50))
 p <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
-  geom_polygon(aes(fill=Mietechgr, group=id)) + geom_path(color="grey", alpha=0.0) +   
+  geom_polygon(aes(fill=Mietechgr, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +   
   theme_bw() + 
-  scale_fill_gradientn(limits = c(min(LOR4reg.fort$Mietechgr),
-                                               max(LOR4reg.fort$Mietechgr)),
-                                    colours=c("yellow","orange","red"),
-                                    breaks=breaks) + coord_equal(ratio=1.5)
-p + geom_polygon(aes(group=id),data=BZK.fort, fill=NA, colour="black") 
+  scale_fill_gradient2(low = "blue", mid = "white", high ="red",
+                       midpoint = 0) #colours=c("yellow","orange","red")) + coord_equal(ratio=1.5)
+p <- p + geom_polygon(aes(group=id),data=BZK.fort, fill=NA, colour="grey", alpha=0.8) + theme_bw() + 
+  theme(legend.position =c(0.9,0.8), 
+        line = element_blank(), 
+        rect= element_blank(),
+        axis.line=element_blank(),
+        axis.text.x=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks=element_blank(),
+        axis.title.x=element_blank(),
+        axis.title.y=element_blank()) + coord_map("polyconic") + guides(fill = guide_colourbar(barheight=6))
+p1 <- p + geom_path(data=S_Bahn.fort, aes(x=long, y=lat), linetype=2)
+p1
+
+p1 <- p1 + scaleBar(lon = 13.15, lat = 52.35, distanceLon = 500,distanceLat = 100, distanceLegend = 200, dist.unit = "km")
+
+p <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=Armut.2012, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +   
+  theme_bw() + 
+  scale_fill_gradientn(limits = c(min(LOR4reg.fort$Armut.2012),
+                                  max(LOR4reg.fort$Armut.2012)),
+                       colours=c("yellow","orange","red")) + coord_equal(ratio=1.5)
+p <- p + geom_polygon(aes(group=id),data=BZK.fort, fill=NA, colour="grey", alpha=0.8) + theme_bw() + 
+  theme(legend.position =c(0.9,0.8), 
+        line = element_blank(), 
+        rect= element_blank(),
+        axis.line=element_blank(),
+        axis.text.x=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks=element_blank(),
+        axis.title.x=element_blank(),
+        axis.title.y=element_blank()) + coord_map("polyconic") + guides(fill = guide_colourbar(barheight=6))
+p1 <- p + geom_path(data=S_Bahn.fort, aes(x=long, y=lat), linetype=2)
+p1
+
+p <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=Gentri, group=id)) + geom_path(color="white", alpha=1, size=0.3) +   
+  theme_bw() + coord_equal(ratio=1.5)
+p <- p + geom_polygon(aes(group=id),data=BZK.fort, fill=NA, colour="grey", alpha=0.8, size=1) + theme_bw() + 
+  theme(legend.position =c(0.9,0.8), 
+        line = element_blank(), 
+        rect= element_blank(),
+        axis.line=element_blank(),
+        axis.text.x=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks=element_blank(),
+        axis.title.x=element_blank(),
+        axis.title.y=element_blank()) + coord_map("polyconic") + guides(fill = guide_legend(barheight=6))
+p1 <- p + geom_path(data=S_Bahn.fort, aes(x=long, y=lat), linetype=2, size=1)
+p1
+
+
 
 #### 3.) Jetzt gehts endlich um GGMAP. Als erstes muss man da ne Karte holen mit get_map. 
 # Das funktioniert auch:
@@ -43,7 +99,7 @@ bbox <- c(min(LOR4reg.fort$long),min(LOR4reg.fort$lat),max(LOR4reg.fort$long),ma
 
 BerlinGMAP <- get_map(location = bbox,
                       maptype = "terrain", 
-                      source = c("google"),
+                      source = c("osm"),
                       filename = "BerlinGMAP",
                       color= c("color"))
 
@@ -66,6 +122,7 @@ BerlinGMAP <- get_map(location = bbox,
                       filename = "BerlinGMAP",
                       color= c("color"),
                       zoom=11)
+
 
 # Karte passt eigentlich
 ggmap(BerlinGMAP)

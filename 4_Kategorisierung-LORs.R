@@ -93,7 +93,7 @@ LOR4reg@data$ArmutchgQNTL <- cut(LOR4reg@data$Armutchg,
 table(LOR4reg@data$ArmutchgQNTL, useNA="ifany")
 PLOT_ArmutchgQNTL <- spplot(LOR4reg, zcol="ArmutchgQNTL", 
                                         col.regions=c("darkblue","lightblue","orange","red"))
-
+#PLOT_ArmutchgQNTL
 
 qntl <- quantile(LOR4reg@data$Armut.2007, na.rm=T); qntl 
 LOR4reg@data$Armut.2007QNTL <- cut(LOR4reg@data$Armut.2007, 
@@ -106,7 +106,7 @@ LOR4reg@data$Armut.2007QNTL <- cut(LOR4reg@data$Armut.2007,
 table(LOR4reg@data$Armut.2007QNTL, useNA="ifany")
 PLOT_Armut.2007QNTL <- spplot(LOR4reg, zcol="Armut.2007QNTL", 
                             col.regions=c("darkblue","lightblue","orange","red"))
-
+#PLOT_Armut.2007QNTL
 
 #grid.arrange(PLOT_MietechgQNTL,PLOT_MietechgrQNTL, nrow=2)
 #grid.arrange(PLOT_AlosechgQNTL,PLOT_AlosechgQNTL, nrow=2)
@@ -136,7 +136,7 @@ plot(LOR4reg@data$Alose.2007, LOR4reg@data$nicht_Alose_Hartz.2007)
 ###  0.10 < "Kontroll" < 0.90 = ENDGÜLTIGE DEFINITION 
 
 LOR4reg@data$Gentri <- -1
-LOR4reg@data$Gentri[LOR4reg@data$ArmutchgQNTL=="4.Quartil" & LOR4reg@data$MietechgrQNTL=="4.Quartil"] <- "Gentri"
+LOR4reg@data$Gentri[LOR4reg@data$ArmutchgQNTL=="1.Quartil" & LOR4reg@data$MietechgrQNTL=="4.Quartil"] <- "Gentri"
 
 # Gewichtete deskriptive Statistiken von Miete.2007 nur für LORs der Kategorie "Gentri hi" 
 Gentri_Miete.2007_DESCR <- describe(x=LOR4reg@data$Miete.2007[LOR4reg@data$Gentri=="Gentri"],
@@ -188,3 +188,18 @@ table(LOR4reg@data$Gentri,LOR4reg@data$STADTRAUM,useNA="ifany")
 
 spplot(LOR4reg, zcol="Gentri", 
        col.regions=c("blue","red","grey"))
+
+##### Gentri Variable an Long Datensatz mergen #####
+Gentri4long <- data.frame(LOR4reg@data$RAUMID,LOR4reg@data$MietechgrQNTL,LOR4reg@data$Gentri)
+colnames(Gentri4long) <- c("RAUMID","MietechgrQNTL","Gentri")
+
+source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
+LORdataFULL   <- merge.with.order(LORdataFULL, Gentri4long, sort=F,
+                                  by.x="RAUMID", by.y="RAUMID",
+                                  all.x=T, all.y=T,
+                                  keep_order=1)
+#View(LORdataFULL[,c(1,2,3,4,5,125,127)])
+
+# Neuer endgültiger long Datensatz
+LORdataFULLvalid <- subset(LORdataFULL, !is.na(Gentri))
+

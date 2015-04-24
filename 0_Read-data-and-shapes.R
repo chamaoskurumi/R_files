@@ -906,7 +906,8 @@ LORslim         <- LOR
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 setwd("/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten")
-S_Bahn  <- readOGR(dsn="S_BahnRing_GS/",layer="S-Bahn-Ring_LinesNeu")
+S_Bahn  <- readOGR(dsn="S_BahnRing_GS/",layer="S-Bahn-Ring_LinesAndere")
+S_Bahn@proj4string
 S_Bahn  <- spTransform(S_Bahn, zielCRS)
 #plot(BZK)
 #plot(S_Bahn, add=T, col="red", lwd=3)
