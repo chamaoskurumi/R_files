@@ -201,19 +201,24 @@ predictors4vifcheck <- subset(LOR4reg@data,
                                        PDAU5.2012 , Miete.2012 , Alose_langzeit.2012, 
                                        PDAU10.2012 , E_U18R.2007 , E_65U110R.2007, Armut.2012))
 
+predictors4vifcheck <- subset(LOR4reg@data,
+                              select=c(Mietechgr,Alosechg,
+                                         Miete.2007,Armut.2007,
+                                         E_U18R.2007,E_18U35R.2007,E_65U110R.2007,
+                                         PDAU10.2007,StaedtWohnungen.2012, AlleinerzHH.2012))
+
 corrgram(predictors4vifcheck, order=FALSE, lower.panel=panel.shade,
          upper.panel=panel.pie, text.panel=panel.txt,
          main="Correlations") 
 
 str(predictors4vifcheck)
-vifstep1 <- 
-  vifstep(predictors4vifcheck, th=5)
+vifstep1 <- vifstep(predictors4vifcheck, th=5)
 
 vifcor(predictors4vifcheck, th=5)# identify collinear variables that should be excluded
 predictors <- exclude(predictors4vifcheck, vifstep1)
 names(predictors)
 
-Mietechgr, Armutchg, STADTRAUM, Sanierung
+#Mietechgr, Armutchg, STADTRAUM, Sanierung
 
 levels(LOR4reg@data$SanGebiet_KLASSE.2012)
 
@@ -299,42 +304,43 @@ summary(SAR1, Nagelkerke=T)
 SAR4 <- spautolm(formula=FortzuegeR ~ Gentri*STADTRAUM +
                    Miete.2012  + Armut.2012 +
                    E_U18R.2007 + E_65U110R.2007 +
-                   PDAU10.2007,
+                   PDAU10.2007 ,
                  data=LOR4reg,
                  listw=W_polyIDWs, 
                  weights=E_E.2007,
                  family="SAR")
 summary(SAR4, Nagelkerke=T)#, adj.se=T)
 
-SAR5 <- spautolm(formula=FortzuegeR ~ Mietechgr*STADTRAUM + Armutchg*STADTRAUM +
+SAR5 <- spautolm(formula=FortzuegeR ~ Mietechgr + Alosechg +
                    Miete.2007  + Armut.2007 +
-                   E_U18R.2007 + E_65U110R.2007 +
-                   PDAU10.2007, #+ STADTRAUM,
+                   E_U18R.2007 +
+                   E_18U35R.2007  +
+                   #E_65U110R.2007 +
+                   PDAU10.2007+ STADTRAUM + StaedtWohnungen.2012 + AlleinerzHH.2012 + WL.2012,
                  data=LOR4reg,
                  listw=W_2000mIDWs, 
                  weights=E_E.2007,
                  family="SAR")
 summary(SAR5, Nagelkerke=T)#, adj.se=T)
 
-SAR5 <- spautolm(formula=ZuzuegeDAR ~ Mietechgr + Armutchg +
-                   #Miete.2007  + Armut.2007 +
-                   E_U18R.2007 + E_65U110R.2007 +
-                   PDAU10.2007 + STADTRAUM,
-                 data=LOR4reg,
-                 listw=W_2000mIDWs, 
-                 weights=E_E.2007,
-                 family="SAR")
-summary(SAR5, Nagelkerke=T)#, adj.se=T)
 
-SAR5 <- spautolm(formula=ZuzuegeDAR ~ Gentri +
+SAR6 <- spautolm(formula=ZuzuegeDAR ~ Mietechgr + Armutchg +
                    Miete.2007  + Armut.2007 +
-                   E_U18R.2007 + E_65U110R.2007 +
-                   PDAU10.2007 + STADTRAUM,
+                   E_U18R.2007 + E_18U35R.2007 + #E_65U110R.2007 +
+                   PDAU10.2007+ STADTRAUM,
                  data=LOR4reg,
                  listw=W_2000mIDWs, 
                  weights=E_E.2007,
                  family="SAR")
-summary(SAR5, Nagelkerke=T)#, adj.se=T)
+summary(SAR6, Nagelkerke=T)#, adj.se=T)
+
+LOR4reg -> LOR4SAR
+LOR4SAR@data <- data.frame(LOR4SAR@data, SAR5$fit$residuals)
+breaks <- quantile(SAR5$fit$residuals, probs = seq(0, 1, 0.1))
+spplot(LOR4SAR, zcol="SAR5.fit.residuals",at = breaks)
+
+
+
 
 zresid <- residuals(M1)/(M1 sum$sig)
 zresid
@@ -366,6 +372,23 @@ LOR4regCLEAN<- LOR4reg[LOR4reg@data$RAUMID_NAME!="Plötzensee" &
         LOR4reg@data$RAUMID_NAME!="Herzbergstraße",] 
 
 spplot(LOR4regCLEAN,zcol="Gentri")
+
+
+SAR5 <- spautolm(formula=ZuzuegeDAR ~ Mietechgr + Armutchg +
+                   Miete.2007  + Armut.2007 +
+                   E_U18R.2007 + E_18U35R.2007 + #E_65U110R.2007 +
+                   PDAU10.2007+ STADTRAUM,
+                 data=LOR4regCLEAN,
+                 listw=W_2000mIDWs, 
+                 weights=E_E.2007,
+                 family="SAR")
+summary(SAR5, Nagelkerke=T)#, adj.se=T)
+
+LOR4regCLEAN -> LOR4SAR
+LOR4SAR@data <- data.frame(LOR4SAR@data, SAR5$fit$residuals)
+breaks <- quantile(SAR5$fit$residuals, probs = seq(0, 1, 0.1))
+spplot(LOR4SAR, zcol="SAR5.fit.residuals",at = breaks)
+
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

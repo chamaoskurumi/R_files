@@ -358,6 +358,9 @@ boxplot(FortzuegeR~ZEIT*Gentri,data=LORdataFULLvalidINNERESTADT,
 
 boxplot(FortzuegeR~MietechgrQNTL,data=LORdataFULLvalid, ylim=c(0,40), col=c("blue","yellow","orange","red"))
 
+boxplot(Armutchg.2012~MietechgrQNTL,data=LORdataFULLvalid, ylim=c(0,40), col=c("blue","yellow","orange","red"))
+
+boxplot(Armutchg~MietechgrQNTL,data=LOR4reg@data, ylim=c(-20,10), col=c("blue","yellow","orange","red"))
 boxplot(FortzuegeR~,data=LORdataFULLvalid, ylim=c(0,40), col=c("blue","yellow","orange","red"))
 boxplot(FortzuegeR~MietechgrQNTL,data=LORdataFULLvalid, 
         ylim=c(3,18), 
