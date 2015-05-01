@@ -30,6 +30,23 @@ library("weights")
 #*************************************************
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 0.) Variablen zentrieren für Regressionen ------
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+LOR4reg@data$MietechgrC              <- scale(LOR4reg@data$Mietechgr,scale=F)
+LOR4reg@data$Miete.2007C             <- scale(LOR4reg@data$Miete.2007,scale=F)
+LOR4reg@data$ArmutchgC               <- scale(LOR4reg@data$Armutchg,scale=F)
+LOR4reg@data$Armut.2007C             <- scale(LOR4reg@data$Armut.2007,scale=F)
+LOR4reg@data$AlosechgC               <- scale(LOR4reg@data$Alosechg,scale=F)
+LOR4reg@data$Alose.2007C             <- scale(LOR4reg@data$Alose.2007,scale=F)
+LOR4reg@data$PDAU10.2007C            <- scale(LOR4reg@data$PDAU10.2007,scale=F)
+LOR4reg@data$E_U18R.2007C            <- scale(LOR4reg@data$E_U18R,scale=F)
+LOR4reg@data$E_18U35R.2007C          <- scale(LOR4reg@data$E_18U35R.2007,scale=F)
+LOR4reg@data$E_65U110R.2007C         <- scale(LOR4reg@data$E_65U110R.2007,scale=F)
+LOR4reg@data$AlleinerzHH.2012C       <- scale(LOR4reg@data$AlleinerzHH.2012,scale=F)
+LOR4reg@data$StaedtWohnungen.2012C   <- scale(LOR4reg@data$StaedtWohnungen.2012,scale=F)
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # I.) Nachbarschaftslisten ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
