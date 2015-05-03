@@ -40,7 +40,7 @@ LOR4reg@data$Armut.2007C             <- scale(LOR4reg@data$Armut.2007,scale=F)
 LOR4reg@data$AlosechgC               <- scale(LOR4reg@data$Alosechg,scale=F)
 LOR4reg@data$Alose.2007C             <- scale(LOR4reg@data$Alose.2007,scale=F)
 LOR4reg@data$PDAU10.2007C            <- scale(LOR4reg@data$PDAU10.2007,scale=F)
-LOR4reg@data$E_U18R.2007C            <- scale(LOR4reg@data$E_U18R,scale=F)
+LOR4reg@data$E_U18R.2007C            <- scale(LOR4reg@data$E_U18R.2007,scale=F)
 LOR4reg@data$E_18U35R.2007C          <- scale(LOR4reg@data$E_18U35R.2007,scale=F)
 LOR4reg@data$E_65U110R.2007C         <- scale(LOR4reg@data$E_65U110R.2007,scale=F)
 LOR4reg@data$AlleinerzHH.2012C       <- scale(LOR4reg@data$AlleinerzHH.2012,scale=F)
@@ -239,10 +239,9 @@ names(predictors)
 
 levels(LOR4reg@data$SanGebiet_KLASSE.2012)
 
-lm1 <- lm(formula=FortzuegeR ~ Alosechg*STADTRAUM + 
-          nicht_Alose_Hartzchg+   Mietechg*STADTRAUM+   Miete.2012 +        
-          StaedtWohnungen.2012+   Alose.2012+  
-          Altersarmut.2012 +      AlleinerzHH.2012,
+lm1 <- lm(formula=FortzuegeR ~ AlosechgC + MietechgrC +   Miete.2007C +        
+          StaedtWohnungen.2012C+   Alose.2007C+  E_U18R.2007C +
+            E_18U35R.2007C + E_65U110R.2007C +  PDAU10.2007C +  AlleinerzHH.2012C,
           data=LOR4reg@data,
           weights=E_E.2012)
 summary(lm1)
@@ -296,8 +295,6 @@ SAR1 <- spautolm(formula=FortzuegeR ~ Alosechg + Mietechg + STADTRAUM,
                  family="SAR")
 summary(SAR1, correlation=T, Nagelkerke=T)
 
-
-
 SAR2 <- spautolm(formula=FortzuegeR ~ Mietechgr + Armutchg + PDAU5chg + 
                  AlleinerzHH.2012 + Altersarmut.2012 + StaedtWohnungen.2012 + 
                  Alose.2012  + Alose_langzeit.2012 + nicht_Alose_Hartz.2012+ 
@@ -328,12 +325,24 @@ SAR4 <- spautolm(formula=FortzuegeR ~ Gentri*STADTRAUM +
                  family="SAR")
 summary(SAR4, Nagelkerke=T)#, adj.se=T)
 
-SAR5 <- spautolm(formula=FortzuegeR ~ Mietechgr + Alosechg +
-                   Miete.2007  + Armut.2007 +
-                   E_U18R.2007 +
-                   E_18U35R.2007  +
+SAR5 <- spautolm(formula=FortzuegeR ~ Mietechgr + ArmutchgC +
+                   Miete.2007C  + Armut.2007C +
+                   E_U18R.2007C +
+                   E_18U35R.2007C  +
                    #E_65U110R.2007 +
-                   PDAU10.2007+ STADTRAUM + StaedtWohnungen.2012 + AlleinerzHH.2012 + WL.2012,
+                   PDAU10.2007C + STADTRAUM + StaedtWohnungen.2012C + AlleinerzHH.2012C,
+                 data=LOR4reg,
+                 listw=W_2000mIDWs, 
+                 weights=E_E.2007,
+                 family="SAR")
+summary(SAR5, Nagelkerke=T)#, adj.se=T)
+
+SAR5 <- spautolm(formula=ZuzuegeDAR ~ Mietechgr + ArmutchgC +
+                   Miete.2007C  + Armut.2007C +
+                   E_U18R.2007C +
+                   E_18U35R.2007C  +
+                   #E_65U110R.2007 +
+                   PDAU10.2007C + STADTRAUM + StaedtWohnungen.2012C + AlleinerzHH.2012C,
                  data=LOR4reg,
                  listw=W_2000mIDWs, 
                  weights=E_E.2007,
@@ -341,10 +350,10 @@ SAR5 <- spautolm(formula=FortzuegeR ~ Mietechgr + Alosechg +
 summary(SAR5, Nagelkerke=T)#, adj.se=T)
 
 
-SAR6 <- spautolm(formula=ZuzuegeDAR ~ Mietechgr + Armutchg +
-                   Miete.2007  + Armut.2007 +
-                   E_U18R.2007 + E_18U35R.2007 + #E_65U110R.2007 +
-                   PDAU10.2007+ STADTRAUM,
+SAR6 <- spautolm(formula=ZuzuegeDAR ~ MietechgrC + ArmutchgC +
+                   Miete.2007C  + Armut.2007C +
+                   E_U18R.2007C + E_18U35R.2007C + #E_65U110R.2007 +
+                   PDAU10.2007C+ STADTRAUM,
                  data=LOR4reg,
                  listw=W_2000mIDWs, 
                  weights=E_E.2007,

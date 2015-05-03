@@ -2,16 +2,41 @@
 
 \section{Analyse}\label{Sec:Analyse}
 
-  	\subsection{Kategorisierung \& Explorative Datenananalyse}
-		\subsection{Spatially Autoregressive Regressions}
-		\subsection{Wanderungsanalyse für Gentri Gebiete}
+  	\subsection{Identifizierung und Charakterisierung von Aufwertungsgebieten}
+    Karten erstellen mit Mietechgr und Armutchg sowie daneben die Quartilsbetrachtungen \\
+
+    Tabelle mit zahlen wieviele LORs wo rein fallen (Gentri vs. Stadtraum) und wieviele Leute da wohnen. \\
+    3 Kreisdiagramme nach Gentri, Kuchenstücke nach Bezirken in Einwohnern. \\
+    Diverse Violin-Boxplots nach Gentri --> Darauf hinweisen dass unterliegende Kausalität andere sein kann. das wird ja dann in den Modellen folgen.
+
+    Großteil der Aufwertungsgebiete fällt mit den Gebieten der größten Ertragslücken zusammen. Ist ist also von einem erhöhten Verdrängungsdruck sowie von exclusionary displacement auszugehen. Medianangebotsmieten verschleiern aber auch den Wegfall von billigen Angebotsmieten. Laut BBU und Gentrimap fehlen aber vor allem da die Wohunngen, also exclusionary displacement.
+
+    Am Ende: 
+    Kategorisierung schütteln - ergebnisse des robustheitschecks \\
+    z.B. in Anhang selbe Graphiken für Gentri = obere 40Prozent und Q0.25<Kontroll<Q0.75 oder
+
+
 
 \begin{itemize}
-    \item Deskriptives Kategorisierung
-    \item Regressionsergebnisse
-    \item Diagnostik und Residualanalyse
+    \item Fortzuege in gebieten nach Qntl Mietpreissteigerung: MietechgrQNTL Aufwertungs Quantil (4.) dort am meisten Fortzuege. Aber NICHT wegen mieterhöhunG! --> Modelle
+    \item Armutchg am am krassesten in 4. Mietaufwertungsquartil --> exclusionary displacement
+    \item displacement pressure wohl im 4. Mietaufwertungsquartil am größten wegen größter rent gap (äußert sich in der differenz bestandsmieten-angebotsmieten) z.B. gestiegene Zwangsräumungsneigung. 
 \end{itemize}
 
+		\subsection{Modellierung wohnräumlicher Mobilität}
+
+1. Inhaltlich wurde die Variablenselektion bereits im Methodenkapitel begründet. \\
+2. VIF check ob Multicollineartität. \\
+3. Modelle schätzen - Coefplots \\
+4. Residuenanalyse und Goodness of fit checken \\
+
+Diskussion der Ergebnisse, was sagen zu jedem Verdrängungstypen
+
+Newman 2006 p.2 sagt, höhere Umzugsraten bei Armen zu erwarten.
+Siehe auch Scottish Government Report: Umzugsneigung bei Familien mit geringem Einkommen, arbeitslosen, Mieterinnen, most deprived areas höher.
+
+
+		\subsection{Vergleichende Wanderungsanalyse}
 
 \begin{itemize}
     \item Discuss results:

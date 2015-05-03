@@ -7,6 +7,7 @@
 \usepackage[backend=bibtex, style=authoryear, language=ngerman, isbn=false, url=false, doi=false, eprint=false, natbib=true, citestyle=authoryear]{biblatex}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
+\usepackage{acronym}
 
 \bibliography{Bibliographie}
 % -------------------------------

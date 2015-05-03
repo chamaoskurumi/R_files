@@ -2,26 +2,65 @@
 
 \section{Gentrification und wohnräumliche Mobilität: Der Verdrägungsdiskurs}\label{Sec:Gentri}
 
-  \subsection{Begriffe und Definitionen}
+  \subsection{Theorie,Begriffe und Definitionen}
 
-solitäre vs. holistische Gentridefinitionen \\
-bei holistisch viele Dimensionen
-Glatter, Rüsche
-nicht nur innenstadtgebiete, auf New-Built Gentri, of vacant areas. 
+\paragraph{Gentrification}
+
+Seit der Einführung des Begriffs durch Ruth Glass 1964 herrscht in der Literatur Uneinigkeit über die Definition von Gentrification. Die Schwierigkeit eine kohärente und konsensfähige Definition von Gentrification zu formulieren besteht in erster Linie darin, die sich bei Gentrification Prozessen überlagernden "`bauliche[n] und infrastrukturelle[n] Veränderungen der Nachbarschaft mit immobilienwirtschaftlichen Wertschöpfungen, veränderten Bewohnerstrukturen, neuen Formen der Stadtpolitik und symbolischen Umbewertungen der Wohnquartiere"' \citep[S.~662]{Holm2012} in einer Definition zu kondensieren. Definitionen, welche diese Mehrdimensionaliät von Gentrification zu berücksichtigen versuchen (z.B. \citet{Smith1987}, \citet{Krajewski2006}) werden von \citet{Glatter2007} als "`holistische"' Gentrification Definitionen bezeichnet. \citet{Clark2005} kritisiert die Enge holistischer Definitionen, welche immer wieder dazu geführt hätte, das Phänomen Gentrification nicht nur \textit{zu sehr} einzugrenzen, sondern es vor Allem \textit{falsch} einzugrenzen. Schließlich sei definitorische Enge nicht mit Präzision zu verwechseln und die für eine Definitionsformulierung erforderlichen Abstraktionen sollten sich ausschließlich auf die notwendigen Beziehungen des Phänomens beschränken. 
+So plädiert \citet[S.~263]{Clark2005} dafür, Gentrification definitorisch nicht auf die Innenstadt bzw. den urbanen Raum, auf Wohngebiete oder auf die Erneuerung von architektonisch attraktiven Altbauten einzuschränken. Eine Gentrification Definition nach Clark also die je nach zeitlichem und räumlichem Kontext unterschiedlichen Formen von Gentrification, wie etwa \textit{Neubau-Gentrification} \citep{Davidson2010}, \textit{Super-Gentrification} \citep{Lees2003} oder \textit{Insel-Gentrification} \citep{Clark2007a}, erfassen. Als Formen von Gentrification gelten für \citep[S.~262]{Clark2005} alle Wandlungsprozesse, die folgender Definition genügen:
+
+\begin{quote}
+"`Gentrification is a process involving a change in the population of land-users such that the new users are of a higher socio-economic status than the previous users, together with an associated change in the built environment through a reinvestment in fixed capital."'
+\end{quote}
+
+Erster Teil soziale Aufwertung zweiter teil ökonomische Aufwertung. Für den Moment ist das meine Gentrification Definition, soll aber verfeinert werden bzw. meine Interpretation davon.
+
+Kommodifizierung von Raum
+Wohnraum wird nicht erst durch Gentrification zur Ware, Kommodifizierung des Raumes als die Grundursache von Gentrification \citep[S.~261]{Clark2005}
+
+\paragraph{Verdrängung}
+
+Find ich gut, mir fehlt aber noch displacement. Nicht weil ich es hinzufügen weil, sondern weil die Definition displacement beinhaltet. Eine Art defintorischen "`Minimalkonsens"' \citep[S.~662]{Holm2012} formulierten \citet[S.~5]{Kennedy2001}:
+
+\begin{quote}
+"`[G]entrification [is] the process by which higher income households displace lower income residents of a neighborhood, changing the essential character and flavor of that neighborhood."'
+\end{quote}
+
+
+\citet[S.~1]{Atkinson2011} : "Gentrification refers to the migration of higher income households to lower income neighbourhoods" (p.1)
 Klassenspezifische Raumproduktion social sieve
 
-Verdrängung Teil der Definition oder nicht 
+Verdrängung Teil der Definition oder nicht Diller 2014 ja, Verdrängung zweiter Kernmerkmal der Gentri bei \citet{Krajewski2006} Krajewski 2013?
+
+Polit ökonomisch
 
 Verdrängung vs. Austausch
+Disput zwischen Hamnet und Slater 
 
-Verdrängungs Typologie
-Marcuse / Slater 
+\paragraph{Verdrängungs Typologie}
+Ganz Zentral und ausgiebig: Verdrängungs Typologie
 
-Immobilienwirtschaftliche Aufwertung \\
+"Mit der Systematisierung verschiedener Verdrängungsformen schlug Peter Marcuse einen konzeptionellen Rahmen für die Verdrängungsanalysen vor. Er
+unterschied zwischen direkten (physical and economic displacement) und indirekten (displacement pressure) Verdrängungen sowie gebietsbezogenen Schließungseffekten (exclusionary displacement) durch die Aufwertung (Marcuse 1986)." \citet[S.~671]{Holm2012}
+
+"it is essential to have conceptual clarity before research on displacement begins, and before any conclusions can be drawn" \citet[S.~304]{Slater2009}
+
+\begin{enumerate}
+ \item direct displacement: Physical and economic. Physical Zwangsräumung. Economic Mietpreissteigerung z.b.
+ \item exclusionary displacement. Differenz Bestandsmieten-Angebotsmieten
+ \item displacement pressure. rent gap, entmietungsstrategieen, freunde ziehen um, 
+\end{enumerate}
+
+\citet{Marcuse1985} \citet{Slater2009}
+
+\paragraph{Immobilienwirtschaftliche Aufwertung}
+
 inwertseztung  Kapitalflüsse
 rent-gap und value gap (Smith, Glatter, Holm, Hamnett). 
+Hiermit ist nicht notwenigerweise eine bauliche Aufwertung gemeint. In Berlin auf immobilienwirtschaftliche Aufwertung auch ohne bauliche Aufwertung möglich (Berner et al. 2015, p.30)
 
-Soziale Aufwertung \\
+\paragraph{Soziale Aufwertung}
+
 eher im deutschsprachigen Kontext gebraucht, 
 statushöhere Bevölkerung (einkommen, bildungsgrad)
 hier nicht zu verwechseln mit soziokultureller Aufwertung, ökonomische Interpretation des Begriffs.
@@ -30,7 +69,6 @@ Das heisst, je größer die rent gap, desto größer der Verdrängungsdruck - en
 
 gentrification = Aufwertungsdynamik. Notwendig, nicht hinreichend. Dyanmik griech., dynamiké=mächtig (Gentrimaps)
 Aber aufgrund der oben beschriebenen Bedingung besteht letzlich eine ökonomische Notwendigkeit zwischen 
-
 
 
   \subsection{Forschungsstand}
@@ -48,12 +86,18 @@ Werden Kausalaussagen gemacht oder nur deskriptive Befunde publiziert? Suchen Si
 inhaltlichen Erklärungen empirischer Befunde!\\
 
 Welche Lücken weist die Forschung auf?\\
+--> Effekte von immobilienwirtschaftlicher Aufwertung auf Umzugsverhalten isolieren fehlt in der Literatur. \\
+--> Verdrägungstypen mit 
 Welche Widersprüche sind zu erkennen? \\
+--> Mehr oder weniger Fortzuege? 
 
 
 		\subsubsection{Quantitative Studien zu Gentrification und Wohnmobilität}
 
-Theorie 2 Phasen: erst erhöhte Mobiltät, dann niedrigere bzw. niedrigere Fortzugsraten?!? --> Literaturverweis fehlt! Andrej fragen! \\
+Verdrängung messen:
+Probleme: Slater 2009 "there is no such data".
+
+Theorie 2 Phasen: erst erhöhte Mobiltät, dann niedrigere bzw. niedrigere Fortzugsraten?!? Gibts nicht so richtig. \\
     
 \citet{Atkinson2000} This paper presents evidence suggesting that gentrification was an active and extensive
 process during the 1980s in Greater London and that, where this occurred, it was associated with above-average levels of losses of
@@ -62,11 +106,33 @@ groups who have been associated with displacem ent in the past. Labour market ch
 Wichtigste Studien \citet{Atkinson2000} \citet{Atkinson2011}
 \citet{Freeman2004} \citet{Freeman2005} \citet{Vigdor2002} \citet{McKinnish2008} \citet{Newman2006} und \citet{Newman2006a} \\
 
+Van Criekingen 2009
+
+Diller 2014 Verdrängung schwer nachzuweisen
+Diller 2014 sagt exclusionary displacement ist nur Exklusion. Ich sage es macht sinn, im Raumproduktionssinn. Klassencharakter dieser Exclusion. p.36 Def Gentri auch S.36
+
+"dass der Austausch und die darin gefasste Verdrängung der Einwohner_innenschaften ganzer Gebiete zu bestimmten Mustern der Möbilität führen. Sowohl die ersten drei der vier Typen der Verdrängung als auch das exclusionary displacement haben einen Einfluss auf das Umzugsverhalten der Bewohner_innen der Stadt, sollten sie denn beobachtbar sein" Rütsche 2014 p.11
+
+\paragraph{Mapping Gentrification over whole cities}
+Hedin et al. 2012  p.447
+Podagrosi 2011
+Atkinson 2011
+Gentrimaps
+Maciag 2015
+
 Deutschland
 \citet{Glatter2007} \citet{Holm2004} \citet{Holm2011}  \citet{Rusche2015} \citet{Czarnetzki2013} 
 
 Tabelle mit findings? daten - jahr - Ort - modell - finding
-Widersprüche: Debatte über mehr/weniger Fortzüge empirisch? 
+Widersprüche: Debatte über mehr/weniger Fortzüge empirisch?
+
+KRITIK an keiner analytischen Klarheit differenziereung des verdrängungsbegriffs\\
+KRITIK statistische unsorgfaltigkeiten\\
+KRITIK Zusammenhang zwischen Aufwertung sozial und immobilienwirtschaftlich, Umzugsverhalten und Aufwertung nicht \\
+KRITIK keine stadtweiten Zusammenhänge
+KRITIK Kein versuch einer inferenz bzgl. des Prozesses zu wagen
+KRITIK in Berlin fehlen quantative Studien zu vedrängung und gentri
+
 	
 		\subsubsection{Kontext Berlin}
 
@@ -75,12 +141,18 @@ verdrängungs und Gentrificationdiskussion in Berlin\\
 Bisherige Studien: Quali und quantativ 
 \citet{Holm2004} \citet{Holm2011} \citet{Rusche2015} \citet{Czarnetzki2013} \\
 
-Aufwertungsdynamiken in Berlin: Monitoring Soziale Stadtentwicklung \& BBU Marktmonitor
---> Entdeckung des Berliner Wohnungsmarktes - spatial fix		
+Aufwertungsdynamiken in Berlin: Monitoring Soziale Stadtentwicklung \& BBU Marktmonitor \& GSW Wohnatlanten
+--> Entdeckung des Berliner Wohnungsmarktes - spatial fix (Harvey ?)	
+Einzigartige Marktdynamik
+"Der Berliner Wohnungsmarkt ist in den letzten Jahren durch fast flächendeckende Mietsteigerungen geprägt und innerhalb des S-Bahn-Rings hat sich Gentrification zu einem Mainstream-Phänomen entwickelt." (Zwangsräumungsbericht p.29)
+
 
 Widersprüche: BBU und Mieterecho: Keine erhöhte Verdrängung/Wegzug in gentrigebieten.   \citet{Rusche2015} und \citet{Holm2011} wie auch alle Protestbewegungen: öknomische Verdrängung \\
 
 Fallende Binnenwanderungsquoten (BBU 2014, S.38-39) 
+GSW Marktberichte
+
+Verdrängung üblicherweise economic displacement, kaum exclusionoary displacement und displacement pressure
 
 
 	\subsection{Forschungshypothesen}
@@ -118,8 +190,8 @@ kommen soll.}
 
 \paragraph{Forschungsfragen}
 \begin{enumerate}
-\item Wo befinden sich in Berlin die am stärksten von Aufwertungsdynamiken (immoblienwirtschaftlich und sozialstrukturell) betroffenen Nachbarschaften und wie sind diese charakterisieren?
-\item Gibt es einen Zusammenhang zwischen Aufwertung und wohnräumlicher Mobilität / Verdrägung? Wie kann dieser Zusammenhang modelliert und quantifiziert werden?
+\item Wo befinden sich in Berlin die am stärksten von Aufwertungsdynamiken (immoblienwirtschaftlich und sozialstrukturell) betroffenen Nachbarschaften und wie sind diese zu charakterisieren insbesondere bzgl. der wohnräumlichen Mobilität ihrer BewohnerInnen?
+\item Gibt es einen Zusammenhang zwischen Aufwertung und wohnräumlicher Mobilität / Verdrägung? Wie kann dieser Zusammenhang modelliert, nach Verdrängungstypen differenziert und quantifiziert werden? 
 \item Wie lässt sich das wohnräumliche Mobilitätsverhalten in den Aufwertungsgebieten genauer beschreiben - Wo ziehen die Leute hin, wo kommen die Zugezogenen her? Untschied zu Kontroll Gebieten? Erhöhter Umzug in Nachbarschaften bei Gentri Gebieten? Oder weniger weil sie da nix finden?
 \end{enumerate}
 
@@ -127,16 +199,53 @@ kommen soll.}
 Wie lassen sie sich durch den bisherigen Erkenntnisstand begründen? Stellen Sie Bezüge zu zitierten Forschungsergebnissen her! \\
 \paragraph{Hypothesen}
 \begin{enumerate}
-\item Aufwertungsgebiete besitzen höherere Binnenfortzugsraten als die Kontrollgebiete. \\
-\item Aufwertungsgebiete besitzen höhere Aussenzuzugsraten als die Kontrollgebiete
+\item Nachbarschaften mit hohen Armutsquoten und vergleichsweise günstigen mieten und Innenstadtnähe? werden eher zu Aufwertungsgebieten. \\
+Hier höhrere rent gap, potential
+
+(\citet{Holm2011} \& \citet{Berner2015}) 
+
+\item Aufwertungsgebiete besitzen höherere Binnenfortzugsraten als die Kontrollgebiete.\\
+--> economic direct displacement (Marcuse p.205) \\
+Laut \citet{Berner2015} S29 ist die stieg in Berlin die durchschnittliche Differenz zwischen Mietspiegel und Angebotsmieten von 17 Prozent (2007) auf 35 Prozent (2013). Verdrängungseffekt auf MieterInnen insbesondere Arme ist somit doppelt: Verdrängungsdruck steigt weil Vermieter Mieterinnen individuell wie auch strukturell. Individuell mag ein vermieter die Mieterinnen raus haben um neuen Neuvermietung (sofern sie nicht unter die Mietpreisbremse fällt)
+
+"Mieterhöhungen in bereits bestehenden Mietvertragsverhältnissen können in Form von Modernisierungsumlagen (also nach Investitionen zur Verbesserung
+des Ausstattungsstandards), im Rahmen von Staffelmietverträgen oder als Anpassung an den Mietspiegel erfolgen. In Berlin gibt ein alle zwei Jahre veröffentlichter Mietspiegel Auskunft über die Mietentwicklung in verschiedenen Baualtersklassen und Wohnlagen. Ausgewertet werden dabei Neuabschlussmieten und die veränderten Bestandsmieten der letzten vier Jahre. Die Mietspiegel der letzten Jahre zeigen, dass die Mieten vor allem in den bisher preiswerten Baualtersklassen gestiegen sind: Insbesondere für die gründerzeitlichen Altbauten, die Zwischenkriegsbestände und die Sozialen Wohnungsbauten der 1970er Jahre verweist die Entwicklung der Mietspiegel-Mittelwerte auf sehr deutliche Steigerungen. Da ärmere Haushalte häufiger in preiswerten Beständen wohnen, sind sie von der Dynamik des Berliner Wohnungsmarktes der letzten Jahre besonders stark betroffen. Auch wenn die Anpassung an die ortsübliche Vergleichsmiete zurzeit auf 15 Prozent in drei Jahren beschränkt ist" \citet{Berner2015} S.29
+
+"Die Miethöhen, die bei Abschluss von neuen Mietverträgen von den Vermieter*innen festgelegt werden, spiegeln die Ertragserwartungen in den jeweiligen
+Lagen und Beständen. Je größer die Lücke zwischen den Bestandsmieten und den potentielle Mieteinnahmen, desto größer ist der Vorteil eines Mieter*innen-
+wechsels für die Eigentümer*innen. Im Gegensatz zu klassischen Gentrification-Prozessen ist eine Ertragssteigerung für Eigentümer*innen und Investor*innen zurzeit in Berlin nicht auf Investitionen in die bauliche Aufwertung angewiesen. Statt den mühevollen Weg der Modernisierung zu gehen, brauchen Eigentümer*innen in vielen Teilen der Stadt nur auf einen Mieter*innenwechsel warten, um die Mieteinnahmen deutlich zu steigern. Für viele Eigentümer*innen gilt: Zeit ist Geld und die Geduld, auf einen freiwilligen Auszug der Mieter*innen zu warten, ist oft begrenzt.
+Aus einer ökonomischen Perspektive verwandeln sich Bewohner*innen, die schon sehr lange im Haus wohnen und günstige Bestandsmieten zahlen, in "unren-
+table Mieter*innen"." \citet{Berner2015} S.30
+
+"Immobilienwirtschaftliche Ertragserwartungen erhöhen den Räumungsdruck, schränken Möglichkeiten für Umzüge in leistbare Wohnungen ein und
+verstärken Diskriminierungen im Bereich der Wohnungsversorgung." \citet{Berner2015}
+
+
+vs.
+\item Aufwertungsgebiete besitzen niedrigere Binnenfortzugsraten als die Kontrollgebiete.\\
+--> BBU, Freeman, sigmar gude; Leute klammern sich an ihren Mietverträgen fest. 
+Diller 2014 S.31 "Die Wegzugsraten sozial schwächerer sind in gentrifizierten Gebieten geringer als in den anderen und Statushöhere fühlen sich eher zum Wegzug gedrängt"
+ Sicherlich ist eine überlagerung beider effekte 
+
+\item Aufwertungsgebiete besitzen höhere Aussenzuzugsraten als die Kontrollgebiete \\
+Atkinson 2011 p.2 
+Atkinson 2000 p.161 Gentri areas für verschiedene Risikogruppen (working class, elderly, lone parent etc.) z.b. Inachtive: "represented a massive locus for migration wherein nearly one and a half times more moves were made away from the 'G' areas than within London as a whole in the same period"
+
 
 \item Je stärker die immobilienwirtschaftliche Aufwertungsdynamik, desto höher die relativen Fortzugsraten in den Nachbarschaften \\
-economic direct displacement (Marcuse p.205)
+Isolierung des Effektes immoblienwirtschaftlicher Aufwertung durch Modelle. Interpretation als economic direct displacement (Marcuse p.205).
 
 
 \item Es besteht ein gebietsbezogener positiver Zusammenhang zwischen sozialstruktureller Aufwertungdynamik und wohnräumlicher Mobilität. \\
-Änderung der Sozialstruktur nicht in erster Linie nicht durch incumbent upgrading  (urban revitalization without the displacement) also einem aus dem Quartier heraus entstehend, sondern durch den erhöhten Zuzug (Stadt und aussen) zu erklären
+Änderung der Sozialstruktur nicht in erster Linie nicht durch incumbent upgrading (Clark 1979) Verdrängungsfreie urbane Aufwertungsprozess also einem aus dem Quartier heraus entstehende, von den "Bewohnern und Eingentümern ausgelöste und getragene Erneuerung von Bestandsquartieren, bei der es nur in sehr geringem und verzögertem Maße zu einem sozialen Austausch der Bewohner kommt" Glatter 2007 S.10 siehe auch  und  sondern durch den erhöhten Zuzug (Stadt und aussen) zu erklären
+
+"Darunter versteht er die von den Bewohnern und Eigentümern ausgelöste und getragene Erneuerung von Bestandsquartieren, 
+
 Die Zuziehenden haben mehr kohle als die Wegziehenden, 
+Atkinson 2011 p.2
+Scottish Government: Ärmere ziehen öfter um
+Rüsche 2015 incumbent upgrading unwahrscheinlich für Berlin
+
 
 \item Aufwertungsgebiete besitzen ein qualtativ untschiedliches Umzugsverhalten als vergleichbare nicht Aufwertungsgebiete\\
 \end{enumerate}

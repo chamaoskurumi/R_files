@@ -6,6 +6,10 @@
 Alles in R und knitr. Reproducable. Links zu skripten und Dokumentationen.
 
 \subsection{Daten}
+
+Anspruch wie bei gentrimaps projekt:
+
+citywide, small scale, yearly panels, proofed or authorized data, georeferences to spatial data
   \subsubsection{Rohdaten}
   Übersicht und Quellen
   Daten \& Geodaten : Projektionen etc.
@@ -35,7 +39,9 @@ Moulton 1990 Problem mit standard errors
   - Control
   - Gentri
   - Response
-  Deskriptive
+  Deskriptive \\
+
+  Miete ist deflationiert mit Verbraucherpreisindex des Statistisches Bundesamtes. Es bleibt aber zu bedenken, dass die Erhöhung des SGB II (Hartz IV) und SGB XII (Sozialhilfe) im für den Beobachtungszeitrum hinter der Entwicklung der Verbraucherpreise zurückblieb (Verbraucherpreisindex und Bundesregierung).
 
 
 <<Verschneidungschema, echo=FALSE, cache=FALSE>>=
@@ -48,9 +54,17 @@ summary(JLLdata)
 boxplot(Miete.2007 ~ Gentri , data=LOR4reg@data)
 @
 
-\cite{Wyly2010} is auchs schön
-
 	\subsubsection{Stichprobe vs. Grundgesamtheit}
+
+Die induktive Statistik – auch schließende oder inferentielle Statistik genannt – versucht, durch geeigneten Einbezug von Wahrscheinlichkeitstheorie und Stochastik über die erhobenen Daten hinaus allgemeinere Schlußfolgerungen für umfassendere Grundgesamtheiten zu ziehen. Fahrmeir 2007 p.13
+
+"Als Grundgesamtheit wird somit die Menge aller statistischen Einheiten bezeichnet, über die man Aussagen gewinnen will. Diese muß klar umgrenzt
+sein und hängt natürlich von der interessierenden Fragestellung ab." Fahrmeir 2007 p.14 aber auch hypothetische Grundgesamtheiten ok
+
+"Menge aller für die Fragestellung relevanten statistischen Einheiten" Fahrmeir 2007 p.15 
+
+Handbuch der Sozialwissenschaften zitieren für Inferenz auf Grundgesamtheit. Und Statistikbücher.
+Frick 1998
 
 \subsection{Methodik}
 Auswahl der Untersuchungsform: Warum ist sie besten geeignet, die Forschungsfrage zu beantworten? Gab es Alternativen? \\
@@ -60,12 +74,44 @@ Mit Verortung in Linteratur \\
 Kategorisierung schütteln als robustheitscheck
 
   \subsubsection{SAR weighted}
+
+\paragraph{Räumliche Autokorrelation}
+
+Motivation wieso räumliche Autokorrelation mit zumodellieren ist. 
+
+omitted variables latet erklärend p.27 Le Sage Pace 2009
+hetereogeneity 
+
+
+\paragraph{Motivation für SAR}
+
+Bivand p.277 \& spdep package: spautolm
+Waller und Gotway 2004 p.378-380
+Cressie 1993 p.548-568
+LeSage und Pace 2009, 
+
+\paragraph{Gewichtung}
+
+Bevölkerungsgewichtung wegen Heterogenität der Residuals
+
+\paragraph{Interpretation der Koeffizienten}
+
+--> Biggest Myth in Spatial Econometrics trifft nicht zu auf mich. Lesage und Pace 2010
+"Spatial regression models such as the SEM that do not involve spatial lags of the dependent variable produce estimates for the parameters $\beta$ that can be interpreted in the usual regression sense as partial derivatives: $\delta y_i / \delta x_{ir} = \beta_r$ for all $i$, $r$; and $\delta y_i / \delta x_{jr} = 0$, for $j = i$ and all variables $r$." LeSage und Pace 2009, p.41 
+Simplified interpretation ist hier besser als SEM \\
+Wir haben hier das Problem von Model uncertainty, (Lesage pace 2009, p. 30), aber machen dagegen erstmal nix. Was für SEM spricht ist die omitted variables motivation. Ausserdem ist in R kein weighted SAR autoregressive implementiert (spedep::lagsarlm kann kein weight argument nehmen.)\\
+
+Standard Errors wie oben beschrieben als Prozess interpretation. Alternativ wäre eine Schätzung der standard errors gemäß Abadie et al. 2014 denkbar, um alternative causal standard errors für finite populationen vorschlägt. Diese basiert auf blabla.
   
   \subsubsection{Umzugsortsanalyse?}
 
 
 \subsection{Operationalisierung}
 \begin{enumerate}
+
+\item Immobilienwirtschaftliche Aufwertung: Proxy NUR Angebotsmiete. (BBU 2014,S.15): "Berlin ist eine Mieterstadt. Der Anteil der Mietwohnungen am Gesamtbestand ist in Berlin im Vergleich der Bundesländer, aber auch unter den deutschen Metropolen, mit rund 84 Prozent mit Abstand am höchsten. Der Anteil des selbst genutzten Wohneigentums ist mit rund 16 Prozent der niedrigste in Deutschland und liegt weit unter dem Bundesdurchschnitt von etwa 44 Prozent."
+Ertragserwartungen
+
 \item Identifizierung und Visualisierung von Aufwertungsgebieten auf der Basis von kleinräumigen, stadtweiten statistischen Daten (Gentrimaps zitat) - potentielle gentri gebiete d.h. die notwendigen Vorraussetzungen erfüllen was starke immobilienwirtschaftliche Aufwertung und Soziale Aufwertung. Relationale Definition. Gleichzeitige Identifizierung von Vergleichsnachbarschaften, die eine anderen anderen Entwicklungspfad genommen haben, welche zwar ähnliche grundvoraussetzungen hatten, sich aber anders entwickelt haben mit weniger Dynamik.
 \item Anhand explorativer Datenanalyse eine vergleichende Charakterisierung dieser potentiellen Gentri gebieten (starke Wohn + Soziale Aufwertungs) gegenüber den Kontrollnachbarschaften
 \item Modellierung und Quantifizierung des Zusammenhangs zwischen Aufwertungsdynamik (immobilienwirtschaftliche Inwertsetzungsdynmaik (Mietpreissteigerung) und sozialer Auwertung (notwendig)) und wohnräumlicher Mobilität mit weighted SARs unter Berücksichtigung von Kontrollprädiktoren \\
@@ -94,7 +140,7 @@ Immobilienwirtschaftliche Aufwertung: Miete
 Soziale Aufwertung \\
 
 gentrification = Aufwertungsdynamik. Notwendig, nicht hinreichend. Dyanmik griech., dynamiké=mächtig
-Andere Dimensionen ()
+Andere Dimensionen
 
 Verdrängung vs. Austausch
 

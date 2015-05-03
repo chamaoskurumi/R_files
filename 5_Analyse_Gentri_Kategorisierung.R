@@ -38,6 +38,10 @@ boxplot(Miete.2007 ~ Gentri, data=LOR4reg@data)
 boxplot(Armut.2007 ~ Gentri, data=LOR4reg@data)
 boxplot(nicht_Alose_Hartz.2007 ~ Gentri, data=LOR4reg@data)
 
+boxplot(Armutchg ~ Gentri, data=LOR4reg@data)
+boxplot(Mietechg ~ Gentri, data=LOR4reg@data)
+
+
 boxplot(LOR4reg@data$FortzuegeR ~ LOR4reg@data$Gentri)
 boxplot(LOR4reg@data$ZuzuegeR ~ LOR4reg@data$Gentri)
 
