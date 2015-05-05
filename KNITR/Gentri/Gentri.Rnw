@@ -4,27 +4,70 @@
 
   \subsection{Theorie,Begriffe und Definitionen}
 
-\paragraph{Gentrification}
+\paragraph{Gentrification}\\
 
-Seit der Einführung des Begriffs durch Ruth Glass 1964 herrscht in der Literatur Uneinigkeit über die Definition von Gentrification. Die Schwierigkeit eine kohärente und konsensfähige Definition von Gentrification zu formulieren besteht in erster Linie darin, die sich bei Gentrification Prozessen überlagernden "`bauliche[n] und infrastrukturelle[n] Veränderungen der Nachbarschaft mit immobilienwirtschaftlichen Wertschöpfungen, veränderten Bewohnerstrukturen, neuen Formen der Stadtpolitik und symbolischen Umbewertungen der Wohnquartiere"' \citep[S.~662]{Holm2012} in einer Definition zu kondensieren. Definitionen, welche diese Mehrdimensionaliät von Gentrification zu berücksichtigen versuchen (z.B. \citet{Smith1987}, \citet{Krajewski2006}) werden von \citet{Glatter2007} als "`holistische"' Gentrification Definitionen bezeichnet. \citet{Clark2005} kritisiert die Enge holistischer Definitionen, welche immer wieder dazu geführt hätte, das Phänomen Gentrification nicht nur \textit{zu sehr} einzugrenzen, sondern es vor Allem \textit{falsch} einzugrenzen. Schließlich sei definitorische Enge nicht mit Präzision zu verwechseln und die für eine Definitionsformulierung erforderlichen Abstraktionen sollten sich ausschließlich auf die notwendigen Beziehungen des Phänomens beschränken. 
-So plädiert \citet[S.~263]{Clark2005} dafür, Gentrification definitorisch nicht auf die Innenstadt bzw. den urbanen Raum, auf Wohngebiete oder auf die Erneuerung von architektonisch attraktiven Altbauten einzuschränken. Eine Gentrification Definition nach Clark also die je nach zeitlichem und räumlichem Kontext unterschiedlichen Formen von Gentrification, wie etwa \textit{Neubau-Gentrification} \citep{Davidson2010}, \textit{Super-Gentrification} \citep{Lees2003} oder \textit{Insel-Gentrification} \citep{Clark2007a}, erfassen. Als Formen von Gentrification gelten für \citep[S.~262]{Clark2005} alle Wandlungsprozesse, die folgender Definition genügen:
+Seit der Einführung des Begriffs durch Ruth Glass 1964 herrscht in der Literatur Uneinigkeit über die Definition von Gentrification. Die Schwierigkeit eine kohärente und konsensfähige Definition von Gentrification zu formulieren besteht in erster Linie darin, die sich bei Gentrification Prozessen überlagernden "`bauliche[n] und infrastrukturelle[n] Veränderungen der Nachbarschaft mit immobilienwirtschaftlichen Wertschöpfungen, veränderten Bewohnerstrukturen, neuen Formen der Stadtpolitik und symbolischen Umbewertungen der Wohnquartiere"' \citep[S.~662]{Holm2012} in einer Definition zu kondensieren. Definitionen, welche diese Mehrdimensionaliät von Gentrification zu berücksichtigen versuchen (z.B. \citet{Hamnett1984}, \citet{Beauregard1986} oder \citet{Krajewski2006}) werden von \citet{Glatter2007} als "`holistische"' Gentrification Definitionen bezeichnet. \citet{Clark2005} kritisiert die Enge holistischer Definitionen, welche immer wieder dazu geführt hätte, das Phänomen Gentrification nicht nur \textit{zu sehr} einzugrenzen, sondern es vor Allem \textit{falsch} einzugrenzen. Schließlich sei definitorische Enge nicht mit Präzision zu verwechseln und die für eine Definitionsformulierung erforderlichen Abstraktionen sollten sich ausschließlich auf die notwendigen Beziehungen des Phänomens beschränken. \\
+So plädiert \citet[S.~263]{Clark2005} dafür, Gentrification definitorisch nicht auf die Innenstadt bzw. den urbanen Raum, auf Wohngebiete oder auf die Erneuerung von architektonisch attraktiven Altbauten einzuschränken. Eine Gentrification Definition sollte demnach die je nach zeitlichem und räumlichem Kontext unterschiedlichen Formen von Gentrification, wie etwa \textit{Neubau-Gentrification} \citep{Davidson2010}, \textit{Super-Gentrification} \citep{Lees2003} oder \textit{Insel-Gentrification} \citep{Clark2007a}, erfassen können. Als Formen von Gentrification gelten für \citep[S.~262]{Clark2005} alle Wandlungsprozesse, die folgender Definition genügen:
 
 \begin{quote}
-"`Gentrification is a process involving a change in the population of land-users such that the new users are of a higher socio-economic status than the previous users, together with an associated change in the built environment through a reinvestment in fixed capital."'
-\end{quote}
+"`Gentrification is a process involving a change in the population of land-users such that the new users are of a higher socio-economic status than the previous users, together with an associated change in the built environment through [an investment] in fixed capital."'
+\end{quote}\footnote{Im Orignalzitat heisst es "`a reinvestment"' anstatt "`an investment"'. Diese Änderung wurde von mir vorgenommen, um Gentrificationformen explizit zuzulassen, denen keine Investitionen vorausgingen, also zum ersten Mal investiert wird. So kann Neubau-Gentrification in Räumen auftreten, die sich vorher in öffentlichem Besitz und öffentlicher Nutzung befanden, aber durch Privatisierung kommodifiziert wurden.} 
 
-Erster Teil soziale Aufwertung zweiter teil ökonomische Aufwertung. Für den Moment ist das meine Gentrification Definition, soll aber verfeinert werden bzw. meine Interpretation davon.
+Diese Gentrification Definition soll der folgenden Studie zugrunde liegen. Sie formuliert klar die additive Konditionalität \citep{Holm2011} von \textit{sozialer Aufwertung} einerseits und \textit{immobilienwirtschaftlicher Aufwertung} andererseits, berücksichtigt jedoch keine weiteren (möglichen) Dimensionen von Gentrification, wie etwa die der funktionalen oder der symbolischen Aufwertung \citep{Krajewski2013}. \footnote{Wie bei \citet[S.~10]{Glatter2007} wird Gentrification im Weiteren mit spezifischer Aufwertung gleichgesetzt, wobei mit dem Wort \textit{Aufwertung} aber keine positive Konnotation verbunden werden soll.} Desweiteren lässt sie Raum für verschiedenste Ausprägungsformen. In der Beschränkung auf das \textit{Wesen} der Gentrification, also der additiven Konditionalität von sozialer und immobilienwirtschaftlicher Aufwertung, liegt der Vorteil dieser Definition. \footnote{\citet[S.~815]{Hackworth2002} stellt eine vielleicht noch elegantere und prägnantere Gentrification Definition auf, welche sich ebenfalls auf das \textit{Wesen} der Gentrification beschränkt, jedoch die additive Konditionalität von sozialer und immobilienwirtschaftlicher Aufwertung weniger direkt offenlegt: "`Gentrification [is] the production of urban space for progressively more affluent users"'.} Außerdem bietet sie die Möglichkeit einer relativ einfachen Operationalisierbarkeit (vgl. Kapitel X.XX). Was genau unter immobilienwirtschaftlicher und sozialer Aufwertung zu verstehen ist und worin die konditionale Additivität der Aufwertungsprozesse besteht, soll im Folgenden geklärt werden.
 
-Kommodifizierung von Raum
-Wohnraum wird nicht erst durch Gentrification zur Ware, Kommodifizierung des Raumes als die Grundursache von Gentrification \citep[S.~261]{Clark2005}
+\paragraph{Immobilienwirtschaftliche Aufwertung}\\
 
-\paragraph{Verdrängung}
+Immobilienwirtschaftliche Aufwertung bezeichnet die Wertsteigerung unbeweglichen Sachguts. Diese minimalistische Definition lässt die Möglichkeit einer immobilienwirtschaftlichen Aufwertung zu, welcher \textit{keine} Investitionen vorausgegangen sind. Auf der Ebene individueller Immobilien sind Wertsteigerungen erfahrungsgemäß auch unter Abwesenheit von Investitionen denkbar: Beispielsweise vermag der Eigentümer einer Mietswohnung in stark nachgefragten Nachbarschaften den Mietzins bei Wiedervermietung erhöhen und damit eine höhere kapitalisierte Grundrente realisieren ohne den Tauschwert der Wohnung durch entsprechende bauliche Investitionen, etwa einer Modernisierung, erhöht zu haben. Obwohl Investitionen zwar auf \textit{individueller} Ebene nicht notwendig für die Wertsteigerung von Immobilien sind, so sind sie es doch auf \textit{struktureller} Ebene.\footnote{Der hier bemühte Unterschied zwischen individueller und struktureller Ebene ist in Analogie zur Marxschen Arbeitswerttheorie zu denken: Durch die Reduktion der Ausgaben für konstantes Kapital kann ein individueller Kapitalist zwar mehr Gewinn erzielen, der Wert der hergestellten Waren bleibt aber strukturell über die im Durchschnitt gesellschaftlich notwendige Arbeitszeit bestimmt.} Zu einer immobilienwirtschaftlichen Aufwertung einer gesamten Nachbarschaft kann es schließlich nicht ohne Investitionen kommen: Eine gesteigerte Nachfrage nach Wohnraum in einer Nachbarschaft wird zwangsläufig dazu führen, dass Eigentümer oder Anleger ihre Renditeerwartungen durch Invesitionen zu hebeln versuchen. Außerdem entsteht eine gesteigerte Nachfrage ohnehin meist in Folge von Investitionstätigkeiten. \\
+Da sich es sich bei Gentrification um einen Wandlungsprozess handelt, welcher mindestens auf dem räumlichen Niveau von Nachbarschaften stattfindet, erscheint eine Spezifizierung von allgemeiner immobilienwirtschaftlicher Aufwertung auf \textit{investitionsbezogene} immobilienwirtschaftliche Aufwertung in der obigen Definition von Gentrification als begründet und sinnvoll. \\
+
+In der Gentrification Theorie erklärungsmodelle
+Kommodifizierung  
+rent-gap und value gap \citep{Smith1996}, \citep{Smith1987}, \citep{Smith1979},  \citep{Glatter2007}, Holm, Hamnett). 
+
+Investitionen in Bestandsgebieten werden mit einer Rentabilitätsdifferenz zwischen der momentan erzielten Bodenrente und den erwarteten Erträgen durch Verkauf und Investition begründet.
+
+\paragraph{Soziale Aufwertung}
+
+Krajewski2013
+
+Soziale Aufwertung
+
+    Austausch von Bewohnern
+
+    Veränderte Sozialstruktur
+
+    Zuzug von quartiersfremdem sozialen Gruppen (bildungs- und einkommenshöher)
+
+    Ziel von Städtetouristen
+
+ keine positive Konnotation
 
 Find ich gut, mir fehlt aber noch displacement. Nicht weil ich es hinzufügen weil, sondern weil die Definition displacement beinhaltet. Eine Art defintorischen "`Minimalkonsens"' \citep[S.~662]{Holm2012} formulierten \citet[S.~5]{Kennedy2001}:
 
 \begin{quote}
 "`[G]entrification [is] the process by which higher income households displace lower income residents of a neighborhood, changing the essential character and flavor of that neighborhood."'
 \end{quote}
+
+\citep[S.~1]{Atkinson2011} \citep[S.~5]{Kennedy2001}
+
+statushöhere Bevölkerung (einkommen, bildungsgrad)
+hier nicht zu verwechseln mit soziokultureller Aufwertung, ökonomische Interpretation des Begriffs.
+politsche ökonomie definition: rent gap schließen zu können, das heisst potentielle Bodengrundrente zu realisieren benötigt es zahlungskräftige MieterInnen. Insofern bedingt eine immobilienwirtschaftliche Aufwertung ökonomisch auch eine soziale Aufwertung.
+Das heisst, je größer die rent gap, desto größer der Verdrängungsdruck - entweder durch den die entstehenden Mehrkosten bei Mieterhöhungen in bestehenden Mietverträgen oder die notwendigkei
+
+gentrification = Aufwertungsdynamik. Notwendig, nicht hinreichend. Dyanmik griech., dynamiké=mächtig (Gentrimaps)
+Aber aufgrund der oben beschriebenen Bedingung besteht letzlich eine ökonomische Notwendigkeit zwischen 
+
+Also entweder ein zur Ware machen Kommodifizierung oder ein immobilienwirtschaftliche Investition 
+
+
+
+Kommodifizierung von Raum
+Wohnraum wird nicht erst durch Gentrification zur Ware, Kommodifizierung des Raumes als die Grundursache von Gentrification \citep[S.~261]{Clark2005}
+
+\paragraph{Verdrängung}
+"`In addition, if gentrification theory teaches us anything, we should know by now that rent gaps are widest in non-gentrifying neighbourhoods (when the gap between the actual ground rent in the area and the ground rent that could be extracted were the area to undergo reinvestment becomes wide enough to allow that reinvestment to take place). \\
+Higher levels of mobility—especially evictions—are to be expected as landlords and developers realise that systematic disinvestment has reached a point where neighbourhoods can be redeveloped at substantial profit (see also Clark, 1987; Hammel, 1999). To put all this in clearer conceptual terms, direct displacement (last-resident and probably chain forms) is suffered by poor households in non-gentrifying neighbourhoods, and exclusionary displacement is suffered by poorhouseholds in gentrifying neighbourhoods, where low mobility is also to be expected."' \citep[S.~305]{Slater2009}
 
 
 \citet[S.~1]{Atkinson2011} : "Gentrification refers to the migration of higher income households to lower income neighbourhoods" (p.1)
@@ -53,22 +96,7 @@ unterschied zwischen direkten (physical and economic displacement) und indirekte
 
 \citet{Marcuse1985} \citet{Slater2009}
 
-\paragraph{Immobilienwirtschaftliche Aufwertung}
 
-inwertseztung  Kapitalflüsse
-rent-gap und value gap (Smith, Glatter, Holm, Hamnett). 
-Hiermit ist nicht notwenigerweise eine bauliche Aufwertung gemeint. In Berlin auf immobilienwirtschaftliche Aufwertung auch ohne bauliche Aufwertung möglich (Berner et al. 2015, p.30)
-
-\paragraph{Soziale Aufwertung}
-
-eher im deutschsprachigen Kontext gebraucht, 
-statushöhere Bevölkerung (einkommen, bildungsgrad)
-hier nicht zu verwechseln mit soziokultureller Aufwertung, ökonomische Interpretation des Begriffs.
-politsche ökonomie definition: rent gap schließen zu können, das heisst potentielle Bodengrundrente zu realisieren benötigt es zahlungskräftige MieterInnen. Insofern bedingt eine immobilienwirtschaftliche Aufwertung ökonomisch auch eine soziale Aufwertung.
-Das heisst, je größer die rent gap, desto größer der Verdrängungsdruck - entweder durch den die entstehenden Mehrkosten bei Mieterhöhungen in bestehenden Mietverträgen oder die notwendigkei
-
-gentrification = Aufwertungsdynamik. Notwendig, nicht hinreichend. Dyanmik griech., dynamiké=mächtig (Gentrimaps)
-Aber aufgrund der oben beschriebenen Bedingung besteht letzlich eine ökonomische Notwendigkeit zwischen 
 
 
   \subsection{Forschungsstand}
@@ -111,7 +139,7 @@ Van Criekingen 2009
 Diller 2014 Verdrängung schwer nachzuweisen
 Diller 2014 sagt exclusionary displacement ist nur Exklusion. Ich sage es macht sinn, im Raumproduktionssinn. Klassencharakter dieser Exclusion. p.36 Def Gentri auch S.36
 
-"dass der Austausch und die darin gefasste Verdrängung der Einwohner_innenschaften ganzer Gebiete zu bestimmten Mustern der Möbilität führen. Sowohl die ersten drei der vier Typen der Verdrängung als auch das exclusionary displacement haben einen Einfluss auf das Umzugsverhalten der Bewohner_innen der Stadt, sollten sie denn beobachtbar sein" Rütsche 2014 p.11
+dass der Austausch und die darin gefasste Verdrängung der Einwohnerinnenschaften ganzer Gebiete zu bestimmten Mustern der Möbilität führen. Sowohl die ersten drei der vier Typen der Verdrängung als auch das exclusionary displacement haben einen Einfluss auf das Umzugsverhalten der Bewohnerinnen der Stadt, sollten sie denn beobachtbar sein Rütsche 2014 p.11
 
 \paragraph{Mapping Gentrification over whole cities}
 Hedin et al. 2012  p.447
@@ -136,7 +164,15 @@ KRITIK in Berlin fehlen quantative Studien zu vedrängung und gentri
 	
 		\subsubsection{Kontext Berlin}
 
+"`Capital accumulation through real-estate activity booms"' schrieb David \citet[S.~35]{Harvey2008} im \textit{New Left Review}. 
+
+Investitionen nicht notwendig für Aufwertung, da 
+Hiermit ist nicht notwenigerweise eine bauliche Aufwertung gemeint. In Berlin auf immobilienwirtschaftliche Aufwertung auch ohne bauliche Aufwertung möglich \citep[S.~30]{Berner2015} 
+
+
 verdrängungs und Gentrificationdiskussion in Berlin\\
+
+Verwertungskrisen
 
 Bisherige Studien: Quali und quantativ 
 \citet{Holm2004} \citet{Holm2011} \citet{Rusche2015} \citet{Czarnetzki2013} \\
