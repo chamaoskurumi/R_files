@@ -2,45 +2,51 @@
 
 \section{Gentrification und wohnräumliche Mobilität: Der Verdrägungsdiskurs}\label{Sec:Gentri}
 
-  \subsection{Theorie,Begriffe und Definitionen}
+  \subsection{Theorie und Begriffe}
 
-\paragraph{Gentrification}\\
+\subsubsection{Gentrification als Aufwertung}
 
-Seit der Einführung des Begriffs durch Ruth Glass 1964 herrscht in der Literatur Uneinigkeit über die Definition von Gentrification. Die Schwierigkeit eine kohärente und konsensfähige Definition von Gentrification zu formulieren besteht in erster Linie darin, die sich bei Gentrification Prozessen überlagernden "`bauliche[n] und infrastrukturelle[n] Veränderungen der Nachbarschaft mit immobilienwirtschaftlichen Wertschöpfungen, veränderten Bewohnerstrukturen, neuen Formen der Stadtpolitik und symbolischen Umbewertungen der Wohnquartiere"' \citep[S.~662]{Holm2012} in einer Definition zu kondensieren. Definitionen, welche diese Mehrdimensionaliät von Gentrification zu berücksichtigen versuchen (z.B. \citet{Hamnett1984}, \citet{Beauregard1986} oder \citet{Krajewski2006}) werden von \citet{Glatter2007} als "`holistische"' Gentrification Definitionen bezeichnet. \citet{Clark2005} kritisiert die Enge holistischer Definitionen, welche immer wieder dazu geführt hätte, das Phänomen Gentrification nicht nur \textit{zu sehr} einzugrenzen, sondern es vor Allem \textit{falsch} einzugrenzen. Schließlich sei definitorische Enge nicht mit Präzision zu verwechseln und die für eine Definitionsformulierung erforderlichen Abstraktionen sollten sich ausschließlich auf die notwendigen Beziehungen des Phänomens beschränken. \\
+Seit der Einführung des Begriffs durch Ruth \citet{Glass1964} herrscht in der Literatur Uneinigkeit über die Definition von Gentrification. Die Schwierigkeit eine kohärente und konsensfähige Definition von Gentrification zu formulieren besteht in erster Linie darin, die sich bei Gentrification Prozessen überlagernden "`bauliche[n] und infrastrukturelle[n] Veränderungen der Nachbarschaft mit immobilienwirtschaftlichen Wertschöpfungen, veränderten Bewohnerstrukturen, neuen Formen der Stadtpolitik und symbolischen Umbewertungen der Wohnquartiere"' \citep[S.~662]{Holm2012} in einer Definition zu kondensieren. Definitionen, welche diese Mehrdimensionaliät von Gentrification zu berücksichtigen versuchen (z.B. \citet{Hamnett1984}, \citet{Beauregard1986} oder \citet{Krajewski2006}) werden von \citet{Glatter2007} als "`holistische"' Gentrification Definitionen bezeichnet. \citet{Clark2005} kritisiert die Enge holistischer Definitionen, welche immer wieder dazu geführt hätte, das Phänomen Gentrification nicht nur \textit{zu sehr} einzugrenzen, sondern es vor Allem \textit{falsch} einzugrenzen. Schließlich sei definitorische Enge nicht mit Präzision zu verwechseln und die für eine Definitionsformulierung erforderlichen Abstraktionen sollten sich ausschließlich auf die notwendigen Beziehungen des Phänomens beschränken. \\
 So plädiert \citet[S.~263]{Clark2005} dafür, Gentrification definitorisch nicht auf die Innenstadt bzw. den urbanen Raum, auf Wohngebiete oder auf die Erneuerung von architektonisch attraktiven Altbauten einzuschränken. Eine Gentrification Definition sollte demnach die je nach zeitlichem und räumlichem Kontext unterschiedlichen Formen von Gentrification, wie etwa \textit{Neubau-Gentrification} \citep{Davidson2010}, \textit{Super-Gentrification} \citep{Lees2003} oder \textit{Insel-Gentrification} \citep{Clark2007a}, erfassen können. Als Formen von Gentrification gelten für \citep[S.~262]{Clark2005} alle Wandlungsprozesse, die folgender Definition genügen:
 
 \begin{quote}
 "`Gentrification is a process involving a change in the population of land-users such that the new users are of a higher socio-economic status than the previous users, together with an associated change in the built environment through [an investment] in fixed capital."'
 \end{quote}\footnote{Im Orignalzitat heisst es "`a reinvestment"' anstatt "`an investment"'. Diese Änderung wurde von mir vorgenommen, um Gentrificationformen explizit zuzulassen, denen keine Investitionen vorausgingen, also zum ersten Mal investiert wird. So kann Neubau-Gentrification in Räumen auftreten, die sich vorher in öffentlichem Besitz und öffentlicher Nutzung befanden, aber durch Privatisierung kommodifiziert wurden.} 
 
-Diese Gentrification Definition soll der folgenden Studie zugrunde liegen. Sie formuliert klar die additive Konditionalität \citep{Holm2011} von \textit{sozialer Aufwertung} einerseits und \textit{immobilienwirtschaftlicher Aufwertung} andererseits, berücksichtigt jedoch keine weiteren (möglichen) Dimensionen von Gentrification, wie etwa die der funktionalen oder der symbolischen Aufwertung \citep{Krajewski2013}. \footnote{Wie bei \citet[S.~10]{Glatter2007} wird Gentrification im Weiteren mit spezifischer Aufwertung gleichgesetzt, wobei mit dem Wort \textit{Aufwertung} aber keine positive Konnotation verbunden werden soll.} Desweiteren lässt sie Raum für verschiedenste Ausprägungsformen. In der Beschränkung auf das \textit{Wesen} der Gentrification, also der additiven Konditionalität von sozialer und immobilienwirtschaftlicher Aufwertung, liegt der Vorteil dieser Definition. \footnote{\citet[S.~815]{Hackworth2002} stellt eine vielleicht noch elegantere und prägnantere Gentrification Definition auf, welche sich ebenfalls auf das \textit{Wesen} der Gentrification beschränkt, jedoch die additive Konditionalität von sozialer und immobilienwirtschaftlicher Aufwertung weniger direkt offenlegt: "`Gentrification [is] the production of urban space for progressively more affluent users"'.} Außerdem bietet sie die Möglichkeit einer relativ einfachen Operationalisierbarkeit (vgl. Kapitel X.XX). Was genau unter immobilienwirtschaftlicher und sozialer Aufwertung zu verstehen ist und worin die konditionale Additivität der Aufwertungsprozesse besteht, soll im Folgenden geklärt werden.
+Diese Gentrification Definition soll der folgenden Studie zugrunde liegen. Sie formuliert klar die "`additive Konditionalität"' \citep{Holm2011} von \textit{sozialer Aufwertung} einerseits und \textit{immobilienwirtschaftlicher Aufwertung} andererseits, berücksichtigt jedoch keine weiteren (möglichen) Dimensionen von Gentrification, wie etwa die der "`funktionalen"' oder der "`symbolischen Aufwertung"' \citep{Krajewski2013}. \footnote{Wie bei \citet[S.~10]{Glatter2007} wird Gentrification im Weiteren mit dieser spezifischen Aufwertung gleichgesetzt, wobei mit dem Wort \textit{Aufwertung} keine positive Konnotation verbunden werden soll. Wird im Folgenden von lediglich von \textit{Aufwertung} gesprochen, so ist damit die Kombination von sozialer und immobilienwirtschaftlicher Aufwertung gemeint.} Desweiteren lässt sie Raum für verschiedenste Ausprägungsformen. In der Beschränkung auf das \textit{Wesen} der Gentrification, also der additiven Konditionalität von sozialer und immobilienwirtschaftlicher Aufwertung, liegt der Vorteil dieser Definition. \footnote{\citet[S.~815]{Hackworth2002} stellt eine vielleicht noch elegantere und prägnantere Gentrification Definition auf, welche sich ebenfalls auf das \textit{Wesen} der Gentrification beschränkt, jedoch die additive Konditionalität von sozialer und immobilienwirtschaftlicher Aufwertung weniger direkt offenlegt: "`Gentrification [is] the production of urban space for progressively more affluent users"'.} Außerdem bietet sie die Möglichkeit einer relativ einfachen Operationalisierbarkeit (vgl. Kapitel X.XX).\\
+Was genau unter immobilienwirtschaftlicher und sozialer Aufwertung zu verstehen ist, worin die konditionale Additivität der Aufwertungsprozesse besteht und worin der Zusammenhang zwischen Aufwertung und Verdrängung das implizit soll im Folgenden geklärt werden.
+
 
 \paragraph{Immobilienwirtschaftliche Aufwertung}\\
 
-Immobilienwirtschaftliche Aufwertung bezeichnet die Wertsteigerung unbeweglichen Sachguts. Diese minimalistische Definition lässt die Möglichkeit einer immobilienwirtschaftlichen Aufwertung zu, welcher \textit{keine} Investitionen vorausgegangen sind. Auf der Ebene individueller Immobilien sind Wertsteigerungen erfahrungsgemäß auch unter Abwesenheit von Investitionen denkbar: Beispielsweise vermag der Eigentümer einer Mietswohnung in stark nachgefragten Nachbarschaften den Mietzins bei Wiedervermietung erhöhen und damit eine höhere kapitalisierte Grundrente realisieren ohne den Tauschwert der Wohnung durch entsprechende bauliche Investitionen, etwa einer Modernisierung, erhöht zu haben. Obwohl Investitionen zwar auf \textit{individueller} Ebene nicht notwendig für die Wertsteigerung von Immobilien sind, so sind sie es doch auf \textit{struktureller} Ebene.\footnote{Der hier bemühte Unterschied zwischen individueller und struktureller Ebene ist in Analogie zur Marxschen Arbeitswerttheorie zu denken: Durch die Reduktion der Ausgaben für konstantes Kapital kann ein individueller Kapitalist zwar mehr Gewinn erzielen, der Wert der hergestellten Waren bleibt aber strukturell über die im Durchschnitt gesellschaftlich notwendige Arbeitszeit bestimmt.} Zu einer immobilienwirtschaftlichen Aufwertung einer gesamten Nachbarschaft kann es schließlich nicht ohne Investitionen kommen: Eine gesteigerte Nachfrage nach Wohnraum in einer Nachbarschaft wird zwangsläufig dazu führen, dass Eigentümer oder Anleger ihre Renditeerwartungen durch Invesitionen zu hebeln versuchen. Außerdem entsteht eine gesteigerte Nachfrage ohnehin meist in Folge von Investitionstätigkeiten. \\
-Da sich es sich bei Gentrification um einen Wandlungsprozess handelt, welcher mindestens auf dem räumlichen Niveau von Nachbarschaften stattfindet, erscheint eine Spezifizierung von allgemeiner immobilienwirtschaftlicher Aufwertung auf \textit{investitionsbezogene} immobilienwirtschaftliche Aufwertung in der obigen Definition von Gentrification als begründet und sinnvoll. \\
+Immobilienwirtschaftliche Aufwertung bezeichnet die Wertsteigerung unbeweglichen Sachguts. Diese minimalistische Definition lässt die Möglichkeit einer immobilienwirtschaftlichen Aufwertung zu, welcher \textit{keine} Investitionen vorausgegangen sind. Auf der Ebene individueller Immobilien sind Wertsteigerungen erfahrungsgemäß auch unter Abwesenheit von Investitionen denkbar: Beispielsweise vermag der Eigentümer einer Mietswohnung in stark nachgefragten Nachbarschaften den Mietzins bei Wiedervermietung erhöhen und damit eine höhere kapitalisierte Grundrente realisieren ohne den Tauschwert der Wohnung durch entsprechende bauliche Investitionen, etwa einer Modernisierung, erhöht zu haben. Obwohl Investitionen zwar auf \textit{individueller} Ebene nicht notwendig für die Wertsteigerung von Immobilien sind, so sind sie es doch auf \textit{struktureller} Ebene. Zu einer immobilienwirtschaftlichen Aufwertung einer gesamten Nachbarschaft kann es schließlich nicht ohne Investitionen kommen: Eine gesteigerte Nachfrage nach Wohnraum in einer Nachbarschaft wird zwangsläufig dazu führen, dass Eigentümer oder Anleger ihre Renditeerwartungen durch Invesitionen zu hebeln versuchen. Außerdem entsteht eine gesteigerte Nachfrage ohnehin meist in Folge von Investitionstätigkeiten.\footnote{Die hier bemühte Differenzierung zwischen individueller und struktureller Ebene ist in Analogie zur Marxschen Arbeitswerttheorie zu denken: Durch die Reduktion der Ausgaben für konstantes Kapital kann ein individueller Kapitalist zwar mehr Gewinn erzielen, der Wert der hergestellten Waren bleibt aber strukturell über die im Durchschnitt gesellschaftlich für die Produktion notwendige Arbeitszeit bestimmt.} Da Gentrification einen Wandlungsprozess beschreibt, welcher mindestens auf dem räumlichen Niveau von Nachbarschaften stattfindet, erscheint eine Spezifizierung von allgemeiner immobilienwirtschaftlicher Aufwertung auf \textit{investitionsbezogene} immobilienwirtschaftliche Aufwertung in der obigen Definition von Gentrification als begründet und sinnvoll. \\
+Für gentrificationbezogene immobilienwirtschaftliche Aufwertung existieren drei zentrale Erklärungsansätze \citep[S.~664]{Holm2012}:
 
-In der Gentrification Theorie erklärungsmodelle
-Kommodifizierung  
-rent-gap und value gap \citep{Smith1996}, \citep{Smith1987}, \citep{Smith1979},  \citep{Glatter2007}, Holm, Hamnett). 
+\begin{enumerate} 
+  \item Die Makroökonomie der zyklisch wiederkehrenden Attraktivität von Investitionen in den Immobiliensektor,
+  \item die Mikroökonomie der Rationalität von sogenannten Ertragslücken, sowie
+  \item die Übergänge von einer Renten- in eine Renditeökonomie.
+\end{enumerate}
 
-Investitionen in Bestandsgebieten werden mit einer Rentabilitätsdifferenz zwischen der momentan erzielten Bodenrente und den erwarteten Erträgen durch Verkauf und Investition begründet.
+Auf den ersten und den dritten Erklärungsansatz soll an dieser Stelle nicht genauer eingegangen werden. Um jedoch den Zusammenhang zwischen immobilienwirtschaftlicher Aufwertung und sozialer Aufwertung entwickeln zu können, soll der zweite Erklärungsansatz, also die mikroökonomische Rationalität von sogenannten Ertragslücken, ganz kurz erörtert werden. Im Zentrum dieses Erklärungsansatzes stehen Modelle zur Rentabilität von Erneuerungsinvestitionen \citep[S.~665]{Holm2012}, wobei diese auf Smiths Theorie der \textit{rent-gap} aufbauen (\citet{Smith1979}, \citet{Smith1985}, \citet{Smith1987} \citet{Smith1996}). Nach der \textit{rent-gap} Theorie besteht ein ökonomischer Aufwertungsanreiz, wenn die \textit{rent-gap}, definiert als die Differenz zwischen dem Niveau potentieller Grundrente eines Grundstücks und der tatsächlich erzielten, kapitalisierten Grundrente \citep[S.~545]{Smith1979}, hinreiched groß wird. "`Die Grundannahme dabei ist, dass sich Investitionen erst rentieren, wenn diese Lücke größer ist als die Investitionssumme selbst"' \citep[S.~665]{Holm2012}. \footnote{Eine sehr lesenswerte und ausführliche Abhandlung zu den Ursprüngen, der Struktur und dem Zweck von Smiths \textit{rent-gap} Theorie findet sich in \citet{Slater2015}.}
 
 \paragraph{Soziale Aufwertung}
 
-Krajewski2013
+Ertragslückenschluss erfordert andere Bevölkerung. 
+
+Nicht der Mangel an sozialer Kompetenz der oft mit der Terminologie von \textit{sozialer Schwäche} verbunden wird. hier nicht zu verwechseln mit soziokultureller Aufwertung, politisch ökonomische Interpretation des Begriffs.
+
+Wohnungen sind zinstragende Kapitalanlage \citep[S.~11ff.]{Holm2011c}
+
+\citep[S.~62]{Krajewski2006}
 
 Soziale Aufwertung
-
     Austausch von Bewohnern
-
     Veränderte Sozialstruktur
-
     Zuzug von quartiersfremdem sozialen Gruppen (bildungs- und einkommenshöher)
-
     Ziel von Städtetouristen
 
- keine positive Konnotation
+Nicht zufällig wird nicht selten in Definition aufgenommen. In der Minimaldefinition heisst es income
 
 Find ich gut, mir fehlt aber noch displacement. Nicht weil ich es hinzufügen weil, sondern weil die Definition displacement beinhaltet. Eine Art defintorischen "`Minimalkonsens"' \citep[S.~662]{Holm2012} formulierten \citet[S.~5]{Kennedy2001}:
 
@@ -48,45 +54,50 @@ Find ich gut, mir fehlt aber noch displacement. Nicht weil ich es hinzufügen we
 "`[G]entrification [is] the process by which higher income households displace lower income residents of a neighborhood, changing the essential character and flavor of that neighborhood."'
 \end{quote}
 
+Ertragslückenschluss nicht nur bei Mietwohnungen oder Immobilienverkäufen, sondern auch in der Gewerbestruktur.
+
+"`Nicht nur die Wohnbevölkerung ist an der sozialen Aufwertung beteiligt; ein zusätzlicher Beitrag zum 'Upgrading' [...] geht ebenso von der 'temporären' Anwesenheit von Beschäftigten in hochwertigen Dienstleistungsberufen sowie von Städtetouristen aus"' \citep[S.~61]{Krajewski2006}.
+
 \citep[S.~1]{Atkinson2011} \citep[S.~5]{Kennedy2001}
 
 statushöhere Bevölkerung (einkommen, bildungsgrad)
-hier nicht zu verwechseln mit soziokultureller Aufwertung, ökonomische Interpretation des Begriffs.
+
 politsche ökonomie definition: rent gap schließen zu können, das heisst potentielle Bodengrundrente zu realisieren benötigt es zahlungskräftige MieterInnen. Insofern bedingt eine immobilienwirtschaftliche Aufwertung ökonomisch auch eine soziale Aufwertung.
 Das heisst, je größer die rent gap, desto größer der Verdrängungsdruck - entweder durch den die entstehenden Mehrkosten bei Mieterhöhungen in bestehenden Mietverträgen oder die notwendigkei
 
-gentrification = Aufwertungsdynamik. Notwendig, nicht hinreichend. Dyanmik griech., dynamiké=mächtig (Gentrimaps)
 Aber aufgrund der oben beschriebenen Bedingung besteht letzlich eine ökonomische Notwendigkeit zwischen 
 
 Also entweder ein zur Ware machen Kommodifizierung oder ein immobilienwirtschaftliche Investition 
 
-
-
 Kommodifizierung von Raum
 Wohnraum wird nicht erst durch Gentrification zur Ware, Kommodifizierung des Raumes als die Grundursache von Gentrification \citep[S.~261]{Clark2005}
 
-\paragraph{Verdrängung}
+\subsubsection{Gentrification als Verdrängung}
 "`In addition, if gentrification theory teaches us anything, we should know by now that rent gaps are widest in non-gentrifying neighbourhoods (when the gap between the actual ground rent in the area and the ground rent that could be extracted were the area to undergo reinvestment becomes wide enough to allow that reinvestment to take place). \\
 Higher levels of mobility—especially evictions—are to be expected as landlords and developers realise that systematic disinvestment has reached a point where neighbourhoods can be redeveloped at substantial profit (see also Clark, 1987; Hammel, 1999). To put all this in clearer conceptual terms, direct displacement (last-resident and probably chain forms) is suffered by poor households in non-gentrifying neighbourhoods, and exclusionary displacement is suffered by poorhouseholds in gentrifying neighbourhoods, where low mobility is also to be expected."' \citep[S.~305]{Slater2009}
 
+"`Dass es bei Gentrification zu Verdrängung kommt ist unstrittig. Nicht aber konsensfähig sind Art, Verlauf und Ausmaß der Verdrängung"' \citep[S.~23]{Diller2014}
 
-\citet[S.~1]{Atkinson2011} : "Gentrification refers to the migration of higher income households to lower income neighbourhoods" (p.1)
+"`the shared and defining characteristic of gentrification everywhere is socio economic change through migration"' \citep[]S.~40]{Lyons1996}
+
+Verdrängung kann in anderen Ursachen hoher Mobilität statistisch untergehen (Lees 2010 im Gentrification Reader S.~318f.)
+
 Klassenspezifische Raumproduktion social sieve
 
 Verdrängung Teil der Definition oder nicht Diller 2014 ja, Verdrängung zweiter Kernmerkmal der Gentri bei \citet{Krajewski2006} Krajewski 2013?
 
 Polit ökonomisch
 
-Verdrängung vs. Austausch
+Verdrängung vs. Austausch \citet[S.~24]{Diller2014}
 Disput zwischen Hamnet und Slater 
 
-\paragraph{Verdrängungs Typologie}
+\paragraph{Typologie}
 Ganz Zentral und ausgiebig: Verdrängungs Typologie
 
-"Mit der Systematisierung verschiedener Verdrängungsformen schlug Peter Marcuse einen konzeptionellen Rahmen für die Verdrängungsanalysen vor. Er
-unterschied zwischen direkten (physical and economic displacement) und indirekten (displacement pressure) Verdrängungen sowie gebietsbezogenen Schließungseffekten (exclusionary displacement) durch die Aufwertung (Marcuse 1986)." \citet[S.~671]{Holm2012}
+"`Mit der Systematisierung verschiedener Verdrängungsformen schlug Peter Marcuse einen konzeptionellen Rahmen für die Verdrängungsanalysen vor. Er
+unterschied zwischen direkten (physical and economic displacement) und indirekten (displacement pressure) Verdrängungen sowie gebietsbezogenen Schließungseffekten (exclusionary displacement) durch die Aufwertung (Marcuse 1986)."' \citet[S.~671]{Holm2012}
 
-"it is essential to have conceptual clarity before research on displacement begins, and before any conclusions can be drawn" \citet[S.~304]{Slater2009}
+"`it is essential to have conceptual clarity before research on displacement begins, and before any conclusions can be drawn"' \citet[S.~304]{Slater2009}
 
 \begin{enumerate}
  \item direct displacement: Physical and economic. Physical Zwangsräumung. Economic Mietpreissteigerung z.b.
@@ -97,6 +108,34 @@ unterschied zwischen direkten (physical and economic displacement) und indirekte
 \citet{Marcuse1985} \citet{Slater2009}
 
 
+
+
+\subsubsection{Zum Zusammenhang zwischen Aufwertung und Verdrängung}
+
+Gentrification aus zwei analystischen Persepektiven: Vom Standpunkt der politischen Ökonomie handelt es sich um Aufwertung. Vom soziologischen Standpunkt handelt es sich um Verdrängung. Beide Perspektiven beschreiben den selben Prozess.
+
+Konzeptionelles Diagramm
+
+Soziologische Perspektive: Verdrängung - Verdrängungstypen --> Gentrification <-- Politisch-ökonomische Perspektive: Aufwertung - Immobilienwirtschaftliche / soziale 
+
+"`Verdrängung ist das Wesen der Gentrification, ihr Ziel, und nicht ein unerwünschter Nebeneffekt. Verbesserung der Bausubstanz ist lediglich Mittel zum Zweck der Verdrängung und nicht ein Ziel an sich."' \citep[S.~80]{Marcuse1992}
+
+Oben habe ich gesagt die additive Koditionalität macht das Wesen aus. Ja was denn nun? Doppelte Konditionalität. Es gibt change in users und es gibt new users of higher-socio economic status. Verdrängung ist hier implizit.
+Dafür gibt es auch ein logisches Argument: Immobilienwirtschaftliche Aufwertung setzt die Erhöhung der kapitalisierten Grundrente voraus. Eine Erhöhung wird über den Schluss der Ertragslücke (rent oder value) erreicht. Dafür benötigt es eine soziale Aufwertung
+
+drei Bedeututungen des Begriffs \textit{Wesen} nach Hegel \citep[S.~89]{Inwood1992}
+
+\begin{quote}
+  \begin{itemize}
+  \item the permanent, dominant nature of a thing, that underlies its varying outer states or APPEARANCE (Erscheinung)
+  \item the actual or essential nature of a thing in contrast to how it seems or its appearance (Schein)
+  \item the essential or UNIVERSAL features of a group of entities, in contrast to their individual variations
+  \end{itemize}
+\end{quote}
+
+Wesen: seine Rationalität
+
+"`Investitionen in Bestandsgebieten werden mit einer Rentabilitätsdifferenz zwischen der momentan erzielten Bodenrente und den erwarteten Erträgen durch Verkauf und Investition begründet. Der Erfolg der Investitionsstrategie ist damit an den seltenen Fall kollektiver Einkommenszuwächse der Haushalte in einem Gebiet (incombent upgrading) oder den Austausch der Bewohner(inn)en gebunden und legt einen engen Zusammenhang von Gentrification und Verdrängung nahe."' \citep[S.~665]{Holm2012}
 
 
   \subsection{Forschungsstand}
@@ -123,9 +162,11 @@ Welche Widersprüche sind zu erkennen? \\
 		\subsubsection{Quantitative Studien zu Gentrification und Wohnmobilität}
 
 Verdrängung messen:
-Probleme: Slater 2009 "there is no such data".
+Probleme: Slater 2009 "`there is no such data"' und gleichzeitig sagt er Slater 2015 über die Schwierigkeiten Gentrificationtheorie zu operationalisieren "`theories are always confronted with empirical difficulties. They should not be abandoned because of it."'
 
-Theorie 2 Phasen: erst erhöhte Mobiltät, dann niedrigere bzw. niedrigere Fortzugsraten?!? Gibts nicht so richtig. \\
+"`Dass es bei Gentrification zu Verdrängung kommt ist unstrittig. Nicht aber konsensfähig sind Art, Verlauf und Ausmaß der Verdrängung"' \citep[S.~23]{Diller2014}
+
+Verdrängung kann in anderen Ursachen hoher Mobilität statistisch untergehen (Lees 2010 im Gentrification Reader S.~318f.)
     
 \citet{Atkinson2000} This paper presents evidence suggesting that gentrification was an active and extensive
 process during the 1980s in Greater London and that, where this occurred, it was associated with above-average levels of losses of
@@ -164,11 +205,43 @@ KRITIK in Berlin fehlen quantative Studien zu vedrängung und gentri
 	
 		\subsubsection{Kontext Berlin}
 
-"`Capital accumulation through real-estate activity booms"' schrieb David \citet[S.~35]{Harvey2008} im \textit{New Left Review}. 
+\paragrah{Wohnungsmarkt}
+
+"`Der Berliner Wohnungsmarkt ist in den letzten Jahren durch fast flächendeckende Mietsteigerungen geprägt und innerhalb des S-Bahn-Rings hat sich Gentrification zu einem Mainstream-Phänomen entwickelt."' \citep[S.~29]{Berner2015}
+
+"`Capital accumulation through real-estate activity booms"' schrieb David \citet[S.~35]{Harvey2008} über Mumbai. Über Berlin hätte er das wohl im Jahre 2008 noch nicht geschrieben, denn der Boom des Immoblienmarktes ist in Berlin erst mit etwas Verzögerung ist Berlin angekommen. im Integration in globale zweite Zirkulationsphäre Finanzkapitals. Krisenanlagen, Spatial fix 'Betongold' Europäische Krise 
 
 Investitionen nicht notwendig für Aufwertung, da 
-Hiermit ist nicht notwenigerweise eine bauliche Aufwertung gemeint. In Berlin auf immobilienwirtschaftliche Aufwertung auch ohne bauliche Aufwertung möglich \citep[S.~30]{Berner2015} 
+Hiermit ist nicht notwendigerweise eine bauliche Aufwertung gemeint. In Berlin auf immobilienwirtschaftliche Aufwertung auch ohne bauliche Aufwertung möglich \citep[S.~30]{Berner2015} 
 
+\paragraph{Zentralität von Mietpreissteigerungen bei Wiedervermietung für Aufwertungsprozesse}\\
+Immobilienwirtschaftliche Aufwertung ist wertsteigerung. Diese drückt sich aus in höheren Mieten und Verkaufspreisen, also einer kapitalisierten Grundrente. 
+
+Umwandlungen
+in etwa 5300 Wohnungen im Jahresduchschnitt (2007-2013), mit stark wachsender Tendenz \citep{Paul2015}
+
+Ähnlich den von \citet{VanCriekingen2010} in der Innenstadt von Brüssel beobachteten Aufwertungsprozessen, die er als "`\textit{rental gentrification}"' bezeichnet, werden in Berlin die Aufwertungsprozesse maßgeblich von Mietpreissteigerungen bei Wiedervermietungen getragen. Die zentrale Bedeutung von Mietpreissteigerungen bei Wiedervermietungen soll in Abgrenzung zu anderen Faktoren wie den Mietpreissteigerungen im Bestand, Neuvermietungen und , vor allem in Abgrenzung zu der Bedeutung von  für die Aufwertungsprozesse in Berlin soll im Folgenden begründet werden. 
+
+\citep[S.~32]{Berner2015}
+Außerdem sind wohl zentralen Umständen begründen: 
+
+\begin{itemize}
+  \item \textit{Mieter*innenstadt}
+  Etwa 86 Prozent des Wohnungsbestandes in Berlin sind Mietwohnungen (Stand 2011) (Senatsverwaltung für Stadtenwicklung - berlin lohneneswerte stadt.)
+
+  \item \textit{Gestiegene Nachfrage} \\
+  Berlin besitzt seit 2001 jedes Jahr ein positives Wanderungssaldo mit stark steigendem Trend \citep{StatistischesLandesamtSachsen-Anhalt2015}. Einen extremer Anstieg des Wanderungssaldos ist für den Zeitraum von 2009 bis 2011 zu beobachten. In nur 2 Jahren kam es zu einer Zunahme des Wanderungssaldos von 3,1 je 1000 Einwohner auf 12 je 1000 Einwohner an - es vervierfachte sich also fast. Während Anfang der 2000er Jahre noch ein ein mittlerweile niedrige Leerstandsquoten (Verweis), Umwandlungen in Eigentumswohnungen im Bestand verringert das verschärft die Angebotslücke an Mietwohnungen
+  \item \textit{Niedrige Neubautätigkeit}\\
+    Obwohl in bestimmten Nachbarschaften Berlins Aufwertungsprozesse auch entscheidend durch Neubautätigkeiten getragen werden können (\textit{Neubau-Gentrification}), so ist bei der vorherrschend niedrigen Neubauquote und dem relativ niedrigem Invesitionsvolumen nicht davon auszugehen, Bestandsquartiere wie Prenzlauerberg, Friedrichshain oder Kreuzberg.  dass die davon auszugehen, dass Hier Zahlen von niedriger Neubauquote und niedrigem Investitionsvolumen 
+   Neubau ist Eigentumswohnungen und ein "`hoher Anteil der gerade fertiggestellten Neubauwohnungen befindet sich im Top-Segment"' (Wohnungsmarktbericht 2014) Im Jahre 2013 
+   Etwa 14 Prozent der Objekte sind als Mietwohnungsbauten konzipiert oder weisen sowohl Eigentums- als auch Mietwohnungen auf
+
+   \item \textit{Grenzen der Erhöhung von Bestandsmieten}\\
+  Im internationalen Vergleich besitzt Deutschland ein relativ mieter*innenfreundliches Mietrecht. Dies erlaubt zum Einen die Befristung von Mietverträgen nur unter engen Vorraussetzungen und setzt zum Anderen den Möglichkeiten sowie dem Ausmaß von Bestandsmietserhöhungen viele Grenzen. Zum Vergleich: In Großbrittanien und insbesondere in London sind Befristungen von Mietverträgen auf ein Jahr zulässig und die Regel. Dort ist somit ein Schluss der Ertragslücke zwischen Bestands- und Angebotsmieten durch die Vermieter*innen auch jährlich möglich und eine kontinuierliches Wachstum der Ertragslücke wird dadurch unterbunden. Aufwertungsprozesse werden durch den schnellen Ertragslückenschluss erheblich beschleunigt, sodass der \textit{Economist} (hier Verweis Economist) 2014 über London feststellt, die Gentrification schreite mit "` terrifying pace"' voran. Eine 
+
+    etwa 35 Prozent der Angebotspenise / mietpreise  Ertragslücke auf etwa drei Euro 
+ die berlinweite durchschnittliche Differenz zwischen Bestandsmieten und Angebotsmieten Aufgrund der in Deutschland vergleichsweise guten Mieterinnenrechte 
+\end{itemize}
 
 verdrängungs und Gentrificationdiskussion in Berlin\\
 
@@ -177,10 +250,12 @@ Verwertungskrisen
 Bisherige Studien: Quali und quantativ 
 \citet{Holm2004} \citet{Holm2011} \citet{Rusche2015} \citet{Czarnetzki2013} \\
 
+\paragraph{Aufwertung und Verdrängung}
+
 Aufwertungsdynamiken in Berlin: Monitoring Soziale Stadtentwicklung \& BBU Marktmonitor \& GSW Wohnatlanten
 --> Entdeckung des Berliner Wohnungsmarktes - spatial fix (Harvey ?)	
 Einzigartige Marktdynamik
-"Der Berliner Wohnungsmarkt ist in den letzten Jahren durch fast flächendeckende Mietsteigerungen geprägt und innerhalb des S-Bahn-Rings hat sich Gentrification zu einem Mainstream-Phänomen entwickelt." (Zwangsräumungsbericht p.29)
+"`Der Berliner Wohnungsmarkt ist in den letzten Jahren durch fast flächendeckende Mietsteigerungen geprägt und innerhalb des S-Bahn-Rings hat sich Gentrification zu einem Mainstream-Phänomen entwickelt."' \citep[S.~29]{Berner2015}
 
 
 Widersprüche: BBU und Mieterecho: Keine erhöhte Verdrängung/Wegzug in gentrigebieten.   \citet{Rusche2015} und \citet{Holm2011} wie auch alle Protestbewegungen: öknomische Verdrängung \\
@@ -190,6 +265,7 @@ GSW Marktberichte
 
 Verdrängung üblicherweise economic displacement, kaum exclusionoary displacement und displacement pressure
 
+\citep{Diller2014a} Studie zu verschiedenen Stadtvierteln
 
 	\subsection{Forschungshypothesen}
 	
@@ -227,6 +303,13 @@ kommen soll.}
 \paragraph{Forschungsfragen}
 \begin{enumerate}
 \item Wo befinden sich in Berlin die am stärksten von Aufwertungsdynamiken (immoblienwirtschaftlich und sozialstrukturell) betroffenen Nachbarschaften und wie sind diese zu charakterisieren insbesondere bzgl. der wohnräumlichen Mobilität ihrer BewohnerInnen?
+
+"`The whole point of the rent gap theory is not that gentrification occurs in some deterministic fashion where housing costs are lowest, as Ley is
+proposing, but that it is most likely to occur in areas experiencing a sufficiently large gap between actual and potential land values. This is a
+fundamental distinction. Areas such as the central and inner city where the rent gap may bc greatest may also expcrience very high land values and
+housing costs despitc disinvestment from the built environmcnt and the consequent rent gap."' \citep[S.~464]{Smith}
+
+
 \item Gibt es einen Zusammenhang zwischen Aufwertung und wohnräumlicher Mobilität / Verdrägung? Wie kann dieser Zusammenhang modelliert, nach Verdrängungstypen differenziert und quantifiziert werden? 
 \item Wie lässt sich das wohnräumliche Mobilitätsverhalten in den Aufwertungsgebieten genauer beschreiben - Wo ziehen die Leute hin, wo kommen die Zugezogenen her? Untschied zu Kontroll Gebieten? Erhöhter Umzug in Nachbarschaften bei Gentri Gebieten? Oder weniger weil sie da nix finden?
 \end{enumerate}
@@ -270,6 +353,17 @@ Atkinson 2000 p.161 Gentri areas für verschiedene Risikogruppen (working class,
 
 \item Je stärker die immobilienwirtschaftliche Aufwertungsdynamik, desto höher die relativen Fortzugsraten in den Nachbarschaften \\
 Isolierung des Effektes immoblienwirtschaftlicher Aufwertung durch Modelle. Interpretation als economic direct displacement (Marcuse p.205).
+
+\item Positiver Zusammenhang zwischen Armutsquote und Fortzugsraten und Zuzugsraten.
+
+
+\begin{quote}
+"`Auch das wohnungswirtschatliche Geheimnis der Gentriication lässt sich mit dem Zinscharakter der Wohnungswirtschat erklären: Investitionen in Mo-
+dernisierungsmaßnahmen versprechen eben dort die höchsten Gewinne, wo die Ertragslücken am höchsten sind (Smith 1979). In der Regel sind das Wohngebiete,
+die aus wohnungswirtschatlicher Sicht die geringsten Restnutzwerte aufweisen, über die schlechteste Bausubstanz verfügen und die niedrigsten Mieteinnahmen
+erbringen. Gerade weil die Ertragslücken in solchen heruntergewirtschateten Nachbarschaten regelmäßig am höchsten ausfallen, ist die Verdrängung kein
+ungewollter Nebenefekt der Erneuerung, sondern notwendige Voraussetzung für den Erfolg der Investitionsstrategie (Marcuse 1992)."' \citep[S.~12]{Holm2011c}
+\end{quote}
 
 
 \item Es besteht ein gebietsbezogener positiver Zusammenhang zwischen sozialstruktureller Aufwertungdynamik und wohnräumlicher Mobilität. \\

@@ -350,6 +350,19 @@ SAR5 <- spautolm(formula=ZuzuegeDAR ~ Mietechgr + ArmutchgC +
 summary(SAR5, Nagelkerke=T)#, adj.se=T)
 
 
+SAR5 <- spautolm(formula=FortzuegeR ~ Mietechgr*ArmutchgCAT2 +
+                   Miete.2007C  + Armut.2007C +
+                   E_U18R.2007C +
+                   E_18U35R.2007C  +
+                   #E_65U110R.2007 +
+                   PDAU10.2007C + STADTRAUM + StaedtWohnungen.2012C + AlleinerzHH.2012C,
+                 data=LOR4reg,
+                 listw=W_2000mIDWs, 
+                 weights=E_E.2007,
+                 family="SAR")
+summary(SAR5, Nagelkerke=T)#, adj.se=T)
+
+
 SAR6 <- spautolm(formula=ZuzuegeDAR ~ MietechgrC + ArmutchgC +
                    Miete.2007C  + Armut.2007C +
                    E_U18R.2007C + E_18U35R.2007C + #E_65U110R.2007 +
@@ -365,15 +378,17 @@ LOR4SAR@data <- data.frame(LOR4SAR@data, SAR5$fit$residuals)
 breaks <- quantile(SAR5$fit$residuals, probs = seq(0, 1, 0.1))
 spplot(LOR4SAR, zcol="SAR5.fit.residuals",at = breaks)
 
+qntl <- quantile(LOR4reg@data$Armutchg, probs=c(0,0.1,0.9,1)); qntl 
+LOR4reg@data$ArmutchgCAT <- cut(LOR4reg@data$Armutchg, 
+                                 qntl,
+                                 labels=c("starke Aufwertung",
+                                          "Mittelfeld",
+                                          "starke Abwertung"),
+                                 include.lowest = TRUE)
 
+spplot(LOR4reg,zcol="ArmutchgCAT")
+LOR4reg@data$ArmutchgCAT2 <- factor(LOR4reg@data$ArmutchgCAT,levels(LOR4reg@data$ArmutchgCAT)[c(2,1,3)])
 
-
-zresid <- residuals(M1)/(M1 sum$sig)
-zresid
-# standardized residuals and country names
-qqnorm(zresid, ylab="Standardized Residuals")
-# Q-Q plot
-abline(0,1)
 
 plot(LOR4reg@data$Mietechgr,LOR4reg@data$FortzuegeR)
 qqnorm(standardizedResiduals)
@@ -694,7 +709,7 @@ SAR4 <- spautolm(formula=FortzuegeR ~ Gentri*STADTRAUM +
                  family="SAR")
 summary(SAR4, Nagelkerke=T)#, adj.se=T)
 
-SAR5 <- spautolm(formula=FortzuegeR ~ Mietechgr*STADTRAUM + Armutchg*STADTRAUM +
+SAR5 <- spautolm(formula=FortzuegeR ~ Mietechgr + ArmutchgC +
                    Miete.2007  + Armut.2007 +
                    E_U18R.2007 + E_65U110R.2007 +
                    PDAU10.2007, #+ STADTRAUM,
