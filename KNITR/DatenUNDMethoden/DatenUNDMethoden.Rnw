@@ -107,8 +107,10 @@ Standard Errors wie oben beschrieben als Prozess interpretation. Alternativ wär
 
 
 \subsection{Operationalisierung}
-\begin{enumerate}
 
+gentrification = Aufwertungsdynamik. Notwendig, nicht hinreichend. Dyanmik griech., dynamiké=mächtig (Gentrimaps)
+
+\begin{enumerate}
 \item Immobilienwirtschaftliche Aufwertung: Proxy NUR Angebotsmiete. (BBU 2014,S.15): "Berlin ist eine Mieterstadt. Der Anteil der Mietwohnungen am Gesamtbestand ist in Berlin im Vergleich der Bundesländer, aber auch unter den deutschen Metropolen, mit rund 84 Prozent mit Abstand am höchsten. Der Anteil des selbst genutzten Wohneigentums ist mit rund 16 Prozent der niedrigste in Deutschland und liegt weit unter dem Bundesdurchschnitt von etwa 44 Prozent."
 Ertragserwartungen
 

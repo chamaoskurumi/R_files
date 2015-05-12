@@ -8,6 +8,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
 \usepackage{acronym}
+\usepackage{booktabs}
+\usepackage{multirow}
 
 \bibliography{Bibliographie}
 % -------------------------------
