@@ -32,12 +32,12 @@ Für gentrificationbezogene immobilienwirtschaftliche Aufwertung existieren drei
   \item die Übergänge von einer Renten- in eine Renditeökonomie.
 \end{enumerate}
 
-Auf den ersten und den dritten Erklärungsansatz soll an dieser Stelle nicht genauer eingegangen werden. Um jedoch den Zusammenhang zwischen immobilienwirtschaftlicher Aufwertung und sozialer Aufwertung entwickeln zu können, soll der zweite Erklärungsansatz, also die mikroökonomische Rationalität von sogenannten Ertragslücken, ganz kurz erörtert werden. Im Zentrum dieses Erklärungsansatzes stehen Modelle zur Rentabilität von Erneuerungsinvestitionen \citep[S.~665]{Holm2012}, wobei diese auf Smiths Theorie der \textit{rent-gap} aufbauen (\citet{Smith1979}, \citet{Smith1985}, \citet{Smith1987} \citet{Smith1996}). Nach der \textit{rent-gap} Theorie besteht ein ökonomischer Aufwertungsanreiz, wenn die \textit{rent-gap}, definiert als die Differenz zwischen dem Niveau potentieller Grundrente eines Grundstücks und der tatsächlich erzielten, kapitalisierten Grundrente \citep[S.~545]{Smith1979}, hinreiched groß wird. "`Die Grundannahme dabei ist, dass sich Investitionen erst rentieren, wenn diese Lücke größer ist als die Investitionssumme selbst"' \citep[S.~665]{Holm2012}. Je größer die \textit{rent-gap}, desto größer die potentielle Rendite. Die \textit{rent-gap} ist also also vom Standpunkt der Invetor*innen als Ertragslücke zu interpretieren. \footnote{Eine sehr lesenswerte und ausführliche Abhandlung zu den Ursprüngen, der Struktur und dem Zweck von Smiths \textit{rent-gap} Theorie findet sich in \citet{Slater2015}.}
+Auf den ersten und den dritten Erklärungsansatz soll an dieser Stelle nicht genauer eingegangen werden. Um jedoch den Zusammenhang zwischen immobilienwirtschaftlicher Aufwertung und sozialer Aufwertung entwickeln zu können, soll der zweite Erklärungsansatz, also die mikroökonomische Rationalität von sogenannten Ertragslücken, kurz erörtert werden. Im Zentrum dieses Erklärungsansatzes stehen Modelle zur Rentabilität von Erneuerungsinvestitionen \citep[S.~665]{Holm2012}, welche auf Smiths Theorie der \textit{rent-gap} aufbauen (\citet{Smith1979}, \citet{Smith1985}, \citet{Smith1987} \citet{Smith1996}). Nach der \textit{rent-gap} Theorie besteht ein ökonomischer Aufwertungsanreiz, wenn die \textit{rent-gap}, definiert als die Differenz zwischen dem Niveau potentieller Grundrente eines Grundstücks und der tatsächlich erzielten, kapitalisierten Grundrente \citep[S.~545]{Smith1979}, hinreiched groß wird. "`Die Grundannahme dabei ist, dass sich Investitionen erst rentieren, wenn diese Lücke größer ist als die Investitionssumme selbst"' \citep[S.~665]{Holm2012}. Im Allgemeinen gilt: Je größer die \textit{rent-gap}, desto größer die potentielle Rendite. Die \textit{rent-gap} ist also also vom Standpunkt der Invetor*innen als Ertragslücke zu interpretieren. \footnote{Eine sehr lesenswerte und ausführliche Abhandlung zu den Ursprüngen, der Struktur und dem Zweck von Smiths \textit{rent-gap} Theorie findet sich in \citet{Slater2015}.} Es gilt jedoch zu berücksichtigen, dass politische Rahmenbedingungen bzw. das Handeln staatlicher Akteure einen massiven Einfluss auf das von Investor*innen aufzubringende Investitionsvolumen und die Größe von Ertragslücken ausüben. Einerseits können Inverstor*innen durch staatliche Fördermaßnahmen ihr privates Investitionsvolumen senken (z.B. durch Steuerersparnisse, günstige Kredite) oder diese zur Spreizung der Ertragslücke ausnutzen (z.B. Kostenmietensystem im Sozialen Wohnungsbau in Berlin). Andererseits können staatliche Eingriffe in den Immobilienmarkt der Spreizung von Ertragslücken Grenzen setzen (z.B. Mietpreisbremse, Erhöhung von Bestandsmieten nur unter bestimmten Voraussetzungen)
 
 \paragraph{Soziale Aufwertung}
 
-Ein Öffnen bzw. Hebeln von Ertragslücken wird üblicherweise über investitionsgetrage immobilienwirtschaftliche Aufwertung erreicht. Der Ertragslückenschluss jedoch, d.h. die Realisierung des Renditepotenzial bestehender Ertragslücken, muss von den Nutzer*innen des Bodens bezahlt werden. Diese Realisierung des Renditepotentials erfordert nicht nur die Kompensation der Investionen durch die Nutzer*innen, sondern auch die Zahlung der Rendite an die Eigentümer*innen. \\
- Im Falle von Investitionen in Mietswohnungen bedeutet dies nichts anderes, als dass der Schluss der Ertragslücke per Zahlung eines höheren Mietzinses durch die Mieter*innen realisiert wird. Mit der Realisierung der Rendite werden die Mietswohnungen aus Sicht der Eigentümer*innen ihrem Zweck als zinstragende Kapitalanlage gerecht \citep[S.~11ff.]{Holm2011c}. Wenn also der Ertragslückenschluss die Zahlung höherer Mietzinsen erfordert, dann müssen Mieter*innen mit größeren finanziellen Resourcen ausgestattet sein bzw. bereit sein, den höheren Mietzins zu zahlen.\\
+Ein Öffnen bzw. Hebeln von Ertragslücken wird üblicherweise über investitionsgetrage immobilienwirtschaftliche Aufwertung erreicht. Der Ertragslückenschluss jedoch, d.h. die Realisierung des Renditepotenzial bestehender Ertragslücken, muss, wenn man von subjektbezogenen staatlichen Subventionen für die Nutzer*innen absieht, von den Nutzer*innen des Bodens allein bezahlt werden. Diese Realisierung des Renditepotentials erfordert nicht nur die Kompensation der Investionen, sondern auch die Zahlung der Rendite. \\
+ Im Falle von Investitionen in Mietswohnungen bedeutet dies nichts anderes, als dass der Schluss der Ertragslücke per Zahlung eines höheren Mietzinses durch die Mieter*innen realisiert wird. Mit der Realisierung der Rendite werden die Mietswohnungen aus Sicht der Eigentümer*innen ihrem Zweck als zinstragende Kapitalanlage gerecht \citep[S.~11ff.]{Holm2011c}. Wenn also der Ertragslückenschluss die Zahlung höherer Mietzinsen erfordert, dann müssen Mieter*innen mit größeren finanziellen Resourcen ausgestattet sein bzw. bereit sein, den höheren Mietzins zu zahlen. Natürlich ist auch hier einschränkend zu berücksichtigen, dass der Staat durch die Gewährung von Fördermaßnahmen zugunsten der Nutzer*innen diesen die Bezahlung des Ertragslückenschlusses in Teilen abnehmen kann.\\
  Um vom speziellen aber wichtigen Fall der Mietswohnungen zu abstrahieren, soll ähnlich der oben getroffenen Definition von Gentrification Bezug auf die Nutzer*innen des Bodens genommen werden, um soziale Aufwertung wie folgt allgemein zu definieren: Soziale Aufwertung ist der Austausch der Nutzer*innen des Bodens, wobei die neuen Nutzer*innen von höherem sozio-ökonomischen Status sind als die vorherigen (vgl. \citet[S.~62]{Krajewski2006}). Eine Beschränkung auf die Wohnbevölkerung wird hier vermieden, denn Krajewski bemerkt zurecht: 
 
 \begin{quote}
@@ -45,21 +45,45 @@ Ein Öffnen bzw. Hebeln von Ertragslücken wird üblicherweise über investition
 \end{quote}
 
  Demnach ist der Austausch der Wohnbevölkerung zwar zentral für soziale Aufwertung, wird aber nicht alleine durch sie geleistet. Auch die temporären Nutzer*innen des Bodens wirken an der sozialen Aufwertung mit.\footnote{Dem Beitrag temporärer Nutzer*innen des Bodens zur sozialen Aufwertung entspricht eine immobilienwirtschaftlichen Aufwertung der Gewerbestruktur.}\\
- Der wesentliche gentrificationbezogene Zusammenhang zwischen immobilienwirtschaftlicher Aufwertung und sozialer Aufwertung ist nun der, dass erstere letztere in aller Regel erfordert, um den Ertragslückenschluss zu realisieren. "`Der Erfolg der Investitionsstrategie ist damit an den seltenen Fall kollektiver Einkommenszuwächse der Haushalte in einem Gebiet (incumbent upgrading) oder den Austausch der Bewohner(inn)en gebunden"' \citet[S.~665]{Holm2012}. Aus Sicht der Eigentümer*innen dient soziale Aufwertung folglich als Vehikel zum Schluss von Ertragslücken. So ist auch zu erklären, warum in vielen Definitionen von Gentrification höheres Einkommen (\citet[S.~5]{Kennedy2001}, \citet[S.~1]{Atkinson2011}) oder größerer Wohlstand \citep[S.~815]{Hackworth2002} als zentrales und einziges Charakteristikum zuziehender Bevölkerung genannt wird und damit implizit ihre Fähigkeit beschrieben wird, den Ertragslückenschluss zu bezahlen.\\
+ Der wesentliche gentrificationbezogene Zusammenhang zwischen immobilienwirtschaftlicher Aufwertung und sozialer Aufwertung ist nun der, dass erstere letztere in aller Regel erfordert, um den Ertragslückenschluss zu realisieren. "`Der Erfolg der Investitionsstrategie ist damit an den seltenen Fall kollektiver Einkommenszuwächse der Haushalte in einem Gebiet (incumbent upgrading) oder den Austausch der Bewohner(inn)en gebunden"' \citet[S.~665]{Holm2012}. Aus Sicht der Eigentümer*innen dient soziale Aufwertung folglich als Vehikel zum Schluss von Ertragslücken. So ist auch zu erklären, warum in vielen Definitionen von Gentrification höheres Einkommen (\citet[S.~5]{Kennedy2001}, \citet[S.~1]{Atkinson2011}, \citet[S.~196]{Marcuse1985}) oder größerer Wohlstand \citep[S.~815]{Hackworth2002} als zentrales und einziges Charakteristikum zuziehender Bevölkerung genannt wird und damit implizit ihre Fähigkeit beschrieben wird, den Ertragslückenschluss zu bezahlen.\\
  Dennoch benennen die hier verwendeten Definitionen von Gentrification und sozialer Aufwertung den höheren sozio-ökonomischen Status als zentrales Charakteristikum der neuen Nutzer*innen. \footnote{Sozial-ökonomischer Status ist nicht zu verwechseln mit sozialer Kompetenz. Mit dem Begriff soziale Aufwertung soll also keinenfalls unterstellt werden, dass die neuen Nutzer*innen des Bodens über höhere soziale Kompetenz verfügen würden, als die vorherigen. Soziale Aufwertung wird hier folglich rein vom Standpunkt der Politischen-Ökonomie interpretiert.} Mit dieser Formulierung soll dem Umstand Rechnung getragen werden, dass die durch immobilienwirtschaftliche Aufwertung erhöhten Miet-, Wohnungs- oder Häuserpreise durchaus von sozialen Gruppen gezahlt werden können, die selbst nur über eine ähnliche Ausstattung finanzieller Resourcen wie die vorherigen Nutzer*innen verfügen, aber bereit sind eine höhere Wohnkostenquote in Kauf zu nehmen. Um sich einerseits am Immobilienmarkt gegen andere, möglicherweise zahlungskräftigere Nachfrager*innen durchzusetzen und andererseits eine durch die höhere Wohnkostenquote verursachte notwendige Senkung des Lebensstandards abschwächen oder kompensieren zu können, sind größere Resourcen von sozialem oder kulturellem Kapital vonnöten. Diese wenn auch nur nur begrenzt wirksame Substituierbarkeit von ökonomischem durch soziales und kulturelles Kapital durch die neuen Nutzer*innen des Bodens soll durch die Benennung ihres höheren \textit{sozio-ökonomischen Status} zum Ausdruck gebracht werden.\\
  Nachdem aus der Perspektive der politischen Ökonomie ein Verständnis von Gentrification als Aufwertung entwickelt wurde, soll nun Gentrification von einem ergänzenden Blinkwinkel, nämlich aus der soziologischen Perspektive, betrachtet werden.
 
 \subsubsection{Gentrification als Verdrängung} \label{GentriVerdraengung}
 
+Betrachtet man Gentrification vom Standpunkt der Soziologie, so manifestiert sie sich nicht als Aufwertungsprozess, sondern im Wesentlichen als Verdrängungsprozess. Bei gentrificationinduzierter Verdrängung werden die vorherigen Nutzer*innen des Bodens je nach Verdrängungsform direkt oder indirekt entweder weiteren Nutzung versagt verunmöglicht verhindert an der Raum der bisherigen , in die Nutzung verwährt oder die Art der Nutzung zu Ihrem ungunsten. Verdängung Nutzung verschlechtert Bedingungen .
+
+Verdrängung kann auch als Folge von Aufwertung \citep[S.~673f.]{Holm2012} interpretiert werden. Jedoch macht nur eine Interpretation von Verdrängung als \textit{logische} Folge von Aufwertung, nicht als \textit{chronologische} Folge von Aufwertung Sinn, da sie den selben Wandlungsprozess nur aus unterschiedlicher Perspektive beschreiben.\footnote{Zur chronologischen Abfolge von Gentrficationprozessen wurden entsprechende Verlaufsmodelle entwickelt. Vgl. hierzu \citet[S.~671ff.]{Holm2012} und \citet[S.~47ff.]{Krajewski2006}.} Gentrification ist demnach immer beides: Aufwertungsprozess und Verdrängungsprozess.
+
+
+
+
+"`Verdrängung ist das Wesen der Gentrification, ihr Ziel, und nicht ein unerwünschter Nebeneffekt. Verbesserung der Bausubstanz ist lediglich Mittel zum Zweck der Verdrängung und nicht ein Ziel an sich."' \citep[S.~80]{Marcuse1992}
+
+Oben habe ich gesagt die additive Koditionalität macht das Wesen aus. Ja was denn nun? Doppelte Konditionalität. Es gibt change in users und es gibt new users of higher-socio economic status. Verdrängung ist hier implizit.
+
+drei Bedeututungen des Begriffs \textit{Wesen} nach Hegel \citep[S.~89]{Inwood1992}
 
 \begin{quote}
-"`It is essential to have conceptual clarity before research on displacement begins, and before any conclusions can be drawn"' \citet[S.~304]{Slater2009}
+  \begin{itemize}
+  \item the permanent, dominant nature of a thing, that underlies its varying outer states or APPEARANCE (Erscheinung)
+  \item the actual or essential nature of a thing in contrast to how it seems or its appearance (Schein)
+  \item the essential or UNIVERSAL features of a group of entities, in contrast to their individual variations
+  \end{itemize}
 \end{quote}
 
+Wesen: seine Rationalität
+
+Verdrängung ist eine notwendige Folge von Gentrification  Bestandteil
+
+Verdrängung soll hier im Bezug auf Wohnraum betrachtet werden. Keine explizite Konzeptionalisierung von Verdrängungsformen, die nicht wohnraumbezogen sind. Von den hier aufgezählten Verdrängungsformen wäre einzig die ausschließende Verdrängung als Ausschluss an der Nutzung und Teilhabe des Raumes denkbar 
+
+Eine Systematisierung und Verdrängungsformen 
+
+Vom Standpunkt der Nutzer*innen 
 Gebrauchswert 
 
 "`Dass es bei Gentrification zu Verdrängung kommt ist unstrittig. Nicht aber konsensfähig sind Art, Verlauf und Ausmaß der Verdrängung"' \citep[S.~23]{Diller2014}
-
 "`the shared and defining characteristic of gentrification everywhere is socio economic change through migration"' \citep[S.~40]{Lyons1996}
 
 Klassenspezifische Raumproduktion social sieve
@@ -73,49 +97,48 @@ Disput zwischen Hamnet und Slater
 
 "`Displacement can broadly be characterized as an involuntary move by a household."' \citep[S.~111]{Atkinson2004}
 
-\paragraph{Typologie}
+\paragraph{Systematisierung der Verdrängungsformen}
 
-Ganz Zentral und ausgiebig: Verdrängungs Typologie
+
+\begin{quote}
+"`It is essential to have conceptual clarity before research on displacement begins, and before any conclusions can be drawn"' \citet[S.~304]{Slater2009}
+\end{quote}
+
 
 "`Mit der Systematisierung verschiedener Verdrängungsformen schlug Peter Marcuse einen konzeptionellen Rahmen für die Verdrängungsanalysen vor. Er
 unterschied zwischen direkten (physical and economic displacement) und indirekten (displacement pressure) Verdrängungen sowie gebietsbezogenen Schließungseffekten (exclusionary displacement) durch die Aufwertung (Marcuse 1986)."' \citet[S.~671]{Holm2012}
 
 Schluss der Ertragslücke zu gebietsbezogenen Schließungseffekten
 
+
+
 \begin{table}[h]
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}lll@{}}
 \toprule
-\textbf{Klassen}                     & \textbf{Typen}                     & \textbf{Wohnmobilität}                                                        \\ \midrule
-\multirow{2}{*}{Direkte Verdrängung} & physische Verdrängung              & \multirow{2}{*}{unfreiwilliger Fortzug}                                       \\
-                                     & ökonomische Verdrängung            &                                                                               \\
-Indirekte Verdrängung                & ausschließende Verdrängung         & Verhinderung des Zuzugs von Haushalten mit gleichem sozio-ökonomischen Status \\
-Verdrängungsdruck                    & Verdrängung aus dem Lebensstandard & -                                                                             \\ \bottomrule
+\textbf{Form}                      & \textbf{Vermittlung} & \textbf{Wohnräumliche Mobilität} \\ \midrule
+Physische Verdrängung              & direkt               & Fortzug                          \\
+Ökonomische Verdrängung            & direkt               & Fortzug                          \\
+Soziokulturelle Verdrängung        & indirekt             & Fortzug                          \\
+Ausschließende Verdrängung         & indirekt             & Verhinderung des Zuzugs          \\
+Verdrängung aus dem Lebensstandard & direkt und indirekt  & -                                \\ \bottomrule
 \end{tabular}
 }
-\caption{My caption}
-\label{my-label}
+\caption{Übersicht über Verdrängungsformen und deren Auswirkungen auf die wohnräumliche Mobilität der Betroffenen}
+\label{Verdraengungsformen}
 \end{table}
 
+\citep[S.~408]{Blasius1994}
+\citep[S.~196]{Blasius1996}
 
+displacement pressure. rent gap, entmietungsstrategieen, freunde ziehen um, keine an wohnräumliche Mobilität gekoppelte Verdrängung
 
-\begin{enumerate}
- \item direct displacement: Physical and economic. Physical Zwangsräumung. Economic Mietpreissteigerung gebunden an den unfreiwilligen Fortzug 
- \item exclusionary displacement. Differenz Bestandsmieten-Angebotsmieten freiwilliger Fortzug, Ausschluss des Zuzugs von HH von gleichem sozio-ökonomischen Status
- \item displacement pressure. rent gap, entmietungsstrategieen, freunde ziehen um, keine an wohnräumliche Mobilität gekoppelte Verdrängung
-\end{enumerate}
-
-\citet{Marcuse1985} \citet{Slater2009}
-
-direct displacement 
+\citet{Marcuse1985} \citet[S.~303]{Slater2009}
 
 Formen können chronologischer Abfolge auftreten HH under displacment preassure, economic displacement, exclusionary displacement
 Verdrängungskette exclusionary displacement
 
 grenzen zwischen freiwillig und unfreiwillig fließend, meist kein einzelner Grund
-
-
-
 
 \subsubsection{Zum Zusammenhang zwischen Aufwertung und Verdrängung}\label{AufwertungUNDVerdraengung}
 
@@ -123,12 +146,9 @@ Gentrification aus zwei analystischen Persepektiven: Vom Standpunkt der politisc
 
 Konzeptionelles Diagramm
 
-Soziologische Perspektive: Verdrängung - Verdrängungstypen --> Gentrification <-- Politisch-ökonomische Perspektive: Aufwertung - Immobilienwirtschaftliche / soziale 
-
 "`Verdrängung ist das Wesen der Gentrification, ihr Ziel, und nicht ein unerwünschter Nebeneffekt. Verbesserung der Bausubstanz ist lediglich Mittel zum Zweck der Verdrängung und nicht ein Ziel an sich."' \citep[S.~80]{Marcuse1992}
 
 Oben habe ich gesagt die additive Koditionalität macht das Wesen aus. Ja was denn nun? Doppelte Konditionalität. Es gibt change in users und es gibt new users of higher-socio economic status. Verdrängung ist hier implizit.
-Dafür gibt es auch ein logisches Argument: Immobilienwirtschaftliche Aufwertung setzt die Erhöhung der kapitalisierten Grundrente voraus. Eine Erhöhung wird über den Schluss der Ertragslücke (rent oder value) erreicht. Dafür benötigt es eine soziale Aufwertung
 
 drei Bedeututungen des Begriffs \textit{Wesen} nach Hegel \citep[S.~89]{Inwood1992}
 
@@ -188,6 +208,8 @@ Diller 2014 Verdrängung schwer nachzuweisen
 Diller 2014 sagt exclusionary displacement ist nur Exklusion. Ich sage es macht sinn, im Raumproduktionssinn. Klassencharakter dieser Exclusion. p.36 Def Gentri auch S.36
 
 dass der Austausch und die darin gefasste Verdrängung der Einwohnerinnenschaften ganzer Gebiete zu bestimmten Mustern der Möbilität führen. Sowohl die ersten drei der vier Typen der Verdrängung als auch das exclusionary displacement haben einen Einfluss auf das Umzugsverhalten der Bewohnerinnen der Stadt, sollten sie denn beobachtbar sein Rütsche 2014 p.11
+
+"`Unfortunately, displacement is difficult to quantify - hence easily ignored."' \citep[S.~2604]{Wyly2010}
 
 \paragraph{Mapping Gentrification over whole cities}
 Hedin et al. 2012  p.447
