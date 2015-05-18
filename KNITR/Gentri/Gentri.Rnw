@@ -49,14 +49,45 @@ Ein Öffnen bzw. Hebeln von Ertragslücken wird üblicherweise über investition
  Dennoch benennen die hier verwendeten Definitionen von Gentrification und sozialer Aufwertung den höheren sozio-ökonomischen Status als zentrales Charakteristikum der neuen Nutzer*innen. \footnote{Sozial-ökonomischer Status ist nicht zu verwechseln mit sozialer Kompetenz. Mit dem Begriff soziale Aufwertung soll also keinenfalls unterstellt werden, dass die neuen Nutzer*innen des Bodens über höhere soziale Kompetenz verfügen würden, als die vorherigen. Soziale Aufwertung wird hier folglich rein vom Standpunkt der Politischen-Ökonomie interpretiert.} Mit dieser Formulierung soll dem Umstand Rechnung getragen werden, dass die durch immobilienwirtschaftliche Aufwertung erhöhten Miet-, Wohnungs- oder Häuserpreise durchaus von sozialen Gruppen gezahlt werden können, die selbst nur über eine ähnliche Ausstattung finanzieller Resourcen wie die vorherigen Nutzer*innen verfügen, aber bereit sind eine höhere Wohnkostenquote in Kauf zu nehmen. Um sich einerseits am Immobilienmarkt gegen andere, möglicherweise zahlungskräftigere Nachfrager*innen durchzusetzen und andererseits eine durch die höhere Wohnkostenquote verursachte notwendige Senkung des Lebensstandards abschwächen oder kompensieren zu können, sind größere Resourcen von sozialem oder kulturellem Kapital vonnöten. Diese wenn auch nur nur begrenzt wirksame Substituierbarkeit von ökonomischem durch soziales und kulturelles Kapital durch die neuen Nutzer*innen des Bodens soll durch die Benennung ihres höheren \textit{sozio-ökonomischen Status} zum Ausdruck gebracht werden.\\
  Nachdem aus der Perspektive der politischen Ökonomie ein Verständnis von Gentrification als Aufwertung entwickelt wurde, soll nun Gentrification von einem ergänzenden Blinkwinkel, nämlich aus der soziologischen Perspektive, betrachtet werden.
 
-\subsubsection{Gentrification als Verdrängung} \label{GentriVerdraengung}
+\subsubsection{Gentrification als Verdrängung}\label{GentriVerdraengung}
 
-Betrachtet man Gentrification vom Standpunkt der Soziologie, so manifestiert sie sich nicht als Aufwertungsprozess, sondern im Wesentlichen als Verdrängungsprozess. Bei gentrificationinduzierter Verdrängung werden die vorherigen Nutzer*innen des Bodens je nach Verdrängungsform direkt oder indirekt entweder weiteren Nutzung versagt verunmöglicht verhindert an der Raum der bisherigen , in die Nutzung verwährt oder die Art der Nutzung zu Ihrem ungunsten. Verdängung Nutzung verschlechtert Bedingungen .
+Betrachtet man Gentrification vom Standpunkt der Soziologie, so manifestiert sie sich nicht als Aufwertungsprozess, sondern im Wesentlichen als Verdrängungsprozess.Leider bietet die Bevölkerungs- und Stadtsoziologie wenige explizit ausformulierte Definitionen von Verdrängung, an denen die Gentrificationforschung anknüpfen könnte \citep[S.~24]{Diller2014}. So kommt es auch, dass \citet[S.~304]{Slater2009} mahnt: "`It is essential to have conceptual clarity before research on displacement begins"'. Mit dieser Manhnung will Slater diverse Studien zu Gentrification und Verdrängung kritisieren, in denen nur unzureichende Anstrengungen zur Definition und analytischen Klärung des Begriffs der Verdrängung unternommen wurden. Die im Folgenden vorgestellte kummulative Definition und Systematisierung von Verdrängung stellt somit einen Versuch dar, ausgehend von den oft nur (zu) knapp ausformulierten, sich teilweise einander widersprechenden oder unvollständigen Definitionen von \citet{Marcuse1985}, \citep{Blasius1994}, \citep{Atkinson2004}, \citet{Slater2009}, \citet{Holm2012} und \citet{Diller2014} eine umfassendere, klarere und logischere Formulierung von Verdrängung auszuarbeiten.\\
+\citet[S.~204ff]{Marcuse1985} formulierte bislang wohl die umfassenste, wenngleich nur wohnraumbezogene Definition von Verdrängung, welche zugleich analystisch scharf die verschiedenen Verdrängungsformen systematisiert. Marcuses Systematisierung der Verdrängungsformen wurde später von \citet[S.~673f.]{Holm2012} wie auch \citet[S.~24f.]{Diller2014} aufgegriffen und modifiziert. Eine auf diesen Modifikationen basierende, aber abgeänderte und erweiterte Systematisierung wird in Tabelle \ref{Verdraengungsformen} dargestellt. Die in Tabelle \ref{Verdraengungsformen} genannten Verdrängungsformen bilden gemeinsam den in dieser Arbeit verwendeten konzeptionellen konzeptionellen Rahmen für wohnraums- und haushaltsbezogene Verdrängung. Die verschiedenen Verdrängungsformen werden alle vom Standpunkt der verdrängten Haushalte entwickelt.
 
+\begin{table}[h]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Form}                      & \textbf{Vermittlung} & \textbf{Wohnräumliche Mobilität} \\ \midrule
+Physische Verdrängung              & direkt               & Fortzug                          \\
+Ökonomische Verdrängung            & direkt               & Fortzug                          \\
+Soziokulturelle Verdrängung        & indirekt             & Fortzug                          \\
+Ausschließende Verdrängung         & indirekt             & Verhinderung des Zuzugs          \\
+Verdrängung aus dem Lebensstandard & direkt und indirekt  & -                                \\ \bottomrule
+\end{tabular}
+}
+\caption{Übersicht über Verdrängungsformen und deren Auswirkungen auf die wohnräumliche Mobilität der Betroffenen}\label{Verdraengungsformen}
+\end{table}
+
+\paragraph{Erklärung der einzelnen Verdrängunsformen \ref{Verdraengungsformen}} Zunächst soll kurz der Unterschied im Vermittlungsmechanismus der unterschiedlichen Verdrängungsformen geklärt werden. Als \textit{direkt} werden diejenigen Verdrängungsformen kategorisiert, die notwendigerweise die gegenwärtige individuelle Wohneinheit der Verdrängten betreffen. Im Gegensatz dazu haben die \textit{indirekten} Verdrängungsformen \textit{nicht} die gegenwärtige individuelle Wohneinheit der Betroffenen zum Gegenstand. Demnach ist direkte Verdrängung auch als \textit{unmittelbare} und indirekte Verdängung als \textit{mittelbare} Verdrängung zu bezeichnen. Nun zu den einzelnen Verdrängungsformen:
+
+  \begin{itemize}
+  \item \textit{Physische} und \textit{ökonomische Verdrängung} (Vgl. \citet[S.~205]{Marcuse1985}) bezeichnen beide direkte Verdrängungsformen, die sich in einem unfreiwilligen Fortzug des betroffenen Haushalts manifestieren. Als physische Verdrängung werden "`Entmietungsstrategien"' bezeichnet, bei denen der*die Eigentümer*in gezielt Einfluss auf die physische Ausstattung der Wohneinheit ausübt und dieser dazu führt, dass eine weitere Bewohnung verunmöglicht, gefährlich oder unerschwinglich wird (Vgl. \citet{Grier1980}). Als Beispiele seien das Unterlassen von notwendigen Reparaturen oder das Abstellen der Heizung genannt.\\
+  Ökonomische Verdrängung hingegen bezeichnet den unfreiwilligen Fortzug von Haushalten, der durch Mietpreissteigerungen, welche die finanziellen Resourcen des Haushalts übersteigen, verursacht wird.\footnote{Bei diesen beiden Formen handelt es sich um Verdrängung im engern Sinne, d.h. sie entsprechen der von Grier und Grier formulierten Verdrängungsdefinition: "`Displacement occurs when any household is forced to move from its residence by conditions that affect the dwelling [...] and that: 1) are beyond the household's reasonable ability to control or prevent; 2) occur despite the household's having met all previously imposed conditions of occupancy; and 3) make continued occupancy by that household impossible, hazardous, or unaffordable"' \citet[S.~252]{Grier1980}.}
+
+  \item \textit{Soziokulturelle Verdrängung} bezeichnet eine indirekte Form der Verdrängung, welche den unfreiwilligen Fortzug eines Haushalts aufgrund von soziokulturellen Entfremdungseffekten, wie etwa dem Verlust von nachbarschaftlichen Bindungen zum Inhalt hat \citep[S.~25]{Diller2014}. Indirekt ist diese Form der Verdrängung deshalb, weil sie notwendigerweise über Quartiers- oder Nachbarschaftsveränderungen vermittelt wird. Soziokulturelle Verdrängung wird bei \citet[S.~207]{Marcuse1985} als "`pressure of displacement"' bezeichnet. Seine Terminologie wird hier nicht übernommen, um einerseits auf den Zusammenhang mit symbolischer, sozialer und kultureller Aufwertung eines Quartiers aufmerksam zu machen und andererseits den Unterschied zu einer anderen Form der Verdrängung, der Verdrängung aus dem Lebensstandard, zu verdeutlichen.
+
+  \item \textit{Ausschließende Verdrängung} bezeichnet die verhinderte Möglichkeit des Zuzugs eines Haushalts in eine andere Wohneinheit, obwohl der Haushalt alle zuvor gültigen Bedingungen zum Zuzug erfüllt hatte (Vgl. \citet[S.~207]{Marcuse1985}). Diese Form der Verdrängung gilt als indirekt, weil es sich um einen Ausschluss von der Möglichkeit des Zuzugs in eine andere als die gegenwärtige Wohneinheit der Betroffenen handelt. Marcuse, der ausschließende Verdrängung \textit{exclusionary displacement} nennt, beschreibt diesen indirekten Ausschluss wiefolgt: "`When one household vacates a housing unit voluntarily and that unit is then gentrified [...] so that another similar household is prevented from moving in, the number of units available to the second household in that housing market is reduced. The second household, therefore, is excluded from living where it would otherwise have lived"' \citep[S.~206]{Marcuse1985}. Der Ausschluss wird zumeist über eine Kombination von Mietpreissteigerungen und eine Bevorteilung von Haushalten von höherem sozioökonomischen Status bei der Wiedervermieterung erwirkt. Ausschließende Verdrängung ist also intepretierbar als sozialer Schließungseffekt auf dem Wohnungsmarkt, der durch den von Eigentümer*innen angestrebten ökonomischen Ertragslückenschluss entsteht. \footnote{Die von \citet[S.~102f.]{Glatter2007} verwendeten Konzepte der \textit{"`freiwilligen"'}, \textit{"`neutralen"'} oder \textit{"`vergoldeten Verdrängung"'} können als nach Fortzugsmotivation der ehemaligen Bewohner*innen differenzierte Typen von ausschließender Verdrängung gedeutet werden.}
+
+  \item \textit{Verdrängung aus dem Lebensstandard} (Vgl. \citet[S.~408]{Blasius1994} und \citet[S.~196]{Blasius1996}) gilt als einzige Verdrängungsform, bei der betroffene Haushalte weder einen unfreiwilligen Fortzug noch die Verhinderung eines Zuzugs erleiden. Betroffene Haushalte werden jedoch zu einer Senkung ihrer Lebensqualität gezwungen, um eine drohende ökonomische, physische oder soziokulturelle Verdrängung abzuwenden. Falls es sich um eine drohende ökonomische Verdrängung handelt, werden steigende Lebensunterhaltskosten durch Sparmaßnahmen in anderen Lebensbereichen versucht zu kompensieren. Falls es sich um eine drohende physische bzw. soziokulturelle Verdrängung handelt, werden Einschränkungen im materiellen bzw. immateriellen Wohlstand in Kauf genommen. Folglich ist Verdrängung aus der Lebensqualität auch als Verdrängungsdruck charakterisierbar, der, falls er zu stark wird, einen erzwungenen Fortzug auslösen kann. Verdrängungsdruck drängt somit die Betroffenen aus der Lebensqualität in Richtung eines unfreiwilligen Fortzugs. Eine direkte Verdrängung aus dem Lebensstandard wird meist über Mietpreissteigerungen oder "`Entmietungsstrategien"' erwirkt. Eine Vermittlung der Verdrängung aus dem Lebensqualität über Nachbarschaftseffekte, also eine indirekte Wirkung des Verdrängungsdrucks, ist allerdings auch möglich, wenn sich beispielsweise das Preisniveau des lokalen Gewerbes erhöht. Verdrängung aus dem Lebensqualität verschärft sich oft in Kombination mit gebietsbezogener ausschließender Verdrängung. Durch letztere wird den betroffenen Haushalten die Alternative eines freiwilligen Fortzugs in eine andere Wohneinheit von vergleichbarer Ausstattung und Mietehöhe genommen und es bleibt ihnen nur eine Kompensation des Verdrängungsdrucks wird über die Senkung der Lebensqualität.
+\end{itemize}
+
+Die Verdrängungsformen schließen sich nicht 
+
+\paragrah{Definitionsprobleme} Zugegebenermaßen ist auch der hier angestrengte konzeptionelle Rahmen des Verdrängungsbegriffs weder ausnahmslos eindeutig noch lückenfrei. Streng genommen würden Haushalte, die sich allein aufgrund von stark gestiegenen Lebensunterhaltskosten im Quartier zum Fortzug gezwungen sehen, nicht als ökonomisch verdrängt gelten. Schließlich wäre deren unfreiwilliger Fortzug über Quartierseffekte vermittelt und nicht über direkte Mietpreissteigerungen verursacht worden. Für diesen sicherlich eher seltenen Sonderfall liese sich zusätzlich der Begriff der \textit{indirekten ökonomischen Verdrängung} einführen. Außerdem ist die praktische Einordnung der konkreten Situation eines unfreiwilligen Fortzugs nicht immer eindeutig. Stellen wir uns die Zwangsräumung eines Haushalts vor, welche juristisch mit zuvor entstandenen Mietrückständen legitimiert wird. Sind der Zwangsräumung keine Mietpreiserhöhungen vorausgegangen, kann diese im Grunde weder als physische noch als ökonomische Verdrängung eingeordnet werden. Diesen und anderen in der Literatur nicht selten willentlich oder unwillentlich verschwiegenen Unzulänglichkeiten bin ich mir durchaus bewusst, möchte sie hiermit transparent machen und die Notwendigkeit der konzeptionellen Weiterentwicklung des Verdrängungsbegriffs in der Gentrificationliteratur bekräftigen.
+
+\paragraph{Wesen der Gentrification} 
 Verdrängung kann auch als Folge von Aufwertung \citep[S.~673f.]{Holm2012} interpretiert werden. Jedoch macht nur eine Interpretation von Verdrängung als \textit{logische} Folge von Aufwertung, nicht als \textit{chronologische} Folge von Aufwertung Sinn, da sie den selben Wandlungsprozess nur aus unterschiedlicher Perspektive beschreiben.\footnote{Zur chronologischen Abfolge von Gentrficationprozessen wurden entsprechende Verlaufsmodelle entwickelt. Vgl. hierzu \citet[S.~671ff.]{Holm2012} und \citet[S.~47ff.]{Krajewski2006}.} Gentrification ist demnach immer beides: Aufwertungsprozess und Verdrängungsprozess.
-
-
-
 
 "`Verdrängung ist das Wesen der Gentrification, ihr Ziel, und nicht ein unerwünschter Nebeneffekt. Verbesserung der Bausubstanz ist lediglich Mittel zum Zweck der Verdrängung und nicht ein Ziel an sich."' \citep[S.~80]{Marcuse1992}
 
@@ -95,43 +126,7 @@ Polit ökonomisch
 Verdrängung vs. Austausch \citet[S.~24]{Diller2014}
 Disput zwischen Hamnet und Slater 
 
-"`Displacement can broadly be characterized as an involuntary move by a household."' \citep[S.~111]{Atkinson2004}
 
-\paragraph{Systematisierung der Verdrängungsformen}
-
-
-\begin{quote}
-"`It is essential to have conceptual clarity before research on displacement begins, and before any conclusions can be drawn"' \citet[S.~304]{Slater2009}
-\end{quote}
-
-
-"`Mit der Systematisierung verschiedener Verdrängungsformen schlug Peter Marcuse einen konzeptionellen Rahmen für die Verdrängungsanalysen vor. Er
-unterschied zwischen direkten (physical and economic displacement) und indirekten (displacement pressure) Verdrängungen sowie gebietsbezogenen Schließungseffekten (exclusionary displacement) durch die Aufwertung (Marcuse 1986)."' \citet[S.~671]{Holm2012}
-
-Schluss der Ertragslücke zu gebietsbezogenen Schließungseffekten
-
-
-
-\begin{table}[h]
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}lll@{}}
-\toprule
-\textbf{Form}                      & \textbf{Vermittlung} & \textbf{Wohnräumliche Mobilität} \\ \midrule
-Physische Verdrängung              & direkt               & Fortzug                          \\
-Ökonomische Verdrängung            & direkt               & Fortzug                          \\
-Soziokulturelle Verdrängung        & indirekt             & Fortzug                          \\
-Ausschließende Verdrängung         & indirekt             & Verhinderung des Zuzugs          \\
-Verdrängung aus dem Lebensstandard & direkt und indirekt  & -                                \\ \bottomrule
-\end{tabular}
-}
-\caption{Übersicht über Verdrängungsformen und deren Auswirkungen auf die wohnräumliche Mobilität der Betroffenen}
-\label{Verdraengungsformen}
-\end{table}
-
-\citep[S.~408]{Blasius1994}
-\citep[S.~196]{Blasius1996}
-
-displacement pressure. rent gap, entmietungsstrategieen, freunde ziehen um, keine an wohnräumliche Mobilität gekoppelte Verdrängung
 
 \citet{Marcuse1985} \citet[S.~303]{Slater2009}
 

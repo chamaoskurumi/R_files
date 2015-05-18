@@ -150,3 +150,6 @@ Verdrängungs Typologie
 
 
 Probleme mit meiner Operationalisierung: Confounder, räumliche interpolation etc.
+
+
+To avoid double-counting, a unit from which there has been direct displacement should not be counted again in estimating exclusionary displacement. \citet[S.~206]{Marcuse1985}
