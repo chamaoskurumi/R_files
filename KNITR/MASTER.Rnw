@@ -26,12 +26,15 @@
 % define page size, margin size
 \setlength{\headheight}{2\baselineskip}
 \voffset=-2cm
-\hoffset=-3cm
-\textheight24cm
+\hoffset=-2.5cm
+\textheight24.5cm
 \textwidth15.5cm
 \topmargin1cm
 \oddsidemargin3cm
 \evensidemargin3cm
+
+\setlength{\footnotesep}{0.5cm}
+\setlength{\skip\footins}{1cm}
 
 \renewcommand{\baselinestretch}{1.5}
 \renewcommand{\labelitemii}{-}
