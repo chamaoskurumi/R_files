@@ -2,25 +2,25 @@
 
 \section{Gentrification - Aufwertung und Verdrängung}\label{Sec:Gentri}
 
-  \subsection{Konzeptioneller Rahmen}
+  \subsection{Konzeptioneller Rahmen}\label{KonzeptionellerRahmen}
 
   Der Konzeptionelle Rahmen dieser Arbeit soll aus zwei sich ergänzenden Perspektiven entwickelt werden. Die Vorgehensweise ist analystisch: Zunächst wird im Abschnitt \ref{GentriAufwertung} Gentrification definiert und in seine aus politisch-ökonomischer Perspektive zentralen Elemente, d.h. immobilienwirtschaftliche und soziale Aufwertung, zerlegt. Die enge Beziehung zwischen diesen Elementen soll daraufhin theoretisch motiviert werden. Ausgangspunkt und Annahme für das entwickelte Argument der Beziehung soll die These und Annahme einer Kommodifizierung \citep{Clark2005} und Inwertsetzung \citep{Holm2011c} des Raumes sein, welche Gentrificationprozessen zu Grunde liegt. In einem zweiten Schritt soll im Abschnitt \ref{GentriVerdraengung} die zuvor aufgedeckte Beziehung aus einer anderen Perspektive betrachtet werden - der soziologischen Perspektive. Aus dieser Perspektive erscheint Gentrification nicht als Aufwertung, sondern als Verdrängung.
 
-\subsubsection{Gentrification als Aufwertung} \label{GentriAufwertung}
+\subsubsection{Gentrification als Aufwertung}\label{GentriAufwertung}
 
 Seit der Einführung des Begriffs durch \citet{Glass1964a} herrscht in der Literatur Uneinigkeit über die Definition von Gentrification. Die Schwierigkeit eine kohärente und konsensfähige Definition von Gentrification zu formulieren besteht in erster Linie darin, die sich bei Gentrification Prozessen überlagernden "`bauliche[n] und infrastrukturelle[n] Veränderungen der Nachbarschaft mit immobilienwirtschaftlichen Wertschöpfungen, veränderten Bewohnerstrukturen, neuen Formen der Stadtpolitik und symbolischen Umbewertungen der Wohnquartiere"' \citep[S.~662]{Holm2012} in einer Definition zu kondensieren. Definitionen, welche diese Mehrdimensionaliät von Gentrification zu berücksichtigen versuchen (z.B. \citet{Hamnett1984}, \citet{Beauregard1986} oder \citet{Krajewski2006}) werden von \citet{Glatter2007} als "`holistische"' Gentrification Definitionen bezeichnet. \citet{Clark2005} kritisiert die Enge holistischer Definitionen, welche immer wieder dazu geführt hätte, das Phänomen Gentrification nicht nur \textit{zu sehr} einzugrenzen, sondern es vor Allem \textit{falsch} einzugrenzen. Schließlich sei definitorische Enge nicht mit Präzision zu verwechseln und die für eine Definitionsformulierung erforderlichen Abstraktionen sollten sich ausschließlich auf die notwendigen Beziehungen des Phänomens beschränken. \\
-So plädiert \citet[S.~263]{Clark2005} dafür, Gentrification definitorisch nicht auf die Innenstadt bzw. den urbanen Raum, auf Wohngebiete oder auf die Erneuerung von architektonisch attraktiven Altbauten einzuschränken. Eine Gentrification Definition sollte demnach die je nach zeitlichem und räumlichem Kontext unterschiedlichen Formen von Gentrification, wie etwa \textit{Neubau-Gentrification} \citep{Davidson2010}, \textit{Super-Gentrification} \citep{Lees2003} oder \textit{Insel-Gentrification} \citep{Clark2007a}, erfassen können. Als Formen von Gentrification gelten für \citep[S.~262]{Clark2005} alle Wandlungsprozesse, die folgender Definition genügen:
+So plädiert \citet[S.~263]{Clark2005} dafür, Gentrification definitorisch nicht auf die Innenstadt bzw. den urbanen Raum, auf Wohngebiete oder auf die Erneuerung von architektonisch attraktiven Altbauten einzuschränken. Eine Gentrification Definition sollte demnach die je nach zeitlichem und räumlichem Kontext unterschiedlichen Formen von Gentrification, wie etwa \textit{Neubau-Gentrification} \citep{Davidson2010}, \textit{Super-Gentrification} \citep{Lees2003} oder \textit{Insel-Gentrification} \citep{Clark2007a}, erfassen können. Als Formen von Gentrification gelten für Clark alle Wandlungsprozesse, die folgender Definition genügen:
 
 \begin{quote}
-"`Gentrification is a process involving a change in the population of land-users such that the new users are of a higher socio-economic status than the previous users, together with an associated change in the built environment through [an investment]\footnote{Im Orignalzitat heisst es "`a reinvestment"' anstatt "`an investment"'. Diese Änderung wurde von mir vorgenommen, um Gentrificationformen explizit zuzulassen, denen keine Investitionen vorausgingen, also zum ersten Mal investiert wird. So kann Neubau-Gentrification in Räumen auftreten, die sich vorher in öffentlichem Besitz und öffentlicher Nutzung befanden, aber durch Privatisierung kommodifiziert wurden.} in fixed capital."'
+"`Gentrification is a process involving a change in the population of land-users such that the new users are of a higher socio-economic status than the previous users, together with an associated change in the built environment through [an investment]\footnote{Im Orignalzitat heisst es "`a reinvestment"' anstatt "`an investment"'. Diese Änderung wurde von mir vorgenommen, um Gentrificationformen explizit zuzulassen, denen keine Investitionen vorausgingen, also zum ersten Mal investiert wird. So kann Neubau-Gentrification in Räumen auftreten, die sich vorher in öffentlichem Besitz und öffentlicher Nutzung befanden, aber durch Privatisierung kommodifiziert wurden.} in fixed capital"' \citep[S.~262]{Clark2005}.
 \end{quote}
 
-Diese Gentrification Definition soll der folgenden Studie zugrunde liegen. Sie formuliert klar die Konjunktion\footnote{Konjunktion bezeichnet hier, im Sinne der klassischen Logik, die Verknüpfung zweier Aussagen.} \textit{sozialer Aufwertung} und \textit{immobilienwirtschaftlicher Aufwertung}. Diese Konjunktion gilt als notwendige und hinreichende Bedingung für Gentrification (Vgl. Abbildung \ref{Gentri_Aufwertung}).
+Diese Gentrification Definition soll der folgenden Studie zugrunde liegen. Sie formuliert klar die Konjunktion von \textit{sozialer Aufwertung} und \textit{immobilienwirtschaftlicher Aufwertung}. Diese Konjunktion gilt als notwendige und hinreichende Bedingung für Gentrification (vgl. Abbildung \ref{Gentri_Aufwertung}).\footnote{Konjunktion bezeichnet hier die Verknüpfung zweier Aussagen im Sinne der klassischen Logik. Es gilt also: Gentrification $\Leftrightarrow$ immobilienwirtschaftliche Aufwertung $\wedge$ soziale Aufwertung.}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[scale=0.2]{figure/Gentrification_Aufwertung.png}
-  \caption{Gentrification $\Leftrightarrow$ immobilienwirtschaftliche Aufwertung $\wedge$ soziale Aufwertung}
+  \caption{Gentrification als Konjunktion von sozialer und immobilienwirtschaftlicher Aufwertung}
   \label{Gentri_Aufwertung}
 \end{figure}
 
@@ -47,7 +47,7 @@ Auf den ersten und den dritten Erklärungsansatz soll an dieser Stelle nicht gen
 
 Ein Öffnen bzw. Hebeln von Ertragslücken wird üblicherweise über investitionsgetrage immobilienwirtschaftliche Aufwertung erreicht. Der Ertragslückenschluss jedoch, d.h. die Realisierung des Renditepotenzial bestehender Ertragslücken, muss, wenn man von subjektbezogenen staatlichen Subventionen für die Nutzer*innen absieht, von den Nutzer*innen des Bodens allein bezahlt werden. Diese Realisierung des Renditepotentials erfordert nicht nur die Kompensation der Investionen, sondern auch die Zahlung der Rendite. \\
  Im Falle von Investitionen in Mietswohnungen bedeutet dies nichts anderes, als dass der Schluss der Ertragslücke per Zahlung eines höheren Mietzinses durch die Mieter*innen realisiert wird. Mit der Realisierung der Rendite werden die Mietswohnungen aus Sicht der Eigentümer*innen ihrem Zweck als zinstragende Kapitalanlage gerecht \citep[S.~11ff.]{Holm2011c}. Wenn also der Ertragslückenschluss die Zahlung höherer Mietzinsen erfordert, dann müssen Mieter*innen mit größeren finanziellen Resourcen ausgestattet sein bzw. bereit sein, den höheren Mietzins zu zahlen. Natürlich ist auch hier einschränkend zu berücksichtigen, dass der Staat durch die Gewährung von Fördermaßnahmen zugunsten der Nutzer*innen diesen die Bezahlung des Ertragslückenschlusses in Teilen abnehmen kann.\\
- Um vom speziellen aber wichtigen Fall der Mietswohnungen zu abstrahieren, soll ähnlich der oben getroffenen Definition von Gentrification Bezug auf die Nutzer*innen des Bodens genommen werden, um soziale Aufwertung wie folgt allgemein zu definieren: Soziale Aufwertung ist der Austausch der Nutzer*innen des Bodens, wobei die neuen Nutzer*innen von höherem sozio-ökonomischen Status sind als die vorherigen (vgl. \citet[S.~62]{Krajewski2006}). Eine Beschränkung auf die Wohnbevölkerung wird hier vermieden, denn Krajewski bemerkt zurecht: 
+ Um vom speziellen aber wichtigen Fall der Mietswohnungen zu abstrahieren, soll ähnlich der oben getroffenen Definition von Gentrification Bezug auf die Nutzer*innen des Bodens genommen werden, um soziale Aufwertung wie folgt allgemein zu definieren: Soziale Aufwertung ist der Austausch der Nutzer*innen des Bodens, wobei die neuen Nutzer*innen von höherem sozio-ökonomischen Status sind als die vorherigen \citep[vgl.][S.~62]{Krajewski2006}. Eine Beschränkung auf die Wohnbevölkerung wird hier vermieden, denn Krajewski bemerkt zurecht: 
 
 \begin{quote}
  "`Nicht nur die Wohnbevölkerung ist an der sozialen Aufwertung beteiligt; ein zusätzlicher Beitrag zum 'Upgrading' [...] geht ebenso von der 'temporären' Anwesenheit von Beschäftigten in hochwertigen Dienstleistungsberufen sowie von Städtetouristen aus"' \citep[S.~61]{Krajewski2006}.
@@ -61,7 +61,7 @@ Ein Öffnen bzw. Hebeln von Ertragslücken wird üblicherweise über investition
 \subsubsection{Gentrification als Verdrängung}\label{GentriVerdraengung}
 
 Betrachtet man Gentrification vom Standpunkt der Soziologie, so manifestiert sie sich nicht als Aufwertungsprozess, sondern im Wesentlichen als Verdrängungsprozess.Leider bietet die Bevölkerungs- und Stadtsoziologie wenige explizit ausformulierte Definitionen von Verdrängung, an denen die Gentrificationforschung anknüpfen könnte \citep[S.~24]{Diller2014}. So kommt es auch, dass \citet[S.~304]{Slater2009} mahnt: "`It is essential to have conceptual clarity before research on displacement begins"'. Mit dieser Manhnung will Slater diverse Studien zu Gentrification und Verdrängung kritisieren, in denen nur unzureichende Anstrengungen zur Definition und analytischen Klärung des Begriffs der Verdrängung unternommen wurden. Die im Folgenden vorgestellte kummulative Definition und Systematisierung von Verdrängung stellt somit einen Versuch dar, ausgehend von den oft nur (zu) knapp ausformulierten, sich teilweise einander widersprechenden oder unvollständigen Definitionen von \citet{Marcuse1985}, \citep{Blasius1994}, \citep{Atkinson2004}, \citet{Slater2009}, \citet{Holm2012} und \citet{Diller2014} eine umfassendere, klarere und logischere Formulierung von Verdrängung auszuarbeiten.\\
-\citet[S.~204ff]{Marcuse1985} formulierte bislang wohl die umfassenste, wenngleich nur wohnraumbezogene Definition von Verdrängung, welche zugleich analystisch scharf die verschiedenen Verdrängungsformen systematisiert. Marcuses Systematisierung der Verdrängungsformen wurde später von \citet[S.~673f.]{Holm2012} wie auch \citet[S.~24f.]{Diller2014} aufgegriffen und modifiziert. Eine auf diesen Modifikationen basierende, aber abgeänderte und erweiterte Systematisierung wird in Tabelle \ref{Verdraengungsformen} dargestellt. Die in Tabelle \ref{Verdraengungsformen} genannten Verdrängungsformen bilden gemeinsam den in dieser Arbeit verwendeten konzeptionellen konzeptionellen Rahmen für wohnraums- und haushaltsbezogene Verdrängung. Die verschiedenen Verdrängungsformen werden alle vom Standpunkt der verdrängten Haushalte entwickelt.
+\citet[S.~204ff]{Marcuse1985} formulierte bislang wohl die umfassenste, wenngleich nur wohnraumbezogene Definition von Verdrängung, welche zugleich analystisch scharf die verschiedenen Verdrängungsformen systematisiert. Marcuses Systematisierung der Verdrängungsformen wurde später von \citet[S.~673f.]{Holm2012} wie auch \citet[S.~24f.]{Diller2014} aufgegriffen und modifiziert. Eine auf diesen Modifikationen basierende, aber abgeänderte und erweiterte Systematisierung wird in Tabelle \ref{Verdraengungsformen} dargestellt. Die in Tabelle \ref{Verdraengungsformen} genannten Verdrängungsformen bilden gemeinsam den in dieser Arbeit verwendeten konzeptionellen konzeptionellen Rahmen für wohnraums- und haushaltsbezogene Verdrängung. Die verschiedenen Verdrängungsformen werden alle vom Standpunkt der verdrängten Haushalte entwickelt.\\
 
 \begin{table}[h]
 \resizebox{\textwidth}{!}{%
@@ -81,94 +81,38 @@ Verdrängung aus dem Lebensstandard & direkt und indirekt  & -                  
 \paragraph{Erklärung der Verdrängungsformen} Zunächst soll kurz der Unterschied im Vermittlungsmechanismus der unterschiedlichen Verdrängungsformen geklärt werden. Als \textit{direkt} werden diejenigen Verdrängungsformen kategorisiert, die notwendigerweise die gegenwärtige individuelle Wohneinheit der Verdrängten betreffen. Im Gegensatz dazu haben die \textit{indirekten} Verdrängungsformen \textit{nicht} die gegenwärtige individuelle Wohneinheit der Betroffenen zum Gegenstand. Demnach ist direkte Verdrängung auch als \textit{unmittelbare} und indirekte Verdängung als \textit{mittelbare} Verdrängung zu bezeichnen. Nun zu den einzelnen Verdrängungsformen:
 
   \begin{itemize}
-  \item \textit{Physische} und \textit{ökonomische Verdrängung} (Vgl. \citet[S.~205]{Marcuse1985}) bezeichnen beide direkte Verdrängungsformen, die sich in einem unfreiwilligen Fortzug des betroffenen Haushalts manifestieren. Als physische Verdrängung werden "`Entmietungsstrategien"' bezeichnet, bei denen der*die Eigentümer*in gezielt Einfluss auf die physische Ausstattung der Wohneinheit ausübt und dieser dazu führt, dass eine weitere Bewohnung verunmöglicht, gefährlich oder unerschwinglich wird (Vgl. \citet{Grier1980}). Als Beispiele seien das Unterlassen von notwendigen Reparaturen oder das Abstellen der Heizung genannt.\\
+  \item \textit{Physische} und \textit{ökonomische Verdrängung} \citep[vgl.][S.~205]{Marcuse1985} bezeichnen beide direkte Verdrängungsformen, die sich in einem unfreiwilligen Fortzug des betroffenen Haushalts manifestieren. Als physische Verdrängung werden "`Entmietungsstrategien"' bezeichnet, bei denen der*die Eigentümer*in gezielt Einfluss auf die physische Ausstattung der Wohneinheit ausübt und dieser dazu führt, dass eine weitere Bewohnung verunmöglicht, gefährlich oder unerschwinglich wird \citep[vgl.]{Grier1980}. Als Beispiele seien das Unterlassen von notwendigen Reparaturen oder das Abstellen der Heizung genannt.\\
   Ökonomische Verdrängung hingegen bezeichnet den unfreiwilligen Fortzug von Haushalten, der durch Mietpreissteigerungen, welche die finanziellen Resourcen des Haushalts übersteigen, verursacht wird.\footnote{Bei diesen beiden Formen handelt es sich um Verdrängung im engern Sinne, d.h. sie entsprechen der von Grier und Grier formulierten Verdrängungsdefinition: "`Displacement occurs when any household is forced to move from its residence by conditions that affect the dwelling [...] and that: 1) are beyond the household's reasonable ability to control or prevent; 2) occur despite the household's having met all previously imposed conditions of occupancy; and 3) make continued occupancy by that household impossible, hazardous, or unaffordable"' \citet[S.~252]{Grier1980}.}
 
   \item \textit{Soziokulturelle Verdrängung} bezeichnet eine indirekte Form der Verdrängung, welche den unfreiwilligen Fortzug eines Haushalts aufgrund von soziokulturellen Entfremdungseffekten, wie etwa dem Verlust von nachbarschaftlichen Bindungen zum Inhalt hat \citep[S.~25]{Diller2014}. Indirekt ist diese Form der Verdrängung deshalb, weil sie notwendigerweise über Quartiers- oder Nachbarschaftsveränderungen vermittelt wird. Soziokulturelle Verdrängung wird bei \citet[S.~207]{Marcuse1985} als "`pressure of displacement"' bezeichnet. Seine Terminologie wird hier nicht übernommen, um einerseits auf den Zusammenhang mit symbolischer, sozialer und kultureller Aufwertung eines Quartiers aufmerksam zu machen und andererseits den Unterschied zu einer anderen Form der Verdrängung, der Verdrängung aus der Lebensqualität, zu verdeutlichen.
 
-  \item \textit{Ausschließende Verdrängung} bezeichnet die verhinderte Möglichkeit des Zuzugs eines Haushalts in eine andere Wohneinheit, obwohl der Haushalt alle zuvor gültigen Bedingungen zur Bewohnung erfüllt hätte (Vgl. \citet[S.~207]{Marcuse1985}). Diese Form der Verdrängung gilt als indirekt, weil es sich um einen Ausschluss von der Möglichkeit des Zuzugs in eine andere als die gegenwärtige Wohneinheit der Betroffenen handelt. Marcuse, der ausschließende Verdrängung \textit{exclusionary displacement} nennt, beschreibt diesen indirekten Ausschluss wiefolgt: "`When one household vacates a housing unit voluntarily and that unit is then gentrified [...] so that another similar household is prevented from moving in, the number of units available to the second household in that housing market is reduced. The second household, therefore, is excluded from living where it would otherwise have lived"' \citep[S.~206]{Marcuse1985}. Der Ausschluss wird zumeist über eine Kombination von Mietpreissteigerungen und eine Bevorteilung von Haushalten von höherem sozioökonomischen Status bei der Wiedervermieterung erwirkt. Ausschließende Verdrängung ist also als sozialer Schließungseffekt auf dem Wohnungsmarkt interpretierbar, der durch den von Eigentümer*innen angestrebten ökonomischen Ertragslückenschluss entsteht. \footnote{Die von \citet[S.~102f.]{Glatter2007} verwendeten Konzepte der \textit{"`freiwilligen"'}, \textit{"`neutralen"'} oder \textit{"`vergoldeten Verdrängung"'} können als nach Fortzugsmotivation der ehemaligen Bewohner*innen differenzierte Typen von ausschließender Verdrängung gedeutet werden.}
+  \item \textit{Ausschließende Verdrängung} bezeichnet die verhinderte Möglichkeit des Zuzugs eines Haushalts in eine andere Wohneinheit, obwohl der Haushalt alle zuvor gültigen Bedingungen zur Bewohnung erfüllt hätte \citep[vgl.][S.~207]{Marcuse1985}. Diese Form der Verdrängung gilt als indirekt, weil es sich um einen Ausschluss von der Möglichkeit des Zuzugs in eine andere als die gegenwärtige Wohneinheit der Betroffenen handelt. Marcuse, der ausschließende Verdrängung \textit{exclusionary displacement} nennt, beschreibt diesen indirekten Ausschluss wiefolgt:
+   \begin{quote}
+   "`When one household vacates a housing unit voluntarily and that unit is then gentrified [...] so that another similar household is prevented from moving in, the number of units available to the second household in that housing market is reduced. The second household, therefore, is excluded from living where it would otherwise have lived"' \citep[S.~206]{Marcuse1985}. 
+   \end{quote}
 
-  \item \textit{Verdrängung aus der Lebensqualität} (Vgl. \citet[S.~408]{Blasius1994} und \citet[S.~196]{Blasius1996}) gilt als einzige Verdrängungsform, bei der betroffene Haushalte weder einen unfreiwilligen Fortzug noch die Verhinderung eines Zuzugs erleiden. Betroffene Haushalte werden jedoch zu einer Senkung ihrer Lebensqualität gezwungen, um eine drohende ökonomische, physische oder soziokulturelle Verdrängung abzuwenden. Falls es sich um eine drohende ökonomische Verdrängung handelt, werden steigende Lebensunterhaltskosten durch Sparmaßnahmen in anderen Lebensbereichen versucht zu kompensieren. Falls es sich um eine drohende physische bzw. soziokulturelle Verdrängung handelt, werden Einschränkungen im materiellen bzw. immateriellen Wohlstand in Kauf genommen. Folglich ist Verdrängung aus der Lebensqualität auch als Verdrängungsdruck charakterisierbar, der, falls er zu stark wird, einen erzwungenen Fortzug auslösen kann. Verdrängungsdruck drängt somit die Betroffenen aus der Lebensqualität in Richtung eines unfreiwilligen Fortzugs. Eine direkte Verdrängung aus dem Lebensstandard wird meist über Mietpreissteigerungen oder "`Entmietungsstrategien"' erwirkt. Eine Vermittlung der Verdrängung aus dem Lebensqualität über Nachbarschaftseffekte, also eine indirekte Wirkung des Verdrängungsdrucks, ist allerdings auch möglich, wenn sich beispielsweise das Preisniveau des lokalen Gewerbes erhöht. Verdrängung aus dem Lebensqualität verschärft sich oft in Kombination mit gebietsbezogener ausschließender Verdrängung. Durch letztere wird den betroffenen Haushalten die Alternative eines freiwilligen Fortzugs in eine andere Wohneinheit von vergleichbarer Ausstattung und Mietehöhe genommen und es bleibt ihnen nur eine Kompensation des Verdrängungsdrucks wird über die Senkung der Lebensqualität.
+   Der Ausschluss wird zumeist über eine Kombination von Mietpreissteigerungen und eine Bevorteilung von Haushalten von höherem sozioökonomischen Status bei der Wiedervermieterung erwirkt. Ausschließende Verdrängung ist also als sozialer Schließungseffekt auf dem Wohnungsmarkt interpretierbar, der durch den von Eigentümer*innen angestrebten ökonomischen Ertragslückenschluss entsteht. \footnote{Die von \citet[S.~102f.]{Glatter2007} verwendeten Konzepte der \textit{"`freiwilligen"'}, \textit{"`neutralen"'} oder \textit{"`vergoldeten Verdrängung"'} können als nach Fortzugsmotivation der ehemaligen Bewohner*innen differenzierte Typen von ausschließender Verdrängung gedeutet werden.}
+
+  \item \textit{Verdrängung aus der Lebensqualität} %\citep[vgl.][S.~408]{Blasius1994} und \citep[S.~196]{Blasius1996})
+   \citep[vgl.]{Blasius1994,Blasius1996} gilt als einzige Verdrängungsform, bei der betroffene Haushalte weder einen unfreiwilligen Fortzug noch die Verhinderung eines Zuzugs erleiden. Betroffene Haushalte werden jedoch zu einer Senkung ihrer Lebensqualität gezwungen, um eine drohende ökonomische, physische oder soziokulturelle Verdrängung abzuwenden. Falls es sich um eine drohende ökonomische Verdrängung handelt, werden steigende Lebensunterhaltskosten durch Sparmaßnahmen in anderen Lebensbereichen versucht zu kompensieren. Falls es sich um eine drohende physische bzw. soziokulturelle Verdrängung handelt, werden Einschränkungen im materiellen bzw. immateriellen Wohlstand in Kauf genommen. Folglich ist Verdrängung aus der Lebensqualität auch als Verdrängungsdruck charakterisierbar, der, falls er zu stark wird, einen erzwungenen Fortzug auslösen kann. Verdrängungsdruck drängt somit die Betroffenen aus der Lebensqualität in Richtung eines unfreiwilligen Fortzugs. Eine direkte Verdrängung aus dem Lebensstandard wird meist über Mietpreissteigerungen oder "`Entmietungsstrategien"' erwirkt. Eine Vermittlung der Verdrängung aus dem Lebensqualität über Nachbarschaftseffekte, also eine indirekte Wirkung des Verdrängungsdrucks, ist allerdings auch möglich, wenn sich beispielsweise das Preisniveau des lokalen Gewerbes erhöht. Verdrängung aus dem Lebensqualität verschärft sich oft in Kombination mit gebietsbezogener ausschließender Verdrängung. Durch letztere wird den betroffenen Haushalten die Alternative eines freiwilligen Fortzugs in eine andere Wohneinheit von vergleichbarer Ausstattung und Mietehöhe genommen und es bleibt ihnen nur eine Kompensation des Verdrängungsdrucks wird über die Senkung der Lebensqualität.
 \end{itemize}
 
 Die Verdrängungsformen schließen sich nicht gegenseitig aus und Fortzugsentscheidungen sind selten monokausal. Es ist denkbar, dass Haushalte Mieterhöhungen zunächst über eine Verdrängung aus der Lebensqualität kompensieren, dann aber ökonomisch und soziokulturell verdrängt werden und schließlich auf der Suche nach neuem Wohnraum von gebietsbezogener ausschließender Verdrängung betroffen sind. 
 
 \paragraph{Definitionsprobleme} Zugegebenermaßen ist auch der hier angestrengte konzeptionelle Rahmen des Verdrängungsbegriffs weder ausnahmslos eindeutig noch lückenfrei. Streng genommen würden Haushalte, die sich allein aufgrund von stark gestiegenen Lebensunterhaltskosten im Quartier zum Fortzug gezwungen sehen, nicht als ökonomisch verdrängt gelten. Schließlich wäre deren unfreiwilliger Fortzug über Quartierseffekte vermittelt und nicht über direkte Mietpreissteigerungen verursacht worden. Für diesen sicherlich eher seltenen Sonderfall liese sich zusätzlich der Begriff der \textit{indirekten ökonomischen Verdrängung} einführen. Außerdem ist die praktische Einordnung der konkreten Situation eines unfreiwilligen Fortzugs nicht immer eindeutig. Stellen wir uns die Zwangsräumung eines Haushalts vor, welche juristisch mit zuvor entstandenen Mietrückständen legitimiert wird. Sind der Zwangsräumung keine Mietpreiserhöhungen vorausgegangen, kann diese im Grunde weder als physische noch als ökonomische Verdrängung eingeordnet werden. Diesen und anderen in der Literatur nicht selten willentlich oder unwillentlich verschwiegenen Unzulänglichkeiten bin ich mir durchaus bewusst, möchte sie hiermit transparent machen und die Notwendigkeit der konzeptionellen Weiterentwicklung des Verdrängungsbegriffs in der Gentrificationliteratur bekräftigen.
 
-\paragraph{Das Wesen der Gentrification} Verdrängung kann auch als Folge von Aufwertung \citep[S.~673f.]{Holm2012} interpretiert werden. Jedoch macht nur eine Interpretation von Verdrängung als \textit{logische} Folge von Aufwertung, nicht als \textit{chronologische} Folge von Aufwertung Sinn, da sie den selben Wandlungsprozess nur aus unterschiedlicher Perspektive beschreiben.\footnote{Zur chronologischen Abfolge von Gentrficationprozessen wurden entsprechende Verlaufsmodelle entwickelt. Vgl. hierzu \citet[S.~671ff.]{Holm2012} und \citet[S.~47ff.]{Krajewski2006}.} Gentrification ist demnach immer beides: Aufwertungsprozess und Verdrängungsprozess.
+\paragraph{Das Wesen der Gentrification} Verdrängung kann als Folge von Aufwertung \citep[S.~673f.]{Holm2012} ausgelegt werden. Allerdings macht nur eine Interpretation als \textit{logische}, nicht als \textit{chronologische} Folge von Aufwertung Sinn, da Aufwertung und Verdrängung den selben Wandlungsprozess nur aus unterschiedlicher Perspektive beschreiben.\footnote{Zur chronologischen Abfolge von Gentrficationprozessen wurden entsprechende Verlaufsmodelle entwickelt (Vgl. \citet[S.~671ff.]{Holm2012}, \citet[S.~47ff.]{Krajewski2006}).} Gentrification ist demnach notwendigerweise immer beides: Aufwertungsprozess und Verdrängungsprozess (Vgl. Abbildung \ref{Gentri2Perspectives}).
 
-"`Verdrängung ist das Wesen der Gentrification, ihr Ziel, und nicht ein unerwünschter Nebeneffekt. Verbesserung der Bausubstanz ist lediglich Mittel zum Zweck der Verdrängung und nicht ein Ziel an sich."' \citep[S.~80]{Marcuse1992}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{figure/Gentrification2Perspectives.png}
+  \caption{Zwei Perspektiven auf Gentrification: Aufwertung und Verdrängung}
+  \label{Gentri2Perspectives}
+\end{figure}
 
-Oben habe ich gesagt die additive Koditionalität macht das Wesen aus. Ja was denn nun? Doppelte Konditionalität. Es gibt change in users und es gibt new users of higher-socio economic status. Verdrängung ist hier implizit.
+So ist auch die in Kapitel \ref{GentriAufwertung} getroffene Aussage, dass es sich bei der Kunjunktion von immobilienwirtschaftlicher und sozialer Aufwertung um das \textit{Wesen} der Gentrification handelt, mit der Diagnose von \citet[S.~80]{Marcuse1992} vereinbar, nachder Verdrängung das \textit{Wesen} der Gentrification ausmacht.\footnote{\textit{Wesen} wird hier nach folgenden drei hegelianischen Bedeutungen ausgelegt: i.) "`[T]he permanent, dominant nature of a thing, that underlies its varying outer states"', ii.) "`the actual or essential nature of a thing in contrast to how it seems or its appearance"' und iii.) "`the essential or universal features of a group of entities, in contrast to their individual variations"' \citep[S.~89]{Inwood1992}.}
 
-drei Bedeututungen des Begriffs \textit{Wesen} nach Hegel \citep[S.~89]{Inwood1992}
-
-\begin{quote}
-  \begin{itemize}
-  \item the permanent, dominant nature of a thing, that underlies its varying outer states or APPEARANCE (Erscheinung)
-  \item the actual or essential nature of a thing in contrast to how it seems or its appearance (Schein)
-  \item the essential or UNIVERSAL features of a group of entities, in contrast to their individual variations
-  \end{itemize}
-\end{quote}
-
-Wesen: seine Rationalität
-
-Verdrängung ist eine notwendige Folge von Gentrification  Bestandteil
-
-Verdrängung soll hier im Bezug auf Wohnraum betrachtet werden. Keine explizite Konzeptionalisierung von Verdrängungsformen, die nicht wohnraumbezogen sind. Von den hier aufgezählten Verdrängungsformen wäre einzig die ausschließende Verdrängung als Ausschluss an der Nutzung und Teilhabe des Raumes denkbar 
-
-Eine Systematisierung und Verdrängungsformen 
-
-Vom Standpunkt der Nutzer*innen 
-Gebrauchswert 
-
-"`Dass es bei Gentrification zu Verdrängung kommt ist unstrittig. Nicht aber konsensfähig sind Art, Verlauf und Ausmaß der Verdrängung"' \citep[S.~23]{Diller2014}
-"`the shared and defining characteristic of gentrification everywhere is socio economic change through migration"' \citep[S.~40]{Lyons1996}
-
-Klassenspezifische Raumproduktion social sieve
-
-Verdrängung Teil der Definition oder nicht Diller 2014 ja, Verdrängung zweiter Kernmerkmal der Gentri bei \citet{Krajewski2006} Krajewski 2013?
-
-Polit ökonomisch
-
-Verdrängung vs. Austausch \citet[S.~24]{Diller2014}
-Disput zwischen Hamnet und Slater 
-
-
-
-\citet{Marcuse1985} \citet[S.~303]{Slater2009}
-
-Formen können chronologischer Abfolge auftreten HH under displacment preassure, economic displacement, exclusionary displacement
-Verdrängungskette exclusionary displacement
-
-grenzen zwischen freiwillig und unfreiwillig fließend, meist kein einzelner Grund
-
-\subsubsection{Zum Zusammenhang zwischen Aufwertung und Verdrängung}\label{AufwertungUNDVerdraengung}
-
-Gentrification aus zwei analystischen Persepektiven: Vom Standpunkt der politischen Ökonomie handelt es sich um Aufwertung. Vom soziologischen Standpunkt handelt es sich um Verdrängung. Beide Perspektiven beschreiben den selben Prozess.
-
-Konzeptionelles Diagramm
-
-"`Verdrängung ist das Wesen der Gentrification, ihr Ziel, und nicht ein unerwünschter Nebeneffekt. Verbesserung der Bausubstanz ist lediglich Mittel zum Zweck der Verdrängung und nicht ein Ziel an sich."' \citep[S.~80]{Marcuse1992}
-
-Oben habe ich gesagt die additive Koditionalität macht das Wesen aus. Ja was denn nun? Doppelte Konditionalität. Es gibt change in users und es gibt new users of higher-socio economic status. Verdrängung ist hier implizit.
-
-drei Bedeututungen des Begriffs \textit{Wesen} nach Hegel \citep[S.~89]{Inwood1992}
-
-\begin{quote}
-  \begin{itemize}
-  \item the permanent, dominant nature of a thing, that underlies its varying outer states or APPEARANCE (Erscheinung)
-  \item the actual or essential nature of a thing in contrast to how it seems or its appearance (Schein)
-  \item the essential or UNIVERSAL features of a group of entities, in contrast to their individual variations
-  \end{itemize}
-\end{quote}
-
-Wesen: seine Rationalität
-
-
-
-
-  \subsection{Forschungsstand}
+  \subsection{Forschungsstand}\label{Forschungsstand}
 
 Was ist zum Thema bekannt? Was trägt die bisherige Forschung zur Beantwortung Ihrer
 Fragen bei? Resultate referieren, Details nur, wenn Sie für die Ergebnisse bedeutsam sind.
@@ -182,30 +126,97 @@ zweckmäßig sind sie für die eigene Arbeit? \\
 Werden Kausalaussagen gemacht oder nur deskriptive Befunde publiziert? Suchen Sie nach
 inhaltlichen Erklärungen empirischer Befunde!\\
 
+Kleinräumige empirische Erfassung von Gentrification
+Zusammenhang zwischen Aufwertung und Verdrängung 
+Verdrängung messen
+
 Welche Lücken weist die Forschung auf?\\
 --> Effekte von immobilienwirtschaftlicher Aufwertung auf Umzugsverhalten isolieren fehlt in der Literatur. \\
 --> Verdrägungstypen mit 
 Welche Widersprüche sind zu erkennen? \\
 --> Mehr oder weniger Fortzuege? 
 
+"`the shared and defining characteristic of gentrification everywhere is socio economic change through migration"' \citep[S.~40]{Lyons1996}
 
-		\subsubsection{Quantitative Studien zu Gentrification und Wohnmobilität}
+
+		\subsubsection{Empirische Studien zur Messung von Gentrification}\label{Studienreview}
+
+Quantitative Studien zu Gentrification haben zumeist eine empirische Lokalisierung von Aufwertungsgebieten oder die Bestimmung von Form, Verlauf und Ausmaß von Verdrängung zum Ziel. Eine ständige Kontoverse , nicht zuletzt an methodologischen Fragen.
+
+Kleinräumigkeit
+Vergleichbarkeit
+
+
+Estimating the scope and scale of displacement and exploring what happens to people who are displaced have proved elusive. It is difficult to  find people who have been displaced, particularly if those people are poor. \citep{Newman2006}
+
+Eine Analyse von wohnräumlichem Mobilitätsverhalten social geographic polarization
+
+\citep{Newman2006}
+But in recent years Freeman and Braconi (2004) and Vigdor (2002) questioned whether low-income resi-
+dents are indeed displaced and whether gentrification hurts the poor.
+Both studies assert that the literature on gentrification has failed to quantify accurately the negative impacts of
+gentrification. In their view, questions about how gentrification affects low-income residents remain in the absence of strong evidence.
+
+"`Dass es bei Gentrification zu Verdrängung kommt ist unstrittig. Nicht aber konsensfähig sind Art, Verlauf und Ausmaß der Verdrängung"' \citep[S.~23]{Diller2014}
+Zusammenhang zwischen Gentrification und Verdrängung contested
+
+displacement problem. Grier and Grier 1978; National Urban Coalition 1978;
+Sumka 1979; LeGates and Hartman 1981, 1986; Lyons 1996; Atkinson
+2000
+
+Mischung von qualitativen und quantativen Methoden \citet{Wyly2010} \citet{Glatter2007}
+
+
+The scarcity of analyses centred on the residential trajectories of those who moved out
+of gentrifying districts is even more striking.
+Methodological obstacles are instrumental
+in this knowledge gap, for research tools to
+trace those who moved out of a selected area
+are sparse (Atkinson, 2000). Yet, Slater (2006)
+has argued that this dearth of analyses on
+out-migrations from gentrifying neighbour-
+hoods is specifi c to recent contributions to the
+literature and refl ects a decreasing interest
+in exploring the effects of gentrifi cation, at
+times when leitmotivs of ‘urban renaissance’
+or ‘urban revitalisation’ are at the forefront
+of countless discourses. Displacement of
+incumbent vulnerable social groups, a well-
+documented mechanism in previous con-
+tributions to the gentrifi cation literature, is
+a particularly sensitive issue in this respect
+(Marcuse, 1986; Atkinson, 2004).\citep{VanCriekingen2009}
+
+Problems for measuring DP
+
+Exploring migration dynamics associated with gentrifi cation is particularly important
+in order to shed light on the nature and contested effects of such processes. Quite
+paradoxically, however, this aspect remains underinvestigated in the gentrifi cation
+literature.\citep[S.~825]{VanCriekingen2009}
+
+
+"`Empirical measurement of displacement has generally proved difficult, not least because the interpretation of outward moves needs to distinguish between prevailing rates of population turnover and involuntary migration."' \citet[S.~112]{Atkinson2004}
+
+p.151:
+
+"`Separating gentrification and displacement out from wider processes of social change, incumbent upgrading, voluntary migration and welfare and labour market changes provides complex problems for measuring such processes. Further, it is exceedingly hard to distinguish between gentrification as a form of neighbourhood replacement or displacement."' \citep[S.151]{Atkinson2000}
 
 Verdrängung messen:
 Probleme: Slater 2009 "`there is no such data"' und gleichzeitig sagt er Slater 2015 über die Schwierigkeiten Gentrificationtheorie zu operationalisieren "`theories are always confronted with empirical difficulties. They should not be abandoned because of it."'
 
-"`Dass es bei Gentrification zu Verdrängung kommt ist unstrittig. Nicht aber konsensfähig sind Art, Verlauf und Ausmaß der Verdrängung"' \citep[S.~23]{Diller2014}
+
 
 Verdrängung kann in anderen Ursachen hoher Mobilität statistisch untergehen (Lees 2010 im Gentrification Reader S.~318f.)
     
 \citet{Atkinson2000} This paper presents evidence suggesting that gentrification was an active and extensive
 process during the 1980s in Greater London and that, where this occurred, it was associated with above-average levels of losses of
-groups who have been associated with displacem ent in the past. Labour market changes, tenure preferences and housing
+groups who have been associated with displacement in the past.
 
-Wichtigste Studien \citet{Atkinson2000} \citet{Atkinson2011}
+Wichtigste Studien \citet{Atkinson2000} soziale Aufwertung zu nur deskriptiv keine Assoziationsmasse zwischen wohnräumlicher Mobilität und 
+
+\citet{Atkinson2011}
 \citet{Freeman2004} \citet{Freeman2005} \citet{Vigdor2002} \citet{McKinnish2008} \citet{Newman2006} und \citet{Newman2006a} \\
-
-Van Criekingen 2009
+\citep{VanCriekingen2009}
 
 Diller 2014 Verdrängung schwer nachzuweisen
 Diller 2014 sagt exclusionary displacement ist nur Exklusion. Ich sage es macht sinn, im Raumproduktionssinn. Klassencharakter dieser Exclusion. p.36 Def Gentri auch S.36
@@ -214,34 +225,52 @@ dass der Austausch und die darin gefasste Verdrängung der Einwohnerinnenschafte
 
 "`Unfortunately, displacement is difficult to quantify - hence easily ignored."' \citep[S.~2604]{Wyly2010}
 
+
+p.2:
+
+But in recent years Freeman and Braconi (2004) and Vigdor (2002)
+questioned whether low-income residents are indeed displaced and
+whether gentrification hurts the poor.
+
+
+Both studies assert that the literature on gentrification has failed to quantify accurately the negative impacts of gentrification. In their view, questions about how gentrification affects low-income residents remain in the absence of strong evidence.
+
+They calculated:
+
+    DP rates
+    measure whether low-income people in gentrifying areas are more mobile than those in non-gentrifying areas.
+
+They also found that disadvantaged households in gentrifying areas were less likely to move away than similar households in non-gentrifying areas. They concluded that gentrification does not cause the displacement of low-income households. \citep[S.~2]{Newman2006}
+
 \paragraph{Mapping Gentrification over whole cities}
-Hedin et al. 2012  p.447
-Podagrosi 2011
-Atkinson 2011
-Gentrimaps
-Maciag 2015
+\citet{Hedin2012}
+\citet{Podagrosi2011}
+\citet{Atkinson2011}
+\citet{Holm2011}
+\citet{Maciag2015} journalistisches Projekt nicht wissenschaftlich
 
 Deutschland
 \citet{Glatter2007} \citet{Holm2004} \citet{Holm2011}  \citet{Rusche2015} \citet{Czarnetzki2013} 
 
-Tabelle mit findings? daten - jahr - Ort - modell - finding
+Kaum Kausalaussagen weil auch wenig inferenz und assoziation
+
+Tabelle mit findings? daten - jahr - Ort - Methodik - Ergebnisse
 Widersprüche: Debatte über mehr/weniger Fortzüge empirisch?
 
 KRITIK an keiner analytischen Klarheit differenziereung des verdrängungsbegriffs\\
-KRITIK statistische unsorgfaltigkeiten\\
-KRITIK Zusammenhang zwischen Aufwertung sozial und immobilienwirtschaftlich, Umzugsverhalten und Aufwertung nicht \\
+KRITIK statistische unsorgfaltigkeiten (inferenziell krine räumliche Autokorr berücksichtigt, modelfit schlecht, Modellvoraussetzungen nicht getestst, Aussagen nicht verwertbar)\\
+KRITIK Zusammenhang zwischen Aufwertung sozial und immobilienwirtschaftlich, Umzugsverhalten und Aufwertung nicht weder inferenziell noch deskriptiv Assoziationsmaße\\
 KRITIK keine stadtweiten Zusammenhänge
 KRITIK Kein versuch einer inferenz bzgl. des Prozesses zu wagen
-KRITIK in Berlin fehlen quantative Studien zu vedrängung und gentri
 
 	
-		\subsubsection{Kontext Berlin}
+		\subsubsection{Kontext Berlin}\label{KontextBerlin}
 
 \paragraph{Wohnungsmarkt}
 
 "`Der Berliner Wohnungsmarkt ist in den letzten Jahren durch fast flächendeckende Mietsteigerungen geprägt und innerhalb des S-Bahn-Rings hat sich Gentrification zu einem Mainstream-Phänomen entwickelt."' \citep[S.~29]{Berner2015}
 
-"`Capital accumulation through real-estate activity booms"' schrieb David \citet[S.~35]{Harvey2008} über Mumbai. Über Berlin hätte er das wohl im Jahre 2008 noch nicht geschrieben, denn der Boom des Immoblienmarktes ist in Berlin erst mit etwas Verzögerung ist Berlin angekommen. im Integration in globale zweite Zirkulationsphäre Finanzkapitals. Krisenanlagen, Spatial fix 'Betongold' Europäische Krise 
+"`Capital accumulation through real-estate activity booms"' schrieb \citet[S.~35]{Harvey2008} über Mumbai. Über Berlin hätte er das wohl im Jahre 2008 noch nicht geschrieben, denn der Boom des Immoblienmarktes ist in Berlin erst mit etwas Verzögerung ist Berlin angekommen. im Integration in globale zweite Zirkulationsphäre Finanzkapitals. Krisenanlagen, Spatial fix "`Betongold"' Europäische Krise 
 
 Investitionen nicht notwendig für Aufwertung, da 
 Hiermit ist nicht notwendigerweise eine bauliche Aufwertung gemeint. In Berlin auf immobilienwirtschaftliche Aufwertung auch ohne bauliche Aufwertung möglich \citep[S.~30]{Berner2015} 
@@ -299,7 +328,10 @@ Verdrängung üblicherweise economic displacement, kaum exclusionoary displaceme
 
 \citep{Diller2014a} Studie zu verschiedenen Stadtvierteln
 
-	\subsection{Forschungshypothesen}
+KRITIK in Berlin fehlen quantiative Studien zu vedrängung und gentri
+
+
+	\subsection{Forschungshypothesen}\label{Hypothesen}
 	
 Die Darstellung muss zweckgebunden bleiben und Ihren Analysen den
 Weg ebnen. Prüfen Sie bei der Darstellung aller begrifflichen Festlegungen und
@@ -379,12 +411,11 @@ verstärken Diskriminierungen im Bereich der Wohnungsversorgung." \citet{Berner2
 vs.
 \item Aufwertungsgebiete besitzen niedrigere Binnenfortzugsraten als die Kontrollgebiete.\\
 --> BBU, Freeman, sigmar gude; Leute klammern sich an ihren Mietverträgen fest. 
-Diller 2014 S.31 "Die Wegzugsraten sozial schwächerer sind in gentrifizierten Gebieten geringer als in den anderen und Statushöhere fühlen sich eher zum Wegzug gedrängt"
- Sicherlich ist eine überlagerung beider effekte 
+Diller 2014 S.31 "`Die Wegzugsraten sozial schwächerer sind in gentrifizierten Gebieten geringer als in den anderen und Statushöhere fühlen sich eher zum Wegzug gedrängt"' Sicherlich ist eine überlagerung beider effekte 
 
 \item Aufwertungsgebiete besitzen höhere Aussenzuzugsraten als die Kontrollgebiete \\
 Atkinson 2011 p.2 
-Atkinson 2000 p.161 Gentri areas für verschiedene Risikogruppen (working class, elderly, lone parent etc.) z.b. Inachtive: "represented a massive locus for migration wherein nearly one and a half times more moves were made away from the 'G' areas than within London as a whole in the same period"
+Atkinson 2000 p.161 Gentri areas für verschiedene Risikogruppen (working class, elderly, lone parent etc.) z.b. Inachtive: "`represented a massive locus for migration wherein nearly one and a half times more moves were made away from the 'G' areas than within London as a whole in the same period"'
 
 
 \item Je stärker die immobilienwirtschaftliche Aufwertungsdynamik, desto höher die relativen Fortzugsraten in den Nachbarschaften \\

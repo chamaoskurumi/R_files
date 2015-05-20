@@ -4,12 +4,13 @@
 \usepackage{graphicx}                           % Packages to allow inclusion of graphics
 \usepackage{hyperref}                           % For creating hyperlinks in cross references
 \usepackage[ngerman]{babel}
-\usepackage[backend=bibtex, style=authoryear, language=ngerman, isbn=false, url=false, doi=false, eprint=false, natbib=true, citestyle=authoryear]{biblatex}
+\usepackage[backend=bibtex, style=authoryear, language=ngerman, isbn=false, url=false, doi=false, eprint=false, natbib=true, citestyle=authoryear-comp]{biblatex}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
 \usepackage{acronym}
 \usepackage{booktabs}
 \usepackage{multirow}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
 
 \bibliography{Bibliographie}
 % -------------------------------
@@ -38,6 +39,8 @@
 
 \renewcommand{\baselinestretch}{1.5}
 \renewcommand{\labelitemii}{-}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
 
 \begin{document}
 
