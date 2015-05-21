@@ -4,15 +4,19 @@
 \usepackage{graphicx}                           % Packages to allow inclusion of graphics
 \usepackage{hyperref}                           % For creating hyperlinks in cross references
 \usepackage[ngerman]{babel}
-\usepackage[backend=bibtex, style=authoryear, language=ngerman, isbn=false, url=false, doi=false, eprint=false, natbib=true, citestyle=authoryear-comp]{biblatex}
+\usepackage[backend=bibtex, style=authoryear-comp, language=ngerman, isbn=false, url=false, doi=false, eprint=false, natbib=true, citestyle=authoryear-comp]{biblatex}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
 \usepackage{acronym}
 \usepackage{booktabs}
 \usepackage{multirow}
-\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage{pifont}
+\usepackage{csquotes}
+\usepackage[table,xcdraw]{xcolor}
+
 
 \bibliography{Bibliographie}
+
 % -------------------------------
 % --- some layout definitions ---
 % -------------------------------

@@ -120,9 +120,6 @@ Thematisch gruppieren, nicht an Studien entlang vorarbeiten. In der Regel sollte
 detaillierten Ergebnistabellen früherer Untersuchungen abgedruckt werden. Statt dessen
 Befunde in eigene Begriffe fassen und Relevanz für die eigene Frage erkennbar machen. \\
 
-Welche Begriffe werden von welchen Forschern benutzt? Wie unterscheiden sie sich? Wie
-zweckmäßig sind sie für die eigene Arbeit? \\
-
 Werden Kausalaussagen gemacht oder nur deskriptive Befunde publiziert? Suchen Sie nach
 inhaltlichen Erklärungen empirischer Befunde!\\
 
@@ -130,22 +127,68 @@ Kleinräumige empirische Erfassung von Gentrification
 Zusammenhang zwischen Aufwertung und Verdrängung 
 Verdrängung messen
 
-Welche Lücken weist die Forschung auf?\\
---> Effekte von immobilienwirtschaftlicher Aufwertung auf Umzugsverhalten isolieren fehlt in der Literatur. \\
---> Verdrägungstypen mit 
-Welche Widersprüche sind zu erkennen? \\
---> Mehr oder weniger Fortzuege? 
+
 
 "`the shared and defining characteristic of gentrification everywhere is socio economic change through migration"' \citep[S.~40]{Lyons1996}
 
 
-		\subsubsection{Empirische Studien zur Messung von Gentrification}\label{Studienreview}
+		\subsubsection{Empirische Studien zur Messung von Aufwertung \& Verdrängung}\label{Studienreview}
 
-Quantitative Studien zu Gentrification haben zumeist eine empirische Lokalisierung von Aufwertungsgebieten oder die Bestimmung von Form, Verlauf und Ausmaß von Verdrängung zum Ziel. Eine ständige Kontoverse , nicht zuletzt an methodologischen Fragen.
+Frühe studien Grier and Grier 1978; Sumka 1979; Marcuse 1985 LeGates and Hartman 1986; Lyons 1996. Vor allem statistische Methoden verbesssert, aber Konzeptionell oft schlecht siehe kritik von slater oder wyly.
 
-Kleinräumigkeit
+Quantitative Studien zu Gentrification haben zumeist eine Lokalisierung von Aufwertungsgebieten oder die Bestimmung von Form, Verlauf und Ausmaß von Verdrängung zum Ziel. Eine ständige Kontoverse , nicht zuletzt an methodologischen Fragen.
+Mischung von qualitativen und quantativen Methoden \citet{Wyly2010} \citet{Glatter2007} \citet{Krajewski2006}
+
+\paragraph{Aufwertung}
+Lokalisierung und Kartierung von Gentrificationgebieten.
+Podagrosi: Hauptkomponentenanalyse und Cluster Analyse
+
+\citet{Hedin2012} Microlevel und Klassifizierung der Gentrificationform 
+\citet{Podagrosi2011}
+\citet{Atkinson2011}
+\citet{Holm2011}
+\citet{Maciag2015} journalistisches Projekt nicht wissenschaftlich
+
+
+\paragraph{Verdrängung}
+
+Politisch brisant - gentri bad oder good, wie viel verdrängung gibt es 
+
+Wohnräumliche Mobilität.
+Freeman: Logistische Regression
+Wyly und Hammel 2004: Logistische Regression und und keine deskriptiven statistiken um güte oder model fit zu checken
+Newman und Wyly: Logistische Regression auf displacement oder nicht und keine deskriptiven statistiken um güte oder model fit zu checken
+
+Widersprüche: Debatte über mehr/weniger Fortzüge empirisch?
+
+\paragraph{Methodische Herausforderungen}
+
+Vorher nachher Längsschnitt
+Operationalisierung von analytisch klarer Konzepte
+Kleinräumigkeit --> Aggregatszahlenprobleme
 Vergleichbarkeit
+Inferenz
+Dunkelziffern: probleme mit Survey aber auch mit amtlichen statistiken
 
+1.measurement problem
+The only definitive way to measure gentrification-induced displacement is to track down individual households who have moved out of neighbourhoods over time as gentrification proceeds, and to ask them detailed questions about their reasons for moving. This is extremely expensive and time-consuming. \citep[S.~319]{Lees2010}
+2.measurement problem
+In Haushaltsbefragungen wird meist nur der Haushaltsvorstand befragt. Wenn arme Mieter*innen verdrängt werden und bei Freunden oder Verwandten unterkommen verschwinden sie aus den detailiertesten Befragungen
+"`displacement is easy to overlook amidst the dynamic mobility of all neighbourhoods"' \citep[S.~319]{Lees2010}
+
+specific linkages between gentri and displacement
+
+
+\paragraph{Kritik \& Lücken}
+
+Welche Lücken weist die Forschung auf?\\
+--> Effekte von immobilienwirtschaftlicher Aufwertung auf Umzugsverhalten isolieren fehlt in der Literatur. \\
+--> Verdrägungstypen mit :Welche Widersprüche sind zu erkennen? \\
+--> Mehr oder weniger Fortzuege? 
+-- keine assoziationsmaße oder keine Inferenz, schlechte inferenz
+Keine zusammenhang aufwertung und wohnräumliche Mobilität
+--> Berlin gar keine Inferenz, Berlin kaum Surveydaten 
+--> In berlin viel zu grossräumig und nur gentrimaps war stadtweit
 
 Estimating the scope and scale of displacement and exploring what happens to people who are displaced have proved elusive. It is difficult to  find people who have been displaced, particularly if those people are poor. \citep{Newman2006}
 
@@ -160,11 +203,13 @@ gentrification. In their view, questions about how gentrification affects low-in
 "`Dass es bei Gentrification zu Verdrängung kommt ist unstrittig. Nicht aber konsensfähig sind Art, Verlauf und Ausmaß der Verdrängung"' \citep[S.~23]{Diller2014}
 Zusammenhang zwischen Gentrification und Verdrängung contested
 
-displacement problem. Grier and Grier 1978; National Urban Coalition 1978;
-Sumka 1979; LeGates and Hartman 1981, 1986; Lyons 1996; Atkinson
-2000
+displacement problem. 
 
-Mischung von qualitativen und quantativen Methoden \citet{Wyly2010} \citet{Glatter2007}
+
+
+Despite the challenges, researchers have used a variety of methods and datasets since the 1970s to make inferences about the extent of displacement. Past research has esti-
+mated the total number of people displaced nationally (Newman and Owen, 1982; LeGates and Hartman, 1986) and within particular cities (Marcuse, 1986; Schill and Nathan, 1983; Grier and Grier, 1980), has
+traced where people have gone and has measured how gentrification impacts displacees. These studies focused on refining methodologies in order to quantify the problem accurately. Few questioned whether gentrification produced displacement Newman2006
 
 
 The scarcity of analyses centred on the residential trajectories of those who moved out
@@ -227,41 +272,155 @@ dass der Austausch und die darin gefasste Verdrängung der Einwohnerinnenschafte
 
 
 p.2:
-
-But in recent years Freeman and Braconi (2004) and Vigdor (2002)
-questioned whether low-income residents are indeed displaced and
-whether gentrification hurts the poor.
-
-
-Both studies assert that the literature on gentrification has failed to quantify accurately the negative impacts of gentrification. In their view, questions about how gentrification affects low-income residents remain in the absence of strong evidence.
-
-They calculated:
-
-    DP rates
-    measure whether low-income people in gentrifying areas are more mobile than those in non-gentrifying areas.
-
+But in recent years Freeman and Braconi (2004) and Vigdor (2002) questioned whether low-income residents are indeed displaced and whether gentrification hurts the poor. Both studies assert that the literature on gentrification has failed to quantify accurately the negative impacts of gentrification. In their view, questions about how gentrification affects low-income residents remain in the absence of strong evidence. They calculated: DP rates    measure whether low-income people in gentrifying areas are more mobile than those in non-gentrifying areas.
 They also found that disadvantaged households in gentrifying areas were less likely to move away than similar households in non-gentrifying areas. They concluded that gentrification does not cause the displacement of low-income households. \citep[S.~2]{Newman2006}
 
-\paragraph{Mapping Gentrification over whole cities}
-\citet{Hedin2012}
-\citet{Podagrosi2011}
-\citet{Atkinson2011}
-\citet{Holm2011}
-\citet{Maciag2015} journalistisches Projekt nicht wissenschaftlich
 
+
+Die mit Survey Daten Arbeiten können Inferenz machen.
+Viele arbeiten mit Panel Study of Income Dynamics (PSID) (wer?) \& census data
+
+American Housing Survey (AHS) Vigdor
+
+
+Newman2006 Wyly2010 Glatter und Podagrosi haben auch qualitativ 
+
+Nevertheless, a majority of studies of gentrification identify displacement as a significant problem, largely through intensive study using longitudinal data or close ethnographic monitoring of neighbourhoods (notably, Dolbeare 1978; Grier and Grier 1978; National Urban Coalition 1978; Sumka 1979; LeGates and Hartman 1981, 1986; Lyons 1996; Atkinson 2000). 
+
+However, our displacement rates are
+slightly higher, reaching between 6.6 and 9.9
+per cent of all local moves among renter
+households. We expect that both figures
+underestimate actual displacement, perhaps
+substantially, because the NYCHVS does not
+include displaced households that left
+New York City, doubled up with other house-
+holds, became homeless, or entered the shelter
+system—all of which were identified as wide-
+spread practices in the field interviews. The
+dataset also misses households displaced by
+earlier rounds of gentrification and those that
+will not gain access to the now-gentrified
+neighbourhoods in the future. Newman2006
+
+
+1.) First, there is a problem in the distinction between ‘involuntary’
+and ‘voluntary’ moves, and in assessing what this actually means.
+
+2.) Second is the difficulty of tracking large numbers of displaced households, and
+third, of establishing the impacts of the move. As most people who move
+out of a gentrifying neighbourhood go to a less-gentrified neighbourhood
+with better housing for the same rent or equivalent housing for less,
+‘respondent satisfaction’ with their new home is an ambiguous measure.
+Nevertheless, there are many small studies using quantitative, qualitative
+and combined methods that provide evidence of displacement due to
+gentrification, predominantly of ‘poor white and non-white households
+. . . the elderly, female-headed households and blue collar/working class
+occupational groupings’ (Atkinson 2002, 9). There are no serious studies
+demonstrating that displacement does not occur at all, or that low-cost
+housing does not become harder to find as gentrification advances, but
+some researchers argue that displacement is not as significant as it once
+was (Butler 2003; Hamnett 2003) or was thought to be (Freeman 2005;
+Freeman and Braconi 2002).
+A small number of quantitative studies suggest that displacement does
+occur but is not a negative, for example, Vigdor (2001) and various US
+Department of Housing and Urban Development (HUD) reports. One
+1981 US HUD survey, for example, followed households that moved
+‘involuntarily’ from their gentrifying neighbourhood and found that ‘displacees
+have not experienced severe negative changes in housing characteristics’
+(cited in Vigdor 2001, 17). The study did not seek qualitative information
+such as how far the displacees had moved from their friends and networks,
+what the effect was of the disruption to their daily life patterns, how they
+felt about the move or whether they were using community services – if
+they existed – in their new neighbourhood more heavily as a result. Nor
+did it attempt to assess the effects in the gentrified city of increasing social
+homogeneity or polarisation.
+Shaw 2008
+
+displacement too often reduced to the brief moment in time
+where a particular resident is forced/coerced out
+of their home/neighbourhood. The denial of dis-
+placement here, just as in critiques within the
+new-build gentrification literature, is premised
+upon a particular spatial and temporal under-
+standing of displacement that does not ade-
+quately conceptualise the process.
+Davidson2010
+
+
+Czarnetzki Wohnräumliche Mobilität, aber nicht um Gentri
 Deutschland
-\citet{Glatter2007} \citet{Holm2004} \citet{Holm2011}  \citet{Rusche2015} \citet{Czarnetzki2013} 
+\citet{Glatter2007} \citet{Holm2004} \citet{Holm2011}  \citet{Rutsche2015} \citet{Czarnetzki2013} 
 
 Kaum Kausalaussagen weil auch wenig inferenz und assoziation
 
-Tabelle mit findings? daten - jahr - Ort - Methodik - Ergebnisse
-Widersprüche: Debatte über mehr/weniger Fortzüge empirisch?
+
 
 KRITIK an keiner analytischen Klarheit differenziereung des verdrängungsbegriffs\\
 KRITIK statistische unsorgfaltigkeiten (inferenziell krine räumliche Autokorr berücksichtigt, modelfit schlecht, Modellvoraussetzungen nicht getestst, Aussagen nicht verwertbar)\\
 KRITIK Zusammenhang zwischen Aufwertung sozial und immobilienwirtschaftlich, Umzugsverhalten und Aufwertung nicht weder inferenziell noch deskriptiv Assoziationsmaße\\
 KRITIK keine stadtweiten Zusammenhänge
 KRITIK Kein versuch einer inferenz bzgl. des Prozesses zu wagen
+\begin{table}[h]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}llllccc@{}}
+\toprule
+\rowcolor[HTML]{FFFFFF} 
+\textbf{Studie}                                       & \textbf{Jahr} & \textbf{Geographischer Fokus}              & \textbf{Auflösung} & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}\textbf{Stadtweit}} & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}\textbf{Befragungsdaten}} & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}\textbf{Inferenz}} \\ \midrule
+\rowcolor[HTML]{FFFFFF} 
+                                                      &               &                                            &                    & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                         & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                  \\
+\rowcolor[HTML]{FFFFFF} 
+\multicolumn{1}{c}{\cellcolor[HTML]{FFFFFF}\textit{}} &               & \textit{International}                     &                    & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                         & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                  \\
+\rowcolor[HTML]{FFFFFF} 
+Marcuse                                               & 1985          & New York City (USA)                        & Nachbarschaften    &                                                                & \cmark                                                               &                                                               \\
+\rowcolor[HTML]{EFEFEF} 
+Atkinson                                              & 2000          & London (GB)                                & Nachbarschaften    & \cmark                                                         & \cmark                                                               &                                                               \\
+\rowcolor[HTML]{FFFFFF} 
+Vigdor, Massey und Rivlin                             & 2002          & Boston (USA)                               & Stadtteile         &                                                                & \cmark                                                               & \cmark                                                        \\
+\rowcolor[HTML]{EFEFEF} 
+Freeman und Braconi                                   & 2004          & New York City (USA)                        & Stadtteile         & \cmark                                                         & \cmark                                                               & \cmark                                                        \\
+\rowcolor[HTML]{FFFFFF} 
+Freeman                                               & 2005          & Diverse Großtädte (USA)                    & Nachbarschaften    & \cmark                                                         & \cmark                                                               & \cmark                                                        \\
+\rowcolor[HTML]{EFEFEF} 
+Newman und Wyly                                       & 2006          & New York City (USA)                        & Stadtteile         & \cmark                                                         & \cmark                                                               & \cmark                                                        \\
+\rowcolor[HTML]{FFFFFF} 
+McKinnish u. a.                                       & 2008          & Diverse Großtädte (USA)                    & Nachbarschaften    &                                                                & \cmark                                                               & \cmark                                                        \\
+\rowcolor[HTML]{EFEFEF} 
+Van Criekingen                                        & 2009          & Historisches Zentrum - Brüssel (BEL)       & Ortsteile          &                                                                & \cmark                                                               &                                                               \\
+\rowcolor[HTML]{FFFFFF} 
+Wyly u. a.                                            & 2010          & New York City (USA)                        & Stadtteile         & \cmark                                                         & \cmark                                                               & \cmark                                                        \\
+\rowcolor[HTML]{EFEFEF} 
+Atkinson u. a.                                        & 2011          & Sydney und Melbourne (AUS)                 & Ortsteile          & \cmark                                                         & \cmark                                                               &                                                               \\
+\rowcolor[HTML]{FFFFFF} 
+                                                      &               &                                            &                    & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                         & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                  \\
+\rowcolor[HTML]{FFFFFF} 
+                                                      &               & \textit{National}                          &                    & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                         & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                  \\
+\rowcolor[HTML]{FFFFFF} 
+Krajewski                                             & 2006          & Spandauer \& Rosenthaler Vorstadt – Berlin & Nachbarschaften    &                                                                & \cmark                                                               &                                                               \\
+\rowcolor[HTML]{EFEFEF} 
+Glatter                                               & 2007          & Äußere Neustadt – Dresden                  & Ortsteile          &                                                                & \cmark                                                               &                                                               \\
+\rowcolor[HTML]{FFFFFF} 
+Holm                                                  & 2011          & Berlin                                     & Ortsteil           & \cmark                                                         &                                                                      &                                                               \\
+\rowcolor[HTML]{EFEFEF} 
+Schnuck                                               & 2014          & München                                    & Ortsteile          & \cmark                                                         &                                                                      &                                                               \\
+\rowcolor[HTML]{FFFFFF} 
+Rütsche                                               & 2015          & Berlin                                     & Nachbarschaften    & \cmark                                                         & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                         & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                  \\ \midrule
+\rowcolor[HTML]{FFFFFF} 
+                                                      &               &                                            &                    & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                         & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                  \\
+\rowcolor[HTML]{FFFFFF} 
+\textit{Auflösung}                                    & \textit{=}    & \multicolumn{5}{l}{\cellcolor[HTML]{FFFFFF}\textit{Räumliche Auflösung der Studie (ungefähre Bevölkerungsanzahl in Klammern):}}                                                                                                                                         \\
+\rowcolor[HTML]{FFFFFF} 
+\textit{}                                             & \textit{}     & \multicolumn{5}{l}{\cellcolor[HTML]{FFFFFF}\textit{Stadtteile (50000-300000), Ortsteile (5000-50000), Nachbarschaften (\textless 5000)}}                                                                                                                                \\
+\rowcolor[HTML]{FFFFFF} 
+\textit{Stadtweit}                                    & \textit{=}    & \multicolumn{5}{l}{\cellcolor[HTML]{FFFFFF}\textit{Es wurde eine gesamtstädtische Analyse auf dem Niveau der räumlichen Auflösung durchgeführt.}}                                                                                                                       \\
+\rowcolor[HTML]{FFFFFF} 
+\textit{Befragungsdaten}                              & \textit{=}    & \multicolumn{5}{l}{\cellcolor[HTML]{FFFFFF}\textit{Als Datengrundlage dienten u.a. Befragungsdaten, zumeist aus den lokalen Zensus.}}                                                                                                                                   \\
+\rowcolor[HTML]{FFFFFF} 
+\textit{Inferenz}                                     & \textit{=}    & \multicolumn{5}{l}{\cellcolor[HTML]{FFFFFF}\textit{Es wurden Regressionsanalysen zur statistischen Inferenz durchgeführt.}}                                                                                                                                            
+\end{tabular}
+}
+\caption{Methodenübersicht für ausgewählte Studien zu Verdrängung}\label{Studientabelle}
+\end{table}
 
 	
 		\subsubsection{Kontext Berlin}\label{KontextBerlin}
