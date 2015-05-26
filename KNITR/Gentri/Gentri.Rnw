@@ -114,6 +114,9 @@ So ist auch die in Kapitel \ref{GentriAufwertung} getroffene Aussage, dass es si
 
   \subsection{Forschungsstand}\label{Forschungsstand}
 
+Nach einem ersten Boom von quantitativen Studien von Ende der 1970ger bis Mitte der 1980ger \citep[z.B.][]{Hartman1979, Sumka1979, LeGates1981, Henig1981, Marcuse1985, LeGates1986} ebbte das Interesse und die Forschungstätigkeit zur Messung von Aufwertung und Verdrängung über Jahre ab. Grund hierfür waren einerseits die vielerorts stagnierenden Immobilienmärkte und eine damit vermeindlich gesunkene Dringlichkeit des Themas, aber auch methodische Schwierigkeiten \citep[S.~2604]{Wyly2010}. Erst durch das Aufkommen einer weiteren Gentrificationwelle kam ab Anfang der 2000er Jahre auch die quantitative Gentrificationforschung vor allem im angelsächsischen Raum wieder in Schwung \citep[z.B.][]{Atkinson2000, Vigdor2002, Freeman2004, Freeman2005, Newman2006, McKinnish2008, VanCriekingen2009, Wyly2010}. \\
+ In Kapitel \ref{Studienreview} sollen nach einer kurzen Rekapitulation der methodischen Herausforderungen von quantitativen Studien zu Gentrification vor Studien der jüngsten Forschungswelle klassifiziert und deren Ergebnisse zusammengefasst werden. Außerdem soll auf Lücken und Unzulänglichkeiten dieser Studien aufmerksam gemacht werden. Danach wird in Kapitel \ref{KontextBerlin} auf den speziellen (Forschungs)kontext Berlins bezüglich stattfindender Aufwertungs- und Verdrängungsprozesse eingegangen. Aus Kapitel \ref{Studienreview} und \ref{KontextBerlin} ergeben sich schließlich die Forschungsfragen und Hypothesen dieser Arbeit (Kapitel \ref{Hypothesen}). 
+
 Was ist zum Thema bekannt? Was trägt die bisherige Forschung zur Beantwortung Ihrer
 Fragen bei? Resultate referieren, Details nur, wenn Sie für die Ergebnisse bedeutsam sind.
 Thematisch gruppieren, nicht an Studien entlang vorarbeiten. In der Regel sollten hier keine
@@ -129,17 +132,50 @@ Verdrängung messen
 
 
 
-"`the shared and defining characteristic of gentrification everywhere is socio economic change through migration"' \citep[S.~40]{Lyons1996}
 
 
-		\subsubsection{Empirische Studien zur Messung von Aufwertung \& Verdrängung}\label{Studienreview}
 
-Frühe studien Grier and Grier 1978; Sumka 1979; Marcuse 1985 LeGates and Hartman 1986; Lyons 1996. Vor allem statistische Methoden verbesssert, aber Konzeptionell oft schlecht siehe kritik von slater oder wyly.
+		\subsubsection{Empirische Studien zur Messung von Aufwertung und Verdrängung}\label{Studienreview}
 
-Quantitative Studien zu Gentrification haben zumeist eine Lokalisierung von Aufwertungsgebieten oder die Bestimmung von Form, Verlauf und Ausmaß von Verdrängung zum Ziel. Eine ständige Kontoverse , nicht zuletzt an methodologischen Fragen.
-Mischung von qualitativen und quantativen Methoden \citet{Wyly2010} \citet{Glatter2007} \citet{Krajewski2006}
+\paragraph{Methodische Herausforderungen}
+
+Quantitative Studien zu Gentrification haben zumeist eine Lokalisierung von Aufwertungsgebieten oder die Bestimmung von Form, Verlauf und Ausmaß von Verdrängung zum Ziel.\footnote{Über Form, Verlauf und Ausmaß von Gentrification bedingter Verdrängung herrscht in der Literatur eine heftige Kontoverse \citep[vgl.][]{Hamnett2010,Slater2010}.} In der Empirie baut eine Bestimmung von Form, Verlauf und Ausmaß von Verdrängung zum Ziel jedoch immer auf einer vorherigen erfolgreichen Lokalisierung von Aufwertungsgebieten auf. Als zentrale methodische Herausforderungen gelten:
+
+\begin{itemize}
+  \item Vorher nachher Längsschnitt
+  \item Operationalisierung von analytisch klarer Konzepte Neben methodologischen Fragen steht dabei auch der konzeptionelle Rahmen dieser Studien zur Disposition \citep{Slater2009}
+  \item Kleinräumigkeit --> Aggregatszahlenprobleme --> Glatter 2007
+  \item Vergleichbarkeit 
+  \item Inferenz
+  \item Dunkelziffern: probleme mit Survey aber auch mit amtlichen statistiken; In Haushaltsbefragungen wird meist nur der Haushaltsvorstand befragt. Wenn arme Mieter*innen verdrängt werden und bei Freunden oder Verwandten unterkommen verschwinden sie aus den detailiertesten Befragungen
+"`displacement is easy to overlook amidst the dynamic mobility of all neighbourhoods"' \citep[S.~319]{Lees2010}
+  \item Versuche eine empirische Trennung Austausch und Verdrängung von Bevölkerung Lee1984 
+  Mischung von qualitativen und quantativen Methoden \citet{Wyly2010} \citet{Glatter2007} \citet{Krajewski2006}
+  \item Zusammenhang zwischen Aufwertung und Verdrängung  specific linkages between gentri and displacement
+\end{itemize}
+
+Trennbarkeit von freiwilligem und unfreiwilligem Umzug
+Identifikation von Soziale Aufwertung durch Migration "`the shared and defining characteristic of gentrification everywhere is socio economic change through migration"' \citep[S.~40]{Lyons1996}
+
+The only definitive way to measure gentrification-induced displacement is to track down individual households who have moved out of neighbourhoods over time as gentrification proceeds, and to ask them detailed questions about their reasons for moving. This is extremely expensive and time-consuming. \citep[S.~319]{Lees2010}
+
+
+
+
+
+
+
 
 \paragraph{Aufwertung}
+Nevertheless, consistent
+findings on the presence of gentrifiers and losses of working-class house-
+holds, for example, suggests that displacement has taken place. Even in
+cases where those moving from highly gentrified areas have been tracked
+it has been difficult to definitively estimate what proportion of these flows
+was due to displacement (Atkinson 2000).
+
+\citep[S.~2604]{Wyly2010}
+
 Lokalisierung und Kartierung von Gentrificationgebieten.
 Podagrosi: Hauptkomponentenanalyse und Cluster Analyse
 
@@ -154,6 +190,11 @@ Podagrosi: Hauptkomponentenanalyse und Cluster Analyse
 
 Politisch brisant - gentri bad oder good, wie viel verdrängung gibt es 
 
+Außerdem herrscht Uneinigkeit darüber replacement' and `succession' as
+more accurate descriptions of residential changes caused not by spatially focused cases
+of gentrification, but by much broader structural processes bound up with ``the chang-
+ing industrial and class structure of the city'' as a whole (Hamnett, 2010, page 181)
+
 Wohnräumliche Mobilität.
 Freeman: Logistische Regression
 Wyly und Hammel 2004: Logistische Regression und und keine deskriptiven statistiken um güte oder model fit zu checken
@@ -161,22 +202,6 @@ Newman und Wyly: Logistische Regression auf displacement oder nicht und keine de
 
 Widersprüche: Debatte über mehr/weniger Fortzüge empirisch?
 
-\paragraph{Methodische Herausforderungen}
-
-Vorher nachher Längsschnitt
-Operationalisierung von analytisch klarer Konzepte
-Kleinräumigkeit --> Aggregatszahlenprobleme
-Vergleichbarkeit
-Inferenz
-Dunkelziffern: probleme mit Survey aber auch mit amtlichen statistiken
-
-1.measurement problem
-The only definitive way to measure gentrification-induced displacement is to track down individual households who have moved out of neighbourhoods over time as gentrification proceeds, and to ask them detailed questions about their reasons for moving. This is extremely expensive and time-consuming. \citep[S.~319]{Lees2010}
-2.measurement problem
-In Haushaltsbefragungen wird meist nur der Haushaltsvorstand befragt. Wenn arme Mieter*innen verdrängt werden und bei Freunden oder Verwandten unterkommen verschwinden sie aus den detailiertesten Befragungen
-"`displacement is easy to overlook amidst the dynamic mobility of all neighbourhoods"' \citep[S.~319]{Lees2010}
-
-specific linkages between gentri and displacement
 
 
 \paragraph{Kritik \& Lücken}
@@ -361,12 +386,14 @@ KRITIK statistische unsorgfaltigkeiten (inferenziell krine räumliche Autokorr b
 KRITIK Zusammenhang zwischen Aufwertung sozial und immobilienwirtschaftlich, Umzugsverhalten und Aufwertung nicht weder inferenziell noch deskriptiv Assoziationsmaße\\
 KRITIK keine stadtweiten Zusammenhänge
 KRITIK Kein versuch einer inferenz bzgl. des Prozesses zu wagen
+
+
 \begin{table}[h]
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}llllccc@{}}
 \toprule
 \rowcolor[HTML]{FFFFFF} 
-\textbf{Studie}                                       & \textbf{Jahr} & \textbf{Geographischer Fokus}              & \textbf{Auflösung} & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}\textbf{Stadtweit}} & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}\textbf{Befragungsdaten}} & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}\textbf{Inferenz}} \\ \midrule
+\textbf{Studie}                                       & \textbf{Jahr} & \textbf{Geographischer Fokus}              & \textbf{Auflösung} & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}\textbf{Stadtweit}} & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}\textbf{Individualdaten}} & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}\textbf{Inferenz}} \\ \midrule
 \rowcolor[HTML]{FFFFFF} 
                                                       &               &                                            &                    & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                         & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                  \\
 \rowcolor[HTML]{FFFFFF} 
@@ -408,13 +435,14 @@ Rütsche                                               & 2015          & Berlin 
 \rowcolor[HTML]{FFFFFF} 
                                                       &               &                                            &                    & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                   & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                         & \multicolumn{1}{l}{\cellcolor[HTML]{FFFFFF}}                  \\
 \rowcolor[HTML]{FFFFFF} 
-\textit{Auflösung}                                    & \textit{=}    & \multicolumn{5}{l}{\cellcolor[HTML]{FFFFFF}\textit{Räumliche Auflösung der Studie (ungefähre Bevölkerungsanzahl in Klammern):}}                                                                                                                                         \\
+\textit{Auflösung}                                    & \textit{=}    & \multicolumn{5}{l}{\cellcolor[HTML]{FFFFFF}\textit{Räumliche Auflösung der Studie (ungefähre Bevölkerungszahl in Klammern):}}                                                                                                                                         \\
 \rowcolor[HTML]{FFFFFF} 
 \textit{}                                             & \textit{}     & \multicolumn{5}{l}{\cellcolor[HTML]{FFFFFF}\textit{Stadtteile (50000-300000), Ortsteile (5000-50000), Nachbarschaften (\textless 5000)}}                                                                                                                                \\
 \rowcolor[HTML]{FFFFFF} 
 \textit{Stadtweit}                                    & \textit{=}    & \multicolumn{5}{l}{\cellcolor[HTML]{FFFFFF}\textit{Es wurde eine gesamtstädtische Analyse auf dem Niveau der räumlichen Auflösung durchgeführt.}}                                                                                                                       \\
 \rowcolor[HTML]{FFFFFF} 
-\textit{Befragungsdaten}                              & \textit{=}    & \multicolumn{5}{l}{\cellcolor[HTML]{FFFFFF}\textit{Als Datengrundlage dienten u.a. Befragungsdaten, zumeist aus den lokalen Zensus.}}                                                                                                                                   \\
+\textit{Individualdaten}                              & \textit{=}    & \multicolumn{5}{l}{\cellcolor[HTML]{FFFFFF}\textit{Als Datengrundlage dienten neben Aggregatsdaten auch Befragungsdaten auf Personen-/Haushaltsniveau.}}                                                                                                                                   \\
+                                                      &               & \multicolumn{5}{l}{\cellcolor[HTML]{FFFFFF}\textit{Zumeist stammten diese Daten aus den lokalen Zensus.}}                                                                                                                                   \\
 \rowcolor[HTML]{FFFFFF} 
 \textit{Inferenz}                                     & \textit{=}    & \multicolumn{5}{l}{\cellcolor[HTML]{FFFFFF}\textit{Es wurden Regressionsanalysen zur statistischen Inferenz durchgeführt.}}                                                                                                                                            
 \end{tabular}
