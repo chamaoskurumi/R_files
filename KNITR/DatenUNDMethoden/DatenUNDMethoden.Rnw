@@ -73,6 +73,8 @@ Mit Verortung in Linteratur \\
   \subsubsection{Kategorisierung \& Explorative Datenanalyse}
 Kategorisierung schütteln als robustheitscheck
 
+\citet{Podagrosi2011} Podagrosi: Hauptkomponentenanalyse und Cluster Analyse
+
   \subsubsection{SAR weighted}
 
 \paragraph{Räumliche Autokorrelation}
@@ -108,11 +110,32 @@ Standard Errors wie oben beschrieben als Prozess interpretation. Alternativ wär
 
 \subsection{Operationalisierung}
 
+Vorraussetzung  Operationalisierung von analytisch klarer Konzepte Neben methodologischen Fragen steht dabei auch der konzeptionelle Rahmen dieser Studien zur Disposition \citep[S.~301f.]{Slater2009} kritisiert \citet{McKinnish2008} dass sie nicht mal ne definition von Gentrification haben
+
 gentrification = Aufwertungsdynamik. Notwendig, nicht hinreichend. Dyanmik griech., dynamiké=mächtig (Gentrimaps)
+
+Legitimation für Angebotsmietpreise als Proxy:
+
+
+
+‘gentrification is a process of socio-economically selective migration \citep[S.~23]{Atkinson2011} - Deswegen arbeite ich mit Wandeurngsdaten
 
 \begin{enumerate}
 \item Immobilienwirtschaftliche Aufwertung: Proxy NUR Angebotsmiete. (BBU 2014,S.15): "Berlin ist eine Mieterstadt. Der Anteil der Mietwohnungen am Gesamtbestand ist in Berlin im Vergleich der Bundesländer, aber auch unter den deutschen Metropolen, mit rund 84 Prozent mit Abstand am höchsten. Der Anteil des selbst genutzten Wohneigentums ist mit rund 16 Prozent der niedrigste in Deutschland und liegt weit unter dem Bundesdurchschnitt von etwa 44 Prozent."
 Ertragserwartungen
+
+Zentralität von Mietpreissteigerungen bei Wiedervermietung für Aufwertungsprozesse
+Immobilienwirtschaftliche Aufwertung ist wertsteigerung. Diese drückt sich aus in höheren Mieten und Verkaufspreisen, also einer kapitalisierten Grundrente. 
+
+Umwandlungen
+in etwa 5300 Wohnungen im Jahresduchschnitt (2007-2013), mit stark wachsender Tendenz \citep{Paul2015}
+
+Ähnlich den von \citet{VanCriekingen2010} in der Innenstadt von Brüssel beobachteten Aufwertungsprozessen, die er als "`\textit{rental gentrification}"' bezeichnet, werden in Berlin die Aufwertungsprozesse maßgeblich von Mietpreissteigerungen bei Wiedervermietungen getragen. Die zentrale Bedeutung von Mietpreissteigerungen bei Wiedervermietungen soll in Abgrenzung zu anderen Faktoren wie den Mietpreissteigerungen im Bestand, Neuvermietungen und , vor allem in Abgrenzung zu der Bedeutung von  für die Aufwertungsprozesse in Berlin soll im Folgenden begründet werden. 
+
+
+    etwa 35 Prozent der Angebotspenise / mietpreise  Ertragslücke auf etwa drei Euro 
+ die berlinweite durchschnittliche Differenz zwischen Bestandsmieten und Angebotsmieten Aufgrund der in Deutschland vergleichsweise guten Mieterinnenrechte 
+
 
 \item Identifizierung und Visualisierung von Aufwertungsgebieten auf der Basis von kleinräumigen, stadtweiten statistischen Daten (Gentrimaps zitat) - potentielle gentri gebiete d.h. die notwendigen Vorraussetzungen erfüllen was starke immobilienwirtschaftliche Aufwertung und Soziale Aufwertung. Relationale Definition. Gleichzeitige Identifizierung von Vergleichsnachbarschaften, die eine anderen anderen Entwicklungspfad genommen haben, welche zwar ähnliche grundvoraussetzungen hatten, sich aber anders entwickelt haben mit weniger Dynamik.
 \item Anhand explorativer Datenanalyse eine vergleichende Charakterisierung dieser potentiellen Gentri gebieten (starke Wohn + Soziale Aufwertungs) gegenüber den Kontrollnachbarschaften
