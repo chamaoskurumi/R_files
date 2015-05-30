@@ -119,7 +119,7 @@ Die zentralen und relevanten Ergebnisse dieser jüngsten Welle von quantitativen
 
 \subsubsection{Forschungsergebnisse}
 
-\citeauthor{Atkinson2011} (\citeyear{Atkinson2000}, \citeyear{Atkinson2011}) lieferten Evidenz für gentrificationbezogene Aufwertungsprozesse in London bzw. Melbourne/Sydney. Er zeigte in beiden Studien, dass in Aufwertungsgebieten ein überdurchschnittlicher Fortzug von Armen, Alleinerziehenden, Erwerbslosen und anderen Risikogruppen bei gleichzeitigem überdurchschnittlichem Zuzug von statushöherer Bevölkerung zu verzeichnen war und interpretierte diese Prozesse als Verdrängung. Er dokumentierte Verdrängung aus der Lebensqualität, aber auch direkte Verdrängung, und zeigte, wie arme, verdrängte Mieter*innen in günstige Stadtteile ausweichen müssen, in Abhängikeit des staatliche Hilfesystem geraten oder gar in die Obdachlostkeit gezwungen werden. Nichtsdestotrotz räumt er ein, dass eine genaue empirische Differenzierung von verdrängungsbezogenen, unfreiwilligen Umzügen und freiwilligen Umzügen sehr schwer ist. \citet{Newman2006} und \citet{Wyly2010} kommen in ihren Studien zu New York City unter zusätzlicher Zuhilfenahme von Regressionsanalysen zu entsprechenden Ergebnissen. \citet[S.~51]{Newman2006} schätzen eine Verdrängungsrate als Anteil aller stadtweiten Binnenumzüge auf 6,6 bis 9,9\% und betonen, dass die Dunkelziffer jedoch deutlich höher liegen muss.\\
+\citeauthor{Atkinson2011} (\citeyear{Atkinson2000}, \citeyear{Atkinson2011}) lieferten Evidenz für gentrificationbezogene Aufwertungsprozesse in London bzw. Melbourne/Sydney. Er zeigte in beiden Studien, dass in Aufwertungsgebieten ein überdurchschnittlicher Fortzug von Armen, Alleinerziehenden, Erwerbslosen und anderen Risikogruppen bei gleichzeitigem überdurchschnittlichem Zuzug von statushöherer Bevölkerung zu verzeichnen war und interpretierte diese Prozesse als Verdrängung. Er dokumentierte Verdrängung aus der Lebensqualität, aber auch direkte Verdrängung, und zeigte, wie arme, verdrängte Mieter*innen in günstige Stadtteile ausweichen müssen, in Abhängikeit des staatliche Hilfesystem geraten oder gar in die Obdachlostkeit gezwungen werden. Nichtsdestotrotz räumt er ein, dass eine genaue empirische Differenzierung von verdrängungsbezogenen, unfreiwilligen Umzügen und freiwilligen Umzügen sehr schwer ist. \citet{Newman2006a} und \citet{Wyly2010} kommen in ihren Studien zu New York City unter zusätzlicher Zuhilfenahme von Regressionsanalysen zu entsprechenden Ergebnissen. \citet[S.~51]{Newman2006a} schätzen eine Verdrängungsrate als Anteil aller stadtweiten Binnenumzüge auf 6,6 bis 9,9\% und betonen, dass die Dunkelziffer jedoch deutlich höher liegen muss.\\
 Diesen Ergebnissen stehen eine Reihe von Studien \citet{Vigdor2002,Freeman2004,Freeman2005,McKinnish2008} gegenüber, die das Ausmaß, die Form und die negativen Folgen von gentrificationbezogener Verdrängung in Zweifel ziehen. So stellen \citet{Freeman2004} fest, dass benachteiligte Haushalte in Aufwertungsgebieten eine niedrigere Umzugsneigung als ähnliche Haushalte in nicht-Aufwertungsgebieten besitzen. Er folgerte daraus, dass Gentrification keine Verdrängung von armen Haushalten verursachen würde. Dieser und den anderen ähnlichen Studien schlug allerdings eine harsche Kritik an Konzeption, Methodik und Ergebnisinterpretation entgegen \citep[vgl.][]{Shaw2008,Slater2009,Davidson2010}. So besteht in der Literatur eine heftige Kontroverse über Form, Verlauf und Ausmaß von Gentrification bedingter Verdrängung \citep{Hamnett2010,Slater2010}.\\
 In Deutschland wurden bisher noch keine stadtweiten Studien zur Messung von Aufwertung und Verdrängung angestrengt. \citet{Holm2011} und \citet{Schnuck2014} lokalisierten in ihren Arbeiten zu Berlin bzw. München zwar Aufwertungsgebiete und analysierten Binnenumzüge, doch wurde kein Zusammenhang zwischen Aufwertung und Umzugsverhalten exlipizit empirisch überprüft.\footnote{ \citet{Rutsche2015} versuchte durch eine kleinräumiche empirische Analyse der Wohnmobilität in Berlin den Zusammenhang zwischen Aufwertung und Verdrängung zu erfassen, kam aber zu keinen belastbaren Ergebnissen.} In Fallstudien zu bestimmten Ortsteilen von Berlin und Dresden konnte hingegen der Zusammenhang zwischen Aufwertung und Verdrängung detailiert nachgewiesen werden \citep[vgl.][]{Holm2004,Krajewski2006,Glatter2007,Diller2014c}.
 
@@ -129,7 +129,7 @@ Quantitative Studien zu Gentrification haben zumeist eine Lokalisierung von Aufw
 
 \begin{itemize}
     \item Zur Messung von Prozessen von Aufwertung oder Verdrängung sind, egal ob auf Aggregats- oder Individualebene, \textit{Längsschnittdaten} für einen "`Vorher-Nachher-Vergleich"' erforderlich. Insbesondere beim Versuch Verdrängung über Individualdaten zu messen und die Folgen für Betroffene zu bestimmen, stellt dies ein Problem dar (\citeauthor{Lees2010}, \citeyear{Lees2010}, S.~319; \citeauthor{Davidson2010}, \citeyear{Davidson2010}, S.~400).
-    \item Hohe anzunehmende \textit{Dunkelziffern} erschweren präzise oder gar verlässliche Analysen. Sind Mieter*innen beispielsweise gar nicht bei den Behörden gemeldet, wird auch ein erzwungener Umzug in den amtlichen Statistiken nicht erfasst. Da bei Haushaltsbefragungen meist nur der Haushaltsvorstand befragt wird, verschwinden bereits verdrängte arme Mieter*innen, welche bei Freunden oder Verwandten untergekommen sind, möglicherweise auch aus den detailiertesten Befragungen \citep[S.~2603]{Wyly2010}.
+    \item Hohe anzunehmende \textit{Dunkelziffern} erschweren präzise und verlässliche Analysen. Sind Mieter*innen beispielsweise gar nicht bei den Behörden gemeldet, wird auch ein erzwungener Umzug in den amtlichen Statistiken nicht erfasst. Da bei Haushaltsbefragungen meist nur der Haushaltsvorstand befragt wird, verschwinden bereits verdrängte arme Mieter*innen, welche bei Freunden oder Verwandten untergekommen sind, möglicherweise auch aus den detailiertesten Befragungen \citep[S.~2603]{Wyly2010}.
     \item Üblicherweise wird bei quantitativen Studien zu Gentrification auf \textit{Aggregatsdaten} \allowbreak zurückgegriffen.\footnote{ Zu den allgemeinen, nicht gentrificationbezogenen Problemen von Analysen aggregierter Sekundärdaten vgl. \citet[S.~45f.]{Glatter2007}.} An diese bestehen jedoch hohe Anforderungen, was ihre Akquise wegen fehlender \allowbreak Verfügbarkeit oder eingeschränkter Zugänglichkeit besonders schwer macht \citep[S.~45ff.]{Glatter2007}: 
       \begin{itemize}
       \item Für einen Nachweis der Kleinteiligkeit des Gentrificationprozesses werden Aggregatsdaten \textit{in feinstmöglicher räumlicher Auflösung} benötigt. Bei unzureichender räumlicher Auflösung können lokale Prozesse von Verfall, Aufwertung oder Polarisierung unentdeckt bleiben.
@@ -214,133 +214,89 @@ Bei der Betrachtung von Tabelle~\ref{Studientabelle} fallen einige Punkte auf:\f
   \end{itemize}
 
 In der deutschen Gentrificationfoschung besteht also offensichtlich eine Lücke, was Studien zur empirischen Messung von Aufwertung, Verdrängung und deren Zusammenhang anbelangt.\footnote{ Nach Einschätzung von \citet[S.~825]{VanCriekingen2009} ist der Zusammenhang zwischen Verdrängung und Aufwertung auch in der internationalen Gentrificationliteratur zu wenig  erforscht.} Einerseits mag dies an der bisher ungünstigen Datenlage liegen, aber auch daran, dass viele kritische Stadtsoziolog*innen und -geograph*innen wenig Interesse an oder Expertise über quantitative Methoden besitzen.\\
-Obwohl diese Arbeit sich an den in Tabelle~\ref{Studientabelle} aufgeführten Studien orientiert, soll deren analystische Vorgehensweise und Methodik nicht unreflektiert übernommen werden. Zwei zentrale Kritikpunkte sind an den Studien zu äußern:
+Obwohl diese Arbeit versucht die identifizierte Forschungslücke zu füllen und sich dabei an den in Tabelle~\ref{Studientabelle} aufgeführten Studien orientiert, soll deren analystische Vorgehensweise und Methodik nicht unreflektiert übernommen werden. Zwei zentrale Kritikpunkte sind an den bisherigen Studien zu äußern und sollen natürlich auch in dieser Arbeit berücksichtigt werden:
 
   \begin{itemize}
-  \item \textit{Diffuser konzeptioneller Rahmen}: \citet{Vigdor2002,Freeman2004,McKinnish2008} werden von \citet{Slater2009} zurecht für den unklaren konzeptionellen Rahmen ihrer Studien kritisiert. So kann man diesen Autor*innen an verschiedenen Stellen eine mangelhafte Auseinandersetzung mit der Theorie und den Begriffen der Gentrificationforschung vorwerfen, was folglich auch zu einer unsauberen Interpretation ihrer empirischen Ergebnisse führt.
-  \item \textit{Unsorgfältigkeiten in der Anwendung inferenzieller statistischer Methoden}: In keiner der Studien, die mit inferenziellen Regressionsanalysen arbeiten, wurden die Modellannahmen erwähnt oder überprüft. Da allen Regressionsanalysen räumliche Daten zugrunde lagen und die Modelle meist nur ein niedrigen Erklärungsgehalt besaßen, ist davon auszugehen, dass räumliche Autokorrelation in den Residuen vorherrschte und damit die Modellannahmen verletzt wurden. Dies führte dann möglicherweise zu verzerrten und ineffizienten Parameterschätzungen. Außerdem wurde die meist sehr schlechte Anpassungsgüte der Regressionsmodelle \citep[z.B.][]{Wyly2004,Newman2006} kaum problematisiert oder erst gar keine Modelldiagnose der Anpassungsgüte vorgenommen \citep[z.B.][]{Freeman2005,McKinnish2008}. 
+  \item \textit{Diffuser konzeptioneller Rahmen}: \citet{Vigdor2002,Freeman2004,McKinnish2008} werden von \citet{Slater2009} zurecht für den unklaren konzeptionellen Rahmen ihrer Studien kritisiert. So kann man diesen Autor*innen an verschiedenen Stellen eine mangelhafte Auseinandersetzung mit der Theorie und den Begriffen der Gentrificationforschung vorgewofen werden, was in der Folge auch zu einer unsauberen Interpretation ihrer empirischen Ergebnisse führte.
+  \item \textit{Unsorgfältigkeiten in der Anwendung inferenzieller statistischer Methoden}: In keiner der Studien, die mit inferenziellen Regressionsanalysen arbeiten, wurden die Modellannahmen erwähnt oder überprüft. Da allen Regressionsanalysen räumliche Daten zugrunde lagen und die Modelle meist nur ein niedrigen Erklärungsgehalt besaßen, ist davon auszugehen, dass räumliche Autokorrelation in den Residuen vorherrschte und damit die Modellannahmen verletzt wurden. Dies führte dann möglicherweise zu verzerrten und ineffizienten Parameterschätzungen. Außerdem wurde die meist sehr schlechte Anpassungsgüte der Regressionsmodelle \citep[z.B.][]{Wyly2004,Newman2006a} kaum problematisiert oder erst gar keine Modelldiagnose der Anpassungsgüte vorgenommen \citep[z.B.][]{Freeman2005,McKinnish2008}. 
   \end{itemize}
-
-In der 
 
 	\subsection{Forschungshypothesen}\label{Hypothesen}
 
-Infolgedessen ergeben sich aus Kapitel \ref{QuantiStudien} die Forschungsfragen und -hypothesen dieser Arbeit. 
-	
-Die Darstellung muss zweckgebunden bleiben und Ihren Analysen den
-Weg ebnen. Prüfen Sie bei der Darstellung aller begrifflichen Festlegungen und
-Differenzierungen, Zusammenhangsaussagen und Befunde, ob sie für Ihr Thema relevant
-sind.
-
-Welche eigenen Vermutungen (Hypothesen) haben Sie als Autor? Wie lassen sie sich durch
-den bisherigen Erkenntnisstand begründen? Stellen Sie Bezüge zu zitierten
-Forschungsergebnissen her! \\
-
-\textbf{Ein häufiger Fehler ist die Begründung von Hypothesen durch empirische Beobachtungen
-oder Verweise auf frühere Studien, die vergleichbare Ergebnisse erzielt haben. Begründungen
-müssen Erklärungen beinhalten, d. h. vermittelnde Mechanismen. Sagen Sie also nicht, daß
-ein Zusammenhang schon oft beobachtet wurde, sondern warum es zu dem Zusammenhang
-kommen soll.}
-
-  
-Die Darstellung muss zweckgebunden bleiben und Ihren Analysen den
-Weg ebnen. Prüfen Sie bei der Darstellung aller begrifflichen Festlegungen und
-Differenzierungen, Zusammenhangsaussagen und Befunde, ob sie für Ihr Thema relevant
-sind.
-
-Welche eigenen Vermutungen (Hypothesen) haben Sie als Autor? 
-
-\textbf{Ein häufiger Fehler ist die Begründung von Hypothesen durch empirische Beobachtungen
-oder Verweise auf frühere Studien, die vergleichbare Ergebnisse erzielt haben. Begründungen
-müssen Erklärungen beinhalten, d. h. vermittelnde Mechanismen. Sagen Sie also nicht, daß
-ein Zusammenhang schon oft beobachtet wurde, sondern warum es zu dem Zusammenhang
-kommen soll.}
+Nachdem der konzeptionelle Rahmen definiert, sowie Ergebnisse, Lücken und Schwächen vergangener quantitativer Studien zu Aufwertung und Verdrängung besprochen wurden, können auf dieser Grundlage die Forschungsfragen und -hypothesen detailliert formuliert werden:
 
 \paragraph{Forschungsfragen}
-\begin{enumerate}
-\item Wo befinden sich in Berlin die am stärksten von Aufwertungsdynamiken (immoblienwirtschaftlich und sozialstrukturell) betroffenen Nachbarschaften und wie sind diese zu charakterisieren insbesondere bzgl. der wohnräumlichen Mobilität ihrer BewohnerInnen?
-"`The whole point of the rent gap theory is not that gentrification occurs in some deterministic fashion where housing costs are lowest, as Ley is proposing, but that it is most likely to occur in areas experiencing a sufficiently large gap between actual and potential land values. This is a fundamental distinction. Areas such as the central and inner city where the rent gap may bc greatest may also expcrience very high land values and housing costs despitc disinvestment from the built environmcnt and the consequent rent gap."' \citep[S.~464]{Smith1987}
-\item Gibt es einen Zusammenhang zwischen Aufwertung und wohnräumlicher Mobilität / Verdrägung? Wie kann dieser Zusammenhang modelliert, nach Verdrängungstypen differenziert und quantifiziert werden? 
-\item Wie lässt sich das wohnräumliche Mobilitätsverhalten in den Aufwertungsgebieten genauer beschreiben - Wo ziehen die Leute hin, wo kommen die Zugezogenen her? Untschied zu Kontroll Gebieten? Erhöhter Umzug in Nachbarschaften bei Gentri Gebieten? Oder weniger weil sie da nix finden?
-\end{enumerate}
-
-
-Wie lassen sie sich durch den bisherigen Erkenntnisstand begründen? Stellen Sie Bezüge zu zitierten Forschungsergebnissen her! \\
-
-
-
+  \begin{enumerate}
+  \item Wo befinden sich die am stärksten von Gentrification betroffenen Nachbarschaften und wie sind diese zu charakterisieren? 
+  \item Wie unterscheiden sich diese Nachbarschaften von vergleichbaren Nachbarschaften, die nicht so starke Aufwertungsdynamiken erfuhren?
+  \item Welche Muster wohnräumlicher Mobilität herrschen in den Nachbarschaften stärkster Aufwertung vor und wie unterscheiden sich diese von vergleichbaren Nachbarschaften? 
+  \item Welche Anzeichen für Verdrängungsprozesse lieferen diese Mobilitätsmuster?
+  \item Wie lassen sich die unterschiedlichen Muster wohnräumlicher Mobilität erklären?
+  \item Welcher Zusammenhang besteht zwischen Aufwertung und Verdrängung und wie stark ist er?  
+  \end{enumerate}
 
 \paragraph{Hypothesen}
 
+\begin{itemize}
+  \item  \textit{Forschungsfragen 1 \& 2:} Gentrimaps \citep{Holm2011b} und rent-gap potential
+"`In addition, if gentrification theory teaches us anything, we should know by now that rent gaps are widest in non-gentrifying neighbourhoods (when the gap between the actual ground rent in the area and the ground rent that could be extracted were the area to undergo reinvestment becomes wide enough to allow that reinvestment to take place). \\
+Higher levels of mobility—especially evictions—are to be expected as landlords and developers realise that systematic disinvestment has reached a point where neighbourhoods can be redeveloped at substantial profit (see also Clark, 1987; Hammel, 1999). To put all this in clearer conceptual terms, direct displacement (last-resident and probably chain forms) is suffered by poor households in non-gentrifying neighbourhoods, and exclusionary displacement is suffered by poorhouseholds in gentrifying neighbourhoods, where low mobility is also to be expected."' \citep[S.~305]{Slater2009} (\citet{Holm2011} \& \citet{Berner2015}) 
+"`Mieterhöhungen in bereits bestehenden Mietvertragsverhältnissen können in Form von Modernisierungsumlagen (also nach Investitionen zur Verbesserung
+des Ausstattungsstandards), im Rahmen von Staffelmietverträgen oder als Anpassung an den Mietspiegel erfolgen. In Berlin gibt ein alle zwei Jahre veröffentlichter Mietspiegel Auskunft über die Mietentwicklung in verschiedenen Baualtersklassen und Wohnlagen. Ausgewertet werden dabei Neuabschlussmieten und die veränderten Bestandsmieten der letzten vier Jahre. Die Mietspiegel der letzten Jahre zeigen, dass die Mieten vor allem in den bisher preiswerten Baualtersklassen gestiegen sind: Insbesondere für die gründerzeitlichen Altbauten, die Zwischenkriegsbestände und die Sozialen Wohnungsbauten der 1970er Jahre verweist die Entwicklung der Mietspiegel-Mittelwerte auf sehr deutliche Steigerungen. Da ärmere Haushalte häufiger in preiswerten Beständen wohnen, sind sie von der Dynamik des Berliner Wohnungsmarktes der letzten Jahre besonders stark betroffen. Auch wenn die Anpassung an die ortsübliche Vergleichsmiete zurzeit auf 15 Prozent in drei Jahren beschränkt ist"' \citet{Berner2015} S.29
+Aufwertungsdynamiken in Berlin: \citep{SenStadt2013} 
+\\
+    \textbf{H 1} \textit{Innenstadtnahe Nachbarschaften mit hohen Armutsquoten und günstigen Mieten sind am stärksten von Aufwertungsdynamiken betroffen.} 
+  \item \textit{Forschungsfrage 3 \& 4:}  Aufwertung Wohnnungsnachfrage und Nachfragesteigerung \citep{Czarnetzki2013} \\
+    \textbf{H 2.1}  \textit{Aufwertungsgebiete besitzen eine höhere Aussenzuzugsrate als vergleichbare Gebiete.} \\
 
-\textbf{H 1}\textit{}\\
-\textbf{H 1}\textit{}\\
-\textbf{H 1}\textit{}\\
-\textbf{H 1}\textit{}\\
+\citet{Rusche2015}
+    rentgap, modernisierung, immobilienwirtschaftliche bedingt soziale Aufwertung, Verdrängungsdruck und räumungsneigung höher weil es sich mehr lohnt für vermieter die mieter rauszuhauen. Laut \citet{Berner2015} S29 ist die stieg in Berlin die durchschnittliche Differenz zwischen Mietspiegel und Angebotsmieten von 17 Prozent (2007) auf 35 Prozent (2013). Verdrängungseffekt auf MieterInnen insbesondere Arme ist somit doppelt: Verdrängungsdruck steigt weil Vermieter Mieterinnen individuell wie auch strukturell. Individuell mag ein vermieter die Mieterinnen raus haben um neuen Neuvermietung (sofern sie nicht unter die Mietpreisbremse fällt) --> economic direct displacement (Marcuse p.205)
+"`Die Miethöhen, die bei Abschluss von neuen Mietverträgen von den Vermieter*innen festgelegt werden, spiegeln die Ertragserwartungen in den jeweiligen Lagen und Beständen. Je größer die Lücke zwischen den Bestandsmieten und den potentielle Mieteinnahmen, desto größer ist der Vorteil eines Mieter*innenwechsels für die Eigentümer*innen. Im Gegensatz zu klassischen Gentrification-Prozessen ist eine Ertragssteigerung für Eigentümer*innen und Investor*innen zurzeit in Berlin nicht auf Investitionen in die bauliche Aufwertung angewiesen. Statt den mühevollen Weg der Modernisierung zu gehen, brauchen Eigentümer*innen in vielen Teilen der Stadt nur auf einen Mieter*innenwechsel warten, um die Mieteinnahmen deutlich zu steigern. Für viele Eigentümer*innen gilt: Zeit ist Geld und die Geduld, auf einen freiwilligen Auszug der Mieter*innen zu warten, ist oft begrenzt.
+Aus einer ökonomischen Perspektive verwandeln sich Bewohner*innen, die schon sehr lange im Haus wohnen und günstige Bestandsmieten zahlen, in 'unrentable Mieter*innen'."' \citet{Berner2015} S.30
+     \\
+    \textbf{H 2.2a} \textit{Aufwertungsgebiete besitzen eine höhere Fortzugsrate als vergleichbare Gebiete.} \\
 
+
+\citep[S.~31]{Diller2014} "`Die Wegzugsraten sozial schwächerer sind in gentrifizierten Gebieten geringer als in den anderen und Statushöhere fühlen sich eher zum Wegzug gedrängt"'
+
+non gentryfing (oder before genryfing) höherer mobility gentrifying neighbourhoods, where low mobility is also to be expected."' \citep[S.~305]{Slater2009} \ Diller 2014 S.31 "`Die Wegzugsraten sozial schwächerer sind in gentrifizierten Gebieten geringer als in den anderen und Statushöhere fühlen sich eher zum Wegzug gedrängt"' \\
+    \textbf{H 2.2b} \textit{Aufwertungsgebiete besitzen eine niedrigere Fortzugsrate als vergleichbare Gebiete.} \\
+  \item \textit{Forschungsfrage 5 \& 6:} \citep{Chanfreau2011} \citep{Newman2006} \\
+    \textbf{H 3.1} \textit{Je höher die Armutsquoten in einer Nachbarschaft, desto höher ist die dortige Umzugsneigung.} \\
+
+
+
+"Immobilienwirtschaftliche Ertragserwartungen erhöhen den Räumungsdruck, schränken Möglichkeiten für Umzüge in leistbare Wohnungen ein und verstärken Diskriminierungen im Bereich der Wohnungsversorgung." \citet{Berner2015}
+und \citet{Holm2011} wie auch alle Protestbewegungen: öknomische Verdrängung In Analogie zu 2.2a und 2.2b noch Kausailtät und isolierung des effektes von immobilienwirtschaftlicher aufwertung. Spezifiezierungen von 2.2a und 2.2b mit selben Begründungen Isolierung des Effektes immoblienwirtschaftlicher Aufwertung durch Modelle. Interpretation als economic direct displacement (Marcuse p.205). \\
+    \textbf{H 3.2a} \textit{Je stärker die immobilienwirtschaftliche Aufwertungsdynamik in einer Nachbarschaft, desto höher ist die dortige Fortzugsneigung.}  
+  \item Fallende Binnenwanderungsquoten  \citep[S.~38f.]{BBU2014} \citep{Gude2015} \citep{Vigdor2002, Freeman2004} \\
+    \textbf{H 3.2b} \textit{Je stärker die immobilienwirtschaftliche Aufwertungsdynamik in einer Nachbarschaft, desto niedriger ist die dortige Fortzugsneigung.} 
+  \item \citep{Holm2011b}  und \citep{Rutsche2015} kein incumbent upgrading \citep{Clay1979} \\
+      \textbf{H 3.3} \textit{Es besteht ein positiver Zusammenhang zwischen sozialer Aufwertungsdynamik und wohnräumlicher Mobilität.} 
+\end{itemize}
 
 \begin{enumerate}
 \item Nachbarschaften mit hohen Armutsquoten und vergleichsweise günstigen mieten und Innenstadtnähe? werden eher zu Aufwertungsgebieten. \\
-Hier höhrere rent gap, potential
-
-"`In addition, if gentrification theory teaches us anything, we should know by now that rent gaps are widest in non-gentrifying neighbourhoods (when the gap between the actual ground rent in the area and the ground rent that could be extracted were the area to undergo reinvestment becomes wide enough to allow that reinvestment to take place). \\
-Higher levels of mobility—especially evictions—are to be expected as landlords and developers realise that systematic disinvestment has reached a point where neighbourhoods can be redeveloped at substantial profit (see also Clark, 1987; Hammel, 1999). To put all this in clearer conceptual terms, direct displacement (last-resident and probably chain forms) is suffered by poor households in non-gentrifying neighbourhoods, and exclusionary displacement is suffered by poorhouseholds in gentrifying neighbourhoods, where low mobility is also to be expected."' \citep[S.~305]{Slater2009} (\citet{Holm2011} \& \citet{Berner2015}) 
-\item Aufwertungsgebiete besitzen höherere Binnenfortzugsraten als die Kontrollgebiete.\\
---> economic direct displacement (Marcuse p.205) \\
-Laut \citet{Berner2015} S29 ist die stieg in Berlin die durchschnittliche Differenz zwischen Mietspiegel und Angebotsmieten von 17 Prozent (2007) auf 35 Prozent (2013). Verdrängungseffekt auf MieterInnen insbesondere Arme ist somit doppelt: Verdrängungsdruck steigt weil Vermieter Mieterinnen individuell wie auch strukturell. Individuell mag ein vermieter die Mieterinnen raus haben um neuen Neuvermietung (sofern sie nicht unter die Mietpreisbremse fällt)
-
-"`Mieterhöhungen in bereits bestehenden Mietvertragsverhältnissen können in Form von Modernisierungsumlagen (also nach Investitionen zur Verbesserung
-des Ausstattungsstandards), im Rahmen von Staffelmietverträgen oder als Anpassung an den Mietspiegel erfolgen. In Berlin gibt ein alle zwei Jahre veröffentlichter Mietspiegel Auskunft über die Mietentwicklung in verschiedenen Baualtersklassen und Wohnlagen. Ausgewertet werden dabei Neuabschlussmieten und die veränderten Bestandsmieten der letzten vier Jahre. Die Mietspiegel der letzten Jahre zeigen, dass die Mieten vor allem in den bisher preiswerten Baualtersklassen gestiegen sind: Insbesondere für die gründerzeitlichen Altbauten, die Zwischenkriegsbestände und die Sozialen Wohnungsbauten der 1970er Jahre verweist die Entwicklung der Mietspiegel-Mittelwerte auf sehr deutliche Steigerungen. Da ärmere Haushalte häufiger in preiswerten Beständen wohnen, sind sie von der Dynamik des Berliner Wohnungsmarktes der letzten Jahre besonders stark betroffen. Auch wenn die Anpassung an die ortsübliche Vergleichsmiete zurzeit auf 15 Prozent in drei Jahren beschränkt ist"' \citet{Berner2015} S.29
-
-"`Die Miethöhen, die bei Abschluss von neuen Mietverträgen von den Vermieter*innen festgelegt werden, spiegeln die Ertragserwartungen in den jeweiligen
-Lagen und Beständen. Je größer die Lücke zwischen den Bestandsmieten und den potentielle Mieteinnahmen, desto größer ist der Vorteil eines Mieter*innen-
-wechsels für die Eigentümer*innen. Im Gegensatz zu klassischen Gentrification-Prozessen ist eine Ertragssteigerung für Eigentümer*innen und Investor*innen zurzeit in Berlin nicht auf Investitionen in die bauliche Aufwertung angewiesen. Statt den mühevollen Weg der Modernisierung zu gehen, brauchen Eigentümer*innen in vielen Teilen der Stadt nur auf einen Mieter*innenwechsel warten, um die Mieteinnahmen deutlich zu steigern. Für viele Eigentümer*innen gilt: Zeit ist Geld und die Geduld, auf einen freiwilligen Auszug der Mieter*innen zu warten, ist oft begrenzt.
-Aus einer ökonomischen Perspektive verwandeln sich Bewohner*innen, die schon sehr lange im Haus wohnen und günstige Bestandsmieten zahlen, in 'unren-
-table Mieter*innen'."' \citet{Berner2015} S.30
-
-"Immobilienwirtschaftliche Ertragserwartungen erhöhen den Räumungsdruck, schränken Möglichkeiten für Umzüge in leistbare Wohnungen ein und
-verstärken Diskriminierungen im Bereich der Wohnungsversorgung." \citet{Berner2015}
-
-Aufwertungsdynamiken in Berlin: Monitoring Soziale Stadtentwicklung \& BBU Marktmonitor \& GSW Wohnatlanten
---> Entdeckung des Berliner Wohnungsmarktes - spatial fix (Harvey ?)  
-
-Widersprüche: BBU und Mieterecho: Keine erhöhte Verdrängung/Wegzug in gentrigebieten.   \citet{Rusche2015} und \citet{Holm2011} wie auch alle Protestbewegungen: öknomische Verdrängung \\
-
-Fallende Binnenwanderungsquoten (BBU 2014, S.38-39) 
-GSW Marktberichte
-
-
 vs.
 \item Aufwertungsgebiete besitzen niedrigere Binnenfortzugsraten als die Kontrollgebiete.\\
 --> BBU, Freeman, sigmar gude; Leute klammern sich an ihren Mietverträgen fest. 
-Diller 2014 S.31 "`Die Wegzugsraten sozial schwächerer sind in gentrifizierten Gebieten geringer als in den anderen und Statushöhere fühlen sich eher zum Wegzug gedrängt"' Sicherlich ist eine überlagerung beider effekte 
+ Sicherlich ist eine überlagerung beider effekte 
 
 \item Aufwertungsgebiete besitzen höhere Aussenzuzugsraten als die Kontrollgebiete \\
 Atkinson 2011 p.2 
 Atkinson 2000 p.161 Gentri areas für verschiedene Risikogruppen (working class, elderly, lone parent etc.) z.b. Inachtive: "`represented a massive locus for migration wherein nearly one and a half times more moves were made away from the 'G' areas than within London as a whole in the same period"'
 
 
-\item Je stärker die immobilienwirtschaftliche Aufwertungsdynamik, desto höher die relativen Fortzugsraten in den Nachbarschaften \\
-Isolierung des Effektes immoblienwirtschaftlicher Aufwertung durch Modelle. Interpretation als economic direct displacement (Marcuse p.205).
-
 \item Positiver Zusammenhang zwischen Armutsquote und Fortzugsraten und Zuzugsraten.
-
-
 \begin{quote}
 "`Auch das wohnungswirtschatliche Geheimnis der Gentriication lässt sich mit dem Zinscharakter der Wohnungswirtschat erklären: Investitionen in Modernisierungsmaßnahmen versprechen eben dort die höchsten Gewinne, wo die Ertragslücken am höchsten sind (Smith 1979). In der Regel sind das Wohngebiete, die aus wohnungswirtschatlicher Sicht die geringsten Restnutzwerte aufweisen, über die schlechteste Bausubstanz verfügen und die niedrigsten Mieteinnahmen erbringen. Gerade weil die Ertragslücken in solchen heruntergewirtschateten Nachbarschaten regelmäßig am höchsten ausfallen, ist die Verdrängung kein ungewollter Nebenefekt der Erneuerung, sondern notwendige Voraussetzung für den Erfolg der Investitionsstrategie (Marcuse 1992)."' \citep[S.~12]{Holm2011a}
 \end{quote}
 
-
 \item Es besteht ein gebietsbezogener positiver Zusammenhang zwischen sozialstruktureller Aufwertungdynamik und wohnräumlicher Mobilität. \\
-Änderung der Sozialstruktur nicht in erster Linie nicht durch incumbent upgrading (Clark 1979) Verdrängungsfreie urbane Aufwertungsprozess also einem aus dem Quartier heraus entstehende, von den "Bewohnern und Eingentümern ausgelöste und getragene Erneuerung von Bestandsquartieren, bei der es nur in sehr geringem und verzögertem Maße zu einem sozialen Austausch der Bewohner kommt" Glatter 2007 S.10 siehe auch  und  sondern durch den erhöhten Zuzug (Stadt und aussen) zu erklären
+Änderung der Sozialstruktur nicht in erster Linie nicht durch Verdrängungsfreie urbane Aufwertungsprozess also einem aus dem Quartier heraus entstehende, von den "Bewohnern und Eingentümern ausgelöste und getragene Erneuerung von Bestandsquartieren, bei der es nur in sehr geringem und verzögertem Maße zu einem sozialen Austausch der Bewohner kommt" Glatter 2007 S.10 siehe auch  und  sondern durch den erhöhten Zuzug (Stadt und aussen) zu erklären
 
 Darunter versteht er die von den Bewohnern und Eigentümern ausgelöste und getragene Erneuerung von Bestandsquartieren, 
 
 Die Zuziehenden haben mehr kohle als die Wegziehenden, 
 Atkinson 2011 p.2
-Scottish Government: Ärmere ziehen öfter um
-Rüsche 2015 incumbent upgrading unwahrscheinlich für Berlin
-
-
-\item Aufwertungsgebiete besitzen ein qualtativ untschiedliches Umzugsverhalten als vergleichbare nicht Aufwertungsgebiete\\
 \end{enumerate}
