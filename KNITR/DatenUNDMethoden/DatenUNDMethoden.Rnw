@@ -108,7 +108,7 @@ Standard Errors wie oben beschrieben als Prozess interpretation. Alternativ wär
   \subsubsection{Umzugsortsanalyse?}
 
 
-\subsection{Operationalisierung}
+\subsection{Operationalisierung}\label{Operationalisierung}
 
 Vorraussetzung  Operationalisierung von analytisch klarer Konzepte Neben methodologischen Fragen steht dabei auch der konzeptionelle Rahmen dieser Studien zur Disposition \citep[S.~301f.]{Slater2009} kritisiert \citet{McKinnish2008} dass sie nicht mal ne definition von Gentrification haben
 
