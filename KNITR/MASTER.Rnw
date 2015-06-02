@@ -14,7 +14,6 @@
 \usepackage{csquotes}
 \usepackage[table,xcdraw]{xcolor}
 
-
 \bibliography{Bibliographie}
 
 % -------------------------------
@@ -70,6 +69,10 @@ options(replace.assign=TRUE,width=80)
 Sys.setenv(TEXINPUTS=getwd(),
            BIBINPUTS=getwd(),
            BSTINPUTS=getwd())
+@
+
+<<crop-hook, cache=FALSE>>=
+knit_hooks$set(crop=hook_pdfcrop)
 @
 
 % -------------------------------
@@ -149,6 +152,7 @@ Sys.setenv(TEXINPUTS=getwd(),
 \newpage
 <<'child-DatenUNDMethoden/DatenUNDMethoden.Rnw', child='DatenUNDMethoden/DatenUNDMethoden.Rnw'>>=
 @
+%\input{ForschungsdesignUNDmethoden/ForschungsdesignUNDmethoden}
 
 \newpage
 <<'child-Analyse/Analyse.Rnw', child='Analyse/Analyse.Rnw'>>=

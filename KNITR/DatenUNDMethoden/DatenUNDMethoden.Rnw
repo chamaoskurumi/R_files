@@ -1,7 +1,7 @@
 
 \Sexpr{set_parent("MASTER.Rnw")}
 
-\section{Daten \& Methoden}\label{Sec:DatenUNDMethoden}
+\section{Forschungsdesign \& Methoden}\label{Sec:DatenUNDMethoden}
 
 Alles in R und knitr. Reproducable. Links zu skripten und Dokumentationen.
 
@@ -28,7 +28,7 @@ Größenunterschiede (EW) der LORs problematisieren \\
 Nachbarschaft vs. Quartier vs. LOR \\
 
 Ähnlich wie monitoring ausschluss von zu kleinen LORs \\
-Moulton 1990 Problem mit standard errors 
+\citep{Moulton1990} Problem mit standard errors 
 
 
   \subsubsection{Räumliche Interpolation}
@@ -41,30 +41,26 @@ Moulton 1990 Problem mit standard errors
   - Response
   Deskriptive \\
 
-  Miete ist deflationiert mit Verbraucherpreisindex des Statistisches Bundesamtes. Es bleibt aber zu bedenken, dass die Erhöhung des SGB II (Hartz IV) und SGB XII (Sozialhilfe) im für den Beobachtungszeitrum hinter der Entwicklung der Verbraucherpreise zurückblieb (Verbraucherpreisindex und Bundesregierung).
+  Miete ist deflationiert mit Verbraucherpreisindex des Statistisches Bundesamtes \citep{Destatis2015}. Es bleibt aber zu bedenken, dass die Erhöhung des SGB II (Hartz IV) und SGB XII (Sozialhilfe) im für den Beobachtungszeitrum hinter der Entwicklung der Verbraucherpreise zurückblieb \citep{Bundesregierung2013}.
 
-
-<<Verschneidungschema, echo=FALSE, cache=FALSE>>=
-source("/home/dao/Desktop/MasterArbeit/R_files/Verschneidung_Veranschaulichung.R")
-@
-  
-  
-<<>>=
-summary(JLLdata)
-boxplot(Miete.2007 ~ Gentri , data=LOR4reg@data)
-@
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.2]{figure/PLZ_LOR_Verschneidung.png}
+  \caption{Interpolation von PLZ- auf LOR-Raumniveau per Blockgewichtung}
+  \label{Verschneidung}
+\end{figure}
 
 	\subsubsection{Stichprobe vs. Grundgesamtheit}
 
-Die induktive Statistik – auch schließende oder inferentielle Statistik genannt – versucht, durch geeigneten Einbezug von Wahrscheinlichkeitstheorie und Stochastik über die erhobenen Daten hinaus allgemeinere Schlußfolgerungen für umfassendere Grundgesamtheiten zu ziehen. Fahrmeir 2007 p.13
+Die induktive Statistik – auch schließende oder inferentielle Statistik genannt – versucht, durch geeigneten Einbezug von Wahrscheinlichkeitstheorie und Stochastik über die erhobenen Daten hinaus allgemeinere Schlußfolgerungen für umfassendere Grundgesamtheiten zu ziehen.  \citep[S.~13]{Fahrmeir2007}
 
 "Als Grundgesamtheit wird somit die Menge aller statistischen Einheiten bezeichnet, über die man Aussagen gewinnen will. Diese muß klar umgrenzt
-sein und hängt natürlich von der interessierenden Fragestellung ab." Fahrmeir 2007 p.14 aber auch hypothetische Grundgesamtheiten ok
+sein und hängt natürlich von der interessierenden Fragestellung ab."  \citep[S.~14]{Fahrmeir2007} aber auch hypothetische Grundgesamtheiten ok
 
-"Menge aller für die Fragestellung relevanten statistischen Einheiten" Fahrmeir 2007 p.15 
+"`Menge aller für die Fragestellung relevanten statistischen Einheiten"' \citep[S.~15]{Fahrmeir2007}.
 
 Handbuch der Sozialwissenschaften zitieren für Inferenz auf Grundgesamtheit. Und Statistikbücher.
-Frick 1998
+\citep{Frick1998}
 
 \subsection{Methodik}
 Auswahl der Untersuchungsform: Warum ist sie besten geeignet, die Forschungsfrage zu beantworten? Gab es Alternativen? \\
@@ -81,34 +77,76 @@ Kategorisierung schütteln als robustheitscheck
 
 Motivation wieso räumliche Autokorrelation mit zumodellieren ist. 
 
-omitted variables latet erklärend p.27 Le Sage Pace 2009
+omitted variables latet erklärend \citep[S.~27]{LeSage2009}
 hetereogeneity 
 
+The spautolm function fits spatial regression models by maximum likelihood, by first finding the value of the spatial autoregressive coefficient, which maximises the log likelihood function for the model family chosen, and then fitting the other coefficients by generalised least squares at that point. This means that the spatial autoregressive coefficient can be found by line search using
+optimize , rather than by optimising over all the model parameters at the same time. \citep[S.~284]{Bivand2008}
+
+Note that the fitted() function for the output object assumes that the response variable may be
+reconstructed as the sum of the trend, the signal, and the noise (residuals).
 
 \paragraph{Motivation für SAR}
 
-Bivand p.277 \& spdep package: spautolm
-Waller und Gotway 2004 p.378-380
-Cressie 1993 p.548-568
-LeSage und Pace 2009, 
+We consider a structure mirroring the time-series literature which makes wide
+use of autoregressive models wherein we regress the current observation on obser-
+ved values of all or, more commonly, a subset of other observations. In time
+series, the “other” observations occur in the recent past; in the spatial setting, they
+occur nearby. Just as the term autocorrelation reflects self-correlation, the term
+autoregressive reflects self-regression. Through such regressions, we incorporate
+spatial similarity by treating observations of the outcome variable at other locations
+as additional covariates in the model with associated parameters defining spatial
+association, rather than building an explicit parametric model of the covariance
+function of the error terms. The autoregressive model induces a particular covari-
+ance structure for the joint distribution of variables, but we typically do not fit the
+covariance directly. Instead, the autoregressive model itself defines this covariance
+for us. \citep[S.~362]{Waller2004}
+
+We begin by applying the idea of spatial autoregression to the vector of residual
+errors, , in the linear regression specification depicted in equation (9.1). That is,
+we regress (s i ) on all the other residual terms, giving
+
+with b ii = 0 [so we don’t regress (s i ) on itself] and assume that the resid-
+ual errors (“residual residuals”!) from this regression, vau(s i ), i = 1, . . . , N , have
+mean zero and a diagonal variance–covariance matrix υ = diag[sigma_{1}^2 , . . . , sigma_{n}^2 ].
+The terms {b ij } represent spatial dependence parameters since they measure the
+contribution of the “other” observations [i.e.,  (s j ), j = }] to the variation of
+(s i ).
+
+
+\citep[S.~277]{Bivand2008} spdep package: spautolm
+\citep[S.~378ff.]{Waller2004} 
+\citep[548ff.]{Cressie1993}
+\citep{LeSage2009}
 
 \paragraph{Gewichtung}
 
-Bevölkerungsgewichtung wegen Heterogenität der Residuals
+Bevölkerungsgewichtung wegen Heterogenität der Residuals 
+
+However, this model does not account for the heterogeneous distribution of the population by tracts
+Weighted version of these models can be fitted so that tracts are weighted proportionally to the inverse of their population size.
+This suggests that the spatial variation in population between tracts
+is responsible for the observed residual spatial correlation after adjusting for
+covariates.
+\citep{Bivand2008}
 
 \paragraph{Interpretation der Koeffizienten}
 
---> Biggest Myth in Spatial Econometrics trifft nicht zu auf mich. Lesage und Pace 2010
-"Spatial regression models such as the SEM that do not involve spatial lags of the dependent variable produce estimates for the parameters $\beta$ that can be interpreted in the usual regression sense as partial derivatives: $\delta y_i / \delta x_{ir} = \beta_r$ for all $i$, $r$; and $\delta y_i / \delta x_{jr} = 0$, for $j = i$ and all variables $r$." LeSage und Pace 2009, p.41 
+--> Biggest Myth in Spatial Econometrics trifft nicht zu auf mich. \citep{LeSage2010}
+"`Spatial regression models such as the SEM that do not involve spatial lags of the dependent variable produce estimates for the parameters $\beta$ that can be interpreted in the usual regression sense as partial derivatives: $\delta y_i / \delta x_{ir} = \beta_r$ for all $i$, $r$; and $\delta y_i / \delta x_{jr} = 0$, for $j = i$ and all variables $r$."' \citep[S.~41]{LeSage2009}
 Simplified interpretation ist hier besser als SEM \\
-Wir haben hier das Problem von Model uncertainty, (Lesage pace 2009, p. 30), aber machen dagegen erstmal nix. Was für SEM spricht ist die omitted variables motivation. Ausserdem ist in R kein weighted SAR autoregressive implementiert (spedep::lagsarlm kann kein weight argument nehmen.)\\
+Wir haben hier das Problem von Model uncertainty, \citep[S.~30]{LeSage2009}, aber machen dagegen erstmal nix. Was für SEM spricht ist die omitted variables motivation. Ausserdem ist in R kein weighted SAR autoregressive implementiert \texttt{spedep::lagsarlm} kann kein weight argument nehmen.)\\
 
-Standard Errors wie oben beschrieben als Prozess interpretation. Alternativ wäre eine Schätzung der standard errors gemäß Abadie et al. 2014 denkbar, um alternative causal standard errors für finite populationen vorschlägt. Diese basiert auf blabla.
-  
-  \subsubsection{Umzugsortsanalyse?}
+Standard Errors wie oben beschrieben als Prozess interpretation. Alternativ wäre eine Schätzung der standard errors gemäß \citep{Abadie2014}  um alternative causal standard errors für finite populationen vorschlägt. Diese basiert auf blabla.
 
 
 \subsection{Operationalisierung}\label{Operationalisierung}
+
+Nach Hypothesen gehen:
+
+H 1 bis H 2.2b mit explor daten und deskriptiv \\
+H 3.1 bis H 3.3 mit Regressionen
+
 
 Vorraussetzung  Operationalisierung von analytisch klarer Konzepte Neben methodologischen Fragen steht dabei auch der konzeptionelle Rahmen dieser Studien zur Disposition \citep[S.~301f.]{Slater2009} kritisiert \citet{McKinnish2008} dass sie nicht mal ne definition von Gentrification haben
 
@@ -121,7 +159,7 @@ Legitimation für Angebotsmietpreise als Proxy:
 ‘gentrification is a process of socio-economically selective migration \citep[S.~23]{Atkinson2011} - Deswegen arbeite ich mit Wandeurngsdaten
 
 \begin{enumerate}
-\item Immobilienwirtschaftliche Aufwertung: Proxy NUR Angebotsmiete. (BBU 2014,S.15): "Berlin ist eine Mieterstadt. Der Anteil der Mietwohnungen am Gesamtbestand ist in Berlin im Vergleich der Bundesländer, aber auch unter den deutschen Metropolen, mit rund 84 Prozent mit Abstand am höchsten. Der Anteil des selbst genutzten Wohneigentums ist mit rund 16 Prozent der niedrigste in Deutschland und liegt weit unter dem Bundesdurchschnitt von etwa 44 Prozent."
+\item Immobilienwirtschaftliche Aufwertung: Proxy NUR Angebotsmiete. \citep[S.~15]{BBU2014}: "Berlin ist eine Mieterstadt. Der Anteil der Mietwohnungen am Gesamtbestand ist in Berlin im Vergleich der Bundesländer, aber auch unter den deutschen Metropolen, mit rund 84 Prozent mit Abstand am höchsten. Der Anteil des selbst genutzten Wohneigentums ist mit rund 16 Prozent der niedrigste in Deutschland und liegt weit unter dem Bundesdurchschnitt von etwa 44 Prozent."
 Ertragserwartungen
 
 Zentralität von Mietpreissteigerungen bei Wiedervermietung für Aufwertungsprozesse
