@@ -1,81 +1,137 @@
 
 \Sexpr{set_parent("MASTER.Rnw")}
 
-\section{Forschungsdesign \& Methoden}\label{Sec:DatenUNDMethoden}
+\section{Daten}\label{Sec:Daten}
+\newname\Armutchg{$\Delta Armut$}
+\newname\Mietechgr{$\Delta_{r}Miete$}
+\newname\Kategorie{\textit{Kategorie}}
+\newname\R{\textsf{R}}
+\newname\knitr{\textsf{knitr}}
 
-Alles in R und knitr. Reproducable. Links zu skripten und Dokumentationen.
+Alles in \R und \knitr. Reproducable. Links zu skripten und Dokumentationen. Keine personenbezogenen einzeldaten wie bei Freeman, wyly etc.
 
-\subsection{Daten}
+  \subsection{Datenquellen}\label{sec:Datenquellen} Ähnlich dem \textit{GentriMap} Projekt \citep{Holm2011b} wurden spezifische Anforderungen an die Daten gestellt. Die Daten sollten für das gesamte Bundesland Berlin kleinräumig, d.h. auf Nachbarschafts- oder Ortsteilsniveau verfügbar sein. Desweiteren sollten sie den entsprechenden Geobasisdaten zuordenbar, sowie genau und verlässlich sein. Über die folgenden Quellen konnten schließlich Daten bezogen werden, die diesen Anforderungen genügten:
 
-Anspruch wie bei gentrimaps projekt:
+  \begin{itemize}
+  \item \textit{Demographische Daten} wurden vom Amt für Statistik Berlin-Brandenburg erhoben und über das Berlin Open Data Portal\footnote{ \url{http://daten.berlin.de/datensaetze/}} aus dem abgestimmten Datenpool bezogen.
+  \item \textit{Wanderungsdaten} wurden vom Amt für Statistik Berlin-Brandenburg käuflich erworben.
+  \item \textit{Sozialdaten} wurden den Status- und Kontextindikatoren des Monitorings Soziale Stadtentwicklung\footnote{ \url{http://www.stadtentwicklung.berlin.de/planen/basisdaten_stadtentwicklung/monitoring/}} entnommen, welches alle zwei Jahre von der Senatsverwaltung für Stadtentwicklung und Umwelt erstellt wird.
+  \item \textit{Immobilienwirtschaftlichen Daten} wurden von JLL Research\footnote{ \url{http://www.jll.de/germany/de-de/research}} zur Verfügung gestellt und basieren auf den Erhebungen der IDN ImmoDaten GmbH.
+  \item \textit{Geobasisdaten} wurden vom Amt für Statistik Berlin-Brandenburg erstellt und über das Berlin Open Data Portal oder das Geoportal\footnote{ \url{http://www.stadtentwicklung.berlin.de/geoinformation/fis-broker/}} der Senatsverwaltung für Stadtentwicklung und Umwelt bezogen. 
+  \end{itemize}
+ 
+ \subsection{Beobachtungseinheit \& Beobachtungszeitraum}\label{sec:BeoEinheit}
+\paragraph{Lebensweltlich orientierten Räume (LOR)}
+Als Beobachtungseinheit und räumliche Auflösung der Analyse werden die \textit{Lebensweltlich orientierten Räume} (LOR) verwendet, die den Berliner Behörden seit 2007 als "`räumliche Grundlage für Planung, Prognose und Beobachtung demografischer und sozialer Entwicklungen in Berlin"' dienen \citep{SenStadt2013}. LOR sollen eine räumliche "`Abbildung lebensweltlicher Homogenität bei gleichzeitiger Wahrung einer Vergleichbarkeit der Planungsraumeinheiten"' liefern, und wurden unter anderem über "`einheitliche Baustrukturen bzw. Milieubildung, große Straßen und Verkehrstrassen sowie natürliche Barrieren, aber auch eine Begrenzung der Einwohnerzahl"' \citep{SenStadt2013} definiert. Die LOR bestehen zwar aus drei hierarchischen Ebenen: Prognoseräume, Bezirksregionen und Planungsräume, wobei für diese Arbeit nur die 447 Planungsräume verwendet werden. Wenn im Folgenden von LOR gesprochen wird, so sind damit die Planungsräume gemeint. Als Beobachtungseinheit für die quantitative Gentrificationforschung eignen sich die LOR deshalb besonders gut, da sie die feinste, öffentlich verfügbare, räumliche Auflösung vieler behördlicher Aggregatsdaten darstellen und ihre Vergleichbarkeit stets gewährt ist.\footnote{ Im Gegensatz zum \textit{GentriMap} Projekt \citep{Holm2011b}, bei dem als räumliche Auflösung die viel gröberen \textit{ImmoScout24} Ortsteile dienten, erlauben die LOR eine viel nuanciertere und präzisere Analyse.} Dennoch sei auch auf den großen Nachteil der Aggregatsdaten hingewisen: Durch Mittelwertsbildung bleiben LOR interne Verteilungen unberücksichtigt und Änderungen innerhalb eines LOR potenziell unentdeckt, falls sich gegenläufige Tendenzen im Aggregat einander aufheben.\footnote{ Auch bei der statistischen Inferenz entstehen durch die Verwendung von räumlichen Aggregatsdaten besondere Tücken \citep[vgl.][]{Moulton1990}.}
+\paragraph{Beobachtungszeitraum: 2007-2012} 
+Als Beobachtungszeitraum wurden die Jahre von 2007 bis 2012 gewählt.\footnote{ Jährlicher Stichtag ist der 31.12. Werden Variablen mit Jahresbezug verwendet, so wird dies über die Jahreszahl im Subskript gekennzeichnet.} Dies hat mehrere Gründe. Zum Einen sind vergleichbare behördliche Daten auf LOR Niveau erst ab 2007 verfügbar,  zum Anderen waren keine neueren Sozialdaten als zum Stichtag 31.12.2012 verfügbar. Die Setzung des Beobachtungszeitraums ist aber auch inhaltlich motiviert: Mit dem Einsetzen der globalen Finanzkrise 2007 erfuhr der Berliner Immobilienmarkt einen Sprung an Attraktivität für Investor*innen. Damit begann eine neue Welle immobilienwirtschaftlicher Aufwertungsprozesse in Berlin, die bis heute anhält und durch diese Arbeit erfasst werden soll. Ein Beobachtungszeitraum von sechs Jahren erlaubt außerdem eine verhältnismäßig sensible Analyse der sozialen und immobilienwirtschaftlichen Veränderungen.\footnote{ In der Literatur sind längere Beobachtungszeiträume von zehn Jahren üblich \citep[z.B.][]{Atkinson2000,Freeman2005}.}
+\paragraph{Ausschluss bestimmter LOR}
+Um Verzerrungen durch Zufallsfehler zu vermeiden, wurden, der Methodologie des \textit{Monitorings Soziale Stadtentwicklung} folgend, LOR mit weniger als 300 Einwohnern von der Analyse ausgeschlossen \citep{SenStadt2014}. Zu Beobachtungsbeginn waren das folgende LOR: Großer Tiergarten, Westhafen, Gleisdreieck/Entwicklungsgebiet, Lietzengraben, Olympiagelände, Messegelände, Güterbahnhof Grunewald, Stadion Wilmersdorf, Forst Grunewald, Am Treptower Park Nord, Adlershof West, Gewerbegebiet Bitterfelder Str., Tegeler Forst und das Gewerbegebiet Köllnische Heide. Außerdem wurden die LOR Blankenburg, Blankenfelde und Motardstr. bei der Analyse nicht berücksichtigt, da für die erstgenannten Gebiete keine immobilienwirtschaftlichen Daten für die Jahre 2007 und 2008 zur Verfügung standen und die Motardstr. als Ausreißer bei den Umzugsraten die Analysen möglicherweise vezerrt hätte.\footnote{ Der LOR Motardstr. weist deshalb so extrem hohe Umzugsraten auf, weil sich dort die \textit{Zentrale Aufnahmestelle für Flüchtlinge} befindet. Diese fungiert als Erstaufnahmeeinrichtung für Flüchtlinge und Asylsuchende in Berlin.}\\ Es werden also insgesamt 17 der 477 LOR, oder 11619 Berliner*innen (Referenzjahr 2007) von der Analyse ausgeschlossen, und 430 LOR fließen als sogenannte \textit{gültige LOR} ($m$) in die Analyse ein. Trotz der Heterogenität der LOR Größen ist die räumliche Auflösung der LOR mit einer Mediangröße von 6907 Einwohner*innen als Nachbarschafts- bis Stadtviertelniveau zu bezeichnen (vgl.~Tabelle~\ref{tab:LOR}). So wird sich im Folgenden mit den Begriffen \textit{Nachbarschaft, Quartier} und \textit{Stadtviertel} auf einzelne LOR bezogen. Mit \textit{Gebiet} oder \textit{Ortsteil} sind hingegen Räume mehrerer benachbarter LOR gemeint.\\
 
-citywide, small scale, yearly panels, proofed or authorized data, georeferences to spatial data
-  \subsubsection{Rohdaten}
-  Übersicht und Quellen
-  Daten \& Geodaten : Projektionen etc.
-  \subsubsection{Beobachtungseinheit}
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}llllll@{}}
+\toprule
+$min$ & $Q_{0,25}$ & $Q_{0,5}$ & $Q_{0,75}$ & $max$ & $mean$ \\ \midrule
+403   & 4409       & 6907      & 10050      & 31270 & 7773   \\ \bottomrule
+\end{tabular}
+\caption{Einwohner*innenzahl (2007) der gültigen LOR ($m=430$)}
+\label{tab:LOR}
+\end{table}
 
-Keine personenbezogenen einzeldaten wie bei Freeman, wyly etc. Kein sample, sondern vollerhebung. \\
-Plaungsräume = LORs \\
-Feiner als Gentrimaps , Schnuck 2014 
+\paragraph{Interpolation von PLZ- auf LOR-Raumniveau}
+Bis auf die immobilienwirtschaftlichen Daten konnten alle Daten auf LOR Ebene akquiriert werden. Um eine Analyse auf LOR zu ermöglichen, mussten die immobilienwirtschaftlichen Daten deshalb vom gröberen, nicht hierarchischen Postleitzahlniveau (190 Räume) auf das feinere LOR Niveau interpoliert werden.\footnote{ Alle Geodaten wurden zunächst auf das gemeinsame räumliche Bezugssystem \texttt{EPSG:3068 Soldner Berlin} umprojeziert.} Hierfür wurde ähnlich dem \textit{GentriMap} Projekt \citep{Holm2011b} als Verfahren eine Interpolation nach Bevölkerungsgewichtung gewählt. Das Verfahren soll anhand der schematischen Abbildung~\ref{fig:Verschneidung} erklärt werden:
 
-LOR erklären, stat. landesamt zitieren \\
-Aggregationsproblematik: Mittelung, Verteilung nicht berücksichtigt \\
+    \begin{figure}[ht]
+      \centering
+      \includegraphics[scale=0.2]{/home/dao/Desktop/MasterArbeit/R_files/KNITR/figure/PLZ_LOR_Verschneidung.png}
+      \caption{Interpolation von PLZ- auf LOR-Raumniveau per Blockgewichtung}
+      \label{fig:Verschneidung}
+    \end{figure}
 
-deskriptive Statistiken über LORs \\
-Größenunterschiede (EW) der LORs problematisieren \\
+Als Grundlage für die Bevölkerungsgewichtung dienten die Geometrien und Einwohner*innenzahlen der \textit{statistischen Blöcke}, welche die "`kleinste flächige Unterteilung des Berliner Stadtgebiets"' \citep{AmtfurStatistikBerlin-Brandenburg2015} im behördlichen Raumbezugssystem darstellen. Zunächst wurden die geometrischen Schwerpunkte der Blöcke bestimmt (\textit{B1} bis \textit{B7}). Diesen wurde in einem zweiten Schritt ein metrisches Attribut $x$ ihres entsprechenden Postleitzahlgebietes $PLZ$ zugeordnet, sodass beispielsweise $x(PLZ1) = x(B1) = x(B2) = x(B3)$ und $x(PLZ2) = x(B4) = \dots = x(B7)$. Daraufhin wurden die Geometrien der LOR "`auf die Karte gelegt"' um eine Zuordnung der Blöcke zu ihren entsprechenden LOR zu ermöglichen. Zuletzt wurden die Attribute der Blöcke $i$ mit dem Gewicht ihrer jeweiligen Einwohner*innenzahl $n_{Bi}$ den entsprechenden LOR zugewiesen und anschließend skaliert. So erhielt beispielsweise der $LOR1$ das Attribut $x$ nach folgendem Gewichtungsschema: 
+\[ x(LOR1)=\frac{n_{B1}\,x(B1) + n_{B2}\,x(B2) + n_{B7}\,x(B7)}{n_{B1}+n_{B2}+n_{B7}}.\] 
+Für den $LOR2$ gilt analog
+\[ x(LOR2)=\frac{n_{B3}\,x(B3) + n_{B5}\,x(B5)}{n_{B3}+n_{B5}}.\]
 
-Nachbarschaft vs. Quartier vs. LOR \\
+Dieses Interpolationsverfahren wurde für jedes Jahr getrennt angewendet, da sich die Blockgeometrien und Einwohner*innenzahlen von Jahr zu Jahr änderten.\footnote{ Aufgrund von Ungenauigkeiten in den Geometrien konnten jährlich etwa 12000 Einwohner*innen keinem LOR zugeordnet werden. Diese Zahl ist so verschwindend gering, dass nur mit einer minimalen und folgenlosen Verzerrung des Interpolationsverfahrens zu rechnen ist.} Natürlich ist eine Interpolation von gröberen auf feinere räumliche Auflösungen problematisch, da sie Informationen "`generiert"', die gar nicht vorliegen. Durch die Blockgewichtung erhalten die zu interpolierenden Daten jedoch eine zusätzliche Quelle der räumlichen Präzision und ich erachte den Interpolationssprung vom PLZ- aufs LOR-Niveau als noch vertretbar.
+    
+	\subsection{Inferenz trotz Vollerhebung}
+\paragraph{Hypothetische Grundgesamtheiten}
+Im Gegensatz zu vielen anderen quantitativen Studien zu Gentrification (vgl.~Tabelle~\ref{Studientabelle}) greift diese Arbeit auf keine personenbezogenen Einzeldaten zurück - es wird allein mit Aggregatsdaten gearbeitet. Da die Aggregatsdaten für das gesamte Bundesland Berlin vorliegen, sind diese als Vollerhebung und nicht als Stichprobe zu interpretieren. Dies legt eine rein deskriptive Analyse nahe und macht den Gebrauch inferentieller Methoden zunächst widersinnig. Schließlich versucht die inferentielle Statistik "`über die erhobenen Daten hinaus allgemeinere Schlußfolgerungen für umfassendere Grundgesamtheiten zu ziehen"' \citep[S.~13]{Fahrmeir2007}. Natürlich wäre es möglich, eine "`umfassendere Grundgesmtheit"' als \textit{hypothetische} Grundgesamtheit zu konstruieren. So ist die Konstruktion einer hypothetischen Grundgesamtheit durch eine räumliche oder zeitliche Erweiterung des Studienrahmens denkbar, beispielsweise als Menge aller mitteleuropäischen Großstädte bzw. einen in die Zukunft erweiterten Beobachtungszeitraum. Die Konstruktion einer solchen hypothetischen Grundgesamtheit wäre aber allein Mittel zum Zweck, den Einsatz inferenzieller Methoden künstlich und formalistisch zu legitimieren, was dies letzlich zu einer absurden Vorgehensweise macht. Problematisch wäre auch die tatsächliche Durchführung der Inferenz: Wie sollte ex post aus den vorliegenden Aggregatsdaten eine Zufallsstichprobe konstruiert werden? Oder in anderen Worten: Was sollte die vorliegenden Aggregatsdaten repräsentativ für die hypothetische Grundgesamtheit machen? Kurzum, die Konstruktion einer hypthetischen Grundgesamtheit macht hier keinen Sinn. Die Grundgesamtheit bleibt die "`Menge aller für die Fragestellung relevanten statistischen Einheiten"' \citep[S.~15]{Fahrmeir2007}, und das sind in dieser Arbeit die Berliner LOR im Beobachtungszeitraum von 2007-2012.
+\paragraph{Prozessbasierte Inferenz}
+Dennoch macht der Einsatz inferentieller Methoden zur Beantwortung der Forschungsfragen (vgl. Kapitel~\ref{Hypothesen}) und den vorliegenden Daten Sinn. Er erfordert aber eine alternative Interpretation der Inferenz, als der, von der Stichprobe auf die Grundgesamtheit. Eine plausible, alternative Interpretation statistischer Inferenz liefert \citet{Frick1998} mit der \textit{prozessbasierten} Inferenz. Hierbei wird unterstellt, dass der Datengenerierung ein bestimmter Prozess zu Grunde liegt, auf dessen Gesetzmäßigkeiten per Inferenz geschlossen werden kann. In diesem Sinne besteht der inferentielle "`Sprung"' nicht im Schluss von der Stichprobe zur Grundgesamtheit. Der inferenzielle "`Sprung"' besteht nun in der empirischen Verifikation von vorher formulierten Hypothesen über den datengenerierenden Prozess. Eine solche prozessbasierte Interpretation statistischer Inferenz soll dieser Arbeit zu Grunde gelegt werden.\footnote{ Eine prozessbasierte Interpretation statistischer Inferenz ist auch für Stichproben gültig  \citep[S.~530]{Frick1998}.}
 
-Ähnlich wie monitoring ausschluss von zu kleinen LORs \\
-\citep{Moulton1990} Problem mit standard errors 
+  \subsection{Variablen}
+Kommen wir nur zur Erläuterung der in der empirischen Analyse verwendeten Variablen. Als Grundlage für die Variablenbeschreibungen dienten die in Kapitel~\ref{sec:Datenquellen} genannten Datenquellen.
 
+  \begin{itemize}
+  	\item \textit{EW}: Anzahl der gemeldeten Einwohner*innen. Für einige Alterskohorten wurden zusätzliche Variablen generiert: \textit{EWu18}(Anteil der unter 18 Jährigen in \%), \textit{EW18-35}(Anteil der 18-35 Jährigen in \%), \textit{EW18-65}(Anteil der 18-65 Jährigen in \%), \textit{EW35-65}(Anteil der 35-65 Jährigen in \%), \textit{EWü65}(Anteil der über 65 Jährigen in \%).
+  	\item \textit{Wohndauer5} und \textit{Wohndauer10}: Anteil der Einwohner*innen mit mindestens 5 bzw. 10 Jahren Wohndauer an ihrer aktuellen Adresse an den Einwohner*innen in \%.
+    \item \textit{Wohnlage}: Hauptsächlich vorherrschende Wohnlage. Mögliche Ausprägungen: \textit{einfach, mittel, gut}.\footnote{Genauere Angaben zu den Definitionen der Wohnlage unter \url{http://www.stadtentwicklung.berlin.de/wohnen/mietspiegel/de/wohnlagen.shtml}.}
+  	\item \textit{Fortzüge}: Jahresdurchschnittliche Binnenfortzugsrate in \%. Die Binnenfortzugsrate ist definiert als der Anteil der Abmeldungen mit darauffolgender Anmeldung unter einer anderen Adresse innerhalb Berlins an den Einwohner*innen in \%. Umzüge innerhalb eines LOR fließen auch in die \textit{Fortzüge} mit ein. 
+  	\item \textit{Zuzüge}: Jahresdurchschnittliche Binnenzuzugsrate in \%. Die Binnenzuzugsrate ist definiert als der Anteil der Anmeldungen mit vorheriger Abmeldung unter einer anderen Adresse innerhalb Berlins an den Einwohner*innen in \%. Umzüge innerhalb eines LOR fließen auch in die Zuzüge mit ein.
+  	\item \textit{FortzügeA}: Jahresdurchschnittliche Außenfortzugsrate in \%. Die Außenfortzugsrate ist definiert als der Anteil der Abmeldungen mit darauffolgender Anmeldung unter einer anderen Adresse außerhalb Berlins an den Einwohner*innen in \%. Dies schließt auch Fortzüge ins Ausland ein.
+  	\item \textit{ZuzügeA}: Jahresdurchschnittliche Außenzuzugsrate in \%. Die Außenzuzugsrate ist definiert als der Anteil der Anmeldungen mit vorheriger Abmeldung unter einer anderen Adresse außerhalb Berlins an den Einwohner*innen in \%. Dies schließt auch Zuzüge aus dem Ausland ein.
+    \item \textit{Alose}: Anteil der Arbeitslosen (SGB II und III) an den 15-65 Jährigen \%.
+    \item \textit{Existenzsicherung}: Anteil der nicht arbeitslosen Empfänger*innen von Existenzsicherungsleistungen (SGB II und XII) an den Einwohner*innen in \%. Diese Gruppe schließt also auch sogenannte "`Aufstocker*innen"' mit ein, deren Einkommen unterhalb des SGB II Regelsatzes liegt.
+    \item \textit{Armut}: Anteil der Arbeitslosen (SGB II und III) und nicht arbeitslosen Empfänger*innen von Existenzsicherungsleistungen (SGB II und XII) an den Einwohner*innen in \%. Diese Variable ist als Rate der transferleistungsbeziehenden Bevölkerung oder Armutsquote zu interpretieren.
+    \item \textit{$\Delta$Armut}: Differenz zwischen der Armutsquote 2012 ($Armut_{2012}$) und der Armutsquote 2007 ($Armut_{2007}$). Positive Werte entsprechen also einem Anstieg der Armutsquote, negative Werte einer Senkung der Armutsquote.
+   	\item \textit{Jugendarbeitslosigkeit}: Anteil der Arbeitslosen unter 25 Jahren (SGB II und III) an den 15-25 Jährigen in \%.
+    \item \textit{Langzeitarbeitslosigkeit}: Anteil der Arbeitslosen (SGB II und III) mit einer Bezugszeit von über einem Jahr an den 15-65 Jährigen \%.
+    \item \textit{Kinderarmut}: Anteil der nicht erwerbsfähigen Empfänger*innenr von Existenzsicherungsleistungen (SGBII) an den Einwohner*innen unter 15 Jahren in \%.
+    \item \textit{Alterarmut}: Anteil der Empfänger*innen von Grundsicherung (außerhalb von Einrichtungen) nach SGB XII im Alter von 65 Jahren und älter an den Einwohner*innen dieser Altersgruppe in \%.
+    \item \textit{Alleinerziehende}: Anteil der Alleinerziehenden mit Kindern an der Haushalten mit Kindern in \%.
+	\item  \textit{Städt.Wohnungen}: Anteil der Wohnungen der landeseigenen Wohnungsbaugesellschaften an den Wohnungen gesamt in \%.
+    \item \textit{Miete}: Median der realen Angebotsmietpreise gemessen in \euro \, pro $m^2$. Die Beträge wurden mit dem Verbraucherpreisindex des Statistischen Bundesamtes \citep{Destatis2015} inflationsbereinigt (Indexjahr = 2012).\footnote{Es sei darauf hingewiesen, dass die Erhöhung des SGB II (Hartz IV) und SGB XII (Sozialhilfe) im Beobachtungszeitraum hinter der Entwicklung der Verbraucherpreise zurückblieb \citep[vgl.][]{Bundesregierung2013}. Durch die hier vorgenommene Deflationierung wird die reale Belastung für transferleistungsabhängige Mieter*innen bei Mietpreissteigerungen also leicht unterschätzt.}
+    \item \textit{$\Delta Miete$}: Differenz zwischen dem Median der realen Angebotsmietpreise 2012 ($Miete_{2012}$) und dem Median der realen Angebotsmietpreise 2007 ($Miete_{2007}$) in \euro.
+    \item \textit{$\Delta_r Miete$}: Jahresdurchschnittliche Wachstumsrate des Medians der Angebotsmietpreise ($Miete$) in \%. Diese Variable ist als relative Änderung der realen Angebotsmietpreise zu interpretieren. Die jahresdurchschnittliche Wachstumsrate wurde über das geometrische Mittel errechnet.
+    \item \textit{Stadtraum}: Gebietseinteilung der Stadt in \textit{innere Stadt, äußere Stadt}. Die innere Stadt entspricht ziemlich genau dem Stadtgebiet innerhalb des S-Bahn Rings.
+    \item \textit{SanGebiet}: Städtebauliche Sanierungsmaßnahmen nach §142 BauGB. Mögliche Ausprägungen sind kein Sanierungsgebiet (\textit{nein}), aufgehobene Sanierungsgebiete ab 2002 (\textit{aufgehoben}), förmlich festgelegte Sanierungsgebiete vereinfachtes Verfahren (\textit{vereinfacht}) und förmlich festgelegte Sanierungsgebiete (\textit{umfassend}). 
+    \item \textit{DistanzStadtmitte}: Distanz in $m$ zum ungefähren geographischen Mittelpunkt der Stadt. Der Mittelpunkt der Stadt wurde als der geometrische Schwerpunkt des LOR Alexanderplatzviertel definiert.
+  \end{itemize}
 
-  \subsubsection{Räumliche Interpolation}
-  PLZ zu LOR
-    Verschneidungsschema Graphik
-  \subsubsection{Variaben}
-  Generierung und Beschreibung
-  - Control
-  - Gentri
-  - Response
-  Deskriptive \\
+\section{Methoden}\label{sec:Methoden}
+Im Folgenden werden die später zur empirischen statistischen Analyse verwendeten Methoden vorgestellt. Mithilfe der in Kapitel~\ref{MetDeskriptiv} beschriebenen Methoden werden die Forschungshypothesen H1 bis H2.2b operationalisiert, während in \ref{MetInferenziell} die Methoden zur Operationalisierung von H3.1 bis H3.3 erläutert werden.
 
-  Miete ist deflationiert mit Verbraucherpreisindex des Statistisches Bundesamtes \citep{Destatis2015}. Es bleibt aber zu bedenken, dass die Erhöhung des SGB II (Hartz IV) und SGB XII (Sozialhilfe) im für den Beobachtungszeitrum hinter der Entwicklung der Verbraucherpreise zurückblieb \citep{Bundesregierung2013}.
+  \subsection{Deskriptiv}\label{MetDeskriptiv}
+  
+\subsubsection{Klassifizierung der Nachbarschaften}
+Um die Variable \Kategorie zu bilden, werden alle LOR chronologisch in drei Klassen partitioniert. Ähnlich den Studien von \citet{Freeman2005, Holm2011b} soll Gentrification relational definiert und über eine Klassifizierung der Nachbarschaften in \textit{Gentrificationgebiete}, \textit{Kontrollgebiete} und \textit{andere Gebiete} operationalisiert werden:
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[scale=0.2]{figure/PLZ_LOR_Verschneidung.png}
-  \caption{Interpolation von PLZ- auf LOR-Raumniveau per Blockgewichtung}
-  \label{Verschneidung}
-\end{figure}
+\begin{itemize}
+\item \textit{Gentrification}:
+Diejenigen Nachbarschaften, die im Beobachtungszeitrum gleichzeitig die stärksten Mietpreissteigerungen (\Mietechgr \!) wie auch den stärksten Rückgang der Armutsquote (\Armutchg \!) verzeichneten, werden als Gentrificationgebiete klassifiziert. So soll über die Proxyvariablen die Konjunktion von immobilienwirtschaftlicher und sozialer Aufwertung operationalisiert werden. Als Schwellenwert wird das 0,75 Quantil~($Q_{0,75}$) von \Mietechgr bzw. das 0,25 Quantil~($Q_{0,25}$) von \Armutchg verwendet. Nach dieser Klassifizierung können maximal ein Viertel der Nachbarschaften als Gentrificationgebiete klassifiziert werden.\\
+Für ein beliebiges LOR $i$ gilt also \textit{Kategorie(i)} = \textit{Gentrification}, wenn 
+\begin{align} 
+\Mietechgr(i) &> 0 \quad \wedge \quad \Mietechgr(i) > Q_{0,75}(\Mietechgr) \quad \wedge \label{eq:GentriMiete} \\
+\Armutchg(i)  &< 0 \quad \wedge \quad \Armutchg(i)  < Q_{0,25}(\Armutchg). \label{eq:GentriArmut}
+\end{align}
 
-	\subsubsection{Stichprobe vs. Grundgesamtheit}
+\item \textit{Kontrolle}: Als Kontrollgruppe sollen diejenigen Nachbarschaften definiert werden, in denen zu Beginn des Beobachtungszeitraums eine ähnlich hohe durchschnittliche Angebotsmiete ($Miete_{2007}$) und eine ähnlich hohe Armutsquote ($Armut_{2007}$) vorherrschte, wie in den Gentrificationgebieten. Als \textit{ähnlich} gelten Nachbarschaften den  Gentrificationgebieten nur dann, wenn ihre $Miete_{2007}$ und ihre $Armut_{2007}$ in das entsprechende Intervall zwischen dem 0,1 Quantil der Gentrificationgebiete~($Q_{0,1}^{Gentri}$) und dem 0,9 Quantil der Gentrificationgebiete~($Q_{0,9}^{Gentri}$) fallen. Durch das "`Abschneiden"' des oberen und unteren Dezils soll die Kategorie der Kontrollgebiete gegen mögliche Ausreißer innerhalb der Gentrificationgebiete robust gemacht werden. Als weitere Kondition für die Kontrollgebiete soll gelten, dass sie im Unterschied zu den Gentrificationgebieten schwächere oder gar keine Aufwertungsprozesse durchlaufen haben. Demnach waren die Kontrollgebiete zwar im Jahre 2007 den Gentrificationgebieten ähnlich, haben aber im Laufe der Jahre bis Ende des Beobachtungszeitraums (2012) eine andere Entwicklung durchlaufen.\\
+ Formal formuliert gilt folglich für ein beliebiges LOR $i$ mit \textit{Kategorie(i)} $\neq$ \textit{Gentrification} genau dann \textit{Kategorie(i)} = \textit{Kontrolle}, wenn 
+\begin{align}
+Miete_{2007}(i) \quad &\in [Q_{0,1}^{Gentri}(Miete_{2007}),\,Q_{0,9}^{Gentri}(Miete_{2007})]\quad \wedge \label{eq:KontrolleMiete} \\
+Armut_{2007}(i) \quad &\in [Q_{0,1}^{Gentri}(Armut_{2007}),\,Q_{0,9}^{Gentri}(Armut_{2007})]. \label{eq:KontrolleArmut}
+\end{align}
 
-Die induktive Statistik – auch schließende oder inferentielle Statistik genannt – versucht, durch geeigneten Einbezug von Wahrscheinlichkeitstheorie und Stochastik über die erhobenen Daten hinaus allgemeinere Schlußfolgerungen für umfassendere Grundgesamtheiten zu ziehen.  \citep[S.~13]{Fahrmeir2007}
+\item \textit{Andere}: Alle bislang nicht klassifizierten LOR werden als \textit{Andere} definiert. Somit gilt für alle LOR $i$, für die \textit{Kategorie(i)}~$\neq$~\textit{Gentrification} $\wedge$ \textit{Kategorie(i)}~$\neq$~\textit{Kontrolle}, dass \textit{Kategorie(i)}~=~\textit{Andere}.
+\end{itemize}
 
-"Als Grundgesamtheit wird somit die Menge aller statistischen Einheiten bezeichnet, über die man Aussagen gewinnen will. Diese muß klar umgrenzt
-sein und hängt natürlich von der interessierenden Fragestellung ab."  \citep[S.~14]{Fahrmeir2007} aber auch hypothetische Grundgesamtheiten ok
+Für die Interpretation dieser Klassifizierung ist es wichtig, sich die Bedeutung der getroffenen relationalen Defininition bewusst zu machen. Durch die Konditionen $\Mietechgr(i) > 0$ und $\Armutchg(i) < 0$ wird sichergestellt, dass Nachbarschaften nur dann als Gentrifikationgebiete zugelassen werden, wenn sie eine tatsächliche \textit{Steigerung} der durchschnittlichen Angebotsmiete und einen tatsächlichen \textit{Rückgang} der Armutsquote erfahren haben. Die Konditionen \ref{eq:GentriMiete} und \ref{eq:GentriArmut} wurden also so gewählt, dass sie als notwendige und hinreichende Bedingungen für Gentrificationprozesse interpretiert werden können. Im Gegensatz dazu schließt die Klassifizierung als Kontrollgebietebiet aber nicht aus, dass dort auch Gentrificationprozesse stattfanden. Schließlich beziehen sich \ref{eq:KontrolleMiete} und \ref{eq:KontrolleArmut} ausschließlich auf $Miete_{2007}$ bzw. $Armut_{2007}$. Die Kontrollgebiete sollten also keinesfalls als \textit{Nicht-Gentrificationgebiete} interpretiert werden.\\
+In der konkreten Anwendung wird die Klassifizierung der Nachbarschaften deutlich klarer (vgl. Kapitel XXX). Der zugegebenermaßen sperrigen Formalisierung der Klassifizierungskonditionen wurde deshalb soviel Raum gegeben, da in der empirischen Analyse der klassifizierten Nachbarschaften auch ein Robustheitscheck durchgeführt werden soll, für dessen Verständis sich die Formalisierung als sehr hilfreich erweisen wird.
 
-"`Menge aller für die Fragestellung relevanten statistischen Einheiten"' \citep[S.~15]{Fahrmeir2007}.
+\subsubsection{Gewichtete Diagramme und Karten} 
+Zur Darstellung univariater Verteilungen diverser Variablen werden gewichtete Violin- und Boxplots verwendet, da sie einen einfachen Vergleich zwischen den Gentrificationgebieten und den Kontrollgebieten zulassen. Gewichtet werden die Violin- bzw. Boxplots, um den variiernden Einwohnerzahlen der LOR Rechnung zu tragen (vgl.~Tabelle~\ref{tab:LOR}). Jede Nachbarschaft $i$ wird bei der Berechnung der Violin- und Boxplots also mit ihrer jeweiligen Einwohner*innenzahl zu Beobachtungsbeginn ($n_{2007}(i)$) gewichtet. Für bivariate Darstellungen werden Bubbleplots verwendet, wobei die Gewichtung nach Einwohner*innenzahl über eine proportionale Anpassung der Bubblegröße vorgenommen wird. Um räumliche Zusammenhänge und Verteilungen darzustellen werden außerdem statische wie auch dynamische Karten erstellt.
 
-Handbuch der Sozialwissenschaften zitieren für Inferenz auf Grundgesamtheit. Und Statistikbücher.
-\citep{Frick1998}
+  \subsection{Inferenziell}\label{MetInferenziell}
 
-\subsection{Methodik}
-Auswahl der Untersuchungsform: Warum ist sie besten geeignet, die Forschungsfrage zu beantworten? Gab es Alternativen? \\
-Mit Verortung in Linteratur \\
-
-  \subsubsection{Kategorisierung \& Explorative Datenanalyse}
-Kategorisierung schütteln als robustheitscheck
-
-\citet{Podagrosi2011} Podagrosi: Hauptkomponentenanalyse und Cluster Analyse
-
-  \subsubsection{SAR weighted}
-
-\paragraph{Räumliche Autokorrelation}
+\subsubsection{Räumliche Autokorrelation}
 
 Motivation wieso räumliche Autokorrelation mit zumodellieren ist. 
+
+Spatial autoregressive models incorporate spatial dependence through the use
+of spatial proximity measures.
 
 omitted variables latet erklärend \citep[S.~27]{LeSage2009}
 hetereogeneity 
@@ -86,7 +142,7 @@ optimize , rather than by optimising over all the model parameters at the same t
 Note that the fitted() function for the output object assumes that the response variable may be
 reconstructed as the sum of the trend, the signal, and the noise (residuals).
 
-\paragraph{Motivation für SAR}
+\subsubsection{Motivation für SAR}
 
 We consider a structure mirroring the time-series literature which makes wide
 use of autoregressive models wherein we regress the current observation on obser-
@@ -108,9 +164,9 @@ we regress (s i ) on all the other residual terms, giving
 
 with b ii = 0 [so we don’t regress (s i ) on itself] and assume that the resid-
 ual errors (“residual residuals”!) from this regression, vau(s i ), i = 1, . . . , N , have
-mean zero and a diagonal variance–covariance matrix υ = diag[sigma_{1}^2 , . . . , sigma_{n}^2 ].
+mean zero and a diagonal variance–covariance matrix $v = diag[sigma_{1}^2 , . . . , sigma_{n}^2 ]$.
 The terms {b ij } represent spatial dependence parameters since they measure the
-contribution of the “other” observations [i.e.,  (s j ), j = }] to the variation of
+contribution of the “other” observations [i.e.,  (s j ), j =] to the variation of
 (s i ).
 
 
@@ -119,7 +175,7 @@ contribution of the “other” observations [i.e.,  (s j ), j = }] to the varia
 \citep[548ff.]{Cressie1993}
 \citep{LeSage2009}
 
-\paragraph{Gewichtung}
+\subsubsection{Gewichtung}
 
 Bevölkerungsgewichtung wegen Heterogenität der Residuals 
 
@@ -130,7 +186,7 @@ is responsible for the observed residual spatial correlation after adjusting for
 covariates.
 \citep{Bivand2008}
 
-\paragraph{Interpretation der Koeffizienten}
+\subsubsection{Interpretation der Koeffizienten}
 
 --> Biggest Myth in Spatial Econometrics trifft nicht zu auf mich. \citep{LeSage2010}
 "`Spatial regression models such as the SEM that do not involve spatial lags of the dependent variable produce estimates for the parameters $\beta$ that can be interpreted in the usual regression sense as partial derivatives: $\delta y_i / \delta x_{ir} = \beta_r$ for all $i$, $r$; and $\delta y_i / \delta x_{jr} = 0$, for $j = i$ and all variables $r$."' \citep[S.~41]{LeSage2009}
@@ -140,17 +196,10 @@ Wir haben hier das Problem von Model uncertainty, \citep[S.~30]{LeSage2009}, abe
 Standard Errors wie oben beschrieben als Prozess interpretation. Alternativ wäre eine Schätzung der standard errors gemäß \citep{Abadie2014}  um alternative causal standard errors für finite populationen vorschlägt. Diese basiert auf blabla.
 
 
-\subsection{Operationalisierung}\label{Operationalisierung}
 
-Nach Hypothesen gehen:
-
-H 1 bis H 2.2b mit explor daten und deskriptiv \\
 H 3.1 bis H 3.3 mit Regressionen
 
-
-Vorraussetzung  Operationalisierung von analytisch klarer Konzepte Neben methodologischen Fragen steht dabei auch der konzeptionelle Rahmen dieser Studien zur Disposition \citep[S.~301f.]{Slater2009} kritisiert \citet{McKinnish2008} dass sie nicht mal ne definition von Gentrification haben
-
-gentrification = Aufwertungsdynamik. Notwendig, nicht hinreichend. Dyanmik griech., dynamiké=mächtig (Gentrimaps)
+Dyanmik griech., dynamiké=mächtig (Gentrimaps)
 
 Legitimation für Angebotsmietpreise als Proxy:
 
@@ -214,3 +263,20 @@ Probleme mit meiner Operationalisierung: Confounder, räumliche interpolation et
 
 
 To avoid double-counting, a unit from which there has been direct displacement should not be counted again in estimating exclusionary displacement. \citet[S.~206]{Marcuse1985}
+
+$(I-B)^{-1}$ muss existieren
+
+\begin{align}
+e_i &=  \sum_{i=1}^m b_{ij}e_{ij} + \epsilon_i \\
+e &= B(Y - X^{T}\beta) + \epsilon \\
+b_{ii} &= 0 \quad \forall i \\
+Y &= X^{T}\beta + B(Y-X^{T}\beta) + \epsilon \\
+(I-B)(Y-X^{T}\beta) &= \epsilon \\
+E[Y] &=X^{T}\beta \\
+Var[Y] &= (I-B)^{-1} \Sigma_{\epsilon} (I-B^{T})^{-1} \\
+Var[Y_i] &\propto 1/n_{i} \\
+\text{Gewichtungsmatrix} V_{\epsilon}&=diag[1/n_i] \\
+\text{nicht mehr mit} \Sigma_\epsilon&= \sigma^{2}I \\
+ \text{sondern mit} \Sigma_\epsilon &= \sigma^{2}V_{\epsilon} \\
+Var[Y] = \Sigma_Y &= \sigma^{2}(I - \lambda W)^{-1} V_{\epsilon} (I-\lambda W^{T})^{-1} \\
+\end{align}

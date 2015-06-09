@@ -4,7 +4,7 @@
 \usepackage{graphicx}                           % Packages to allow inclusion of graphics
 \usepackage{hyperref}                           % For creating hyperlinks in cross references
 \usepackage[ngerman]{babel}
-\usepackage[backend=bibtex, style=authoryear-comp, language=ngerman, isbn=false, url=false, doi=false, eprint=false, natbib=true, citestyle=authoryear-comp]{biblatex}
+\usepackage[backend=bibtex, style=authoryear-comp, language=ngerman, isbn=false, url=true, doi=false, eprint=false, natbib=true, citestyle=authoryear-comp]{biblatex}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
 \usepackage{acronym}
@@ -13,6 +13,8 @@
 \usepackage{pifont}
 \usepackage{csquotes}
 \usepackage[table,xcdraw]{xcolor}
+\usepackage{abbrevs}
+\usepackage{eurosym}
 
 \bibliography{Bibliographie}
 
@@ -152,7 +154,6 @@ knit_hooks$set(crop=hook_pdfcrop)
 \newpage
 <<'child-DatenUNDMethoden/DatenUNDMethoden.Rnw', child='DatenUNDMethoden/DatenUNDMethoden.Rnw'>>=
 @
-%\input{ForschungsdesignUNDmethoden/ForschungsdesignUNDmethoden}
 
 \newpage
 <<'child-Analyse/Analyse.Rnw', child='Analyse/Analyse.Rnw'>>=
