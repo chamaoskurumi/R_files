@@ -2,6 +2,15 @@
 
 \section{Analyse}\label{Sec:Analyse}
 
+nach klassifizierung: \\
+ -Tabelle mit schwellenwertstatistiken und verteilungen
+ -mosiacplot nach quartilen immo und sozial aufwertung  
+ - Karte von beidem, soz. und immo quartilen: Kontinous und danaben quartile
+
+charakterisierung: 
+violin und boxplots gewichtet
+bubbleplots gewichtet
+
   	\subsection{Identifizierung und Charakterisierung von Aufwertungsgebieten}
     Karten erstellen mit Mietechgr und Armutchg sowie daneben die Quartilsbetrachtungen \\
 
