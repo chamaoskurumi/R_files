@@ -95,9 +95,9 @@ Kommen wir nur zur Erläuterung der in der empirischen Analyse verwendeten Varia
 
 \paragraph{Proxyvariablen für Aufwertung} Die eben vorgestellten Variablen \textit{$\Delta_r Miete$} und \textit{$\Delta$Armut} sollen als Proxyvariablen für immobilienwirtschaftliche bzw. soziale \allowbreak Auf-/Abwertung fungieren. Sie dienen zur Messung der jeweiligen Aufwertungsdynamik (gr. \textit{dynamiké}=mächtig), also der Mächtigkeit des Aufwertungsprozesses. Die Wahl dieser Variablen als Proxies soll nun kurz begründet werden.
 \begin{itemize}
-\item \textit{$\Delta_r Miete$}: Zwischen der Änderung der Angebotsmietpreise und immobilienwirtschaftlicher Aufwertung besteht ein unmittelbarer Zusammenhang. Ähnlich den Preisen von Wertpapieren, gelten Angebotsmietpreise als Indikator für den Wert einer Immobilie und die an sie gebundenen Ertragserwartungen. Die Steigerung der Angebotsmiete einer Immobilie entspricht demnach einer Steigerung ihres Wertes und der an sie gebundenen Ertragserwartungen. Sie drückt also die Erhöhung kapitalisierten Grundrente aus, die natürlich nur realisiert wird, sofern es zum Vertragsabschluss kommt. Warum im Berliner Kontext den Angebotsmietpreisen nun eine solch zentrale Rolle bei der immobilienwirtschaftlichen Aufwertung zukommt und es legtitim ist, Immobilienpreise, Bestandsmieten oder tatsächliche Neuvertragsmieten nicht in den Proxy mit einfliessen zu lassen, ist den folgenden Umständen geschuldet:
+\item \textit{$\Delta_r Miete$}: Zwischen der Änderung der Angebotsmietpreise und immobilienwirtschaftlicher Aufwertung besteht ein unmittelbarer Zusammenhang. Ähnlich den Preisen von Wertpapieren, gelten Angebotsmietpreise als Indikator für den Wert einer Immobilie und die an sie gebundenen Ertragserwartungen. Die Steigerung der Angebotsmiete einer Immobilie entspricht demnach einer Steigerung ihres Wertes und der an sie gebundenen Ertragserwartungen. Sie drückt also die Erhöhung kapitalisierten Grundrente aus, die natürlich nur realisiert wird, sofern es zum Vertragsabschluss kommt. Warum im Berliner Kontext den Angebotsmietpreisen eine solch zentrale Rolle bei der immobilienwirtschaftlichen Aufwertung zukommt und es legtitim ist, Immobilienpreise, Bestandsmieten oder tatsächliche Neuvertragsmieten nicht in den Proxy mit einfliessen zu lassen, ist den folgenden Umständen geschuldet:
   \begin{itemize}
-  \item \textit{Mieter*innenstadt}: Etwa 86 Prozent (Stand 2011) der Berliner*innen wohnen in Mietwohnungen \citep{SenStadt2011}. Trotz des nicht zu vernachlässigenden Beitrags von Umwandlungen in Eigentumswohnungen für immobilienwirtschaftliche Aufwertung, wird diese im Wesentlichen vom viel größeren und bedeutsameren Mietmarkt getragen.
+  \item \textit{Mieter*innenstadt}: Etwa 86 Prozent (Stand 2011) der Berliner*innen wohnen in Mietwohnungen \citep{SenStadt2011}. "`Der Anteil der Mietwohnungen am Gesamtbestand ist in Berlin im Vergleich der Bundesländer, aber auch unter den deutschen Metropolen [...] mit Abstand am höchsten"' \citep[S.~15]{BBU2015}. Trotz des nicht zu vernachlässigenden Beitrags von Umwandlungen in Eigentumswohnungen für immobilienwirtschaftliche Aufwertung \citep[vgl.][]{Paul2015}, wird diese im Wesentlichen vom viel größeren und bedeutsameren Mietmarkt getragen.
   \item \textit{Niedrige Neubautätigkeit}: Obwohl in bestimmten Nachbarschaften Berlins Aufwertungsprozesse auch entscheidend durch Neubautätigkeiten befördert werden können (\textit{Neubau-Gentrification}) und räumliche Effekte einer "`Ausstrahlung"' von Aufwertungsprozessen durch Neubau nicht unterschätzt werden sollten, so ist bei der vorherrschend niedrigen Neubauquote\footnote{ Im Jahre 2012 wurden in Berlin etwa 5400 Wohnungen fertigestellt\citep[S.~14]{GSW2014}. Zum Vergleich: Der Berliner aktuelle Wohnungsbestand beträgt etwa 1,9 Millionen Wohnungen.} davon auszugehen, dass in Berlin die Form der "`\textit{rental gentrification}"' \citep{VanCriekingen2010} stark dominiert. Dies gilt insbesondere für die innenstadtnahen Bestandsviertel.
   \item \textit{Grenzen der Erhöhung von Bestandsmieten}: Im internationalen Vergleich besitzt Deutschland ein relativ mieter*innenfreundliches Mietrecht. Dies erlaubt zum Einen die Befristung von Mietverträgen nur unter engen Vorraussetzungen und setzt zum Anderen den Möglichkeiten sowie dem Ausmaß von Bestandsmietserhöhungen viele Grenzen. Es ist also davon auszugehen, dass stadtweit gesehen die Mieterhöhungen im Bestand - mit Ausnahme des sozialen Wohnungsbaus - einen deutlich schwächeren Beitrag zu Aufwertungsprozessen beisteuern als die Angebotsmietpreise. 
   \item \textit{Nachfrageüberschuss}: Bis zum Jahr 2013 sank die durchschnittliche Leerstandsquote in Berlin auf unter 2\% und nur noch wenige Wohnungen gelten als schwer vermietbar \citep{BBU2015}. Die niedrige Leerstandsquote ist Ausdruck einer seit Jahren starken Nachfrage nach Wohnraum, welche nicht zuletzt auf die konstant positiven Wanderungssaldi der Stadt zurückzuführen ist. Aufgrund des Nachfrageüberschlusses auf dem Berliner Wohnungsmarkt ist schließlich davon auszugehen, dass die Angebotsmieten fast gleich den Neuvertragsmieten sind, und damit das Aufwertungspotenzial fast der Aufwertungsrealisierung entspricht.
@@ -107,7 +107,7 @@ Kommen wir nur zur Erläuterung der in der empirischen Analyse verwendeten Varia
 
 
 \section{Methoden}\label{sec:Methoden}
-Nachdem die Daten vorgestellt und die Operationalisierung von Aufwertung mithilfe von Proxyvariablen erläutert wurde, soll im Folgenden erklärt werden, mit welchen Methoden die Forschungsfragen empirisch bearbeitet werden sollen. Die im ersten Teil dieses Kapitels (\ref{MetDeskriptiv}) beschriebenen Methoden werden zur Operationalisierung der Hypothesen H~1 bis H~2.2b eingesetzt, während in Kapitel~\ref{MetInferenziell} die Methoden zur Operationalisierung von H~3.1 bis H~3.3 besprochen werden.
+Nachdem die Daten vorgestellt und die Operationalisierung von Aufwertung mithilfe von Proxyvariablen erläutert wurde, soll im Folgenden erklärt werden, mit welchen Methoden die Forschungsfragen empirisch bearbeitet werden sollen. Die im ersten Teil dieses Kapitels (\ref{MetDeskriptiv}) beschriebenen Methoden werden zur Operationalisierung der Hypothesen H~1 bis H~2.2b eingesetzt, während in Kapitel~\ref{MetInferenziell} die Methoden zur Operationalisierung von H~3.1 bis H~3.3 erklärt werden.
 
   \subsection{Deskriptiv}\label{MetDeskriptiv}
   
@@ -139,159 +139,50 @@ In der konkreten Anwendung wird die Klassifizierung der Nachbarschaften deutlich
 \subsubsection{Gewichtete Diagramme und Karten} 
 Zur Darstellung univariater Verteilungen diverser Variablen werden gewichtete Violin- und Boxplots verwendet, da sie einen einfachen Vergleich zwischen den Gentrificationgebieten und den Kontrollgebieten zulassen. Gewichtet werden die Violin- bzw. Boxplots, um den variiernden Einwohnerzahlen der LOR Rechnung zu tragen (vgl.~Tabelle~\ref{tab:LOR}). Jede Nachbarschaft $i$ wird bei der Berechnung der Violin- und Boxplots also mit ihrer jeweiligen Einwohner*innenzahl zu Beobachtungsbeginn ($n_{2007}(i)$) gewichtet. Für bivariate Darstellungen werden Bubbleplots verwendet, wobei die Gewichtung nach Einwohner*innenzahl über eine proportionale Anpassung der Bubblegröße vorgenommen wird. Um räumliche Zusammenhänge und Verteilungen darzustellen werden außerdem statische wie auch dynamische Karten erstellt.
 
-  \subsection{Inferenziell}\label{MetInferenziell}
 
-\subsubsection{Räumliche Autokorrelation}
+\subsection{Inferenziell}\label{MetInferenziell}
 
-Motivation wieso räumliche Autokorrelation mit zumodellieren ist. 
+\subsubsection{Motivation}
+\paragraph{Partielle Korrelationen}
+Um die Forschungshypothesen H 3.1 bis H 3.3 zu operationalisieren, reicht es nicht aus, die unbedingten Korrelationen zwischen den zwei betreffenden Variablen berechnen. Schließlich kann einer unbedingten Korrelation der gemeinsame Einfluss einer dritten Variable zugrunde liegen. Stattdessen soll als Assoziationsmaß der die bedingte, d.h. partielle Korrelation berechnet werden, welche den Zusammenhang zweier Variablen um den Einfluss anderer Variablen bereinigt. Zur Schätzung partieller Korrelationen sollen lineare Regressionsanalysen durchgeführt werden. Die Ergebnisse der Regressionsanalysen werden dann zur prozessbasierten Inferenz genutzt. Räumliche Daten können aber nicht ohne Weiteres durch gewöhnliche lineare Regressionen modelliert werden. Zumeist herrscht räumliche Autokorrelation in den Daten vor, welche spezifische Modellanpassungen erfordert.
+\paragraph{Räumliche Autokorrelation}
+In Anlehnung an die gängige Definition von zeitlicher Autokorrelation, welche beispielsweise oft bei Aktienkursen auftritt, wird für räumliche Daten Autokorrelation wie folgt definiert: "`Locations close to each other exhibit more similar values than those further apart"' \citep[S.~609]{dormann_methods_2007}. Im Bezug auf lineare Regressionsmodelle führt die Existenz von räumlicher Autokorrelation zur Verletzung der klassischen Annahme von unabhängig und identisch verteilten Fehlertermen. Dadurch kann es zum Einen zur Verzerrung von Parameterschätzungen kommen, zum Anderen kann sich das Typ~1 Fehlerrisiko bei der Durchführung von Neyman-Pearson Tests erhöhen \citep[S.~609]{dormann_methods_2007}. Um diese beiden Probleme in den Griff zu bekommen, muss räumliche Autokorrelation explizit in die Modellierung mit aufgenommen werden. Zu diesem Zweck soll das \textit{Spatial Autoregressive Model (SAR)} eingeführt werden.
 
-Spatial autoregressive models incorporate spatial dependence through the use
-of spatial proximity measures.
-
-omitted variables latet erklärend \citep[S.~27]{LeSage2009}
-hetereogeneity 
-
-The spautolm function fits spatial regression models by maximum likelihood, by first finding the value of the spatial autoregressive coefficient, which maximises the log likelihood function for the model family chosen, and then fitting the other coefficients by generalised least squares at that point. This means that the spatial autoregressive coefficient can be found by line search using
-optimize , rather than by optimising over all the model parameters at the same time. \citep[S.~284]{Bivand2008}
-
-Note that the fitted() function for the output object assumes that the response variable may be
-reconstructed as the sum of the trend, the signal, and the noise (residuals).
-
-\subsubsection{Motivation für SAR}
-
-We consider a structure mirroring the time-series literature which makes wide
-use of autoregressive models wherein we regress the current observation on obser-
-ved values of all or, more commonly, a subset of other observations. In time
-series, the “other” observations occur in the recent past; in the spatial setting, they
-occur nearby. Just as the term autocorrelation reflects self-correlation, the term
-autoregressive reflects self-regression. Through such regressions, we incorporate
-spatial similarity by treating observations of the outcome variable at other locations
-as additional covariates in the model with associated parameters defining spatial
-association, rather than building an explicit parametric model of the covariance
-function of the error terms. The autoregressive model induces a particular covari-
-ance structure for the joint distribution of variables, but we typically do not fit the
-covariance directly. Instead, the autoregressive model itself defines this covariance
-for us. \citep[S.~362]{Waller2004}
-
-We begin by applying the idea of spatial autoregression to the vector of residual
-errors, , in the linear regression specification depicted in equation (9.1). That is,
-we regress (s i ) on all the other residual terms, giving
-
-with b ii = 0 [so we don’t regress (s i ) on itself] and assume that the resid-
-ual errors (“residual residuals”!) from this regression, vau(s i ), i = 1, . . . , N , have
-mean zero and a diagonal variance–covariance matrix $v = diag[sigma_{1}^2 , . . . , sigma_{n}^2 ]$.
-The terms {b ij } represent spatial dependence parameters since they measure the
-contribution of the “other” observations [i.e.,  (s j ), j =] to the variation of
-(s i ).
-
-
-\citep[S.~277]{Bivand2008} spdep package: spautolm
-\citep[S.~378ff.]{Waller2004} 
-\citep[548ff.]{Cressie1993}
-\citep{LeSage2009}
-
-\subsubsection{Gewichtung}
-
-Bevölkerungsgewichtung wegen Heterogenität der Residuals 
-
-However, this model does not account for the heterogeneous distribution of the population by tracts
-Weighted version of these models can be fitted so that tracts are weighted proportionally to the inverse of their population size.
-This suggests that the spatial variation in population between tracts
-is responsible for the observed residual spatial correlation after adjusting for
-covariates.
-\citep{Bivand2008}
-
-\subsubsection{Interpretation der Koeffizienten}
-
---> Biggest Myth in Spatial Econometrics trifft nicht zu auf mich. \citep{LeSage2010}
-"`Spatial regression models such as the SEM that do not involve spatial lags of the dependent variable produce estimates for the parameters $\beta$ that can be interpreted in the usual regression sense as partial derivatives: $\delta y_i / \delta x_{ir} = \beta_r$ for all $i$, $r$; and $\delta y_i / \delta x_{jr} = 0$, for $j = i$ and all variables $r$."' \citep[S.~41]{LeSage2009}
-Simplified interpretation ist hier besser als SEM \\
-Wir haben hier das Problem von Model uncertainty, \citep[S.~30]{LeSage2009}, aber machen dagegen erstmal nix. Was für SEM spricht ist die omitted variables motivation. Ausserdem ist in R kein weighted SAR autoregressive implementiert \texttt{spedep::lagsarlm} kann kein weight argument nehmen.)\\
-
-Standard Errors wie oben beschrieben als Prozess interpretation. Alternativ wäre eine Schätzung der standard errors gemäß \citep{Abadie2014}  um alternative causal standard errors für finite populationen vorschlägt. Diese basiert auf blabla.
-
-
-
-H 3.1 bis H 3.3 mit Regressionen
-
-Dyanmik griech., dynamiké=mächtig (Gentrimaps)
-
-Legitimation für Angebotsmietpreise als Proxy:
-
-
-
-‘gentrification is a process of socio-economically selective migration \citep[S.~23]{Atkinson2011} - Deswegen arbeite ich mit Wandeurngsdaten
-
-\begin{enumerate}
-\item Immobilienwirtschaftliche Aufwertung: Proxy NUR Angebotsmiete. \citep[S.~15]{BBU2014}: "Berlin ist eine Mieterstadt. Der Anteil der Mietwohnungen am Gesamtbestand ist in Berlin im Vergleich der Bundesländer, aber auch unter den deutschen Metropolen, mit rund 84 Prozent mit Abstand am höchsten. Der Anteil des selbst genutzten Wohneigentums ist mit rund 16 Prozent der niedrigste in Deutschland und liegt weit unter dem Bundesdurchschnitt von etwa 44 Prozent."
-Ertragserwartungen
-
-Zentralität von Mietpreissteigerungen bei Wiedervermietung für Aufwertungsprozesse
-Immobilienwirtschaftliche Aufwertung ist wertsteigerung. Diese drückt sich aus in höheren Mieten und Verkaufspreisen, also einer kapitalisierten Grundrente. 
-
-Umwandlungen
-in etwa 5300 Wohnungen im Jahresduchschnitt (2007-2013), mit stark wachsender Tendenz \citep{Paul2015}
-
-Ähnlich den von \citet{VanCriekingen2010} in der Innenstadt von Brüssel beobachteten Aufwertungsprozessen, die er als "`\textit{rental gentrification}"' bezeichnet, werden in Berlin die Aufwertungsprozesse maßgeblich von Mietpreissteigerungen bei Wiedervermietungen getragen. Die zentrale Bedeutung von Mietpreissteigerungen bei Wiedervermietungen soll in Abgrenzung zu anderen Faktoren wie den Mietpreissteigerungen im Bestand, Neuvermietungen und , vor allem in Abgrenzung zu der Bedeutung von  für die Aufwertungsprozesse in Berlin soll im Folgenden begründet werden. 
-
-
-    etwa 35 Prozent der Angebotspenise / mietpreise  Ertragslücke auf etwa drei Euro 
- die berlinweite durchschnittliche Differenz zwischen Bestandsmieten und Angebotsmieten Aufgrund der in Deutschland vergleichsweise guten Mieterinnenrechte 
-
-
-\item Identifizierung und Visualisierung von Aufwertungsgebieten auf der Basis von kleinräumigen, stadtweiten statistischen Daten (Gentrimaps zitat) - potentielle gentri gebiete d.h. die notwendigen Vorraussetzungen erfüllen was starke immobilienwirtschaftliche Aufwertung und Soziale Aufwertung. Relationale Definition. Gleichzeitige Identifizierung von Vergleichsnachbarschaften, die eine anderen anderen Entwicklungspfad genommen haben, welche zwar ähnliche grundvoraussetzungen hatten, sich aber anders entwickelt haben mit weniger Dynamik.
-\item Anhand explorativer Datenanalyse eine vergleichende Charakterisierung dieser potentiellen Gentri gebieten (starke Wohn + Soziale Aufwertungs) gegenüber den Kontrollnachbarschaften
-\item Modellierung und Quantifizierung des Zusammenhangs zwischen Aufwertungsdynamik (immobilienwirtschaftliche Inwertsetzungsdynmaik (Mietpreissteigerung) und sozialer Auwertung (notwendig)) und wohnräumlicher Mobilität mit weighted SARs unter Berücksichtigung von Kontrollprädiktoren \\
-
-FortzuegeR ~ Mietechgr: Das ist kein exclusionary displacement, das ist direct economic displacement (last resident und chain nicht unterscheidbar, keine Subjektivität). Mixed Methods notwendig um genauer zu bestimmen.
-
-Mietechgr und auch Armutchg: Ganz klar displacement pressure (erste ökonomisch, das zweite sozialkulturell?). Exclusionary displacement wegen Neuvermietung = Angebotsmietpreise, aber nicht separierbar/messbar. Außerdem für messung von exclusionary displacement bräuchteman z.B. auch die Umwandlungsquote
-
-
-
-ZuzuegeUDR ~ Armutchg: Das ist exclusionary displacement? und vielleicht displacement pressure
-\item Beispielhafte Untersuchung / Spezifizierung der wohnräumlichen Mobilität in einem Gentri Gebiet vs. Control gebiet
-\end{enumerate}
-
-
-VERDRÄNGUNGSTYPOLOGIE MIT VERORTUNG WAS ICH MESSEN KANN UND WAS NICHT UND WAS ICH NICHT AUSSEINANDERHALTEN KANN (Marcuse 1985,p.205)
-
-
-Immobilienwirtschaftliche Aufwertung: Miete
-\begin{enumerate}
- \item Begründung: Berlin als Mieterstadt
- \item Gefährdete Personengruppen sind in erster Linie Mieterinnen und keine Eigentümer
- \item rent gap - Glatter p.17
-\end{enumerate}
-
-Soziale Aufwertung \\
-
-gentrification = Aufwertungsdynamik. Notwendig, nicht hinreichend. Dyanmik griech., dynamiké=mächtig
-Andere Dimensionen
-
-Verdrängung vs. Austausch
-
-Verdrängungs Typologie
-
-
-Probleme mit meiner Operationalisierung: Confounder, räumliche interpolation etc.
-
-
-To avoid double-counting, a unit from which there has been direct displacement should not be counted again in estimating exclusionary displacement. \citet[S.~206]{Marcuse1985}
-
-$(I-B)^{-1}$ muss existieren
-
+\subsubsection{Spatial Autoregressive Model (SAR)}
+Die folgende Darstellung des SAR basiert auf \citet[S.~277ff.]{Bivand2008}, \citet[S.~378ff.]{Waller2004} und \citet[548ff.]{Cressie1993}.\\
+Es sei $Y$ ein $m$-elementiger Responsevektor, $X$ die $m\times k$ dimensionale Design Matrix, $\beta$ der $k$-elementige Koeffizientenvektor und $e$ der $m$-elementige Fehlervektor. Unter der Annahme $e_i\overset{iid}{\sim}\mathcal{N}(0,\sigma^2) \; \forall i \in \{1,\dotsc,m\}$ beschreibt
 \begin{align}
-e_i &=  \sum_{i=1}^m b_{ij}e_{ij} + \epsilon_i \\
-e &= B(Y - X^{T}\beta) + \epsilon \\
-b_{ii} &= 0 \quad \forall i \\
-Y &= X^{T}\beta + B(Y-X^{T}\beta) + \epsilon \\
-(I-B)(Y-X^{T}\beta) &= \epsilon \\
-E[Y] &=X^{T}\beta \\
-Var[Y] &= (I-B)^{-1} \Sigma_{\epsilon} (I-B^{T})^{-1} \\
-Var[Y_i] &\propto 1/n_{i} \\
-\text{Gewichtungsmatrix} V_{\epsilon}&=diag[1/n_i] \\
-\text{nicht mehr mit} \Sigma_\epsilon&= \sigma^{2}I \\
- \text{sondern mit} \Sigma_\epsilon &= \sigma^{2}V_{\epsilon} \\
-Var[Y] = \Sigma_Y &= \sigma^{2}(I - \lambda W)^{-1} V_{\epsilon} (I-\lambda W^{T})^{-1} \\
+Y &= X^{T}\beta + e \label{eq:GewLinMod}
+\end{align} 
+ein gewöhnliches, multiples lineares Regressionsmodell. Um nun räumliche Autokorrelation zu berücksichtigen, beinhalten SAR Modelle im Gegensatz zum gewöhnlichen linearen Modellen eine Regression auf die Werte anderer Beobachtungseinheiten. Anstatt jedoch \textit{alle} anderen Beobachtungen bei der Autoregression zu berücksichtigen, wird die Autoregression üblicherweise auf eine Teilmenge, d.h. die sich in Nachbarschaft $\mathfrak{N}$ von Beobachtung $i$ befindlichen Beobachtungen beschränkt. In dieser Arbeit soll die Berücksichtigung von räumlicher Abhängigkeit durch den Fehlerterm $e$ erfolgen, welcher $\forall i \in \{1,\dotsc,m\}$ folgendermaßen modelliert wird:\footnote{ Die hier vertretene SAR Formulierung ist auch als \textit{Spatial Error} oder als \textit{Spatial Moving Average} Modell interpretierbar \citep[vgl.][S.~432f.]{plant_spatial_2012}. Eine Autoregression des Fehlerterms wird hier einer Autoregression der Response vorgezogen, da auf diese Weise latente räumliche Effekte besser durch das Modell antizipiert werden können \citep[vgl.][S.~27f.]{LeSage2009}.}
+\begin{align}
+e_i &= \sum_{j \, \in \, \mathfrak{N}_{i}} b_{ij}e_{ij} + \varepsilon_i \,. \label{eq:e_i}
 \end{align}
+$b_{ij}$ bezeichnet hierbei den räumlichen Abhängingkeitsparameter zwischen dem Beobachtungseinheit $i$ und $j$, wobei $b_{ii}=0\; \forall i$. Fehlerterme sollen also nicht auf "`sich selbst"' regressiert werden. Mit \eqref{eq:e_i} wird die ürsprüngliche $\overset{iid}{\sim}$ Annahme des gewöhnlichen Modells über den Fehlerterm $e$ aufgehoben und um eine Ebene "`verschoben"', sodass jetzt für den \textit{residualen} Fehlerterm $\varepsilon$ die Annahme $\varepsilon_i\overset{iid}{\sim}\mathcal{N}(0,\sigma^2) \; \forall i$ getroffen wird. Definiert man $B$ als die $m\times m$ dimensionale Matrix der räumlichen Abhängingkeitsparameter, so ergibt sich aus \eqref{eq:GewLinMod} und \eqref{eq:e_i}
+\begin{align}
+e &= B(Y - X^{T}\beta) + \varepsilon &&\Leftrightarrow\\
+\varepsilon &= (I-B)(Y-X^{T}\beta) &&\Leftrightarrow \\
+Y &= X^{T}\beta + B(Y-X^{T}\beta) + \varepsilon  \label{eq:SARB} 
+\end{align}
+Mit dieser SAR Formulierung sind also die partiellen Effekte der Kovariablen messbar, während räumliche Autokorrelation mithilfe von autokorrelierten Fehlertermen kontrolliert wird. Wie beim gewöhnlichen linearen Modell ist beim SAR $Y$ multivariat normalverteilt mit Mittelwert $E[Y]=X^{T}\beta$. Jedoch besitzt $Y$ beim SAR unter der Vorraussetzung der Existenz von $(I-B)^{-1}$ und der oben getroffenen Homoskedastizitätsannahme $Var[\varepsilon]=\sigma^2 I \eqdef \Sigma_{\varepsilon}$ die deutlich komplexere Kovarianzmatrix
+\begin{align}
+Var[Y] &= (I-B)^{-1} \Sigma_{\varepsilon} (I-B^{T})^{-1}. \label{eq:VARy} 
+\end{align}
+
+\subsubsection{Gewichtetes SAR}
+Bei heterogenen Beobachtungseinheiten ist die Homoskedastizitätsannahme jedoch nicht zu begründen. In unserem Fall sind die Beobachtungseinheiten eindeutig heterogen: Die einzelnen LOR $i$ unterscheiden sich erheblich in ihrer jeweiligen Bevölkerungsgröße $n_i$ (vgl. Abbildung~\ref{MetInferenziell}). Deshalb ist davon auszugehen, dass  $Var[Y_i] \propto 1/n_{i}$. Auf dieser Grundlage wird die gewichtete Version des SAR formuliert. Um der Varianzheterogenität Rechnung zu tragen, wird hierfür eine Gewichtungsmatrix  $V\defeq diag[1/n_i]$ definiert, sodass $\Sigma_{\varepsilon}\defeq  Var[\varepsilon]=\sigma^2 V$. Die LOR werden also proportional zur Inversen ihrer Bevölkerungsgröße gewichtet. In \eqref{eq:VARy} eingesetzt, ergibt sich somit für das gewichtete SAR
+\begin{align}
+Var[Y] &= \sigma^2(I-B)^{-1} V (I-B^{T})^{-1}. \label{eq:VARy} 
+\end{align}
+Eine zur Schätzung und Inferenz zweckmäßige Umparametrisierung bietet die gemeinsame Einführung des räumlichen Autokorrelationsparameters $\lambda$ einerseits und einer alternativen Matrix $W$ zur Repräsentation räumlicher Abhängigkeit andererseits. Definiert man $B \eqdef \lambda W$, so wird aus \eqref{eq:e_i}
+\begin{align}
+e_i &= \lambda \sum_{j \, \in \, \mathfrak{N}_{i}} w_{ij}e_{ij} + \varepsilon_i \label{eq:e_iW}
+\end{align}
+und aus \eqref{eq:SARB} und \eqref{eq:VARy} ergibt sich schließlich
+\begin{align}
+Y &= X^{T}\beta + \lambda W(Y-X^{T}\beta) + \varepsilon \label{eq:SARW} \\
+Var[Y] &= \sigma^{2}(I - \lambda W)^{-1} V_{\epsilon} (I-\lambda W^{T})^{-1}. \label{eq:VARyV}
+\end{align}
+
+\paragraph{Schätzverfahren}
+Die Parameter des Modells können effizient über die Maximum Likelihood Methode geschätzt werden \citep[S.~278]{Bivand2008}. In einem zweistufigen Verfahren wird $\lambda$ zunächst per \textit{line search} so bestimmt, dass es die log-Likelihood maximiert.\footnote{ Zur algorithmischen Erleichterung der Optimierung von $\lambda$, verwendet die \textsf{R} Prodezur \texttt{spdep::spautolm} die Restriktion $\lambda \in [1/ min_i (\zeta_i), 1/max_i (\zeta_i)]$, wobei $\zeta_i$ die Eigenwerte der Matrix $W$ bezeichnen. Details zu diesem Schätzalgorithmus finden sich in \citet[S.~284ff]{Bivand2008}.} Danach werden die restlichen Koeffizienten $\beta$ per \textit{Generalized Least Squares} geschätzt.  

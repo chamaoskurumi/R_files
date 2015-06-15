@@ -15,6 +15,10 @@
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{abbrevs}
 \usepackage{eurosym}
+\usepackage{sectsty}
+\usepackage{mathtools}
+%\usepackage{eufrak}
+
 
 \bibliography{Bibliographie}
 
@@ -46,6 +50,10 @@
 \renewcommand{\labelitemii}{-}
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+\allsectionsfont{\normalfont\sffamily\bfseries}
 
 \begin{document}
 
