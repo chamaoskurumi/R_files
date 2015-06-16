@@ -47,10 +47,9 @@ boxplot(LOR4reg@data$FortzuegeDAR ~ LOR4reg@data$Gentri*LOR4reg@data$STADTRAUM)
 boxplot(LOR4reg@data$ZuzuegeR ~ LOR4reg@data$Gentri*LOR4reg@data$STADTRAUM)
 boxplot(LOR4reg@data$ZuzuegeDAR ~ LOR4reg@data$Gentri*LOR4reg@data$STADTRAUM)
 
-
-
-
 bpDF <- subset(LOR4reg@data, !is.na(Gentri))
+bpDF$Gentri  <- factor(bpDF$Gentri,levels(bpDF$Gentri)[c(2,3,1)])
+bpDF$GentriA <- factor(bpDF$GentriA,levels(bpDF$GentriA)[c(2,3,1)])
 
 GENTRIplot <- function(data,var)
 {

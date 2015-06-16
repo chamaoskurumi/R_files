@@ -69,7 +69,7 @@ tidy=TRUE, self.contained=FALSE
 @
 
 <<include=FALSE>>=
-load("/home/dao/Desktop/MasterArbeit/R_files/KNITR/ALLdata.Rdata")
+load("/home/dao/Desktop/MasterArbeit/R_files/KNITR/FINAL_WORKSPACE.Rdata")
 setwd("/home/dao/Desktop/MasterArbeit/R_files/KNITR/")
 @
 
@@ -170,11 +170,6 @@ knit_hooks$set(crop=hook_pdfcrop)
 \newpage
 <<'child-Analyse/ZusammenfassungUNDDiskussion.Rnw', child='ZusammenfassungUNDDiskussion/ZusammenfassungUNDDiskussion.Rnw'>>=
 @
-
-This document was produced in RStudio using the knitr package \citep{Robson2009}.
-\nocite{Freeman2005}
-\citet{Freeman2005} is auch schön
- 
 
 
 % ----------------
