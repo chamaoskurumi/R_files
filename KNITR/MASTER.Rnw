@@ -18,6 +18,9 @@
 \usepackage{sectsty}
 \usepackage{mathtools}
 %\usepackage{eufrak}
+\DeclareRobustCommand{\officialeuro}{%
+  \ifmmode\expandafter\text\fi
+  {\fontencoding{U}\fontfamily{eurosym}\selectfont e}}
 
 
 \bibliography{Bibliographie}

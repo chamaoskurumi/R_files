@@ -216,98 +216,98 @@ spplot(LOR4reg, zcol="Gentri",
 #qntl_ungewichtet   <- quantile(LOR4reg@data$Mietechg); qntl_ungewichtet
 qntl <- wtd.quantile(LOR4reg@data$Mietechg, weights=LOR4reg@data$E_E.2007, 
                      probs=c(0, .15, .5, .85, 1)); qntl
-LOR4reg@data$MietechgQNTL <- cut(LOR4reg@data$Mietechg, 
+LOR4reg@data$MietechgQNTLA <- cut(LOR4reg@data$Mietechg, 
                                  qntl,
                                  labels=c("1.Quartil",
                                           "2.Quartil",
                                           "3.Quartil",
                                           "4.Quartil"),
                                  include.lowest = TRUE)
-table(LOR4reg@data$MietechgQNTL)
-PLOT_MietechgQNTL <- spplot(LOR4reg, zcol="MietechgQNTL", 
+table(LOR4reg@data$MietechgQNTLA)
+PLOT_MietechgQNTLA <- spplot(LOR4reg, zcol="MietechgQNTLA", 
                             col.regions=c("darkblue","lightblue","orange","red"))
 
 
 qntl <- wtd.quantile(LOR4reg@data$Mietechgr, weights=LOR4reg@data$E_E.2007, 
                      probs=c(0, .15, .5, .85, 1)); qntl
-LOR4reg@data$MietechgrQNTL <- cut(LOR4reg@data$Mietechgr, 
+LOR4reg@data$MietechgrQNTLA <- cut(LOR4reg@data$Mietechgr, 
                                   qntl,
                                   labels=c("0.15 Quantil",
                                            "0.15-0.5 Quantil",
                                            "0.5-0.85 Quantil",
                                            "0.85-1 Quantil"),
                                   include.lowest = TRUE)
-table(LOR4reg@data$MietechgrQNTL, useNA="ifany")
-PLOT_MietechgrQNTL <- spplot(LOR4reg, zcol="MietechgrQNTL", 
+table(LOR4reg@data$MietechgrQNTLA, useNA="ifany")
+PLOT_MietechgrQNTLA <- spplot(LOR4reg, zcol="MietechgrQNTLA", 
                              col.regions=c("darkblue","lightblue","orange","red"))
 
 qntl <- wtd.quantile(LOR4reg@data$Alosechg, weights=LOR4reg@data$E_E.2007, 
                      probs=c(0, .15, .5, .85, 1)); qntl
-LOR4reg@data$AlosechgQNTL <- cut(LOR4reg@data$Alosechg, 
+LOR4reg@data$AlosechgQNTLA <- cut(LOR4reg@data$Alosechg, 
                                  qntl,
                                  labels=c("0.15 Quantil",
                                           "0.15-0.5 Quantil",
                                           "0.5-0.85 Quantil",
                                           "0.85-1 Quantil"),
                                  include.lowest = TRUE)
-table(LOR4reg@data$AlosechgQNTL, useNA="ifany")
+table(LOR4reg@data$AlosechgQNTLA, useNA="ifany")
 
-PLOT_AlosechgQNTL <- spplot(LOR4reg, zcol="AlosechgQNTL", 
+PLOT_AlosechgQNTLA <- spplot(LOR4reg, zcol="AlosechgQNTLA", 
                             col.regions=c("darkblue","lightblue","orange","red"))
 
 qntl <- wtd.quantile(LOR4reg@data$nicht_Alose_Hartzchg, weights=LOR4reg@data$E_E.2007, 
                      probs=c(0, .15, .5, .85, 1)); qntl
-LOR4reg@data$nicht_Alose_HartzchgQNTL <- cut(LOR4reg@data$nicht_Alose_Hartzchg, 
+LOR4reg@data$nicht_Alose_HartzchgQNTLA <- cut(LOR4reg@data$nicht_Alose_Hartzchg, 
                                              qntl,
                                              labels=c("0.15 Quantil",
                                                       "0.15-0.5 Quantil",
                                                       "0.5-0.85 Quantil",
                                                       "0.85-1 Quantil"),
                                              include.lowest = TRUE)
-table(LOR4reg@data$nicht_Alose_HartzchgQNTL, useNA="ifany")
-PLOT_nicht_Alose_HartzchgQNTL <- spplot(LOR4reg, zcol="nicht_Alose_HartzchgQNTL", 
+table(LOR4reg@data$nicht_Alose_HartzchgQNTLA, useNA="ifany")
+PLOT_nicht_Alose_HartzchgQNTLA <- spplot(LOR4reg, zcol="nicht_Alose_HartzchgQNTLA", 
                                         col.regions=c("darkblue","lightblue","orange","red"))
 
 qntl <- wtd.quantile(LOR4reg@data$Armutchg, weights=LOR4reg@data$E_E.2007, 
                      probs=c(0, .15, .5, .85, 1)); qntl
-LOR4reg@data$ArmutchgQNTL <- cut(LOR4reg@data$Armutchg, 
+LOR4reg@data$ArmutchgQNTLA <- cut(LOR4reg@data$Armutchg, 
                                  qntl,
                                  labels=c("0.15 Quantil",
                                           "0.15-0.5 Quantil",
                                           "0.5-0.85 Quantil",
                                           "0.85-1 Quantil"),
                                  include.lowest = TRUE)
-table(LOR4reg@data$ArmutchgQNTL, useNA="ifany")
-PLOT_ArmutchgQNTL <- spplot(LOR4reg, zcol="ArmutchgQNTL", 
+table(LOR4reg@data$ArmutchgQNTLA, useNA="ifany")
+PLOT_ArmutchgQNTLA <- spplot(LOR4reg, zcol="ArmutchgQNTLA", 
                             col.regions=c("darkblue","lightblue","orange","red"))
-#PLOT_ArmutchgQNTL
+#PLOT_ArmutchgQNTLA
 
 qntl <- wtd.quantile(LOR4reg@data$Armut.2007, weights=LOR4reg@data$E_E.2007, 
                      probs=c(0, .15, .5, .85, 1)); qntl
-LOR4reg@data$Armut.2007QNTL <- cut(LOR4reg@data$Armut.2007, 
+LOR4reg@data$Armut.2007QNTLA <- cut(LOR4reg@data$Armut.2007, 
                                    qntl,
                                    labels=c("0.15 Quantil",
                                             "0.15-0.5 Quantil",
                                             "0.5-0.85 Quantil",
                                             "0.85-1 Quantil"),
                                    include.lowest = TRUE)
-table(LOR4reg@data$Armut.2007QNTL, useNA="ifany")
-PLOT_Armut.2007QNTL <- spplot(LOR4reg, zcol="Armut.2007QNTL", 
+table(LOR4reg@data$Armut.2007QNTLA, useNA="ifany")
+PLOT_Armut.2007QNTLA <- spplot(LOR4reg, zcol="Armut.2007QNTLA", 
                               col.regions=c("darkblue","lightblue","orange","red"))
-#PLOT_Armut.2007QNTL
+#PLOT_Armut.2007QNTLA
 
-#grid.arrange(PLOT_MietechgQNTL,PLOT_MietechgrQNTL, nrow=2)
-#grid.arrange(PLOT_AlosechgQNTL,PLOT_AlosechgQNTL, nrow=2)
-#grid.arrange(PLOT_MietechgQNTL,PLOT_AlosechgQNTL, nrow=2)
-#grid.arrange(PLOT_MietechgrQNTL,PLOT_AlosechgQNTL, nrow=2)
-#grid.arrange(PLOT_nicht_Alose_HartzchgQNTL,PLOT_AlosechgQNTL, nrow=2)
-#grid.arrange(PLOT_ArmutchgQNTL,PLOT_AlosechgQNTL, nrow=2)
-#grid.arrange(PLOT_AlosechgQNTL,PLOT_MietechgrQNTL, nrow=2)
+#grid.arrange(PLOT_MietechgQNTL,PLOT_MietechgrQNTLA, nrow=2)
+#grid.arrange(PLOT_AlosechgQNTL,PLOT_AlosechgQNTLA, nrow=2)
+#grid.arrange(PLOT_MietechgQNTL,PLOT_AlosechgQNTLA, nrow=2)
+#grid.arrange(PLOT_MietechgrQNTL,PLOT_AlosechgQNTLA, nrow=2)
+#grid.arrange(PLOT_nicht_Alose_HartzchgQNTLA,PLOT_AlosechgQNTLA, nrow=2)
+#grid.arrange(PLOT_ArmutchgQNTLA,PLOT_AlosechgQNTLA, nrow=2)
+#grid.arrange(PLOT_AlosechgQNTLA,PLOT_MietechgrQNTLA, nrow=2)
 
-#grid.arrange(PLOT_MietechgQNTL,
-#             PLOT_MietechgrQNTL,
-#             PLOT_AlosechgQNTL,
-#             PLOT_nicht_Alose_HartzchgQNTL,
+#grid.arrange(PLOT_MietechgQNTLA,
+#             PLOT_MietechgrQNTLA,
+#             PLOT_AlosechgQNTLA,
+#             PLOT_nicht_Alose_HartzchgQNTLA,
 #             nrow=2, ncol=2)
 
 plot(LOR4reg@data$Alose.2012, LOR4reg@data$nicht_Alose_Hartz.2012)
@@ -324,7 +324,7 @@ plot(LOR4reg@data$Alose.2007, LOR4reg@data$nicht_Alose_Hartz.2007)
 ###  0.25 < "Kontroll" < 0.75 = ENDGÜLTIGE DEFINITION 
 
 LOR4reg@data$GentriA <- -1
-LOR4reg@data$GentriA[LOR4reg@data$ArmutchgQNTL=="0.15 Quantil" & LOR4reg@data$MietechgrQNTL=="0.85-1 Quantil"] <- "Gentri"
+LOR4reg@data$GentriA[LOR4reg@data$ArmutchgQNTLA=="0.15 Quantil" & LOR4reg@data$MietechgrQNTLA=="0.85-1 Quantil"] <- "Gentri"
 
 # Gewichtete deskriptive Statistiken von Miete.2007 nur für LORs der Kategorie "Gentri" 
 GentriA_Miete.2007_DESCR <- describe(x=LOR4reg@data$Miete.2007[LOR4reg@data$GentriA=="Gentri"],
@@ -384,8 +384,18 @@ spplot(LOR4reg, zcol="GentriA",
 #
 #***********************************************************
 
-Gentri4long <- data.frame(LOR4reg@data$RAUMID,LOR4reg@data$MietechgrQNTL,LOR4reg@data$Gentri,LOR4reg@data$GentriA)
-colnames(Gentri4long) <- c("RAUMID","MietechgrQNTL","Gentri","GentriA")
+Gentri4long <- data.frame(LOR4reg@data$RAUMID,
+                          LOR4reg@data$MietechgrQNTL,
+                          LOR4reg@data$MietechgrQNTLA,
+                          LOR4reg@data$ArmutchgQNTL,
+                          LOR4reg@data$ArmutchgQNTLA,
+                          LOR4reg@data$Gentri,LOR4reg@data$GentriA)
+colnames(Gentri4long) <- c("RAUMID",
+                           "MietechgrQNTL",
+                           "MietechgrQNTLA",
+                           "ArmutchgQNTL",
+                           "ArmutchgQNTLA",
+                           "Gentri","GentriA")
 
 source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
 LORdataFULL   <- merge.with.order(LORdataFULL, Gentri4long, sort=F,

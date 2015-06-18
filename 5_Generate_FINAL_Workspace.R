@@ -9,6 +9,9 @@
 
 #install.packages("gdata")
 library("gdata")
+library("ggplot2")
+library("sp")
+library("rgdal")
 
 #*****************************************************************************************
 #
@@ -33,6 +36,10 @@ S_Bahn.fort  <- fortify(S_BahnLONGLAT)
 S_Bahndf     <- S_Bahn@data
 #colnames(S_Bahndf)[2] <- "id"
 S_Bahn.fort <- join(S_Bahn.fort, S_Bahndf)#, by="id")
+
+# Speichern des VOLLEN Workspaces
+setwd("/home/dao/Desktop/MasterArbeit/R_files/")
+save.image(file = "FULL_FINAL_WORKSPACE.Rdata")
 
 #****************************************************************************
 #
