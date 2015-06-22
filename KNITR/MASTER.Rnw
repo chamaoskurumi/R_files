@@ -21,7 +21,9 @@
 \DeclareRobustCommand{\officialeuro}{%
   \ifmmode\expandafter\text\fi
   {\fontencoding{U}\fontfamily{eurosym}\selectfont e}}
-
+\usepackage{lscape}
+\newcommand{\blandscape}{\begin{landscape}}
+\newcommand{\elandscape}{\end{landscape}}
 
 \bibliography{Bibliographie}
 
@@ -40,7 +42,7 @@
 \setlength{\headheight}{2\baselineskip}
 \voffset=-2cm
 \hoffset=-2.5cm
-\textheight24.5cm
+\textheight25.4cm
 \textwidth15.5cm
 \topmargin1cm
 \oddsidemargin3cm
@@ -59,7 +61,6 @@
 \allsectionsfont{\normalfont\sffamily\bfseries}
 
 \begin{document}
-
 
 
 <<include=FALSE>>=

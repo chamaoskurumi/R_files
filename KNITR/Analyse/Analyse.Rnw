@@ -2,6 +2,11 @@
 
 \section{Analyse}\label{Sec:Analyse}
 
+<<>>=
+
+@
+
+
 
 \begin{itemize}
 \item $Kategorie(i) =$ \textbf{Gentri}, wenn \\ $\Mietechgr(i) > 4,2\% \; \wedge \; \Armutchg(i) < -3,1\%$       

@@ -30,65 +30,91 @@ S_Bahn.fort <- join(S_Bahn.fort, S_Bahndf)#, by="id")
 ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + geom_polygon(aes(fill=Mietechgr, group=id)) + geom_path(data=S_Bahn.fort, aes(x=long, y=lat))
 
 
-#### 2.) GGPLOT ohne Map drunter - funktioniert.
-# außer das mit den Farben und so, das kann man noch schöner machen. Und weiss auf 0 setzen und so...hatten wir ja schon
-# mal kurz besprochen
-# könnten wir mal in einer nerdsession optimieren
-#breaks <- cut2(x, m=50))
-p <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
-  geom_polygon(aes(fill=Mietechgr, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +   
-  theme_bw() + 
-  scale_fill_gradient2(low = "blue", mid = "white", high ="red",
-                       midpoint = 0) #colours=c("yellow","orange","red")) + coord_equal(ratio=1.5)
-p <- p + geom_polygon(aes(group=id),data=BZK.fort, fill=NA, colour="grey", alpha=0.8) + theme_bw() + 
-  theme(legend.position =c(0.9,0.8), 
-        line = element_blank(), 
-        rect= element_blank(),
-        axis.line=element_blank(),
-        axis.text.x=element_blank(),
-        axis.text.y=element_blank(),
-        axis.ticks=element_blank(),
-        axis.title.x=element_blank(),
-        axis.title.y=element_blank()) + coord_map("polyconic") + guides(fill = guide_colourbar(barheight=6))
-p1 <- p + geom_path(data=S_Bahn.fort, aes(x=long, y=lat), linetype=2)
-p1
+#### 2.) GGPLOT
 
-p1 <- p1 + scaleBar(lon = 13.15, lat = 52.35, distanceLon = 500,distanceLat = 100, distanceLegend = 200, dist.unit = "km")
+LOR4reg.fort$Gentri   <- factor(LOR4reg.fort$Gentri,levels(LOR4reg.fort$Gentri)[c(2,3,1)])
+LOR4reg.fort$GentriA  <- factor(LOR4reg.fort$GentriA,levels(LOR4reg.fort$GentriA)[c(2,3,1)])
 
-p <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
-  geom_polygon(aes(fill=Armut.2012, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +   
-  theme_bw() + 
-  scale_fill_gradientn(limits = c(min(LOR4reg.fort$Armut.2012),
-                                  max(LOR4reg.fort$Armut.2012)),
-                       colours=c("yellow","orange","red")) + coord_equal(ratio=1.5)
-p <- p + geom_polygon(aes(group=id),data=BZK.fort, fill=NA, colour="grey", alpha=0.8) + theme_bw() + 
-  theme(legend.position =c(0.9,0.8), 
-        line = element_blank(), 
-        rect= element_blank(),
-        axis.line=element_blank(),
-        axis.text.x=element_blank(),
-        axis.text.y=element_blank(),
-        axis.ticks=element_blank(),
-        axis.title.x=element_blank(),
-        axis.title.y=element_blank()) + coord_map("polyconic") + guides(fill = guide_colourbar(barheight=6))
-p1 <- p + geom_path(data=S_Bahn.fort, aes(x=long, y=lat), linetype=2)
-p1
+kartenlayout <- list(geom_polygon(aes(group=id),data=BZK.fort, fill=NA, colour="grey50", alpha=0.8,size=1.2),
+                     theme(legend.position =c(0.9,0.8), 
+                           line = element_blank(), 
+                           rect= element_blank(),
+                           axis.line=element_blank(),
+                           axis.text.x=element_blank(),
+                           axis.text.y=element_blank(),
+                           axis.ticks=element_blank(),
+                           axis.title.x=element_blank(),
+                           axis.title.y=element_blank(),
+                           legend.title=element_text(size=rel(1.4), face="bold"),
+                           legend.text=element_text(size=rel(1))),
+                     guides(fill = guide_colourbar(barheight=7)),
+                     geom_path(data=S_Bahn.fort, aes(x=long, y=lat), linetype=2, size=1))
 
-p <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
-  geom_polygon(aes(fill=Gentri, group=id)) + geom_path(color="white", alpha=1, size=0.3) +   
-  theme_bw() + coord_equal(ratio=1.5)
-p <- p + geom_polygon(aes(group=id),data=BZK.fort, fill=NA, colour="grey", alpha=0.8, size=1) + theme_bw() + 
-  theme(legend.position =c(0.9,0.8), 
-        line = element_blank(), 
-        rect= element_blank(),
-        axis.line=element_blank(),
-        axis.text.x=element_blank(),
-        axis.text.y=element_blank(),
-        axis.ticks=element_blank(),
-        axis.title.x=element_blank(),
-        axis.title.y=element_blank()) + coord_map("polyconic") + guides(fill = guide_legend(barheight=6))
-p1 <- p + geom_path(data=S_Bahn.fort, aes(x=long, y=lat), linetype=2, size=1)
-p1
+kartenlayoutCAT <- list(geom_polygon(aes(group=id),data=BZK.fort, fill=NA, colour="grey50", alpha=0.8, size=1.2),
+                     theme(legend.position =c(0.9,0.8), 
+                           line = element_blank(), 
+                           rect= element_blank(),
+                           axis.line=element_blank(),
+                           axis.text.x=element_blank(),
+                           axis.text.y=element_blank(),
+                           axis.ticks=element_blank(),
+                           axis.title.x=element_blank(),
+                           axis.title.y=element_blank(),
+                           legend.title=element_text(size=rel(1.4), face="bold"),
+                           legend.text=element_text(size=rel(1)),
+                           legend.background = element_rect()),
+                     geom_path(data=S_Bahn.fort, aes(x=long, y=lat), linetype=2, size=1))
+
+kartenlayoutCATo <- list(geom_polygon(aes(group=id),data=BZK.fort, fill=NA, colour="grey50", alpha=0.8, size=0.5),
+                         theme(legend.position ='none', 
+                               line = element_blank(), 
+                               rect= element_blank(),
+                               axis.line=element_blank(),
+                               axis.text.x=element_blank(),
+                               axis.text.y=element_blank(),
+                               axis.ticks=element_blank(),
+                               axis.title.x=element_blank(),
+                               axis.title.y=element_blank(),
+                               legend.title=element_text(size=rel(0.8), face="bold"),
+                               legend.text=element_text(size=rel(0.6)),
+                               legend.background = element_rect()),
+                         geom_path(data=S_Bahn.fort, aes(x=long, y=lat), linetype=2, size=0.6))
+
+
+MietechgrMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=Mietechgr, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradient2(low = "#0570b0", mid = "#fee0d2", high ="#e31a1c",midpoint = 0, 
+                       name=expression(paste(Delta[r],'Miete (%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout
+MietechgrMAP
+
+
+ArmutchgMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=Armutchg, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradient2(low = "#0570b0", mid = "#fee0d2", high ="#e31a1c",midpoint = 0, 
+                       name=expression(paste(Delta,'Armut (%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout
+ArmutchgMAP
+
+GentriMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=Gentri, group=id)) + geom_path(color="grey20", alpha=1, size=0.3) +
+  scale_fill_discrete(name=expression(paste('Kategorie'))) +  
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayoutCATo
+GentriMAP
+
+ArmutchgMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=Armutchg, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradient2(low = "#0570b0", mid = "#fee0d2", high ="#e31a1c",midpoint = 0, 
+                       name=expression(paste(Delta,'Armut (%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout
+ArmutchgMAP
+
+Armut.2007MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=Armut.2007, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradient2(low = "#0570b0", mid = "#fee0d2", high ="#e31a1c",midpoint = 0, 
+                       name=expression(paste('Armut[2007]',' ','(%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
+Armut.2007MAP
 
 
 
@@ -152,5 +178,42 @@ ggmap(ggmap = BerlinGMAP, darken=0.6, legend = 'topright') + geom_polygon(data=L
  guides(fill = guide_colorbar(barwidth = 1.5, barheight = 10)) +
  scale_fill_gradient('Armutsänderung')
 
+################################
+################################
+# Versuche LABELS in die Bezirke zu bekommen
 
+
+p <- ggplot() + geom_text(data=test, aes(x=x, y=y, label=BEZ_NAME))
++ geom_polygon(LOR4reg.fort, aes(x=long, y=lat, group = id))
+geom_polygon(aes(fill=Mietechgr, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) + 
+  scale_fill_gradient2(low = "#0570b0", mid = "#fee0d2", high ="#e31a1c",midpoint = 0) +
+  geom_polygon(aes(group=id),data=BZK.fort, fill=NA, colour="grey50", alpha=0.8) + 
+  theme(legend.position =c(0.9,0.8), 
+        line = element_blank(), 
+        rect= element_blank(),
+        axis.line=element_blank(),
+        axis.text.x=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks=element_blank(),
+        axis.title.x=element_blank(),
+        axis.title.y=element_blank()) + 
+  coord_map("polyconic") + 
+  guides(fill = guide_colourbar(barheight=6)) +
+  geom_path(data=S_Bahn.fort, aes(x=long, y=lat), linetype=2, size=0.7) 
+p + geom_text(data=test, aes(label = BEZ_NAME, x = x, y = y),
+              hjust=0.5, vjust=-0.5, colour="gold2", size=4)
+
+setwd("/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten")
+BZK1     <- readOGR(dsn="Bezirke_GS/", layer="RBS_OD_BEZ_1412")
+BZK1@proj4string
+BZK      <- spTransform(BZK1, zielCRS)
+
+BZKLONGLAT_pt    <- gCentroid(BZKLONGLAT,byid=TRUE); plot(BZKLONGLAT_pt)
+BZKLONGLAT_ptdf  <- SpatialPointsDataFrame(coords = BZKLONGLAT_pt, 
+                                           data = BZKLONGLAT@data)
+
+test <- data.frame(BZKLONGLAT_pt@coords,BZKLONGLAT_ptdf@data$BezName)
+names(test)[3] <- "BEZ_NAME"
+
+ggplot() +  geom_text(data=test, aes(x=x, y=y, label=BEZ_NAME), color="red")
 

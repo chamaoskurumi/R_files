@@ -33,15 +33,15 @@ qntlA_Armutchg  <- wtd.quantile(LOR4reg@data$Armutchg, weights=LOR4reg@data$E_E.
 qntlA_Mietechgr <- wtd.quantile(LOR4reg@data$Mietechgr, weights=LOR4reg@data$E_E.2007, 
                                 probs=c(0, .15, .5, .85, 1))
 
-bp_theme <- theme(text = element_text(colour = "grey20", size =20, face = "bold"),
-                  axis.text.x = element_text(face="bold",colour = "grey20"),
+bp_theme <- theme(#text = element_text(colour = "grey20", size =20, face = "bold"),
+                  #axis.text.x = element_text(face="bold",colour = "grey20"),
                   axis.title.x = element_blank(),
-                  axis.title.y = element_text(colour = "grey20", size =20, face = "bold", angle = 90),
+                  #axis.title.y = element_text(colour = "grey20", size =20, face = "bold", angle = 90),
                   plot.margin=unit(c(0.5,-0.3,0.5,0.5), "cm"),
                   legend.position="none") 
 
-bp_themeG <- theme(text= element_text(size=20),
-                   axis.text.x = element_text(face="bold.italic",colour = "grey20"),
+bp_themeG <- theme(#text= element_text(size=20),
+                   #axis.text.x = element_text(face="bold.italic",colour = "grey20"),
                    axis.text.y = element_blank(),
                    axis.title.x = element_blank(),
                    axis.title.y = element_blank(),
@@ -73,7 +73,7 @@ p2Mietechgr  <- p2Mietechgr  + geom_boxplot(width=.3)
 p2Mietechgr  <- p2Mietechgr  + geom_hline(aes(yintercept=qntl_Mietechgr[4]),
                                           linetype="dotted", color="red", size=1)
 p2Mietechgr <- p2Mietechgr + annotate("text", x=0.6, y=4.55, label="Q[0.75]", parse=TRUE, col="red")
-p2Mietechgr
+#p2Mietechgr
 
 grid.arrange(p1Mietechgr,p2Mietechgr, ncol=2, nrow=1, widths=c(3,1))
 
@@ -99,9 +99,9 @@ p2Armutchg <- p2Armutchg + geom_boxplot(width=.3)
 p2Armutchg <- p2Armutchg + geom_hline(aes(yintercept=qntl_Armutchg[2]),
                       linetype="dotted", color="red", size=1)
 p2Armutchg <- p2Armutchg + annotate("text", x=1.4, y=-3.6, label="Q[0.25]", parse=TRUE, col="red")
-p2Armutchg
+#p2Armutchg
 
-grid.arrange(p1Armutchg, p2Armutchg, ncol=2, nrow=1, widths=c(3,1))
+#grid.arrange(p1Armutchg, p2Armutchg, ncol=2, nrow=1, widths=c(3,1))
 
 ##### Miete 2007 ####
 
@@ -132,7 +132,7 @@ p2Miete.2007  <- ggplot(bpDF, aes(valid,
   geom_violin(scale="width") +  bp_themeG
 p2Miete.2007 <- p2Miete.2007 + geom_boxplot(width=.3)
 
-grid.arrange(p1Miete.2007, p2Miete.2007, ncol=2, nrow=1, widths=c(3,1))
+#grid.arrange(p1Miete.2007, p2Miete.2007, ncol=2, nrow=1, widths=c(3,1))
 
 ##### Armut 2007 ####
 
@@ -140,7 +140,7 @@ p1Armut.2007  <- ggplot(bpDF, aes(Gentri,
                         Armut.2007, 
                         weight=E_E.2007,
                         fill=Gentri)) + 
-  ylab(expression(paste(Armut[2007])))+
+  ylab(expression(paste(Armut[2007],' ','(%)')))+
   scale_y_continuous(breaks=pretty_breaks(n=5))+ 
   geom_violin(scale = "width") + bp_theme
 p1Armut.2007  <- p1Armut.2007 + geom_boxplot(width=.3)
@@ -162,8 +162,7 @@ p2Armut.2007 <- ggplot(bpDF, aes(valid,
   geom_violin(scale="width") +  bp_themeG
 p2Armut.2007  <- p2Armut.2007 + geom_boxplot(width=.3)
 
-grid.arrange(p1Armut.2007, p2Armut.2007, ncol=2, nrow=1, widths=c(3,1))
-
+#grid.arrange(p1Armut.2007, p2Armut.2007, ncol=2, nrow=1, widths=c(3,1))
 
 ##### Miete 2012 ####
 
@@ -207,6 +206,10 @@ p2Armut.2012  <- ggplot(bpDF, aes(valid,
 p2Armut.2012 <- p2Armut.2012 + geom_boxplot(width=.3)
 
 grid.arrange(p1Armut.2012, p2Armut.2012, ncol=2, nrow=1, widths=c(3,1))
+
+grid.arrange(p1Mietechgr, p2Mietechgr, p1Armutchg, p2Armutchg,
+             p1Miete.2007, p2Miete.2007, p1Armut.2007, p2Armut.2007,
+             ncol=4, nrow=2, widths=c(3,1,3,1,3,1,3,1))
 
 grid.arrange(p1Mietechgr, p2Mietechgr, p1Armutchg, p2Armutchg,
              p1Miete.2007, p2Miete.2007, p1Armut.2007, p2Armut.2007,
@@ -284,8 +287,19 @@ fill_colors <- matrix(c("red", "gray", "gray","grey",
 
 bpDF$MietechgrQNTL <- factor(bpDF$MietechgrQNTL,levels(bpDF$MietechgrQNTL)[c(4,3,2,1)])
 
-mosaic(~ MietechgrQNTL + ArmutchgQNTL, data=bpDF, gp = gpar(fill = fill_colors, col = 0))
-assoc(~ MietechgrQNTL + ArmutchgQNTL, data=bpDF, shade=TRUE) 
+mosaicDF <- table(bpDF$MietechgrQNTL, bpDF$ArmutchgQNTL,dnn=c("Relative Mietpressteigerung","Änderung der Armutsquote"))
+levels(bpDF$valid)[levels(bpDF$valid)=="gültig"] <- "Gesamt"
+levels(bpDF$MietechgrQNTL)[levels(bpDF$MietechgrQNTL)=="4.Quartil"] <- "4.Qrt"
+levels(bpDF$MietechgrQNTL)[levels(bpDF$MietechgrQNTL)=="3.Quartil"] <- "3.Qrt"
+levels(bpDF$MietechgrQNTL)[levels(bpDF$MietechgrQNTL)=="2.Quartil"] <- "2.Qrt"
+levels(bpDF$MietechgrQNTL)[levels(bpDF$MietechgrQNTL)=="1.Quartil"] <- "1.Qrt"
+levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="4.Quartil"] <- "4.Qrt"
+levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="3.Quartil"] <- "3.Qrt"
+levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="2.Quartil"] <- "2.Qrt"
+levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="1.Quartil"] <- "1.Qrt"
+
+mosaic(mosaicDF, gp = gpar(fill = fill_colors, col = 0))
+assoc(mosaicDF,shade=TRUE) 
 
 summary(bpDF$Gentri)
 table(bpDF$STADTRAUM,bpDF$Gentri)
@@ -334,6 +348,33 @@ summarize(bpDF,
           Armut.2007_mean=round(weighted.mean(Armut.2007,E_E.2007),digits=1),
           Armut.2012_mean=round(weighted.mean(Armut.2012,E_E.2007),digits=1))
 
+
+
+bar_theme <- theme(#axis.text.y = element_text(colour = "grey20",size =16),
+                   axis.title.y = element_blank(),
+                   axis.title.x = element_text(face="bold",colour = "grey50"),
+                   #legend.text=element_text(colour = "grey20",size=14),
+                   legend.title=element_text(face="bold",colour = "grey50"))
+
+summaryBEZ_NAME <- ddply(bpDF, 
+                         .(BEZ_NAME, Gentri), summarize,
+                         E_E.2007_sum=sum(E_E.2007))
+
+summaryBEZ_NAME <- arrange(summaryBEZ_NAME, Gentri, E_E.2007_sum)
+
+names(summaryBEZ_NAME)[names(summaryBEZ_NAME)=="Gentri"] <- "Kategorie"
+summaryBEZ_NAME$E_E.2007_sum <- summaryBEZ_NAME$E_E.2007_sum/1000
+
+Reihenfolge <- rev(c("Friedrichshain-Kreuzberg","Neukölln",
+                     "Pankow","Lichtenberg",
+                     "Charlottenburg-Wilmersdorf", 
+                     "Treptow-Köpenick", "Mitte",
+                     "Tempelhof-Schöneberg","Spandau","Reinickendorf",
+                     "Marzahn-Hellersdorf","Steglitz-Zehlendorf"))
+
+bar1 <- ggplot(data=summaryBEZ_NAME, aes(x=factor(BEZ_NAME, levels=Reihenfolge), y=E_E.2007_sum, fill=Kategorie)) +
+  geom_bar(stat='identity') + bar_theme + ylab("Einwohner*innenzahl 2007 in 1000") +  coord_flip() 
+bar1
 
 
 
