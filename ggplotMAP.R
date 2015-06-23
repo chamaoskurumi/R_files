@@ -3,6 +3,7 @@ library("ggmap")
 library("rgdal")
 library("sp")
 library("plyr")
+library("scales")
 
 #### 0.) Daten einlesen #####
 
@@ -83,6 +84,7 @@ kartenlayoutCATo <- list(geom_polygon(aes(group=id),data=BZK.fort, fill=NA, colo
 lowCOLOR <- "blue"
 midCOLOR <- "#fee0d2"
 hiCOLOR  <- "red"
+superhiCOLOR <- "black"
 
 MietechgrMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=Mietechgr, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
@@ -147,6 +149,34 @@ Miete.2012MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
                        name=expression(paste('Miete'[2012],' ','(%)'))) +
   coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
 Miete.2012MAP
+
+Miete.2012MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=Miete.2012, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR), 
+                       values = rescale(c(4,7,14)),
+                       guide = "colorbar", limits=c(4,14),
+                       name=expression(paste('Miete'[2012],' ','(%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
+Miete.2012MAP
+
+FortzuegeRMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=FortzuegeR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
+                       values = rescale(c(3.9,12,15,25)),
+                       guide = "colorbar", limits=c(3.4,25),
+                       name=expression(paste('Fortzüge',' ','(%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
+FortzuegeRMAP
+
+ZuzuegeRMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=ZuzuegeR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
+                       values = rescale(c(3.8,7,13,22)),
+                       guide = "colorbar", limits=c(3.8,22),
+                       name=expression(paste('Zuzüge',' ','(%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
+ZuzuegeRMAP
+
 
 
 #### 3.) Jetzt gehts endlich um GGMAP. Als erstes muss man da ne Karte holen mit get_map. 
