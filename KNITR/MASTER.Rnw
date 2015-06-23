@@ -17,6 +17,9 @@
 \usepackage{eurosym}
 \usepackage{sectsty}
 \usepackage{mathtools}
+\usepackage{pdflscape}
+\usepackage{float} 
+\usepackage{subcaption}
 %\usepackage{eufrak}
 \DeclareRobustCommand{\officialeuro}{%
   \ifmmode\expandafter\text\fi
@@ -63,16 +66,19 @@
 \begin{document}
 
 
-<<include=FALSE>>=
+<<setupPRE,include=FALSE>>=
 library(knitr)
 opts_chunk$set(
 concordance=TRUE,echo=FALSE, cache=TRUE, 
 message=FALSE,warning=FALSE,
-tidy=TRUE, self.contained=FALSE
+tidy=TRUE, self.contained=FALSE,fig.pos='H'
 )
+knit_hooks$set(par = function(before, options, envir) {
+  if (before) par(mar = c(4, 4, .1, .1))
+})
 @
 
-<<include=FALSE>>=
+<<DataLoad,include=FALSE>>=
 load("/home/dao/Desktop/MasterArbeit/R_files/KNITR/FINAL_WORKSPACE.Rdata")
 setwd("/home/dao/Desktop/MasterArbeit/R_files/KNITR/")
 @

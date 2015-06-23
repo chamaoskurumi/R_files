@@ -80,10 +80,13 @@ kartenlayoutCATo <- list(geom_polygon(aes(group=id),data=BZK.fort, fill=NA, colo
                                legend.background = element_rect()),
                          geom_path(data=S_Bahn.fort, aes(x=long, y=lat), linetype=2, size=0.6))
 
+lowCOLOR <- "blue"
+midCOLOR <- "#fee0d2"
+hiCOLOR  <- "red"
 
 MietechgrMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=Mietechgr, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
-  scale_fill_gradient2(low = "#0570b0", mid = "#fee0d2", high ="#e31a1c",midpoint = 0, 
+  scale_fill_gradient2(low = lowCOLOR, mid = midCOLOR, high =hiCOLOR,midpoint = 0, 
                        name=expression(paste(Delta[r],'Miete (%)'))) +
   coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout
 MietechgrMAP
@@ -91,7 +94,7 @@ MietechgrMAP
 
 ArmutchgMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=Armutchg, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
-  scale_fill_gradient2(low = "#0570b0", mid = "#fee0d2", high ="#e31a1c",midpoint = 0, 
+  scale_fill_gradient2(low = lowCOLOR, mid = midCOLOR, high =hiCOLOR,midpoint = 0, 
                        name=expression(paste(Delta,'Armut (%)'))) +
   coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout
 ArmutchgMAP
@@ -104,18 +107,46 @@ GentriMAP
 
 ArmutchgMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=Armutchg, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
-  scale_fill_gradient2(low = "#0570b0", mid = "#fee0d2", high ="#e31a1c",midpoint = 0, 
+  scale_fill_gradient2(low = lowCOLOR, mid = midCOLOR, high =hiCOLOR,midpoint = 0, 
                        name=expression(paste(Delta,'Armut (%)'))) +
   coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout
 ArmutchgMAP
 
 Armut.2007MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=Armut.2007, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
-  scale_fill_gradient2(low = "#0570b0", mid = "#fee0d2", high ="#e31a1c",midpoint = 0, 
-                       name=expression(paste('Armut[2007]',' ','(%)'))) +
+  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR), 
+                       values = rescale(c(1,20,55)),
+                       guide = "colorbar", limits=c(1,55),
+                       name=expression(paste('Armut'[2007],' ','(%)'))) +
   coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
 Armut.2007MAP
 
+Armut.2012MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=Armut.2012, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR), 
+                       values = rescale(c(1,20,55)),
+                       guide = "colorbar", limits=c(1,55),
+                       name=expression(paste('Armut'[2012],' ','(%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
+Armut.2012MAP
+
+Miete.2007MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+    geom_polygon(aes(fill=Miete.2007, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR), 
+                       values = rescale(c(4,7,14)),
+                       guide = "colorbar", limits=c(4,14),
+                       name=expression(paste('Miete'[2007],' ','(%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
+Miete.2007MAP
+
+Miete.2012MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=Miete.2012, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR), 
+                       values = rescale(c(4,7,14)),
+                       guide = "colorbar", limits=c(4,14),
+                       name=expression(paste('Miete'[2012],' ','(%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
+Miete.2012MAP
 
 
 #### 3.) Jetzt gehts endlich um GGMAP. Als erstes muss man da ne Karte holen mit get_map. 

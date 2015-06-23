@@ -1,12 +1,10 @@
 \Sexpr{set_parent("MASTER.Rnw")}
 
-\section{Analyse}\label{Sec:Analyse}
+\section{Lokalisierung und Charakterisierung von Gentrificationgebieten}\label{Sec:AnaGentri}
 
-<<>>=
+    \subsection{Klassifizierung}\label{Sec:AnaGentriKlassi}
 
-@
-
-
+\ref{sec:Klassifizierung}
 
 \begin{itemize}
 \item $Kategorie(i) =$ \textbf{Gentri}, wenn \\ $\Mietechgr(i) > 4,2\% \; \wedge \; \Armutchg(i) < -3,1\%$       
@@ -14,35 +12,82 @@
 \item $Kategorie(i) =$ \textbf{Andere} \\ $sonst$.  
 \end{itemize}
 
-Klassifizierung
-Lokalisierung
-Charakterisierung
+Auf Grundlage dieser Konditionen wurden von den 430~gültigen LOR 45~(10,5\%) als Gentrificationquartiere, 139~(32,3\%) als Kontrollquartiere und 246~(57,2\%) als Andere Quartiere klassifiziert. 
 
-nach klassifizierung: \\
- -Tabelle mit schwellenwertstatistiken und verteilungen
- -mosiacplot nach quartilen immo und sozial aufwertung  
- - Karte von beidem, soz. und immo quartilen: Kontinous und danaben quartile
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+                                       & \multicolumn{1}{r}{{\bf Gentri}} & \multicolumn{1}{r}{{\bf Kontroll}} & \multicolumn{1}{r}{{\bf Andere}} & \multicolumn{1}{r}{{\bf \textit{Gesamt}}} \\ \midrule
+$m$                                    & 45                               & 139                                & 246                              & 430                                  \\
+$m$ nach \textit{Stadtraum}$^\dagger$                    & 41/4                           & 39/100                           & 57/189                         & 137/293                            \\
+$Q_{0.5}(DStadtmitte)$       & 3726                             & 8065                               & 10068                            & 8846                                 \\ \bottomrule
+\multicolumn{5}{l}{\footnotesize $^\dagger$innere Stadt / äußere Stadt}\\
+\end{tabular}
+\caption{Grundstatistiken nach \textit{Kategorie}}\label{tab:KategorieUebersicht}
+\end{table}
 
-charakterisierung: 
-violin und boxplots gewichtet
-bubbleplots gewichtet
+Boxplotpage
 
-  	\subsection{Identifizierung und Charakterisierung von Aufwertungsgebieten}
-    Karten erstellen mit Mietechgr und Armutchg sowie daneben die Quartilsbetrachtungen \\
+    \subsection{Lokalisierung}\label{Sec:AnaGentriLokal}
 
-    Tabelle mit zahlen wieviele LORs wo rein fallen (Gentri vs. Stadtraum) und wieviele Leute da wohnen. \\
-    3 Kreisdiagramme nach Gentri, Kuchenstücke nach Bezirken in Einwohnern. \\
+\ref{tab:KategorieUebersicht}
+
+\subsubsection{Immobilienwirtschaftliche und soziale Aufwertungsgebiete}
+KarteMIETECHGR KarteARMUTCHGR
+
+\subsubsection{Gentrificationgebiete}
+
+Durchschnittliche Größe nach Einwohner*innen 2007 ($Q_{0.5}(EW_{2007})$), durchschnittliche Entfernung zur Stadtmitte in $m$ ($Q_{0.5}(DStadtmitte)$), sowie die Summe der Einwoher*innen 2007 ($\Sigma\;EW_{2007}$).      
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+                                       & \multicolumn{1}{r}{{\bf Gentri}} & \multicolumn{1}{r}{{\bf Kontroll}} & \multicolumn{1}{r}{{\bf Andere}} & \multicolumn{1}{r}{{\bf \textit{Gesamt}}} \\ \midrule
+$m$                                    & 45                               & 139                                & 246                              & 430                                  \\
+$Q_{0.5}(EW_{2007})$                   & 9734                             & 7172                               & 6309                             & 6907                                 \\
+$\Sigma\;EW_{2007}$                    & 456355                           & 1158061                            & 1727819                          & 3342235                              \\ \bottomrule
+\end{tabular}
+\caption{Lagestatistiken nach \textit{Kategorie}}\label{tab:KategorieLage}
+\end{table}            
+
+KarteGENRTI und bar1
+
+    \subsection{Charakterisierung}\label{Sec:AnaGentriChara}
+
     Diverse Violin-Boxplots nach Gentri --> Darauf hinweisen dass unterliegende Kausalität andere sein kann. das wird ja dann in den Modellen folgen.
+
+\subsubsection{Mietpreise}
+KarteMIETE2007 KarteMIETE2012\\
+
+\subsubsection{Armut}
+KarteARMUT2007 KarteARMUT2012
+
+\subsubsection{Demographie}
+
+\subsubsection{Wohnräumliche Mobilität}
+KarteFortzügeR KarteZuzügeR
+KarteFortzügeRA KarteZuzügeRA
+
+    \subsection{Interpretation}\label{Sec:AnaGentriInter}
+
+\paragraph{Prüfung auf Robustheit der Ergebnisse}
+Alternative Klassifizierung. Plots im Anhang.
+
+\section{Vermessung von Aufwertung und Verdrängung}\label{Sec:AnaVermessung}
+
+    \subsection{Modellspezifikation}\label{Sec:AnaSAR}
+
+    \subsection{Regressionsergebnisse}\label{Sec:AnaSAR}
+
+    \subsection{Interpretation}\label{Sec:AnaSARInter}
+
+
 
     Großteil der Aufwertungsgebiete fällt mit den Gebieten der größten Ertragslücken zusammen. Ist ist also von einem erhöhten Verdrängungsdruck sowie von exclusionary displacement auszugehen. Medianangebotsmieten verschleiern aber auch den Wegfall von billigen Angebotsmieten. Laut BBU und Gentrimap fehlen aber vor allem da die Wohunngen, also exclusionary displacement.
 
-    Am Ende: 
-    Kategorisierung schütteln - ergebnisse des robustheitschecks \\
-    z.B. in Anhang selbe Graphiken für Gentri = obere 40Prozent und Q0.25<Kontroll<Q0.75 oder
-
-   Auf der Grundlage von Daten aus dem Jahre 2003 charakterisierte \citet[S.~74]{Gebhardt2012} den Altbezirk Kreuzberg sowie Nord-Neukölln noch als Abwertungsgebiete mit teilweisen inselhaften Aufwertungstendenzen, welche hohe Wohnmobilität aufweisen und aus denen Teile der Mittelschicht in Randgebiete abwandern. Auch hier beobachten wir 2007-2012 eine hohe Wohnmobilität, jedoch mit flächendeckenden Aufwertungsprozessen. 
-
-gewichtete Korrelation zwischen sozialer und immoblienwirtschaftlicher Aufwertung
+   Auf der Grundlage von Daten aus dem Jahre 2003 charakterisierte \citet[S.~74]{Gebhardt2012} den Altbezirk Kreuzberg sowie Nord-Neukölln noch als Abwertungsgebiete mit teilweisen inselhaften Aufwertungstendenzen, welche hohe Wohnmobilität aufweisen und aus denen Teile der Mittelschicht in Randgebiete abwandern. Auch hier beobachten wir 2007-2012 eine hohe Wohnmobilität, jedoch mit flächendeckenden Aufwertungsprozessen.
 
 \begin{itemize}
     \item Fortzuege in gebieten nach Qntl Mietpreissteigerung: MietechgrQNTL Aufwertungs Quantil (4.) dort am meisten Fortzuege. Aber NICHT wegen mieterhöhunG! --> Modelle
@@ -50,20 +95,12 @@ gewichtete Korrelation zwischen sozialer und immoblienwirtschaftlicher Aufwertun
     \item displacement pressure wohl im 4. Mietaufwertungsquartil am größten wegen größter rent gap (äußert sich in der differenz bestandsmieten-angebotsmieten) z.B. gestiegene Zwangsräumungsneigung. 
 \end{itemize}
 
-		\subsection{Modellierung wohnräumlicher Mobilität}
-
 1. Inhaltlich wurde die Variablenselektion bereits im Methodenkapitel begründet. \\
 2. VIF check ob Multicollineartität. \\
 3. Modelle schätzen - Coefplots \\
 4. Residuenanalyse und Goodness of fit checken \\
 
 Diskussion der Ergebnisse, was sagen zu jedem Verdrängungstypen
-
-Newman 2006 p.2 sagt, höhere Umzugsraten bei Armen zu erwarten.
-Siehe auch Scottish Government Report: Umzugsneigung bei Familien mit geringem Einkommen, arbeitslosen, Mieterinnen, most deprived areas höher.
-
-
-		\subsection{Vergleichende Wanderungsanalyse}
 
 \begin{itemize}
     \item Discuss results:
