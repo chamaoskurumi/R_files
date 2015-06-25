@@ -33,16 +33,14 @@ qntlA_Armutchg  <- wtd.quantile(LOR4reg@data$Armutchg, weights=LOR4reg@data$E_E.
 qntlA_Mietechgr <- wtd.quantile(LOR4reg@data$Mietechgr, weights=LOR4reg@data$E_E.2007, 
                                 probs=c(0, .15, .5, .85, 1))
 
-bp_theme <- theme(#text = element_text(colour = "grey20", size =20, face = "bold"),
-                  #axis.text.x = element_text(face="bold",colour = "grey20"),
-                  axis.title.x = element_blank(),
-                  #axis.title.y = element_text(colour = "grey20", size =20, face = "bold", angle = 90),
+bp_theme <- theme(axis.title.x = element_blank(),
                   plot.margin=unit(c(0.5,-0.3,0.5,0.5), "cm"),
                   legend.position="none") 
 
-bp_themeG <- theme(#text= element_text(size=20),
-                   #axis.text.x = element_text(face="bold.italic",colour = "grey20"),
-                   axis.text.y = element_blank(),
+bp_themeMITRAND <- theme(axis.title.x = element_blank(),
+                         legend.position="none") 
+
+bp_themeG <- theme(axis.text.y = element_blank(),
                    axis.title.x = element_blank(),
                    axis.title.y = element_blank(),
                    axis.ticks = element_blank(),
@@ -216,6 +214,166 @@ grid.arrange(p1Mietechgr, p2Mietechgr, p1Armutchg, p2Armutchg,
              p1Miete.2012, p2Miete.2012, p1Armut.2012, p2Armut.2012,
              ncol=4, nrow=3, widths=c(3,1,3,1,3,1,3,1,3,1,3,1))
 
+View(bpDF)
+
+##### H1 Boxplots ####
+bpGentriInnere   <- subset(bpDF, Gentri=="Gentri" & STADTRAUM=="innere Stadt")
+bpGesamtInnere   <- subset(bpDF, STADTRAUM=="innere Stadt")
+
+#####**** innere stadt ****####
+
+p1ArmutG.2007  <- ggplot(bpGentriInnere , aes(Gentri, 
+                                  Armut.2007, 
+                                  weight=E_E.2007,
+                                  fill=Gentri)) + 
+  ylab(expression(paste(Armut[2007],' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche),
+                     limits=c(4, 52))+ 
+  geom_violin(scale = "width") + bp_theme
+p1ArmutG.2007 <- p1ArmutG.2007 + geom_boxplot(width=.3)
+p1ArmutG.2007
+
+p2ArmutG.2007  <- ggplot(bpGesamtInnere, aes(valid,
+                                  Armut.2007, 
+                                  weight=E_E.2007)) +
+  scale_y_continuous(breaks=pretty_breaks(n=brueche),
+                     limits=c(4, 52)) +
+  geom_violin(scale="width") +  bp_themeG
+p2ArmutG.2007 <- p2ArmutG.2007 + geom_boxplot(width=.3)
+p2ArmutG.2007
+
+grid.arrange(p1ArmutG.2007, p2ArmutG.2007,
+             ncol=2, nrow=1, widths=c(1,1))
+
+p1MieteG.2007  <- ggplot(bpGentriInnere , aes(Gentri, 
+                                              Miete.2007, 
+                                              weight=E_E.2007,
+                                              fill=Gentri)) + 
+  ylab(expression(paste(Miete[2007],' ','(Euro)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche),
+                     limits=c(4.7, 10.9))+ 
+  geom_violin(scale = "width") + bp_theme
+p1MieteG.2007 <- p1MieteG.2007 + geom_boxplot(width=.3)
+p1MieteG.2007
+
+p2MieteG.2007  <- ggplot(bpGesamtInnere, aes(valid,
+                                             Miete.2007, 
+                                             weight=E_E.2007)) +
+  scale_y_continuous(breaks=pretty_breaks(n=brueche),
+                     limits=c(4.7, 10.9)) +
+  geom_violin(scale="width") +  bp_themeG
+p2MieteG.2007 <- p2MieteG.2007 + geom_boxplot(width=.3)
+p2MieteG.2007
+
+grid.arrange(p1MieteG.2007, p2MieteG.2007,
+             ncol=2, nrow=1, widths=c(1,1))
+
+grid.arrange(p1MieteG.2007, p2MieteG.2007,
+             p1ArmutG.2007, p2ArmutG.2007,
+             ncol=4, nrow=1, widths=c(1,1,1,1))
+
+
+##### H2 Boxplots ####
+
+#####**** gesamte Stadt ****####
+
+p1FortzuegeR  <- ggplot(bpDF , aes(Gentri, 
+                                  FortzuegeR, 
+                                  weight=E_E.2007,
+                                  fill=Gentri)) + 
+  ylab(expression(paste('Fortzüge',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  coord_cartesian(ylim = c(3, 17)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1FortzuegeR <- p1FortzuegeR + geom_boxplot(width=.3)
+p1FortzuegeR
+
+p1FortzuegeUDAR  <- ggplot(bpDF , aes(Gentri, 
+                                  FortzuegeUDAR, 
+                                  weight=E_E.2007,
+                                  fill=Gentri)) + 
+  ylab(expression(paste('FortzügeA',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  coord_cartesian(ylim = c(0, 10)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1FortzuegeUDAR <- p1FortzuegeUDAR + geom_boxplot(width=.3)
+p1FortzuegeUDAR
+
+p1ZuzuegeR  <- ggplot(bpDF , aes(Gentri, 
+                                   ZuzuegeR, 
+                                   weight=E_E.2007,
+                                   fill=Gentri)) + 
+  ylab(expression(paste('Zuzüge',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1ZuzuegeR <- p1ZuzuegeR + geom_boxplot(width=.3)
+p1ZuzuegeR
+
+p1ZuzuegeUDAR  <- ggplot(bpDF , aes(Gentri, 
+                                    ZuzuegeUDAR, 
+                                    weight=E_E.2007,
+                                    fill=Gentri)) + 
+  ylab(expression(paste('ZuzügeA',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  coord_cartesian(ylim = c(0, 15)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1ZuzuegeUDAR <- p1ZuzuegeUDAR+ geom_boxplot(width=.3)
+p1ZuzuegeUDAR
+
+grid.arrange(p1FortzuegeR, p1ZuzuegeR,
+             p1FortzuegeUDAR, p1ZuzuegeUDAR,
+             ncol=2, nrow=2, widths=c(1,1,1,1))
+
+#####**** innere Stadt ****####
+
+p1FortzuegeRI  <- ggplot(bpGesamtInnere, aes(Gentri, 
+                                            FortzuegeR, 
+                                            weight=E_E.2007,
+                                            fill=Gentri)) + 
+  ylab(expression(paste('Fortzüge',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  coord_cartesian(ylim = c(3, 17)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1FortzuegeRI <- p1FortzuegeRI + geom_boxplot(width=.3)
+#p1FortzuegeRI
+
+p1FortzuegeUDARI  <- ggplot(bpGesamtInnere, aes(Gentri, 
+                                             FortzuegeUDAR, 
+                                             weight=E_E.2007,
+                                             fill=Gentri)) + 
+  ylab(expression(paste('FortzügeA',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  coord_cartesian(ylim = c(1,10)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1FortzuegeUDARI <- p1FortzuegeUDARI + geom_boxplot(width=.3)
+#p1FortzuegeUDARI
+
+p1ZuzuegeRI  <- ggplot(bpGesamtInnere, aes(Gentri, 
+                                             ZuzuegeR, 
+                                             weight=E_E.2007,
+                                             fill=Gentri)) + 
+  ylab(expression(paste('Zuzüge',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  coord_cartesian(ylim = c(5, 22)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1ZuzuegeRI <- p1ZuzuegeRI + geom_boxplot(width=.3)
+#p1ZuzuegeRI
+
+p1ZuzuegeUDARI  <- ggplot(bpGesamtInnere, aes(Gentri, 
+                                              ZuzuegeUDAR, 
+                                              weight=E_E.2007,
+                                              fill=Gentri)) + 
+  ylab(expression(paste('ZuzügeA',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  coord_cartesian(ylim = c(1, 14)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1ZuzuegeUDARI <- p1ZuzuegeUDARI + geom_boxplot(width=.3)
+#p1ZuzuegeUDARI
+
+grid.arrange(p1FortzuegeRI, p1ZuzuegeRI,
+             p1FortzuegeUDARI, p1ZuzuegeUDARI,
+             ncol=2, nrow=2, widths=c(1,1,1,1))
+
 
 #********************************************
 #                                           #
@@ -376,5 +534,74 @@ bar1 <- ggplot(data=summaryBEZ_NAME, aes(x=factor(BEZ_NAME, levels=Reihenfolge),
   geom_bar(stat='identity') + bar_theme + ylab("Einwohner*innenzahl 2007 in 1000") +  coord_flip() 
 bar1
 
+##### Unterschiede GENTRI / KONTROLL ####
+
+p1  <- ggplot(bpDF, aes(Gentri, 
+                        , 
+                        weight=E_E.2007,
+                        fill=Gentri)) + 
+  ylab(expression(paste('Fortzüge',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  coord_cartesian(ylim = c(3, 17)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1FortzuegeRI <- p1FortzuegeRI + geom_boxplot(width=.3)
+#p1FortzuegeRI
+
+p1FortzuegeUDARI  <- ggplot(bpGesamtInnere, aes(Gentri, 
+                                                FortzuegeUDAR, 
+                                                weight=E_E.2007,
+                                                fill=Gentri)) + 
+  ylab(expression(paste('FortzügeA',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  coord_cartesian(ylim = c(1,10)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1FortzuegeUDARI <- p1FortzuegeUDARI + geom_boxplot(width=.3)
+#p1FortzuegeUDARI
+
+p1ZuzuegeRI  <- ggplot(bpGesamtInnere, aes(Gentri, 
+                                           ZuzuegeR, 
+                                           weight=E_E.2007,
+                                           fill=Gentri)) + 
+  ylab(expression(paste('Zuzüge',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  coord_cartesian(ylim = c(5, 22)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1ZuzuegeRI <- p1ZuzuegeRI + geom_boxplot(width=.3)
+#p1ZuzuegeRI
+
+p1ZuzuegeUDARI  <- ggplot(bpGesamtInnere, aes(Gentri, 
+                                              ZuzuegeUDAR, 
+                                              weight=E_E.2007,
+                                              fill=Gentri)) + 
+  ylab(expression(paste('ZuzügeA',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  coord_cartesian(ylim = c(1, 14)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1ZuzuegeUDARI <- p1ZuzuegeUDARI + geom_boxplot(width=.3)
+#p1ZuzuegeUDARI
+
+grid.arrange(p1FortzuegeRI, p1ZuzuegeRI,
+             p1FortzuegeUDARI, p1ZuzuegeUDARI,
+             ncol=2, nrow=2, widths=c(1,1,1,1))
+
+boxplot(bpDF$E_65U110R.2007 ~ bpDF$Gentri)
+boxplot(bpDF$E_65U110R.2012 ~ bpDF$Gentri)
+boxplot(bpDF$E_18U35R.2007 ~ bpDF$Gentri)
+boxplot(bpDF$E_18U35R.2012 ~ bpDF$Gentri)
+boxplot(bpDF$E_18U35Rchg ~ bpDF$Gentri)
+boxplot(bpDF$E_65U110Rchg ~ bpDF$Gentri)
+boxplot(bpDF$AlleinerzHH.2012 ~ bpDF$Gentri)
+boxplot(bpDF$HK_Turkchg ~ bpDF$Gentri)
+boxplot(bpDF$HK_TurkRchg ~ bpDF$Gentri)
+boxplot(bpDF$HK_ArabRchg ~ bpDF$Gentri)
+boxplot(bpDF$MH_ERchg ~ bpDF$Gentri)
+boxplot(bpDF$HK_EU15Rchg ~ bpDF$Gentri)
+boxplot(bpDF$HK_EU27Rchg ~ bpDF$Gentri)
+boxplot(bpDF$HK_EheJugRMHchg ~ bpDF$Gentri)
+boxplot(bpDF$HK_EU27RMHhg ~ bpDF$Gentri)
+boxplot(bpDF$MH_65U110R65U110chg ~ bpDF$Gentri)
+boxplot(bpDF$MH_ERchg ~ bpDF$Gentri)
+
+table(bpDF$SanGebiet.2012, bpDF$Gentri)
 
 

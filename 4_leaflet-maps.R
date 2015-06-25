@@ -71,7 +71,7 @@ myleaflet(SPdata.frame = LOR,
           intervallBRKno = 10,
           titleNAME = "EW pro LOR 2007")
 
-myleaflet(SPdata.frame = LOR,
+myleaflet(SPdata.frame = LOR4leaflet,
           layer = "Miete.2012",
           popupNAMES = c("RAUMID", "RAUMID_NAME",
                          "BZR_NAME",

@@ -17,13 +17,12 @@ library("vcd")
 library("plyr")
 library("maptools")
 library("sp")
-library("leafletR")
 library("rgdal")
 library("classInt")
 
 if(!require(devtools)) { install.packages('devtools'); require(devtools) }
 devtools::install_github('chgrl/leafletR')
-library("leafletR")
+#library("leafletR")
 
 source("/home/dao/Desktop/MasterArbeit/R_files/functions/myleaflet_FUNCTION.R")
 
@@ -42,7 +41,7 @@ stlMiete.2007 <- styleGrad(prop="Miete.2007", breaks=brks, style.val=clrs,
                  lwd=1, col="white", alpha=0.4)
 SPleaflet1  <- leaflet(data=LORjson, dest=tempdir(),
                       title="Median Angebotsmiete 2012", base.map="positron",
-                      style=stlMiete.2007, popup="*", incl.data = TRUE)
+                      style=stlMiete.2007, popup="*", incl.data = FALSE)
 SPleaflet1
 
 stlMiete.2007 <- styleGrad(prop="Miete.2007", breaks=brks, style.val=clrs, 

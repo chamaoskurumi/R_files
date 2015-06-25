@@ -34,19 +34,35 @@ qntlA_Mietechgr <- wtd.quantile(LOR4reg@data$Mietechgr, weights=LOR4reg@data$E_E
                                 probs=c(0, .15, .5, .85, 1))
 
 bp_theme <- theme(#text = element_text(colour = "grey20", size =20, face = "bold"),
-  #axis.text.x = element_text(face="bold",colour = "grey20"),
+  #axis.text.x = element_text(face="bold", size=8),
   axis.title.x = element_blank(),
-  axis.title.y = element_text(colour = "grey50"),#, size =20, face = "bold", angle = 90),
+  axis.title.y = element_text(colour = "grey50"),#, size=10),#, size =20, face = "bold", angle = 90),
   plot.margin=unit(c(0.5,-0.3,0.5,0.5), "cm"),
   legend.position="none") 
 
+bp_themeMITRAND <- theme(#text = element_text(colour = "grey20", size =20, face = "bold"),
+  #axis.text.x = element_text(face="bold", size=8),
+  axis.title.x = element_blank(),
+  axis.title.y = element_text(colour = "grey50"),#, size=10),#, face = "bold", angle = 90),
+  #plot.margin=unit(c(0.5,-0.3,0.5,0.5), "cm"),
+  legend.position="none") 
+
 bp_themeG <- theme(#text= element_text(size=20),
-  #axis.text.x = element_text(face="bold.italic",colour = "grey20"),
+  #axis.text.x = element_text(face="bold", size=8),
   axis.text.y = element_blank(),
   axis.title.x = element_blank(),
   axis.title.y = element_blank(),
   axis.ticks = element_blank(),
   plot.margin=unit(c(0.5,0.5,0.5,-0.3), "cm"),
+  legend.position="none") 
+
+bp_themeGMITRAND <- theme(#text= element_text(size=20),
+  #axis.text.x = element_text(face="bold", size=8),
+  axis.text.y = element_blank(),
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  axis.ticks = element_blank(),
+  #plot.margin=unit(c(0.5,0.5,0.5,-0.3), "cm"),
   legend.position="none") 
 
 brueche <- 8
@@ -72,7 +88,7 @@ p2Mietechgr   <- ggplot(bpDF, aes(valid,
 p2Mietechgr  <- p2Mietechgr  + geom_boxplot(width=.3)
 p2Mietechgr  <- p2Mietechgr  + geom_hline(aes(yintercept=qntl_Mietechgr[4]),
                                           linetype="dotted", color="red", size=0.5)
-p2Mietechgr <- p2Mietechgr + annotate("text", x=0.6, y=4.73, label="Q[0.75]", parse=TRUE, col="red", size=3)
+p2Mietechgr <- p2Mietechgr + annotate("text", x=0.7, y=4.73, label="Q[0.75]", parse=TRUE, col="red", size=3)
 #p2Mietechgr
 
 #grid.arrange(p1Mietechgr,p2Mietechgr, ncol=2, nrow=1, widths=c(3,1))
@@ -98,7 +114,7 @@ p2Armutchg  <- ggplot(bpDF, aes(valid,
 p2Armutchg <- p2Armutchg + geom_boxplot(width=.3)
 p2Armutchg <- p2Armutchg + geom_hline(aes(yintercept=qntl_Armutchg[2]),
                                       linetype="dotted", color="red", size=0.5)
-p2Armutchg <- p2Armutchg + annotate("text", x=1.35, y=-3.7, label="Q[0.25]", parse=TRUE, col="red", size=3)
+p2Armutchg <- p2Armutchg + annotate("text", x=1.35, y=-4.2, label="Q[0.25]", parse=TRUE, col="red", size=3)
 #p2Armutchg
 
 #grid.arrange(p1Armutchg, p2Armutchg, ncol=2, nrow=1, widths=c(3,1))
@@ -121,8 +137,8 @@ p1Miete.2007 <- p1Miete.2007 + geom_segment(mapping=aes(x="Gentri", y=Gentri_Mie
                            xend="Kontroll", yend=Gentri_Miete.2007_0.90), 
                linetype="dotted", color="red", size=0.3) 
 p1Miete.2007 <- p1Miete.2007 + 
-  annotate("text", x=1.5, y=7.5, label="Q[0.9]^Gentri", parse=TRUE, col="red", size=3) +
-  annotate("text", x=1.5, y=4.8, label="Q[0.1]^Gentri", parse=TRUE, col="red", size=3)
+  annotate("text", x=1.5, y=7.7, label="Q[0.9]^Gentri", parse=TRUE, col="red", size=3) +
+  annotate("text", x=1.5, y=4.6, label="Q[0.1]^Gentri", parse=TRUE, col="red", size=3)
 #p1Miete.2007
 
 p2Miete.2007  <- ggplot(bpDF, aes(valid,
@@ -151,8 +167,8 @@ p1Armut.2007  <- p1Armut.2007 + geom_segment(mapping=aes(x="Gentri", y=Gentri_Ar
                            xend="Kontroll", yend=Gentri_Armut.2007_0.90), 
                linetype="dotted", color="red", size=0.3) 
 p1Armut.2007 <- p1Armut.2007 + 
-  annotate("text", x=1.5, y=47.5, label="Q[0.9]^Gentri", parse=TRUE, col="red", size=3) +
-  annotate("text", x=1.5, y=14.5, label="Q[0.1]^Gentri", parse=TRUE, col="red", size=3)
+  annotate("text", x=1.5, y=49, label="Q[0.9]^Gentri", parse=TRUE, col="red", size=3) +
+  annotate("text", x=1.5, y=13, label="Q[0.1]^Gentri", parse=TRUE, col="red", size=3)
 # p1Armut.2007
 
 p2Armut.2007 <- ggplot(bpDF, aes(valid,

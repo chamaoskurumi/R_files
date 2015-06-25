@@ -1,18 +1,34 @@
 \Sexpr{set_parent("MASTER.Rnw")}
 
-\section{Lokalisierung und Charakterisierung von Gentrificationgebieten}\label{Sec:AnaGentri}
+\section{Lokalisierung \& Charakterisierung von Gentrificationgebieten}\label{Sec:AnaGentri}
 
     \subsection{Klassifizierung}\label{Sec:AnaGentriKlassi}
 
-\ref{sec:Klassifizierung}
-
+Um die Gentrificationgebiete lokalisieren und charakterisieren zu können, müssen die LOR zunächst nach den in Kapitel~\ref{sec:Klassifizierung} beschriebenen Kriterien klassifiziert werden. Durch Klassifizierung wird die Variable \textit{Kategorie} generiert, welche als Grundlage zu Vergleichen von Gentrification- und Kontrollgebieten dienen soll. Empirisch ergaben sich für die Generierung von \textit{Kategorie} die folgenden Konditionen:
 \begin{itemize}
 \item $Kategorie(i) =$ \textbf{Gentri}, wenn \\ $\Mietechgr(i) > 4,2\% \; \wedge \; \Armutchg(i) < -3,1\%$       
 \item $Kategorie(i) =$ \textbf{Kontrolle}, wenn \\ $Miete_{2007}(i) \; \in [5,09\,\euro\,,\,7,26\,\euro] \; \wedge \; Armut_{2007}(i) \; \in [16,8\%\,,\,45,1\%]$
 \item $Kategorie(i) =$ \textbf{Andere} \\ $sonst$.  
 \end{itemize}
+Auf Grundlage dieser Konditionen wurden von den 430~gültigen LOR 45~(10,5\%) als Gentrificationgebiete, 139~(32,3\%) als Kontrollgebiete und 246~(57,2\%) als Andere Gebiete klassifiziert. \ref{fig:ViolinDefKategorie}
 
-Auf Grundlage dieser Konditionen wurden von den 430~gültigen LOR 45~(10,5\%) als Gentrificationquartiere, 139~(32,3\%) als Kontrollquartiere und 246~(57,2\%) als Andere Quartiere klassifiziert. 
+\afterpage{
+\begin{landscape}
+<<ViolinDefKategorie,fig.width=9.75, fig.height=5.5, fig.cap='Violinplots der Definitionsvariablen von \\textit{Kategorie}',fig.lp='fig:'>>=
+library("gridExtra")
+source("/home/dao/Desktop/MasterArbeit/R_files/ANALYSE_VorbereitungFuerViolinplots.R")
+grid.arrange(p1Mietechgr, p2Mietechgr,
+             p1Armutchg, p2Armutchg,
+             p1Miete.2007, p2Miete.2007, 
+             p1Armut.2007, p2Armut.2007,
+             ncol=4, nrow=2, widths=c(3,1,3,1,
+                                      3,1,3,1))
+@
+\end{landscape}
+}
+
+    \subsection{Lokalisierung}\label{Sec:AnaGentriLokal}
+
 
 \begin{table}[h]
 \centering
@@ -27,48 +43,279 @@ $Q_{0.5}(DStadtmitte)$       & 3726                             & 8065          
 \caption{Grundstatistiken nach \textit{Kategorie}}\label{tab:KategorieUebersicht}
 \end{table}
 
-Boxplotpage
-
-    \subsection{Lokalisierung}\label{Sec:AnaGentriLokal}
-
-\ref{tab:KategorieUebersicht}
-
 \subsubsection{Immobilienwirtschaftliche und soziale Aufwertungsgebiete}
-KarteMIETECHGR KarteARMUTCHGR
+
+\pagebreak
+<<VorbereitungGGPLOTmaps, include=FALSE>>=
+LOR4reg.fort$Gentri   <- factor(LOR4reg.fort$Gentri,levels(LOR4reg.fort$Gentri)[c(2,3,1)])
+LOR4reg.fort$GentriA  <- factor(LOR4reg.fort$GentriA,levels(LOR4reg.fort$GentriA)[c(2,3,1)])
+
+kartenlayout <- list(geom_polygon(aes(group=id),data=BZK.fort, fill=NA, colour="grey50", alpha=0.8,size=0.5),
+                     theme(legend.position =c(0.9,0.8), 
+                           line = element_blank(), 
+                           rect= element_blank(),
+                           axis.line=element_blank(),
+                           axis.text.x=element_blank(),
+                           axis.text.y=element_blank(),
+                           axis.ticks=element_blank(),
+                           axis.title.x=element_blank(),
+                           axis.title.y=element_blank(),
+                           legend.title=element_text(size=rel(0.7), face="bold"),
+                           legend.text=element_text(size=rel(0.5)),
+                           plot.margin=unit(c(0,0,-0.7,0), "cm")),
+                     guides(fill = guide_colourbar(barheight=5)),
+                     geom_path(data=S_Bahn.fort, aes(x=long, y=lat), linetype=2, size=0.6))
+
+kartenlayoutCAT <- list(geom_polygon(aes(group=id),data=BZK.fort, fill=NA, colour="grey50", alpha=0.8, size=0.5),
+                     theme(legend.position =c(0.9,0.8), 
+                           line = element_blank(), 
+                           rect= element_blank(),
+                           axis.line=element_blank(),
+                           axis.text.x=element_blank(),
+                           axis.text.y=element_blank(),
+                           axis.ticks=element_blank(),
+                           axis.title.x=element_blank(),
+                           axis.title.y=element_blank(),
+                           legend.title=element_text(size=rel(0.7), face="bold"),
+                           legend.text=element_text(size=rel(0.5)),
+                           legend.background = element_rect(),
+                           plot.margin=unit(c(0,0,-0.7,0), "cm")),
+                     geom_path(data=S_Bahn.fort, aes(x=long, y=lat), linetype=2, size=0.6))
+
+kartenlayoutCATo <- list(geom_polygon(aes(group=id),data=BZK.fort, fill=NA, colour="grey50", alpha=0.8, size=0.5),
+                     theme(legend.position ='none', 
+                           line = element_blank(), 
+                           rect= element_blank(),
+                           axis.line=element_blank(),
+                           axis.text.x=element_blank(),
+                           axis.text.y=element_blank(),
+                           axis.ticks=element_blank(),
+                           axis.title.x=element_blank(),
+                           axis.title.y=element_blank(),
+                           legend.title=element_text(size=rel(0.7), face="bold"),
+                           legend.text=element_text(size=rel(0.5)),
+                           legend.background = element_rect(),
+                           plot.margin=unit(c(0,0,-0.7,0), "cm")),
+                     geom_path(data=S_Bahn.fort, aes(x=long, y=lat), linetype=2, size=0.6))
+lowCOLOR <- "blue"
+midCOLOR <- "#fee0d2"
+hiCOLOR  <- "red"
+superhiCOLOR <- "black"
+@
+
+<<MietechgrMAP, fig.cap="\\href{http://www.gmx.de}{Karte von $\\Delta_{r}$\\textit{Miete}}", fig.height=5, fig.lp='fig:'>>=
+MietechgrMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=Mietechgr, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+    scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
+                       values = rescale(c(-3.5,0,4,12.5)),
+                       guide = "colorbar", limits=c(-3.5,12.5),
+                       name=expression(paste(Delta[r],'Miete (%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout #+ 
+  #theme(plot.margin=unit(c(0,0,-0.7,0), "cm"))
+MietechgrMAP
+@
+
+<<ArmutchgMAP, fig.cap="\\href{http://www.gmx.de}{Karte von $\\Delta$\\textit{Armut}}", fig.height=5, fig.lp='fig:'>>=
+ArmutchgMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=Armutchg, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+    scale_fill_gradientn(colours = c(superhiCOLOR,lowCOLOR,midCOLOR,hiCOLOR), 
+                       values = rescale(c(-15,-4,0,8)),
+                       guide = "colorbar", limits=c(-15,8),
+                       name=expression(paste(Delta,'Armut (%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout #+ theme(plot.margin=unit(c(0,0,-0.7,0), "cm"))
+ArmutchgMAP
+@
+
 
 \subsubsection{Gentrificationgebiete}
 
 Durchschnittliche Größe nach Einwohner*innen 2007 ($Q_{0.5}(EW_{2007})$), durchschnittliche Entfernung zur Stadtmitte in $m$ ($Q_{0.5}(DStadtmitte)$), sowie die Summe der Einwoher*innen 2007 ($\Sigma\;EW_{2007}$).      
+\ref{tab:KategorieEW}
 
-\begin{table}[h]
-\centering
-\begin{tabular}{@{}lrrrr@{}}
-\toprule
-                                       & \multicolumn{1}{r}{{\bf Gentri}} & \multicolumn{1}{r}{{\bf Kontroll}} & \multicolumn{1}{r}{{\bf Andere}} & \multicolumn{1}{r}{{\bf \textit{Gesamt}}} \\ \midrule
-$m$                                    & 45                               & 139                                & 246                              & 430                                  \\
-$Q_{0.5}(EW_{2007})$                   & 9734                             & 7172                               & 6309                             & 6907                                 \\
-$\Sigma\;EW_{2007}$                    & 456355                           & 1158061                            & 1727819                          & 3342235                              \\ \bottomrule
-\end{tabular}
-\caption{Lagestatistiken nach \textit{Kategorie}}\label{tab:KategorieLage}
-\end{table}            
+Figure \ref{fig:EW07Gentri} has its label.
 
-KarteGENRTI und bar1
+\pagebreak
+
+<<GentriMAP, fig.height=5, fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{Kategorie}}", fig.lp='fig:'>>=
+GentriMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=Gentri, group=id)) + geom_path(color="grey20", alpha=0.3, size=0.1) +
+  scale_fill_discrete(name=expression(paste('Kategorie'))) +  
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + theme(plot.margin=unit(c(0,0,-0.7,0), "cm")) +
+  kartenlayoutCAT
+GentriMAP
+@
+
+<<EW07Gentri, fig.height=5, fig.cap='Einwohner*innen 2007 nach Bezirk und \\textit{Kategorie}',fig.lp='fig:'>>=
+bar_theme <- theme(#axis.text.y = element_text(colour = "grey20",size =16),
+                   axis.title.y = element_blank(),
+                   axis.title.x = element_text(face="bold",colour = "grey50"),
+                   legend.text=element_text(colour = "grey50"),
+                   legend.title=element_text(face="bold",colour = "grey50"))
+
+summaryBEZ_NAME <- ddply(bpDF, 
+                         .(BEZ_NAME, Gentri), summarize,
+                         E_E.2007_sum=sum(E_E.2007))
+
+summaryBEZ_NAME <- arrange(summaryBEZ_NAME, Gentri, E_E.2007_sum)
+
+names(summaryBEZ_NAME)[names(summaryBEZ_NAME)=="Gentri"] <- "Kategorie"
+summaryBEZ_NAME$E_E.2007_sum <- summaryBEZ_NAME$E_E.2007_sum/1000
+
+Reihenfolge <- rev(c("Friedrichshain-Kreuzberg","Neukölln",
+                     "Pankow","Lichtenberg",
+                     "Charlottenburg-Wilmersdorf", 
+                     "Treptow-Köpenick", "Mitte",
+                     "Tempelhof-Schöneberg","Spandau","Reinickendorf",
+                     "Marzahn-Hellersdorf","Steglitz-Zehlendorf"))
+
+bar1 <- ggplot(data=summaryBEZ_NAME, aes(x=factor(BEZ_NAME, levels=Reihenfolge), y=E_E.2007_sum, fill=Kategorie)) +
+  geom_bar(stat='identity') + bar_theme + ylab("Einwohner*innen 2007 in 1000") +  coord_flip() 
+bar1
+@
 
     \subsection{Charakterisierung}\label{Sec:AnaGentriChara}
 
     Diverse Violin-Boxplots nach Gentri --> Darauf hinweisen dass unterliegende Kausalität andere sein kann. das wird ja dann in den Modellen folgen.
 
 \subsubsection{Mietpreise}
-KarteMIETE2007 KarteMIETE2012\\
+
+<<setup_bpGentriGesamt, include=FALSE>>=
+bpGentriInnere   <- subset(bpDF, Gentri=="Gentri" & STADTRAUM=="innere Stadt")
+bpGesamtInnere   <- subset(bpDF, STADTRAUM=="innere Stadt")
+@
+
+
+<<bpMiete2007innere,fig.cap='Violinplot von $Miete_{2007}$ für die innere Stadt', fig.height=4, fig.lp='fig:'>>=
+p1MieteG.2007  <- ggplot(bpGentriInnere , aes(Gentri, 
+                                              Miete.2007, 
+                                              weight=E_E.2007,
+                                              fill=Gentri)) + 
+  ylab(expression(paste(Miete[2007],' ','(Euro)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche),
+                     limits=c(4.7, 10.9))+ 
+  geom_violin(scale = "width") + bp_theme
+p1MieteG.2007 <- p1MieteG.2007 + geom_boxplot(width=.3)
+
+p2MieteG.2007  <- ggplot(bpGesamtInnere, aes(valid,
+                                             Miete.2007, 
+                                             weight=E_E.2007)) +
+  scale_y_continuous(breaks=pretty_breaks(n=brueche),
+                     limits=c(4.7, 10.9)) +
+  geom_violin(scale="width") +  bp_themeG
+p2MieteG.2007 <- p2MieteG.2007 + geom_boxplot(width=.3)
+
+grid.arrange(p1MieteG.2007, p2MieteG.2007,
+             ncol=2, nrow=1, widths=c(1,1))
+@
+
+Karten im Anhang \ref{fig:Miete.2007MAP} \ref{fig:Miete.2012MAP} 
+
 
 \subsubsection{Armut}
-KarteARMUT2007 KarteARMUT2012
+
+<<bpArmut2007innere,fig.cap='Violinplot von $Armut_{2007}$ für die innere Stadt', fig.height=4, fig.lp='fig:'>>=
+p1ArmutG.2007  <- ggplot(bpGentriInnere , aes(Gentri, 
+                                  Armut.2007, 
+                                  weight=E_E.2007,
+                                  fill=Gentri)) + 
+  ylab(expression(paste(Armut[2007],' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche),
+                     limits=c(4, 52))+ 
+  geom_violin(scale = "width") + bp_theme
+p1ArmutG.2007 <- p1ArmutG.2007 + geom_boxplot(width=.3)
+
+p2ArmutG.2007  <- ggplot(bpGesamtInnere, aes(valid,
+                                  Armut.2007, 
+                                  weight=E_E.2007)) +
+  scale_y_continuous(breaks=pretty_breaks(n=brueche),
+                     limits=c(4, 52)) +
+  geom_violin(scale="width") +  bp_themeG
+p2ArmutG.2007 <- p2ArmutG.2007 + geom_boxplot(width=.3)
+
+grid.arrange(p1ArmutG.2007, p2ArmutG.2007,
+             ncol=2, nrow=1, widths=c(1,1))
+@
+
+Karten \ref{fig:Armut.2007MAP} \ref{fig:Armut.2012MAP} 
 
 \subsubsection{Demographie}
 
 \subsubsection{Wohnräumliche Mobilität}
-KarteFortzügeR KarteZuzügeR
-KarteFortzügeRA KarteZuzügeRA
+
+\afterpage{
+\begin{landscape}
+<<ViolinFortZuzuege, fig.width=9.8, fig.height=5.6, fig.cap='Violinplots der wohnräumlichen Mobilität (\\textit{Fortzüge, Zuzüge, FortzügeA, ZuzügeA})',fig.lp='fig:'>>=
+p1FortzuegeR  <- ggplot(bpDF , aes(Gentri, 
+                                  FortzuegeR, 
+                                  weight=E_E.2007,
+                                  fill=Gentri)) + 
+  ylab(expression(paste('Fortzüge',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  coord_cartesian(ylim = c(3, 17)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1FortzuegeR <- p1FortzuegeR + geom_boxplot(width=.3)
+
+p1FortzuegeUDAR  <- ggplot(bpDF , aes(Gentri, 
+                                  FortzuegeUDAR, 
+                                  weight=E_E.2007,
+                                  fill=Gentri)) + 
+  ylab(expression(paste('FortzügeA',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  coord_cartesian(ylim = c(0, 10)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1FortzuegeUDAR <- p1FortzuegeUDAR + geom_boxplot(width=.3)
+
+p1ZuzuegeR  <- ggplot(bpDF , aes(Gentri, 
+                                   ZuzuegeR, 
+                                   weight=E_E.2007,
+                                   fill=Gentri)) + 
+  ylab(expression(paste('Zuzüge',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1ZuzuegeR <- p1ZuzuegeR + geom_boxplot(width=.3)
+
+p1ZuzuegeUDAR  <- ggplot(bpDF , aes(Gentri, 
+                                    ZuzuegeUDAR, 
+                                    weight=E_E.2007,
+                                    fill=Gentri)) + 
+  ylab(expression(paste('ZuzügeA',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  coord_cartesian(ylim = c(0, 15)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1ZuzuegeUDAR <- p1ZuzuegeUDAR+ geom_boxplot(width=.3)
+
+grid.arrange(p1FortzuegeR, p1ZuzuegeR,
+             p1FortzuegeUDAR, p1ZuzuegeUDAR,
+             ncol=2, nrow=2, widths=c(1,1,1,1))
+@
+\end{landscape}
+}
+
+\pagebreak
+<<FortzuegeRMAP,fig.height=5, fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{Fortzüge}}", fig.lp='fig:'>>=
+FortzuegeRMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=FortzuegeR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
+                       values = rescale(c(3.9,12,15,25)),
+                       guide = "colorbar", limits=c(3.4,25),
+                       name=expression(paste('Fortzuege',' ','(%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
+FortzuegeRMAP
+@
+
+<<ZuzuegeUDARAMAP,fig.height=5, fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{ZuzügeA}}", fig.lp='fig:'>>=
+ZuzuegeUDARAMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=ZuzuegeUDAR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
+                       values = rescale(c(0,3,8,30)),
+                       guide = "colorbar", limits=c(0,30),
+                       name=expression(paste('ZuzuegeA',' ','(%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
+ZuzuegeUDARAMAP
+@
+
+\ref{fig:FortzuegeUDARMAP} \ref{fig:ZuzuegeRMAP}
+
 
     \subsection{Interpretation}\label{Sec:AnaGentriInter}
 
@@ -79,7 +326,7 @@ Alternative Klassifizierung. Plots im Anhang.
 
     \subsection{Modellspezifikation}\label{Sec:AnaSAR}
 
-    \subsection{Regressionsergebnisse}\label{Sec:AnaSAR}
+    \subsection{Regressionsergebnisse}\label{Sec:AnaSARErgebnisse}
 
     \subsection{Interpretation}\label{Sec:AnaSARInter}
 

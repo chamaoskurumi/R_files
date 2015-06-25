@@ -8,6 +8,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
 \usepackage{acronym}
+\usepackage{afterpage}
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{pifont}
@@ -20,6 +21,12 @@
 \usepackage{pdflscape}
 \usepackage{float} 
 \usepackage{subcaption}
+\newcommand{\subfloat}[2][need a sub-caption]{\subcaptionbox{#1}{#2}}
+
+%\usepackage{atbegshi}
+%\AtBeginShipout{\ifnum\value{page}=1\AtBeginShipoutDiscard\fi}
+%\pagestyle{empty}
+
 %\usepackage{eufrak}
 \DeclareRobustCommand{\officialeuro}{%
   \ifmmode\expandafter\text\fi
@@ -43,7 +50,7 @@
 
 % define page size, margin size
 \setlength{\headheight}{2\baselineskip}
-\voffset=-2cm
+\voffset=-3cm
 \hoffset=-2.5cm
 \textheight25.4cm
 \textwidth15.5cm
@@ -61,7 +68,7 @@
 \newcommand{\defeq}{\vcentcolon=}
 \newcommand{\eqdef}{=\vcentcolon}
 
-\allsectionsfont{\normalfont\sffamily\bfseries}
+%\allsectionsfont{\normalfont\sffamily\bfseries}
 
 \begin{document}
 
@@ -101,15 +108,6 @@ knit_hooks$set(crop=hook_pdfcrop)
 
 \thispagestyle{empty}
 \input{Andere/Titelseite}
-
-% ------------------------------------
-% --- frontmatter: Acknowledgement ---
-% ------------------------------------
-\newpage
-\pagestyle{plain}
-\pagenumbering{roman}   % define page number in roman style
-\setcounter{page}{1}    % start page numbering
-%\input{Andere/Danksagung}
 
 % -----------------------------
 % --- frontmatter: Abstract ---
@@ -161,9 +159,10 @@ knit_hooks$set(crop=hook_pdfcrop)
 \setcounter{page}{1}    % start page numbering anew
 \pagenumbering{arabic}  % page numbers in arabic style
 
+%\input{Einleitung/Einleitung}
 \newpage
-
-\input{Einleitung/Einleitung}
+<<'child-Einleitung/Einleitung.Rnw', child='Einleitung/Einleitung.Rnw'>>=
+@
 
 \newpage
 <<'child-Gentri/Gentri.Rnw', child='Gentri/Gentri.Rnw'>>=
@@ -196,7 +195,8 @@ knit_hooks$set(crop=hook_pdfcrop)
 
 % figures (not mandatory)
 \newpage
-\input{Anhang/Anhang_Abbildungen}
+<<'child-Anhang/Anhang_Abbildungen.Rnw', child='Anhang/Anhang_Abbildungen.Rnw'>>=
+@
 
 % tables (not mandatory)
 \newpage

@@ -90,7 +90,7 @@ Kommen wir nur zur Erläuterung der in der empirischen Analyse verwendeten Varia
     \item \textit{Kategorie}: Einteilung der Nachbarschaften in die drei Kategorien \textit{Gentrification, Kontrolle} und \textit{Andere}. Zu den Definitionen dieser Kategorien vgl. Kapitel~\ref{sec:Klassifizierung}.
     \item \textit{Stadtraum}: Gebietseinteilung der Stadt in \textit{innere Stadt, äußere Stadt}. Die innere Stadt entspricht ziemlich genau dem Stadtgebiet innerhalb des S-Bahn Rings.
     \item \textit{SanGebiet}: Städtebauliche Sanierungsmaßnahmen nach §142 BauGB. Mögliche Ausprägungen sind kein Sanierungsgebiet (\textit{nein}), aufgehobene Sanierungsgebiete ab 2002 (\textit{aufgehoben}), förmlich festgelegte Sanierungsgebiete vereinfachtes Verfahren (\textit{vereinfacht}) und förmlich festgelegte Sanierungsgebiete (\textit{umfassend}). 
-    \item \textit{DistanzStadtmitte}: Distanz in $m$ zum ungefähren geographischen Mittelpunkt der Stadt. Der Mittelpunkt der Stadt wurde als der geometrische Schwerpunkt des LOR Alexanderplatzviertel definiert.
+    \item \textit{DStadtmitte}: Distanz in $m$ zum ungefähren geographischen Mittelpunkt der Stadt. Der Mittelpunkt der Stadt wurde als der geometrische Schwerpunkt des LOR Alexanderplatzviertel definiert.
   \end{itemize}
 
 \paragraph{Proxyvariablen für Aufwertung} Die eben vorgestellten Variablen \textit{$\Delta_r Miete$} und \textit{$\Delta$Armut} sollen als Proxyvariablen für immobilienwirtschaftliche bzw. soziale \allowbreak Auf-/Abwertung fungieren. Sie dienen zur Messung der jeweiligen Aufwertungsdynamik (gr. \textit{dynamiké}=mächtig), also der Mächtigkeit des Aufwertungsprozesses. Die Wahl dieser Variablen als Proxies soll nun kurz begründet werden.
@@ -171,7 +171,7 @@ Var[Y] &= (I-B)^{-1} \Sigma_{\varepsilon} (I-B^{T})^{-1}. \label{eq:VARy}
 \subsubsection{Gewichtetes SAR}
 Bei heterogenen Beobachtungseinheiten ist die Homoskedastizitätsannahme jedoch nicht zu begründen. In unserem Fall sind die Beobachtungseinheiten eindeutig heterogen: Die einzelnen LOR $i$ unterscheiden sich erheblich in ihrer jeweiligen Bevölkerungsgröße $n_i$ (vgl. Abbildung~\ref{MetInferenziell}). Deshalb ist davon auszugehen, dass  $Var[Y_i] \propto 1/n_{i}$. Auf dieser Grundlage wird die gewichtete Version des SAR formuliert. Um der Varianzheterogenität Rechnung zu tragen, wird hierfür eine Gewichtungsmatrix  $V\defeq diag[1/n_i]$ definiert, sodass $\Sigma_{\varepsilon}\defeq  Var[\varepsilon]=\sigma^2 V$. Die LOR werden also proportional zur Inversen ihrer Bevölkerungsgröße gewichtet. In \eqref{eq:VARy} eingesetzt, ergibt sich somit für das gewichtete SAR
 \begin{align}
-Var[Y] &= \sigma^2(I-B)^{-1} V (I-B^{T})^{-1}. \label{eq:VARy} 
+Var[Y] &= \sigma^2(I-B)^{-1} V (I-B^{T})^{-1}. \label{eq:VARyGew} 
 \end{align}
 Eine zur Schätzung und Inferenz zweckmäßige Umparametrisierung bietet die gemeinsame Einführung des räumlichen Autokorrelationsparameters $\lambda$ einerseits und einer alternativen Matrix $W$ zur Repräsentation räumlicher Abhängigkeit andererseits. Definiert man $B \eqdef \lambda W$, so wird aus \eqref{eq:e_i}
 \begin{align}
