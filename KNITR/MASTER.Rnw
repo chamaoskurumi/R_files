@@ -27,7 +27,8 @@
 %\AtBeginShipout{\ifnum\value{page}=1\AtBeginShipoutDiscard\fi}
 %\pagestyle{empty}
 
-%\usepackage{eufrak}
+\usepackage[font=small,skip=7pt]{caption}
+\usepackage{bm}
 \DeclareRobustCommand{\officialeuro}{%
   \ifmmode\expandafter\text\fi
   {\fontencoding{U}\fontfamily{eurosym}\selectfont e}}
@@ -93,6 +94,7 @@ setwd("/home/dao/Desktop/MasterArbeit/R_files/KNITR/")
 
 <<setup, include=FALSE, cache=FALSE, echo=FALSE>>=
 options(replace.assign=TRUE,width=80)
+options(scipen = 1, digits = 2)
 Sys.setenv(TEXINPUTS=getwd(),
            BIBINPUTS=getwd(),
            BSTINPUTS=getwd())

@@ -1,22 +1,28 @@
 \Sexpr{set_parent("MASTER.Rnw")}
 
-\section{Lokalisierung \& Charakterisierung von Gentrificationgebieten}\label{Sec:AnaGentri}
+\section{Lokalisierung und Charakterisierung von Gentrificationgebieten}\label{Sec:AnaGentri}
 
     \subsection{Klassifizierung}\label{Sec:AnaGentriKlassi}
 
-Um die Gentrificationgebiete lokalisieren und charakterisieren zu können, müssen die LOR zunächst nach den in Kapitel~\ref{sec:Klassifizierung} beschriebenen Kriterien klassifiziert werden. Durch Klassifizierung wird die Variable \textit{Kategorie} generiert, welche als Grundlage zu Vergleichen von Gentrification- und Kontrollgebieten dienen soll. Empirisch ergaben sich für die Generierung von \textit{Kategorie} die folgenden Konditionen:
+Um die Gentrificationgebiete lokalisieren und charakterisieren zu können, müssen die LOR zunächst nach den in Kapitel~\ref{sec:Klassifizierung} beschriebenen Kriterien klassifiziert werden. Durch die Klassifizierung wird die Variable \textit{Kategorie} generiert, welche als Grundlage der Vergleiche zwischen Gentrification- und Kontrollgebieten dienen soll. Empirisch ergaben sich für die Generierung von \textit{Kategorie} chronologisch die folgenden Konditionen:
 \begin{itemize}
-\item $Kategorie(i) =$ \textbf{Gentri}, wenn \\ $\Mietechgr(i) > 4,2\% \; \wedge \; \Armutchg(i) < -3,1\%$       
-\item $Kategorie(i) =$ \textbf{Kontrolle}, wenn \\ $Miete_{2007}(i) \; \in [5,09\,\euro\,,\,7,26\,\euro] \; \wedge \; Armut_{2007}(i) \; \in [16,8\%\,,\,45,1\%]$
-\item $Kategorie(i) =$ \textbf{Andere} \\ $sonst$.  
+\item $Kategorie(i) =$ Gentri, wenn \\ 
+\hspace{2cm} $\Mietechgr(i) > 4,2\% \; \wedge \; \Armutchg(i) < -3,1\%$       
+\item $Kategorie(i) =$ Kontrolle, wenn \\ 
+\hspace{2cm} $Miete_{2007}(i) \; \in [5,09\,\euro\,,\,7,26\,\euro] \; \wedge \; Armut_{2007}(i) \; \in [16,8\%\,,\,45,1\%]$
+\item $Kategorie(i) =$ Andere \\ 
+\hspace{2cm} $sonst$.  
 \end{itemize}
-Auf Grundlage dieser Konditionen wurden von den 430~gültigen LOR 45~(10,5\%) als Gentrificationgebiete, 139~(32,3\%) als Kontrollgebiete und 246~(57,2\%) als Andere Gebiete klassifiziert. \ref{fig:ViolinDefKategorie}
+Auf Grundlage dieser Konditionen wurden von den 430~gültigen LOR 45~(10,5\%) als Gentrificationgebiete, 139~(32,3\%) als Kontrollgebiete und 246~(57,2\%) als Andere Gebiete klassifiziert. In Abbildung~\ref{fig:ViolinDefKategorie} wird die empirische Klassifizierung anhand von Violin- und Boxplots veranschaulicht, wobei die empirischen Schwellenwerte als rot gestrichelte Linien dargestellt werden. Die Plots von $\Mietechgr$ und $\Armutchg$ illustrieren die Kategorienbildung der Gentrificationgebiete als diejenigen Nachbarschaften, die gleichzeitig eine sehr starke immobilienwirtschaftliche sowie eine starke soziale Aufwertung erfuhren. Die Plots von $Miete_{2007}$ und $Armut_{2007}$ veranschaulichen die Kategorienbildung der Kontrollgebiete als diejenigen Nachbarschaften, die den Gentrificationgebieten zu Beobachtungsbeginn ähnlich waren.
+
+<<setupViolinplots,include=FALSE,cache=FALSE>>=
+library("gridExtra")
+source("/home/dao/Desktop/MasterArbeit/R_files/ANALYSE_VorbereitungFuerViolinplots.R")
+@
 
 \afterpage{
 \begin{landscape}
-<<ViolinDefKategorie,fig.width=9.75, fig.height=5.5, fig.cap='Violinplots der Definitionsvariablen von \\textit{Kategorie}',fig.lp='fig:'>>=
-library("gridExtra")
-source("/home/dao/Desktop/MasterArbeit/R_files/ANALYSE_VorbereitungFuerViolinplots.R")
+<<ViolinDefKategorie,fig.width=9.75, fig.height=5.5, fig.cap='Verteilungen der Definitionsvariablen von \\textit{Kategorie}',fig.lp='fig:'>>=
 grid.arrange(p1Mietechgr, p2Mietechgr,
              p1Armutchg, p2Armutchg,
              p1Miete.2007, p2Miete.2007, 
@@ -29,21 +35,15 @@ grid.arrange(p1Mietechgr, p2Mietechgr,
 
     \subsection{Lokalisierung}\label{Sec:AnaGentriLokal}
 
-
-\begin{table}[h]
-\centering
-\begin{tabular}{@{}lrrrr@{}}
-\toprule
-                                       & \multicolumn{1}{r}{{\bf Gentri}} & \multicolumn{1}{r}{{\bf Kontroll}} & \multicolumn{1}{r}{{\bf Andere}} & \multicolumn{1}{r}{{\bf \textit{Gesamt}}} \\ \midrule
-$m$                                    & 45                               & 139                                & 246                              & 430                                  \\
-$m$ nach \textit{Stadtraum}$^\dagger$                    & 41/4                           & 39/100                           & 57/189                         & 137/293                            \\
-$Q_{0.5}(DStadtmitte)$       & 3726                             & 8065                               & 10068                            & 8846                                 \\ \bottomrule
-\multicolumn{5}{l}{\footnotesize $^\dagger$innere Stadt / äußere Stadt}\\
-\end{tabular}
-\caption{Grundstatistiken nach \textit{Kategorie}}\label{tab:KategorieUebersicht}
-\end{table}
-
 \subsubsection{Immobilienwirtschaftliche und soziale Aufwertungsgebiete}
+
+Bevor auf die räumliche Verteilung der einzelnen Kategorien eingegangen wird, soll zunächst die räumliche Verteilung der Proxies von immobilienwirtschaftlicher und sozialer Aufwertung einzeln untersucht, sowie ihr statistischer Zusammenhang überprüft werden.
+\paragraph{Räumliche Verteilung von $\bm{\Delta_{r}Miete}$} 
+Betrachtet man die Karte zu $\Mietechgr$ (Abbildung~\ref{fig:MietechgrMAP}), so fällt auf, dass es praktisch in der gesamten inneren Stadt zu starken Mietpreissteigerungen kam. Die jahresdurchschnittliche, reale Mietpreissteigerung innerhalb des S-Bahn Rings betrug 4,8\%, außerhalb des S-Bahn Rings 1,7\%. Besonders stark betroffen waren die Ortsteile Moabit, Alt-Treptow, der Süden Kreuzbergs, sowie der Norden Neuköllns. Im Norden Neuköllns befinden sich auch die "`Top"' acht Quartiere mit den stärksten Mietpreissteigerungen Berlins. "`Spitzenreiter"' ist der LOR \textit{Hasenheide} mit einer jahresdurchschnittlichen Mietpreissteigerung von 11,2\%.\footnote{Diese jahresdurchschnittlichen 11,2\% entsprechen einer realen kumulierten Mietpreissteigerung von knapp 90\% innerhalb von sechs Jahren.} Außerhalb des S-Bahnrings sind die stärksten Mietpreissteigerungen im Wesentlichen im westlichen Lichtenberg, sowie den Pankower Neubaugebieten von Karow und Buch zu verzeichnen. Zu realen Mietpreissenkungen kam es im Beobachtungszeitraum nur in 18 der 430 LOR. Diese befinden sich hauptsächlich an den Rändern von Spandau und Reinickendorf.
+\paragraph{Räumliche Verteilung von $\bm{\Delta Armut}$}  
+Die räumliche Verteilung von $\Armutchg$ (Abbildung~\ref{fig:ArmutchgMAP}) ergibt ein uneindeutigeres, wenngleich ähnliches Bild. In der inneren Stadt sank fast überall die Armutsquote - im Durchschnitt um 2,6\%. Die stärksten Senkungen der Armutsquote sind entlang des S-Bahn Rings vom Prenzlauer Berg, über das östliche Friedrichshain und Alt-Treptow bis nach Nord-Neukölln zu verzeichnen. In der äußeren Stadt sind gleichermaßen Senkungen (z.B. Weißensee und Baumschulenweg) wie auch Steigerungen (z.B. Reinickendorf oder Marienfeld) der Armutsquote zu beobachten.
+\paragraph{Statistischer Zusammenhang von $\bm{\Delta_{r}Miete}$ und $\bm{\Delta Armut}$}  
+Der zuvor theoretisch motivierte Zusammenhang zwischen immobilienwirtschaftlicher und sozialer Aufwertung wird empirisch gestützt: Der gewichtete Korrelationskoeffizient zwischen $\Mietechgr$ und $\Armutchg$ beträgt stadtweit -0,46 und für die innere Stadt -0.53. Für überdurchschnittliche arme, innerstädtische Nachbarschaften beträgt der gewichtete Korrelationskoeffizient sogar -0,61. Mietpreissteigerungen gingen also mit Senkungen der Armutsquote einher. Zur Veranschaulichung dieses Zusammenhangs findet sich ein Mosaik- und ein Assozationsplot im Anhang (Abbildung \ref{fig:MosaicAssoc}).
 
 \pagebreak
 <<VorbereitungGGPLOTmaps, include=FALSE>>=
@@ -126,15 +126,24 @@ ArmutchgMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
 ArmutchgMAP
 @
 
-
 \subsubsection{Gentrificationgebiete}
 
-Durchschnittliche Größe nach Einwohner*innen 2007 ($Q_{0.5}(EW_{2007})$), durchschnittliche Entfernung zur Stadtmitte in $m$ ($Q_{0.5}(DStadtmitte)$), sowie die Summe der Einwoher*innen 2007 ($\Sigma\;EW_{2007}$).      
-\ref{tab:KategorieEW}
+Aufgrund des eben festgestellten starken Zusammenhangs von Mietpreissteigerungen und Senkungen der Armutsquote, ist nun eine übereinstimmende räumliche Verteilung der als Gentrificationgebiete klassifizierten LOR zu erwarten. Tabelle~\ref{tab:LageKategorie} bietet eine grobe Lagebeschreibung der klassifizierten Nachbarschaften. Demnach machen die als Gentrificationgebiete klassizierten Nachbarschaften fast ein Drittel der innerstädtischen LOR aus. Fast alle Gentrificationgebiete liegen, wie zu erwarten war, innerhalb des S-Bahn Rings. Außerhalb des S-Bahn Rings wurden nur vier LOR als Gentrificationgebiete klassifiziert. Im Gegensatz dazu liegen Kontrollgebiete und andere Gebiete mehrheitlich in der äußeren Stadt. Im Durchschnitt (Median) befinden sich die Kontrollgebiete doppelt so weit vom Stadtzentrum entfernt, wie die Gentrificationgebiete. In den als Gentrificationgebieten klassifizierten LOR lebten im Jahre 2007 insgesamt 456355 Menschen und die Durchschnittsgröße (Median) betrug 9734 Einwohner*innen (vgl. Tabelle~\ref{tab:KategorieEW}).\\
 
-Figure \ref{fig:EW07Gentri} has its label.
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+                                       & \multicolumn{1}{r}{{\bf Gentri}} & \multicolumn{1}{r}{{\bf Kontroll}} & \multicolumn{1}{r}{{\bf Andere}} & \multicolumn{1}{r}{{\bf \textit{Gesamt}}} \\ \midrule
+$m$                                    & 45                               & 139                                & 246                              & 430                                  \\
+$m$ nach \textit{Stadtraum}$^\dagger$                    & 41/4                           & 39/100                           & 57/189                         & 137/293                            \\
+$Q_{0.5}(DStadtmitte)$       & 3726m                             & 8065m                               & 10068m                            & 8846m                                 \\ \bottomrule
+\multicolumn{5}{l}{\footnotesize $^\dagger$innere Stadt / äußere Stadt}\\
+\end{tabular}
+\caption{Lagebeschreibung der Nachbarschaften nach \textit{Kategorie}}\label{tab:LageKategorie}
+\end{table}
 
-\pagebreak
+Die Karte der klassifizierten Nachbarschaften (Abbildung~\ref{GentriMAP}) macht deutlich, was bereits durch den Vergleich der Karten von $\Mietechgr$ und $\Armutchg$ zu erwarten war: Die meisten Gentrificationgebiete fallen in die innerstätischen Altbezirke Kreuzberg, Friedrichshain, sowie ins nördliche Neukölln. Die sich in der äußeren Stadt befindlichen Gentrificationgebiete liegen in Lichtenberg und Treptow. Der Großteil der innerstädtischen Kontrollgebiete befinden sich in Moabit und Schöneberg. Die Kontrollgebiete in der äußeren Stadt konzentrieren sich auf die Stadtteile Reinickendorf, Spandau und Tempelhof. Viele der Kontrollgebiete befinden sich in unmittelbarer Nähe, meist stadtauswärts, von den Gentrificationgebieten. Eine Aufschlüsselung der Einwohner*innenzahlen 2007 nach Bezirk und \textit{Kategorie} findet sich in Abbildung~\ref{EW07Gentri}. Demnach besitzen die Bezirke Friedrichshain-Kreuzberg und Neukölln gemeinsam einen Anteil von knapp 70\% an der in Gentrificationgebieten lebenden Bevölkerung.\footnote{Es sei erneut darauf hingewiesen, dass zur Klassifizierung der LOR eine \textit{relationale Definition} verwendet wurde und deshalb auch in den nicht als Gentrificationgebiet klassifizierten LOR Gentrificationprozesse stattfinden können.}
 
 <<GentriMAP, fig.height=5, fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{Kategorie}}", fig.lp='fig:'>>=
 GentriMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
@@ -145,9 +154,8 @@ GentriMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
 GentriMAP
 @
 
-<<EW07Gentri, fig.height=5, fig.cap='Einwohner*innen 2007 nach Bezirk und \\textit{Kategorie}',fig.lp='fig:'>>=
-bar_theme <- theme(#axis.text.y = element_text(colour = "grey20",size =16),
-                   axis.title.y = element_blank(),
+<<EW07Gentri, fig.height=4, fig.cap='Einwohner*innen 2007 nach Bezirk und \\textit{Kategorie}',fig.lp='fig:'>>=
+bar_theme <- theme(axis.title.y = element_blank(),
                    axis.title.x = element_text(face="bold",colour = "grey50"),
                    legend.text=element_text(colour = "grey50"),
                    legend.title=element_text(face="bold",colour = "grey50"))
@@ -175,17 +183,16 @@ bar1
 
     \subsection{Charakterisierung}\label{Sec:AnaGentriChara}
 
-    Diverse Violin-Boxplots nach Gentri --> Darauf hinweisen dass unterliegende Kausalität andere sein kann. das wird ja dann in den Modellen folgen.
+Diverse Violin-Boxplots nach Gentri --> Darauf hinweisen dass unterliegende Kausalität andere sein kann. das wird ja dann in den Modellen folgen.
 
 \subsubsection{Mietpreise}
 
-<<setup_bpGentriGesamt, include=FALSE>>=
+<<setup_bpGentriGesamt, include=FALSE, cache=FALSE>>=
 bpGentriInnere   <- subset(bpDF, Gentri=="Gentri" & STADTRAUM=="innere Stadt")
 bpGesamtInnere   <- subset(bpDF, STADTRAUM=="innere Stadt")
 @
 
-
-<<bpMiete2007innere,fig.cap='Violinplot von $Miete_{2007}$ für die innere Stadt', fig.height=4, fig.lp='fig:'>>=
+<<bpMiete2007innere,fig.cap='Verteilung von $Miete_{2007}$ für Gentrificationgebiete in der inneren Stadt', fig.height=4, fig.width=4, fig.align='center',fig.lp='fig:', cache=FALSE>>=
 p1MieteG.2007  <- ggplot(bpGentriInnere , aes(Gentri, 
                                               Miete.2007, 
                                               weight=E_E.2007,
@@ -193,7 +200,10 @@ p1MieteG.2007  <- ggplot(bpGentriInnere , aes(Gentri,
   ylab(expression(paste(Miete[2007],' ','(Euro)')))+
   scale_y_continuous(breaks=pretty_breaks(n=brueche),
                      limits=c(4.7, 10.9))+ 
-  geom_violin(scale = "width") + bp_theme
+  geom_violin(scale = "width") + theme(axis.title.x = element_blank(),
+                                       axis.title.y = element_text(colour = "grey50"),
+                                       plot.margin=unit(c(0.5,-0.1,0.5,0.5), "cm"),
+                                       legend.position="none") 
 p1MieteG.2007 <- p1MieteG.2007 + geom_boxplot(width=.3)
 
 p2MieteG.2007  <- ggplot(bpGesamtInnere, aes(valid,
@@ -201,19 +211,24 @@ p2MieteG.2007  <- ggplot(bpGesamtInnere, aes(valid,
                                              weight=E_E.2007)) +
   scale_y_continuous(breaks=pretty_breaks(n=brueche),
                      limits=c(4.7, 10.9)) +
-  geom_violin(scale="width") +  bp_themeG
+  geom_violin(scale="width") +  theme(axis.text.y = element_blank(),
+                                      axis.title.x = element_blank(),
+                                      axis.title.y = element_blank(),
+                                      axis.ticks = element_blank(),
+                                      plot.margin=unit(c(0.5,0.5,0.5,-0.3), "cm"),
+                                      legend.position="none") 
 p2MieteG.2007 <- p2MieteG.2007 + geom_boxplot(width=.3)
 
 grid.arrange(p1MieteG.2007, p2MieteG.2007,
              ncol=2, nrow=1, widths=c(1,1))
 @
 
-Karten im Anhang \ref{fig:Miete.2007MAP} \ref{fig:Miete.2012MAP} 
+Karten im Anhang (Abbildung~\ref{fig:Miete.2007MAP} und \ref{fig:Miete.2012MAP}).
 
 
 \subsubsection{Armut}
 
-<<bpArmut2007innere,fig.cap='Violinplot von $Armut_{2007}$ für die innere Stadt', fig.height=4, fig.lp='fig:'>>=
+<<bpArmut2007innere,fig.cap='Verteilung von $Armut_{2007}$ für Gentrificationgebiete in der inneren Stadt', fig.height=4, fig.width=4, fig.align='center', fig.lp='fig:', cache=FALSE>>=
 p1ArmutG.2007  <- ggplot(bpGentriInnere , aes(Gentri, 
                                   Armut.2007, 
                                   weight=E_E.2007,
@@ -221,7 +236,10 @@ p1ArmutG.2007  <- ggplot(bpGentriInnere , aes(Gentri,
   ylab(expression(paste(Armut[2007],' ','(%)')))+
   scale_y_continuous(breaks=pretty_breaks(n=brueche),
                      limits=c(4, 52))+ 
-  geom_violin(scale = "width") + bp_theme
+  geom_violin(scale = "width") + theme(axis.title.x = element_blank(),
+                                       axis.title.y = element_text(colour = "grey50"),
+                                       plot.margin=unit(c(0.5,-0.1,0.5,0.5), "cm"),
+                                       legend.position="none") 
 p1ArmutG.2007 <- p1ArmutG.2007 + geom_boxplot(width=.3)
 
 p2ArmutG.2007  <- ggplot(bpGesamtInnere, aes(valid,
@@ -229,7 +247,12 @@ p2ArmutG.2007  <- ggplot(bpGesamtInnere, aes(valid,
                                   weight=E_E.2007)) +
   scale_y_continuous(breaks=pretty_breaks(n=brueche),
                      limits=c(4, 52)) +
-  geom_violin(scale="width") +  bp_themeG
+  geom_violin(scale="width") +  theme(axis.text.y = element_blank(),
+                                      axis.title.x = element_blank(),
+                                      axis.title.y = element_blank(),
+                                      axis.ticks = element_blank(),
+                                      plot.margin=unit(c(0.5,0.5,0.5,-0.3), "cm"),
+                                      legend.position="none") 
 p2ArmutG.2007 <- p2ArmutG.2007 + geom_boxplot(width=.3)
 
 grid.arrange(p1ArmutG.2007, p2ArmutG.2007,
@@ -238,13 +261,12 @@ grid.arrange(p1ArmutG.2007, p2ArmutG.2007,
 
 Karten \ref{fig:Armut.2007MAP} \ref{fig:Armut.2012MAP} 
 
-\subsubsection{Demographie}
 
 \subsubsection{Wohnräumliche Mobilität}
 
 \afterpage{
 \begin{landscape}
-<<ViolinFortZuzuege, fig.width=9.8, fig.height=5.6, fig.cap='Violinplots der wohnräumlichen Mobilität (\\textit{Fortzüge, Zuzüge, FortzügeA, ZuzügeA})',fig.lp='fig:'>>=
+<<ViolinFortZuzuege, fig.width=9.8, fig.height=5.6, fig.scap='Verteilungen der wohnräumlichen Mobilität nach \\textit{Kategorie}', fig.cap='Verteilungen der wohnräumlichen Mobilität (\\textit{Fortzüge, Zuzüge, FortzügeA, ZuzügeA}) nach \\textit{Kategorie}',fig.lp='fig:'>>=
 p1FortzuegeR  <- ggplot(bpDF , aes(Gentri, 
                                   FortzuegeR, 
                                   weight=E_E.2007,

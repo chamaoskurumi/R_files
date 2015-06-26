@@ -2,6 +2,31 @@
 
 \section{Abbildungen}\label{Anhang:Abbildungen}
 
+
+<<MosaicAssoc, fig.cap='Visualisierung des Zusammenhangs von $\\Delta_{r}Miete$ und $\\Delta Armut$ nach gewichteten Quartilen. Die Zelle Q4($\\Delta_{r}Miete$) / Q1($\\Delta Armut$) entspricht der \\textit{Kategorie} Gentri. Nach (b) besteht ein hoch signifikanter Zusammenhang zwischen starker Mietpreissteigerung und starker Armutssenkung.', fig.scap='Visualisierung des Zusammenhangs von $\\Delta_{r}Miete$ und $\\Delta Armut$', fig.subcap=c('Mosaikplot', 'Assoziationsplot'), out.width='0.48\\linewidth',fig.lp='fig:'>>=
+fill_colors <- matrix(c("red", "gray", "gray","grey",
+                       "gray", "gray", "gray","grey",
+                       "gray", "gray", "gray","grey",
+                       "gray", "gray", "gray","grey"), ncol = 4)
+
+bpDF$MietechgrQNTL <- factor(bpDF$MietechgrQNTL,levels(bpDF$MietechgrQNTL)[c(4,3,2,1)])
+
+levels(bpDF$valid)[levels(bpDF$valid)=="gültig"] <- "Gesamt"
+levels(bpDF$MietechgrQNTL)[levels(bpDF$MietechgrQNTL)=="4.Quartil"] <- "4.Q"
+levels(bpDF$MietechgrQNTL)[levels(bpDF$MietechgrQNTL)=="3.Quartil"] <- "3.Q"
+levels(bpDF$MietechgrQNTL)[levels(bpDF$MietechgrQNTL)=="2.Quartil"] <- "2.Q"
+levels(bpDF$MietechgrQNTL)[levels(bpDF$MietechgrQNTL)=="1.Quartil"] <- "1.Q"
+levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="4.Quartil"] <- "4.Q"
+levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="3.Quartil"] <- "3.Q"
+levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="2.Quartil"] <- "2.Q"
+levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="1.Quartil"] <- "1.Q"
+
+mosaicDF <- table(bpDF$MietechgrQNTL, bpDF$ArmutchgQNTL,dnn=c("Relative Mietpressteigerung","Änderung der Armutsquote"))
+mosaic(mosaicDF, gp = gpar(fill = fill_colors, col = 0))
+assoc(mosaicDF,shade=TRUE) 
+@
+
+\newpage
 <<Miete.2007MAP, fig.cap="\\href{http://www.gmx.de}{Karte von $Miete_{2007}$}", fig.height=4.8, fig.lp='fig:'>>=
 Miete.2007MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=Miete.2007, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
@@ -46,33 +71,10 @@ Armut.2012MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
 Armut.2012MAP
 @
 
-<<MosaicAssoc, fig.cap='Visualisierung des Zusammenhangs von $\\Delta_{r}Miete$ und $\\Delta Armut$ nach gewichteten Quartilen. Die Zelle Q4($\\Delta_{r}Miete$) / Q1($\\Delta Armut$) entspricht der \\textit{Kategorie} Gentri.', fig.subcap=c('Mosiakplot', 'Assoziationsplot'), out.width='0.48\\linewidth',fig.lp='fig:'>>=
-fill_colors <- matrix(c("red", "gray", "gray","grey",
-                       "gray", "gray", "gray","grey",
-                       "gray", "gray", "gray","grey",
-                       "gray", "gray", "gray","grey"), ncol = 4)
-
-bpDF$MietechgrQNTL <- factor(bpDF$MietechgrQNTL,levels(bpDF$MietechgrQNTL)[c(4,3,2,1)])
-
-levels(bpDF$valid)[levels(bpDF$valid)=="gültig"] <- "Gesamt"
-levels(bpDF$MietechgrQNTL)[levels(bpDF$MietechgrQNTL)=="4.Quartil"] <- "4.Q"
-levels(bpDF$MietechgrQNTL)[levels(bpDF$MietechgrQNTL)=="3.Quartil"] <- "3.Q"
-levels(bpDF$MietechgrQNTL)[levels(bpDF$MietechgrQNTL)=="2.Quartil"] <- "2.Q"
-levels(bpDF$MietechgrQNTL)[levels(bpDF$MietechgrQNTL)=="1.Quartil"] <- "1.Q"
-levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="4.Quartil"] <- "4.Q"
-levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="3.Quartil"] <- "3.Q"
-levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="2.Quartil"] <- "2.Q"
-levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="1.Quartil"] <- "1.Q"
-
-mosaicDF <- table(bpDF$MietechgrQNTL, bpDF$ArmutchgQNTL,dnn=c("Relative Mietpressteigerung","Änderung der Armutsquote"))
-mosaic(mosaicDF, gp = gpar(fill = fill_colors, col = 0))
-assoc(mosaicDF,shade=TRUE) 
-@
-
 \newpage
 \afterpage{
 \begin{landscape}
-<<ViolinFortZuzuegeI, fig.width=9.8, fig.height=5.6, fig.cap='Violinplots der wohnräumlichen Mobilität (\\textit{Fortzüge, Zuzüge, FortzügeA, ZuzügeA}) in der inneren Stadt',fig.lp='fig:'>>=
+<<ViolinFortZuzuegeI, fig.width=9.8, fig.height=5.6, fig.scap='Verteilungen der wohnräumlichen Mobilität in der inneren Stadt', fig.cap='Verteilungen der wohnräumlichen Mobilität (\\textit{Fortzüge, Zuzüge, FortzügeA, ZuzügeA}) in der inneren Stadt', fig.lp='fig:'>>=
 p1FortzuegeRI  <- ggplot(bpGesamtInnere, aes(Gentri, 
                                             FortzuegeR, 
                                             weight=E_E.2007,

@@ -45,7 +45,7 @@ Bis auf die immobilienwirtschaftlichen Daten konnten alle Daten auf LOR Ebene ak
     \begin{figure}[ht]
       \centering
       \includegraphics[scale=0.2]{/home/dao/Desktop/MasterArbeit/R_files/KNITR/figure/PLZ_LOR_Verschneidung.png}
-      \caption{Interpolation von PLZ- auf LOR-Raumniveau per Blockgewichtung}
+      \caption[Interpolationsschema von PLZ- auf LOR-Raumniveau]{Interpolationsschema von PLZ- auf LOR-Raumniveau per Blockgewichtung}
       \label{fig:Verschneidung}
     \end{figure}
 
@@ -135,8 +135,10 @@ Armut_{2007}(i) \quad &\in [Q_{0,1}^{Gentri}(Armut_{2007}),\,Q_{0,9}^{Gentri}(Ar
 Für die Interpretation dieser Klassifizierung ist es wichtig, sich die Bedeutung der getroffenen relationalen Defininition bewusst zu machen. Durch die Konditionen $\Mietechgr(i) > 0$ und $\Armutchg(i) < 0$ wird sichergestellt, dass Nachbarschaften nur dann als Gentrifikationgebiete zugelassen werden, wenn sie eine tatsächliche \textit{Steigerung} der durchschnittlichen Angebotsmiete und einen tatsächlichen \textit{Rückgang} der Armutsquote erfahren haben. Die Konditionen für Gentrificationgebiete wurden also so gewählt, dass sie als notwendige und hinreichende Bedingungen für Gentrificationprozesse interpretiert werden können. Im Gegensatz dazu schließt die Klassifizierung als Kontrollgebiete aber nicht aus, dass dort auch Gentrificationprozesse stattfanden. Schließlich beziehen sich die Konditionen für Kontrollgebiete ausschließlich auf $Miete_{2007}$ bzw. $Armut_{2007}$. Die Kontrollgebiete sollten also keinesfalls als \textit{Nicht-Gentrificationgebiete} interpretiert werden.\\
 In der konkreten Anwendung wird die Klassifizierung der Nachbarschaften deutlich klarer (vgl. Kapitel~\ref{Sec:AnaGentriKlassi}). Der zugegebenermaßen sperrigen Formalisierung der Klassifizierungskonditionen wurde deshalb soviel Raum gegeben, da in der empirischen Analyse der klassifizierten Nachbarschaften auch ein Robustheitscheck durchgeführt werden soll, für dessen Verständis sich die Formalisierung als sehr hilfreich erweisen wird.
 
-\subsubsection{Gewichtete Diagramme und Karten} 
-Zur Darstellung univariater Verteilungen diverser Variablen werden gewichtete Violin- und Boxplots verwendet, da sie einen einfachen Vergleich zwischen den Gentrificationgebieten und den Kontrollgebieten zulassen. Gewichtet werden die Violin- bzw. Boxplots, um den variiernden Einwohnerzahlen der LOR Rechnung zu tragen (vgl.~Tabelle~\ref{tab:LOR}). Jede Nachbarschaft $i$ wird bei der Berechnung der Violin- und Boxplots also mit ihrer jeweiligen Einwohner*innenzahl zu Beobachtungsbeginn ($n_{2007}(i)$) gewichtet. Für bivariate Darstellungen werden Bubbleplots verwendet, wobei die Gewichtung nach Einwohner*innenzahl über eine proportionale Anpassung der Bubblegröße vorgenommen wird. Um räumliche Zusammenhänge und Verteilungen darzustellen werden außerdem statische wie auch dynamische Karten erstellt.
+\subsubsection{Violin-, Boxplots und Karten} 
+Zur Darstellung univariater Verteilungen diverser Variablen werden gewichtete Violin- und Boxplots verwendet, da sie einen einfachen Vergleich zwischen den Gentrificationgebieten und den Kontrollgebieten zulassen. Gewichtet werden die Violin- bzw. Boxplots, um den variiernden Einwohnerzahlen der LOR Rechnung zu tragen (vgl.~Tabelle~\ref{tab:LOR}). Jede Nachbarschaft $i$ wird bei der Berechnung der Violin- und Boxplots also mit ihrer jeweiligen Einwohner*innenzahl zu Beobachtungsbeginn ($n_{2007}(i)$) gewichtet. 
+%Für bivariate Darstellungen werden Bubbleplots verwendet, wobei die Gewichtung nach Einwohner*innenzahl über eine proportionale Anpassung der Bubblegröße vorgenommen wird. 
+Um räumliche Zusammenhänge und Verteilungen darzustellen werden außerdem statische wie auch dynamische Karten erstellt.
 
 
 \subsection{Inferenziell}\label{MetInferenziell}

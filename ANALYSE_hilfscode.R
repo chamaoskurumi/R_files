@@ -604,4 +604,19 @@ boxplot(bpDF$MH_ERchg ~ bpDF$Gentri)
 
 table(bpDF$SanGebiet.2012, bpDF$Gentri)
 
+######### Statistiken zu Aufwertung ######
+
+  MietechgrMEANI <- round(weighted.mean(bpDF$Mietechgr[bpDF$STADTRAUM=="innere Stadt"], 
+                                        bpDF$E_E.2007[bpDF$STADTRAUM=="innere Stadt"]),2)
+  MietechgrMEANI
+  MietechgrMEANA <- round(weighted.mean(bpDF$Mietechgr[bpDF$STADTRAUM!="innere Stadt"], 
+                                        bpDF$E_E.2007[bpDF$STADTRAUM!="innere Stadt"]),2)
+  MietechgrMEANA
+  ArmutchgMEANI <- round(weighted.mean(bpDF$Armutchg[bpDF$STADTRAUM=="innere Stadt"], 
+                                       bpDF$E_E.2007[bpDF$STADTRAUM=="innere Stadt"]),2)
+  ArmutchgMEANI
+  ArmutchgMEANA <- round(weighted.mean(bpDF$Armutchg[bpDF$STADTRAUM!="innere Stadt"], 
+                                       bpDF$E_E.2007[bpDF$STADTRAUM!="innere Stadt"]),2)
+  ArmutchgMEANA
+
 
