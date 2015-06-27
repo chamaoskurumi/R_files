@@ -22,7 +22,7 @@ library("classInt")
 
 if(!require(devtools)) { install.packages('devtools'); require(devtools) }
 devtools::install_github('chgrl/leafletR')
-#library("leafletR")
+library("leafletR")
 
 source("/home/dao/Desktop/MasterArbeit/R_files/functions/myleaflet_FUNCTION.R")
 

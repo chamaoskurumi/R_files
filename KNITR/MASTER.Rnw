@@ -128,6 +128,7 @@ knit_hooks$set(crop=hook_pdfcrop)
 % --- frontmatter: List of Figures (not mandatory) ---
 % ----------------------------------------------------
 \newpage
+\pagenumbering{roman} 
 \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
 \ohead[]{Abkürzungsverzeichnis}
 \input{Andere/Abkuerzungen}

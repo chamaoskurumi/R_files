@@ -21,7 +21,7 @@ levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="3.Quartil"] <- "3.Q"
 levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="2.Quartil"] <- "2.Q"
 levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="1.Quartil"] <- "1.Q"
 
-mosaicDF <- table(bpDF$MietechgrQNTL, bpDF$ArmutchgQNTL,dnn=c("Relative Mietpressteigerung","Änderung der Armutsquote"))
+mosaicDF <- table(bpDF$MietechgrQNTL, bpDF$ArmutchgQNTL,dnn=c("Relative Mietpreisänderung","Änderung der Armutsquote"))
 mosaic(mosaicDF, gp = gpar(fill = fill_colors, col = 0))
 assoc(mosaicDF,shade=TRUE) 
 @
@@ -33,7 +33,7 @@ Miete.2007MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR), 
                        values = rescale(c(4,7,14)),
                        guide = "colorbar", limits=c(4,14),
-                       name=expression(paste('Miete'[2007],' ','(Euro)'))) +
+                       name=expression(paste('Miete'[2007],' ','(Euro/',m^{2},')'))) +
   coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
 Miete.2007MAP
 @
@@ -44,7 +44,7 @@ Miete.2012MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR), 
                        values = rescale(c(4,7,14)),
                        guide = "colorbar", limits=c(4,14),
-                       name=expression(paste('Miete'[2012],' ','(Euro)'))) +
+                       name=expression(paste('Miete'[2012],' ','(Euro/',m^{2},')'))) +
   coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
 Miete.2012MAP
 @

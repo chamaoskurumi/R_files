@@ -126,7 +126,7 @@ p1Miete.2007  <- ggplot(bpDF, aes(Gentri,
                                   weight=E_E.2007,
                                   fill=Gentri)) + 
   #ylab("Miete 2007")+
-  ylab(expression(paste(Miete[2007],' ','(Euro)')))+
+  ylab(expression(paste(Miete[2007],' ','(Euro/',m^{2},')')))+
   scale_y_continuous(breaks=pretty_breaks(n=brueche))+ 
   geom_violin(scale = "width") + bp_theme
 p1Miete.2007 <- p1Miete.2007 + geom_boxplot(width=.3)
@@ -187,7 +187,7 @@ p1Miete.2012  <- ggplot(bpDF, aes(Gentri,
                                   weight=E_E.2007,
                                   fill=Gentri)) + 
   #ylab("Miete 2007")+
-  ylab(expression(paste(Miete[2012],' ','(Euro)')))+
+  ylab(expression(paste(Miete[2012],' ','(Euro/',m^{2},')')))+
   scale_y_continuous(breaks=pretty_breaks(n=brueche))+ 
   geom_violin(scale = "width") + bp_theme
 p1Miete.2012<- p1Miete.2012 + geom_boxplot(width=.3)
