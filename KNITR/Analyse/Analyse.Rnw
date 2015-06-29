@@ -6,13 +6,13 @@
 
 Um die Gentrificationgebiete lokalisieren und charakterisieren zu können, müssen die LOR zunächst nach den in Kapitel~\ref{sec:Klassifizierung} beschriebenen Kriterien klassifiziert werden. Durch die Klassifizierung wird die Variable \textit{Kategorie} generiert, welche als Grundlage der Vergleiche zwischen Gentrification- und Kontrollgebieten dienen soll. Empirisch ergaben sich für die Generierung von \textit{Kategorie} chronologisch die folgenden Konditionen:
 \begin{itemize}
-\item $Kategorie(i) =$ Gentri, wenn \\ 
+\item $Kategorie(i) =$ Gentri, wenn
 \begin{center} $\Mietechgr(i) > 4,2\% \; \wedge \; \Armutchg(i) < -3,1\%$  \end{center}
-\item $Kategorie(i) =$ Kontrolle, wenn \\ 
-\begin{center} $Miete_{2007}(i) \; \in [5,09\,\euro\,,\,7,26\,\euro] \; \wedge \; Armut_{2007}(i) \; \in [16,8\%\,,\,45,1\%]$ \end{center}
+\item $Kategorie(i) =$ Kontrolle, wenn
+\begin{center} $Miete_{2007}(i) \; \in [5,09\nicefrac{\text{\euro}}{m^2},\,7,26\nicefrac{\text{\euro}}{m^2}] \; \wedge \; Armut_{2007}(i) \; \in [16,8\%\,,\,45,1\%]$ \end{center}
 \item $Kategorie(i) =$ Andere, $sonst$.  
 \end{itemize}
-Auf Grundlage dieser Konditionen wurden von den 430~gültigen LOR 45~(10,5\%) als Gentrificationgebiete, 139~(32,3\%) als Kontrollgebiete und 246~(57,2\%) als Andere Gebiete klassifiziert. In Abbildung~\ref{fig:ViolinDefKategorie} wird die empirische Klassifizierung anhand von Violin- und Boxplots veranschaulicht, wobei die empirischen Schwellenwerte als rot gestrichelte Linien dargestellt werden. Die Plots von $\Mietechgr$ und $\Armutchg$ illustrieren die Kategorienbildung der Gentrificationgebiete als diejenigen Nachbarschaften, die gleichzeitig eine sehr starke immobilienwirtschaftliche sowie eine starke soziale Aufwertung erfuhren. Die Plots von $Miete_{2007}$ und $Armut_{2007}$ veranschaulichen die Kategorienbildung der Kontrollgebiete als diejenigen Nachbarschaften, die den Gentrificationgebieten zu Beobachtungsbeginn ähnlich waren.
+Auf Grundlage dieser Konditionen wurden von den 430~gültigen LOR 45~(10,5\%) als Gentrificationgebiete, 139~(32,3\%) als Kontrollgebiete und 246~(57,2\%) als Andere Gebiete klassifiziert. In Abbildung~\ref{fig:ViolinDefKategorie} wird die empirische Klassifizierung anhand von Violin- und Boxplots veranschaulicht, wobei die empirischen Schwellenwerte als rot gestrichelte Linien dargestellt werden. Die Plots von $\Mietechgr$ und $\Armutchg$ illustrieren die Kategorienbildung der Gentrificationgebiete als diejenigen Nachbarschaften, die gleichzeitig eine starke immobilienwirtschaftliche sowie eine starke soziale Aufwertung erfuhren. Die Plots von $Miete_{2007}$ und $Armut_{2007}$ veranschaulichen die Kategorienbildung der Kontrollgebiete als diejenigen Nachbarschaften, die den Gentrificationgebieten zu Beobachtungsbeginn ähnlich waren.
 
 <<setupViolinplots,include=FALSE,cache=FALSE>>=
 library("gridExtra")
@@ -37,12 +37,12 @@ grid.arrange(p1Mietechgr, p2Mietechgr,
 \subsubsection{Immobilienwirtschaftliche und soziale Aufwertungsgebiete}
 
 Bevor auf die räumliche Verteilung der einzelnen Kategorien eingegangen wird, soll zunächst die räumliche Verteilung der Proxies von immobilienwirtschaftlicher und sozialer Aufwertung einzeln untersucht, sowie ihr statistischer Zusammenhang überprüft werden.
-\paragraph{Räumliche Verteilung von $\bm{\Delta_{r}Miete}$} 
+\paragraph{Räumliche Verteilung der relativen Mietpreisänderung} 
 Betrachtet man die Karte zu $\Mietechgr$ (Abbildung~\ref{fig:MietechgrMAP}), so fällt auf, dass es praktisch in der gesamten inneren Stadt zu starken Mietpreissteigerungen kam. Die jahresdurchschnittliche, reale Mietpreissteigerung innerhalb des S-Bahn Rings betrug 4,8\%, außerhalb des S-Bahn Rings 1,7\%. Besonders stark betroffen waren die Ortsteile Moabit, Alt-Treptow, der Süden Kreuzbergs, sowie der Norden Neuköllns. Im Norden Neuköllns befinden sich auch die "`Top"' acht Quartiere mit den stärksten Mietpreissteigerungen Berlins. "`Spitzenreiter"' ist der LOR \textit{Hasenheide} mit einer jahresdurchschnittlichen Mietpreissteigerung von 11,2\%.\footnote{ Diese jahresdurchschnittlichen 11,2\% entsprechen einer realen kumulierten Mietpreissteigerung von knapp 90\% innerhalb von sechs Jahren.} Außerhalb des S-Bahnrings sind die stärksten Mietpreissteigerungen im Wesentlichen im westlichen Lichtenberg, sowie den Pankower Neubaugebieten von Karow und Buch zu verzeichnen. Zu realen Mietpreissenkungen kam es im Beobachtungszeitraum nur in 18 der 430 LOR. Diese befinden sich hauptsächlich an den Rändern von Spandau und Reinickendorf.
-\paragraph{Räumliche Verteilung von $\bm{\Delta Armut}$}  
+\paragraph{Räumliche Verteilung der Änderung der Armutsquote}  
 Die räumliche Verteilung von $\Armutchg$ (Abbildung~\ref{fig:ArmutchgMAP}) ergibt ein uneindeutigeres, wenngleich ähnliches Bild. In der inneren Stadt sank fast überall die Armutsquote - im Durchschnitt um 2,6\%. Die stärksten Senkungen der Armutsquote sind entlang des S-Bahn Rings vom Prenzlauer Berg, über das östliche Friedrichshain und Alt-Treptow bis nach Nord-Neukölln zu verzeichnen. In der äußeren Stadt sind gleichermaßen Senkungen (z.B. Weißensee und Baumschulenweg) wie auch Steigerungen (z.B. Reinickendorf oder Marienfeld) der Armutsquote zu beobachten.
-\paragraph{Statistischer Zusammenhang von $\bm{\Delta_{r}Miete}$ und $\bm{\Delta Armut}$}  
-Der zuvor theoretisch motivierte Zusammenhang zwischen immobilienwirtschaftlicher und sozialer Aufwertung wird empirisch gestützt: Der gewichtete Korrelationskoeffizient zwischen $\Mietechgr$ und $\Armutchg$ beträgt stadtweit -0,46 und für die innere Stadt -0.53. Für überdurchschnittlich arme, innerstädtische Nachbarschaften beträgt der gewichtete Korrelationskoeffizient sogar -0,61. Mietpreissteigerungen gingen also mit Senkungen der Armutsquote einher. Zur Veranschaulichung dieses Zusammenhangs findet sich ein Mosaik- und ein Assozationsplot im Anhang (Abbildung \ref{fig:MosaicAssoc}).
+\paragraph{Statistischer Zusammenhang}  
+Der zuvor theoretisch motivierte Zusammenhang zwischen immobilienwirtschaftlicher und sozialer Aufwertung wird empirisch gestützt: Der gewichtete Korrelationskoeffizient zwischen $\Mietechgr$ und $\Armutchg$ beträgt stadtweit -0,46 und für die innere Stadt -0.53. Für überdurchschnittlich arme, innerstädtische Nachbarschaften beträgt der gewichtete Korrelationskoeffizient sogar -0,61. Mietpreissteigerungen gingen also mit Senkungen der Armutsquote einher. Zur Veranschaulichung dieses Zusammenhangs findet sich ein Mosaik- und ein Assozationsplot im Anhang (Abbildung \ref{fig:Mosaic} und \ref{fig:Assoc}). Der festgestellte Zusammenhang zwischen immobilienwirtschaftlicher und sozialer Aufwertung liefert einen ersten starken Anhaltspunkt für stattfindende Verdrängungsprozesse.
 
 \pagebreak
 <<VorbereitungGGPLOTmaps, include=FALSE>>=
@@ -127,7 +127,7 @@ ArmutchgMAP
 
 \subsubsection{Gentrificationgebiete}
 
-Aufgrund des eben festgestellten starken Zusammenhangs von Mietpreissteigerungen und Senkungen der Armutsquote, ist nun eine übereinstimmende räumliche Verteilung der als Gentrificationgebiete klassifizierten LOR zu erwarten. Tabelle~\ref{tab:LageKategorie} bietet eine grobe Lagebeschreibung der klassifizierten Nachbarschaften. Demnach machen die als Gentrificationgebiete klassizierten Nachbarschaften fast ein Drittel der innerstädtischen LOR aus. Fast alle Gentrificationgebiete liegen, wie zu erwarten war, innerhalb des S-Bahn Rings. Außerhalb des S-Bahn Rings wurden nur vier LOR als Gentrificationgebiete klassifiziert. Im Gegensatz dazu liegen Kontrollgebiete und andere Gebiete mehrheitlich in der äußeren Stadt. Im Durchschnitt (Median) befinden sich die Kontrollgebiete doppelt so weit vom Stadtzentrum entfernt, wie die Gentrificationgebiete. In den als Gentrificationgebieten klassifizierten LOR lebten im Jahre 2007 insgesamt 456355 Menschen und die Durchschnittsgröße (Median) betrug 9734 Einwohner*innen (vgl. Tabelle~\ref{tab:KategorieEW}).\\
+Aufgrund des eben festgestellten starken Zusammenhangs von Mietpreissteigerungen und Senkungen der Armutsquote, ist nun eine übereinstimmende räumliche Verteilung der als Gentrificationgebiete klassifizierten LOR zu erwarten. Tabelle~\ref{tab:LageKategorie} bietet eine grobe Lagebeschreibung der klassifizierten Nachbarschaften. Demnach machen die als Gentrificationgebiete klassizierten Nachbarschaften fast ein Drittel der innerstädtischen LOR aus. Fast alle Gentrificationgebiete liegen, wie zu erwarten war, innerhalb des S-Bahn Rings. Außerhalb des S-Bahn Rings wurden nur vier LOR als Gentrificationgebiete klassifiziert. Im Gegensatz dazu liegen Kontrollgebiete und andere Gebiete mehrheitlich in der äußeren Stadt. Im Median befinden sich die Kontrollgebiete doppelt so weit vom Stadtzentrum entfernt, wie die Gentrificationgebiete. In den als Gentrificationgebieten klassifizierten LOR lebten im Jahre 2007 insgesamt 456355 Menschen und die Mediangröße betrug 9734 Einwohner*innen (vgl. Tabelle~\ref{tab:KategorieEW}).
 
 \begin{table}[h]
 \centering
@@ -153,7 +153,7 @@ GentriMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
 GentriMAP
 @
 
-<<EW07Gentri, fig.height=3, fig.cap='Einwohner*innen 2007 nach Bezirk und \\textit{Kategorie}',fig.lp='fig:'>>=
+<<EW07Gentri, fig.height=4, fig.cap='Einwohner*innen 2007 nach Bezirk und \\textit{Kategorie}',fig.lp='fig:', cache=FALSE>>=
 bar_theme <- theme(axis.title.y = element_blank(),
                    axis.title.x = element_text(face="bold",colour = "grey50"),
                    legend.text=element_text(colour = "grey50"),
@@ -176,18 +176,17 @@ Reihenfolge <- rev(c("Friedrichshain-Kreuzberg","Neukölln",
                      "Marzahn-Hellersdorf","Steglitz-Zehlendorf"))
 
 bar1 <- ggplot(data=summaryBEZ_NAME, aes(x=factor(BEZ_NAME, levels=Reihenfolge), y=E_E.2007_sum, fill=Kategorie)) +
-  geom_bar(stat='identity') + bar_theme + ylab("Einwohner*innen 2007 in 1000") +  coord_flip() 
+  geom_bar(stat='identity', colour="white",size=0.3) + bar_theme + ylab("Einwohner*innen 2007 in 1000") +  coord_flip() 
 bar1
 @
 
     \subsection{Charakterisierung}\label{Sec:AnaGentriChara}
 
-Mit der Feststellung, dass sich die Gentrificationgebiete hauptsächlich in Innenstadtnähe befinden, wurde der erste Teil von H~1 bestätigt. Die H~1 postuliert aber außerdem, dass innerstädtische Nachbarschaften mit ursprünglich hohen Armutsquoten und günstigen Mietpreisen am stärksten von Gentrificationdynamiken betroffen sind. Zur Überprüfung dieser Vermutung können die Gentrificationgebiete allerdings nicht mit den Kontrollgebieten verglichen werden, da letztere ohnehin nach dem Kriterium einer den Gentrificationgebieten ursprünglich ähnlichen Mietpreisstruktur und Armutsquote definiert wurden. Ein solcher Vergleich wäre also redundant. Stattdessen soll in Kapitel~\ref{Sec:AnaGentriCharaMA} die Verteilung von $Miete_{2007}$ bzw. $Armut{2007}$ der innerstädtischen Gentrificationgebiete mit denen der gesamten inneren Stadt verglichen, und somit H~1 überpüft werden. In Kapitel~\ref{Sec:AnaGentriCharaWM} wird anschließend ein Vergleich der wohnräumlichen Mobilität, d.h. der Fortzugs- und Zuzugsraten, zwischen Gentrification- und Kontrollgebieten zur Überprüfung von H~2.1, H~2.2a und H~2.2b durchgeführt.
+Mit der Feststellung, dass sich die Gentrificationgebiete hauptsächlich in Innenstadtnähe befinden, wurde der erste Teil von H~1 bestätigt. Die H~1 postuliert aber außerdem, dass innerstädtische Nachbarschaften mit ursprünglich hohen Armutsquoten und günstigen Mietpreisen am stärksten von Gentrificationdynamiken betroffen sind. Zur Überprüfung dieser Vermutung können die Gentrificationgebiete allerdings nicht mit den Kontrollgebieten verglichen werden, da letztere ohnehin nach dem Kriterium einer den Gentrificationgebieten ursprünglich ähnlichen Mietpreisstruktur und Armutsquote definiert wurden. Ein solcher Vergleich wäre also redundant. Stattdessen soll in Kapitel~\ref{Sec:AnaGentriCharaM} die Verteilung von $Miete_{2007}$ bzw. Kapitel~\ref{Sec:AnaGentriCharaA} $Armut_{2007}$ der innerstädtischen Gentrificationgebiete mit denen der gesamten inneren Stadt verglichen, und somit H~1 überpüft werden. In Kapitel~\ref{Sec:AnaGentriCharaWM} wird anschließend ein Vergleich der wohnräumlichen Mobilität, d.h. der Fortzugs- und Zuzugsraten, zwischen Gentrification- und Kontrollgebieten zur Überprüfung von H~2.1, H~2.2a und H~2.2b durchgeführt.
 
-\subsubsection{Mietpreise und Armut}\label{Sec:AnaGentriCharaMA}
+\subsubsection{Mietpreise}\label{Sec:AnaGentriCharaM}
 
-\paragraph{$\bm{Miete_{2007}}$}
-Betrachten wir zunächst die Verteilung der realen Medianangebotsmietpreise gemessen in~\euro \,pro $m^2$ zu Beginn des Beobachtungszeitraums. Abbildung~\ref{fig:bpMiete2007innere} stellt die Verteilung von $Miete_{2007}$ innerstädtischer Gentrificationgebiete der entsprechenden Verteilung der gesamten inneren Stadt gegenüber. Es fällt auf, dass die Gentrificationgebiete die Nachbarschaften mit den in 2007 günstigsten Mietpreisen einschließen, aber keine Nachbarschaften des Hochpreissegments unter den Gentrificationgebieten zu finden sind. Doch die $Miete_{2007}$ konzentriert sich für Gentrificationgebiete nicht nur im niedrigen Preissegment: Die durchschnittlichen (Median) Mietpreise 2007 der Gentrificationgebiete und der gesamten Innenstadt stimmen fast überein (6,31 zu 6,43~\euro \,pro $m^2$). Knapp 60\% der als Gentrificationgebiete klassifizierten Nachbarschaften besaßen eine $Miete_{2007}$ zwischen 6 und 7~\euro \,pro $m^2$. Auch sonst ähneln sich die beiden Verteilungen ihrer Gestalt. Dies suggeriert, dass dass nicht \textit{nur} die Nachbarschaften mit den günstigsten Mietpreisen gentrifiziert werden, sondern auch die, mit durchschnittlichen Mietpreisen. Was aus der Abbildung~\ref{fig:bpMiete2007innere} nicht hervorgeht, ist der Umstand, dass nur etwa ein Drittel der innerstädtischen Nachbarschaften mit den günstigsten Mietpreisen (\textgreater\,6~\euro\,pro $m^2$) als Gentrificationgebiete klassifiziert wurden. Dies bedeutet im Umkehrschluss aber nicht, dass in den restlichen zwei Drittel der Nachbarschaften keine Gentrificationprozesse stattfanden. Die stärksten Aufwertungsprozesse sind lediglich nicht \textit{nur} in den günstigsten Gebieten zu beobachten.
+Betrachten wir zunächst die Verteilung der realen Medianangebotsmietpreise gemessen in~\Europroqm zu Beginn des Beobachtungszeitraums. Abbildung~\ref{fig:bpMiete2007innere} stellt die Verteilung von $Miete_{2007}$ innerstädtischer Gentrificationgebiete der entsprechenden Verteilung der gesamten inneren Stadt gegenüber. Es fällt auf, dass die Gentrificationgebiete die Nachbarschaften mit den in 2007 günstigsten Mietpreisen einschließen, aber keine Nachbarschaften des Hochpreissegments unter den Gentrificationgebieten zu finden sind. Doch die $Miete_{2007}$ konzentriert sich für Gentrificationgebiete nicht nur im niedrigen Preissegment: Die Medianmietpreise 2007 der Gentrificationgebiete und der gesamten Innenstadt stimmen fast überein (6,31 zu 6,43~\Europroqm \!\!). Auch sonst ähneln sich die beiden Verteilungen in ihrer Gestalt. Dies suggeriert, dass dass nicht \textit{nur} die Nachbarschaften mit den günstigsten Mietpreisen gentrifiziert werden, sondern auch die, mit durchschnittlichen Mietpreisen. Aus dem Histogramm der innerstädtischen LOR nach $Miete_{2007}$ und \textit{Kategorie} (Abbildung~\ref{fig:barMiete2007innere}) geht hervor, dass nur etwa ein Drittel der innerstädtischen Nachbarschaften mit den günstigsten Mietpreisen (\textgreater\,6~\Europroqm \!\!) als Gentrificationgebiete klassifiziert wurden. Dies bedeutet im Umkehrschluss aber nicht, dass in den restlichen zwei Drittel der Nachbarschaften keine Gentrificationprozesse stattfanden. Die stärksten Aufwertungsprozesse sind lediglich nicht \textit{nur} in den günstigsten Gebieten zu beobachten. Am häufigsten fanden starke Gentrificationprozesse in Nachbarschaften mit einer $Miete_{2007}$ zwischen 6 und 7~\Europroqm statt.
 
 <<setup_bpGentriGesamt, include=FALSE, cache=FALSE>>=
 bpGentriInnere   <- subset(bpDF, Gentri=="Gentri" & STADTRAUM=="innere Stadt")
@@ -225,12 +224,28 @@ grid.arrange(p1MieteG.2007, p2MieteG.2007,
              ncol=2, nrow=1, widths=c(1,1))
 @
 
+
+<<barMiete2007innere, fig.scap='Histogramm der innerstädtischen LOR nach $Miete_{2007}$ und \\textit{Kategorie}', fig.cap='Histogramm der innerstädtischen LOR nach $Miete_{2007}$ und \\textit{Kategorie} ($n=137$)', fig.height=4, fig.width=5, fig.align='center',fig.lp='fig:', cache=FALSE>>=
+barMiete.2007I <- ggplot(data=bpGesamtInnere, aes(x=Miete.2007, fill=Gentri)) +
+  geom_bar(width=0.5, binwidth=1, colour="white",size=0.3) + 
+  theme(axis.title.y = element_text(face="bold",colour = "grey50"),
+        axis.title.x = element_text(face="bold",colour = "grey50"),
+        legend.text=element_text(colour = "grey50"),
+        legend.title=element_text(face="bold",colour = "grey50"),
+        legend.title=element_text(size=rel(0.7), face="bold"),
+        legend.text=element_text(size=rel(0.5))) + 
+  scale_x_continuous(breaks=seq(4,11,1), limits=c(4,11)) +
+  scale_y_continuous(breaks=seq(0,60,10))  +
+  xlab(expression(paste(Miete[2007],' ','(Euro/',m^{2},')'))) + 
+  ylab(expression(paste('Anzahl der LOR'))) + 
+  guides(fill=guide_legend(title="Kategorie")) 
+barMiete.2007I
+@
+
 Zum Zweck der Veranschaulichung der räumlichen Verteilung von $Miete_{2007}$ und $Miete_{2012}$ finden sich im Anhang entsprechende Karten (Abbildung~\ref{fig:Miete.2007MAP} und \ref{fig:Miete.2012MAP}). Sie illustrieren, wie innerhalb von nur sechs Jahren immobilienwirtschaftliche Aufwertung Nachbarschaften des Niedrigpreissegments in Gebiete des Mittel- bis Hochpreissegments transformiert hat. Hier stechen, wie schon bei der Betrachtung der räumlichen Verteilung von $\Mietechgr$ festgestellt, die Ortsteile Nord-Neukölln, Moabit sowie große Teile des Bezirks Friedrichshain-Kreuzberg ins Auge.
 
-Nicht die günstigsten wegen terretorial Stigmatation gentrifiziert hier nicht zu halten. Es sind die ärmsten und günstigsten Nachbarschaften der Innenstadt gentrifiziert worden - aber eben nicht nur diese. attraktive Bausubstanz altbauten.
-
-\paragraph{$\bm{Armut_{2007}}$}
-Kommen wir zur vergleichenden Analyse der Armutsquoten. Abbildung~\ref{fig:bpArmut2007innere} stellt die Verteilung von $Armut_{2007}$ innerstädtischer Gentrificationgebiete der entsprechenden Verteilung der gesamten inneren Stadt gegenüber. Die Verteilungen besitzen eine ähnlich hohe Streuung (Standardabweichung 11,1 zu 11,7), aber Gentrificationgebiete besitzen eine wesentlich höhere durchschnittliche (Median) Armutsquote als die gesamte Innenstadt (30,3\% zu 22,9\%). Die beiden Verteilungen ähneln sich, jedoch ist die der Gentrificationgebiete nach oben "`verschoben"': Es sind lediglich die Nachbarschaften mit den niedrigsten Armutsquoten (\textless\,10\%), in denen nicht auch starke Gentrificationprozesse zu beobachten sind. Von den Nachbarschaften mit den höchsten Armutsquoten (\textgreater\,40\%) wurden etwas mehr als die Hälfte als Gentrificationgebiete klassifiziert. Knapp 70\% der Gentrificationgebiete besitzen eine für innenstädtische Nachbarschaften überdurchschnittliche Armutsquote. Es ist also davon auszugehen, dass die stärksten Gentrificationprozesse in den überdurchschnittlich armen und ärmsten Nachbarschaften stattfinden, aber nicht auf diese beschränkt sind. Auch Nachbarschaften mit mittleren Armutsquoten sind von starken Gentrificationprozessen betroffen. 
+\subsubsection{Armut}\label{Sec:AnaGentriCharaA}
+Kommen wir zur vergleichenden Analyse der Armutsquoten. Abbildung~\ref{fig:bpArmut2007innere} stellt die Verteilung von $Armut_{2007}$ innerstädtischer Gentrificationgebiete der entsprechenden Verteilung der gesamten inneren Stadt gegenüber. Die Verteilungen besitzen eine ähnlich hohe Streuung ($\sigma=$ 11,1 zu 11,7), aber Gentrificationgebiete besitzen eine wesentlich höhere Medianarmutsquote als die gesamte Innenstadt (30,3\% zu 22,9\%). Die beiden Verteilungen ähneln sich, jedoch ist die der Gentrificationgebiete nach oben "`verschoben"': Es sind lediglich die Nachbarschaften mit den niedrigsten Armutsquoten (\textless\,10\%), in denen nicht auch starke Gentrificationprozesse zu beobachten sind. Das entsprechende Histogramm der innerstädtischen LOR (Abbildung~\ref{fig:barArmut2007innere}) zeigt, dass von den Nachbarschaften mit hohen Armutsquoten (\textgreater\,40\%) etwas mehr als die Hälfte und von den Nachbarschaften mit der höchsten Armutsquote (\textgreater\,50\%) alle als Gentricationgebiete klassifiziert wurden. Knapp 70\% der Gentrificationgebiete besitzen eine für innenstädtische Nachbarschaften überdurchschnittliche Armutsquote. Es ist also davon auszugehen, dass die stärksten Gentrificationprozesse in überdurchschnittlich armen und den ärmsten Nachbarschaften stattfinden, aber nicht auf diese beschränkt sind. Auch Nachbarschaften mit mittleren Armutsquoten sind von starken Gentrificationprozessen betroffen. 
 
 <<bpArmut2007innere,fig.scap='Verteilung von $Armut_{2007}$ in der inneren Stadt',fig.cap='Verteilung von $Armut_{2007}$ für Gentrificationgebiete ($n=41$) und die gesamten Gebiete der inneren Stadt ($n=137$)', fig.height=4, fig.width=4, fig.align='center', fig.lp='fig:', cache=FALSE>>=
 p1ArmutG.2007  <- ggplot(bpGentriInnere , aes(Gentri, 
@@ -263,9 +278,26 @@ grid.arrange(p1ArmutG.2007, p2ArmutG.2007,
              ncol=2, nrow=1, widths=c(1,1))
 @
 
-Die räumliche Verteilung von $Armut_{2007}$ und $Armut_{2012}$ (Abbildung~\ref{fig:Armut.2007MAP} und \ref{fig:Armut.2012MAP} im Anhang) ist schwerer zu interpretieren. Im Gegensatz zu immobilienwirtschaftlicher Aufwertungdynamik erfolgen Änderungen der Armutsquote relativ langsam und sind deshalb auf der den beiden Karten schwerer zu erkennen. Die stärksten Senkungen der Armutsquote von ehemals überdurchschnittlich armen Nachbarschaften konzentrieren sich im südlichen Kreuzberg, im östlichen Friedrichshain und im Norden Neuköllns.
-\paragraph{Zu Hypothese 1}
-Die H 1, nach der innenstadtnahe Nachbarschaften mit hohen Armutsquoten und günstigen Mieten am stärksten von Gentrificationprozessen betroffen sind, kann nach der vergleichenden Analyse der Lage, Armutsquote und Mietpreisstruktur der Gentrificationgebiete grundsätzlich als bestätigt erachtet werden. Es ist bemerkenswert, dass sich starke Gentrificationprozesse in Berlin fast ausschließlich auf die innere Stadt begrenzen. Differenzierend muss allerdings angemerkt werden, dass das ledigliche Vorherrschen hoher Armutsquoten oder günstiger Mietpreise in innenstädtischen Nachbarschaften nicht zwangsläufig zu starken Gentrificationdynamiken führt. Genausowenig sind starke Gentrificationdynamiken in der Innenstadt auf überdurchschnittlich arme oder günstige Nachbarschaften beschränkt. 
+<<barArmut2007innere, fig.scap='Histogramm der innerstädtischen LOR nach $Armut_{2007}$ nach \\textit{Kategorie}', fig.cap='Histogramm der innerstädtischen LOR nach $Armut_{2007}$ und \\textit{Kategorie} ($n=137$)', fig.height=4, fig.width=5, fig.align='center',fig.lp='fig:', cache=FALSE>>=
+barArmut.2007I <- ggplot(data=bpGesamtInnere, aes(x=Armut.2007, fill=Gentri)) +
+  geom_bar(width=0.5, binwidth=5, colour="white",size=0.3) + 
+  theme(axis.title.y = element_text(face="bold",colour = "grey50"),
+        axis.title.x = element_text(face="bold",colour = "grey50"),
+        legend.text=element_text(colour = "grey50"),
+        legend.title=element_text(face="bold",colour = "grey50"),
+        legend.title=element_text(size=rel(0.7), face="bold"),
+        legend.text=element_text(size=rel(0.5))) + 
+  scale_x_continuous(breaks=seq(0,60,10), limits=c(0,60)) +
+  scale_y_continuous(breaks=seq(0,35,10))  +
+  xlab(expression(paste(Armut[2007],' ','(%)'))) +
+  ylab(expression(paste('Anzahl der LOR'))) + 
+  guides(fill=guide_legend(title="Kategorie")) 
+barArmut.2007I
+@
+
+Die räumliche Verteilung von $Armut_{2007}$ und $Armut_{2012}$ (Abbildung~\ref{fig:Armut.2007MAP} und \ref{fig:Armut.2012MAP} im Anhang) ist schwerer zu interpretieren. Im Gegensatz zu immobilienwirtschaftlicher Aufwertungdynamik, erfolgen Änderungen der Armutsquote relativ langsam und sind deshalb auf der den beiden Karten schwieriger zu erkennen. Die stärksten Senkungen der Armutsquote von ehemals überdurchschnittlich armen Nachbarschaften konzentrieren sich im südlichen Kreuzberg, im östlichen Friedrichshain und im Norden Neuköllns.
+\subsubsection{Zu Hypothese 1}
+Die H 1, nach der innenstadtnahe Nachbarschaften mit hohen Armutsquoten und günstigen Mieten am stärksten von Gentrificationprozessen betroffen sind, kann nach der vergleichenden Analyse der Lage, Armutsquote und Mietpreisstruktur der Gentrificationgebiete grundsätzlich als bestätigt erachtet werden. Starke Gentrificationprozesse begrenzen sich fast ausschließlich auf die innere Stadt. Jedoch scheint das ledigliche Vorherrschen hoher Armutsquoten oder günstiger Mietpreise in innenstädtischen Nachbarschaften nicht zwangsläufig zu starken Gentrificationdynamiken zu führen. Genausowenig sind starke Gentrificationdynamiken in der Innenstadt auf überdurchschnittlich arme oder günstige Nachbarschaften beschränkt. Auf jeden Fall scheint in Berlin die "`territoriale Stigmatisierung"' \citet[S.~14]{Slater2015} von armen Stadtteilen, wie etwa dem von Medien als "`Problembezirk"' titulierte Neukölln, selten so groß zu sein, als dass sich dort immobilienwirtschaftliche Investion wegen fehlender Nachfrage nicht lohnen würde. Die Bestätigung von H~1 kann als empirische Evidenz für die Rent-Gap Theorie gewertet werden.
 
 \subsubsection{Wohnräumliche Mobilität}\label{Sec:AnaGentriCharaWM}
 
@@ -345,6 +377,9 @@ ZuzuegeUDARAMAP
 
 \ref{fig:FortzuegeUDARMAP} \ref{fig:ZuzuegeRMAP}
 
+\subsubsection{Zu Hypothese 2.1}
+
+\subsubsection{Zu Hypothese 2.2a und 2.2b}
 
     \subsection{Interpretation}\label{Sec:AnaGentriInter}
 

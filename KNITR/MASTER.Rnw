@@ -16,16 +16,13 @@
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{abbrevs}
 \usepackage{eurosym}
+\usepackage{nicefrac}
 \usepackage{sectsty}
 \usepackage{mathtools}
 \usepackage{pdflscape}
 \usepackage{float} 
 \usepackage{subcaption}
 \newcommand{\subfloat}[2][need a sub-caption]{\subcaptionbox{#1}{#2}}
-
-%\usepackage{atbegshi}
-%\AtBeginShipout{\ifnum\value{page}=1\AtBeginShipoutDiscard\fi}
-%\pagestyle{empty}
 
 \usepackage[font=small,skip=7pt]{caption}
 \usepackage{bm}
@@ -73,13 +70,14 @@
 
 \begin{document}
 
+\newname\Europroqm{$\nicefrac{\text{\euro}}{m^2}$}
 
 <<setupPRE,include=FALSE>>=
 library(knitr)
 opts_chunk$set(
 concordance=TRUE,echo=FALSE, cache=TRUE, 
 message=FALSE,warning=FALSE,
-tidy=TRUE, self.contained=FALSE,fig.pos='H'
+tidy=TRUE, self.contained=FALSE#,fig.pos='H'
 )
 knit_hooks$set(par = function(before, options, envir) {
   if (before) par(mar = c(4, 4, .1, .1))
@@ -121,6 +119,8 @@ knit_hooks$set(crop=hook_pdfcrop)
 % --- frontmatter: Contents ---
 % -----------------------------
 \newpage
+\pagenumbering{gobble}
+\setcounter{tocdepth}{3}
 \tableofcontents
 \clearpage
 
@@ -128,7 +128,6 @@ knit_hooks$set(crop=hook_pdfcrop)
 % --- frontmatter: List of Figures (not mandatory) ---
 % ----------------------------------------------------
 \newpage
-\pagenumbering{roman} 
 \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
 \ohead[]{Abkürzungsverzeichnis}
 \input{Andere/Abkuerzungen}

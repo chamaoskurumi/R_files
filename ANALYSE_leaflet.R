@@ -1,5 +1,5 @@
 setwd("/home/dao/Desktop/MasterArbeit/R_files/KNITR/")
-save.image(file = "FINAL_WORKSPACE.Rdata")
+load(file = "FULL_FINAL_WORKSPACE.Rdata")
 
 #### packages ####
 library("ggplot2")
@@ -19,6 +19,7 @@ library("maptools")
 library("sp")
 library("rgdal")
 library("classInt")
+library("rstudio")
 
 if(!require(devtools)) { install.packages('devtools'); require(devtools) }
 devtools::install_github('chgrl/leafletR')
@@ -39,10 +40,11 @@ clrs <- colorRampPalette(c("yellow", "red"))(length(brks))
 stlMiete.2007 <- styleGrad(prop="Miete.2007", breaks=brks, style.val=clrs, 
                  out=1, leg="Median Angebotsmiete 2007", 
                  lwd=1, col="white", alpha=0.4)
-SPleaflet1  <- leaflet(data=LORjson, dest=tempdir(),
+SPleaflet1  <- leaflet(data=LORjson, dest="/home/dao/Desktop",
                       title="Median Angebotsmiete 2012", base.map="positron",
-                      style=stlMiete.2007, popup="*", incl.data = FALSE)
+                      style=stlMiete.2007, popup="*", incl.data = TRUE)
 SPleaflet1
+viewer(SPleaflet1)
 
 stlMiete.2007 <- styleGrad(prop="Miete.2007", breaks=brks, style.val=clrs, 
                            out=1, leg="Median Angebotsmiete 2007", 

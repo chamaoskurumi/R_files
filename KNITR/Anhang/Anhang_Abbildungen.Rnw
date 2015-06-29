@@ -2,8 +2,7 @@
 
 \section{Abbildungen}\label{Anhang:Abbildungen}
 
-
-<<MosaicAssoc, fig.cap='Visualisierung des Zusammenhangs von $\\Delta_{r}Miete$ und $\\Delta Armut$ nach gewichteten Quartilen. Die Zelle Q4($\\Delta_{r}Miete$) / Q1($\\Delta Armut$) entspricht der \\textit{Kategorie} Gentri. Nach (b) besteht ein hoch signifikanter Zusammenhang zwischen starker Mietpreissteigerung und starker Armutssenkung.', fig.scap='Visualisierung des Zusammenhangs von $\\Delta_{r}Miete$ und $\\Delta Armut$', fig.subcap=c('Mosaikplot', 'Assoziationsplot'), out.width='0.48\\linewidth',fig.lp='fig:'>>=
+<<Mosaic, fig.scap='Mosaikplot des Zusammenhangs von $\\Delta_{r}Miete$ und $\\Delta Armut$', fig.cap='Mosaikplot des Zusammenhangs von $\\Delta_{r}Miete$ und $\\Delta Armut$ nach gewichteten Quartilen. Die Zelle Q4($\\Delta_{r}Miete$) / Q1($\\Delta Armut$) entspricht der \\textit{Kategorie} Gentri.', fig.pos='H', fig.lp='fig:', fig.height=3.5,crop=TRUE, fig.align='center', cache=FALSE>>=
 fill_colors <- matrix(c("red", "gray", "gray","grey",
                        "gray", "gray", "gray","grey",
                        "gray", "gray", "gray","grey",
@@ -23,11 +22,14 @@ levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="1.Quartil"] <- "1.Q"
 
 mosaicDF <- table(bpDF$MietechgrQNTL, bpDF$ArmutchgQNTL,dnn=c("Relative Mietpreisänderung","Änderung der Armutsquote"))
 mosaic(mosaicDF, gp = gpar(fill = fill_colors, col = 0))
+@
+
+<<Assoc, fig.cap='Assozationsplot von $\\Delta_{r}Miete$ und $\\Delta Armut$ nach gewichteten Quartilen. Für die \\textit{Kategorie} Gentri besteht ein hoch signifikanter Zusammenhang zwischen Mietpreissteigerung und  Armutssenkung.', fig.scap='Assozationsplot von $\\Delta_{r}Miete$ und $\\Delta Armut$', fig.lp='fig:',fig.pos='H', fig.height=3, fig.width=4, crop=TRUE, fig.align='center', cache=FALSE>>=
 assoc(mosaicDF,shade=TRUE) 
 @
 
 \newpage
-<<Miete.2007MAP, fig.cap="\\href{http://www.gmx.de}{Karte von $Miete_{2007}$}", fig.height=4.8, fig.lp='fig:'>>=
+<<Miete.2007MAP, fig.cap="\\href{http://www.gmx.de}{Karte von $Miete_{2007}$}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
 Miete.2007MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=Miete.2007, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR), 
@@ -38,7 +40,7 @@ Miete.2007MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
 Miete.2007MAP
 @
 
-<<Miete.2012MAP, fig.cap="\\href{http://www.gmx.de}{Karte von $Miete_{2012}$}", fig.height=4.8, fig.lp='fig:'>>=
+<<Miete.2012MAP, fig.cap="\\href{http://www.gmx.de}{Karte von $Miete_{2012}$}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
 Miete.2012MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=Miete.2012, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR), 
@@ -49,7 +51,7 @@ Miete.2012MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
 Miete.2012MAP
 @
 
-<<Armut.2007MAP, fig.cap="\\href{http://www.gmx.de}{Karte von $Armut_{2007}$}", fig.height=5, fig.lp='fig:'>>=
+<<Armut.2007MAP, fig.cap="\\href{http://www.gmx.de}{Karte von $Armut_{2007}$}", fig.height=5, fig.lp='fig:',fig.pos='H'>>=
 Armut.2007MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=Armut.2007, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR), 
@@ -60,7 +62,7 @@ Armut.2007MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
 Armut.2007MAP
 @
 
-<<Armut.2012MAP, fig.cap="\\href{http://www.gmx.de}{Karte von $Armut_{2012}$}", fig.height=5, fig.lp='fig:'>>=
+<<Armut.2012MAP, fig.cap="\\href{http://www.gmx.de}{Karte von $Armut_{2012}$}", fig.height=5, fig.lp='fig:',fig.pos='H'>>=
 Armut.2012MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=Armut.2012, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR), 
@@ -74,7 +76,7 @@ Armut.2012MAP
 \newpage
 \afterpage{
 \begin{landscape}
-<<ViolinFortZuzuegeI, fig.width=9.8, fig.height=5.6, fig.scap='Verteilungen der wohnräumlichen Mobilität in der inneren Stadt', fig.cap='Verteilungen der wohnräumlichen Mobilität (\\textit{Fortzüge, Zuzüge, FortzügeA, ZuzügeA}) in der inneren Stadt', fig.lp='fig:'>>=
+<<ViolinFortZuzuegeI, fig.width=9.8, fig.height=5.6, fig.scap='Verteilungen der wohnräumlichen Mobilität für die innere Stadt', fig.cap='Verteilungen der wohnräumlichen Mobilität (\\textit{Fortzüge, Zuzüge, FortzügeA, ZuzügeA}) für die innere Stadt', fig.lp='fig:',fig.pos='H'>>=
 p1FortzuegeRI  <- ggplot(bpGesamtInnere, aes(Gentri, 
                                             FortzuegeR, 
                                             weight=E_E.2007,
@@ -127,7 +129,7 @@ grid.arrange(p1FortzuegeRI, p1ZuzuegeRI,
 }
 
 
-<<FortzuegeUDARMAP,fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{FortzügeA}}", fig.height=5, fig.lp='fig:', cache=FALSE>>=
+<<FortzuegeUDARMAP,fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{FortzügeA}}", fig.height=5, fig.lp='fig:', fig.pos='H'>>=
 FortzuegeUDARMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=FortzuegeUDAR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
@@ -138,7 +140,7 @@ FortzuegeUDARMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
 FortzuegeUDARMAP
 @
 
-<<ZuzuegeRMAP,fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{Zuzüge}}", fig.height=5, fig.lp='fig:', cache=FALSE>>=
+<<ZuzuegeRMAP,fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{Zuzüge}}", fig.height=5, fig.lp='fig:', fig.pos='H'>>=
 ZuzuegeRMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=ZuzuegeR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 

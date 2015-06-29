@@ -1,5 +1,5 @@
 setwd("/home/dao/Desktop/MasterArbeit/R_files/KNITR/")
-load(file = "FINAL_WORKSPACE.Rdata")
+load(file = "FULL_FINAL_WORKSPACE.Rdata")
 
 #### packages ####
 library("ggplot2")
@@ -273,6 +273,44 @@ grid.arrange(p1MieteG.2007, p2MieteG.2007,
              ncol=4, nrow=1, widths=c(1,1,1,1))
 
 
+barMiete.2007I <- ggplot(data=bpGesamtInnere, aes(x=Miete.2007, fill=Gentri)) +
+  geom_bar(width=0.5, binwidth=1, colour="white",size=1) + 
+  theme(axis.title.y = element_text(face="bold",colour = "grey50"),
+        axis.title.x = element_text(face="bold",colour = "grey50"),
+        legend.text=element_text(colour = "grey50"),
+        legend.title=element_text(face="bold",colour = "grey50"),
+        legend.title=element_text(size=rel(0.7), face="bold"),
+        legend.text=element_text(size=rel(0.5))) + 
+  scale_x_continuous(breaks=seq(4,11,1), limits=c(4,11)) +
+  scale_y_continuous(breaks=seq(0,60,10))  +
+  xlab(expression(paste(Miete[2007],' ','(Euro/',m^{2},')'))) + 
+  ylab(expression(paste('Anzahl der LOR'))) + 
+  guides(fill=guide_legend(title="Kategorie")) 
+barMiete.2007I
+
+grid.arrange(p1MieteG.2007, p2MieteG.2007, barMiete.2007I, 
+             ncol=3, nrow=1, widths=c(1,1,2))
+
+barArmut.2007I <- ggplot(data=bpGesamtInnere, aes(x=Armut.2007, fill=Gentri)) +
+  geom_bar(width=0.5, binwidth=5, colour="white",size=1) + 
+  theme(axis.title.y = element_text(face="bold",colour = "grey50"),
+        axis.title.x = element_text(face="bold",colour = "grey50"),
+        legend.text=element_text(colour = "grey50"),
+        legend.title=element_text(face="bold",colour = "grey50"),
+        legend.title=element_text(size=rel(0.7), face="bold"),
+        legend.text=element_text(size=rel(0.5))) + 
+  scale_x_continuous(breaks=seq(0,60,10), limits=c(0,60)) +
+  scale_y_continuous(breaks=seq(0,35,10))  +
+  xlab(expression(paste(Armut[2007],' ','(%)'))) +
+  ylab(expression(paste('Anzahl der LOR'))) + 
+  guides(fill=guide_legend(title="Kategorie")) 
+barArmut.2007I
+
+grid.arrange(p1ArmutG.2007, p2ArmutG.2007, barArmut.2007I, 
+             ncol=3, nrow=1, widths=c(1,1,2))
+
+
+
 ##### H2 Boxplots ####
 
 #####**** gesamte Stadt ****####
@@ -536,8 +574,7 @@ bar1
 
 ##### Unterschiede GENTRI / KONTROLL ####
 
-p1  <- ggplot(bpDF, aes(Gentri, 
-                        , 
+p1  <- ggplot(bpDF, aes(Gentri,
                         weight=E_E.2007,
                         fill=Gentri)) + 
   ylab(expression(paste('Fortzüge',' ','(%)')))+
