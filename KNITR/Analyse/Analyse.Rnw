@@ -8,7 +8,7 @@ Um die Gentrificationgebiete lokalisieren und charakterisieren zu können, müss
 \begin{itemize}
 \item $Kategorie(i) =$ Gentri, wenn
 \begin{center} $\Mietechgr(i) > 4,2\% \; \wedge \; \Armutchg(i) < -3,1\%$  \end{center}
-\item $Kategorie(i) =$ Kontrolle, wenn
+\item $Kategorie(i) =$ Kontroll, wenn
 \begin{center} $Miete_{2007}(i) \; \in [5,09\nicefrac{\text{\euro}}{m^2},\,7,26\nicefrac{\text{\euro}}{m^2}] \; \wedge \; Armut_{2007}(i) \; \in [16,8\%\,,\,45,1\%]$ \end{center}
 \item $Kategorie(i) =$ Andere, $sonst$.  
 \end{itemize}
@@ -182,7 +182,7 @@ bar1
 
     \subsection{Charakterisierung}\label{Sec:AnaGentriChara}
 
-Mit der Feststellung, dass sich die Gentrificationgebiete hauptsächlich in Innenstadtnähe befinden, wurde der erste Teil von H~1 bestätigt. Die H~1 postuliert aber außerdem, dass innerstädtische Nachbarschaften mit ursprünglich hohen Armutsquoten und günstigen Mietpreisen am stärksten von Gentrificationdynamiken betroffen sind. Zur Überprüfung dieser Vermutung können die Gentrificationgebiete allerdings nicht mit den Kontrollgebieten verglichen werden, da letztere ohnehin nach dem Kriterium einer den Gentrificationgebieten ursprünglich ähnlichen Mietpreisstruktur und Armutsquote definiert wurden. Ein solcher Vergleich wäre also redundant. Stattdessen soll in Kapitel~\ref{Sec:AnaGentriCharaM} die Verteilung von $Miete_{2007}$ bzw. Kapitel~\ref{Sec:AnaGentriCharaA} $Armut_{2007}$ der innerstädtischen Gentrificationgebiete mit denen der gesamten inneren Stadt verglichen, und somit H~1 überpüft werden. In Kapitel~\ref{Sec:AnaGentriCharaWM} wird anschließend ein Vergleich der wohnräumlichen Mobilität, d.h. der Fortzugs- und Zuzugsraten, zwischen Gentrification- und Kontrollgebieten zur Überprüfung von H~2.1, H~2.2a und H~2.2b durchgeführt.
+Mit der Feststellung, dass sich die Gentrificationgebiete hauptsächlich in Innenstadtnähe befinden, wurde der erste Teil von H~1 bestätigt. H~1 postuliert aber außerdem, dass innerstädtische Nachbarschaften mit ursprünglich hohen Armutsquoten und günstigen Mietpreisen am stärksten von Gentrificationdynamiken betroffen sind. Zur Überprüfung dieser Vermutung können die Gentrificationgebiete allerdings nicht mit den Kontrollgebieten verglichen werden, da letztere ohnehin nach dem Kriterium einer den Gentrificationgebieten ursprünglich ähnlichen Mietpreisstruktur und Armutsquote definiert wurden. Ein solcher Vergleich wäre also redundant. Stattdessen soll in Kapitel~\ref{Sec:AnaGentriCharaM} und \ref{Sec:AnaGentriCharaA} die Verteilung von $Miete_{2007}$ bzw.  $Armut_{2007}$ der innerstädtischen Gentrificationgebiete mit denen der gesamten inneren Stadt verglichen, und somit H~1 überpüft werden. Anschließend wird zur Überprüfung von H~2.1 und H~2.2 in Kapitel~\ref{Sec:AnaGentriCharaWM} ein Vergleich der wohnräumlichen Mobilität, d.h. der Fortzugs- und Zuzugsraten, zwischen Gentrification- und Kontrollgebieten durchgeführt. Der Vergleich zwischen den Mustern wohnräumlicher Mobilität soll Aufschluss über mögliche Zusammenhänge zwischen Aufwertung und Verdrängung liefern.
 
 \subsubsection{Mietpreise}\label{Sec:AnaGentriCharaM}
 
@@ -296,12 +296,14 @@ barArmut.2007I
 @
 
 Die räumliche Verteilung von $Armut_{2007}$ und $Armut_{2012}$ (Abbildung~\ref{fig:Armut.2007MAP} und \ref{fig:Armut.2012MAP} im Anhang) ist schwerer zu interpretieren. Im Gegensatz zu immobilienwirtschaftlicher Aufwertungdynamik, erfolgen Änderungen der Armutsquote relativ langsam und sind deshalb auf der den beiden Karten schwieriger zu erkennen. Die stärksten Senkungen der Armutsquote von ehemals überdurchschnittlich armen Nachbarschaften konzentrieren sich im südlichen Kreuzberg, im östlichen Friedrichshain und im Norden Neuköllns.
-\subsubsection{Zu Hypothese 1}
+\paragraph{Zu Hypothese 1}
 Die H 1, nach der innenstadtnahe Nachbarschaften mit hohen Armutsquoten und günstigen Mieten am stärksten von Gentrificationprozessen betroffen sind, kann nach der vergleichenden Analyse der Lage, Armutsquote und Mietpreisstruktur der Gentrificationgebiete grundsätzlich als bestätigt erachtet werden. Starke Gentrificationprozesse begrenzen sich fast ausschließlich auf die innere Stadt. Jedoch scheint das ledigliche Vorherrschen hoher Armutsquoten oder günstiger Mietpreise in innenstädtischen Nachbarschaften nicht zwangsläufig zu starken Gentrificationdynamiken zu führen. Genausowenig sind starke Gentrificationdynamiken in der Innenstadt auf überdurchschnittlich arme oder günstige Nachbarschaften beschränkt. Auf jeden Fall scheint in Berlin die "`territoriale Stigmatisierung"' \citet[S.~14]{Slater2015} von armen Stadtteilen, wie etwa dem von Medien als "`Problembezirk"' titulierte Neukölln, selten so groß zu sein, als dass sich dort immobilienwirtschaftliche Investion wegen fehlender Nachfrage nicht lohnen würde. Die Bestätigung von H~1 kann als empirische Evidenz für die Rent-Gap Theorie gewertet werden.
 
 \subsubsection{Wohnräumliche Mobilität}\label{Sec:AnaGentriCharaWM}
-
-H~2.1, H~2.2a und H~2.2b 
+Zur empirischen Untersuchung des Zusammenhangs zwischen Aufwertung und Verdrängung und die damit verbundenen Hypothesen H~2.1 und H~2.2 Gentrificationgebiete kommen wir nun zur vergleichenden Analyse der wohnräumlichen Mobilität. Dieser Vergleich kann auf Grundlage der \textit{Kategorie} durchgeführt werden, da Umzugsraten keinen (direkten) Einfluss auf die Klassifizierungskriterien der Nachbarschaften hatten. Abbildung~\ref{fig:ViolinFortZuzuege} bietet einen umfassenden Überblick über die Mobilitätsmuster nach \textit{Kategorie}. Sie illustriert die Verteilungen der durchschnittlichen Binnen- und Aussenfortzugsraten, sowie der durchschnittlichen Binnen- und Aussenzuzugsraten. Entsprechende Tabellen der deskriptiven Statistiken finden sich im Anhang (Tabelle~\ref{tab:FortzuegeR} bis~\ref{tab:ZuzuegeUDAR}). Um sicher zu stellen, dass die empirischen Ergebnisse der Überprüfung von H~2.1 und H~2.2 robust sind, wurde im Anhang die zusätzliche Abbildung~\ref{fig:ViolinFortZuzuege} erstellt. Sie stellt ebenfalls die Verteilungen der Umzugsraten nach \textit{Kategorie} dar, jedoch sind die berücksichtigten LOR auf die Innenstadt beschränkt. So kann kontrolliert werden, ob etwaige unterschiedliche Mobilitätsmuster allein auf die Lage der Nachbarschaften zurückzuführen sind. Auch die räumliche Verteilung der Umzugsraten soll zumindest am Rande berücksichtigt werden. Die entsprechenden Karten befinden sich im Anhang (Abbildung~\ref{fig:FortzuegeRMAP} bis~~\ref{fig:ZuzuegeUDARAMAP}).
+\paragraph{Zuzugsraten}
+Vergleichen wir zunächst die Verteilung der Aussenzuzugsraten (\textit{ZuzügeA}) von Gentrificationgebieten und Kontrollgebieten in Abbildung~\ref{fig:ViolinFortZuzuege}. Die Aussenzuzugsraten der Gentrificationgebiete liegen deutlich über denen der Kontrollgebiete - im Durchschnitt etwa 3\%. Im Median besitzen Gentrificationgebiete eine Aussenzuzugsrate von 6,92\%, Kontrollgebiete lediglich 3,65\%. Diese Medianaussenzuzugsrate von 3,65\% entspricht im Übrigen exakt dem Berliner Durchschnitt. Aber nicht nur die Aussenzuzuzugsraten liegen im Vergleich höher. Auch die Binnenzuzugsraten (\textit{Zuzüge}) der Gentrificationgebiete sind höher - im Durchschnitt etwa 1,4\%. Die Medianbinnenzuzugsrate der Gentrificationgebiete beträgt 10,88\%, die der Kontrollgebiete 9,47\%. Selbst wenn man den Vergleich zwischen Gentrification- und Kontrollgebieten auf die innerstädtischen Nachbarschaften beschränkt, bleiben die Ergebnisse grundsätzlich bestehen: Gentrificationgebiete besitzen höhere Aussen- und Binnenzuzugsraten, jedoch ist die Differenz zu den Kontrollgebieten etwas geringer (vgl. Abbildung~\ref{fig:ViolinFortZuzuegeI}). Die absolute wie auch relative Attraktivität der Gentrificationgebiete drückt sich auch im stark positiven Aussenwanderungssaldo von 1,70\% aus. Kontrollgebiete besitzen im Gegensatz dazu ein fast ausgeglichenes Aussenwanderungssaldo von 0,43\%. Der berlinweite Durchschnitt der Aussenwanderungssaldos liegt bei 0,48\%.
+Was die räumliche Verteilung von Aussenzuzugsraten angeht (vgl. Abbildung~\ref{fig:ZuzuegeUDARMAP}), so sind die höchsten Werte im östlichen Friedrichshain, Prenzlauer Berg, Mitte, dem Wedding und südlich des Tiergartens festzustellen. Die Binnenzuzugsraten (vgl. Abbildung~\ref{fig:ZuzuegeRMAP}) sind, sieht man von einigen "`Ausreißernachbarschaften"' ab, in Treptow, dem östlichen Friedrichshain, Nordneukölln und Wedding am höchsten. Im von immobilienwirtschaftlich und sozialer Aufwertung außergewöhnlich stark betroffenen Kreuzberg sind hingegen keine außergewöhnlich hohen Binnen- oder Aussenzuzugsraten zu beobachten. \textbf{ZuzugA Ausreißer in Lichtenberg? Was ist das?}
 
 \afterpage{
 \begin{landscape}
@@ -352,34 +354,17 @@ grid.arrange(p1FortzuegeR, p1ZuzuegeR,
 \end{landscape}
 }
 
-\pagebreak
-<<FortzuegeRMAP,fig.height=5, fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{Fortzüge}}", fig.lp='fig:'>>=
-FortzuegeRMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
-  geom_polygon(aes(fill=FortzuegeR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
-  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
-                       values = rescale(c(3.9,12,15,25)),
-                       guide = "colorbar", limits=c(3.4,25),
-                       name=expression(paste('Fortzuege',' ','(%)'))) +
-  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
-FortzuegeRMAP
-@
+\paragraph{Zu Hypothese 2.1}
+Gentrificationgebiete sind für Zuzüge von außerhalb wie innerhalb Berlins besonders attraktiv - absolut wie auch im Vergleich zu ähnlichen Nachbarschaften mit schwächeren Aufwertungsdynamiken. H~2.1, nach der Gentrificationgebiete höhere Aussenzuzugsraten als vergleichbare Gebiete besitzen, wird dadurch bestätigt. Sie ist sogar um die Binnenzuzugsraten erweitert bestätigt. Dieses Ergebnis ist als weiteres Anzeichen für Verdrängung, wie auch als empirischer Ausdruck der Wechselwirkung zwischen Aufwertung und Verdrängung zu interpretieren. Einerseits sind Gentrificationgebiete für den Zuzug attraktiv, weil sie aufgewertet wurden. Andererseits werden sie  aufgewertet, weil sie für den Zuzug attraktiv geworden sind. Darüber hinaus besteht eine Gleichzeitigkeit im Verhältnis zwischen Aufwertung und Verdrängung. Immobilienwirtschaftliche Aufwertung basiert auf einer gesteigerten, kaufkräftigen Nachfrage und soziale Aufwertung hat den Zuzug von Haushalten mit höherem sozioökonomischen Status zum Inhalt. 
 
-<<ZuzuegeUDARAMAP,fig.height=5, fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{ZuzügeA}}", fig.lp='fig:'>>=
-ZuzuegeUDARAMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
-  geom_polygon(aes(fill=ZuzuegeUDAR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
-  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
-                       values = rescale(c(0,3,8,30)),
-                       guide = "colorbar", limits=c(0,30),
-                       name=expression(paste('ZuzuegeA',' ','(%)'))) +
-  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
-ZuzuegeUDARAMAP
-@
+\paragraph{Fortzugsraten}
+Um weitere Erkenntnisse bezüglich Ausmaß und Form von aufwertungsbezogener Verdrängung zu sammeln, sollen nun die Fortzugsraten vergleichend analysiert werden. Im Zentrum der Analyse der Fortzugsraten stehen die gegensätzlich formulierten Hypothesen H~2.2a und H 2.2b: Besitzen Gentrificationgebiete höhere~(H~2.2a) oder niedrigere~(H 2.2b) Fortzugsraten als vergleichbare Gebiete? Abbildung~\ref{fig:ViolinFortZuzuege}
+Knapp 90\% der Gentrificationgebiete besitzen eine jährliche Binnenfortzugsrate von über 10\%, während es bei unter den Kontrollgebieten nur 37\% sind. 
+Binnenwanderungssaldo -1,59\% Gentri -0,06\% Kontroll
+Wie hoch die Fortzugsraten in den Gentrigebieten Vergleich zu \citet{BBU2015} 1,89\% Gentri zu 1,40\% Kontroll für gesamte Innenstadt 1,38\%
 
-\ref{fig:FortzuegeUDARMAP} \ref{fig:ZuzuegeRMAP}
-
-\subsubsection{Zu Hypothese 2.1}
-
-\subsubsection{Zu Hypothese 2.2a und 2.2b}
+\paragraph{Zu Hypothese 2.2}
+Direkte und soziokulturelle Verdrängung eher in Binnenfortzügen enthalten, als in Aussenfortzügen. Es ist davon auszugen dass direkt oder soziokulturell Verdrängte im Stadtteil bleiben wollen - schließlich war ihr Auszug unfreiwillig.  
 
     \subsection{Interpretation}\label{Sec:AnaGentriInter}
 
@@ -393,9 +378,6 @@ Alternative Klassifizierung. Plots im Anhang.
     \subsection{Regressionsergebnisse}\label{Sec:AnaSARErgebnisse}
 
     \subsection{Interpretation}\label{Sec:AnaSARInter}
-
-
-
     Großteil der Aufwertungsgebiete fällt mit den Gebieten der größten Ertragslücken zusammen. Ist ist also von einem erhöhten Verdrängungsdruck sowie von exclusionary displacement auszugehen. Medianangebotsmieten verschleiern aber auch den Wegfall von billigen Angebotsmieten. Laut BBU und Gentrimap fehlen aber vor allem da die Wohunngen, also exclusionary displacement.
 
    Auf der Grundlage von Daten aus dem Jahre 2003 charakterisierte \citet[S.~74]{Gebhardt2012} den Altbezirk Kreuzberg sowie Nord-Neukölln noch als Abwertungsgebiete mit teilweisen inselhaften Aufwertungstendenzen, welche hohe Wohnmobilität aufweisen und aus denen Teile der Mittelschicht in Randgebiete abwandern. Auch hier beobachten wir 2007-2012 eine hohe Wohnmobilität, jedoch mit flächendeckenden Aufwertungsprozessen.

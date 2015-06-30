@@ -128,16 +128,15 @@ grid.arrange(p1FortzuegeRI, p1ZuzuegeRI,
 \end{landscape}
 }
 
-
-<<FortzuegeUDARMAP,fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{FortzügeA}}", fig.height=5, fig.lp='fig:', fig.pos='H'>>=
-FortzuegeUDARMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
-  geom_polygon(aes(fill=FortzuegeUDAR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+<<FortzuegeRMAP,fig.height=5, fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{Fortzüge}}", fig.lp='fig:'>>=
+FortzuegeRMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=FortzuegeR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
-                       values = rescale(c(0,4,8,26.5)),
-                       guide = "colorbar", limits=c(0,26.5),
-                       name=expression(paste('FortzügeA',' ','(%)'))) +
+                       values = rescale(c(3.9,12,15,25)),
+                       guide = "colorbar", limits=c(3.4,25),
+                       name=expression(paste('Fortzuege',' ','(%)'))) +
   coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
-FortzuegeUDARMAP
+FortzuegeRMAP
 @
 
 <<ZuzuegeRMAP,fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{Zuzüge}}", fig.height=5, fig.lp='fig:', fig.pos='H'>>=
@@ -151,3 +150,24 @@ ZuzuegeRMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
 ZuzuegeRMAP
 @
 
+<<FortzuegeUDARMAP,fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{FortzügeA}}", fig.height=5, fig.lp='fig:', fig.pos='H'>>=
+FortzuegeUDARMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=FortzuegeUDAR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
+                       values = rescale(c(0,4,8,26.5)),
+                       guide = "colorbar", limits=c(0,26.5),
+                       name=expression(paste('FortzügeA',' ','(%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
+FortzuegeUDARMAP
+@
+
+<<ZuzuegeUDARMAP,fig.height=5, fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{ZuzügeA}}", fig.lp='fig:'>>=
+ZuzuegeUDARMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=ZuzuegeUDAR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
+                       values = rescale(c(0,3,8,30)),
+                       guide = "colorbar", limits=c(0,30),
+                       name=expression(paste('ZuzuegeA',' ','(%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
+ZuzuegeUDARMAP
+@

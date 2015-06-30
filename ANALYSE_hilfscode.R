@@ -22,6 +22,9 @@ bpDF$GentriA <- factor(bpDF$GentriA,levels(bpDF$GentriA)[c(2,3,1)])
 
 levels(bpDF$valid)[levels(bpDF$valid)=="gültig"] <- "Gesamt"
 
+bpGentriInnere   <- subset(bpDF, Gentri=="Gentri" & STADTRAUM=="innere Stadt")
+bpGesamtInnere   <- subset(bpDF, STADTRAUM=="innere Stadt")
+
 # Gentri: GENTRI Quantilsgrenzen
 qntl_Armutchg  <- wtd.quantile(LOR4reg@data$Armutchg, weights=LOR4reg@data$E_E.2007, 
                                probs=c(0, .25, .5, .75, 1))
@@ -217,8 +220,6 @@ grid.arrange(p1Mietechgr, p2Mietechgr, p1Armutchg, p2Armutchg,
 View(bpDF)
 
 ##### H1 Boxplots ####
-bpGentriInnere   <- subset(bpDF, Gentri=="Gentri" & STADTRAUM=="innere Stadt")
-bpGesamtInnere   <- subset(bpDF, STADTRAUM=="innere Stadt")
 
 #####**** innere stadt ****####
 
@@ -656,4 +657,157 @@ table(bpDF$SanGebiet.2012, bpDF$Gentri)
                                        bpDF$E_E.2007[bpDF$STADTRAUM!="innere Stadt"]),2)
   ArmutchgMEANA
 
+#### __MOBILITÄTSRATEN__ ####
 
+#### FortzügeR Vergleich ####
+
+wtd.mean(x=bpDF$FortzuegeR[bpDF$Gentri=="Gentri"], 
+         weights=bpDF$E_E.2007[bpDF$Gentri=="Gentri"])
+wtd.mean(x=bpDF$FortzuegeR[bpDF$Gentri=="Kontroll"], 
+         weights=bpDF$E_E.2007[bpDF$Gentri=="Kontroll"])
+
+wtd.mean(x=bpGesamtInnere$FortzuegeR[bpGesamtInnere$Gentri=="Gentri"], 
+         weights=bpGesamtInnere$E_E.2007[bpGesamtInnere$Gentri=="Gentri"])
+wtd.mean(x=bpGesamtInnere$FortzuegeR[bpGesamtInnere$Gentri=="Kontroll"], 
+         weights=bpGesamtInnere$E_E.2007[bpGesamtInnere$Gentri=="Kontroll"])
+
+wtd.quantile(x=bpDF$FortzuegeR[bpDF$Gentri=="Gentri"], 
+             weights=bpDF$E_E.2007[bpDF$Gentri=="Gentri"],
+             probs=c(0, .25, .5, .75, 1))
+wtd.quantile(x=bpDF$FortzuegeR[bpDF$Gentri=="Kontroll"], 
+             weights=bpDF$E_E.2007[bpDF$Gentri=="Kontroll"],
+             probs=c(0, .25, .5, .75, 1))
+
+wtd.quantile(x=bpGesamtInnere$FortzuegeR[bpGesamtInnere$Gentri=="Gentri"], 
+             weights=bpGesamtInnere$E_E.2007[bpGesamtInnere$Gentri=="Gentri"],
+             probs=c(0, .25, .5, .75, 1))
+wtd.quantile(x=bpGesamtInnere$FortzuegeR[bpGesamtInnere$Gentri=="Kontroll"], 
+             weights=bpGesamtInnere$E_E.2007[bpGesamtInnere$Gentri=="Kontroll"],
+             probs=c(0, .25, .5, .75, 1))
+
+  
+  #### ZuzügeR Vergleich ####
+  
+  wtd.mean(x=bpDF$ZuzuegeR[bpDF$Gentri=="Gentri"], 
+           weights=bpDF$E_E.2007[bpDF$Gentri=="Gentri"])
+  wtd.mean(x=bpDF$ZuzuegeR[bpDF$Gentri=="Kontroll"], 
+           weights=bpDF$E_E.2007[bpDF$Gentri=="Kontroll"])
+  
+  wtd.mean(x=bpGesamtInnere$ZuzuegeR[bpGesamtInnere$Gentri=="Gentri"], 
+           weights=bpGesamtInnere$E_E.2007[bpGesamtInnere$Gentri=="Gentri"])
+  wtd.mean(x=bpGesamtInnere$ZuzuegeR[bpGesamtInnere$Gentri=="Kontroll"], 
+           weights=bpGesamtInnere$E_E.2007[bpGesamtInnere$Gentri=="Kontroll"])
+  
+  wtd.quantile(x=bpDF$ZuzuegeR[bpDF$Gentri=="Gentri"], 
+               weights=bpDF$E_E.2007[bpDF$Gentri=="Gentri"],
+               probs=c(0, .25, .5, .75, 1))
+  wtd.quantile(x=bpDF$ZuzuegeR[bpDF$Gentri=="Kontroll"], 
+               weights=bpDF$E_E.2007[bpDF$Gentri=="Kontroll"],
+               probs=c(0, .25, .5, .75, 1))
+  
+  wtd.quantile(x=bpGesamtInnere$ZuzuegeR[bpGesamtInnere$Gentri=="Gentri"], 
+               weights=bpGesamtInnere$E_E.2007[bpGesamtInnere$Gentri=="Gentri"],
+               probs=c(0, .25, .5, .75, 1))
+  wtd.quantile(x=bpGesamtInnere$ZuzuegeR[bpGesamtInnere$Gentri=="Kontroll"], 
+               weights=bpGesamtInnere$E_E.2007[bpGesamtInnere$Gentri=="Kontroll"],
+               probs=c(0, .25, .5, .75, 1))
+  
+  
+  #### FortzuegeUDAR Vergleich ####
+  
+  wtd.mean(x=bpDF$FortzuegeUDAR[bpDF$Gentri=="Gentri"], 
+           weights=bpDF$E_E.2007[bpDF$Gentri=="Gentri"])
+  wtd.mean(x=bpDF$FortzuegeUDAR[bpDF$Gentri=="Kontroll"], 
+           weights=bpDF$E_E.2007[bpDF$Gentri=="Kontroll"])
+  
+  wtd.mean(x=bpGesamtInnere$FortzuegeUDAR[bpGesamtInnere$Gentri=="Gentri"], 
+           weights=bpGesamtInnere$E_E.2007[bpGesamtInnere$Gentri=="Gentri"])
+  wtd.mean(x=bpGesamtInnere$FortzuegeUDAR[bpGesamtInnere$Gentri=="Kontroll"], 
+           weights=bpGesamtInnere$E_E.2007[bpGesamtInnere$Gentri=="Kontroll"])
+  
+  wtd.quantile(x=bpDF$FortzuegeUDAR[bpDF$Gentri=="Gentri"], 
+               weights=bpDF$E_E.2007[bpDF$Gentri=="Gentri"],
+               probs=c(0, .25, .5, .75, 1))
+  wtd.quantile(x=bpDF$FortzuegeUDAR[bpDF$Gentri=="Kontroll"], 
+               weights=bpDF$E_E.2007[bpDF$Gentri=="Kontroll"],
+               probs=c(0, .25, .5, .75, 1))
+  
+  wtd.quantile(x=bpGesamtInnere$FortzuegeUDAR[bpGesamtInnere$Gentri=="Gentri"], 
+               weights=bpGesamtInnere$E_E.2007[bpGesamtInnere$Gentri=="Gentri"],
+               probs=c(0, .25, .5, .75, 1))
+  wtd.quantile(x=bpGesamtInnere$FortzuegeUDAR[bpGesamtInnere$Gentri=="Kontroll"], 
+               weights=bpGesamtInnere$E_E.2007[bpGesamtInnere$Gentri=="Kontroll"],
+               probs=c(0, .25, .5, .75, 1))
+  wtd.quantile(x=bpGesamtInnere$FortzuegeUDAR, 
+               weights=bpGesamtInnere$E_E.2007,
+               probs=c(0, .25, .5, .75, 1))
+
+  #### ZuzügeUDAR Vergleich ####
+  
+  wtd.mean(x=bpDF$ZuzuegeUDAR[bpDF$Gentri=="Gentri"], 
+           weights=bpDF$E_E.2007[bpDF$Gentri=="Gentri"])
+  wtd.mean(x=bpDF$ZuzuegeUDAR[bpDF$Gentri=="Kontroll"], 
+           weights=bpDF$E_E.2007[bpDF$Gentri=="Kontroll"])
+  
+  wtd.mean(x=bpGesamtInnere$ZuzuegeUDAR[bpGesamtInnere$Gentri=="Gentri"], 
+           weights=bpGesamtInnere$E_E.2007[bpGesamtInnere$Gentri=="Gentri"])
+  wtd.mean(x=bpGesamtInnere$ZuzuegeUDAR[bpGesamtInnere$Gentri=="Kontroll"], 
+           weights=bpGesamtInnere$E_E.2007[bpGesamtInnere$Gentri=="Kontroll"])
+  
+  wtd.quantile(x=bpDF$ZuzuegeUDAR[bpDF$Gentri=="Gentri"], 
+               weights=bpDF$E_E.2007[bpDF$Gentri=="Gentri"],
+               probs=c(0, .25, .5, .75, 1))
+  wtd.quantile(x=bpDF$ZuzuegeUDAR[bpDF$Gentri=="Kontroll"], 
+               weights=bpDF$E_E.2007[bpDF$Gentri=="Kontroll"],
+               probs=c(0, .25, .5, .75, 1))
+  
+  wtd.quantile(x=bpGesamtInnere$ZuzuegeUDAR[bpGesamtInnere$Gentri=="Gentri"], 
+               weights=bpGesamtInnere$E_E.2007[bpGesamtInnere$Gentri=="Gentri"],
+               probs=c(0, .25, .5, .75, 1))
+  wtd.quantile(x=bpGesamtInnere$ZuzuegeUDAR[bpGesamtInnere$Gentri=="Kontroll"], 
+               weights=bpGesamtInnere$E_E.2007[bpGesamtInnere$Gentri=="Kontroll"],
+               probs=c(0, .25, .5, .75, 1))
+  wtd.quantile(x=bpGesamtInnere$ZuzuegeUDAR, 
+               weights=bpGesamtInnere$E_E.2007,
+               probs=c(0, .25, .5, .75, 1))
+  
+  wtd.quantile(x=bpDF$ZuzuegeUDAR, 
+               weights=bpDF$E_E.2007,
+               probs=c(0, .25, .5, .75, 1))
+  
+  
+  wtd.quantile(x=bpDF$ZuzuegeUDAR[bpDF$Gentri=="Gentri"], 
+               weights=bpDF$E_E.2007[bpDF$Gentri=="Gentri"],
+               probs=c(0, .25, .5, .75, 1)) -
+    wtd.quantile(x=bpDF$FortzuegeUDAR[bpDF$Gentri=="Gentri"], 
+                 weights=bpDF$E_E.2007[bpDF$Gentri=="Gentri"],
+                 probs=c(0, .25, .5, .75, 1))
+  
+  wtd.quantile(x=bpDF$ZuzuegeR[bpDF$Gentri=="Gentri"], 
+               weights=bpDF$E_E.2007[bpDF$Gentri=="Gentri"],
+               probs=c(0, .25, .5, .75, 1)) -
+    wtd.quantile(x=bpDF$FortzuegeR[bpDF$Gentri=="Gentri"], 
+                 weights=bpDF$E_E.2007[bpDF$Gentri=="Gentri"],
+                 probs=c(0, .25, .5, .75, 1))
+  
+  wtd.quantile(x=bpDF$ZuzuegeUDAR[bpDF$Gentri=="Kontroll"], 
+               weights=bpDF$E_E.2007[bpDF$Gentri=="Kontroll"],
+               probs=c(0, .25, .5, .75, 1)) -
+    wtd.quantile(x=bpDF$FortzuegeUDAR[bpDF$Gentri=="Kontroll"], 
+                 weights=bpDF$E_E.2007[bpDF$Gentri=="Kontroll"],
+                 probs=c(0, .25, .5, .75, 1))
+  
+  wtd.quantile(x=bpDF$ZuzuegeR[bpDF$Gentri=="Kontroll"], 
+               weights=bpDF$E_E.2007[bpDF$Gentri=="Kontroll"],
+               probs=c(0, .25, .5, .75, 1)) -
+    wtd.quantile(x=bpDF$FortzuegeR[bpDF$Gentri=="Kontroll"], 
+                 weights=bpDF$E_E.2007[bpDF$Gentri=="Kontroll"],
+                 probs=c(0, .25, .5, .75, 1))
+  
+  wtd.quantile(x=bpDF$ZuzuegeUDAR, 
+               weights=bpDF$E_E.2007,
+               probs=c(0, .25, .5, .75, 1)) -
+    wtd.quantile(x=bpDF$FortzuegeUDAR, 
+                 weights=bpDF$E_E.2007,
+                 probs=c(0, .25, .5, .75, 1))
+  

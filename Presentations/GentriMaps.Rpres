@@ -1,0 +1,157 @@
+Räumliche Analysen zur Messung von Gentrification
+========================================================
+author: Guido Schulz
+date: 03.07.2015
+width: 1600
+height: 900
+
+
+```{r,echo=FALSE}
+load("/home/dao/Desktop/MasterArbeit/R_files/Presentations/DATA4presi.RData")
+library("ggplot2")
+library("rgdal")
+library("sp")
+library("plyr")
+library("ggplot2")
+library("scales")
+library("ENmisc")
+library("gridExtra")
+library("Hmisc")
+library("dplyr")
+library("car")
+library("vcd")
+library("plyr")
+```
+
+Konzeptioneller Rahmen
+========================================================
+Gentrification $\Leftrightarrow$ immobilienwirt. Aufwertung $\wedge$ soziale Aufwertung
+
+![](/home/dao/Desktop/MasterArbeit/R_files/KNITR/figure/Gentrification_Aufwertung.png)
+
+Zwei Perspektiven auf Gentrification
+========================================================
+![](/home/dao/Desktop/MasterArbeit/R_files/KNITR/figure/Gentrification2Perspectives.png)
+
+Forschungsfragen
+========================================================
+- Wo befinden sich die am stärksten von Gentrification betroffenen Nachbarschaften?
+- Wie unterscheiden sich diese von vergleichbaren Nachbarschaften?
+- Welche Muster wohnräumlicher Mobilität herrschen Gentrificationgebieten vor?
+- Wie unterscheiden sich diese von vergleichbaren Nachbarschaften?
+- Welche Anzeichen für Verdrängungsprozesse gibt es?
+- Wie lassen sich die unterschiedlichen Muster wohnräumlicher Mobilität erklären?
+- Zusammenhang zwischen Aufwertung und Verdrängung? Wie stark ist dieser?
+
+Klassifizierung
+========================================================
+```{r,echo=FALSE,fig.width=8.75,fig.height=5,dpi=300,out.width="1400px",height="800px"}
+grid.arrange(p1Mietechgr, p2Mietechgr,
+             p1Armutchg, p2Armutchg,
+             p1Miete.2007, p2Miete.2007, 
+             p1Armut.2007, p2Armut.2007,
+             ncol=4, nrow=2, widths=c(3,1,3,1,
+                                      3,1,3,1))
+```
+
+Rel. Mietpreisänderung (2007-2012)
+========================================================
+```{r,echo=FALSE,fig.width=8.75,fig.height=5,dpi=300,out.width="1400px",height="800px"}
+MietechgrMAP
+```
+
+Änderung der Armutsquote (2007-2012)
+========================================================
+```{r,echo=FALSE,fig.width=8.75,fig.height=5,dpi=300,out.width="1400px",height="800px"}
+MietechgrMAP
+```
+
+Lokalisierung der Gentrificationgebiete
+========================================================
+```{r,echo=FALSE,fig.width=8.75,fig.height=5,dpi=300,out.width="1400px",height="800px"}
+GentriMAP
+```
+
+Mietpreise 2007 in den Gentrigebieten
+========================================================
+```{r,echo=FALSE,fig.width=8.75,fig.height=5,dpi=300,out.width="1400px",height="800px"}
+grid.arrange(p1MieteG.2007, p2MieteG.2007,
+             ncol=2, nrow=1, widths=c(1,1))
+```
+
+Mietpreise 2007 in der Innenstadt
+========================================================
+```{r,echo=FALSE,fig.width=8.75,fig.height=5,dpi=300,out.width="1400px",height="800px"}
+barMiete.2007I <- ggplot(data=bpGesamtInnere, aes(x=Miete.2007, fill=Gentri)) +
+  geom_bar(width=0.5, binwidth=1, colour="white",size=0.3) + 
+  theme(axis.title.y = element_text(face="bold",colour = "grey50"),
+        axis.title.x = element_text(face="bold",colour = "grey50"),
+        legend.text=element_text(colour = "grey50"),
+        legend.title=element_text(face="bold",colour = "grey50"),
+        legend.title=element_text(size=rel(0.7), face="bold"),
+        legend.text=element_text(size=rel(0.5))) + 
+  scale_x_continuous(breaks=seq(4,11,1), limits=c(4,11)) +
+  scale_y_continuous(breaks=seq(0,60,10))  +
+  xlab(expression(paste(Miete[2007],' ','(Euro/',m^{2},')'))) + 
+  ylab(expression(paste('Anzahl der LOR'))) + 
+  guides(fill=guide_legend(title="Kategorie")) 
+barMiete.2007I
+```
+
+Armutsquote 2007 in den Gentrigebieten
+========================================================
+```{r,echo=FALSE,fig.width=8.75,fig.height=5,dpi=300,out.width="1400px",height="800px"}
+grid.arrange(p1ArmutG.2007, p2ArmutG.2007,
+             ncol=2, nrow=1, widths=c(1,1))
+```
+Armutsquote 2007 in der Innenstadt
+========================================================
+```{r,echo=FALSE,fig.width=8.75,fig.height=5,dpi=300,out.width="1400px",height="800px"}
+barArmut.2007I <- ggplot(data=bpGesamtInnere, aes(x=Armut.2007, fill=Gentri)) +
+  geom_bar(width=0.5, binwidth=5, colour="white",size=0.3) + 
+  theme(axis.title.y = element_text(face="bold",colour = "grey50"),
+        axis.title.x = element_text(face="bold",colour = "grey50"),
+        legend.text=element_text(colour = "grey50"),
+        legend.title=element_text(face="bold",colour = "grey50"),
+        legend.title=element_text(size=rel(0.7), face="bold"),
+        legend.text=element_text(size=rel(0.5))) + 
+  scale_x_continuous(breaks=seq(0,60,10), limits=c(0,60)) +
+  scale_y_continuous(breaks=seq(0,35,10))  +
+  xlab(expression(paste(Armut[2007],' ','(%)'))) +
+  ylab(expression(paste('Anzahl der LOR'))) + 
+  guides(fill=guide_legend(title="Kategorie")) 
+barArmut.2007I
+```
+
+Binnenfortzugsraten (2007-2012)
+========================================================
+```{r,echo=FALSE,fig.width=8.75,fig.height=5,dpi=300,out.width="1400px",height="800px"}
+FortzuegeRMAP
+```
+
+Binnenzuzugsraten (2007-2012)
+========================================================
+```{r,echo=FALSE,fig.width=8.75,fig.height=5,dpi=300,out.width="1400px",height="800px"}
+ZuzuegeRMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=ZuzuegeR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
+                       values = rescale(c(3.8,7,13,22)),
+                       guide = "colorbar", limits=c(3.8,22),
+                       name=expression(paste('Zuzüge',' ','(%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
+ZuzuegeRMAP
+```
+
+
+Außenzuzugsraten (2007-2012)
+========================================================
+```{r,echo=FALSE,fig.width=8.75,fig.height=5,dpi=300,out.width="1400px",height="800px"}
+ZuzuegeUDARAMAP
+```
+Umzugsraten im Vergleich (2007-2012)
+========================================================
+```{r,echo=FALSE,fig.width=8.75,fig.height=5,dpi=300,out.width="1400px",height="800px"}
+grid.arrange(p1FortzuegeR, p1ZuzuegeR,
+             p1FortzuegeUDAR, p1ZuzuegeUDAR,
+             ncol=2, nrow=2, widths=c(1,1,1,1))
+```
