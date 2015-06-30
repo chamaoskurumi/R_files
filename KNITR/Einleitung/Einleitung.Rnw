@@ -1,0 +1,62 @@
+\Sexpr{set_parent("MASTER.Rnw")}
+
+\section{Einleitung}\label{sec:Einleitung}
+ Berliner Wohnungsmarkt
+
+"`Der Berliner Wohnungsmarkt ist in den letzten Jahren durch fast flächendeckende Mietsteigerungen geprägt und innerhalb des S-Bahn-Rings hat sich Gentrification zu einem Mainstream-Phänomen entwickelt."' \citep[S.~29]{Berner2015}
+"`Capital accumulation through real-estate activity booms"' schrieb \citet[S.~35]{Harvey2008} über Mumbai. Über Berlin hätte er das wohl im Jahre 2008 noch nicht geschrieben, denn der Boom des Immoblienmarktes ist in Berlin erst mit etwas Verzögerung ist Berlin angekommen. im Integration in globale zweite Zirkulationsphäre Finanzkapitals. Krisenanlagen, Spatial fix "`Betongold"' Europäische Krise 
+
+Investitionen nicht notwendig für Aufwertung, da 
+Hiermit ist nicht notwendigerweise eine bauliche Aufwertung gemeint. In Berlin auf immobilienwirtschaftliche Aufwertung auch ohne bauliche Aufwertung möglich \citep[S.~30]{Berner2015} 
+
+ 
+
+\begin{itemize}
+
+\item \textit{Gestiegene Nachfrage} \\
+  Berlin besitzt seit 2001 jedes Jahr ein positives Wanderungssaldo mit stark steigendem Trend \citep{StatistischesLandesamtSachsen-Anhalt2015}. Einen extremer Anstieg des Wanderungssaldos ist für den Zeitraum von 2009 bis 2011 zu beobachten. In nur 2 Jahren kam es zu einer Zunahme des Wanderungssaldos von 3,1 je 1000 Einwohner auf 12 je 1000 Einwohner an - es vervierfachte sich also fast. Während Anfang der 2000er Jahre noch ein ein mittlerweile niedrige Leerstandsquoten (Verweis), Umwandlungen in Eigentumswohnungen im Bestand verringert das verschärft die Angebotslücke an Mietwohnungen
+  \item \textit{Niedrige Neubautätigkeit}\\
+    Obwohl in bestimmten Nachbarschaften Berlins Aufwertungsprozesse auch entscheidend durch Neubautätigkeiten getragen werden können (\textit{Neubau-Gentrification}), so ist bei der vorherrschend niedrigen Neubauquote und dem relativ niedrigem Invesitionsvolumen nicht davon auszugehen, Bestandsquartiere wie Prenzlauerberg, Friedrichshain oder Kreuzberg.  dass die davon auszugehen, dass Hier Zahlen von niedriger Neubauquote und niedrigem Investitionsvolumen 
+   Neubau ist Eigentumswohnungen und ein "`hoher Anteil der gerade fertiggestellten Neubauwohnungen befindet sich im Top-Segment"' (Wohnungsmarktbericht 2014) Im Jahre 2013 
+   Etwa 14 Prozent der Objekte sind als Mietwohnungsbauten konzipiert oder weisen sowohl Eigentums- als auch Mietwohnungen auf
+
+
+
+    \item What is the subject of the study? Describe the
+        economic/econometric problem.
+    \item What is the purpose of the study (working hypothesis)?
+    \item What do we already know about the subject (literature
+        review)? Use citations: shows that...
+        Alternative Forms of the Wald test are considered
+    \item What is the innovation of the study?
+    \item Provide an overview of your results.
+    
+"`I would challenge [...] anyone to show how census data can provide convincing evidence of displacement. It can show that one class or housing tenure has grown and that another has declined but it cannot show displacement."' Hamnet 2010 S.~184
+
+Gentrimap beinhaltet keine Analyse von zwischen Aufwertungsprozessen und Wanderungsverhalten.
+
+Versuch Verdrängung in Berlin im Zweitraum zwischen 2007-2012 statistisch kleinräumlig zu erfassen und 
+
+
+"`it is essential to have conceptual clarity before research on displacement begins, and before any conclusions can be drawn"' \citet[S.~304]{Slater2009}
+
+Eine Analyse (von altgriech analysis „Auflösung“) ist eine systematische Untersuchung, bei der das untersuchte Objekt oder Subjekt in Bestandteile (Elemente) zerlegt und auf Grundlage von Kriterien erfasst werden. Anschließend werden diese geordnet, untersucht und ausgewertet. Insbesondere betrachtet man Beziehungen und Wirkungen (oft: Wechselwirkungen) zwischen den Elementen.
+
+"`Eine Analyse (von altgriech analysis 'Auflösung') ist eine systematische Untersuchung, bei der das untersuchte Objekt oder Subjekt in Bestandteile (Elemente) zerlegt und auf Grundlage von Kriterien erfasst werden. Anschließend werden diese geordnet, untersucht und ausgewertet. Insbesondere betrachtet man Beziehungen und Wirkungen (oft: Wechselwirkungen) zwischen den Elementen."' Wikipedia
+
+
+
+Verdrängung messen:
+Probleme: Slater 2009 "`there is no such data"' und gleichzeitig sagt er Slater 2015 über die Schwierigkeiten Gentrificationtheorie zu operationalisieren "`theories are always confronted with empirical difficulties. They should not be abandoned because of it."'
+
+
+Keine qualitativen Methoden, 
+
+Stadteweite, kleinräumige Zensusdaten Aufwertung wohnräumliche Mobilität
+Deskriptiv Explorative Datenanalyse: Charakterisierung  
+Inferenziell Räumlich Autoregressive Modelle
+
+Durch die statistische Modellierung des Zusammenhang zwischen immoblienwirtschaftlichen sowie sozialen Aufwertungsprozessen und wohnräumlicher Mobilität sollen empirische Erkenntnisse bezüglich der Existenz, Lokalisierung und Quantifizierung von Gentrification und Verdrängung in Berlin gewonnen werden. \\
+Zunächst soll mit Hilfe stadtsoziologischer Theorie der konzeptionelle Rahmen für die Studie bestimmt und Begriffsdefinitionen gesetzt werden. Auf Grundlage des aktuellen Forschungsstandes werden Forschungsfragen entwickelt und Hypothesen formuliert. \\
+Im ersten Schritt sollen mit den Methoden explorativer Datenanalyse eine räumliche Identifizierung und Quantifizierung von Gentrificationprozessen in Berlin vorgenommen werden. Die identifizierten Aufwertungsgebiete werden in einem Vergleich mit entsprechenden Kontrollgebieten genauer charaktierisiert. In einem zweiten Schritt werden räumlich autoregressive Modelle (SAR) geschätzt um einerseits den Effekt immobilienwirtschaftlicher Aufwertungsdynamik auf die wohnräumliche Mobilität der Berliner Bevölkerung zu messen und andereseits um den Charakter und Ausmaß der Interaktion zwischen sozialer Aufwertungsdynamik und wohnräumlicher Mobilität zu bestimmen. Die Ergebnisse der Regressionsmodelle werden dann im Kontext Marcuses Verdrängungstypen intepretiert und analysiert.
+\end{itemize}
