@@ -1,3 +1,16 @@
+
+#*************************************************
+#*************************************************
+#*************************************************
+#
+# GGPLOT Karten
+#
+#*************************************************
+#*************************************************
+
+setwd("/home/dao/Desktop/MasterArbeit/R_files/KNITR/")
+load(file = "FULL_FINAL_WORKSPACE.Rdata")
+
 library("ggplot2")
 library("ggmap")
 library("rgdal")
@@ -183,6 +196,31 @@ FortzuegeUDARMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
                        name=expression(paste('FortzügeA',' ','(%)'))) +
   coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
 FortzuegeUDARMAP
+
+
+FortzuegeRMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=FortzuegeR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradientn(colours = rev(c("#ffffcc", "#ffeda0",
+                                   "#fed976","#feb24c","#fd8d3c",
+                                   "#fc4e2a","#e31a1c","#bd0026","#800026")), 
+                       #values = rescale(c(3.9,12,15,25)),
+                       guide = "colorbar", limits=c(3.4,25),
+                       name=expression(paste('Fortzüge',' ','(%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
+FortzuegeRMAP
+
+
+FortzuegeRMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=FortzuegeR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradientn(colours = rev(c("#d53e4f","#f46d43","#fdae61",
+                         "#fee08b","#ffffbf","#e6f598",
+                         "#abdda4","#66c2a5","#3288bd")), 
+                       #values = rescale(c(3.9,12,15,25)),
+                       guide = "colorbar", limits=c(3.4,25),
+                       name=expression(paste('Fortzüge',' ','(%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
+FortzuegeRMAP
+
 
 ZuzuegeUDARAMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=ZuzuegeUDAR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
