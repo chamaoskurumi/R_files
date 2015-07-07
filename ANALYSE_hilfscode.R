@@ -810,4 +810,73 @@ wtd.quantile(x=bpGesamtInnere$FortzuegeR[bpGesamtInnere$Gentri=="Kontroll"],
     wtd.quantile(x=bpDF$FortzuegeUDAR, 
                  weights=bpDF$E_E.2007,
                  probs=c(0, .25, .5, .75, 1))
+
+  ODdf[with(ODdf, VonLOR=="08010301" & NachLOR=="08010301" ),]
+write.csv(bpDF[bpDF$RAUMID_NAME=="Reuterkiez",], file = "/home/dao/Desktop/Reuterkiez.csv", dec =",", sep = ";",quote = TRUE)
+  bpDF[bpDF$RAUMID_NAME=="Reuterkiez",c("E_E.2008","E_E.2009","E_E.2010","E_E.2011","E_E.2012")]
+
+#************************************
+####*****   INTRA LOR UMZÜGE ****####
+#************************************
   
+INTRAdfpre      <-  subset(ODdf,VonLOR==NachLOR,select=-c(NachLOR,dyad,BinnenWand.2007,
+                                                          BinnenWand.2013,BinnenWand.Sum))
+names(INTRAdfpre)[1] <- "RAUMID"
+bpDF4INTRAdf <-  subset(bpDF, select=c("RAUMID","RAUMID_NAME","STADTRAUM","Gentri","GentriA",
+                                      "E_E.2008","E_E.2009","E_E.2010","E_E.2011","E_E.2012",
+                                      "Fortzuege.2008","Fortzuege.2009","Fortzuege.2010",
+                                      "Fortzuege.2011","Fortzuege.2012"))
+
+source("/home/dao/Desktop/MasterArbeit/R_files/functions/merge_with_order_FUNCTION.R")
+INTRAdf  <- merge.with.order(bpDF4INTRAdf, INTRAdfpre, sort=F,
+                                  by.x="RAUMID", by.y="RAUMID",
+                                  all.x=T, all.y=F,
+                                  keep_order=1)
+#View(INTRAdf)
+
+INTRAdf$IntraR.2008 <- round((INTRAdf$BinnenWand.2008/INTRAdf$E_E.2008)*100,digits=1)
+INTRAdf$IntraR.2009 <- round((INTRAdf$BinnenWand.2009/INTRAdf$E_E.2009)*100,digits=1)
+INTRAdf$IntraR.2010 <- round((INTRAdf$BinnenWand.2010/INTRAdf$E_E.2010)*100,digits=1)
+INTRAdf$IntraR.2011 <- round((INTRAdf$BinnenWand.2011/INTRAdf$E_E.2011)*100,digits=1)
+INTRAdf$IntraR.2012 <- round((INTRAdf$BinnenWand.2012/INTRAdf$E_E.2012)*100,digits=1)
+
+INTRAdf$IntraFR.2008 <- round((INTRAdf$BinnenWand.2008/INTRAdf$Fortzuege.2008)*100,digits=1)
+INTRAdf$IntraFR.2009 <- round((INTRAdf$BinnenWand.2009/INTRAdf$Fortzuege.2009)*100,digits=1)
+INTRAdf$IntraFR.2010 <- round((INTRAdf$BinnenWand.2010/INTRAdf$Fortzuege.2010)*100,digits=1)
+INTRAdf$IntraFR.2011 <- round((INTRAdf$BinnenWand.2011/INTRAdf$Fortzuege.2011)*100,digits=1)
+INTRAdf$IntraFR.2012 <- round((INTRAdf$BinnenWand.2012/INTRAdf$Fortzuege.2012)*100,digits=1)
+
+View(INTRAdf)
+
+INTRAdflong <- reshape(data = INTRAdf, direction="long", 
+     varying=list(c("E_E.2008","E_E.2009","E_E.2010","E_E.2011","E_E.2012"),
+                  c("Fortzuege.2008","Fortzuege.2009","Fortzuege.2010","Fortzuege.2011","Fortzuege.2012"),
+                  c("BinnenWand.2008","BinnenWand.2009","BinnenWand.2010","BinnenWand.2011","BinnenWand.2012"),
+                  c("IntraR.2008","IntraR.2009","IntraR.2010","IntraR.2011","IntraR.2012"),
+                  c("IntraFR.2008","IntraFR.2009","IntraFR.2010","IntraFR.2011","IntraFR.2012")),  
+        idvar=c("RAUMID","RAUMID_NAME","STADTRAUM","Gentri","GentriA"), 
+        timevar="ZEIT",
+     v.names = c("E_E", "Fortzuege","BinnenWand","IntraR","IntraFR"),
+     times = c(2008:2012))
+
+INTRAdflongI  <- subset(INTRAdflong, STADTRAUM=="innere Stadt")
+
+INTRAdflongI <- INTRAdflongI[order(INTRAdflongI$ZEIT, INTRAdflongI$Gentri),]
+INTRAdflongI$ZEIT <- factor(INTRAdflongI$ZEIT)
+
+ddply(INTRAdflongI, c("ZEIT","Gentri"), summarize,
+      IntraR_mean=round(weighted.mean(IntraR,E_E),digits=1),
+      IntraFR_mean=round(weighted.mean(IntraFR,E_E),digits=1)) -> summaryINTRAdflongI
+
+ddply(INTRAdflong, c("ZEIT","Gentri"), summarize,
+      IntraR_mean=round(weighted.mean(IntraR,E_E),digits=1),
+      IntraFR_mean=round(weighted.mean(IntraFR,E_E),digits=1)) -> summaryINTRAdflong
+
+ggplot(summaryINTRAdflongI, aes(ZEIT, IntraFR_mean, group = Gentri, colour = Gentri)) + geom_line(size=0.8)
+ggplot(summaryINTRAdflong, aes(ZEIT, IntraFR_mean, group = Gentri, colour = Gentri)) + geom_line(size=0.8)
+
+ddply(LORdataFULLvalid, c("ZEIT","Gentri"), summarize,
+      FortzuegeR_mean=round(weighted.mean(FortzuegeR,E_E),digits=1),
+      ZuzuegeUDAR_mean=round(weighted.mean(ZuzuegeUDAR,E_E),digits=1)) -> summaryLORdataFULLvalid
+
+ggplot(summaryLORdataFULLvalid, aes(ZEIT, FortzuegeR_mean, group = Gentri, colour = Gentri)) + geom_line(size=0.8)
