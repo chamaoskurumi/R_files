@@ -171,3 +171,12 @@ ZuzuegeUDARMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
   coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
 ZuzuegeUDARMAP
 @
+
+%<<GentriAMAP, fig.height=5, fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{Kategorie}}", fig.lp='fig:'>>=
+%GentriAMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+%  geom_polygon(aes(fill=GentriA, group=id)) + geom_path(color="grey20", alpha=0.3, size=0.1) +
+%  scale_fill_discrete(name=expression(paste('Kategorie (alternativ)'))) +  
+%  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + theme(plot.margin=unit(c(0,0,-0.7,0), "cm")) +
+%  kartenlayoutCAT
+%GentriAMAP
+%@

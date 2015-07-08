@@ -127,12 +127,10 @@ knit_hooks$set(crop=hook_pdfcrop)
 % ----------------------------------------------------
 % --- frontmatter: List of Figures (not mandatory) ---
 % ----------------------------------------------------
-\newpage
-\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
-\ohead[]{Abkürzungsverzeichnis}
-\input{Andere/Abkuerzungen}
-
-
+%\newpage
+%\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
+%\ohead[]{Abkürzungsverzeichnis}
+%\input{Andere/Abkuerzungen}
 
 % ----------------------------------------------------
 % --- frontmatter: List of Figures (not mandatory) ---
@@ -142,16 +140,12 @@ knit_hooks$set(crop=hook_pdfcrop)
 \ohead[]{\rightmark}
 \listoffigures
 
-
-
 % ---------------------------------------------------
 % --- frontmatter: List of Tables (not mandatory) ---
 % ---------------------------------------------------
 \newpage
 \addcontentsline{toc}{section}{Tabellenverzeichnis}
 \listoftables
-
-
 
 % -------------------------------
 % --- main body of the thesis ---

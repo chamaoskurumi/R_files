@@ -221,7 +221,7 @@ View(bpDF)
 
 ##### H1 Boxplots ####
 
-#####**** innere stadt ****####
+#**** innere stadt ****##
 
 p1ArmutG.2007  <- ggplot(bpGentriInnere , aes(Gentri, 
                                   Armut.2007, 
@@ -310,6 +310,101 @@ barArmut.2007I
 grid.arrange(p1ArmutG.2007, p2ArmutG.2007, barArmut.2007I, 
              ncol=3, nrow=1, widths=c(1,1,2))
 
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+#---- +++ Robustheitscheck von H 1 mit alternativer Klassifizierung +++ -----
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+
+#***** innere Stadt ******#
+
+
+bpGentriAInnere   <- subset(bpDF, GentriA=="Gentri" & STADTRAUM=="innere Stadt")
+
+p1ArmutG.2007  <- ggplot(bpGentriAInnere , aes(GentriA, 
+                                               Armut.2007, 
+                                               weight=E_E.2007,
+                                               fill=GentriA)) + 
+  ylab(expression(paste(Armut[2007],' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche),
+                     limits=c(4, 52))+ 
+  geom_violin(scale = "width") + bp_theme
+p1ArmutG.2007 <- p1ArmutG.2007 + geom_boxplot(width=.3)
+p1ArmutG.2007
+
+p2ArmutG.2007  <- ggplot(bpGesamtInnere, aes(valid,
+                                             Armut.2007, 
+                                             weight=E_E.2007)) +
+  scale_y_continuous(breaks=pretty_breaks(n=brueche),
+                     limits=c(4, 52)) +
+  geom_violin(scale="width") +  bp_themeG
+p2ArmutG.2007 <- p2ArmutG.2007 + geom_boxplot(width=.3)
+p2ArmutG.2007
+
+grid.arrange(p1ArmutG.2007, p2ArmutG.2007,
+             ncol=2, nrow=1, widths=c(1,1))
+
+p1MieteG.2007  <- ggplot(bpGentriAInnere , aes(GentriA, 
+                                               Miete.2007, 
+                                               weight=E_E.2007,
+                                               fill=GentriA)) + 
+  ylab(expression(paste(Miete[2007],' ','(Euro)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche),
+                     limits=c(4.7, 10.9))+ 
+  geom_violin(scale = "width") + bp_theme
+p1MieteG.2007 <- p1MieteG.2007 + geom_boxplot(width=.3)
+p1MieteG.2007
+
+p2MieteG.2007  <- ggplot(bpGesamtInnere, aes(valid,
+                                             Miete.2007, 
+                                             weight=E_E.2007)) +
+  scale_y_continuous(breaks=pretty_breaks(n=brueche),
+                     limits=c(4.7, 10.9)) +
+  geom_violin(scale="width") +  bp_themeG
+p2MieteG.2007 <- p2MieteG.2007 + geom_boxplot(width=.3)
+p2MieteG.2007
+
+grid.arrange(p1MieteG.2007, p2MieteG.2007,
+             ncol=2, nrow=1, widths=c(1,1))
+
+grid.arrange(p1MieteG.2007, p2MieteG.2007,
+             p1ArmutG.2007, p2ArmutG.2007,
+             ncol=4, nrow=1, widths=c(1,1,1,1))
+
+
+barMiete.2007I <- ggplot(data=bpGesamtInnere, aes(x=Miete.2007, fill=GentriA)) +
+  geom_bar(width=0.5, binwidth=1, colour="white",size=1) + 
+  theme(axis.title.y = element_text(face="bold",colour = "grey50"),
+        axis.title.x = element_text(face="bold",colour = "grey50"),
+        legend.text=element_text(colour = "grey50"),
+        legend.title=element_text(face="bold",colour = "grey50"),
+        legend.title=element_text(size=rel(0.7), face="bold"),
+        legend.text=element_text(size=rel(0.5))) + 
+  scale_x_continuous(breaks=seq(4,11,1), limits=c(4,11)) +
+  scale_y_continuous(breaks=seq(0,60,10))  +
+  xlab(expression(paste(Miete[2007],' ','(Euro/',m^{2},')'))) + 
+  ylab(expression(paste('Anzahl der LOR'))) + 
+  guides(fill=guide_legend(title="Kategorie")) 
+barMiete.2007I
+
+grid.arrange(p1MieteG.2007, p2MieteG.2007, barMiete.2007I, 
+             ncol=3, nrow=1, widths=c(1,1,2))
+
+barArmut.2007I <- ggplot(data=bpGesamtInnere, aes(x=Armut.2007, fill=GentriA)) +
+  geom_bar(width=0.5, binwidth=5, colour="white",size=1) + 
+  theme(axis.title.y = element_text(face="bold",colour = "grey50"),
+        axis.title.x = element_text(face="bold",colour = "grey50"),
+        legend.text=element_text(colour = "grey50"),
+        legend.title=element_text(face="bold",colour = "grey50"),
+        legend.title=element_text(size=rel(0.7), face="bold"),
+        legend.text=element_text(size=rel(0.5))) + 
+  scale_x_continuous(breaks=seq(0,60,10), limits=c(0,60)) +
+  scale_y_continuous(breaks=seq(0,35,10))  +
+  xlab(expression(paste(Armut[2007],' ','(%)'))) +
+  ylab(expression(paste('Anzahl der LOR'))) + 
+  guides(fill=guide_legend(title="Kategorie")) 
+barArmut.2007I
+
+grid.arrange(p1ArmutG.2007, p2ArmutG.2007, barArmut.2007I, 
+             ncol=3, nrow=1, widths=c(1,1,2))
 
 
 ##### H2 Boxplots ####
@@ -402,6 +497,105 @@ p1ZuzuegeUDARI  <- ggplot(bpGesamtInnere, aes(Gentri,
                                               ZuzuegeUDAR, 
                                               weight=E_E.2007,
                                               fill=Gentri)) + 
+  ylab(expression(paste('ZuzügeA',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  coord_cartesian(ylim = c(1, 14)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1ZuzuegeUDARI <- p1ZuzuegeUDARI + geom_boxplot(width=.3)
+#p1ZuzuegeUDARI
+
+grid.arrange(p1FortzuegeRI, p1ZuzuegeRI,
+             p1FortzuegeUDARI, p1ZuzuegeUDARI,
+             ncol=2, nrow=2, widths=c(1,1,1,1))
+
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+#---- +++ Robustheitscheck von H 2 mit alternativer Klassifizierung +++ -----
+#oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+
+#***** gesamte Stadt ******#
+
+p1FortzuegeR  <- ggplot(bpDF , aes(GentriA, 
+                                   FortzuegeR, 
+                                   weight=E_E.2007,
+                                   fill=GentriA)) + 
+  ylab(expression(paste('Fortzüge',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  coord_cartesian(ylim = c(3, 17)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1FortzuegeR <- p1FortzuegeR + geom_boxplot(width=.3)
+
+p1FortzuegeUDAR  <- ggplot(bpDF , aes(GentriA, 
+                                      FortzuegeUDAR, 
+                                      weight=E_E.2007,
+                                      fill=GentriA)) + 
+  ylab(expression(paste('FortzügeA',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  coord_cartesian(ylim = c(0, 10)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1FortzuegeUDAR <- p1FortzuegeUDAR + geom_boxplot(width=.3)
+
+p1ZuzuegeR  <- ggplot(bpDF , aes(GentriA, 
+                                 ZuzuegeR, 
+                                 weight=E_E.2007,
+                                 fill=GentriA)) + 
+  ylab(expression(paste('Zuzüge',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1ZuzuegeR <- p1ZuzuegeR + geom_boxplot(width=.3)
+
+p1ZuzuegeUDAR  <- ggplot(bpDF , aes(GentriA, 
+                                    ZuzuegeUDAR, 
+                                    weight=E_E.2007,
+                                    fill=GentriA)) + 
+  ylab(expression(paste('ZuzügeA',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  coord_cartesian(ylim = c(0, 15)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1ZuzuegeUDAR <- p1ZuzuegeUDAR+ geom_boxplot(width=.3)
+
+grid.arrange(p1FortzuegeR, p1ZuzuegeR,
+             p1FortzuegeUDAR, p1ZuzuegeUDAR,
+             ncol=2, nrow=2, widths=c(1,1,1,1))
+
+#***** innere Stadt ******#
+
+p1FortzuegeRI  <- ggplot(bpGesamtInnere, aes(GentriA, 
+                                             FortzuegeR, 
+                                             weight=E_E.2007,
+                                             fill=GentriA)) + 
+  ylab(expression(paste('Fortzüge',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  coord_cartesian(ylim = c(3, 17)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1FortzuegeRI <- p1FortzuegeRI + geom_boxplot(width=.3)
+#p1FortzuegeRI
+
+p1FortzuegeUDARI  <- ggplot(bpGesamtInnere, aes(GentriA, 
+                                                FortzuegeUDAR, 
+                                                weight=E_E.2007,
+                                                fill=GentriA)) + 
+  ylab(expression(paste('FortzügeA',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  coord_cartesian(ylim = c(1,10)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1FortzuegeUDARI <- p1FortzuegeUDARI + geom_boxplot(width=.3)
+#p1FortzuegeUDARI
+
+p1ZuzuegeRI  <- ggplot(bpGesamtInnere, aes(GentriA, 
+                                           ZuzuegeR, 
+                                           weight=E_E.2007,
+                                           fill=GentriA)) + 
+  ylab(expression(paste('Zuzüge',' ','(%)')))+
+  scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
+  coord_cartesian(ylim = c(5, 22)) +
+  geom_violin(scale = "width") + bp_themeMITRAND
+p1ZuzuegeRI <- p1ZuzuegeRI + geom_boxplot(width=.3)
+#p1ZuzuegeRI
+
+p1ZuzuegeUDARI  <- ggplot(bpGesamtInnere, aes(GentriA, 
+                                              ZuzuegeUDAR, 
+                                              weight=E_E.2007,
+                                              fill=GentriA)) + 
   ylab(expression(paste('ZuzügeA',' ','(%)')))+
   scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
   coord_cartesian(ylim = c(1, 14)) +
@@ -657,7 +851,7 @@ table(bpDF$SanGebiet.2012, bpDF$Gentri)
                                        bpDF$E_E.2007[bpDF$STADTRAUM!="innere Stadt"]),2)
   ArmutchgMEANA
 
-#### __MOBILITÄTSRATEN__ ####
+#### __MOBILITÄTSRATEN Statistiken__ ####
 
 #### FortzügeR Vergleich ####
 
@@ -813,8 +1007,18 @@ wtd.quantile(x=bpGesamtInnere$FortzuegeR[bpGesamtInnere$Gentri=="Kontroll"],
 
   ODdf[with(ODdf, VonLOR=="08010301" & NachLOR=="08010301" ),]
 write.csv(bpDF[bpDF$RAUMID_NAME=="Reuterkiez",], file = "/home/dao/Desktop/Reuterkiez.csv", dec =",", sep = ";",quote = TRUE)
-  bpDF[bpDF$RAUMID_NAME=="Reuterkiez",c("E_E.2008","E_E.2009","E_E.2010","E_E.2011","E_E.2012")]
+  bpDF[bpDF$RAUMID_NAME=="Reuterkiez",c("E_E.2007","E_E.2008","E_E.2009","E_E.2010","E_E.2011","E_E.2012")]
+  bpDF[bpDF$RAUMID_NAME=="Reuterkiez",c("FortzuegeR.2007","FortzuegeR.2008","FortzuegeR.2009","FortzuegeR.2010","FortzuegeR.2011","FortzuegeR.2012")]
+  bpDF[bpDF$RAUMID_NAME=="Reuterkiez",c("FortzuegeUDAR.2007","FortzuegeUDAR.2008","FortzuegeUDAR.2009","FortzuegeUDAR.2010","FortzuegeUDAR.2011","FortzuegeUDAR.2012")]
+  bpDF[bpDF$RAUMID_NAME=="Reuterkiez",c("ZuzuegeR.2007","ZuzuegeR.2008","ZuzuegeR.2009","ZuzuegeR.2010","ZuzuegeR.2011","ZuzuegeR.2012")]
+  bpDF[bpDF$RAUMID_NAME=="Reuterkiez",c("ZuzuegeUDAR.2007","ZuzuegeUDAR.2008","ZuzuegeUDAR.2009","ZuzuegeUDAR.2010","ZuzuegeUDAR.2011","ZuzuegeUDAR.2012")]
 
+  bpDF$E_65U110R.2007
+  
+  bpDF[bpDF$RAUMID_NAME=="Reuterkiez",c("E_U18R.2007","E_U18R.2012")]
+  bpDF[bpDF$RAUMID_NAME=="Reuterkiez",c("E_65U110R.2007","E_65U110R.2012")]
+
+  
 #************************************
 ####*****   INTRA LOR UMZÜGE ****####
 #************************************
