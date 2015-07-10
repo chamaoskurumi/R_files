@@ -358,6 +358,22 @@ SAR5 <- spautolm(formula=FortzuegeR ~ MietechgrC + Miete.2007C+ ArmutchgC + Armu
                  listw=W_2000mIDWs, 
                  weights=E_E.2007,
                  family="SAR")
+
+SAR5 <- spautolm(formula=FortzuegeR ~ MietechgrC + Miete.2007C+ ArmutchgC + Armut.2007C + StaedtWohnungen.2012C+ AlleinerzHH.2012C + 
+                   PDAU10.2007C+ E_U18R.2007C+ E_18U35R.2007C+ E_65U110R.2007C+ STADTRAUM + SanGebiet.2007,
+                 data=LOR4reg,
+                 listw=W_polyIDWs, 
+                 weights=E_E.2007,
+                 family="SAR")
+
+SAR5 <- spautolm(formula=FortzuegeR ~ Gentri + StaedtWohnungen.2012C+ AlleinerzHH.2012C + 
+                   PDAU10.2007C+ E_U18R.2007C+ E_18U35R.2007C+ E_65U110R.2007C+ STADTRAUM + SanGebiet.2007,
+                 data=LOR4reg,
+                 listw=W_polyIDWs, 
+                 weights=E_E.2007,
+                 family="SAR")
+
+
 summary(SAR5, Nagelkerke=T)
 qqnorm(SAR5$fit$residuals/(SAR5$weights^2)); qqline(SAR5$fit$residuals/(SAR5$weights^2), col = 2)
 qqnorm(SAR5$fit$signal_stochastic); qqline(SAR5$fit$signal_stochastic, col = 2)
@@ -369,6 +385,15 @@ SAR6 <- spautolm(formula=ZuzuegeUDAR ~ MietechgrC+ Miete.2007C+ ArmutchgC+ Armut
                  weights=E_E.2007,
                  family="SAR")
 summary(SAR6, Nagelkerke=T)
+
+SAR6 <- spautolm(formula=ZuzuegeUDAR ~ MietechgrC+ Miete.2007C+ ArmutchgC+ Armut.2007C+ StaedtWohnungen.2012C+ AlleinerzHH.2012C + 
+                   PDAU10.2007C+ E_U18R.2007C+ E_18U35R.2007C+ E_65U110R.2007C+ STADTRAUM + SanGebiet.2007,
+                 data=LOR4reg,
+                 listw=W_polyIDWs, 
+                 weights=E_E.2007,
+                 family="SAR")
+summary(SAR6, Nagelkerke=T)
+
 qqnorm(SAR6$fit$residuals); qqline(SAR6$fit$residuals, col = 2)
 qqnorm(SAR6$fit$residuals/(SAR6$weights^2)); qqline(SAR6$fit$residuals/(SAR6$weights^2), col = 2)
 qqnorm(SAR6$fit$signal_stochastic); qqline(SAR6$fit$signal_stochastic, col = 2)
@@ -649,8 +674,6 @@ vifstep1 <-
 vifcor(predictors4vifcheck, th=5)# identify collinear variables that should be excluded
 predictors <- exclude(predictors4vifcheck, vifstep1)
 names(predictors)
-
-Mietechgr, Armutchg, STADTRAUM, Sanierung
 
 levels(LOR4regCLEAN@data$SanGebiet_KLASSE.2012)
 

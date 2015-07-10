@@ -2,9 +2,28 @@
 
 \section{Zusammenfassung und Diskussion}\label{Sec:ZufsgDisku}
   \subsection{Forschungsergebnisse}
+
+Wo wir es erwarten, wo große Proteste sind. 
 Hypothesendiskussion und empirische Evidenz  
+
+Hohe Umzugsraten <--> beschleunigung sozialer und immobilienwirtschaftlicher aufwertung, auch die hohe Korrelation\ref{Sec:AnaGentriLokalIWSA} Hohe Umzugsraten in Gentrificationgebieten spielen die hohe Korrelation von immobilienwirtschaftlicher und sozialer Aufwertung wieder, d.h. 
+Hohe Umzugsraten beschleunigen auch Mietspiegel, die wiederum die Bestandsmieten, erhöht wiederum den Verdrängungsdruck der zur ein oder anderen Form der Verdrängung führt. 
+Verdrängung eher Binnenfortzüge als Aussenfortzüge - verdräng
+Auf Wedding, östliches Friedrichshain, Kreuzberg, Prenzelberg und Wedding (hier kaum )genauer eingehen. 
+Gentrificationgebiete zeichnen sich also durch hohe Binnen- wie Außenumzugsraten aus. Sie besitzen ein positives Aussenwanderungssaldo und ein negatives Binnenwanderungssaldo Bevölkerungsaustausch. Die in den Gentrificationgebieten hohe soziale Aufwertung ist also höchstwahrscheinlich 
+Wedding hohe Binnenfortzugsraten, aber hohe, aber keine extremen Mietpreissteigerungen, moderate Senkungen der Armutsquote. Nicht als Gentrificationgebiete klassifiziert. Vielleicht mit Slater zu erklären: Hohe Fortzugsraten auch schon vor der Aufwertung zu beobachten. Gegen Slater: Während Aufwertung ist aber auch hohe Fortzüge zu beobachten: Östliches Friedrichshain und nördliches Neukölln. Kreuzberg allerdings vielleicht in Slaters Kategorie. 
+Beispielrechnung von bevölkerungsaustausch, Miete, Armutsquote etc. 
+Wie hoch die Fortzugsraten in den Gentrigebieten Vergleich zu \citet[S.~58f.]{BBU2015} 1,89\% Gentri zu 1,40\% Kontroll für gesamte Innenstadt 1,38\%
+
 	\subsection{Diskussion und Schlussfolgerungen}	
   \subsection{Grenzen der Analysen}
+
+Welche räumlicher Verlauf 2007-2012. Kein homogener Zeitraum. Binnenfortzugsraten sinken Stadtweit (plot in anhang? BBU verweis?)
+keine subjektiven Daten, hierfür auf Beran Verdrängung warten
+räumliche Stationaritätsannahme
+Dunkelziffern Informeller Wohnungsmarkt (auch illegale Untervermietungen), Meldeamt, 
+
+
   \subsection{Ausblick}
 
 Liste von Ideen, was man noch weiter forschen kann

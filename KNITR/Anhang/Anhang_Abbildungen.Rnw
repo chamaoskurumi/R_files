@@ -128,7 +128,7 @@ grid.arrange(p1FortzuegeRI, p1ZuzuegeRI,
 \end{landscape}
 }
 
-<<FortzuegeRMAP,fig.height=5, fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{Fortzüge}}", fig.lp='fig:'>>=
+<<FortzuegeRMAP,fig.height=5, fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{Fortzüge}}", fig.lp='fig:',fig.pos='H'>>=
 FortzuegeRMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=FortzuegeR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
@@ -161,7 +161,7 @@ FortzuegeUDARMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
 FortzuegeUDARMAP
 @
 
-<<ZuzuegeUDARMAP,fig.height=5, fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{ZuzügeA}}", fig.lp='fig:'>>=
+<<ZuzuegeUDARMAP,fig.height=5, fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{ZuzügeA}}", fig.lp='fig:',fig.pos='H'>>=
 ZuzuegeUDARMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=ZuzuegeUDAR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
@@ -180,3 +180,48 @@ ZuzuegeUDARMAP
 %  kartenlayoutCAT
 %GentriAMAP
 %@
+
+<<IntraLOR,fig.height=3.8,fig.scap="Anteil der Umzüge innerhalb der LOR an allen Fortzügen in \\%", fig.cap="Zeitverlauf des Anteils der Umzüge innerhalb der LOR an allen Fortzügen in \\% nach \\textit{Kategorie}. Aufgrund einer fehlerhaften Lieferung durch das Amt für Statistik Berlin Brandenburg stehen keine Daten für Intra-LOR Umzüge für das Jahr 2007 zur Verfügung.", fig.lp='fig:',fig.pos='H', cache=FALSE>>=
+load(file = "/home/dao/Desktop/MasterArbeit/R_files/INTRAdflong.Rdata")
+
+INTRAdflongI  <- subset(INTRAdflong, STADTRAUM=="innere Stadt")
+
+INTRAdflongI <- INTRAdflongI[order(INTRAdflongI$ZEIT, INTRAdflongI$Gentri),]
+
+ddply(INTRAdflongI, c("ZEIT","Gentri"), summarize,
+      IntraR_mean=round(weighted.mean(IntraR,E_E),digits=1),
+      IntraFR_mean=round(weighted.mean(IntraFR,E_E),digits=1)) -> summaryINTRAdflongI
+
+ddply(INTRAdflong, c("ZEIT","Gentri"), summarize,
+      IntraR_mean=round(weighted.mean(IntraR,E_E),digits=1),
+      IntraFR_mean=round(weighted.mean(IntraFR,E_E),digits=1)) -> summaryINTRAdflong
+
+pIntraG <- ggplot(summaryINTRAdflong, aes(ZEIT, IntraFR_mean, group = Gentri, colour = Gentri)) + 
+  geom_line(size=0.7) +
+  theme(axis.title.y = element_text(face="bold",colour = "grey50"),
+        axis.title.x = element_blank(),
+        legend.text=element_text(colour = "grey50"),
+        legend.title=element_text(face="bold",colour = "grey50"),
+        legend.position="none",
+        plot.margin=unit(c(0.5,0.3,0.5,0.5), "cm")) +
+  ylab("Intra-LOR Umzüge in %") +
+  annotate("text", x = 2009, y = 13, label = "gesamte Stadt", size=4, face="bold",colour = "grey50") +
+  scale_y_continuous(breaks=seq(10,22,2), limits=c(11.5,23.5))
+#pIntraG
+
+pIntraI <- ggplot(summaryINTRAdflongI, aes(ZEIT, IntraFR_mean, group = Gentri, colour = Gentri)) + 
+  geom_line(size=0.7) +
+  theme(axis.title.y = element_blank(),
+        axis.title.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        legend.text=element_text(colour = "grey50"),
+        legend.title=element_text(face="bold",colour = "grey50"),
+        plot.margin=unit(c(0.5,0.5,0.5,-0.3), "cm")) +
+  ylab("Intra-LOR Umzüge in %")  +  
+  annotate("text", x=2009, y = 13, label = "innere Stadt", size=4, face="bold",colour = "grey50") +
+  scale_y_continuous(breaks=seq(10,22,2), limits=c(11.5,23.5))
+#pIntraI
+
+grid.arrange(pIntraG, pIntraI, ncol=2, nrow=1, widths=c(1,1.2))
+@

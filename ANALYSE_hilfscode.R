@@ -1063,10 +1063,11 @@ INTRAdflong <- reshape(data = INTRAdf, direction="long",
      v.names = c("E_E", "Fortzuege","BinnenWand","IntraR","IntraFR"),
      times = c(2008:2012))
 
+save(INTRAdflong, file = "/home/dao/Desktop/MasterArbeit/R_files/INTRAdflong.Rdata")
+
 INTRAdflongI  <- subset(INTRAdflong, STADTRAUM=="innere Stadt")
 
 INTRAdflongI <- INTRAdflongI[order(INTRAdflongI$ZEIT, INTRAdflongI$Gentri),]
-INTRAdflongI$ZEIT <- factor(INTRAdflongI$ZEIT)
 
 ddply(INTRAdflongI, c("ZEIT","Gentri"), summarize,
       IntraR_mean=round(weighted.mean(IntraR,E_E),digits=1),
@@ -1076,11 +1077,47 @@ ddply(INTRAdflong, c("ZEIT","Gentri"), summarize,
       IntraR_mean=round(weighted.mean(IntraR,E_E),digits=1),
       IntraFR_mean=round(weighted.mean(IntraFR,E_E),digits=1)) -> summaryINTRAdflong
 
-ggplot(summaryINTRAdflongI, aes(ZEIT, IntraFR_mean, group = Gentri, colour = Gentri)) + geom_line(size=0.8)
-ggplot(summaryINTRAdflong, aes(ZEIT, IntraFR_mean, group = Gentri, colour = Gentri)) + geom_line(size=0.8)
+# hier stimmt was nich. 2008 konstant kann nich sein.
+ggplot(summaryINTRAdflongI, aes(ZEIT, IntraR_mean, group = Gentri, colour = Gentri)) + geom_line(size=1)
+ggplot(summaryINTRAdflong, aes(ZEIT, IntraR_mean, group = Gentri, colour = Gentri)) + geom_line(size=1)
+
+pIntraG <- ggplot(summaryINTRAdflong, aes(ZEIT, IntraFR_mean, group = Gentri, colour = Gentri)) + 
+  geom_line(size=1) +
+  theme(axis.title.y = element_text(face="bold",colour = "grey50"),
+        axis.title.x = element_blank(),
+        legend.text=element_text(colour = "grey50"),
+        legend.title=element_text(face="bold",colour = "grey50"),
+        legend.position="none",
+        plot.margin=unit(c(0.5,0.3,0.5,0.5), "cm")) +
+  ylab("Anteil der Intra-LOR Umzüge an allen Fortzügen in %") +
+  annotate("text", x = 2009, y = 13, label = "gesamte Stadt", size=6, face="bold",colour = "grey50") +
+  scale_y_continuous(breaks=seq(10,22,2), limits=c(11,24))
+pIntraG
+
+pIntraI <- ggplot(summaryINTRAdflongI, aes(ZEIT, IntraFR_mean, group = Gentri, colour = Gentri)) + 
+  geom_line(size=1) +
+  theme(axis.title.y = element_blank(),
+        axis.title.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        legend.text=element_text(colour = "grey50"),
+        legend.title=element_text(face="bold",colour = "grey50"),
+        plot.margin=unit(c(0.5,0.5,0.5,-0.3), "cm")) +
+  ylab("Anteil der Intra-LOR Umzüge an allen Fortzügen in %")  +  
+  annotate("text", x=2009, y = 13, label = "innere Stadt", size=6, face="bold",colour = "grey50") +
+  scale_y_continuous(breaks=seq(10,22,2), limits=c(11,24))
+pIntraI
+
+grid.arrange(pIntraG, pIntraI, ncol=2, nrow=1, widths=c(1,1.15))
+
+grid.arrange(p1FortzuegeRI, p1ZuzuegeRI,
+             p1FortzuegeUDARI, p1ZuzuegeUDARI,
+             ncol=2, nrow=2, widths=c(1,1,1,1))
 
 ddply(LORdataFULLvalid, c("ZEIT","Gentri"), summarize,
       FortzuegeR_mean=round(weighted.mean(FortzuegeR,E_E),digits=1),
       ZuzuegeUDAR_mean=round(weighted.mean(ZuzuegeUDAR,E_E),digits=1)) -> summaryLORdataFULLvalid
 
 ggplot(summaryLORdataFULLvalid, aes(ZEIT, FortzuegeR_mean, group = Gentri, colour = Gentri)) + geom_line(size=0.8)
+
+ggplot(LORdataFULLvalid[LORdataFULLvalid$RAUMID_NAME=="Reuterkiez",]) + geom_line(x=ZEIT, y=FortzuegeR,size=0.8)
