@@ -864,7 +864,25 @@ wtd.mean(x=bpGesamtInnere$FortzuegeR[bpGesamtInnere$Gentri=="Gentri"],
          weights=bpGesamtInnere$E_E.2007[bpGesamtInnere$Gentri=="Gentri"])
 wtd.mean(x=bpGesamtInnere$FortzuegeR[bpGesamtInnere$Gentri=="Kontroll"], 
          weights=bpGesamtInnere$E_E.2007[bpGesamtInnere$Gentri=="Kontroll"])
+  
+#----- TAB dist2Stadtmitte -----
+wtd.quantile(x=bpDF$dist2STADTMITTE, 
+               weights=bpDF$E_E.2007,
+               probs=c(0, .25, .5, .75, 1))
+  
+wtd.quantile(x=bpDF$dist2STADTMITTE[bpDF$Gentri=="Gentri"], 
+               weights=bpDF$E_E.2007[bpDF$Gentri=="Gentri"],
+               probs=c(0, .25, .5, .75, 1))
+  
+wtd.quantile(x=bpDF$dist2STADTMITTE[bpDF$Gentri=="Kontroll"], 
+               weights=bpDF$E_E.2007[bpDF$Gentri=="Kontroll"],
+               probs=c(0, .25, .5, .75, 1))
 
+wtd.quantile(x=bpDF$dist2STADTMITTE[bpDF$Gentri=="Andere"], 
+               weights=bpDF$E_E.2007[bpDF$Gentri=="Andere"],
+               probs=c(0, .25, .5, .75, 1))  
+  
+#---- TAB FortzuegeR -----  
 wtd.quantile(x=bpDF$FortzuegeR[bpDF$Gentri=="Gentri"], 
              weights=bpDF$E_E.2007[bpDF$Gentri=="Gentri"],
              probs=c(0, .25, .5, .75, 1))
@@ -879,6 +897,7 @@ wtd.quantile(x=bpGesamtInnere$FortzuegeR[bpGesamtInnere$Gentri=="Kontroll"],
              weights=bpGesamtInnere$E_E.2007[bpGesamtInnere$Gentri=="Kontroll"],
              probs=c(0, .25, .5, .75, 1))
 
+  
   
   #### ZuzügeR Vergleich ####
   
@@ -1063,7 +1082,7 @@ INTRAdflong <- reshape(data = INTRAdf, direction="long",
      v.names = c("E_E", "Fortzuege","BinnenWand","IntraR","IntraFR"),
      times = c(2008:2012))
 
-save(INTRAdflong, file = "/home/dao/Desktop/MasterArbeit/R_files/INTRAdflong.Rdata")
+#save(INTRAdflong, file = "/home/dao/Desktop/MasterArbeit/R_files/INTRAdflong.Rdata")
 
 INTRAdflongI  <- subset(INTRAdflong, STADTRAUM=="innere Stadt")
 

@@ -76,12 +76,12 @@ Armut.2012MAP
 \newpage
 \afterpage{
 \begin{landscape}
-<<ViolinFortZuzuegeI, fig.width=9.8, fig.height=5.6, fig.scap='Verteilungen der wohnräumlichen Mobilität für die innere Stadt', fig.cap='Verteilungen der wohnräumlichen Mobilität (\\textit{Fortzüge, Zuzüge, FortzügeA, ZuzügeA}) für die innere Stadt', fig.lp='fig:',fig.pos='H'>>=
+<<ViolinFortZuzuegeI, fig.width=9.8, fig.height=5.6, fig.scap='Verteilungen der wohnräumlichen Mobilität für die innere Stadt', fig.cap='Verteilungen der wohnräumlichen Mobilität (\\textit{FortzügeB, ZuzügeB, FortzügeA, ZuzügeA}) für die innere Stadt', fig.lp='fig:',fig.pos='H'>>=
 p1FortzuegeRI  <- ggplot(bpGesamtInnere, aes(Gentri, 
                                             FortzuegeR, 
                                             weight=E_E.2007,
                                             fill=Gentri)) + 
-  ylab(expression(paste('Fortzüge',' ','(%)')))+
+  ylab(expression(paste('FortzügeB',' ','(%)')))+
   scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
   coord_cartesian(ylim = c(3, 17)) +
   geom_violin(scale = "width") + bp_themeMITRAND
@@ -103,7 +103,7 @@ p1ZuzuegeRI  <- ggplot(bpGesamtInnere, aes(Gentri,
                                              ZuzuegeR, 
                                              weight=E_E.2007,
                                              fill=Gentri)) + 
-  ylab(expression(paste('Zuzüge',' ','(%)')))+
+  ylab(expression(paste('ZuzügeB',' ','(%)')))+
   scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
   coord_cartesian(ylim = c(5, 22)) +
   geom_violin(scale = "width") + bp_themeMITRAND
@@ -128,24 +128,24 @@ grid.arrange(p1FortzuegeRI, p1ZuzuegeRI,
 \end{landscape}
 }
 
-<<FortzuegeRMAP,fig.height=5, fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{Fortzüge}}", fig.lp='fig:',fig.pos='H'>>=
+<<FortzuegeRMAP,fig.height=5, fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{FortzügeB}}", fig.lp='fig:',fig.pos='H'>>=
 FortzuegeRMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=FortzuegeR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
                        values = rescale(c(3.9,12,15,25)),
                        guide = "colorbar", limits=c(3.4,25),
-                       name=expression(paste('Fortzuege',' ','(%)'))) +
+                       name=expression(paste('FortzuegeB',' ','(%)'))) +
   coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
 FortzuegeRMAP
 @
 
-<<ZuzuegeRMAP,fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{Zuzüge}}", fig.height=5, fig.lp='fig:', fig.pos='H'>>=
+<<ZuzuegeRMAP,fig.cap="\\href{http://www.gmx.de}{Karte von \\textit{ZuzügeB}}", fig.height=5, fig.lp='fig:', fig.pos='H'>>=
 ZuzuegeRMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=ZuzuegeR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
                        values = rescale(c(3.8,7,13,22)),
                        guide = "colorbar", limits=c(3.8,22),
-                       name=expression(paste('Zuzüge',' ','(%)'))) +
+                       name=expression(paste('ZuzügeB',' ','(%)'))) +
   coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
 ZuzuegeRMAP
 @
@@ -181,9 +181,7 @@ ZuzuegeUDARMAP
 %GentriAMAP
 %@
 
-<<IntraLOR,fig.height=3.8,fig.scap="Anteil der Umzüge innerhalb der LOR an allen Fortzügen in \\%", fig.cap="Zeitverlauf des Anteils der Umzüge innerhalb der LOR an allen Fortzügen in \\% nach \\textit{Kategorie}. Aufgrund einer fehlerhaften Lieferung durch das Amt für Statistik Berlin Brandenburg stehen keine Daten für Intra-LOR Umzüge für das Jahr 2007 zur Verfügung.", fig.lp='fig:',fig.pos='H', cache=FALSE>>=
-load(file = "/home/dao/Desktop/MasterArbeit/R_files/INTRAdflong.Rdata")
-
+<<IntraLOR,fig.height=3.8,fig.scap="Anteil der Intra-LOR Umzüge an allen Fortzügen in \\%", fig.cap="Zeitverlauf des Anteils der Umzüge innerhalb der LOR (Intra-LOR Umzüge) an allen Fortzügen in \\% nach \\textit{Kategorie}. Aufgrund einer fehlerhaften Lieferung durch das Amt für Statistik Berlin Brandenburg stehen keine Daten für Intra-LOR Umzüge für das Jahr 2007 zur Verfügung.", fig.lp='fig:',fig.pos='H'>>=
 INTRAdflongI  <- subset(INTRAdflong, STADTRAUM=="innere Stadt")
 
 INTRAdflongI <- INTRAdflongI[order(INTRAdflongI$ZEIT, INTRAdflongI$Gentri),]

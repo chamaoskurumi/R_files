@@ -22,7 +22,6 @@ source("4_Kategorisierung-LORs.R")
 setwd("/home/dao/Desktop/MasterArbeit/R_files/")
 source("5_Generate_FINAL_Workspace.R")
 
-setwd("/home/dao/Desktop/MasterArbeit/R_files/KNITR/")
-save.image(file = "FINAL_WORKSPACE.Rdata")
+
 
 

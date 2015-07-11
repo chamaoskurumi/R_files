@@ -12,8 +12,8 @@ Um die Gentrificationgebiete lokalisieren und charakterisieren zu können, müss
 \begin{center} $Miete_{2007}(i) \; \in [5,09\nicefrac{\text{\euro}}{m^2},\,7,26\nicefrac{\text{\euro}}{m^2}] \; \wedge \; Armut_{2007}(i) \; \in [16,8\%\,,\,45,1\%]$ \end{center}
 \item $Kategorie(i) =$ Andere, $sonst$.  
 \end{itemize}
-Auf Grundlage dieser Konditionen wurden von den 430~gültigen LOR 45~(10,5\%) als Gentrificationgebiete, 139~(32,3\%) als Kontrollgebiete und 246~(57,2\%) als Andere Gebiete klassifiziert. In Abb.~\ref{fig:ViolinDefKategorie} wird die empirische Klassifizierung anhand von Violin- und Boxplots veranschaulicht, wobei die empirischen Schwellenwerte als rot gestrichelte Linien dargestellt werden. Die Plots von $\Mietechgr$ und $\Armutchg$ illustrieren die Kategorienbildung der Gentrificationgebiete als diejenigen Nachbarschaften, die gleichzeitig eine starke immobilienwirtschaftliche sowie eine starke soziale Aufwertung erfuhren. Die Plots von $Miete_{2007}$ und $Armut_{2007}$ veranschaulichen die Kategorienbildung der Kontrollgebiete als diejenigen Nachbarschaften, die den Gentrificationgebieten zu Beobachtungsbeginn ähnlich waren.\\
-Nach der alternativen Klassifizierung wurden 24~(5,6\%) als Gentrificationgebiete, 80~(18,6\%) als Kontrollgebiete, 326~(75,8\%) als Andere Gebiete definiert. Auf diese alternative Klassifizierung soll bis zum Robustheitschecks in Kap.~\ref{AnaGentriRobust} nicht weiter eingegangen werden.
+Auf Grundlage dieser Konditionen wurden von den 429~gültigen LOR 45~(10,5\%) als Gentrificationgebiete, 139~(32,4\%) als Kontrollgebiete und 245~(57,1\%) als Andere Gebiete klassifiziert. In Abb.~\ref{fig:ViolinDefKategorie} wird die empirische Klassifizierung anhand von Violin- und Boxplots veranschaulicht, wobei die empirischen Schwellenwerte als rot gestrichelte Linien dargestellt werden. Die Plots von $\Mietechgr$ und $\Armutchg$ illustrieren die Kategorienbildung der Gentrificationgebiete als diejenigen Nachbarschaften, die gleichzeitig eine starke immobilienwirtschaftliche sowie eine starke soziale Aufwertung erfuhren. Die Plots von $Miete_{2007}$ und $Armut_{2007}$ veranschaulichen die Kategorienbildung der Kontrollgebiete als diejenigen Nachbarschaften, die den Gentrificationgebieten zu Beobachtungsbeginn ähnlich waren.\\
+Nach der alternativen Klassifizierung wurden 24~(5,6\%) als Gentrificationgebiete, 80~(18,6\%) als Kontrollgebiete, 326~(75,8\%) als Andere Gebiete definiert. Auf diese alternative Klassifizierung soll bis zum Robustheitschecks in Kap.~\ref{Sec:AnaGentriRobust} nicht weiter eingegangen werden.
 
 <<setupViolinplots,include=FALSE,cache=FALSE>>=
 library("gridExtra")
@@ -135,9 +135,9 @@ Aufgrund des eben festgestellten starken Zusammenhangs von Mietpreissteigerungen
 \begin{tabular}{@{}lrrrr@{}}
 \toprule
                                        & \multicolumn{1}{r}{{\bf Gentri}} & \multicolumn{1}{r}{{\bf Kontroll}} & \multicolumn{1}{r}{{\bf Andere}} & \multicolumn{1}{r}{{\bf \textit{Gesamt}}} \\ \midrule
-$m$                                    & 45                               & 139                                & 246                              & 430                                  \\
-$m$ nach \textit{Stadtraum}$^\dagger$                    & 41/4                           & 39/100                           & 57/189                         & 137/293                            \\
-$Q_{0.5}(DStadtmitte)$       & 3726m                             & 8065m                               & 10068m                            & 8846m                                 \\ \bottomrule
+$n$                                    & 45                               & 139                                & 245                              & 429                                  \\
+$n$ nach \textit{Stadtraum}$^\dagger$                    & 41/4                           & 39/100                           & 57/188                         & 137/292                            \\
+$Q_{0.5}(DStadtmitte)$       & 3726m                             & 7392m                               & 9867m                            & 8065m                                 \\ \bottomrule
 \multicolumn{5}{l}{\footnotesize $^\dagger$innere Stadt / äußere Stadt}\\
 \end{tabular}
 \caption{Lagebeschreibung der Nachbarschaften nach \textit{Kategorie}}\label{tab:LageKategorie}
@@ -309,12 +309,12 @@ Was die räumliche Verteilung von Aussenzuzugsraten angeht (vgl. Abb.~\ref{fig:Z
 
 \afterpage{
 \begin{landscape}
-<<ViolinFortZuzuege, fig.width=9.8, fig.height=5.6, fig.scap='Verteilungen der wohnräumlichen Mobilität nach \\textit{Kategorie}', fig.cap='Verteilungen der wohnräumlichen Mobilität (\\textit{Fortzüge, Zuzüge, FortzügeA, ZuzügeA}) nach \\textit{Kategorie}',fig.lp='fig:'>>=
+<<ViolinFortZuzuege, fig.width=9.8, fig.height=5.6, fig.scap='Verteilungen der wohnräumlichen Mobilität nach \\textit{Kategorie}', fig.cap='Verteilungen der wohnräumlichen Mobilität (\\textit{FortzügeB, ZuzügeB, FortzügeA, ZuzügeA}) nach \\textit{Kategorie}',fig.lp='fig:'>>=
 p1FortzuegeR  <- ggplot(bpDF , aes(Gentri, 
                                   FortzuegeR, 
                                   weight=E_E.2007,
                                   fill=Gentri)) + 
-  ylab(expression(paste('Fortzüge',' ','(%)')))+
+  ylab(expression(paste('FortzügeB',' ','(%)')))+
   scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
   coord_cartesian(ylim = c(3, 17)) +
   geom_violin(scale = "width") + bp_themeMITRAND
@@ -334,7 +334,7 @@ p1ZuzuegeR  <- ggplot(bpDF , aes(Gentri,
                                    ZuzuegeR, 
                                    weight=E_E.2007,
                                    fill=Gentri)) + 
-  ylab(expression(paste('Zuzüge',' ','(%)')))+
+  ylab(expression(paste('ZuzügeB',' ','(%)')))+
   scale_y_continuous(breaks=pretty_breaks(n=brueche)) +
   geom_violin(scale = "width") + bp_themeMITRAND
 p1ZuzuegeR <- p1ZuzuegeR + geom_boxplot(width=.3)
@@ -405,18 +405,16 @@ Der Anteil der 18-35 Jährigen an der Gesamtbevölkerung (\textit{EW 18-35J}) be
 
 
 \section{Vermessung von Aufwertung und Verdrängung}\label{Sec:AnaVermessung}
-Das Kap.~\ref{Sec:AnaGentri} lieferte starke empirische Anhaltspunkte für Verdrängung und deren Zusammenhang mit Aufwertungprozessen. Die darin verwendten Methoden waren jedoch weder zur Isolierung und Quantifizierung einzelner Zusammenhänge (partielle Korrelationen, vgl. Kap.~\ref{Sec:MetMotivation}) geeignet, noch erlaubten sie genauere Rückschlüsse auf Ausmaß und Form der Verdrängung. Zu diesen Zwecken, d.h. zur Bearbeitung der H~3.1 bis H~3.3, werden im Folgenden gewichtete SAR Modelle geschätzt und die Ergebnisse im Sinne einer prozessbasierten Inferenz interpretiert. Nach der Dokumentation und Erklärung der empirischen Modellspezifiaktionen (Kap.~\ref{Sec:AnaSARModellspezi}) folgt die Darstellung der Regressionsergebnisse (Kap.~\ref{Sec:AnaSARErgebnisse}). Die Ergebnisse werden schließlich ausführlich interpretiert (Kap.~\ref{Sec:AnaSARInter}) und anhand des bereits oben aufgegriffenen Beispiels des Reuterkiezes veranschaulicht (Kap.~\ref{Sec:AnaSARBsp}).
+Das Kap.~\ref{Sec:AnaGentri} lieferte empirische Anhaltspunkte für Verdrängung und deren Zusammenhang mit Aufwertungprozessen. Die darin verwendten Methoden waren jedoch weder zur Isolierung und Quantifizierung einzelner Zusammenhänge (partielle Korrelationen, vgl. Kap.~\ref{Sec:MetMotivation}) geeignet, noch erlaubten sie genauere Rückschlüsse auf Ausmaß und Form von Verdrängung. Zu diesen Zwecken, d.h. zur Bearbeitung der H~3.1 bis H~3.3, werden im Folgenden gewichtete SAR Modelle geschätzt und die Ergebnisse im Sinne einer prozessbasierten Inferenz interpretiert. Nach der Dokumentation und Erklärung der empirischen Modellspezifiaktionen (Kap.~\ref{Sec:AnaSARModellspezi}) folgt die Darstellung der Regressionsergebnisse (Kap.~\ref{Sec:AnaSARErgebnisse}). Die Ergebnisse werden schließlich ausführlich interpretiert (Kap.~\ref{Sec:AnaSARInter}) und anhand des bereits oben aufgegriffenen Beispiels des Reuterkiezes veranschaulicht (Kap.~\ref{Sec:AnaSARBsp}).
 
     \subsection{Modellspezifikation}\label{Sec:AnaSARModellspezi}
 
 \subsubsection{Nachbarschaftsdefinition und Gewichtungsmatrix}
-Zur Erstellung der Gewichtungsmatrix $W$ musste zunächst eine Nachbarschaftsdefinition getroffen werden. Gewichtungsmatrizen wurden auf Grundlage drei verschiedener Nachbarschaftsdefinitionen erstellt, um später anhand dieser die Regressionsergebnisse auf Robustheit überprüfen zu können. Als Standarddefinition von Nachbarschaft wurde die, der gemeinsamen Polygongrenze zu Grunde gelegt und damit die entsprechende Gewichtungsmatrix $W_{poly}$ generiert.\footnote{ Durch diese Standarddefinition werden etwaige Probleme mit sogenannten \textit{zero link} Polygonen antizipiert \citep[S.~240ff.]{Bivand2008}.} Bei den alternativen Gewichtungsmatrizen $W_{1500m}$ und $W_{2000m}$ wurden alle LOR als Nachbarn definiert, deren Zentroide sich in maximal 1500m bzw. 2000m Abstand befanden. Zur Berechnung aller drei Matrizen wurde das Varianz stabilisierende Schema nach \citep{boots_variancestabilizing_1999} angewendet, bei dem sich die Gewichte auf insgesamt $n$ summieren.\footnote{ Zu den Vorteilen dieses Gewichtungsschemas \citet[vgl.][S.~253f.]{Bivand2008}.}
+Zur Erstellung der Gewichtungsmatrix $W$ musste zunächst eine Nachbarschaftsdefinition getroffen werden. Gewichtungsmatrizen wurden auf Grundlage drei verschiedener Nachbarschaftsdefinitionen erstellt, um später anhand dieser die Regressionsergebnisse auf Robustheit überprüfen zu können. Als Standarddefinition von Nachbarschaft wurde die gemeinsamen Polygongrenze zu Grunde gelegt und damit die entsprechende Gewichtungsmatrix $W_{poly}$ generiert.\footnote{ Durch diese Standarddefinition werden etwaige Probleme mit sogenannten \textit{zero link} Polygonen antizipiert \citep[S.~240ff.]{Bivand2008}.} Bei den alternativen Gewichtungsmatrizen $W_{1500m}$ und $W_{2000m}$ wurden alle LOR als Nachbarn definiert, deren Zentroide sich in maximal 1500m bzw. 2000m Abstand befanden. Zur Berechnung aller drei Matrizen wurde das Varianz stabilisierende Schema nach \citep{boots_variancestabilizing_1999} angewendet, bei dem sich die Gewichte auf insgesamt $n$ summieren.\footnote{ Zu den Vorteilen dieses Gewichtungsschemas vgl. \citet[S.~253f.]{Bivand2008}.}
 
 \subsubsection{Variablenselektion}
-Neben den Proxies für immobilienwirtschaftliche ($\Mietechgr$) und soziale Aufwertung ($\Armutchg$), sollen das ursprüngliche Mietpreisniveau ($Miete_{2007}$) und die ursprüngliche Armutsquote ($Armut_{2007}$) als Prädiktoren mit in die Regressionsgleichungen eingehen. Um die bedingte Varianz zu verringern bzw. die Berechnung der partiellen Korrelationen zu ermöglichen wurden desweiteren Kontrollvariablen als Prädiktoren aufgenommen, für die Zusammenhang mit den Umzugsraten zu vermuten ist. Zu den Kontrollvariablen gehören drei Alterskohorten (\textit{EWu18}$_{2007}$, \textit{EW18-35}$_{2007}$ und \textit{EWü65}$_{2007}$), der Anteil der seit mindestens 10 Jahren unter derselben Addresse wohnhaften Bevölkerung (\textit{Wohndauer10}), der Anteil der städtischen Wohnungen (\textit{Städt.Wohnungen}), der Sanierungsgebietsdummy (\textit{SanGebiet}), sowie die binäre Lagevariable \textit{Stadtraum}. Zusätzliche Variablen wie etwa \textit{Wohndauer5} oder die Entfernung zur Stadtmitte (\textit{DStadtmitte}) wurden aufgrund von zu hohen Werten ihres Varianzinflationsfaktors (\textgreater\,5) und den damit zu erwartenden Multikollinearitätsproblemen nicht mit aufgenommen. Zum Zweck einer besseren Interpretierbarkeit der Ergebnisse wurden alle metrischen Prädiktoren vor der Modellschätzung zentriert. Zuletzt wurde die Anteil der \textit{Alleinerziehende}$_{2012}$\footnote{ Keine Daten für 2007} 
-
-Um die H~3.1 bis H~3.3
- VIF step um Multicollinerarity innerhalb der Predictors auszuschließen 
+Die Wahl der Prädiktoren wurde im Wesentlichen inhaltlich motiviert. Von der Aufnahme eines inhaltlich legitimen Prädiktors wurde jedoch abgesehen, wenn dieser einen zu hohen Varianzinflationsfaktor (\textgreater\,5) gegenüber den anderen Prädiktoren aufwies und somit Multikollinearitätsprobleme zu erwarten waren. 
+Neben den Proxies für immobilienwirtschaftliche und soziale Aufwertung, gingen das ursprüngliche Mietpreisniveau und die ursprüngliche Armutsquote als Prädiktoren in die Regressionsgleichungen ein. Um die bedingte Varianz zu verringern und die Berechnung der partiellen Korrelationen zu ermöglichen, wurden desweiteren diverse Kontrollvariablen als Prädiktoren aufgenommen, die einen Zusammenhang mit den Umzugsraten vermuten ließen. Zu den Kontrollvariablen gehören die drei Alterskohorten Kinder/Jugendliche, junge Erwachsene und Senior*innen, der Anteil der seit mindestens 10 Jahren unter derselben Addresse wohnhaften Bevölkerung, der Anteil der städtischer Wohnungen, der Sanierungsgebietsdummy, sowie die binäre Lagevariable des Stadtraums.\footnote{ Weitere potentielle Kontrollvariablen wie beispielsweise der Anteil der seit mindestens 5 Jahren unverändert wohnhaften Bevölkerung oder die Entfernung zur Stadtmitte blieben aufgrund ihrer zu hohen Varianzinflationsfaktoren unberücksichtigt.} Zuletzt ging der Anteil der Alleinerziehenden mit Kindern an der Haushalten mit Kindern als Prädiktor in die Modellgleichungen ein, da Alleinerziehende bereits in anderen Studien explizit als Risikogruppe von Verdrängung identifiziert wurden (vgl. \citeauthor{Atkinson2011}, \citeyear{Atkinson2000}, \citeyear{Atkinson2011}).\footnote{ Für das Jahr 2007 liegen leider keine Daten zum Anteil Alleinerziehender vor. Deshalb wurde auf die Daten aus dem Jahr 2012 zurückgegriffen.} Zum Zweck einer besseren Interpretierbarkeit der Ergebnisse wurden alle metrischen Prädiktoren vor der Modellschätzung zentriert.
 
     \subsection{Regressionsergebnisse}\label{Sec:AnaSARErgebnisse}
 Andere regressionsergebnisse auf W1500 und W2000 im Anhang

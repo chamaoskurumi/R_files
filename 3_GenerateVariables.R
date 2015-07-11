@@ -738,7 +738,8 @@ LOR4reg <- LOR
 # Wir überschreiben die Miete & Alosingkeit
 # mit NAs, damit sie nicht bei der Kategorisierung und Regression mitverwendet werden
 LOR4reg@data[LOR4reg@data$E_E_u300=="unter 300EW" | 
-               LOR4reg@data$RAUMID_NAME=="Motardstr." | # Motardstr. raus wegen zu vielen Umzügen
+               LOR4reg@data$RAUMID_NAME=="Motardstr." | 
+               LOR4reg@data$RAUMID_NAME=="Herzbergstraße" | # Motardstr. & Herzbergstraße raus wegen zu vielen Umzügen
                LOR4reg@data$RAUMID_NAME=="Blankenfelde" | # Blankenfelde raus weil Mietdaten fehlen für 2007 und 2008
                LOR4reg@data$RAUMID_NAME=="Blankenburg",][,c("Miete.2007", # Blankenburg raus weil Mietdaten fehlen für 2007 und 2008
                                                              "Miete.2012",
