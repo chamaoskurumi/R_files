@@ -181,27 +181,13 @@ str(W_2000mIDWc$weights)
 # III.) LM Regression und Moran's I Test ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# Mietechgr + Alosechg + 
-#   PDAU5chg + nicht_Alose_Hartzchg + Alose_langzeitchg + Alose_u25chg +
-#   AlleinerzHH.2012 + Altersarmut.2012 + StaedtWohnungen.2012 + SanGebiet_KLASSE.2012 +
-#   PDAU5.2012 + Miete.2012 + Alose.2012 + Alose_langzeit.2012 + nicht_Alose_Hartz.2012 + 
-#   STADTRAUM  + PDAU10.2012 + E_U18R.2007 + E_65U110R.2007
-# 
-
-lm1 <- lm(formula=FortzuegeR ~ Mietechgr + Alosechg + 
-            PDAU5chg + nicht_Alose_Hartzchg + Alose_langzeitchg + Alose_u25chg +
-            AlleinerzHH.2012 + Altersarmut.2012 + StaedtWohnungen.2012 + SanGebiet_KLASSE.2012 +
-            PDAU5.2012 + Miete.2012 + Alose.2012 + Alose_langzeit.2012 + nicht_Alose_Hartz.2012 + 
-            STADTRAUM  + PDAU10.2012 + E_U18R.2007 + E_65U110R.2007,
+lm1 <- lm(formula=FortzuegeR ~ MietechgrC + ArmutchgC + Miete.2007C+ Armut.2007C +  
+            AlleinerzHH.2012C +
+            E_U18R.2007C+ E_18U35R.2007C+ E_65U110R.2007C+ 
+            PDAU10.2007C+ StaedtWohnungen.2012C+ SanGebiet.2007 + STADTRAUM,
    data=LOR4reg@data,
-   weights=E_E.2012)
+   weights=E_E.2007)
 summary(lm1)
-
-lm2 <- lm(formula=FortzuegeR ~ STADTRAUM*Gentri + StaedtWohnungen.2012 +
-            AlleinerzHH.2012,
-          data=LOR4reg@data,
-          weights=E_E.2012)
-summary(lm2)
 
 moran.test(LOR4reg@data$FortzuegeR, listw = W_polyIDWs, na.action=na.omit)
 
@@ -306,7 +292,6 @@ corrgram(corrDF, order=FALSE, lower.panel=panel.ellipse,
 
 #LOR4reg$RAUMID_NAME=="Blankenfelde" hier fehlt Miete.2007 und Miete.2008. Kicken wir raus.
 
-
 dsts <- nbdists(LOR1500m_nb, coordinates(LORshape4reg))
 idw <- lapply(dsts, function(x) 1/x)
 W_1500mIDWs <- nb2listw(LOR1500m_nb, glist = idw, style = "S", zero.policy=T)
@@ -324,9 +309,8 @@ SAR_1 <- spautolm(formula=FortzuegeR ~ MietechgrC + ArmutchgC + Miete.2007C+ Arm
                   weights=E_E.2007,
                   family="SAR")
 summary(SAR_1, Nagelkerke=T)
-
-qqnorm(SAR_1$fit$residuals/(SAR_1$weights^2)); qqline(SAR_1$fit$residuals/(SAR_1$weights^2), col = 2)
-qqnorm(SAR_1$fit$signal_stochastic); qqline(SAR_1$fit$signal_stochastic, col = 2)
+#qqnorm(SAR_1$fit$residuals/(SAR_1$weights^2)); qqline(SAR_1$fit$residuals/(SAR_1$weights^2), col = 2)
+#qqnorm(SAR_1$fit$signal_stochastic); qqline(SAR_1$fit$signal_stochastic, col = 2)
 
 SAR_2 <- spautolm(formula=FortzuegeR ~ MietechgrC + ArmutchgC + Miete.2007C+ Armut.2007C +  
                     AlleinerzHH.2012C +
@@ -347,26 +331,25 @@ SAR_3 <- spautolm(formula=FortzuegeR ~ MietechgrC + ArmutchgC + Miete.2007C+ Arm
                  weights=E_E.2007,
                  family="SAR")
 summary(SAR_3, Nagelkerke=T)
+#qqnorm(SAR5$fit$residuals/(SAR5$weights^2)); qqline(SAR5$fit$residuals/(SAR5$weights^2), col = 2)
+#qqnorm(SAR5$fit$signal_stochastic); qqline(SAR5$fit$signal_stochastic, col = 2)
 
-qqnorm(SAR5$fit$residuals/(SAR5$weights^2)); qqline(SAR5$fit$residuals/(SAR5$weights^2), col = 2)
-qqnorm(SAR5$fit$signal_stochastic); qqline(SAR5$fit$signal_stochastic, col = 2)
-
-SAR_4 <- spautolm(formula=ZuzuegeR ~ MietechgrC + ArmutchgC + Miete.2007C+ Armut.2007C +  
+SAR_4 <- spautolm(formula=FortzuegeUDAR ~ MietechgrC + ArmutchgC + Miete.2007C+ Armut.2007C +  
                     AlleinerzHH.2012C +
                     E_U18R.2007C+ E_18U35R.2007C+ E_65U110R.2007C+ 
                     PDAU10.2007C+ StaedtWohnungen.2012C+ SanGebiet.2007 + STADTRAUM,
-                  data=LOR4regCLEAN,
-                  listw=W_1500mIDWs, 
+                  data=LOR4reg,
+                  listw=W_polyIDWs, 
                   weights=E_E.2007,
                   family="SAR")
 summary(SAR_4, Nagelkerke=T)
 
-SAR_5 <- spautolm(formula=FortzuegeUDAR ~ MietechgrC + ArmutchgC + Miete.2007C+ Armut.2007C +  
+SAR_5 <- spautolm(formula=ZuzuegeR ~ MietechgrC + ArmutchgC + Miete.2007C+ Armut.2007C +  
                     AlleinerzHH.2012C +
                     E_U18R.2007C+ E_18U35R.2007C+ E_65U110R.2007C+ 
                     PDAU10.2007C+ StaedtWohnungen.2012C+ SanGebiet.2007 + STADTRAUM,
-                  data=LOR4regCLEAN,
-                  listw=W_2000mIDWs, 
+                  data=LOR4reg,
+                  listw=W_polyIDWs, 
                   weights=E_E.2007,
                   family="SAR")
 summary(SAR_5, Nagelkerke=T)
@@ -375,11 +358,127 @@ SAR_6 <- spautolm(formula=ZuzuegeUDAR ~ MietechgrC + ArmutchgC + Miete.2007C+ Ar
                     AlleinerzHH.2012C +
                     E_U18R.2007C+ E_18U35R.2007C+ E_65U110R.2007C+ 
                     PDAU10.2007C+ StaedtWohnungen.2012C+ SanGebiet.2007 + STADTRAUM,
-                  data=LOR4regCLEAN,
-                  listw=W_2000mIDWs, 
+                  data=LOR4reg,
+                  listw=W_polyIDWs, 
                   weights=E_E.2007,
                   family="SAR")
 summary(SAR_6, Nagelkerke=T)
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# VI.) Residuenplots ------
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### SAR_1 = FortzügeB W_poly ###
+data.frame(SAR_1$fit$residuals/sqrt(var(SAR_1$fit$residuals)),
+           SAR_1$weights) -> SARResidPlotDF
+names(SARResidPlotDF) <- c("res","E_E.2007")
+
+data.frame(rnorm(n = 1000000,
+                 mean = 0,
+                 sd = 1)) -> rnormPlotDF
+names(rnormPlotDF) <- c("rnorm")
+
+SAR_1_ResPLOT <- ggplot(SARResidPlotDF, aes(x=res)) + 
+  geom_histogram(aes(y=..density..),   
+                 colour="grey50", fill="white", 
+                 binwidth=0.1,
+                 weight="E_E.2007") +
+  geom_density(alpha=.3, fill="orange", colour="grey50", size=0.7, weight="E_E.2007") +
+  geom_density(data=rnormPlotDF, aes(x=rnorm),alpha=.2, fill="blue",size=0.7) +
+  theme(axis.title.y = element_text(face="bold",colour = "grey50"),
+        axis.title.x = element_text(face="bold",colour = "grey50")) +
+  scale_x_continuous(breaks=seq(-4,14,2), limits=c(-5,14))  +
+  scale_y_continuous(breaks=seq(-0,1,0.2), limits=c(0,0.8))  +
+  xlab("Gewichtete Residuen") + 
+  ylab("Dichte") +
+  geom_vline(xintercept = 0, colour="black", linetype = "longdash", size=0.5) +
+  annotate("text", x = 8, y = 0.6, label = "FortzügeB (Modell 1)", size=4, face="bold",colour = "grey50") 
+# SAR_1_ResPLOT
+
+### SAR_4 = FortzügeA W_poly ###
+data.frame(SAR_4$fit$residuals/sqrt(var(SAR_4$fit$residuals)),
+           SAR_4$weights) -> SARResidPlotDF
+names(SARResidPlotDF) <- c("res","E_E.2007")
+
+data.frame(rnorm(n = 1000000,
+                 mean = 0,
+                 sd = 1)) -> rnormPlotDF
+names(rnormPlotDF) <- c("rnorm")
+
+SAR_4_ResPLOT <- ggplot(SARResidPlotDF, aes(x=res)) + 
+  geom_histogram(aes(y=..density..),   
+                 colour="grey50", fill="white", 
+                 binwidth=0.1,
+                 weight="E_E.2007") +
+  geom_density(alpha=.3, fill="orange", colour="grey50", size=0.7, weight="E_E.2007") +
+  geom_density(data=rnormPlotDF, aes(x=rnorm),alpha=.2, fill="blue",size=0.7) +
+  theme(axis.title.y = element_text(face="bold",colour = "grey50"),
+        axis.title.x = element_text(face="bold",colour = "grey50")) +
+  scale_x_continuous(breaks=seq(-4,14,2), limits=c(-5,14))  +
+  scale_y_continuous(breaks=seq(-0,1,0.2), limits=c(0,0.8))  +
+  xlab("Gewichtete Residuen") + 
+  ylab("Dichte") +  
+  geom_vline(xintercept = 0, colour="black", linetype = "longdash", size=0.5) +
+  annotate("text", x = 8, y = 0.6, label = "FortzügeA", size=4, face="bold",colour = "grey50") 
+#SAR_4_ResPLOT
+
+### SAR_5 = ZuzügeB W_poly ###
+data.frame(SAR_5$fit$residuals/sqrt(var(SAR_5$fit$residuals)),
+           SAR_5$weights) -> SARResidPlotDF
+names(SARResidPlotDF) <- c("res","E_E.2007")
+
+data.frame(rnorm(n = 1000000,
+                 mean = 0,
+                 sd = 1)) -> rnormPlotDF
+names(rnormPlotDF) <- c("rnorm")
+
+SAR_5_ResPLOT <- ggplot(SARResidPlotDF, aes(x=res)) + 
+  geom_histogram(aes(y=..density..),   
+                 colour="grey50", fill="white", 
+                 binwidth=0.1,
+                 weight="E_E.2007") +
+  geom_density(alpha=.3, fill="orange", colour="grey50", size=0.7, weight="E_E.2007") +
+  geom_density(data=rnormPlotDF, aes(x=rnorm),alpha=.2, fill="blue",size=0.7) +
+  theme(axis.title.y = element_text(face="bold",colour = "grey50"),
+        axis.title.x = element_text(face="bold",colour = "grey50")) +
+  scale_x_continuous(breaks=seq(-4,14,2), limits=c(-5,14))  +
+  scale_y_continuous(breaks=seq(-0,1,0.2), limits=c(0,0.8))  +
+  xlab("Gewichtete Residuen") + 
+  ylab("Dichte") +
+  geom_vline(xintercept = 0, colour="black", linetype = "longdash", size=0.5) +
+  annotate("text", x = 8, y = 0.6, label = "ZuzügeB", size=4, face="bold",colour = "grey50") 
+#SAR_5_ResPLOT
+
+
+### SAR_6 = ZuzügeA W_poly ###
+data.frame(SAR_6$fit$residuals/sqrt(var(SAR_6$fit$residuals)),
+           SAR_6$weights) -> SARResidPlotDF
+names(SARResidPlotDF) <- c("res","E_E.2007")
+
+data.frame(rnorm(n = 1000000,
+                 mean = 0,
+                 sd = 1)) -> rnormPlotDF
+names(rnormPlotDF) <- c("rnorm")
+
+SAR_6_ResPLOT <- ggplot(SARResidPlotDF, aes(x=res)) + 
+  geom_histogram(aes(y=..density..),   
+                 colour="grey50", fill="white", 
+                 binwidth=0.1,
+                 weight="E_E.2007") +
+  geom_density(alpha=.3, fill="orange", colour="grey50", size=0.7, weight="E_E.2007") +
+  geom_density(data=rnormPlotDF, aes(x=rnorm),alpha=.2, fill="blue",size=0.7) +
+  theme(axis.title.y = element_text(face="bold",colour = "grey50"),
+        axis.title.x = element_text(face="bold",colour = "grey50")) +
+  scale_x_continuous(breaks=seq(-4,14,2), limits=c(-5,14))  +
+  scale_y_continuous(breaks=seq(-0,1,0.2), limits=c(0,0.8))  +
+  xlab("Gewichtete Residuen") + 
+  ylab("Dichte") +
+  geom_vline(xintercept = 0, colour="black", linetype = "longdash", size=0.5) +
+  annotate("text", x = 8, y = 0.6, label = "ZuzügeA", size=4, face="bold",colour = "grey50") 
+#SAR_6_ResPLOT
+
+grid.arrange(SAR_1_ResPLOT,SAR_4_ResPLOT,SAR_5_ResPLOT,SAR_6_ResPLOT,
+             ncol=2,nrow=2,widths=c(1,1,1,1))
 
 LOR4reg -> LOR4SAR
 LOR4SAR@data <- data.frame(LOR4SAR@data, SAR5$fit$residuals)

@@ -33,6 +33,15 @@
 \newcommand{\blandscape}{\begin{landscape}}
 \newcommand{\elandscape}{\end{landscape}}
 
+\usepackage{dcolumn}
+\usepackage{array}
+\usepackage{arydshln}
+
+\setlength\dashlinedash{0.2pt}
+\setlength\dashlinegap{1.5pt}
+\setlength\arrayrulewidth{0.3pt}
+
+
 \bibliography{Bibliographie}
 
 % -------------------------------
@@ -75,7 +84,7 @@
 <<setupPRE,include=FALSE>>=
 library(knitr)
 opts_chunk$set(
-concordance=TRUE,echo=FALSE, cache=FALSE, 
+concordance=TRUE,echo=FALSE, cache=TRUE, 
 message=FALSE,warning=FALSE,
 tidy=TRUE, self.contained=FALSE#,fig.pos='H'
 )

@@ -15,7 +15,7 @@ Um die Gentrificationgebiete lokalisieren und charakterisieren zu können, müss
 Auf Grundlage dieser Konditionen wurden von den 429~gültigen LOR 45~(10,5\%) als Gentrificationgebiete, 139~(32,4\%) als Kontrollgebiete und 245~(57,1\%) als Andere Gebiete klassifiziert. In Abb.~\ref{fig:ViolinDefKategorie} wird die empirische Klassifizierung anhand von Violin- und Boxplots veranschaulicht, wobei die empirischen Schwellenwerte als rot gestrichelte Linien dargestellt werden. Die Plots von $\Mietechgr$ und $\Armutchg$ illustrieren die Kategorienbildung der Gentrificationgebiete als diejenigen Nachbarschaften, die gleichzeitig eine starke immobilienwirtschaftliche sowie eine starke soziale Aufwertung erfuhren. Die Plots von $Miete_{2007}$ und $Armut_{2007}$ veranschaulichen die Kategorienbildung der Kontrollgebiete als diejenigen Nachbarschaften, die den Gentrificationgebieten zu Beobachtungsbeginn ähnlich waren.\\
 Nach der alternativen Klassifizierung wurden 24~(5,6\%) als Gentrificationgebiete, 80~(18,6\%) als Kontrollgebiete, 326~(75,8\%) als Andere Gebiete definiert. Auf diese alternative Klassifizierung soll bis zum Robustheitschecks in Kap.~\ref{Sec:AnaGentriRobust} nicht weiter eingegangen werden.
 
-<<setupViolinplots,include=FALSE,cache=FALSE>>=
+<<setupViolinplots,include=FALSE>>=
 library("gridExtra")
 source("/home/dao/Desktop/MasterArbeit/R_files/ANALYSE_VorbereitungFuerViolinplots.R")
 @
@@ -417,10 +417,131 @@ Die Wahl der Prädiktoren wurde im Wesentlichen inhaltlich motiviert. Von der Au
 Neben den Proxies für immobilienwirtschaftliche und soziale Aufwertung, gingen das ursprüngliche Mietpreisniveau und die ursprüngliche Armutsquote als Prädiktoren in die Regressionsgleichungen ein. Um die bedingte Varianz zu verringern und die Berechnung der partiellen Korrelationen zu ermöglichen, wurden desweiteren diverse Kontrollvariablen als Prädiktoren aufgenommen, die einen Zusammenhang mit den Umzugsraten vermuten ließen. Zu den Kontrollvariablen gehören die drei Alterskohorten Kinder/Jugendliche, junge Erwachsene und Senior*innen, der Anteil der seit mindestens 10 Jahren unter derselben Addresse wohnhaften Bevölkerung, der Anteil der städtischer Wohnungen, der Sanierungsgebietsdummy, sowie die binäre Lagevariable des Stadtraums.\footnote{ Weitere potentielle Kontrollvariablen wie beispielsweise der Anteil der seit mindestens 5 Jahren unverändert wohnhaften Bevölkerung oder die Entfernung zur Stadtmitte blieben aufgrund ihrer zu hohen Varianzinflationsfaktoren unberücksichtigt.} Zuletzt ging der Anteil der Alleinerziehenden mit Kindern an der Haushalten mit Kindern als Prädiktor in die Modellgleichungen ein, da Alleinerziehende bereits in anderen Studien explizit als Risikogruppe von Verdrängung identifiziert wurden (vgl. \citeauthor{Atkinson2011}, \citeyear{Atkinson2000}, \citeyear{Atkinson2011}).\footnote{ Für das Jahr 2007 liegen leider keine Daten zum Anteil Alleinerziehender vor. Deshalb wurde auf die Daten aus dem Jahr 2012 zurückgegriffen.} Zum Zweck einer besseren Interpretierbarkeit der Ergebnisse wurden alle metrischen Prädiktoren vor der Modellschätzung zentriert.
 
     \subsection{Regressionsergebnisse}\label{Sec:AnaSARErgebnisse}
-Andere regressionsergebnisse auf W1500 und W2000 im Anhang
-Ergebnisse der Regression nach Ausschluss der Ausreißer im Anhang. 
 
+Ergebnisse der Regression nach Ausschluss der Ausreißer im Anhang. Tab.~\ref{tab:RegErgebnisseFB}  Tab.~\ref{tab:RegErgebnisseFAZBZA}
 
+\pagebreak
+\begin{table}[!htb] \centering 
+\scalebox{0.93}{
+\begin{tabular}{@{\extracolsep{5pt}}lD{,}{,}{-3} D{,}{,}{-3} D{,}{,}{-3} } 
+\toprule 
+  & \multicolumn{3}{c}{\textit{\textbf{FortzügeB}}} \\ 
+\cline{2-4} 
+             & \multicolumn{1}{c}{\textbf{(1)}} & \multicolumn{1}{c}{\textbf{(2)}} & \multicolumn{1}{c}{\textbf{(3)}}\\ 
+\textit{W}   & \multicolumn{1}{c}{$W_{poly}$} & \multicolumn{1}{c}{$W_{1500m}$} & \multicolumn{1}{c}{$W_{2000m}$} \\  
+Gewichtung & \multicolumn{1}{c}{$EW_{2007}$} & \multicolumn{1}{c}{$EW_{2007}$} & \multicolumn{1}{c}{$EW_{2007}$} \\ \\[-2.2ex] 
+\hline \\[-1.8ex] 
+ \textit{Konstante} & 8,634^{\;\textbf{***}} & 8,725^{\;\textbf{***}} & 8,575^{\;\textbf{***}} \\[-1.8ex]  
+					& (0,165) & (0,176) & (0,179) \\ 
+ $\Mietechgr$ & 0,135^{\;\textbf{***}} & 0,130^{\;\textbf{***}} & 0,151^{\;\textbf{***}} \\[-1.8ex]  
+			  & (0,045) & (0,046) & (0,046) \\ 
+$\Armutchg$   & 0,030 & 0,038 & 0,043 \\[-1.8ex]  
+			  & (0,028) & (0,028) & (0,028) \\ 
+ $Miete_{2007}$   & 0,228^{\;\textbf{***}} & 0,219^{\;\textbf{**}} & 0,235^{\;\textbf{***}} \\[-1.8ex] 
+				  & (0,088) & (0,087) & (0,087) \\ 
+ $Armut_{2007}$   & 0,077^{\;\textbf{***}} & 0,075^{\;\textbf{***}} & 0,073^{\;\textbf{***}} \\[-1.8ex]  
+				  & (0,011) & (0,011) & (0,011) \\ 
+ \textit{Alleinerziehende}$_{2012}$   & 0,029^{\;\textbf{***}} & 0,032^{\;\textbf{***}} & 0,030^{\;\textbf{***}} \\[-1.8ex]  
+									  & (0,011) & (0,011) & (0,011) \\ 
+ \textit{EWu18}$_{2007}$ & 0,040 & 0,051 & 0,057 \\[-1.8ex] 
+					     & (0,032) & (0,032) & (0,032) \\ 
+ \textit{EW18-35}$_{2007}$  & 0,200^{\;\textbf{***}} & 0,209^{\;\textbf{***}} & 0,212^{\;\textbf{***}} \\[-1.8ex] 
+						    & (0,018) & (0,019) & (0,019) \\ 
+ \textit{EWü65}$_{2007}$ & -0,003 & -0,002 & -0,002 \\ 
+					     & (0,016) & (0,016) & (0,016) \\ 
+ \textit{Wohndauer10}$_{2007}$  & -0,026^{\;\textbf{***}} & -0,023^{\;\textbf{**}} & -0,025^{\;\textbf{***}} \\[-1.8ex] 
+							    & (0,009) & (0,009) & (0,009) \\ 
+ \textit{StädtWohnungen}$_{2012}$ & -0,008^{\;\textbf{***}} & -0,009^{\;\textbf{***}} & -0,007^{\;\textbf{***}} \\[-1.8ex]
+							      & (0,003) & (0,003) & (0,003) \\ 
+ \textit{SanGebiet}$_{2012}$ [ja] & 0,008 & -0,041 & -0,020 \\[-1.8ex] 
+							      & (0,164) & (0,163) & (0,165) \\ 
+ \textit{Stadtraum} [äußere Stadt]   & 0,170 & 0,080 & 0,248 \\[-1.8ex] 
+								     & (0,216) & (0,224) & (0,222) \\ \\[-2.2ex]
+\hdashline
+ $\lambda$   & 0,373^{\;\textbf{***}} & 0,411^{\;\textbf{***}} & 0,429^{\;\textbf{***}} \\[-1.8ex]  
+		     & (0,058) & (0,064) & (0,069) \\[1ex]
+\hline 
+$LogLikelihood$ & \multicolumn{1}{c}{-635,5} & \multicolumn{1}{c}{-637,4} & \multicolumn{1}{c}{-638,8} \\ 
+$\sigma^{2}$ & \multicolumn{1}{c}{6855,6} & \multicolumn{1}{c}{6857,3} & \multicolumn{1}{c}{6987,4} \\ 
+$AIC$ & \multicolumn{1}{c}{1301,0} & \multicolumn{1}{c}{1304,7} & \multicolumn{1}{c}{1307,6} \\ 
+$R^{2}_{Nagelkerke}$ & \multicolumn{1}{c}{0,855} & \multicolumn{1}{c}{0,853} & \multicolumn{1}{c}{0,852} \\[1ex] 
+\hline 
+$n$ & \multicolumn{1}{c}{429} & \multicolumn{1}{c}{429} & \multicolumn{1}{c}{429} \\ 
+$k + 1$ & \multicolumn{1}{c}{15} & \multicolumn{1}{c}{15} & \multicolumn{1}{c}{15} \\ 
+\bottomrule
+{\footnotesize \textit{Hinweis:}}  & \multicolumn{3}{r}{{\footnotesize $^{\;\textbf{*}}$\textit{p} $<$ 0,1; $^{\;\textbf{**}}$\textit{p} $<$ 0,05;  $^{\;\textbf{***}}$\textit{p} $<$ 0,01; \textit{Standardabweichung in Klammern}}}\\ 
+\end{tabular} 
+}
+\caption{Schätzergebnisse gewichteter SAR Modelle auf \textit{FortzügeB}}\label{tab:RegErgebnisseFB} 
+\end{table} 
+
+\newpage
+\begin{table}[!htb] 
+\centering 
+\scalebox{0.93}{
+\begin{tabular}{@{\extracolsep{5pt}}lD{,}{,}{-3} D{,}{,}{-3} D{,}{,}{-3} } 
+\toprule
+& \multicolumn{1}{c}{\textit{\textbf{FortzügeA}}} & \multicolumn{1}{c}{\textit{\textbf{ZuzügeB}}} & \multicolumn{1}{c}{\textit{\textbf{ZuzügeA}}}\\ 
+\textit{W}   & \multicolumn{1}{c}{$W_{poly}$} & \multicolumn{1}{c}{$W_{poly}$} & \multicolumn{1}{c}{$W_{poly}$} \\  
+Gewichtung & \multicolumn{1}{c}{$EW_{2007}$} & \multicolumn{1}{c}{$EW_{2007}$} & \multicolumn{1}{c}{$EW_{2007}$} \\ \\[-2.2ex] 
+\hline \\[-1.8ex] 
+ \textit{Konstante} & 3,724^{\;\textbf{***}} & 8,432^{\;\textbf{***}} & 4,571^{\;\textbf{***}} \\[-1.8ex] 
+  & (0,143) & (0,160) & (0,184) \\ 
+ $\Mietechgr$ & 0,029 & 0,113^{\;\textbf{**}} & 0,020 \\[-1.8ex]
+  & (0,035) & (0,044) & (0,046) \\ 
+ $\Armutchg$ & 0,043^{\;\textbf{**}} & 0,101^{\;\textbf{***}} & 0,017 \\[-1.8ex]
+  & (0,019) & (0,028) & (0,025) \\ 
+ $Miete_{2007}$ & 0,235^{\;\textbf{***}} & 0,014 & 0,419^{\;\textbf{***}} \\[-1.8ex]
+  & (0,069) & (0,085) & (0,090) \\ 
+ $Armut_{2007}$ & -0,009 & 0,069^{\;\textbf{***}} & 0,011 \\[-1.8ex]
+  & (0,008) & (0,011) & (0,010) \\ 
+ \textit{Alleinerziehende}$_{2012}$ & -0,014^{\;\textbf{*}} & 0,036^{\;\textbf{***}} & -0,020^{\;\textbf{**}} \\[-1.8ex]
+  & (0,007) & (0,011) & (0,010) \\ 
+ \textit{EWu18}$_{2007}$ & 0,012 & 0,051 & -0,006 \\[-1.8ex]
+    & (0,023) & (0,032) & (0,030) \\ 
+ \textit{EW18-35}$_{2007}$ & 0,159^{\;\textbf{***}} & 0,084^{\;\textbf{***}} & 0,211^{\;\textbf{***}} \\[-1.8ex]
+    & (0,014) & (0,018) & (0,018) \\ 
+ \textit{EWü65}$_{2007}$ & 0,025^{\;\textbf{**}}  & 0,042^{\;\textbf{***}} & 0,045^{\;\textbf{***}} \\[-1.8ex]
+    & (0,012) & (0,016) & (0,016) \\ 
+ \textit{Wohndauer10}$_{2007}$ & -0,006 & -0,099^{\;\textbf{***}} & -0,011 \\[-1.8ex]
+    & (0,009) & (0,010) & (0,008) \\ 
+ \textit{StädtWohnungen}$_{2012}$ & -0,005^{\;\textbf{**}} & -0,009^{\;\textbf{***}} & -0,011^{\;\textbf{***}} \\[-1.8ex]
+     & (0,002) & (0,003) & (0,003) \\ 
+ \textit{SanGebiet}$_{2012}$ [ja] & 0,055 & -0,033 & -0,134 \\[-1.8ex]
+     & (0,108) & (0,170) & (0,143) \\ 
+ \textit{Stadtraum} [äußere Stadt] & -0,402^{\;\textbf{**}} & 0,677 & -0,989^{\;\textbf{***}} \\[-1.8ex]
+     & (0,166) & (0,211) & (0,217) \\ \\[-2.2ex]
+\hdashline
+ $\lambda$ & 0,630^{\;\textbf{***}} & 0,311^{\;\textbf{***}} & 0,613^{\;\textbf{***}} \\[-1.8ex]
+     & (0,046) & (0,057) & (0,050) \\[1ex]
+\hline 
+$LogLikelihood$ & \multicolumn{1}{c}{-480,5} & \multicolumn{1}{c}{-637,5} & \multicolumn{1}{c}{-597,3} \\ 
+$\sigma^{2}$ & \multicolumn{1}{c}{3103,5} & \multicolumn{1}{c}{6987,7} & \multicolumn{1}{c}{5386,2} \\ 
+$AIC$ & \multicolumn{1}{c}{990,9} & \multicolumn{1}{c}{1305,0} & \multicolumn{1}{c}{1224,7} \\ 
+$R^{2}_{Nagelkerke}$ & \multicolumn{1}{c}{0,785} & \multicolumn{1}{c}{0,770} & \multicolumn{1}{c}{0,843} \\[1ex] 
+\hline 
+$n$ & \multicolumn{1}{c}{429} & \multicolumn{1}{c}{429} & \multicolumn{1}{c}{429} \\ 
+$k + 1$ & \multicolumn{1}{c}{15} & \multicolumn{1}{c}{15} & \multicolumn{1}{c}{15} \\ 
+\bottomrule 
+{\footnotesize \textit{Hinweis:}}  & \multicolumn{3}{r}{{\footnotesize $^{\;\textbf{*}}$\textit{p} $<$ 0,1; $^{\;\textbf{**}}$\textit{p} $<$ 0,05;  $^{\;\textbf{***}}$\textit{p} $<$ 0,01; \textit{Standardabweichung in Klammern}}}\\ 
+\end{tabular} 
+}
+\caption{Schätzergebnisse gewichteter SAR Modelle auf \textit{FortzügeA, ZuzügeB} und \textit{ZuzügeA}}\label{tab:RegErgebnisseFAZBZA} 
+\end{table} 
+
+<<setup4SAR,include=FALSE,cache=FALSE>>=
+source("/home/dao/Desktop/MasterArbeit/R_files/ANALYSE_SAR4knitr.R")
+@
+
+\afterpage{
+\begin{landscape}
+<<ResPLOTS, fig.width=9.8, fig.height=5.6, fig.scap='Histogramm und Kerndichteschätzung der Regressionsresiduen', fig.cap='Gewichtetes Histogramm (weiß) und gewichtete Kerndichteschätzung der standardisierten Regressionsresiduen (orange). Außerdem zum Vergleich eine Normalverteilung ($\\mu=0,\\,\\sigma^2=\\hat{\\sigma}^2$) (blau). Rugplot unterhalb der x-Achse (schwarz).',fig.lp='fig:',cache=FALSE>>=
+grid.arrange(SAR_1_ResPLOT,SAR_4_ResPLOT,SAR_5_ResPLOT,SAR_6_ResPLOT,
+             ncol=2,nrow=2,widths=c(1,1,1,1))
+@
+\end{landscape}
+}
+ 
     \subsection{Interpretation}\label{Sec:AnaSARInter}
 
 
