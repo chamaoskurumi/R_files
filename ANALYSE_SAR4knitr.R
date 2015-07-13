@@ -6,6 +6,9 @@
 #*************************************************
 #*************************************************
 
+#setwd("/home/dao/Desktop/MasterArbeit/R_files/KNITR/")
+#load(file = "FULL_FINAL_WORKSPACE.Rdata")
+
 # ____ Packages ______ ----------------------------------------------------------------
 
 library("rgdal")
@@ -306,3 +309,7 @@ ResiduenEpsilonMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
                        name=expression(paste('Residuen',' ',epsilon))) +
   coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
 #ResiduenEpsilonMAP
+
+summary(abs(SAR_1$fit$signal_stochastic)-abs(SAR_1$fit$residuals)) # durchschnittliche Verbesserung des fits durch SAR 0.58
+subset(LOR4reg@data,SAR_1epsilon>4,select=c("RAUMID_NAME","SAR_1epsilon","FortzuegeR"))
+subset(LOR4reg@data,SAR_1epsilon>4,select=c("RAUMID_NAME","SAR_1epsilon","FortzuegeR"))[,1]

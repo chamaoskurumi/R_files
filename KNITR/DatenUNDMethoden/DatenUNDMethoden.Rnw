@@ -155,7 +155,7 @@ Um die Forschungshypothesen H 3.1 bis H 3.3 zu operationalisieren, reicht es nic
 \paragraph{Räumliche Autokorrelation}
 In Anlehnung an die gängige Definition von zeitlicher Autokorrelation, welche beispielsweise oft bei Aktienkursen auftritt, wird für räumliche Daten Autokorrelation wie folgt definiert: "`Locations close to each other exhibit more similar values than those further apart"' \citep[S.~609]{dormann_methods_2007}. Im Bezug auf lineare Regressionsmodelle führt die Existenz von räumlicher Autokorrelation zur Verletzung der klassischen Annahme von unabhängig und identisch verteilten Fehlertermen. Dadurch kann es zum Einen zur Verzerrung von Parameterschätzungen kommen, zum Anderen kann sich das Typ~1 Fehlerrisiko bei der Durchführung von Neyman-Pearson Tests erhöhen \citep[S.~609]{dormann_methods_2007}. Um diese beiden Probleme in den Griff zu bekommen, muss räumliche Autokorrelation explizit in die Modellierung mit aufgenommen werden. Zu diesem Zweck soll das \textit{Spatial Autoregressive Model (SAR)} eingeführt werden.
 
-\subsubsection{Spatial Autoregressive Model (SAR)}
+\subsubsection{Spatial Autoregressive Model (SAR)}\label{Sec:MetInfSAR}
 Die folgende Darstellung des SAR basiert auf \citet[S.~277ff.]{Bivand2008}, \citet[S.~378ff.]{Waller2004} und \citet[548ff.]{Cressie1993}.\\
 Es sei $Y$ ein $n$-elementiger Responsevektor, $X$ die $n\times k$ dimensionale Design Matrix, $\beta$ der $k$-elementige Koeffizientenvektor und $e$ der $n$-elementige Fehlervektor. Unter der Annahme $e_i\overset{iid}{\sim}\mathcal{N}(0,\sigma^2) \; \forall i \in \{1,\dotsc,n\}$ beschreibt
 \begin{align}

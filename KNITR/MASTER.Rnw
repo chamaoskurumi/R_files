@@ -37,8 +37,8 @@
 \usepackage{array}
 \usepackage{arydshln}
 
-\setlength\dashlinedash{0.2pt}
-\setlength\dashlinegap{1.5pt}
+\setlength\dashlinedash{0.4pt}
+\setlength\dashlinegap{2pt}
 \setlength\arrayrulewidth{0.3pt}
 
 

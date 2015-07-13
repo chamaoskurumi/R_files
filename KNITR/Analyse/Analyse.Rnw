@@ -458,16 +458,16 @@ $\Armutchg$   & 0,030 & 0,038 & 0,043 \\[-1.8ex]
  \textit{Stadtraum} [äußere Stadt]   & 0,170 & 0,080 & 0,248 \\[-1.8ex] 
 								     & (0,216) & (0,224) & (0,222) \\ \\[-2.2ex]
 \hdashline
- $\lambda$   & 0,373^{\;\textbf{***}} & 0,411^{\;\textbf{***}} & 0,429^{\;\textbf{***}} \\[-1.8ex]  
+ $\hat{\lambda}$   & 0,373^{\;\textbf{***}} & 0,411^{\;\textbf{***}} & 0,429^{\;\textbf{***}} \\[-1.8ex]  
 		     & (0,058) & (0,064) & (0,069) \\[1ex]
 \hline 
 $LogLikelihood$ & \multicolumn{1}{c}{-635,5} & \multicolumn{1}{c}{-637,4} & \multicolumn{1}{c}{-638,8} \\ 
-$\sigma^{2}$ & \multicolumn{1}{c}{6855,6} & \multicolumn{1}{c}{6857,3} & \multicolumn{1}{c}{6987,4} \\ 
+$\hat{\sigma}^{2}$ & \multicolumn{1}{c}{6855,6} & \multicolumn{1}{c}{6857,3} & \multicolumn{1}{c}{6987,4} \\ 
 $AIC$ & \multicolumn{1}{c}{1301,0} & \multicolumn{1}{c}{1304,7} & \multicolumn{1}{c}{1307,6} \\ 
 $R^{2}_{Nagelkerke}$ & \multicolumn{1}{c}{0,855} & \multicolumn{1}{c}{0,853} & \multicolumn{1}{c}{0,852} \\[1ex] 
 \hline 
 $n$ & \multicolumn{1}{c}{429} & \multicolumn{1}{c}{429} & \multicolumn{1}{c}{429} \\ 
-$k + 1$ & \multicolumn{1}{c}{15} & \multicolumn{1}{c}{15} & \multicolumn{1}{c}{15} \\ 
+$k + 2$ & \multicolumn{1}{c}{15} & \multicolumn{1}{c}{15} & \multicolumn{1}{c}{15} \\ 
 \bottomrule
 {\footnotesize \textit{Hinweis:}}  & \multicolumn{3}{r}{{\footnotesize $^{\;\textbf{*}}$\textit{p} $<$ 0,1; $^{\;\textbf{**}}$\textit{p} $<$ 0,05;  $^{\;\textbf{***}}$\textit{p} $<$ 0,01; \textit{Standardabweichung in Klammern}}}\\ 
 \end{tabular} 
@@ -512,16 +512,16 @@ Gewichtung & \multicolumn{1}{c}{$EW_{2007}$} & \multicolumn{1}{c}{$EW_{2007}$} &
  \textit{Stadtraum} [äußere Stadt] & -0,402^{\;\textbf{**}} & 0,677 & -0,989^{\;\textbf{***}} \\[-1.8ex]
      & (0,166) & (0,211) & (0,217) \\ \\[-2.2ex]
 \hdashline
- $\lambda$ & 0,630^{\;\textbf{***}} & 0,311^{\;\textbf{***}} & 0,613^{\;\textbf{***}} \\[-1.8ex]
+ $\hat{\lambda}$ & 0,630^{\;\textbf{***}} & 0,311^{\;\textbf{***}} & 0,613^{\;\textbf{***}} \\[-1.8ex]
      & (0,046) & (0,057) & (0,050) \\[1ex]
 \hline 
 $LogLikelihood$ & \multicolumn{1}{c}{-480,5} & \multicolumn{1}{c}{-637,5} & \multicolumn{1}{c}{-597,3} \\ 
-$\sigma^{2}$ & \multicolumn{1}{c}{3103,5} & \multicolumn{1}{c}{6987,7} & \multicolumn{1}{c}{5386,2} \\ 
+$\hat{\sigma}^{2}$ & \multicolumn{1}{c}{3103,5} & \multicolumn{1}{c}{6987,7} & \multicolumn{1}{c}{5386,2} \\ 
 $AIC$ & \multicolumn{1}{c}{990,9} & \multicolumn{1}{c}{1305,0} & \multicolumn{1}{c}{1224,7} \\ 
 $R^{2}_{Nagelkerke}$ & \multicolumn{1}{c}{0,785} & \multicolumn{1}{c}{0,770} & \multicolumn{1}{c}{0,843} \\[1ex] 
 \hline 
 $n$ & \multicolumn{1}{c}{429} & \multicolumn{1}{c}{429} & \multicolumn{1}{c}{429} \\ 
-$k + 1$ & \multicolumn{1}{c}{15} & \multicolumn{1}{c}{15} & \multicolumn{1}{c}{15} \\ 
+$k + 2$ & \multicolumn{1}{c}{15} & \multicolumn{1}{c}{15} & \multicolumn{1}{c}{15} \\ 
 \bottomrule 
 {\footnotesize \textit{Hinweis:}}  & \multicolumn{3}{r}{{\footnotesize $^{\;\textbf{*}}$\textit{p} $<$ 0,1; $^{\;\textbf{**}}$\textit{p} $<$ 0,05;  $^{\;\textbf{***}}$\textit{p} $<$ 0,01; \textit{Standardabweichung in Klammern}}}\\ 
 \end{tabular} 
@@ -535,14 +535,24 @@ source("/home/dao/Desktop/MasterArbeit/R_files/ANALYSE_SAR4knitr.R")
 
 \afterpage{
 \begin{landscape}
-<<ResPLOTS, fig.width=9.8, fig.height=5.6, fig.scap='Histogramm und Kerndichteschätzung der Regressionsresiduen $\\hat{\\varepsilon}$', fig.cap='Histogramm (weiß) und Kerndichteschätzung (orange) der standardisierten Regressionsresiduen $\\hat{\\varepsilon}$. Zum Vergleich eine Normalverteilung mit $\\mu=0$ und $\\sigma^2=\\hat{\\sigma}^2$ (blau). Rugplot unterhalb der x-Achse (schwarz).',fig.lp='fig:'>>=
+<<ResPLOTS, fig.width=9.8, fig.height=5.6, fig.scap='Histogramm und Kerndichteschätzung der Regressionsresiduen $\\hat{\\varepsilon}_{std}$', fig.cap='Histogramm (weiß) und Kerndichteschätzung (orange) der standardisierten Regressionsresiduen $\\hat{\\varepsilon}_{std}$. Zum Vergleich eine Standardnormalverteilung (blau). Rugplot unterhalb der x-Achse (schwarz).',fig.lp='fig:'>>=
 grid.arrange(SAR_1_ResPLOT,SAR_4_ResPLOT,SAR_5_ResPLOT,SAR_6_ResPLOT,
              ncol=2,nrow=2,widths=c(1,1,1,1))
 @
 \end{landscape}
 }
- 
-    \subsection{Interpretation}\label{Sec:AnaSARInter}
+\subsubsection{Residualanalyse}
+\paragraph{Auswirkungen von Annahmeverletzungen}
+Die in Kap.~\ref{Sec:MetInfSAR} vorgestellte Modelldefinition des SAR beinhaltet unter Anderem die $iid$ Normalverteilungsannahme für die Residuen $\varepsilon$. Anstatt einer rigorosen, formalistischen Überprüfung dieser Annahme, soll hier eine kurze Einschätzung möglicher \textit{Auswirkungen} ihrer Verletzung erfolgen.
+
+Zunächst zur $iid$ Annahme. Obwohl beispielsweise im Falle des Modells~1 für \textit{FortzüegeB} die Karte der Residuen $\hat{\varepsilon}$ (vgl. Abb.~\ref{fig:ResiduenEpsilonMAP} im Anhang) eine leichte, verbleibende Heteroskedastie oder Autokorrelation suggeriert und die $iid$ Annahme damit verletzt ist, kann davon ausgegangen werden, dass durch die "`Vorsichtsmaßnahmen"' des gewichteten SAR Modells die größten Autokorrelations- und Heteroskedastieprobleme bereits beseitigt wurden. Dies legt der Vergleich mit der räumlichen Verteilung der autoregressiven Residuen $\hat{e}$ nahe (vgl. Abb.~\ref{fig:ResiduenEMAP} im Anhang).\footnote{ Tests auf in $\hat{\varepsilon}$ verbleibende Autokorrelation oder Heteroskedastie ist in \textsf{R} für gewichtete SAR Modelle leider nicht implementiert.}
+
+Nun zur Normalverteilungsannahme. Die Histogramme und Kerndichteschätzungen der standardisierten Residuen (vgl. Abb.~\ref{ResPLOTS}) zeigen: Für alle Modelle sind die Verteilungen leptokurtisch, leicht rechtsschief und besitzen einige positive Ausreißer. Die Residuen sind offensichtlich nicht normalverteilt, wobei jedoch kaum zu befürchten ist, dass die Überkurtosis und die leichte Rechtsschiefe zu nennenswerten Verzerrungen oder Ineffizienzen in der Schätzung geführt haben. Lediglich die Ausreißer besitzen das Potential die Koeffizientenschätzung verzerrt und die Varianz "`aufgeblasen"' zu haben.\footnote{ Von einer Berechnung der \textit{leverage} oder \textit{cook's distance} Werte wurde angesichts der komplexen Varianz-Kovarianzstruktur des gewichteten SAR abgesehen.} 
+\paragraph{Ausschluss von Ausreißern}
+Zur Überprüfung der Regressionsergebnisse auf ihre Robustheit bzgl. des Einflusses von Ausreißern wurden die Modelle um deren Einfluss bereinigt, und erneut geschätzt. Diese Bereinigung fand auf Grundlage des Ausschlusses der Ausreißerbeobachtungen statt. Dabei wurden alle Beobachtungen mit einem betragsmäßigem standardisierten Residuum von mehr als vier als Ausreißer definiert ($|\hat{\varepsilon}_{std}|>4$).\footnote{ Im Falle des Modells~1 für \textit{FortzügeB} waren dies die relativ kleinen LOR \textit{Plötzensee}, \textit{Park Ruhwald}, \textit{Marienfelder Allee Nordwest} und \textit{Treuenbrietzener Str}. Die Anzahl der Beobachtungen verringerte sich somit auf $n=425$.} Durch den Ausschluss der Ausreißer, verbesserte sich die Anpassungsgüte der Modelle erheblich. Beispielsweise sank das $AIC$ des Modells 1 für \textit{FortzügeB} auf 1182,1 und das $R^{2}_{Nagelkerke}$ erhöhte sich auf 0,885. Verbesserungen ähnlicher Größenordnung konnten auch für die anderen Modelle, d.h. für \textit{FortzügeA, ZuzügeB} und \textit{ZuzügeA}, erreicht werden. 
+
+Die Koeffizientenschätzungen hingegen änderten sich nur unwesentlich, während die \textit{p}-Werte der vorher bereits signifikanten Koeffizienten noch weiter abfielen. Allein der Schätzwert für den Autoregressionsparameter $\lambda$ stieg für alle Modelle deutlich an. Aufgrund der sich kaum ändernden Schätzungen der Koeffizienten wird auf eine weiterführende Darstellung und Interpretation der um die Ausreißer bereinigten Modelle verzichtet. Generell erscheint aber gerade bei einer auf der Grundgesamtheit basierenden prozessbasierten Inferenz der Ausschluss von Ausreißern als sinnvoll. Letztlich versucht man ja, auf den \textit{generellen} datengenerierenden Prozess zu schließen und weiss, dass die Ausreißer \textit{tatsächliche} Ausreißer sind.
+
 
 
     Großteil der Aufwertungsgebiete fällt mit den Gebieten der größten Ertragslücken zusammen. Ist ist also von einem erhöhten Verdrängungsdruck sowie von exclusionary displacement auszugehen. Medianangebotsmieten verschleiern aber auch den Wegfall von billigen Angebotsmieten. Laut BBU und Gentrimap fehlen aber vor allem da die Wohunngen, also exclusionary displacement.

@@ -133,7 +133,7 @@ grid.arrange(p1FortzuegeRI, p1ZuzuegeRI,
 FortzuegeRMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=FortzuegeR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
-                       values = rescale(c(3.9,12,15,25)),
+                       values = rescale(c(3.9,8.92,15,25)),
                        guide = "colorbar", limits=c(3.4,25),
                        name=expression(paste('FortzuegeB',' ','(%)'))) +
   coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
@@ -144,7 +144,7 @@ FortzuegeRMAP
 ZuzuegeRMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=ZuzuegeR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
-                       values = rescale(c(3.8,7,13,22)),
+                       values = rescale(c(3.8,9.18,13,22)),
                        guide = "colorbar", limits=c(3.8,22),
                        name=expression(paste('ZuzügeB',' ','(%)'))) +
   coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
@@ -155,7 +155,7 @@ ZuzuegeRMAP
 FortzuegeUDARMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=FortzuegeUDAR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
-                       values = rescale(c(0,4,8,26.5)),
+                       values = rescale(c(0,3.17,8,26.5)),
                        guide = "colorbar", limits=c(0,26.5),
                        name=expression(paste('FortzügeA',' ','(%)'))) +
   coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
@@ -166,7 +166,7 @@ FortzuegeUDARMAP
 ZuzuegeUDARMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=ZuzuegeUDAR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
-                       values = rescale(c(0,3,8,30)),
+                       values = rescale(c(0,3.65,8,30)),
                        guide = "colorbar", limits=c(0,30),
                        name=expression(paste('ZuzuegeA',' ','(%)'))) +
   coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
@@ -226,10 +226,10 @@ grid.arrange(pIntraG, pIntraI, ncol=2, nrow=1, widths=c(1,1.2))
 @
 
 \newpage
-<<ResiduenEMAP, fig.scap="Karte der Residuen $\\hat{e}$ des SAR Modells \\textit{FortzügeB} (Modell 1)", fig.cap="\\href{http://www.gmx.de}{Karte der Residuen $\\hat{e}$ des gewichteten SAR Modells auf \\textit{FortzügeB} (Modell 1)}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
-ResiduenEMAP
-@
-
 <<ResiduenEpsilonMAP, fig.scap="Karte der Residuen $\\hat{\\varepsilon}$ des SAR Modells \\textit{FortzügeB}", fig.cap="\\href{http://www.gmx.de}{Karte der Residuen $\\hat{\\varepsilon}$ des gewichteten SAR Modells auf \\textit{FortzügeB} (Modell 1)}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
 ResiduenEpsilonMAP
+@
+
+<<ResiduenEMAP, fig.scap="Karte der Residuen $\\hat{e}$ des SAR Modells \\textit{FortzügeB}", fig.cap="\\href{http://www.gmx.de}{Karte der Residuen $\\hat{e}$ des gewichteten SAR Modells auf \\textit{FortzügeB} (Modell 1)}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
+ResiduenEMAP
 @

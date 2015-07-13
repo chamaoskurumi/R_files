@@ -480,48 +480,23 @@ SAR_6_ResPLOT <- ggplot(SARResidPlotDF, aes(x=res)) +
 grid.arrange(SAR_1_ResPLOT,SAR_4_ResPLOT,SAR_5_ResPLOT,SAR_6_ResPLOT,
              ncol=2,nrow=2,widths=c(1,1,1,1))
 
-LOR4reg -> LOR4SAR
-LOR4SAR@data <- data.frame(LOR4SAR@data, SAR5$fit$residuals)
-breaks <- quantile(SAR5$fit$residuals, probs = seq(0, 1, 0.1))
-spplot(LOR4SAR, zcol="SAR5.fit.residuals",at = breaks)
 
-qntl <- quantile(LOR4reg@data$Armutchg, probs=c(0,0.1,0.9,1)); qntl 
-LOR4reg@data$ArmutchgCAT <- cut(LOR4reg@data$Armutchg, 
-                                 qntl,
-                                 labels=c("starke Aufwertung",
-                                          "Mittelfeld",
-                                          "starke Abwertung"),
-                                 include.lowest = TRUE)
-
-spplot(LOR4reg,zcol="ArmutchgCAT")
-LOR4reg@data$ArmutchgCAT2 <- factor(LOR4reg@data$ArmutchgCAT,levels(LOR4reg@data$ArmutchgCAT)[c(2,1,3)])
-
-
-plot(LOR4reg@data$Mietechgr,LOR4reg@data$FortzuegeR)
-qqnorm(standardizedResiduals)
-qqline(standardizedResiduals,distribution = qnorm, probs = c(0.1, 0.9), qtype = 7)
-
-unstandardizedPredicted <- fitted(SAR5)
-unstandardizedResiduals <- residuals(SAR5)
-# Standardisierung
-standardizedPredicted <- (unstandardizedPredicted - mean(unstandardizedPredicted)) / sd(unstandardizedPredicted)
-standardizedResiduals <- (unstandardizedResiduals - mean(unstandardizedResiduals)) / sd(unstandardizedResiduals)
-#create standardized residuals plot
-plot(standardizedPredicted, standardizedResiduals, main = "Standardized Residuals Plot", xlab = "Standardized Predicted Values", ylab = "Standardized Residuals")
-#add horizontal line
-abline(0,0)
-identify(standardizedPredicted, standardizedResiduals)
-
-#...................................................................
+...........................................................
 ###################### \\\\ Ohne Ausreißer \\\\ ####################
 #...................................................................
 
+# fiese Residuenausreisser (>abs(4))
+summary(abs(SAR_1$fit$signal_stochastic)-abs(SAR_1$fit$residuals)) # durchschnittliche Verbesserung des fits durch SAR 0.58
+subset(LOR4reg@data,SAR_1epsilon>4,select=c("RAUMID_NAME","SAR_1epsilon","FortzuegeR"))
+subset(LOR4reg@data,SAR_1epsilon>4,select=c("RAUMID_NAME","SAR_1epsilon","FortzuegeR"))[,1]
+
 LOR4regCLEAN<- LOR4reg[LOR4reg@data$RAUMID_NAME!="Plötzensee" &
         LOR4reg@data$RAUMID_NAME!="Park Ruhwald" &
-        LOR4reg@data$RAUMID_NAME!="Herzbergstraße",] 
+        LOR4reg@data$RAUMID_NAME!="Marienfelder Allee Nordwest" &
+        LOR4reg@data$RAUMID_NAME!="Treuenbrietzener Str",] 
 
 spplot(LOR4regCLEAN,zcol="Gentri")
-
+dim(LOR4regCLEAN@data)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # I.) Nachbarschaftslisten ------
@@ -699,6 +674,4 @@ SAR_6 <- spautolm(formula=ZuzuegeUDAR ~ MietechgrC + ArmutchgC + Miete.2007C+ Ar
                   weights=E_E.2007,
                   family="SAR")
 summary(SAR_6, Nagelkerke=T)
-
-
 
