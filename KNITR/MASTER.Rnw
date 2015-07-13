@@ -84,7 +84,7 @@
 <<setupPRE,include=FALSE>>=
 library(knitr)
 opts_chunk$set(
-concordance=TRUE,echo=FALSE, cache=TRUE, 
+concordance=TRUE,echo=FALSE, cache=FALSE, 
 message=FALSE,warning=FALSE,
 tidy=TRUE, self.contained=FALSE#,fig.pos='H'
 )

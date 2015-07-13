@@ -274,3 +274,35 @@ SAR_6_ResPLOT <- ggplot(SARResidPlotDF, aes(x=res)) +
   annotate("text", x = 8, y = 0.6, label = "ZuzügeA", size=4, face="bold",colour = "grey50")  +
   geom_rug(aes(x=res),colour="grey10",size=0.5,alpha=0.5)
 #SAR_6_ResPLOT
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# VII.) Residuenkarten ------
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+library("scales");library("plyr")
+LOR4reg@data$SAR_1epsilon  <- SAR_1$fit$residuals
+LOR4reg@data$SAR_1e        <- SAR_1$fit$residuals+SAR_1$fit$signal_stochastic
+
+LOR4regLONGLAT <- spTransform(LOR4reg,CRS("+proj=longlat")) #+ellps=WGS84 +datum=WGS84 +no_defs")) 
+LOR4reg.fort <- fortify(LOR4regLONGLAT, region="RAUMID_NAME")
+LOR4regdf <- LOR4reg@data
+colnames(LOR4regdf)[2] <- "id"
+LOR4reg.fort <- join(LOR4reg.fort, LOR4regdf, by="id")
+
+ResiduenEMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=SAR_1e, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
+                       values = rescale(c(-4,0,4,20)),
+                       guide = "colorbar", limits=c(-5,20),
+                       name=expression(paste('Residuen',' ',e))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout
+#ResiduenEMAP
+
+ResiduenEpsilonMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=SAR_1epsilon, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
+                       values = rescale(c(-4,0,4,20)),
+                       guide = "colorbar", limits=c(-5,20),
+                       name=expression(paste('Residuen',' ',epsilon))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
+#ResiduenEpsilonMAP

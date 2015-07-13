@@ -535,7 +535,7 @@ source("/home/dao/Desktop/MasterArbeit/R_files/ANALYSE_SAR4knitr.R")
 
 \afterpage{
 \begin{landscape}
-<<ResPLOTS, fig.width=9.8, fig.height=5.6, fig.scap='Histogramm und Kerndichteschätzung der Regressionsresiduen', fig.cap='Gewichtetes Histogramm (weiß) und gewichtete Kerndichteschätzung der standardisierten Regressionsresiduen (orange). Außerdem zum Vergleich eine Normalverteilung ($\\mu=0,\\,\\sigma^2=\\hat{\\sigma}^2$) (blau). Rugplot unterhalb der x-Achse (schwarz).',fig.lp='fig:',cache=FALSE>>=
+<<ResPLOTS, fig.width=9.8, fig.height=5.6, fig.scap='Histogramm und Kerndichteschätzung der Regressionsresiduen $\\hat{\\varepsilon}$', fig.cap='Histogramm (weiß) und Kerndichteschätzung (orange) der standardisierten Regressionsresiduen $\\hat{\\varepsilon}$. Zum Vergleich eine Normalverteilung mit $\\mu=0$ und $\\sigma^2=\\hat{\\sigma}^2$ (blau). Rugplot unterhalb der x-Achse (schwarz).',fig.lp='fig:'>>=
 grid.arrange(SAR_1_ResPLOT,SAR_4_ResPLOT,SAR_5_ResPLOT,SAR_6_ResPLOT,
              ncol=2,nrow=2,widths=c(1,1,1,1))
 @

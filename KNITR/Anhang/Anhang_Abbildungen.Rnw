@@ -2,7 +2,8 @@
 
 \section{Abbildungen}\label{Anhang:Abbildungen}
 
-<<Mosaic, fig.scap='Mosaikplot des Zusammenhangs von $\\Delta_{r}Miete$ und $\\Delta Armut$', fig.cap='Mosaikplot des Zusammenhangs von $\\Delta_{r}Miete$ und $\\Delta Armut$ nach gewichteten Quartilen. Die Zelle Q4($\\Delta_{r}Miete$) / Q1($\\Delta Armut$) entspricht der \\textit{Kategorie} Gentri.', fig.pos='H', fig.lp='fig:', fig.height=3.5,crop=TRUE, fig.align='center', cache=FALSE>>=
+<<Mosaic, fig.scap='Mosaikplot des Zusammenhangs von $\\Delta_{r}Miete$ und $\\Delta Armut$', fig.cap='Mosaikplot des Zusammenhangs von $\\Delta_{r}Miete$ und $\\Delta Armut$ nach gewichteten Quartilen. Die Zelle Q4($\\Delta_{r}Miete$) / Q1($\\Delta Armut$) entspricht der \\textit{Kategorie} Gentri.', fig.pos='H', fig.lp='fig:', fig.height=3.5,crop=TRUE, fig.align='center'>>=
+library("vcd")
 fill_colors <- matrix(c("red", "gray", "gray","grey",
                        "gray", "gray", "gray","grey",
                        "gray", "gray", "gray","grey",
@@ -222,4 +223,13 @@ pIntraI <- ggplot(summaryINTRAdflongI, aes(ZEIT, IntraFR_mean, group = Gentri, c
 #pIntraI
 
 grid.arrange(pIntraG, pIntraI, ncol=2, nrow=1, widths=c(1,1.2))
+@
+
+\newpage
+<<ResiduenEMAP, fig.scap="Karte der Residuen $\\hat{e}$ des SAR Modells \\textit{FortzügeB} (Modell 1)", fig.cap="\\href{http://www.gmx.de}{Karte der Residuen $\\hat{e}$ des gewichteten SAR Modells auf \\textit{FortzügeB} (Modell 1)}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
+ResiduenEMAP
+@
+
+<<ResiduenEpsilonMAP, fig.scap="Karte der Residuen $\\hat{\\varepsilon}$ des SAR Modells \\textit{FortzügeB}", fig.cap="\\href{http://www.gmx.de}{Karte der Residuen $\\hat{\\varepsilon}$ des gewichteten SAR Modells auf \\textit{FortzügeB} (Modell 1)}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
+ResiduenEpsilonMAP
 @

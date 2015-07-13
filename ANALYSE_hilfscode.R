@@ -859,11 +859,34 @@ wtd.mean(x=bpDF$FortzuegeR[bpDF$Gentri=="Gentri"],
          weights=bpDF$E_E.2007[bpDF$Gentri=="Gentri"])
 wtd.mean(x=bpDF$FortzuegeR[bpDF$Gentri=="Kontroll"], 
          weights=bpDF$E_E.2007[bpDF$Gentri=="Kontroll"])
+  
+wtd.mean(x=bpDF$FortzuegeR, 
+           weights=bpDF$E_E.2007)
+wtd.mean(x=bpDF$FortzuegeUDAR, 
+           weights=bpDF$E_E.2007)
+wtd.mean(x=bpDF$ZuzuegeR, 
+           weights=bpDF$E_E.2007)
+wtd.mean(x=bpDF$ZuzuegeUDAR, 
+           weights=bpDF$E_E.2007)
+  wtd.quantile(x=bpDF$FortzuegeR, 
+               weights=bpDF$E_E.2007,
+               probs=c(0, .25, .5, .75, 1))
+  wtd.quantile(x=bpDF$FortzuegeUDAR, 
+               weights=bpDF$E_E.2007,
+               probs=c(0, .25, .5, .75, 1))
+  wtd.quantile(x=bpDF$ZuzuegeR, 
+               weights=bpDF$E_E.2007,
+               probs=c(0, .25, .5, .75, 1))
+  wtd.quantile(x=bpDF$ZuzuegeUDAR, 
+               weights=bpDF$E_E.2007,
+               probs=c(0, .25, .5, .75, 1))
 
 wtd.mean(x=bpGesamtInnere$FortzuegeR[bpGesamtInnere$Gentri=="Gentri"], 
          weights=bpGesamtInnere$E_E.2007[bpGesamtInnere$Gentri=="Gentri"])
 wtd.mean(x=bpGesamtInnere$FortzuegeR[bpGesamtInnere$Gentri=="Kontroll"], 
          weights=bpGesamtInnere$E_E.2007[bpGesamtInnere$Gentri=="Kontroll"])
+  
+  
   
 #----- TAB dist2Stadtmitte -----
 wtd.quantile(x=bpDF$dist2STADTMITTE, 
