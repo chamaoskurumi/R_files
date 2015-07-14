@@ -109,7 +109,7 @@ summary(lm1)
 # V.) SAR Spatialerror Model ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-SAR_1 <- spautolm(formula=FortzuegeR ~ MietechgrC + ArmutchgC + Miete.2007C+ Armut.2007C +  
+SAR_1 <- spautolm(formula=FortzuegeR ~ Mietechgr + Armutchg + Miete.2007C+ Armut.2007C +  
                     AlleinerzHH.2012C +
                     E_U18R.2007C+ E_18U35R.2007C+ E_65U110R.2007C+ 
                     PDAU10.2007C+ StaedtWohnungen.2012C+ SanGebiet.2007 + STADTRAUM,
@@ -120,7 +120,7 @@ SAR_1 <- spautolm(formula=FortzuegeR ~ MietechgrC + ArmutchgC + Miete.2007C+ Arm
 summary(SAR_1, Nagelkerke=T)
 
 
-SAR_2 <- spautolm(formula=FortzuegeR ~ MietechgrC + ArmutchgC + Miete.2007C+ Armut.2007C +  
+SAR_2 <- spautolm(formula=FortzuegeR ~ Mietechgr + Armutchg + Miete.2007C+ Armut.2007C +  
                     AlleinerzHH.2012C +
                     E_U18R.2007C+ E_18U35R.2007C+ E_65U110R.2007C+ 
                     PDAU10.2007C+ StaedtWohnungen.2012C+ SanGebiet.2007 + STADTRAUM,
@@ -128,9 +128,9 @@ SAR_2 <- spautolm(formula=FortzuegeR ~ MietechgrC + ArmutchgC + Miete.2007C+ Arm
                   listw=W_1500mIDWs, 
                   weights=E_E.2007,
                   family="SAR")
-#summary(SAR_2, Nagelkerke=T)
+summary(SAR_2, Nagelkerke=T)
 
-SAR_3 <- spautolm(formula=FortzuegeR ~ MietechgrC + ArmutchgC + Miete.2007C+ Armut.2007C +  
+SAR_3 <- spautolm(formula=FortzuegeR ~ Mietechgr + Armutchg + Miete.2007C+ Armut.2007C +  
                     AlleinerzHH.2012C +
                     E_U18R.2007C+ E_18U35R.2007C+ E_65U110R.2007C+ 
                     PDAU10.2007C+ StaedtWohnungen.2012C+ SanGebiet.2007 + STADTRAUM,
@@ -138,9 +138,9 @@ SAR_3 <- spautolm(formula=FortzuegeR ~ MietechgrC + ArmutchgC + Miete.2007C+ Arm
                   listw=W_2000mIDWs, 
                   weights=E_E.2007,
                   family="SAR")
-#summary(SAR_3, Nagelkerke=T)
+summary(SAR_3, Nagelkerke=T)
 
-SAR_4 <- spautolm(formula=FortzuegeUDAR ~ MietechgrC + ArmutchgC + Miete.2007C+ Armut.2007C +  
+SAR_4 <- spautolm(formula=FortzuegeUDAR ~ Mietechgr + Armutchg + Miete.2007C+ Armut.2007C +  
                     AlleinerzHH.2012C +
                     E_U18R.2007C+ E_18U35R.2007C+ E_65U110R.2007C+ 
                     PDAU10.2007C+ StaedtWohnungen.2012C+ SanGebiet.2007 + STADTRAUM,
@@ -148,9 +148,9 @@ SAR_4 <- spautolm(formula=FortzuegeUDAR ~ MietechgrC + ArmutchgC + Miete.2007C+ 
                   listw=W_polyIDWs, 
                   weights=E_E.2007,
                   family="SAR")
-#summary(SAR_4, Nagelkerke=T)
+summary(SAR_4, Nagelkerke=T)
 
-SAR_5 <- spautolm(formula=ZuzuegeR ~ MietechgrC + ArmutchgC + Miete.2007C+ Armut.2007C +  
+SAR_5 <- spautolm(formula=ZuzuegeR ~ Mietechgr + Armutchg + Miete.2007C+ Armut.2007C +  
                     AlleinerzHH.2012C +
                     E_U18R.2007C+ E_18U35R.2007C+ E_65U110R.2007C+ 
                     PDAU10.2007C+ StaedtWohnungen.2012C+ SanGebiet.2007 + STADTRAUM,
@@ -158,9 +158,9 @@ SAR_5 <- spautolm(formula=ZuzuegeR ~ MietechgrC + ArmutchgC + Miete.2007C+ Armut
                   listw=W_polyIDWs, 
                   weights=E_E.2007,
                   family="SAR")
-#summary(SAR_5, Nagelkerke=T)
+summary(SAR_5, Nagelkerke=T)
 
-SAR_6 <- spautolm(formula=ZuzuegeUDAR ~ MietechgrC + ArmutchgC + Miete.2007C+ Armut.2007C +  
+SAR_6 <- spautolm(formula=ZuzuegeUDAR ~ Mietechgr + Armutchg + Miete.2007C+ Armut.2007C +  
                     AlleinerzHH.2012C +
                     E_U18R.2007C+ E_18U35R.2007C+ E_65U110R.2007C+ 
                     PDAU10.2007C+ StaedtWohnungen.2012C+ SanGebiet.2007 + STADTRAUM,
@@ -168,7 +168,7 @@ SAR_6 <- spautolm(formula=ZuzuegeUDAR ~ MietechgrC + ArmutchgC + Miete.2007C+ Ar
                   listw=W_polyIDWs, 
                   weights=E_E.2007,
                   family="SAR")
-#summary(SAR_6, Nagelkerke=T)
+summary(SAR_6, Nagelkerke=T)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # VI.) Residuenplots ------
@@ -203,7 +203,7 @@ SAR_1_ResPLOT <- ggplot(SARResidPlotDF, aes(x=res)) +
   geom_vline(xintercept = 0, colour="black", linetype = "longdash", size=0.3) +
   annotate("text", x = 8, y = 0.6, label = "FortzügeB (Modell 1)", size=4, face="bold",colour = "grey50") +
   geom_rug(aes(x=res),colour="grey10",size=0.5,alpha=0.5)
-SAR_1_ResPLOT
+#SAR_1_ResPLOT
 
 ### SAR_4 = FortzügeA W_poly ###
 data.frame(scale(SAR_4$fit$residuals),
@@ -284,7 +284,7 @@ SAR_6_ResPLOT <- ggplot(SARResidPlotDF, aes(x=res)) +
 
 library("scales");library("plyr")
 LOR4reg@data$SAR_1epsilon  <- SAR_1$fit$residuals
-LOR4reg@data$SAR_1e        <- SAR_1$fit$residuals+SAR_1$fit$signal_stochastic
+LOR4reg@data$SAR_1e        <- SAR_1$fit$signal_stochastic#+SAR_1$fit$residuals
 
 LOR4regLONGLAT <- spTransform(LOR4reg,CRS("+proj=longlat")) #+ellps=WGS84 +datum=WGS84 +no_defs")) 
 LOR4reg.fort <- fortify(LOR4regLONGLAT, region="RAUMID_NAME")
@@ -292,12 +292,33 @@ LOR4regdf <- LOR4reg@data
 colnames(LOR4regdf)[2] <- "id"
 LOR4reg.fort <- join(LOR4reg.fort, LOR4regdf, by="id")
 
+kartenlayout <- list(geom_polygon(aes(group=id),data=BZK.fort, fill=NA, colour="grey50", alpha=0.8,size=0.5),
+                     theme(legend.position =c(0.9,0.8), 
+                           line = element_blank(), 
+                           rect= element_blank(),
+                           axis.line=element_blank(),
+                           axis.text.x=element_blank(),
+                           axis.text.y=element_blank(),
+                           axis.ticks=element_blank(),
+                           axis.title.x=element_blank(),
+                           axis.title.y=element_blank(),
+                           legend.title=element_text(size=rel(0.7), face="bold"),
+                           legend.text=element_text(size=rel(0.5)),
+                           plot.margin=unit(c(0,0,-0.7,0), "cm")),
+                     guides(fill = guide_colourbar(barheight=5)),
+                     geom_path(data=S_Bahn.fort, aes(x=long, y=lat), linetype=2, size=0.6))
+
+lowCOLOR <- "blue"
+midCOLOR <- "#fee0d2"
+hiCOLOR  <- "red"
+superhiCOLOR <- "black"
+
 ResiduenEMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=SAR_1e, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
-  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
-                       values = rescale(c(-4,0,4,20)),
-                       guide = "colorbar", limits=c(-5,20),
-                       name=expression(paste('Residuen',' ',e))) +
+  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR), 
+                       values = rescale(c(-1,0,2)),
+                       guide = "colorbar", limits=c(-1,2),
+                       name=expression(paste('Räuml. Komponente'))) +
   coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout
 #ResiduenEMAP
 
