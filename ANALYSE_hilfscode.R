@@ -1059,6 +1059,10 @@ write.csv(bpDF[bpDF$RAUMID_NAME=="Reuterkiez",], file = "/home/dao/Desktop/Reute
   
   bpDF[bpDF$RAUMID_NAME=="Reuterkiez",c("E_U18R.2007","E_U18R.2012")]
   bpDF[bpDF$RAUMID_NAME=="Reuterkiez",c("E_65U110R.2007","E_65U110R.2012")]
+  LOR4reg@data[LOR4reg@data$RAUMID_NAME=="Reuterkiez",c("FortzuegeR","Mietechgr","Armutchg",
+                                                        "Miete.2007C","Armut.2007C",     
+                                                        "AlleinerzHH.2012C","E_U18R.2007C","E_18U35R.2007C","E_65U110R.2007C",
+                                                        "PDAU10.2007C","StaedtWohnungen.2012C","SanGebiet.2007")]
 
   
 #************************************
