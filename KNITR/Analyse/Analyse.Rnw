@@ -549,7 +549,7 @@ Eine durchschnittliches LOR der inneren Stadt besitzt, sofern man die Abwesenhei
 Je höher die Armutsquoten in einer Nachbarschaft, desto höher ist die dortige Binnenfortzugsneigung, postuliert die H~3.1. Die Regressionsergebnisse bestätigen diese Vermutung eindeutig. Die Koeffizientenschätzung für $Armut_{2007}$ ist nicht nur hochsignifikant und positiv, sondern auch von erheblicher Größe (0,077). Angenommen zwei Nachbarschaften unterscheiden sich lediglich in ihrer Armutsquote, z.B. um eine Differenz von 25\%. Interpretiert man den geschätzten Koeffizieten als partielle Korrelation, dann besitzt das ärmere Gebiete allein aufgrund ihrer höheren Armutsquote eine um etwa 1,9\% höhere jährliche Binnenfortzugsrate. Es ist also davon auszugehen, dass gerade in den ärmeren Nachbarschaften der für die Immobilienwirtschaft besonders interessanten Innenstadt Aufwertung erheblich durch die armutsbedingten höheren Binnenfortzugsraten beschleunigt wird. Ziehen mehr Mieter*innen fort, werden zwangsläufig mehr Mietverträge gekündigt. Die Neuverträge erlauben den Eigentümer*innen schließlich eine beschleunigte Mietpreissteigerung im Bestand. Armutsinduzierte höhere Binnenfortzugsquoten wirken quasi als Katalysator für immobilienwirtschaftliche Aufwertung. Zusätzlich wirkt sich dieser Zusammenhang aber auch beschleunigend auf die soziale Aufwertung aus. Wo eine höhere Bevölkerungsfluktuation in Verbindung mit dynamischerer immobilienwirtschaftlicher Aufwertung vorherrscht, ist davon auszugehen, dass ein verstärkter Bevölkerungsaustausch durch statushöhere Bewohner*innen stattfindet. Ein beschleunigter Bevölkerungsaustausch in ärmeren Gebieten wird im Übrigen auch durch den hochsignifikant positiven Zusammenhang zwischen der Armutsquote und den Binnenzuzügen bestätigt (vgl. Tab.~\ref{tab:RegErgebnisseFAZBZA}). Ausschließende Verdrängung.
 \paragraph{Zu Hypothese H 3.2}
 Mit der klaren Bestätigung von H~2.2a in Kap.~\ref{Sec:AnaGentriCharaF} ist nun auch die Bestätigung von H~3.2a wahrscheinlich. Tatsächlich spricht der positive, hochsignifikante Koeffizient für $\Mietechgr$ deutlich für die Bestätigung der H~3.2a, nachder die Binnenfortzugsneigung in einer Nachbarschaft umso höher ist, je stärker die dortige immobilienwirtschaftliche Aufwertungsdynamik. Um die geschätzte partielle Korrelation von 0,135 zu veranschaulichen, wieder ein Beispiel. Angenommen zwei Nachbarschaften unterscheiden sich lediglich in ihrer inflationsbereinigten, relativen Mietpreisänderung, z.B. um eine Differenz von 10\%. Interpretiert man den geschätzten Koeffizieten als partielle Korrelation, dann besitzt das Gebiet der stärkeren Preissteigerung allein aufgrund ihrer immobilienwirtschaftlichen Aufwertungsdynamik eine um etwa 1,35\% höhere jährliche Binnenfortzugsrate. Steigen die Angebotsmietpreise in einer Nachbarschaft jährlich um 1\%, so verlassen demnach 0,135\% mehr Anwohner*innen ihre Wohnung um an einen anderen Ort in Berlin zu ziehen.\\
-Diese partielle Korrelation ist auch als Schätzung für ökonomische Verdrängung zu interpretieren. Schließlich isoliert die Regression den Zusammenhang zwischen $\Mietechgr$ und $FortzügeB$, wobei anzunehmen ist, dass der Koeffizient im Wesentlichen den Einfluss von $\Mietechgr$ auf $FortzügeB$ misst, und nicht andersherum. H~3.2a wurde auf Grundlage stadtsoziologischer Gentrificationtheorie formuliert und damit ein möglicher kausaler Einfluss von $\Mietechgr$ auf $FortzügeB$ begründet. Umgekehrt macht es jedoch wenig Sinn anzunehmen, dass höhere Binnenfortzugsraten zu einer Steigerung der Angebotsmietpreise führen würden. Allenfalls wäre es denkbar, dass die Binnenfortzugsrate eine Verlangsamung des Anstiegs der Angebotsmietpreise verursacht, da sich das Angebot bei mehr wieder zu vermietenden Wohnungen ja vergrößert. Ein solcher kompensierender, negativer Effekt ist unter der verwendeten Modellspezifikation nicht vom positiven Effekt von $\Mietechgr$ auf $FortzügeB$ zu differenzieren. Deshalb ist der Koeffizient für $\Mietechgr$ als unteren Schranke für eine Schätzung von ökonomischer Verdrängung zu interpretieren. Im Übrigen dürfte die ökonomische Verdrängungsrate aus einem anderen Grund deutlich höher liegen. Von ökonomischer Verdrängung Betroffene leben tendenziell in prekäreren Verhältnissen und eine reguläre, amtliche Erfassung ihres Umzugs durch die Ämter ist für diese Menschen dadurch unwahrscheinlicher. Neben diesen beiden Quellen möglicher Verzerrung des Ausmaßes von ökonomischer Verdrängung besteht natürlich auch eine statistische Unsicherheit in der Schätzung. Die Standardabweichung des Koeffizienten beträgt 0,045, was einem 95\% Konfidenzintervall von $[0,045\,,\,0,225]$ entspricht.\footnote{ Das Konfidenzintervall wurde nach der Faustregel $CI_{0.95}\approx \mu\pm2\sigma$ berechnet.} Dies relativ große Konfidenzintervall erfordert folglich zumindest eine vorsichtige Interpretation des genauen Koeffizientenschätzwertes.
+Diese partielle Korrelation ist auch als Schätzung für ökonomische Verdrängung zu interpretieren. Schließlich isoliert die Regression den Zusammenhang zwischen $\Mietechgr$ und \textit{FortzügeB}, wobei anzunehmen ist, dass der Koeffizient im Wesentlichen den Einfluss von $\Mietechgr$ auf \textit{FortzügeB} misst, und nicht andersherum. H~3.2a wurde auf Grundlage stadtsoziologischer Gentrificationtheorie formuliert und damit ein möglicher kausaler Einfluss von $\Mietechgr$ auf \textit{FortzügeB} begründet. Umgekehrt macht es jedoch wenig Sinn anzunehmen, dass höhere Binnenfortzugsraten zu einer Steigerung der Angebotsmietpreise führen würden. Allenfalls wäre es denkbar, dass die Binnenfortzugsrate eine Verlangsamung des Anstiegs der Angebotsmietpreise verursacht, da sich das Angebot bei mehr wieder zu vermietenden Wohnungen ja vergrößert. Ein solcher kompensierender, negativer Effekt ist unter der verwendeten Modellspezifikation nicht vom positiven Effekt von $\Mietechgr$ auf \textit{FortzügeB} zu differenzieren. Deshalb ist der Koeffizient für $\Mietechgr$ als unteren Schranke für eine Schätzung von ökonomischer Verdrängung zu interpretieren. Im Übrigen dürfte die ökonomische Verdrängungsrate aus einem anderen Grund deutlich höher liegen. Von ökonomischer Verdrängung Betroffene leben tendenziell in prekäreren Verhältnissen und eine reguläre, amtliche Erfassung ihres Umzugs durch die Ämter ist für diese Menschen dadurch unwahrscheinlicher. Neben diesen beiden Quellen möglicher Verzerrung des Ausmaßes von ökonomischer Verdrängung besteht natürlich auch eine statistische Unsicherheit in der Schätzung. Die Standardabweichung des Koeffizienten beträgt 0,045, was einem 95\% Konfidenzintervall von $[0,045\,,\,0,225]$ entspricht.\footnote{ Das Konfidenzintervall wurde nach der Faustregel $CI_{0.95}\approx \mu\pm2\sigma$ berechnet.} Dies relativ große Konfidenzintervall erfordert folglich zumindest eine vorsichtige Interpretation des genauen Koeffizientenschätzwertes.
 \paragraph{Sonstiges}
 $Miete_{2007}$ positiv. Alleinerziehende . Städtische Wohnungen negativ, Nachdem für diverse mögliche Einflussfaktoren scheint die Lage Stadtraum insiginifkant und unwichtig im übrigen auch für DStadtmitte. Sanierungsgebiete auch nicht signifikant. Interaktionsterme mit Stadtraum insignifikant.
 
@@ -608,3 +608,44 @@ Diskussion der Ergebnisse, was sagen zu jedem Verdrängungstypen
 
 Fort- und Zuzugsraten der Reuterkiezes mit den regressionsergebnissen \& coeffizientenschätzungen anzeigen. Komposition der Einflüsse.
 Waterfall Plot.
+
+\afterpage{
+\begin{landscape}
+<<ReuterWaterfallPLOT,fig.width=9.8, fig.height=5.7, fig.scap='Veranschaulichung der SAR Regressionsergebnisse am Beispiel Reuterkiez', fig.cap='Veranschaulichung der SAR Regressionsergebnisse auf \\textit{FortzügeB} anhand eines Waterfallplots des Reuterkiezes',fig.lp='fig:',cache=FALSE>>=
+source("/home/dao/Desktop/MasterArbeit/R_files/ANALYSE_waterfallplot.r")
+
+df <- read.csv("/home/dao/Desktop/MasterArbeit/R_data/Reuterkiez_WATERFALLPLOT/reuterkiez_wasserfallplot.csv", 
+               stringsAsFactors=FALSE, header=T, sep=",")
+df$category <- factor(df$category, levels=unique(df$category))
+df$sector   <- factor(df$sector)
+df$sector   <- factor(df$sector,levels(df$sector)[c(2,1,3)])
+
+offset <- 0.4
+labels<- df$value
+
+ReuterWaterfallPLOT <- waterfall(df, offset=offset) +
+  coord_cartesian(ylim=c(0,14)) +
+  scale_y_continuous(breaks=seq(0,13,1)) +
+  scale_fill_manual(values = c("#00BA38","#F8766D","#619CFF")) +
+  theme_grey() +
+  theme(legend.position=c(0.15,0.85),
+        axis.title.x = element_blank(),
+        legend.title=element_blank(),
+        axis.text.x=element_text(angle = 45, hjust=1,vjust =1),
+        axis.title.y = element_text(face="bold",colour = "grey50"),
+        legend.text=element_text(colour = "grey50"),
+        legend.title=element_text(face="bold",colour = "grey50"))+
+  ylab("Binnenfortzugsrate in %") +
+  annotate("text", x = 6, y = 5, label = "Beispiel Reuterkiez", size=5, face="bold",colour = "grey50") 
+ReuterWaterfallPLOT <- ReuterWaterfallPLOT + geom_hline(aes(yintercept=9.19),linetype="dotted",colour = "grey50") +
+  annotate("text", x = 8.5,  y = 9.7, label = "Berliner Durchschnitt", size=3, fontface=3,colour = "grey50") +
+  annotate("text", x = 1:12, y = c(4,7.8,8.6,9.7,9.68,11.3,12,12.25,12.1,12.2,11.7,6), label =labels, angle = 90,size=2.5)
+ReuterWaterfallPLOT
+@
+\end{landscape}
+}
+
+blabla danach gehts weiter
+
+\subsubsection{zumbeispieldamit}
+dann is schöner

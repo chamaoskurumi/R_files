@@ -97,7 +97,7 @@ W_2000mIDWs <- nb2listw(LOR2000m_nb, glist = idw, style = "S", zero.policy=T)
 # III.) LM Regression und Moran's I Test ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-lm1 <- lm(formula=FortzuegeR ~ MietechgrC + ArmutchgC + Miete.2007C+ Armut.2007C +  
+lm1 <- lm(formula=FortzuegeR ~ Mietechgr + Armutchg + Miete.2007C+ Armut.2007C +  
             AlleinerzHH.2012C +
             E_U18R.2007C+ E_18U35R.2007C+ E_65U110R.2007C+ 
             PDAU10.2007C+ StaedtWohnungen.2012C+ SanGebiet.2007 + STADTRAUM,
