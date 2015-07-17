@@ -2,6 +2,33 @@
 
 \section{Zusammenfassung und Diskussion}\label{Sec:ZufsgDisku}
   \subsection{Forschungsergebnisse}
+politische Einflüsse und Neubau nicht berücksichtigt. 
+    Großteil der Aufwertungsgebiete fällt mit den Gebieten der größten Ertragslücken zusammen. Ist ist also von einem erhöhten Verdrängungsdruck sowie von exclusionary displacement auszugehen. Medianangebotsmieten verschleiern aber auch den Wegfall von billigen Angebotsmieten. Laut BBU und Gentrimap fehlen aber vor allem da die Wohunngen, also exclusionary displacement.
+
+   Auf der Grundlage von Daten aus dem Jahre 2003 charakterisierte \citet[S.~74]{Gebhardt2012} den Altbezirk Kreuzberg sowie Nord-Neukölln noch als Abwertungsgebiete mit teilweisen inselhaften Aufwertungstendenzen, welche hohe Wohnmobilität aufweisen und aus denen Teile der Mittelschicht in Randgebiete abwandern. Auch hier beobachten wir 2007-2012 eine hohe Wohnmobilität, jedoch mit flächendeckenden Aufwertungsprozessen.
+
+\begin{itemize}
+    \item Fortzuege in gebieten nach Qntl Mietpreissteigerung: MietechgrQNTL Aufwertungs Quantil (4.) dort am meisten Fortzuege. Aber NICHT wegen mieterhöhunG! --> Modelle
+    \item Armutchg am am krassesten in 4. Mietaufwertungsquartil --> exclusionary displacement
+    \item displacement pressure wohl im 4. Mietaufwertungsquartil am größten wegen größter rent gap (äußert sich in der differenz bestandsmieten-angebotsmieten) z.B. gestiegene Zwangsräumungsneigung. 
+\end{itemize}
+
+
+Diskussion der Ergebnisse, was sagen zu jedem Verdrängungstypen
+
+\begin{itemize}
+    \item Discuss results:
+        \begin{itemize}
+            \item Do the results support or do they contradict economic theory ?
+            \item What does the reader learn from the results?
+            \item Try to give an intuition for your results.
+            \item Provide robustness checks.
+            \item Compare to previous research.
+        \end{itemize}
+\end{itemize}
+
+
+  
 
 Wo wir es erwarten, wo große Proteste sind. 
 Hypothesendiskussion und empirische Evidenz  

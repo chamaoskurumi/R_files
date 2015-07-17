@@ -1063,7 +1063,10 @@ write.csv(bpDF[bpDF$RAUMID_NAME=="Reuterkiez",], file = "/home/dao/Desktop/Reute
                                                         "Miete.2007C","Armut.2007C",     
                                                         "AlleinerzHH.2012C","E_U18R.2007C","E_18U35R.2007C","E_65U110R.2007C",
                                                         "PDAU10.2007C","StaedtWohnungen.2012C","SanGebiet.2007")]
-
+  
+  bpDF[bpDF$PRG_NAME=="Kreuzberg Nord",c("RAUMID_NAME","FortzuegeR","StaedtWohnungen.2012","Armut.2007","Mietechgr")]
+  
+  wtd.cors(x=bpDF$Miete.2007, y=bpDF$Armut.2007, weight=bpDF$E_E.2007)
   
 #************************************
 ####*****   INTRA LOR UMZÜGE ****####
