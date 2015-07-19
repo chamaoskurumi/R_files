@@ -129,7 +129,7 @@ knit_hooks$set(crop=hook_pdfcrop)
 % -----------------------------
 \newpage
 \pagenumbering{gobble}
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{2}
 \tableofcontents
 \clearpage
 

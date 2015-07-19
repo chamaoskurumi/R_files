@@ -1067,6 +1067,18 @@ write.csv(bpDF[bpDF$RAUMID_NAME=="Reuterkiez",], file = "/home/dao/Desktop/Reute
   bpDF[bpDF$PRG_NAME=="Kreuzberg Nord",c("RAUMID_NAME","FortzuegeR","StaedtWohnungen.2012","Armut.2007","Mietechgr")]
   
   wtd.cors(x=bpDF$Miete.2007, y=bpDF$Armut.2007, weight=bpDF$E_E.2007)
+
+LOR4reg@data$Armutchg[LOR4reg@data$RAUMID_NAME=="Reuterkiez"]
+# -6.9
+LOR4reg@data$Mietechgr[LOR4reg@data$RAUMID_NAME=="Reuterkiez"]
+# 8.5
+wtd.mean(x=LOR4reg@data$Mietechgr[LOR4reg@data$Gentri=="Gentri"],
+         weights = LOR4reg@data$E_E.2007[LOR4reg@data$Gentri=="Gentri"])
+# 5.698169
+5.6981*0.135
+# 0.7692435
+(5.6981*0.135)*6
+# 4.615461
   
 #************************************
 ####*****   INTRA LOR UMZÜGE ****####

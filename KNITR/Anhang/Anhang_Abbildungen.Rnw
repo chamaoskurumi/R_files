@@ -155,8 +155,8 @@ ZuzuegeRMAP
 FortzuegeUDARMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=FortzuegeUDAR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
-                       values = rescale(c(0,3.17,8,26.5)),
-                       guide = "colorbar", limits=c(0,26.5),
+                       values = rescale(c(0,3.17,6.5,13.5)),
+                       guide = "colorbar", limits=c(0,14),
                        name=expression(paste('FortzügeA',' ','(%)'))) +
   coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
 FortzuegeUDARMAP
@@ -166,8 +166,8 @@ FortzuegeUDARMAP
 ZuzuegeUDARMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=ZuzuegeUDAR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
-                       values = rescale(c(0,3.65,8,30)),
-                       guide = "colorbar", limits=c(0,30),
+                       values = rescale(c(0,3.65,7,17)),
+                       guide = "colorbar", limits=c(0,17),
                        name=expression(paste('ZuzuegeA',' ','(%)'))) +
   coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
 ZuzuegeUDARMAP
