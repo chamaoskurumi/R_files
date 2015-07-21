@@ -1182,3 +1182,85 @@ ddply(LORdataFULLvalid, c("ZEIT","Gentri"), summarize,
 ggplot(summaryLORdataFULLvalid, aes(ZEIT, FortzuegeR_mean, group = Gentri, colour = Gentri)) + geom_line(size=0.8)
 
 ggplot(LORdataFULLvalid[LORdataFULLvalid$RAUMID_NAME=="Reuterkiez",]) + geom_line(x=ZEIT, y=FortzuegeR,size=0.8)
+
+#************************************
+####*****   Allgemeine UMZÜGE Plots ****####
+#************************************
+LORdataFULL4umzuege <- subset(LORdataFULL,ZEIT!=2007)
+
+umzuegeDFlong <- ddply(LORdataFULL4umzuege, c("ZEIT","STADTRAUM"), summarize,
+                       FortzuegeR_mean   =round(weighted.mean(FortzuegeR,E_E),digits=1),
+                       ZuzuegeR_mean    =round(weighted.mean(ZuzuegeR,E_E),digits=1),
+                       FortzuegeUDAR_mean=round(weighted.mean(FortzuegeUDAR,E_E),digits=1),
+                       ZuzuegeUDAR_mean  =round(weighted.mean(ZuzuegeUDAR,E_E),digits=1)) 
+umzuegeDFlong$ZEIT <- as.numeric(levels(umzuegeDFlong$ZEIT ))[umzuegeDFlong$ZEIT ]
+names(umzuegeDFlong)[2] <- "Stadtraum"
+#str(umzuegeDFlong)
+#View(umzuegeDFlong)
+
+ALLGfortzuegeRplot <- ggplot(umzuegeDFlong, aes(ZEIT, FortzuegeR_mean, group = Stadtraum, colour = Stadtraum)) +
+  geom_line(size=0.7) +
+  theme(axis.title.y = element_text(face="bold",colour = "grey50"),
+        axis.title.x = element_blank(),
+        legend.text=element_text(colour = "grey50"),
+        legend.title=element_text(face="bold",colour = "grey50"),
+        legend.position="none",
+        plot.margin=unit(c(0.5,0.5,0.5,0.5), "cm")) +
+  ylab("Binnenfortzugsrate in %") +
+  scale_y_continuous(breaks=seq(3,12,1), limits=c(2.8,12.05))
+#ALLGfortzuegeRplot
+
+ALLGzuzuegeUDARplot <- ggplot(umzuegeDFlong, aes(ZEIT, ZuzuegeUDAR_mean, group = Stadtraum, colour = Stadtraum)) +
+  geom_line(size=0.7) +
+  theme(axis.title.y = element_text(face="bold",colour = "grey50"),
+        axis.title.x = element_blank(),
+        legend.text=element_text(colour = "grey50"),
+        legend.title=element_text(face="bold",colour = "grey50"),
+        legend.position=c(0.8,0.85),
+        plot.margin=unit(c(0.5,0.5,0.5,0.5), "cm")) +
+  ylab("Aussenzuzugsrate in %")  +
+  scale_y_continuous(breaks=seq(3,12,1), limits=c(2.8,12.05))
+#ALLGzuzuegeUDARplot 
+
+grid.arrange(ALLGfortzuegeRplot, ALLGzuzuegeUDARplot, ncol=2, nrow=1, widths=c(1,1))
+
+#************************************
+####*****   Allgemeine UMZÜGE Gentri Plots ****####
+#************************************
+
+umzuegeDFlong <- ddply(LORdataFULL4umzuege, c("ZEIT","Gentri"), summarize,
+                       FortzuegeR_mean   =round(weighted.mean(FortzuegeR,E_E),digits=1),
+                       ZuzuegeR_mean    =round(weighted.mean(ZuzuegeR,E_E),digits=1),
+                       FortzuegeUDAR_mean=round(weighted.mean(FortzuegeUDAR,E_E),digits=1),
+                       ZuzuegeUDAR_mean  =round(weighted.mean(ZuzuegeUDAR,E_E),digits=1)) 
+umzuegeDFlong$ZEIT <- as.numeric(levels(umzuegeDFlong$ZEIT ))[umzuegeDFlong$ZEIT ]
+umzuegeDFlong$Gentri  <- factor(umzuegeDFlong$Gentri,levels(umzuegeDFlong$Gentri)[c(2,3,1)])
+names(umzuegeDFlong)[2] <- "Kategorie"
+#str(umzuegeDFlong)
+#View(umzuegeDFlong)
+
+ALLGfortzuegeRGENTRIplot <- ggplot(umzuegeDFlong, aes(ZEIT, FortzuegeR_mean, group = Kategorie, colour = Kategorie)) +
+  geom_line(size=0.7) +
+  theme(axis.title.y = element_text(face="bold",colour = "grey50"),
+        axis.title.x = element_blank(),
+        legend.text=element_text(colour = "grey50"),
+        legend.title=element_text(face="bold",colour = "grey50"),
+        legend.position="none",
+        plot.margin=unit(c(0.5,0.5,0.5,0.5), "cm")) +
+  ylab("Binnenfortzugsrate in %") +
+  scale_y_continuous(breaks=seq(3,14,1), limits=c(3,14))
+#ALLGfortzuegeRGENTRIplot
+
+ALLGzuzuegeUDARGENTRIplot <- ggplot(umzuegeDFlong, aes(ZEIT, ZuzuegeUDAR_mean, group = Kategorie, colour = Kategorie)) +
+  geom_line(size=0.7) +
+  theme(axis.title.y = element_text(face="bold",colour = "grey50"),
+        axis.title.x = element_blank(),
+        legend.text=element_text(colour = "grey50"),
+        legend.title=element_text(face="bold",colour = "grey50"),
+        legend.position=c(0.8,0.85),
+        plot.margin=unit(c(0.5,0.5,0.5,0.5), "cm")) +
+  ylab("Aussenzuzugsrate in %")  +
+  scale_y_continuous(breaks=seq(3,14,1), limits=c(3,14))
+#ALLGzuzuegeUDARGENTRIplot 
+
+grid.arrange(ALLGfortzuegeRGENTRIplot, ALLGzuzuegeUDARGENTRIplot, ncol=2, nrow=1, widths=c(1,1))

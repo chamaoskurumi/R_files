@@ -2,8 +2,9 @@
 
 \section{Zusammenfassung und Diskussion}\label{Sec:ZufsgDisku}
   \subsection{Forschungsergebnisse}
-politische Einflüsse und Neubau nicht berücksichtigt. 
-    Großteil der Aufwertungsgebiete fällt mit den Gebieten der größten Ertragslücken zusammen. Ist ist also von einem erhöhten Verdrängungsdruck sowie von exclusionary displacement auszugehen. Medianangebotsmieten verschleiern aber auch den Wegfall von billigen Angebotsmieten. Laut BBU und Gentrimap fehlen aber vor allem da die Wohunngen, also exclusionary displacement.
+
+Gentrificationbezogene Verdrängung. 
+Großteil der Aufwertungsgebiete fällt mit den Gebieten der größten Ertragslücken zusammen. Ist ist also von einem erhöhten Verdrängungsdruck sowie von exclusionary displacement auszugehen. 
 
    Auf der Grundlage von Daten aus dem Jahre 2003 charakterisierte \citet[S.~74]{Gebhardt2012} den Altbezirk Kreuzberg sowie Nord-Neukölln noch als Abwertungsgebiete mit teilweisen inselhaften Aufwertungstendenzen, welche hohe Wohnmobilität aufweisen und aus denen Teile der Mittelschicht in Randgebiete abwandern. Auch hier beobachten wir 2007-2012 eine hohe Wohnmobilität, jedoch mit flächendeckenden Aufwertungsprozessen.
 
@@ -20,9 +21,8 @@ Diskussion der Ergebnisse, was sagen zu jedem Verdrängungstypen
     \item Discuss results:
         \begin{itemize}
             \item Do the results support or do they contradict economic theory ?
-            \item What does the reader learn from the results?
+            \item What does the reader learn from the results? Gentrification bedeutet Aufwertung und Verdrängung. 
             \item Try to give an intuition for your results.
-            \item Provide robustness checks.
             \item Compare to previous research.
         \end{itemize}
 \end{itemize}
@@ -43,32 +43,52 @@ Beispielrechnung von bevölkerungsaustausch, Miete, Armutsquote etc.
 Wie hoch die Fortzugsraten in den Gentrigebieten Vergleich zu \citet[S.~58f.]{BBU2015} 1,89\% Gentri zu 1,40\% Kontroll für gesamte Innenstadt 1,38\%
 
 	\subsection{Diskussion und Schlussfolgerungen}	
-  \subsection{Grenzen der Analysen}
 
+
+  \subsection{Grenzen der Analysen}
+politische Einflüsse und Neubau nicht berücksichtigt. 
 Welche räumlicher Verlauf 2007-2012. Kein homogener Zeitraum. Binnenfortzugsraten sinken Stadtweit (plot in anhang? BBU verweis?)
 keine subjektiven Daten, hierfür auf Beran Verdrängung warten
 räumliche Stationaritätsannahme
 Dunkelziffern Informeller Wohnungsmarkt (auch illegale Untervermietungen), Meldeamt, 
+
+Medianangebotsmieten verschleiern aber auch den Wegfall von billigen Angebotsmieten. Laut BBU und Gentrimap fehlen aber vor allem da die Wohunngen, also exclusionary displacement.
+
+Wenn das Verdrängung ist was ich da messe - wo ziehen die Leute hin?
+
+Vor allem 
 
 
   \subsection{Ausblick}
 
 Liste von Ideen, was man noch weiter forschen kann
 
+Allgemein Daten und Methoden
 \begin{itemize}
 \item Update mit frischeren Daten bis 2015 oder so mit meinen Modellen
-\item Interaction Flows Modelling
-\item Subjectivity Verdrägung - Individuumsdaten
-\item Verdrängung aus dem Lebensstandard versuchen zu messen z.B. die Verteilung des Wohnraums pro Person. Flächenverbrauch steigt in Gentrivierteln, aber bei gleichzeitiger Verdrängung aus dem Lebensstandard ("doubling up with others", z.B. Kinder ziehen nicht mehr aus etc, Zimmer teilen, WGs ohne Wohnzimmer etc) müsste dies zu einer Polarisierung des Flächenverbrauches pro Kopf, also einer steigenden Varianz der Flächenverteilung pro Kopf kommen bzw. Verteilungsverschiebung. Ärmere immer weniger qm pro Person, Zugezogene mit höherem?
-\item Space-Time Panel Betrachtungen
-\item Umwandlungsproblematik Eigentumswohnungen und Eigentümerstruktur im Allgemeinen
-\item AirBnB Daten http://www.airbnbvsberlin.de/ mit Verdrägung
-\item Beschäftigungsstruktur auf Nachbarschaftsebene betrachten (so wie bei "Atkinson Measuring Gentri \& Displacement in London")
-\item Phasendifferenzierung in der Analyse (Anfangsphase viele Fotrtzuege, dann nicht mehr etc.)
-\item sequenzing zum clustering und ranking der Nachbarschaften ähnliche wie bei Zwiers, Kleinhans und van Ham (2015)
-\item CUPS Nachbarschaftstypologie erstellen
-\item Phasentypologie erstellen von Nachbarschaften und schauen ob es ein unterschiedliches Mobilitätsverhalten in verschiedenen Phasen gibt. 1.Phase höher, 2.Phase niedriger. 2.Phase beginnt wenn Differenz zwischen Bestandsmieten und Angebotsmieten zu groß wird. Um sowas auszurechnen fehlten mir leider die Bestandsmieten kleinräumig. In Berlin nehmen ja grade global die Binnenwanderungen weiter ab (BBU p.14)
-\item Analyse der Haushaltsgrößen in Aufwertungsgebieten vs. Kontrollgebiete. Verteilung in aufwertung: Mehr single und kleinere haushalte bei gleichzeitigem - Steigende Varianz in der Haushaltsgrößenverteilung indikator vielleicht displacement pressure (BBU p14) Hochrechnung des BBU "stieg die Zahl der Haushalte im zeitraum von 2002 bis 2012 um 9,2 Prozent und wuchs damit noch deutlich stärker als die Bevölkerung, die in diesem Zeitraum um 4,3 Prozent zunahm." Mikrozensusdaten
-\item Sozialwohnungsbestände und kommunale Wohnungsbauunternehmen: Wanderungsverhalten?
+Space-Time Panel Betrachtungen \citet{Pebesma2012}
+\item Interaction Flows Modelling \citet{LeSage2008,LeSage2010a,LeSage2014} Origin-Destination Flows Modelling Attribute nicht nur 
+\item Phasendifferenzierung in der Analyse (Anfangsphase viele Fotrtzuege, dann nicht mehr etc.) \citep{Slater2009} \citet{Friedrichs1996}
+Phasentypologie erstellen von Nachbarschaften und schauen ob es ein unterschiedliches Mobilitätsverhalten in verschiedenen Phasen gibt. 1.Phase höher, 2.Phase niedriger. 2.Phase beginnt wenn Differenz zwischen Bestandsmieten und Angebotsmieten zu groß wird. Um sowas auszurechnen fehlten mir leider die Bestandsmieten kleinräumig. In Berlin nehmen ja grade global die Binnenwanderungen weiter ab (BBU p.14)
+\item sequenzing zum clustering und ranking der Nachbarschaften ähnliche wie bei  \citep{Zwiers2015}
+\item CUPS Nachbarschaftstypologie erstellen \citep[S.~16ff.]{Robson2009}
+\end{itemize}
+
+
+Aufwertung Messen
+\begin{itemize}
+\item Umwandlungen in Eigentumswohnungen, Ferienwohnungen und AirBNB Eigentümerstruktur im Allgemeinen
+\item neubau
+\item Beschäftigungsstruktur auf Nachbarschaftsebene betrachten so wie bei \citep{Atkinson2000,Atkinson2011}
+\item Bestandsmietensteigerung
 \item Differenz Bestandsmieten-Angebotsmieten kleinräumig als Prädiktor für Fortzugsverhalten und soziale Aufwertung. In \citet{Berner2015} nur Stadtdurchschnitt ausgerechnet und in BBU Bestands und Angebotsmieten nur auf Bezirksebene (und auch nur von BBU Mitgliedsunternehmen).
+\end{itemize}
+
+
+Verdrängung Messen. Ich habe vorschlag gemacht zur Messung ökonomischer Verdrängung. Ausschließende 
+\begin{itemize}
+\item  Subjectivity Verdrägung - Individuumsdaten Einzeldaten (Beran) Freiwilligkeit und unfreiwilligkeit. Aber auch Assoziation von sozioökonomischen Attributen mit den Fortziehenden wie mit den Zuziehenden
+\item Verdrängung aus dem Lebensstandard versuchen zu messen z.B. die Verteilung des Wohnraums pro Person. Flächenverbrauch steigt in Gentrivierteln, aber bei gleichzeitiger Verdrängung aus dem Lebensstandard ("doubling up with others", z.B. Kinder ziehen nicht mehr aus etc, Zimmer teilen, WGs ohne Wohnzimmer etc) müsste dies zu einer Polarisierung des Flächenverbrauches pro Kopf, also einer steigenden Varianz der Flächenverteilung pro Kopf kommen bzw. Verteilungsverschiebung. Ärmere immer weniger qm pro Person, Zugezogene mit höherem?
+\item Ausschließende Verdrängung Analyse der Haushaltsgrößen in Aufwertungsgebieten vs. Kontrollgebiete. Verteilung in aufwertung: Mehr single und kleinere haushalte bei gleichzeitigem - Steigende Varianz in der Haushaltsgrößenverteilung indikator vielleicht displacement pressure (BBU p14) Hochrechnung des BBU "stieg die Zahl der Haushalte im zeitraum von 2002 bis 2012 um 9,2 Prozent und wuchs damit noch deutlich stärker als die Bevölkerung, die in diesem Zeitraum um 4,3 Prozent zunahm." Mikrozensusdaten
+\item Physische Verdrängung die Studie zu Zwangsräumungen von \citep{Berner2015} . Weitere Statistiken über physische Verdrängung vielleicht über Daten der Mieterorganisationen. Fabian Beran \footnote{Projektbeschreibung unter \url{geographie.hu-berlin.de/de/abteilungen/angewandte-geographie/forschung/verdraengung-berlin}}
 \end{itemize}
