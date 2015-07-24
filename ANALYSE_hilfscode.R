@@ -1079,6 +1079,49 @@ wtd.mean(x=LOR4reg@data$Mietechgr[LOR4reg@data$Gentri=="Gentri"],
 # 0.7692435
 (5.6981*0.135)*6
 # 4.615461
+
+#### Mietechgr TABELLE nach Kategorie ####
+
+wtd.quantile(x=bpDF$Mietechgr[bpDF$Gentri=="Gentri"], 
+             weights=bpDF$E_E.2007[bpDF$Gentri=="Gentri"],
+             probs=c(0, .25, .5, .75, 1))
+
+wtd.quantile(x=bpDF$Mietechgr[bpDF$Gentri=="Kontroll"], 
+             weights=bpDF$E_E.2007[bpDF$Gentri=="Kontroll"],
+             probs=c(0, .25, .5, .75, 1))
+
+wtd.quantile(x=bpDF$Mietechgr, 
+             weights=bpDF$E_E.2007,
+             probs=c(0, .25, .5, .75, 1))
+
+wtd.mean(x=bpDF$Mietechgr[bpDF$Gentri=="Gentri"], 
+         weights=bpDF$E_E.2007[bpDF$Gentri=="Gentri"])
+wtd.mean(x=bpDF$Mietechgr[bpDF$Gentri=="Kontroll"], 
+         weights=bpDF$E_E.2007[bpDF$Gentri=="Kontroll"])
+wtd.mean(x=bpDF$Mietechgr, 
+         weights=bpDF$E_E.2007)
+
+#### Armutchg TABELLE nach Kategorie ####
+
+wtd.quantile(x=bpDF$Armutchg[bpDF$Gentri=="Gentri"], 
+             weights=bpDF$E_E.2007[bpDF$Gentri=="Gentri"],
+             probs=c(0, .25, .5, .75, 1))
+
+wtd.quantile(x=bpDF$Armutchg[bpDF$Gentri=="Kontroll"], 
+             weights=bpDF$E_E.2007[bpDF$Gentri=="Kontroll"],
+             probs=c(0, .25, .5, .75, 1))
+
+wtd.quantile(x=bpDF$Armutchg, 
+             weights=bpDF$E_E.2007,
+             probs=c(0, .25, .5, .75, 1))
+
+wtd.mean(x=bpDF$Armutchg[bpDF$Gentri=="Gentri"], 
+         weights=bpDF$E_E.2007[bpDF$Gentri=="Gentri"])
+wtd.mean(x=bpDF$Armutchg[bpDF$Gentri=="Kontroll"], 
+         weights=bpDF$E_E.2007[bpDF$Gentri=="Kontroll"])
+wtd.mean(x=bpDF$Armutchg, 
+         weights=bpDF$E_E.2007)
+
   
 #************************************
 ####*****   INTRA LOR UMZÜGE ****####

@@ -194,11 +194,15 @@ knit_hooks$set(crop=hook_pdfcrop)
 
 % figures (not mandatory)
 \newpage
+\renewcommand\thefigure{\thesection.\arabic{figure}}   
+\setcounter{figure}{0}    
 <<'child-Anhang/Anhang_Abbildungen.Rnw', child='Anhang/Anhang_Abbildungen.Rnw'>>=
 @
 
 % tables (not mandatory)
 \newpage
+\renewcommand\thetable{\thesection.\arabic{table}} 
+\setcounter{table}{0}   
 \input{Anhang/Anhang_Tabellen}
 
 
