@@ -8,7 +8,7 @@
 Sys.setlocale("LC_ALL", 'en_GB.UTF-8')
 Sys.setenv(LANG = "en_US.UTF-8")
 
-# ____ Packages ______ ----------------------------------------------------------------
+# ____ Packages ______ -----
 
 #install.packages(c("spdep",      "sp",      "maptools", "lattice", 
 #                   "rgdal",      "rgeos",   "foreign",  "PBSmapping",
@@ -38,7 +38,7 @@ library("reshape2")
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 EW_files <- dir(path="EW_-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_-LOR-/")
-EW <- lapply(EW_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE,
+EW <- lapply(EW_files, read.table, header = TRUE, sep=";",fill=TRUE,
              dec=",", stringsAsFactors =F, colClasses=c(RAUMID="factor"))
 EW <- do.call("rbind", EW) # aus Liste von data.frames einen long Datensatz machen
 EW$ZEIT[EW$ZEIT == 200712] <- 2007
@@ -57,7 +57,7 @@ str(EW)
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 WHNDAUER_files <- dir(path="EW_Wohndauer_-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_Wohndauer_-LOR-/")
-WHNDAUER <- lapply(WHNDAUER_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE,
+WHNDAUER <- lapply(WHNDAUER_files, read.table, header = TRUE, sep=";",fill=TRUE,
                    dec=",", stringsAsFactors =F, colClasses=c(RAUMID="factor"))
 WHNDAUER <- do.call("rbind", WHNDAUER) # aus Liste von data.frames einen long Datensatz machen
 
@@ -72,10 +72,10 @@ str(WHNDAUER)
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 WHNLAGE_files <- dir(path="EW_Wohnlage_-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_Wohnlage_-LOR-/")
-WHNLAGE <- lapply(WHNLAGE_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE,
+WHNLAGE <- lapply(WHNLAGE_files, read.table, header = TRUE, sep=";",fill=TRUE,
                   dec=",", stringsAsFactors =F, colClasses=c(RAUMID="factor"))
 names(WHNLAGE[[4]]) <- names(WHNLAGE[[5]])
-WHNLAGE <- lapply(WHNLAGE, FUN = function(x) {names(x) <- toupper(names(x))
+WHNLAGE <- lapply(WHNLAGE, function(x) {names(x) <- toupper(names(x))
                                               x}) # Variablennamen vereinheitlichen (alle upper case)
 WHNLAGE <- do.call("rbind", WHNLAGE) # aus Liste von data.frames einen long Datensatz machen
 WHNLAGE$WLEINFOL <- as.numeric(WHNLAGE$WLEINFOL)
@@ -102,7 +102,7 @@ WHNLAGE$ZEIT[WHNLAGE$ZEIT == 201312] <- 2013
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 ALTERAUSLAENDER_files <- dir(path="EW_Alter_Auslaender_-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_Alter_Auslaender_-LOR-/")
-ALTERAUSLAENDER <- lapply(ALTERAUSLAENDER_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE,
+ALTERAUSLAENDER <- lapply(ALTERAUSLAENDER_files, read.table, header = TRUE, sep=";",fill=TRUE,
                           dec=",", stringsAsFactors =F, colClasses=c(RAUMID="factor"))
 ALTERAUSLAENDER <- do.call("rbind", ALTERAUSLAENDER) # aus Liste von data.frames einen long Datensatz machen
 ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 200712] <- 2007
@@ -123,7 +123,7 @@ ALTERAUSLAENDER$ZEIT[ALTERAUSLAENDER$ZEIT == 201312] <- 2013
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 MIGHINTERE_files <- dir(path="EW_Migrationshintergrund_E-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_Migrationshintergrund_E-LOR-/")
-MIGHINTERE <- lapply(MIGHINTERE_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE,
+MIGHINTERE <- lapply(MIGHINTERE_files, read.table, header = TRUE, sep=";",fill=TRUE,
                      dec=",", stringsAsFactors =F, colClasses=c(RAUMID="factor"))
 
 MIGHINTERE <- do.call("rbind", MIGHINTERE) # aus Liste von data.frames einen long Datensatz machen
@@ -145,7 +145,7 @@ str(MIGHINTERE)
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 MIGHINTERH_files <- dir(path="EW_Migrationshintergrund_H-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/EW_Migrationshintergrund_H-LOR-/")
-MIGHINTERH <- lapply(MIGHINTERH_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE,
+MIGHINTERH <- lapply(MIGHINTERH_files, read.table, header = TRUE, sep=";",fill=TRUE,
                     dec=",", stringsAsFactors =F, colClasses=c(RAUMID="factor"))
 MIGHINTERH[[7]][,10] <- NA # für 2014 gibt es nur EU28 und nicht EU27
 colnames(MIGHINTERH[[7]])[10] <- "HK_EU27"
@@ -168,7 +168,7 @@ MIGHINTERH$ZEIT[MIGHINTERH$ZEIT == 201312] <- 2013
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 MONITORING_files <- dir(path="MonitoringSozStadtEnt_-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/MonitoringSozStadtEnt_-LOR-/")
-MONITORING <- lapply(MONITORING_files, FUN = read.table, header = TRUE, sep=",",fill=TRUE,
+MONITORING <- lapply(MONITORING_files,   read.table, header = TRUE, sep=",",fill=TRUE,
                      dec=",", stringsAsFactors =F, colClasses=c(RAUMID="factor"))
 MONITORING <- do.call("rbind", MONITORING) # aus Liste von data.frames einen long Datensatz machen
 # hier stimmen die Jahreszahlen bereits
@@ -206,7 +206,7 @@ MONITORING$GEBIET <- factor(MONITORING$GEBIET)
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 KONTEXTIND_files <- dir(path="KontextIndikatoren_-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/KontextIndikatoren_-LOR-/")
-KONTEXTIND <- lapply(KONTEXTIND_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE,
+KONTEXTIND <- lapply(KONTEXTIND_files, read.table, header = TRUE, sep=";",fill=TRUE,
                      dec=",", stringsAsFactors=F, colClasses=c(RAUMID="factor"))
 KONTEXTIND <- do.call("rbind", KONTEXTIND) # aus Liste von data.frames einen long Datensatz machen
 str(KONTEXTIND)
@@ -291,7 +291,7 @@ VPI <- read.table("Verbraucherpreisindex/Verbraucherpreisindex2004_2014.csv",
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 BINNENWAND_files <- dir(path="Binnenwanderungen_-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/Binnenwanderungen_-LOR-/")
-BINNENWAND <- lapply(BINNENWAND_files, FUN = read.table, header = TRUE, sep=",",fill=TRUE,
+BINNENWAND <- lapply(BINNENWAND_files, read.table, header = TRUE, sep=",",fill=TRUE,
                      dec=",", stringsAsFactors =F, colClasses=c("factor","factor","integer"))
 colnames(BINNENWAND[[5]])[1] <- "VonLOR"
 colnames(BINNENWAND[[5]])[2] <- "NachLOR"
@@ -572,7 +572,7 @@ FORTZUEGEZUZUEGEdf <- merge(FORTZUEGEdf,
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 AUSSENWANDU_files <- dir(path="Aussenwanderungen_Umland_-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/Aussenwanderungen_Umland_-LOR-/")
-AUSSENWANDU <- lapply(AUSSENWANDU_files, FUN = read.table, header = TRUE, sep=";",fill=TRUE,
+AUSSENWANDU <- lapply(AUSSENWANDU_files, read.table, header = TRUE, sep=";",fill=TRUE,
                      dec=",", stringsAsFactors =F, colClasses=c("factor","factor","integer","integer"))
 
 AUSSENWANDU[[1]] -> AUSSENWANDU.2007
@@ -706,7 +706,7 @@ AUSSENWANDUdf <- data.frame(AUSSENWANDU.2007[,c(1,3,4)],AUSSENWANDU.2008[,3:4],A
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data")
 AUSSENWANDIA_files <- dir(path="Aussenwanderungen_InAusland_-LOR-/", pattern = glob2rx("*.csv"))
 setwd(dir = "/home/dao/Desktop/MasterArbeit/R_data/Aussenwanderungen_InAusland_-LOR-/")
-AUSSENWANDIA <- lapply(AUSSENWANDIA_files, FUN = read.table, header = TRUE, sep=",",fill=TRUE,
+AUSSENWANDIA <- lapply(AUSSENWANDIA_files, read.table, header = TRUE, sep=",",fill=TRUE,
                       dec=",", stringsAsFactors =F, colClasses=c("factor","factor","integer",
                                                                  "integer","integer","integer"))
 
@@ -854,8 +854,6 @@ setwd("/home/dao/Desktop/MasterArbeit/GentriMap/4 Geodaten")
 IS       <- readOGR(dsn="ImmoScout", layer="Berlin_BGID_projected")
 zielCRS  <- IS@proj4string
 # EPSG 3068 SOLDNER BERLIN
-#zielCRS <- CRS("+proj=cass +lat_0=52.41864827777778 +lon_0=13.62720366666667 +x_0=40000 +y_0=10000 +datum=potsdam +units=m
-#+no_defs +ellps=bessel +towgs84=598.1,73.7,418.2,0.202,0.045,-2.455,6.7 ")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ---- b.) Postleitzahlen PLZ ----
@@ -899,7 +897,6 @@ LORslim         <- LOR
 #plot(LOR)
 #plot(BZR)
 #plot(BZK)
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ---- d.) S-Bahn Ring ----
@@ -953,8 +950,6 @@ bloecke07_attributes <- read.dbf(file = "2007_EPSG3068/06_06ewdichte2007_Flaeche
 bloecke07_attributes$order <- seq(1:length(bloecke07_attributes$SCHLUESSEL))
 head(bloecke07_attributes)
 
-
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # Problem mit Attributsdaten; Es werden nicht alle Blöcke zugeordnet! Aber nur 5555 Einwohner
 # EW_07 <- merge(bloecke07_attributes, EW_07_raw, by="SCHLUESSEL", all.x=T, all.y=T)
 # nichtZuordenbar07 <- subset(EW_07_raw, EW_07_raw$EINWOHNER>0 & is.na(EW_07_raw$EW_PRO_HA)) # diese 38 Fälle sind das Problem
@@ -963,7 +958,6 @@ head(bloecke07_attributes)
 # table(EW_07$KLASSENNAM, useNA=c("always"))
 # subset(EW_07,is.na(EW_07$KLASSENNAM))
 # subset(EW_07, EW_07$EINWOHNER>0 & (is.na(EW_07$FLAECHE_IN)))
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 #### --> Deswegen nochmal mit all.y=FALSE
 
