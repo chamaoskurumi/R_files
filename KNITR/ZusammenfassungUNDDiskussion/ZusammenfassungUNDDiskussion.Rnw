@@ -2,36 +2,43 @@
 
 \section{Fazit}\label{Sec:ZufsgDisku}
 
-  \subsection{Zusammenfassung}
+\paragraph{Einordnung}
+Ziel dieser Arbeit war es, Gentrificationgebiete in Berlin auf Nachbarschaftsniveau zu identifizieren und zu charakterisieren. Überdies sollte der Zusammenhang zwischen Aufwertung und Verdrängung untersucht und gemessen werden. Zu diesem Zweck wurden der konzeptionelle Rahmen und die quantitative Methodik bisheriger Gentrificationforschung weiterentwickelt, aber auch neue methodische Ansätze eingeführt. Zu den zentralen Erweiterungen und Neuerungen dieser Studie gehörten:
+\begin{itemize}
+\item Die Weiterentwicklung der begrifflichen Bestimmung von Gentrification, Aufwertung und Verdrängung sowie ihres theoretischen Zusammenhangs,
+\item die Weiterentwicklung deskriptiver Methodik zur empirischen Identifikation und vergleichenden Charakterisierung von Gentrificationgebieten,
+\item die Innovation einer prozessbasierten, inferenziellen Methodik zur differenzierten Quantifizierung des Zusammenhangs zwischen Aufwertung und Verdrängung, 
+\item die Entwicklung einer Methodik zur aggregatsdatenbasierten Schätzung ökonomischer Verdrängung, sowie
+\item die Durchführung der bisher räumlich feinsten, stadtweiten Studie zur Messung von Gentrification in Berlin.
+\end{itemize}
+Mit der kleinräumigen, systematischen Erfassung von Aufwertung und Verdrängung versuchte diese Arbeit einerseits zur Schließung einer Lücke in der deutschen Gentrificationliteratur beizutragen, sowie andererseits methodische Unzulänglichkeiten vergleichbarer internationaler Studien zu beheben.
 
-\paragraph{Konzeption und Methodik}
-Zu Beginn der Arbeit wurde ein konzeptioneller Rahmen entwickelt, der zunächst die begrifflichen Fundamente zur empirischen Analyse legte, dann die theoretische Grundlage zur Entwicklung der Forschungshypothesen schuf. Gentrification wurde hierbei als Konjunktion von immobilienwirtschaftlicher und sozialer Aufwertung definiert. Die rent-gap Theorie lieferte eine plausible politisch-ökonomische Theorie, warum ein notwendige Wechselwirkung zwischen diesen beiden Aufwertungsformen besteht. Während Gentrification vom Standpunkt der politischen Ökonomie als Konjunktion von Aufwertung erscheint, so manifestiert sich Gentrification aus soziologischer Perspektive im Wesentlichen als Verdrängung. Der Zusammenhang zwischen Aufwertung und Verdrängung ist jedoch weder als epiphänomenal, noch als strikt chronologisch zu denken. Die Verknüpfung von Aufwertung und Verdrängung bei Gentrificationprozessen ist logisch, da die Schließung von Ertragslücken Verdrängung erfordert und sich damit ein Bevölkerungsaustausch mit Zuzug von Bewohner*innen von höherem sozioökonomischen Status vollzieht, d.h. sich als soziale Aufwertung ausdrückt. Die theoretisch begründeten Zusammenhänge mündeten schließlich in der Formulierung von konkreten Forschungsfragen und -hypothesen. Im Zentrum der Forschungshypothesen stand die postulierte Verknüpfung zwischen Aufwertung und Verdrängung. Als Grundlage für die Operationalisierung der Forschungshypothesen dienten soziale, demographische und immobilienwirtschaftliche Daten auf dem administrativen Raumniveau der sogenannten Planungsräume (LOR). Deren räumliche Auflösung entspricht in etwa das Niveau von Nachbarschaften bis Ortsteilen. Um das Risiko von statistischen Verzerrungen und Effizienzeinbußen zu minimieren, wurden 18 der 447 LOR vor der Analyse ausgeschlossen, sodass sich die empirischen Untersuchungen auf die verbleibenden 429 LOR beschränkte. Der Beobachtungszeitraum erstreckte sich von 2007 bis 2012. Zur Bearbeitung der Unterschiedshypothesen wurden rein deskriptive Methoden verwendet. Hierfür wurden in einem ersten Schritt die LOR in Gentrification-, Kontroll- und andere Gebiete klassifiziert. Diese Klassifizierung ermöglichte schließlich die Überprüfung der Unterschiedshypothesen anhand einer vergleichenden Charakterisierung der Gebietskategorien. Kausalhypothesen hingegen wurden mit Hilfe von inferenziellen Methoden überprüft. Hierfür wurden gewichtete SAR Modelle angepasst, deren geschätzte partielle Korrelationen im Sinne einer prozessbasierten Inferenz interpretiert wurden. 
-\paragraph{Forschungsergebnisse} (Tab.~\ref{tab:HypoErgebnisse})
-Zu Beginn der empirischen Analyse wurden diejenigen Nachbarschaften identifiziert und lokalisiert, die zwischen 2007 und 2012 die stärksten immbilienwirtschaftlichen und sozialen Aufwertungsdynamiken erfuhren. Diese Nachbarschaften wurden in der Folge als Gentrificationgebiete bezeichnet. Die meisten Gentrificationgebiete fielen in die innerstädtischen Altbezirke Kreuzberg, Friedrichshain, sowie ins nördliche Neukölln. Überdies wurden Teile von Pankow, Prenzlauer Berg und dem Osten Charlottenburgs als Gentrificationgebiete klassifiziert. Die zum Vergleich definierten Kontrollgebiete befanden sich hauptsächlich in Moabit, Schöneberg, sowie diversen Außenbezirken. Bei der Klassifizierung der Nachbarschaften bestätigte sich der durch die \textit{rent-gap} Theorie postulierte Zusammenhang zwischen immobilienwirtschaftlicher und sozialer Aufwertung durch eine hohe statistische Korrelation.
-Nach der Identifikation der Gentrificationgebiete konnte auch die durch die \textit{rent-gap} Theorie motivierte H~1 überprüft werden, ob innenstadtnahe Nachbarschaften mit hohen Armutsquoten und günstigen Mieten am stärksten von Gentrificationprozessen betroffen sind. Diese Vermutung bestätigte sich jedoch nur teilweise. Zwar waren starke Gentrificationprozesse hauptsächlich in überdurchschnittlich armen und günstigen Nachbarschaften der Innenstadt zu beobachten. Jedoch nicht \textit{nur} dort. So waren innerstädtische Gebiete des ehemals mittleren Preissegments ebenfalls stark von Gentrificationprozessen betroffen und auch unterdurchschnittlich arme Gebiete erfuhren vereinzelt starke Gentrificationprozesse. Trotz dieser Einschränkungen lieferte die grundsätzliche Bestätigung der Hypothese deutliche Evidenz für die Validität der \textit{rent-gap} Theorie als Erklärungsansatz von Gentrification in Berlin.
-Im Weiteren wurden die Hypothesen H~2.1 und H~2.2 zum Zusammenhang zwischen Aufwertung und Umzugsverhalten überprüft, um Indizien für gentrificationbezogene Verdrängung zu sammeln. Es bestätigte sich H~2.1, nach der Gentrificationgebiete besonders attraktiv für Zuziehende sind - absolut, wie auch im Vergleich zu ähnlichen Nachbarschaften, welche schwächere Aufwertungsdynamiken durchliefen. Die Bestätigung von H~2.1 ist einerseits als Indiz für Verdrängung, andererseits als empirischer Ausdruck der Wechselwirkung zwischen Aufwertung und Verdrängung zu interpretieren. Desweiteren konnte gezeigt werden, dass Gentrificationgebiete weitaus höhere Binnenfortzugsraten als vergleichbare Gebiete besitzen und H~2.2a damit eindeutig bestätigt wurde. In Gentrificationgebieten herrschten also generell höhere Umzugsraten als in vergleichbaren Gebieten, was die Schlussfolgerung nahe legt, dass die dortige Senkung der Armutsquoten in erster Linie vermöge systematischer Verdrängung der Bewohner*innen erfolgte. Überdies können hohe Umzugsraten zweifellos als Beschleuniger von Aufwertung gelten, denn je höher die Umzugsraten, desto schneller der Bevölkerungsaustausch, desto verbreiteter die Möglichkeit zum Ertragslückenschluss durch Umwandlung oder Wiedervermietung und umso rascher die soziale Aufwertung.
-
+\paragraph{Forschungsergebnisse} Im Folgenden werden die zentralen Forschungergebnisse zusammengefasst und die einzelnen Forschungshypothesen chronologisch rekapituliert (Tab.~\ref{tab:HypoErgebnisse}). Die am stärksten von Gentrification betroffenen Nachbarschaften fielen in die innerstädtischen Altbezirke Kreuzberg, Friedrichshain, sowie ins nördliche Neukölln. Überdies wurden auch Teile von Pankow, Prenzlauer Berg und dem Osten Charlottenburgs als Gentrificationgebiete klassifiziert. Bei der Klassifizierung der Nachbarschaften wurde ein starker empirischer Zusammenhang zwischen immobilienwirtschaftlicher und sozialer Aufwertung festgestellt, wie er in der Gentrificationforschung durch die rent-gap Theorie postuliert wird. Die nach der rent-gap Theorie motivierte Forschungshypothese~1, nach der innenstadtnahe Nachbarschaften mit hohen Armutsquoten und günstigen Mieten am stärksten von Gentrificationprozessen betroffen sind, bestätigte sich jedoch nur teilweise. Zwar waren starke Gentrificationprozesse hauptsächlich in überdurchschnittlich armen und günstigen Nachbarschaften der Innenstadt zu beobachten, jedoch nicht \textit{nur} dort. So waren innerstädtische Gebiete des ehemals mittleren Preissegments ebenfalls stark von Gentrificationprozessen betroffen und auch unterdurchschnittlich arme Gebiete erfuhren vereinzelt starke Gentrificationprozesse. Trotz dieser Einschränkungen lieferte die grundsätzliche Bestätigung von H~1 deutliche Evidenz für die Validität der rent-gap Theorie als Erklärungsansatz von Gentrification in Berlin.\\
 
 \begin{table}[ht]
 \centering
 \begin{tabular}{@{}llc@{}}
 \toprule
-\multicolumn{2}{l}{{\bf Hypothese}}                     & {\bf Ergebnis} \\ \midrule \\[-1.8ex]
-\multicolumn{2}{l}{{\it Unterschiedshypothesen}}                   &                \\ \\[-1.8ex]
-H 1    &  rent-gap Theorie                                         & +/--            \\
- \rowcolor[HTML]{EFEFEF} H 2.1  & Erhöhter Aussenzuzug                                      & +              \\
+\multicolumn{2}{l}{{\bf Hypothese}}                     & {\bf Ergebnis} \\ \midrule 
+\multicolumn{2}{l}{{\it Unterschiedshypothesen}}                   &                \\ 
+H 1    &  Rent-gap Theorie                                         & +/--            \\
+ \rowcolor[HTML]{EFEFEF} H 2.1  & Erhöhte Aussenzuzüge                                      & +              \\
 H 2.2a & Erhöhte Binnenfortzüge                                    & +              \\
-\rowcolor[HTML]{EFEFEF} H 2.2b & Niedrige Binnenfortzüge                                   & --              \\ \\
-\multicolumn{2}{l}{{\it Kausalhypothesen }}                                         &                \\ \\[-1.8ex]
+\rowcolor[HTML]{EFEFEF} H 2.2b & Niedrige Binnenfortzüge                                   & --              \\ \\[-1.8ex]
+\multicolumn{2}{l}{{\it Kausalhypothesen }}                                         &                \\
 H 3.1  & Armut $\stackrel{+}\longrightarrow$ Binnenfortzüge            & +              \\ 
 \rowcolor[HTML]{EFEFEF} H 3.2a & Immo. Aufwertung $\stackrel{+}\longrightarrow$ Binnenfortzüge & +              \\
 H 3.2b & Immo. Aufwertung $\stackrel{-}\longrightarrow$ Binnenfortzüge & --              \\
-\rowcolor[HTML]{EFEFEF} H 3.3  & Soziale Aufwertung $\stackrel{+}\longleftrightarrow$ Umzüge   & --              \\ \\[-1.8ex] \bottomrule \\[-1.8ex]
+\rowcolor[HTML]{EFEFEF} H 3.3  & Soziale Aufwertung $\stackrel{+}\longleftrightarrow$ Umzüge   & --              \\ \bottomrule 
  \multicolumn{3}{r}{{\footnotesize + = Bestätigung; +/-- = teilweise Bestätigung; -- = keine Bestätigung}}\\ 
 \end{tabular}
 \caption{Ergebnisübersicht nach Hypothesenüberprüfung}\label{tab:HypoErgebnisse}
 \end{table}
 
+Bei der Analyse des Zusammenhang zwischen Aufwertung und Umzugsverhalten bestätigte sich auch H~2.1, nach der Gentrificationgebiete besonders attraktiv für Zuziehende sind: Gentrificationgebiete besaßen im Durchschnitt eine knapp 70\% höhere Außenzuzugsraten und ca. 10\% höhere Binnenzuzugsraten als die Kontrollgebiete. Die epirische Evidenz für H~2.1 ist einerseits als notwendiges Indiz für Verdrängung, andererseits als Ausdruck der Wechselwirkung zwischen Aufwertung und Verdrängung zu interpretieren. In der Folge konnte gezeigt werden, dass Gentrificationgebiete weitaus höhere Binnenfortzugsraten als vergleichbare Gebiete besitzen, was die entsprechende Forschungshypothese 2.2a ebenfalls bestätigte. Die Binnenfortzugsraten der Gentrificationgebiete lagen knapp 30\% über denen der Kontrollgebiete - was ein weiteres, noch stärkeres Indiz für Verdrängung lieferte. In der Summe legten die generell höheren Umzugsraten in den Gentrificationgebieten die Schlussfolgerung nahe, dass die dortige Senkung der Armutsquoten in erster Linie vermöge systematischer Verdrängung der Bewohner*innen erfolgte. Überdies können hohe Umzugsraten zweifelsohne als Beschleuniger von Aufwertung gelten, denn je höher die Umzugsraten, desto schneller der Bevölkerungsaustausch, desto verbreiteter die Möglichkeit zum Ertragslückenschluss durch Umwandlung oder Wiedervermietung und umso rascher die soziale Aufwertung.\\
+Bei der Überprüfung der Kausalhypothesen bestätigte sich zunächst die Vermutung H~3.1, nach der höhere Armutsquoten in einer Nachbarschaft zu höheren Binnenfortzugsraten führen. Dies suggeriert, dass gerade in den ärmeren Gebieten der für die Immobilienwirtschaft besonders interessanten Innenstadt Aufwertung erheblich durch die armutsbedingten, höheren Binnenfortzugsraten beschleunigt wird. Armut kann also  immobilienwirtschaftliche und soziale Aufwertung katalysieren. Auch H~3.2a konnte klar bestätigt werden:
+Die Binnenfortzugsrate einer Nachbarschaft erwies sich als umso höher, je stärker die dortige immobilienwirtschaftliche Aufwertungsdynamik. Dieser Befund lieferte starke Evidenz für gentrificationbedingte, ökonomische Verdrängung in Berlin. Immobilienwirtschaftliche Aufwertung verursacht demnach den unfreiwilligen Umzug eines Teils der Berliner Bevölkerung. Der Anteil ökonomisch Verdrängter an der Bevölkerung wurde in der Summe der Jahre 2007 bis 2012 für die Gentrificationgebieten auf mindestens 4,62\% und berlinweit auf mindestens 2,30\% geschätzt. Zuletzt konnte keine empirische Evidenz für die Forschungshypothese 3.3, welche einen positiven Zusammenhang zwischen sozialer Aufwertungsdynamik und wohnräumlicher Mobilität postulierte, gefunden werden. Dieses Ergebnis war überraschenend, da die Gentrificationtheorie wie auch alle vorherigen empirischen Ergebnisse einen solchen Zusammenhang nahe legten. 
+Alle Ergebnisse der Hypothesenüberprüfung erwiesen sich nach diversen Gegenproben (Verschiebung der Schwellenwerte bei der Gebietsklassifizierung, Beschränkung der Analyse auf die innere Stadt, Ausschluss von verzerrenden Ausreißern) als robust. 
 
 \subsection{Einordnung und Grenzen der Studie}
 
@@ -42,18 +49,6 @@ H 3.2b & Immo. Aufwertung $\stackrel{-}\longrightarrow$ Binnenfortzüge & --    
     Welche Ausblicke für die Zukunft eröffnen sich?
     Wo/inwieweit muss die künftige Arbeitsweise abgeändert werden?
     Auch eventuelle Appelle oder eine Schlussfrage sind möglich.
-\paragraph{Einordnung der Methodik}
-
-Ziel dieser Arbeit war es, Gentrificationgebiete in Berlin auf Nachbarschaftsniveau zu identifizieren und zu charakterisieren. Überdies sollte der Zusammenhang zwischen Aufwertung und Verdrängung untersucht und gemessen werden. Zu diesem Zweck wurden der konzeptionelle Rahmen und die quantitative Methodik bisheriger Forschung weiterentwickelt, aber auch neue methodische Ansätze eingeführt. Zu den zentralen Erweiterungen und Neuerungen dieser Arbeit gehörten:
-
-\begin{itemize}
-\item Die Weiterentwicklung der begrifflichen Bestimmung von Gentrification, Aufwertung und Verdrängung sowie ihres theoretischen Zusammenhangs,
-\item die Weiterentwicklung der Methodologie zur empirischen Identifikation und vergleichenden Charakterisierung von Gentrificationgebieten,
-\item die erstmalige Anwendung räumlicher Regressionen zur prozessbasierten Inferenz von Aggregatsdaten,
-\item die Entwicklung einer Methodik zur Erfassung und Quantifizierung des Zusammenhangs zwischen Aufwertung und Verdrängung, sowie
-\item die Durchführung der bisher räumlich feinsten, stadtweiten Studie zur Messung von Gentrification in Berlin.
-\end{itemize}
-Mit der kleinräumigen, systematischen Erfassung von Aufwertung und Verdrängung versuchte diese Arbeit einerseits zur Schließung einer Lücke in der deutschen Gentrificationliteratur beizutragen, sowie andererseits einige methodische Unzulänglichkeiten internationaler Studien zu beheben.
 
 \paragraph{Einordnung der Forschungsergebnisse}
 Do the results support or do they contradict gentri theory ?
@@ -74,6 +69,10 @@ Statistisch sorgfältige und transparent. Transparenz auch durch die Veröffentl
 
 
  Auf der Grundlage von Daten aus dem Jahre 2003 charakterisierte \citet[S.~74]{Gebhardt2012} den Altbezirk Kreuzberg sowie Nord-Neukölln noch als Abwertungsgebiete mit teilweisen inselhaften Aufwertungstendenzen, welche hohe Wohnmobilität aufweisen und aus denen Teile der Mittelschicht in Randgebiete abwandern. Auch hier beobachten wir 2007-2012 eine hohe Wohnmobilität, jedoch mit flächendeckenden Aufwertungsprozessen.
+
+\citet[S.~31]{Newman2006a} table
+
+"`However, our displacement rates are slightly higher, reaching between 6.6 and 9.9 per cent of all local moves among renter households. We expect that both figures underestimate actual displacement"' \citep[S.~51]{Newman2006a}
 
 Diskussion der Ergebnisse, was sagen zu jedem Verdrängungstypen
 

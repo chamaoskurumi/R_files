@@ -9,6 +9,8 @@
 Investitionen nicht notwendig für Aufwertung, da 
 Hiermit ist nicht notwendigerweise eine bauliche Aufwertung gemeint. In Berlin auf immobilienwirtschaftliche Aufwertung auch ohne bauliche Aufwertung möglich \citep[S.~30]{Berner2015} 
 
+New Yorker Behörden rental market emergency defined as a rental vacancy rate under 5\% \citet[S.~2607]{Wyly2010} I
+
  \begin{itemize}
 
 \item \textit{Gestiegene Nachfrage} \\
@@ -58,3 +60,22 @@ Durch die statistische Modellierung des Zusammenhang zwischen immoblienwirtschaf
 Zunächst soll mit Hilfe stadtsoziologischer Theorie der konzeptionelle Rahmen für die Studie bestimmt und Begriffsdefinitionen gesetzt werden. Auf Grundlage des aktuellen Forschungsstandes werden Forschungsfragen entwickelt und Hypothesen formuliert. \\
 Im ersten Schritt sollen mit den Methoden explorativer Datenanalyse eine räumliche Identifizierung und Quantifizierung von Gentrificationprozessen in Berlin vorgenommen werden. Die identifizierten Aufwertungsgebiete werden in einem Vergleich mit entsprechenden Kontrollgebieten genauer charaktierisiert. In einem zweiten Schritt werden räumlich autoregressive Modelle (SAR) geschätzt um einerseits den Effekt immobilienwirtschaftlicher Aufwertungsdynamik auf die wohnräumliche Mobilität der Berliner Bevölkerung zu messen und andereseits um den Charakter und Ausmaß der Interaktion zwischen sozialer Aufwertungsdynamik und wohnräumlicher Mobilität zu bestimmen. Die Ergebnisse der Regressionsmodelle werden dann im Kontext Marcuses Verdrängungstypen intepretiert und analysiert.
 \end{itemize}
+
+\citet[S.~51]{Newman2006a}
+Underestimating displacement involves
+high costs for theoretical understanding of
+neighbourhood change and even higher tolls
+for poor and working-class residents and the
+tattered policies in place to give them some
+protection. Those who are forced to leave gen-
+trifying neighbourhoods are torn from rich
+local social networks of information and co-
+operation (the ‘social capital’ much beloved
+by policy-makers); they are thrown into an
+ever more competitive housing market
+shaped by increasingly difficult trade-offs
+between affordability, overcrowding and
+commuting accessibility to jobs and services.
+All of the pressures of gentrification are
+deeply enmeshed with broader inequalities
+of class, race and ethnicity, and gender
