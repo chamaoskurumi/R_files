@@ -35,14 +35,17 @@ H 3.2b & Immo. Aufwertung $\stackrel{-}\longrightarrow$ Binnenfortzüge & --    
 \caption{Ergebnisübersicht nach Hypothesenüberprüfung}\label{tab:HypoErgebnisse}
 \end{table}
 
-Bei der Analyse des Zusammenhang zwischen Aufwertung und Umzugsverhalten bestätigte sich auch H~2.1, nach der Gentrificationgebiete besonders attraktiv für Zuziehende sind: Gentrificationgebiete besaßen im Durchschnitt eine knapp 70\% höhere Außenzuzugsraten und ca. 10\% höhere Binnenzuzugsraten als die Kontrollgebiete. Die epirische Evidenz für H~2.1 ist einerseits als notwendiges Indiz für Verdrängung, andererseits als Ausdruck der Wechselwirkung zwischen Aufwertung und Verdrängung zu interpretieren. In der Folge konnte gezeigt werden, dass Gentrificationgebiete weitaus höhere Binnenfortzugsraten als vergleichbare Gebiete besitzen, was die entsprechende Forschungshypothese 2.2a ebenfalls bestätigte. Die Binnenfortzugsraten der Gentrificationgebiete lagen knapp 30\% über denen der Kontrollgebiete - was ein weiteres, noch stärkeres Indiz für Verdrängung lieferte. In der Summe legten die generell höheren Umzugsraten in den Gentrificationgebieten die Schlussfolgerung nahe, dass die dortige Senkung der Armutsquoten in erster Linie vermöge systematischer Verdrängung der Bewohner*innen erfolgte. Überdies können hohe Umzugsraten zweifelsohne als Beschleuniger von Aufwertung gelten, denn je höher die Umzugsraten, desto schneller der Bevölkerungsaustausch, desto verbreiteter die Möglichkeit zum Ertragslückenschluss durch Umwandlung oder Wiedervermietung und umso rascher die soziale Aufwertung.\\
-Bei der Überprüfung der Kausalhypothesen bestätigte sich zunächst die Vermutung H~3.1, nach der höhere Armutsquoten in einer Nachbarschaft zu höheren Binnenfortzugsraten führen. Dies suggeriert, dass gerade in den ärmeren Gebieten der für die Immobilienwirtschaft besonders interessanten Innenstadt Aufwertung erheblich durch die armutsbedingten, höheren Binnenfortzugsraten beschleunigt wird. Armut kann also  immobilienwirtschaftliche und soziale Aufwertung katalysieren. Auch H~3.2a konnte klar bestätigt werden:
-Die Binnenfortzugsrate einer Nachbarschaft erwies sich als umso höher, je stärker die dortige immobilienwirtschaftliche Aufwertungsdynamik. Dieser Befund lieferte starke Evidenz für gentrificationbedingte, ökonomische Verdrängung in Berlin. Immobilienwirtschaftliche Aufwertung verursacht demnach den unfreiwilligen Umzug eines Teils der Berliner Bevölkerung. Der Anteil ökonomisch Verdrängter an der Bevölkerung wurde in der Summe der Jahre 2007 bis 2012 für die Gentrificationgebieten auf mindestens 4,62\% und berlinweit auf mindestens 2,30\% geschätzt. Zuletzt konnte keine empirische Evidenz für die Forschungshypothese 3.3, welche einen positiven Zusammenhang zwischen sozialer Aufwertungsdynamik und wohnräumlicher Mobilität postulierte, gefunden werden. Dieses Ergebnis war überraschenend, da die Gentrificationtheorie wie auch alle vorherigen empirischen Ergebnisse einen solchen Zusammenhang nahe legten. 
-Alle Ergebnisse der Hypothesenüberprüfung erwiesen sich nach diversen Gegenproben (Verschiebung der Schwellenwerte bei der Gebietsklassifizierung, Beschränkung der Analyse auf die innere Stadt, Ausschluss von verzerrenden Ausreißern) als robust. 
+Bei der Analyse des Zusammenhangs zwischen Aufwertung und Umzugsverhalten bestätigte sich auch H~2.1, nach der Gentrificationgebiete besonders attraktiv für Zuziehende sind: Gentrificationgebiete besaßen im Durchschnitt eine knapp 70\% höhere Außenzuzugsrate und ca. 10\% höhere Binnenzuzugsrate als die Kontrollgebiete. Die epirische Evidenz für H~2.1 ist einerseits als notwendiges Indiz für Verdrängung, andererseits als Ausdruck der Wechselwirkung zwischen Aufwertung und Verdrängung zu interpretieren. In der Folge konnte gezeigt werden, dass Gentrificationgebiete weitaus höhere Binnenfortzugsraten als vergleichbare Gebiete besitzen, was die entsprechende Forschungshypothese 2.2a ebenfalls bestätigte. Die Binnenfortzugsrate der Gentrificationgebiete lag durchschnittlich knapp 30\% über denen der Kontrollgebiete - was ein weiteres, noch stärkeres Indiz für Verdrängung lieferte. In der Summe legten die generell höheren Umzugsraten in den Gentrificationgebieten die Schlussfolgerung nahe, dass die dortige Senkung der Armutsquoten in erster Linie vermöge systematischer Verdrängung der Bewohner*innen erfolgte. Überdies können hohe Umzugsraten zweifelsohne als Beschleuniger von Aufwertung gelten, denn je höher die Umzugsraten, desto schneller der Bevölkerungsaustausch, desto verbreiteter die Möglichkeit zum Ertragslückenschluss durch Umwandlung oder Wiedervermietung und umso rascher die soziale Aufwertung.\\
+Bei der Überprüfung der Kausalhypothesen bestätigte sich zunächst die in H~3.1 geäußerte Vermutung, dass höhere Armutsquoten in einer Nachbarschaft zu höheren Binnenfortzugsraten führen. Dies suggeriert, dass gerade in den ärmeren Gebieten der für die Immobilienwirtschaft besonders interessanten Innenstadt Aufwertung erheblich durch die armutsbedingten, höheren Binnenfortzugsraten beschleunigt wird. Armut kann also katalysierend auf immobilienwirtschaftliche wie soziale Aufwertung wirken. Auch H~3.2a wurde empirisch klar bestätigt:
+Die Binnenfortzugsrate einer Nachbarschaft erwies sich als umso höher, je stärker die dortige immobilienwirtschaftliche Aufwertungsdynamik. Dieser Befund lieferte starke Evidenz für ökonomische Verdrängung in Berlin: Immobilienwirtschaftliche Aufwertung verursacht demnach den unfreiwilligen Umzug eines Teils der Berliner Bevölkerung. Der Anteil ökonomisch Verdrängter an der Bevölkerung wurde in der Summe der Jahre 2007 bis 2012 für die Gentrificationgebieten auf mindestens 4,62\% und berlinweit auf mindestens 2,30\% geschätzt. Diese Schätzungen unterliegen zwar einer statistischen Unsicherheit, sind aber nicht zuletzt aufgrund der anzunehmenden Dunkelziffer sicherlich zu konservativ. Zum Schluss wurde die in H~3.3 formulierte Vermutung eines positiven Zusammenhangs zwischen sozialer Aufwertung und wohnräumlicher Mobilität überprüft. Für einen solchen Zusammenhang fand sich entgegen den vorherigen Forschungsergebnisse überraschenderweise aber keine empirische Evidenz und eine stichhaltige Interpretation dieses Befundes konnte nicht entwickelt werden. 
 
 \subsection{Einordnung und Grenzen der Studie}
 
-    unvorhergesehene Schwierigkeiten aufgetreten? Wenn ja, welche? Konnten Sie sie lösen?
+Obwohl sich alle Ergebnisse der Hypothesenüberprüfung nach diversen Gegenproben (Verschiebung der Schwellenwerte bei der Gebietsklassifizierung, Beschränkung der Analyse auf die innere Stadt, Ausschluss von verzerrenden Ausreißern) als robust erwiesen, soll an dieser Stelle auf die Grenzen der Studie eingegangen werden. 
+
+Wohin ziehen die 
+Soziale 
+unvorhergesehene Schwierigkeiten aufgetreten? Wenn ja, welche? Konnten Sie sie lösen?
     Sind Sie auf offene Fragen
     Inwieweit hat der Autor durch sein Vorgehen sein Ziel erreicht?
     Welche Schlussfolgerungen lässt die Untersuchung zu?
@@ -52,9 +55,23 @@ Alle Ergebnisse der Hypothesenüberprüfung erwiesen sich nach diversen Gegenpro
 
 \paragraph{Einordnung der Forschungsergebnisse}
 Do the results support or do they contradict gentri theory ?
-What does the reader learn from the results? Gentrification bedeutet Aufwertung und Verdrängung.
 
-Diese Ergebnisse sind kaum mit da andere Methoden und Definitionen von Gentrificion und Verdrängung verwendet wurden. Außerdem gibt es für Berlin kaum vergleichbare Studien die versuchten Gentrification oder Verdrängung zu quantifizieren.
+Bis auf die Überraschende  H 3.3 ablehnung
+What does the reader learn from the results? 
+Wo ? 
+Stadtpolitische Protestbewegungen, die sich gegen Verdrängung und für ein Recht auf Stadt. Seit Jahren  und in Berlin Kreuzberg, Nordneukölln und Friedrichshain 
+Meist wo arme leben, aber nicht nur dort. Auch viele mittleres Preisniveau und 
+
+Wie ? . Starker 
+
+Die starken Mietpreissteigerungen, die hohe Nachfrage vor allem nach "`Mainstream"' \citet{Holm2013}
+
+
+Diese Ergebnisse sind kaum mit da andere Methoden und Definitionen von Gentrificion und Verdrängung verwendet wurden. Außerdem gibt es für Berlin kaum vergleichbare Studien die versuchten Gentrification oder Verdrängung zu quantifizieren. Verblüffend dass mit unterschiedlichen Methoden und so unterschiedlichen Kontexten wie denen von New York City und Berlin ähnliche Raten ökonomischer Verdrängung geschätzt wurden.
+Wichtig ist jedoch die anderen Formen von Verdrängung nicht aus dem Blick zu verlieren, die nicht d
+
+
+
 Wo wir es erwarten, wo große Proteste sind. 
 
 Ergebnisse mit Atkinson vergleichen displacement rate nicht vergleichbar, 
@@ -70,15 +87,20 @@ Statistisch sorgfältige und transparent. Transparenz auch durch die Veröffentl
 
  Auf der Grundlage von Daten aus dem Jahre 2003 charakterisierte \citet[S.~74]{Gebhardt2012} den Altbezirk Kreuzberg sowie Nord-Neukölln noch als Abwertungsgebiete mit teilweisen inselhaften Aufwertungstendenzen, welche hohe Wohnmobilität aufweisen und aus denen Teile der Mittelschicht in Randgebiete abwandern. Auch hier beobachten wir 2007-2012 eine hohe Wohnmobilität, jedoch mit flächendeckenden Aufwertungsprozessen.
 
-\citet[S.~31]{Newman2006a} table
 
-"`However, our displacement rates are slightly higher, reaching between 6.6 and 9.9 per cent of all local moves among renter households. We expect that both figures underestimate actual displacement"' \citep[S.~51]{Newman2006a}
 
 Diskussion der Ergebnisse, was sagen zu jedem Verdrängungstypen
 
-Political urgency: Verdrängung alle formen. weite teile innenstadt problem mainstreaming gentri, lokal besonders stark wie beispiel des Reuterkiezes zeigte. schneller bev austausch, hohe umzugsraten, wahnsinnige Aufwertungsdynamiken
 
 Politische Konsequenzen. Wohnraumversorgung in Berlin. Mietenvolksentscheid.
+
+Genauso wie immobilienwirtschaftliche und soziale Aufwertung bei Gentrificationprozessen einander bedingen, so bedeutet Aufwertung und Verdrängung. Verdrängung ist weder ein möglicher Nebeneffetk Aufwertung nicht um einen neutralen oder "`natürlichen"' Wandel der Stadtteile 
+Dies konnte zumindest für Berlin gezeigt werden. 
+
+Erhalt und Schaffung von preiswertem Wohnraum  Neuausrichtung der städtischen Wohnungsunternehmen 
+Soziale Wohnraumsversorgung wie sie etwa der Berliner Mietenvolksentscheid\footnote{ mietenvolksentscheidberlin.de} fordert 
+
+Political urgency: Verdrängung alle formen. weite teile innenstadt problem mainstreaming gentri, lokal besonders stark wie beispiel des Reuterkiezes zeigte. schneller bev austausch, hohe umzugsraten, wahnsinnige Aufwertungsdynamiken
 
  \paragraph{Grenzen}
 politische Einflüsse und Neubau nicht berücksichtigt. 

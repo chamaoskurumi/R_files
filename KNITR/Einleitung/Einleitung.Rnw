@@ -11,6 +11,10 @@ Hiermit ist nicht notwendigerweise eine bauliche Aufwertung gemeint. In Berlin a
 
 New Yorker Behörden rental market emergency defined as a rental vacancy rate under 5\% \citet[S.~2607]{Wyly2010} I
 
+Im Monitoring Soziale Stadtenwicklung 2013 kommt die Worte "`Gentrifizierung"' oder "`Verdrängung"' nicht einmal vor. 
+"`Das Monitoring Soziale Stadtentwicklung wird als kontinuierliches Stadtbeobachtungssystem der sozialräumlichen Entwicklung erstellt. Es dient als Frühwarnsystem der Ermittlung von gebietsbezogenen Handlungsbedarfen der sozialen Stadtentwicklung."'
+
+
  \begin{itemize}
 
 \item \textit{Gestiegene Nachfrage} \\
