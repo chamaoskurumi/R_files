@@ -11,8 +11,15 @@ Hiermit ist nicht notwendigerweise eine bauliche Aufwertung gemeint. In Berlin a
 
 New Yorker Behörden rental market emergency defined as a rental vacancy rate under 5\% \citet[S.~2607]{Wyly2010} I
 
-Im Monitoring Soziale Stadtenwicklung 2013 kommt die Worte "`Gentrifizierung"' oder "`Verdrängung"' nicht einmal vor. 
-"`Das Monitoring Soziale Stadtentwicklung wird als kontinuierliches Stadtbeobachtungssystem der sozialräumlichen Entwicklung erstellt. Es dient als Frühwarnsystem der Ermittlung von gebietsbezogenen Handlungsbedarfen der sozialen Stadtentwicklung."'
+\begin{quote} "`Underestimating displacement involves high costs for theoretical understanding of neighbourhood change and even higher tolls for poor and working-class residents and the tattered policies in place to give them some protection. Those who are forced to leave gentrifying neighbourhoods are torn from rich local social networks of information and cooperation (the ‘social capital’ much beloved by policy-makers); they are thrown into an ever more competitive housing market shaped by increasingly difficult trade-offs between affordability, overcrowding and commuting accessibility to jobs and services. All of the pressures of gentrification are deeply enmeshed with broader inequalities of class, race and ethnicity, and gender"' \citep[S.~51]{Newman2006a}.\end{quote}
+
+Anspruch: 
+
+Statistisch sorgfältige und transparent. Transparenz auch durch die Veröffentlichung der verwendeten R Skripte. Mit den Daten sind die Ergebnisse auch reproduzierbar. 
+
+
+ Auf der Grundlage von Daten aus dem Jahre 2003 charakterisierte \citet[S.~74]{Gebhardt2012} den Altbezirk Kreuzberg sowie Nord-Neukölln noch als Abwertungsgebiete mit teilweisen inselhaften Aufwertungstendenzen, welche hohe Wohnmobilität aufweisen und aus denen Teile der Mittelschicht in Randgebiete abwandern. Auch hier beobachten wir 2007-2012 eine hohe Wohnmobilität, jedoch mit flächendeckenden Aufwertungsprozessen.
+
 
 
  \begin{itemize}
