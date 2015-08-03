@@ -12,8 +12,8 @@ Ziel dieser Arbeit war es, Gentrificationgebiete in Berlin auf Nachbarschaftsniv
 Mit der kleinräumigen, systematischen Erfassung von Aufwertung und Verdrängung versuchte diese Arbeit einerseits zur Schließung einer Lücke in der deutschen Gentrificationsliteratur beizutragen, sowie andererseits methodische Unzulänglichkeiten vergleichbarer internationaler Studien zu beheben.
 
 \subsection{Zusammenfassung der Ergebnisse} 
-Im Folgenden werden die zentralen Forschungergebnisse durch eine kurze, chronologische Rekapitulation der einzelnen Forschungshypothesen zusammengefasst (Tab.~\ref{tab:HypoErgebnisse}). Zu Beginn der Analyse konnten die am stärksten von Gentrification betroffenen Nachbarschaften in den innerstädtischen Altbezirke Kreuzberg, Friedrichshain, sowie im nördlichen Neukölln lokalisiert werden. Überdies wurden auch Teile von Pankow, Prenzlauer Berg und dem Osten Charlottenburgs als stark von Gentrification betroffen klassifiziert. Bei der Klassifizierung der Nachbarschaften wurde ein starker empirischer Zusammenhang zwischen immobilienwirtschaftlicher und sozialer Aufwertung festgestellt, wie er in der Gentrificationforschung durch die rent-gap Theorie postuliert wird.\\
-\begin{table}[htb]
+Im Folgenden werden die zentralen Forschungergebnisse durch eine kurze, chronologische Rekapitulation der einzelnen Forschungshypothesen zusammengefasst (Tab.~\ref{tab:HypoErgebnisse}). Zu Beginn der Analyse konnten die am stärksten von Gentrification betroffenen Nachbarschaften in den innerstädtischen Altbezirke Kreuzberg, Friedrichshain, sowie im nördlichen Neukölln lokalisiert werden. Überdies wurden auch Teile von Pankow, Prenzlauer Berg und dem Osten Charlottenburgs als stark von Gentrification betroffen klassifiziert. Bei der Klassifizierung der Nachbarschaften wurde ein starker empirischer Zusammenhang zwischen immobilienwirtschaftlicher und sozialer Aufwertung festgestellt, wie er in der Gentrificationforschung durch die rent-gap Theorie postuliert wird.
+\begin{table}[hb]
 \centering
 \begin{tabular}{@{}llc@{}}
 \toprule
