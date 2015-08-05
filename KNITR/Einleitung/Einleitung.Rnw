@@ -15,12 +15,9 @@ New Yorker Behörden rental market emergency defined as a rental vacancy rate un
 
 Anspruch: 
 
-Statistisch sorgfältige und transparent. Transparenz auch durch die Veröffentlichung der verwendeten R Skripte. Mit den Daten sind die Ergebnisse auch reproduzierbar. 
+Auf der Grundlage von Daten aus dem Jahre 2003 charakterisierte \citet[S.~74]{Gebhardt2012} den Altbezirk Kreuzberg sowie Nord-Neukölln noch als Abwertungsgebiete mit teilweisen inselhaften Aufwertungstendenzen, welche hohe Wohnmobilität aufweisen und aus denen Teile der Mittelschicht in Randgebiete abwandern. Auch hier beobachten wir 2007-2012 eine hohe Wohnmobilität, jedoch mit flächendeckenden Aufwertungsprozessen.
 
-
- Auf der Grundlage von Daten aus dem Jahre 2003 charakterisierte \citet[S.~74]{Gebhardt2012} den Altbezirk Kreuzberg sowie Nord-Neukölln noch als Abwertungsgebiete mit teilweisen inselhaften Aufwertungstendenzen, welche hohe Wohnmobilität aufweisen und aus denen Teile der Mittelschicht in Randgebiete abwandern. Auch hier beobachten wir 2007-2012 eine hohe Wohnmobilität, jedoch mit flächendeckenden Aufwertungsprozessen.
-
-
+Die Verdrängungseffekte markieren die sozialen Kosten der städtischen Neustrukturierung auf individueller, gesamtstädtischer und wohnungspolitischer Ebene: indem sich bestehende Nachbarschaftsstrukturen auflösen, Segregationstendenzen verstärken und preiswerte Wohnungsangebote verringern. 
 
  \begin{itemize}
 
@@ -35,30 +32,36 @@ Statistisch sorgfältige und transparent. Transparenz auch durch die Veröffentl
 
     \item What is the subject of the study? Describe the
         economic/econometric problem.
+Gentrification in Berlin
+
+
     \item What is the purpose of the study (working hypothesis)?
+
+Systematisch Wo Gentrification stattfindet, 
+
     \item What do we already know about the subject (literature
         review)? Use citations: shows that...
         Alternative Forms of the Wald test are considered
     \item What is the innovation of the study?
     \item Provide an overview of your results.
     
-"`I would challenge [...] anyone to show how census data can provide convincing evidence of displacement. It can show that one class or housing tenure has grown and that another has declined but it cannot show displacement."' Hamnet 2010 S.~184
+"`I would challenge [...] anyone to show how census data can provide convincing evidence of displacement. It can show that one class or housing tenure has grown and that another has declined but it cannot show displacement."' \citep[S.~184]{Hamnett2010}
 
 Gentrimap beinhaltet keine Analyse von zwischen Aufwertungsprozessen und Wanderungsverhalten.
 
 Versuch Verdrängung in Berlin im Zweitraum zwischen 2007-2012 statistisch kleinräumlig zu erfassen und 
 
 
-"`it is essential to have conceptual clarity before research on displacement begins, and before any conclusions can be drawn"' \citet[S.~304]{Slater2009}
+"`it is essential to have conceptual clarity before research on displacement begins, and before any conclusions can be drawn"' \citep[S.~304]{Slater2009}
 
 Eine Analyse (von altgriech analysis „Auflösung“) ist eine systematische Untersuchung, bei der das untersuchte Objekt oder Subjekt in Bestandteile (Elemente) zerlegt und auf Grundlage von Kriterien erfasst werden. Anschließend werden diese geordnet, untersucht und ausgewertet. Insbesondere betrachtet man Beziehungen und Wirkungen (oft: Wechselwirkungen) zwischen den Elementen.
 
-"`Eine Analyse (von altgriech analysis 'Auflösung') ist eine systematische Untersuchung, bei der das untersuchte Objekt oder Subjekt in Bestandteile (Elemente) zerlegt und auf Grundlage von Kriterien erfasst werden. Anschließend werden diese geordnet, untersucht und ausgewertet. Insbesondere betrachtet man Beziehungen und Wirkungen (oft: Wechselwirkungen) zwischen den Elementen."' Wikipedia
-
-
 
 Verdrängung messen:
-Probleme: Slater 2009 "`there is no such data"' und gleichzeitig sagt er Slater 2015 über die Schwierigkeiten Gentrificationtheorie zu operationalisieren "`theories are always confronted with empirical difficulties. They should not be abandoned because of it."'
+Probleme: \citep{Slater2009} Verdrängung nicht messbar  "`there is no statistical data available for such a task"'
+Daten staatliche Behörden hätten aufgrund ihrer Gentrification begünstigenden Rolle kein Interesse solche Daten zu sammeln und es gibt keine Daten um die die Kämpfe von Anwohner*innen gegen den Verdrängungsdruck erfassen 
+
+ und gleichzeitig sagt er \citet{Slater2015} über die Schwierigkeiten Gentrificationtheorie zu operationalisieren "`theories are always confronted with empirical difficulties. They should not be abandoned because of it."'
 
 
 Keine qualitativen Methoden, Zur Berechnung der Verdrängungsraten \citet[S.~27ff.]{Atkinson2011} keine differenzierung von faktoren. 
@@ -73,20 +76,18 @@ Im ersten Schritt sollen mit den Methoden explorativer Datenanalyse eine räumli
 \end{itemize}
 
 \citet[S.~51]{Newman2006a}
-Underestimating displacement involves
-high costs for theoretical understanding of
-neighbourhood change and even higher tolls
-for poor and working-class residents and the
-tattered policies in place to give them some
-protection. Those who are forced to leave gen-
-trifying neighbourhoods are torn from rich
-local social networks of information and co-
-operation (the ‘social capital’ much beloved
-by policy-makers); they are thrown into an
-ever more competitive housing market
-shaped by increasingly difficult trade-offs
-between affordability, overcrowding and
-commuting accessibility to jobs and services.
-All of the pressures of gentrification are
-deeply enmeshed with broader inequalities
-of class, race and ethnicity, and gender
+"`Underestimating displacement involves high costs for theoretical understanding of neighbourhood change and even higher tolls for poor and working-class residents and the tattered policies in place to give them some protection. Those who are forced to leave gentrifying neighbourhoods are torn from rich local social networks of information and cooperation (the ‘social capital’ much beloved by policy-makers); they are thrown into an ever more competitive housing market shaped by increasingly difficult trade-offs between affordability, overcrowding and commuting accessibility to jobs and services. All of the pressures of gentrification are deeply enmeshed with broader inequalities of class, race and ethnicity, and gender"'
+
+Technicals
+
+Datenverarbeitung und Analyse in \R \texttt{spdep}
+
+Räumlichen RAutor und Instandhalter des Pakets ist Roger Bivand \url{cran.r-project.org/web/packages/spdep/spdep.pdf}
+Edzer Pebesma und Roger Bivand \texttt{sp} \url{cran.r-project.org/web/packages/sp/sp.pdf}
+Hadley Wickham \texttt{ggplot2} \url{ggplot2.org}
+
+Abbildungen im Anhang mit dem Präfix A, Tabellen im Anhang mit dem Präfix B.
+
+Zur besseren Karten auf der Homepage \url{amor.cms.hu-berlin.de/~schulzgu}. Die interaktiven Online-Karten sind auch direkt über den in den Abbildungsunterschriften der Karten in der PDF Version erreichbar. 
+
+Auf Anfrage können auch die zur Analyse verwendeten Daten zur Verfügung gestellt werden. Mithilfe der auf Github unter \url{github.com/chamaoskurumi} archivierten Syntaxen sind alle Ergebnisse dieser Arbeit in \R reproduzierbar. 

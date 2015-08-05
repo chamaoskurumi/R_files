@@ -1307,3 +1307,13 @@ ALLGzuzuegeUDARGENTRIplot <- ggplot(umzuegeDFlong, aes(ZEIT, ZuzuegeUDAR_mean, g
 #ALLGzuzuegeUDARGENTRIplot 
 
 grid.arrange(ALLGfortzuegeRGENTRIplot, ALLGzuzuegeUDARGENTRIplot, ncol=2, nrow=1, widths=c(1,1))
+
+######### Korrelation Soziale Aufwertung und Binnenfortzüge ######
+
+library("weights")
+require("Hmisc")
+wtd.cor(LOR4reg@data$Armutchg,LOR4reg@data$FortzuegeR,weight=LOR4reg@data$E_E.2007)
+wtd.cor(LOR4reg@data$Armutchg[LOR4reg@data$STADTRAUM="innere Stadt"],LOR4reg@data$FortzuegeR[LOR4reg@data$STADTRAUM="innere Stadt"],weight=LOR4reg@data$E_E.2007[LOR4reg@data$STADTRAUM="innere Stadt"])
+wtd.cor(LOR4reg@data$Armutchg[LOR4reg@data$STADTRAUM=="innere Stadt"],LOR4reg@data$FortzuegeR[LOR4reg@data$STADTRAUM=="innere Stadt"],weight=LOR4reg@data$E_E.2007[LOR4reg@data$STADTRAUM=="innere Stadt"])
+wtd.cor(LOR4reg@data$Armutchg[LOR4reg@data$STADTRAUM=="innere Stadt"],LOR4reg@data$ZuzuegeUDAR[LOR4reg@data$STADTRAUM=="innere Stadt"],weight=LOR4reg@data$E_E.2007[LOR4reg@data$STADTRAUM=="innere Stadt"])
+
