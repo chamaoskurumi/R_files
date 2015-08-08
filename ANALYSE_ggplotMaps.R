@@ -230,3 +230,24 @@ ZuzuegeUDARAMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
                        name=expression(paste('ZuzügeA',' ','(%)'))) +
   coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
 ZuzuegeUDARAMAP
+
+OekoVerdraengungAMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=OekoVerdraengungA, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
+                       values = rescale(c(0,2,5,9.5)),
+                       guide = "colorbar", limits=c(0,10),
+                       name=expression(paste('(A) Verdrängungsraten',' ','(%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
+OekoVerdraengungAMAP
+#summary(LOR4reg@data$OekoVerdraengungA)
+
+OekoVerdraengungBMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=OekoVerdraengungB, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
+                       values = rescale(c(0,4,8,15)),
+                       guide = "colorbar", limits=c(0,15),
+                       name=expression(paste('(B) Verdrängungsraten',' ','(%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
+OekoVerdraengungBMAP
+#summary(LOR4reg@data$OekoVerdraengungB)
+

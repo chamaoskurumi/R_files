@@ -234,3 +234,26 @@ ResiduenEpsilonMAP
 <<ResiduenEMAP, fig.scap="Karte der räumlichen Komponente des SAR Modells \\textit{FortzügeB}", fig.cap="\\href{http://www.gmx.de}{Karte der räumlichen Komponente $\\hat{Y}-X^{T}\\hat{\\beta}$ des gewichteten SAR Modells auf \\textit{FortzügeB} (Modell 1)}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
 ResiduenEMAP
 @
+
+\newpage
+<<OekoVerdraengungAMAP, fig.scap="Karte der geschätzten ökonomischen Verdrängungsraten (Version A)", fig.cap="\\href{http://www.gmx.de}{Karte der geschätzten ökonomischen Verdrängungsraten nach Version A, also als Anteil der zwischen 2007 und 2012 ökonomisch Verdrängten an der Gesamtbevölkerung in \\%.}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
+OekoVerdraengungAMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=OekoVerdraengungA, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
+                       values = rescale(c(0,2,5,9.5)),
+                       guide = "colorbar", limits=c(0,10),
+                       name=expression(paste('(A) Verdrängungsrate',' ','(%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
+OekoVerdraengungAMAP
+@
+
+<<OekoVerdraengungBMAP, fig.scap="Karte der geschätzten ökonomischen Verdrängungsraten (Version B)", fig.cap="\\href{http://www.gmx.de}{Karte der geschätzten ökonomischen Verdrängungsraten nach Version B, also als auf immobilienwirtschaftliche Aufwertung zurückzuführenden Anteil der jährlichen Binnenfortzüge in \\%.}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
+OekoVerdraengungBMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
+  geom_polygon(aes(fill=OekoVerdraengungB, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
+  scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
+                       values = rescale(c(0,4,8,15)),
+                       guide = "colorbar", limits=c(0,15),
+                       name=expression(paste('(B) Verdrängungsrate',' ','(%)'))) +
+  coord_map("polyconic",xlim = c(13.08,13.77),ylim = c(52.33,52.69)) + kartenlayout 
+OekoVerdraengungBMAP
+@

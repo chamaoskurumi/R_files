@@ -140,41 +140,39 @@ SAR_3 <- spautolm(formula=FortzuegeR ~ Mietechgr + Armutchg + Miete.2007C+ Armut
                   family="SAR")
 summary(SAR_3, Nagelkerke=T)
 
-SAR_4 <- spautolm(formula=FortzuegeUDAR ~ Mietechgr + Armutchg + Miete.2007C+ Armut.2007C +  
-                    AlleinerzHH.2012C +
-                    E_U18R.2007C+ E_18U35R.2007C+ E_65U110R.2007C+ 
-                    PDAU10.2007C+ StaedtWohnungen.2012C+ SanGebiet.2007 + STADTRAUM,
-                  data=LOR4reg,
-                  listw=W_polyIDWs, 
-                  weights=E_E.2007,
-                  family="SAR")
-summary(SAR_4, Nagelkerke=T)
-
-SAR_5 <- spautolm(formula=ZuzuegeR ~ Mietechgr + Armutchg + Miete.2007C+ Armut.2007C +  
-                    AlleinerzHH.2012C +
-                    E_U18R.2007C+ E_18U35R.2007C+ E_65U110R.2007C+ 
-                    PDAU10.2007C+ StaedtWohnungen.2012C+ SanGebiet.2007 + STADTRAUM,
-                  data=LOR4reg,
-                  listw=W_polyIDWs, 
-                  weights=E_E.2007,
-                  family="SAR")
-summary(SAR_5, Nagelkerke=T)
-
-SAR_6 <- spautolm(formula=ZuzuegeUDAR ~ Mietechgr + Armutchg + Miete.2007C+ Armut.2007C +  
-                    AlleinerzHH.2012C +
-                    E_U18R.2007C+ E_18U35R.2007C+ E_65U110R.2007C+ 
-                    PDAU10.2007C+ StaedtWohnungen.2012C+ SanGebiet.2007 + STADTRAUM,
-                  data=LOR4reg,
-                  listw=W_polyIDWs, 
-                  weights=E_E.2007,
-                  family="SAR")
-summary(SAR_6, Nagelkerke=T)
+# SAR_4 <- spautolm(formula=FortzuegeUDAR ~ Mietechgr + Armutchg + Miete.2007C+ Armut.2007C +  
+#                     AlleinerzHH.2012C +
+#                     E_U18R.2007C+ E_18U35R.2007C+ E_65U110R.2007C+ 
+#                     PDAU10.2007C+ StaedtWohnungen.2012C+ SanGebiet.2007 + STADTRAUM,
+#                   data=LOR4reg,
+#                   listw=W_polyIDWs, 
+#                   weights=E_E.2007,
+#                   family="SAR")
+# summary(SAR_4, Nagelkerke=T)
+# 
+# SAR_5 <- spautolm(formula=ZuzuegeR ~ Mietechgr + Armutchg + Miete.2007C+ Armut.2007C +  
+#                     AlleinerzHH.2012C +
+#                     E_U18R.2007C+ E_18U35R.2007C+ E_65U110R.2007C+ 
+#                     PDAU10.2007C+ StaedtWohnungen.2012C+ SanGebiet.2007 + STADTRAUM,
+#                   data=LOR4reg,
+#                   listw=W_polyIDWs, 
+#                   weights=E_E.2007,
+#                   family="SAR")
+# summary(SAR_5, Nagelkerke=T)
+# 
+# SAR_6 <- spautolm(formula=ZuzuegeUDAR ~ Mietechgr + Armutchg + Miete.2007C+ Armut.2007C +  
+#                     AlleinerzHH.2012C +
+#                     E_U18R.2007C+ E_18U35R.2007C+ E_65U110R.2007C+ 
+#                     PDAU10.2007C+ StaedtWohnungen.2012C+ SanGebiet.2007 + STADTRAUM,
+#                   data=LOR4reg,
+#                   listw=W_polyIDWs, 
+#                   weights=E_E.2007,
+#                   family="SAR")
+# summary(SAR_6, Nagelkerke=T)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # VI.) Residuenplots ------
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-abschnitt <- -0.2
 
 ### SAR_1 = FortzügeB W_poly ###
 data.frame(scale(SAR_1$fit$residuals),
@@ -194,89 +192,14 @@ SAR_1_ResPLOT <- ggplot(SARResidPlotDF, aes(x=res)) +
   geom_density(alpha=.3, fill="orange", colour="grey50", size=0.3, weight="E_E.2007") +
   geom_density(data=rnormPlotDF, aes(x=rnorm),alpha=.2, fill="blue",size=0.3) +
   theme(axis.title.y = element_blank(),
-        axis.title.x = element_blank(),
-        axis.text.x= element_blank(),
-        axis.ticks.x= element_blank(),
-        plot.margin=unit(c(abschnitt,abschnitt,abschnitt ,abschnitt), "cm")) +
+        axis.title.x = element_blank()) +
   scale_x_continuous(breaks=seq(-4,14,2), limits=c(-5,14))  +
-  scale_y_continuous(breaks=seq(-0,1,0.2), limits=c(0,1))  +
+  scale_y_continuous(breaks=seq(-0,1,0.2), limits=c(0,0.9))  +
   geom_vline(xintercept = 0, colour="black", linetype = "longdash", size=0.3) +
   annotate("text", x = 8, y = 0.6, label = "FortzügeB (Modell 1)", size=4, face="bold",colour = "grey50") +
   geom_rug(aes(x=res),colour="grey10",size=0.5,alpha=0.5)
-#SAR_1_ResPLOT
+SAR_1_ResPLOT
 
-### SAR_4 = FortzügeA W_poly ###
-data.frame(scale(SAR_4$fit$residuals),
-           SAR_4$weights) -> SARResidPlotDF
-names(SARResidPlotDF) <- c("res","E_E.2007")
-
-SAR_4_ResPLOT <- ggplot(SARResidPlotDF, aes(x=res)) + 
-  geom_histogram(aes(y=..density..),   
-                 colour="grey50", fill="white", 
-                 binwidth=0.1,
-                 weight="E_E.2007") +
-  geom_density(alpha=.3, fill="orange", colour="grey50", size=0.3, weight="E_E.2007") +
-  geom_density(data=rnormPlotDF, aes(x=rnorm),alpha=.2, fill="blue",size=0.3) +
-  theme(axis.title.y = element_blank(),
-        axis.title.x = element_blank(),
-        axis.text.y= element_blank(),
-        axis.ticks.y= element_blank(),
-        axis.text.x= element_blank(),
-        axis.ticks.x= element_blank(),
-        plot.margin=unit(c(abschnitt,abschnitt,abschnitt ,abschnitt), "cm")) +
-  scale_x_continuous(breaks=seq(-4,14,2), limits=c(-5,14))  +
-  scale_y_continuous(breaks=seq(-0,1,0.2), limits=c(0,1))  +
-  geom_vline(xintercept = 0, colour="black", linetype = "longdash", size=0.3) +
-  annotate("text", x = 8, y = 0.6, label = "FortzügeA", size=4, face="bold",colour = "grey50") +
-  geom_rug(aes(x=res),colour="grey10",size=0.5,alpha=0.5)
-#SAR_4_ResPLOT
-
-### SAR_5 = ZuzügeB W_poly ###
-data.frame(scale(SAR_5$fit$residuals),
-           SAR_5$weights) -> SARResidPlotDF
-names(SARResidPlotDF) <- c("res","E_E.2007")
-
-SAR_5_ResPLOT <- ggplot(SARResidPlotDF, aes(x=res)) + 
-  geom_histogram(aes(y=..density..),   
-                 colour="grey50", fill="white", 
-                 binwidth=0.1,
-                 weight="E_E.2007") +
-  geom_density(alpha=.3, fill="orange", colour="grey50", size=0.3, weight="E_E.2007") +
-  geom_density(data=rnormPlotDF, aes(x=rnorm),alpha=.2, fill="blue",size=0.3) +
-  theme(axis.title.y = element_blank(),
-        axis.title.x = element_blank(),
-        plot.margin=unit(c(abschnitt,abschnitt,abschnitt ,abschnitt), "cm")) +
-  scale_x_continuous(breaks=seq(-4,14,2), limits=c(-5,14))  +
-  scale_y_continuous(breaks=seq(-0,1,0.2), limits=c(0,1))  +
-  geom_vline(xintercept = 0, colour="black", linetype = "longdash", size=0.3) +
-  annotate("text", x = 8, y = 0.6, label = "ZuzügeB", size=4, face="bold",colour = "grey50") +
-  geom_rug(aes(x=res),colour="grey10",size=0.5,alpha=0.5)
-#SAR_5_ResPLOT
-
-
-### SAR_6 = ZuzügeA W_poly ###
-data.frame(scale(SAR_6$fit$residuals),
-           SAR_6$weights) -> SARResidPlotDF
-names(SARResidPlotDF) <- c("res","E_E.2007")
-
-SAR_6_ResPLOT <- ggplot(SARResidPlotDF, aes(x=res)) + 
-  geom_histogram(aes(y=..density..),   
-                 colour="grey50", fill="white", 
-                 binwidth=0.1,
-                 weight="E_E.2007") +
-  geom_density(alpha=.3, fill="orange", colour="grey50", size=0.3, weight="E_E.2007") +
-  geom_density(data=rnormPlotDF, aes(x=rnorm),alpha=.2, fill="blue",size=0.3) +
-  theme(axis.title.y = element_blank(),
-        axis.title.x = element_blank(),
-        axis.text.y= element_blank(),
-        axis.ticks.y= element_blank(),
-        plot.margin=unit(c(abschnitt,abschnitt,abschnitt ,abschnitt), "cm")) +
-  scale_x_continuous(breaks=seq(-4,14,2), limits=c(-5,14))  +
-  scale_y_continuous(breaks=seq(-0,1,0.2), limits=c(0,1))  +
-  geom_vline(xintercept = 0, colour="black", linetype = "longdash", size=0.3) +
-  annotate("text", x = 8, y = 0.6, label = "ZuzügeA", size=4, face="bold",colour = "grey50")  +
-  geom_rug(aes(x=res),colour="grey10",size=0.5,alpha=0.5)
-#SAR_6_ResPLOT
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # VII.) Residuenkarten ------

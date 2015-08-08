@@ -695,6 +695,13 @@ LORdataFULLwidev2$ZuzuegeUDAR         <- round((LORdataFULLwidev2$ZuzuegeUDAR.20
                                                 LORdataFULLwidev2$ZuzuegeUDAR.2011 +
                                                 LORdataFULLwidev2$ZuzuegeUDAR.2012)/6,digits=2)
 
+LORdataFULLwidev2$OekoVerdraengungA <- LORdataFULLwidev2$Mietechgr*(0.135*6) 
+LORdataFULLwidev2$OekoVerdraengungA[LORdataFULLwidev2$OekoVerdraengungA<0] <- 0
+
+LORdataFULLwidev2$OekoVerdraengungB <- (LORdataFULLwidev2$Mietechgr*(0.135)/LORdataFULLwidev2$FortzuegeR)*100
+LORdataFULLwidev2$OekoVerdraengungB[LORdataFULLwidev2$OekoVerdraengungB<0] <- 0
+
+
 # ---- _____ Fertiger WIDE Datensatz _____ ----
 
 names(LORdataFULLwidev2)
