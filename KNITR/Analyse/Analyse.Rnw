@@ -504,11 +504,12 @@ Es fällt auf, dass der Zusammenhang zwischen $\Armutchg$ und \textit{FortzügeB
 \begin{table}[H]
 \centering
 \begin{tabular}{@{}lccccl@{}}
-              & $\Mietechgr$ & $\Longrightarrow$                        & \textit{FortzügeB} & $\Longrightarrow$                         & $\Armutchg$ \\ \midrule
+              & $\Mietechgr$ & $\Longrightarrow$                        & \textit{FortzügeB} & $\Longrightarrow$                         & $\Armutchg$ \\ \toprule
 Gesamte Stadt &              & $0,55^{***}$ &                      & $-0,39^{***}$ &             \\
 Innere Stadt  &              & $0,40^{***}$ &                      & $-0,47^{***}$ & \\ \bottomrule           
 \end{tabular}
 \caption[Gewichtete Korrelationen mit \textit{FortzügeB}]{Gewichtete Korrelationen zwischen $\Mietechgr$ und \textit{FortzügeB}, sowie zwischen \textit{FortzügeB} und $\Armutchg$ mit Signifikanzniveau}\label{Tab:KorrelationenFortzuegeB}
+\end{table}
 
 \paragraph{Alleinerziehende}
 Der Koeffizient für \textit{Alleinerziehende}$_{2012}$ ist leicht positiv und hochsignifikant. Dies suggeriert, dass Alleinerziehende stärker von Verdrängung betroffen sind. Ein solcher Befund deckt sich mit den Ergebnissen von \citet[S.~25ff.]{Atkinson2011} für Sydney und Melbourne. Die tendenziell prekäreren Lebensverhältnisse von Alleinerziehenden machen deren erhöhte Gefährdung durch gentrifizierungsbezogene Verdrängung schlüssig und erklärbar.
@@ -527,7 +528,7 @@ Nun soll auch die Normalverteilungsannahme kontrolliert werden. Das Histogramm u
 source("/home/dao/Desktop/MasterArbeit/R_files/ANALYSE_SAR4knitr.R")
 @
 
-<<ResPLOTS, fig.width=5.6, fig.height=4, fig.scap='Histogramm und Kerndichteschätzung der Regressionsresiduen $\\hat{\\varepsilon}_{std}$', fig.cap='Histogramm (weiß) und Kerndichteschätzung (orange) der standardisierten Regressionsresiduen $\\hat{\\varepsilon}_{std}$ von Modell 1. Zum Vergleich eine Standardnormalverteilung (blau). Rugplot der Beobachtungen unterhalb der x-Achse (schwarz).',fig.lp='fig:'>>=
+<<ResPLOTS, fig.width=6, fig.height=4, fig.scap='Histogramm und Kerndichteschätzung der Regressionsresiduen $\\hat{\\varepsilon}_{std}$', fig.cap='Histogramm (weiß) und Kerndichteschätzung (orange) der standardisierten Regressionsresiduen $\\hat{\\varepsilon}_{std}$ von Modell 1. Zum Vergleich eine Standardnormalverteilung (blau). Rugplot der Beobachtungen unterhalb der x-Achse (schwarz).',fig.lp='fig:'>>=
 SAR_1_ResPLOT
 @
 

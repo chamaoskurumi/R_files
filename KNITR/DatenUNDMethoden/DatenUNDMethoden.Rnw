@@ -2,11 +2,6 @@
 \Sexpr{set_parent("MASTER.Rnw")}
 
 \section{Daten}\label{Sec:Daten}
-\newname\Armutchg{$\Delta Armut$}
-\newname\Mietechgr{$\Delta_{r}Miete$}
-\newname\Kategorie{\textit{Kategorie}}
-\newname\R{\textsf{R}}
-\newname\knitr{\textsf{knitr}}
 
 In diesem Kapitel werden die Quellen (Kap.~\ref{sec:Datenquellen}), die Struktur (Kap.~\ref{sec:BeoEinheit} und \ref{sec:DatenInferenz}), sowie der Inhalt (Kap.~\ref{sec:DatenVariablen}) der empirischen Daten beschrieben, die später analysiert und zur Überprüfung der Forschungshypothesen genutzt werden. Die Daten wurden ausschließlich mit \R verarbeitet. Die hierfür verwendeten \R Skripte sind samt ihrer jeweiligen \textsf{Markdown} Notebooks im offenen Git repository \url{github.com/chamaoskurumi/R_files} einzusehen.
 

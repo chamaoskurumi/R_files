@@ -20,30 +20,21 @@ Auf der Grundlage von Daten aus dem Jahre 2003 charakterisierte \citet[S.~74]{Ge
 Die Verdrängungseffekte markieren die sozialen Kosten der städtischen Neustrukturierung auf individueller, gesamtstädtischer und wohnungspolitischer Ebene: indem sich bestehende Nachbarschaftsstrukturen auflösen, Segregationstendenzen verstärken und preiswerte Wohnungsangebote verringern. 
 
  \begin{itemize}
-
 \item \textit{Gestiegene Nachfrage} \\
-  Berlin besitzt seit 2001 jedes Jahr ein positives Wanderungssaldo mit stark steigendem Trend \citep{StatLandesamtSachsen-Anhalt2015}. Einen extremer Anstieg des Wanderungssaldos ist für den Zeitraum von 2009 bis 2011 zu beobachten. In nur 2 Jahren kam es zu einer Zunahme des Wanderungssaldos von 3,1 je 1000 Einwohner auf 12 je 1000 Einwohner an - es vervierfachte sich also fast. Während Anfang der 2000er Jahre noch ein ein mittlerweile niedrige Leerstandsquoten (Verweis), Umwandlungen in Eigentumswohnungen im Bestand verringert das verschärft die Angebotslücke an Mietwohnungen
+  Berlin besitzt seit 2001 jedes Jahr ein positives Wanderungssaldo mit stark steigendem Trend \citep{StatLandesamtSH2015}. Einen extremer Anstieg des Wanderungssaldos ist für den Zeitraum von 2009 bis 2011 zu beobachten. In nur 2 Jahren kam es zu einer Zunahme des Wanderungssaldos von 3,1 je 1000 Einwohner auf 12 je 1000 Einwohner an - es vervierfachte sich also fast. Während Anfang der 2000er Jahre noch ein ein mittlerweile niedrige Leerstandsquoten (Verweis), Umwandlungen in Eigentumswohnungen im Bestand verringert das verschärft die Angebotslücke an Mietwohnungen
   \item \textit{Niedrige Neubautätigkeit}\\
     Obwohl in bestimmten Nachbarschaften Berlins Aufwertungsprozesse auch entscheidend durch Neubautätigkeiten getragen werden können (\textit{Neubau-Gentrification}), so ist bei der vorherrschend niedrigen Neubauquote und dem relativ niedrigem Invesitionsvolumen nicht davon auszugehen, Bestandsquartiere wie Prenzlauerberg, Friedrichshain oder Kreuzberg.  dass die davon auszugehen, dass Hier Zahlen von niedriger Neubauquote und niedrigem Investitionsvolumen 
-   Neubau ist Eigentumswohnungen und ein "`hoher Anteil der gerade fertiggestellten Neubauwohnungen befindet sich im Top-Segment"' (Wohnungsmarktbericht 2014) Im Jahre 2013 
-   Etwa 14 Prozent der Objekte sind als Mietwohnungsbauten konzipiert oder weisen sowohl Eigentums- als auch Mietwohnungen auf
-
-
-
+   Neubau ist Eigentumswohnungen und ein "`hoher Anteil der gerade fertiggestellten Neubauwohnungen befindet sich im Top-Segment"' (Wohnungsmarktbericht 2014) Etwa 14 Prozent der Objekte sind als Mietwohnungsbauten konzipiert oder weisen sowohl Eigentums- als auch Mietwohnungen auf
     \item What is the subject of the study? Describe the
         economic/econometric problem.
 Gentrification in Berlin
-
-
-    \item What is the purpose of the study (working hypothesis)?
-
-Systematisch Wo Gentrification stattfindet, 
-
+    \item What is the purpose of the study (working hypothesis)? Systematisch Wo Gentrification stattfindet, 
     \item What do we already know about the subject (literature
         review)? Use citations: shows that...
         Alternative Forms of the Wald test are considered
     \item What is the innovation of the study?
     \item Provide an overview of your results.
+ \end{itemize}
     
 "`I would challenge [...] anyone to show how census data can provide convincing evidence of displacement. It can show that one class or housing tenure has grown and that another has declined but it cannot show displacement."' \citep[S.~184]{Hamnett2010}
 
@@ -73,7 +64,7 @@ Inferenziell Räumlich Autoregressive Modelle
 Durch die statistische Modellierung des Zusammenhang zwischen immoblienwirtschaftlichen sowie sozialen Aufwertungsprozessen und wohnräumlicher Mobilität sollen empirische Erkenntnisse bezüglich der Existenz, Lokalisierung und Quantifizierung von Gentrification und Verdrängung in Berlin gewonnen werden. \\
 Zunächst soll mit Hilfe stadtsoziologischer Theorie der konzeptionelle Rahmen für die Studie bestimmt und Begriffsdefinitionen gesetzt werden. Auf Grundlage des aktuellen Forschungsstandes werden Forschungsfragen entwickelt und Hypothesen formuliert. \\
 Im ersten Schritt sollen mit den Methoden explorativer Datenanalyse eine räumliche Identifizierung und Quantifizierung von Gentrificationprozessen in Berlin vorgenommen werden. Die identifizierten Aufwertungsgebiete werden in einem Vergleich mit entsprechenden Kontrollgebieten genauer charaktierisiert. In einem zweiten Schritt werden räumlich autoregressive Modelle (SAR) geschätzt um einerseits den Effekt immobilienwirtschaftlicher Aufwertungsdynamik auf die wohnräumliche Mobilität der Berliner Bevölkerung zu messen und andereseits um den Charakter und Ausmaß der Interaktion zwischen sozialer Aufwertungsdynamik und wohnräumlicher Mobilität zu bestimmen. Die Ergebnisse der Regressionsmodelle werden dann im Kontext Marcuses Verdrängungstypen intepretiert und analysiert.
-\end{itemize}
+
 
 \citet[S.~51]{Newman2006a}
 "`Underestimating displacement involves high costs for theoretical understanding of neighbourhood change and even higher tolls for poor and working-class residents and the tattered policies in place to give them some protection. Those who are forced to leave gentrifying neighbourhoods are torn from rich local social networks of information and cooperation (the ‘social capital’ much beloved by policy-makers); they are thrown into an ever more competitive housing market shaped by increasingly difficult trade-offs between affordability, overcrowding and commuting accessibility to jobs and services. All of the pressures of gentrification are deeply enmeshed with broader inequalities of class, race and ethnicity, and gender"'

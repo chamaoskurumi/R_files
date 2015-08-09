@@ -36,6 +36,8 @@
 \usepackage{dcolumn}
 \usepackage{array}
 \usepackage{arydshln}
+\usepackage{etoolbox}
+\AtBeginEnvironment{table}{\addvspace{3mm}}\AtEndEnvironment{table}{\addvspace{1mm}}
 
 \setlength\dashlinedash{0.4pt}
 \setlength\dashlinegap{2pt}
@@ -81,6 +83,11 @@
 \begin{document}
 
 \newname\Europroqm{$\nicefrac{\text{\euro}}{m^2}$}
+\newname\R{\textsf{R}}
+\newname\knitr{\textsf{knitr}}
+\newname\Armutchg{$\Delta Armut$}
+\newname\Mietechgr{$\Delta_{r}Miete$}
+\newname\Kategorie{\textit{Kategorie}}
 
 <<setupPRE,include=FALSE>>=
 library(knitr)
@@ -169,15 +176,19 @@ knit_hooks$set(crop=hook_pdfcrop)
 <<'child-Einleitung/Einleitung.Rnw', child='Einleitung/Einleitung.Rnw'>>=
 @
 
+\newpage
 <<'child-Gentri/Gentri.Rnw', child='Gentri/Gentri.Rnw'>>=
 @
 
+\newpage
 <<'child-DatenUNDMethoden/DatenUNDMethoden.Rnw', child='DatenUNDMethoden/DatenUNDMethoden.Rnw'>>=
 @
 
+\newpage
 <<'child-Analyse/Analyse.Rnw', child='Analyse/Analyse.Rnw'>>=
 @
 
+\newpage
 <<'child-Analyse/ZusammenfassungUNDDiskussion.Rnw', child='ZusammenfassungUNDDiskussion/ZusammenfassungUNDDiskussion.Rnw'>>=
 @
 
