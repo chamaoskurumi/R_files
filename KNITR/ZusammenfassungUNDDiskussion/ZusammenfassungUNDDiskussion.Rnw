@@ -30,8 +30,7 @@ H 2.2a & Erhöhte Binnenfortzüge                                    & \cmark   
 \multicolumn{2}{l}{{\it Kausalhypothesen }}                                         &                \\
 H 3.1  & Armut $\stackrel{+}\longrightarrow$ Binnenfortzüge            & \cmark              \\ 
 \rowcolor[HTML]{EFEFEF} H 3.2a & Immo. Aufwertung $\stackrel{+}\longrightarrow$ Binnenfortzüge & \cmark              \\
-H 3.2b & Immo. Aufwertung $\stackrel{-}\longrightarrow$ Binnenfortzüge & \xmark              \\
-\rowcolor[HTML]{EFEFEF} H 3.3  & Soziale Aufwertung $\stackrel{+}\longleftrightarrow$ Umzüge   & \xmark              \\ \bottomrule 
+H 3.2b & Immo. Aufwertung $\stackrel{-}\longrightarrow$ Binnenfortzüge & \xmark              \\ \bottomrule 
  \multicolumn{3}{r}{{\footnotesize \cmark = Bestätigung; \cmark/\xmark\;= teilweise Bestätigung; \xmark\;= keine Bestätigung}}\\ 
 \end{tabular}
 \caption{Ergebnisübersicht nach Hypothesenüberprüfung}\label{tab:HypoErgebnisse}
