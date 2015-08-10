@@ -25,7 +25,7 @@ mosaicDF <- table(bpDF$MietechgrQNTL, bpDF$ArmutchgQNTL,dnn=c("Relative Mietprei
 mosaic(mosaicDF, gp = gpar(fill = fill_colors, col = 0))
 @
 
-<<Assoc, fig.cap='Assozationsplot von $\\Delta_{r}Miete$ und $\\Delta Armut$ nach gewichteten Quartilen. Für die \\textit{Kategorie} Gentri besteht ein hoch signifikanter Zusammenhang zwischen Mietpreissteigerung und  Armutssenkung.', fig.scap='Assozationsplot von $\\Delta_{r}Miete$ und $\\Delta Armut$', fig.lp='fig:',fig.pos='H', fig.height=3, fig.width=4, crop=TRUE, fig.align='center'>>=
+<<Assoc, fig.cap='Assoziationsplot von $\\Delta_{r}Miete$ und $\\Delta Armut$ nach gewichteten Quartilen. Für die \\textit{Kategorie} Gentri besteht ein hoch signifikanter Zusammenhang zwischen Mietpreissteigerung und Armutssenkung.', fig.scap='Assoziationsplot von $\\Delta_{r}Miete$ und $\\Delta Armut$', fig.lp='fig:',fig.pos='H', fig.height=3, fig.width=4, crop=TRUE, fig.align='center'>>=
 assoc(mosaicDF,shade=TRUE) 
 @
 
@@ -223,7 +223,7 @@ pIntraI <- ggplot(summaryINTRAdflongI, aes(ZEIT, IntraFR_mean, group = Gentri, c
   scale_y_continuous(breaks=seq(10,22,2), limits=c(11.5,23.5))
 #pIntraI
 
-grid.arrange(pIntraG, pIntraI, ncol=2, nrow=1, widths=c(1,1))
+grid.arrange(pIntraG, pIntraI, ncol=2, nrow=1, widths=c(1.15,1))
 @
 
 \newpage
@@ -236,7 +236,7 @@ ResiduenEMAP
 @
 
 \newpage
-<<OekoVerdraengungAMAP, fig.scap="Karte der geschätzten ökonomischen Verdrängungsraten (Version A)", fig.cap="\\href{http://www.gmx.de}{Karte der geschätzten ökonomischen Verdrängungsraten nach Version A, also als Anteil der zwischen 2007 und 2012 ökonomisch Verdrängten an der Gesamtbevölkerung in \\%.}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
+<<OekoVerdraengungAMAP, fig.scap="Karte der ökonomischen Verdrängungsraten (Version A)", fig.cap="\\href{http://www.gmx.de}{Karte der geschätzten ökonomischen Verdrängungsraten nach Version A: Anteil der zwischen 2007 und 2012 ökonomisch Verdrängten an der Gesamtbevölkerung in \\%.}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
 OekoVerdraengungAMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=OekoVerdraengungA, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
@@ -247,7 +247,7 @@ OekoVerdraengungAMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
 OekoVerdraengungAMAP
 @
 
-<<OekoVerdraengungBMAP, fig.scap="Karte der geschätzten ökonomischen Verdrängungsraten (Version B)", fig.cap="\\href{http://www.gmx.de}{Karte der geschätzten ökonomischen Verdrängungsraten nach Version B, also als auf immobilienwirtschaftliche Aufwertung zurückzuführenden Anteil der jährlichen Binnenfortzüge in \\%.}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
+<<OekoVerdraengungBMAP, fig.scap="Karte der ökonomischen Verdrängungsraten (Version B)", fig.cap="\\href{http://www.gmx.de}{Karte der geschätzten ökonomischen Verdrängungsraten nach Version B: Anteil der auf immobilienwirtschaftliche Aufwertung zurückzuführende jährliche Binnenfortzugsrate in \\%.}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
 OekoVerdraengungBMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=OekoVerdraengungB, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
