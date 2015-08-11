@@ -5,7 +5,7 @@
 
 In diesem Kapitel werden die Quellen (Kap.~\ref{sec:Datenquellen}), die Struktur (Kap.~\ref{sec:BeoEinheit} und \ref{sec:DatenInferenz}), sowie der Inhalt (Kap.~\ref{sec:DatenVariablen}) der empirischen Daten beschrieben, die später analysiert und zur Überprüfung der Forschungshypothesen genutzt werden. Die Daten wurden ausschließlich mit \R verarbeitet. Die hierfür verwendeten \R Skripte sind samt ihrer jeweiligen \textsf{Markdown} Notebooks im offenen Git repository \url{github.com/chamaoskurumi/R_files} einzusehen.
 
-  \subsection{Datenquellen}\label{sec:Datenquellen} Ähnlich dem \textit{GentriMap} Projekt \citep{Holm2011b} werden spezifische Anforderungen an die Daten gestellt. Die Daten sollen für das gesamte Bundesland Berlin kleinräumig, d.h. auf Nachbarschafts- oder Ortsteilsniveau verfügbar sein. Desweiteren sollen sie den entsprechenden Geobasisdaten zuzuordnen, sowie genau und verlässlich sein. Über die folgenden Quellen konnten Daten bezogen werden, die diesen Anforderungen genügen:
+  \subsection{Rohdatenquellen}\label{sec:Datenquellen} Ähnlich dem \textit{GentriMap} Projekt \citep{Holm2011b} werden spezifische Anforderungen an die Daten gestellt. Die Daten sollen für das gesamte Bundesland Berlin kleinräumig, d.h. auf Nachbarschafts- oder Ortsteilsniveau verfügbar sein. Desweiteren sollen sie den entsprechenden Geobasisdaten zuzuordnen, sowie genau und verlässlich sein. Über die folgenden Quellen konnten Daten bezogen werden, die diesen Anforderungen genügen:
 
   \begin{itemize}
   \item \textit{Demographische Daten} wurden vom Amt für Statistik Berlin-Brandenburg erhoben und über das Berlin Open Data Portal\footnote{ \url{daten.berlin.de/datensaetze/}} aus dem abgestimmten Datenpool bezogen.

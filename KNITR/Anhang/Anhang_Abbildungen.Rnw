@@ -2,7 +2,37 @@
 
 \section{Abbildungen}\label{Anhang:Abbildungen}
 
-<<Mosaic, fig.scap='Mosaikplot des Zusammenhangs von $\\Delta_{r}Miete$ und $\\Delta Armut$', fig.cap='Mosaikplot des Zusammenhangs von $\\Delta_{r}Miete$ und $\\Delta Armut$ nach gewichteten Quartilen. Die Zelle Q4($\\Delta_{r}Miete$) / Q1($\\Delta Armut$) entspricht der \\textit{Kategorie} Gentri.', fig.pos='H', fig.lp='fig:', fig.height=3.5,crop=TRUE, fig.align='center'>>=
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.6]{figure/Mosaic-1.pdf}
+  \caption[Mosaikplot von $\Delta_{r}Miete$ und $\Delta Armut$]{Mosaikplot des Zusammenhangs von $\Delta_{r}Miete$ und $\Delta Armut$ nach gewichteten Quartilen. Die rote Zelle Q4($\Delta_{r}Miete$) / Q1($\Delta Armut$) entspricht der \textit{Kategorie} Gentri.}
+  \label{fig:Mosaic}
+\end{figure}
+
+%<<Mosaic, fig.scap='Mosaikplot des Zusammenhangs von $\\Delta_{r}Miete$ und $\\Delta Armut$', fig.cap='Mosaikplot des Zusammenhangs von $\\Delta_{r}Miete$ und $\\Delta Armut$ nach gewichteten Quartilen. Die Zelle Q4($\\Delta_{r}Miete$) / Q1($\\Delta Armut$) entspricht der \\textit{Kategorie} Gentri.', fig.pos='H', fig.lp='fig:', fig.height=3.5,crop=TRUE, fig.align='center'>>=
+%library("vcd")
+%fill_colors <- matrix(c("red", "gray", "gray","grey",
+%                       "gray", "gray", "gray","grey",
+%                       "gray", "gray", "gray","grey",
+%                       "gray", "gray", "gray","grey"), ncol = 4)
+%
+%bpDF$MietechgrQNTL <- factor(bpDF$MietechgrQNTL,levels(bpDF$MietechgrQNTL)[c(4,3,2,1)])
+%
+%levels(bpDF$valid)[levels(bpDF$valid)=="gültig"] <- "Gesamt"
+%levels(bpDF$MietechgrQNTL)[levels(bpDF$MietechgrQNTL)=="4.Quartil"] <- "4.Q"
+%levels(bpDF$MietechgrQNTL)[levels(bpDF$MietechgrQNTL)=="3.Quartil"] <- "3.Q"
+%levels(bpDF$MietechgrQNTL)[levels(bpDF$MietechgrQNTL)=="2.Quartil"] <- "2.Q"
+%levels(bpDF$MietechgrQNTL)[levels(bpDF$MietechgrQNTL)=="1.Quartil"] <- "1.Q"
+%levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="4.Quartil"] <- "4.Q"
+%levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="3.Quartil"] <- "3.Q"
+%levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="2.Quartil"] <- "2.Q"
+%levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="1.Quartil"] <- "1.Q"
+%
+%mosaicDF <- table(bpDF$MietechgrQNTL, bpDF$ArmutchgQNTL,dnn=c("Relative Mietpreisänderung","Änderung der Armutsquote"))
+%mosaic(mosaicDF, gp = gpar(fill = fill_colors, col = 0))
+%@
+
+<<Assoc, fig.cap='Assoziationsplot des Zusammenhangs von $\\Delta_{r}Miete$ und $\\Delta Armut$ nach gewichteten Quartilen. Für die \\textit{Kategorie} Gentri besteht ein hoch signifikanter Zusammenhang zwischen Mietpreissteigerung und Armutssenkung.', fig.scap='Assoziationsplot von $\\Delta_{r}Miete$ und $\\Delta Armut$', fig.lp='fig:',fig.pos='H', fig.height=3, fig.width=4, crop=TRUE, fig.align='center'>>=
 library("vcd")
 fill_colors <- matrix(c("red", "gray", "gray","grey",
                        "gray", "gray", "gray","grey",
@@ -22,10 +52,7 @@ levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="2.Quartil"] <- "2.Q"
 levels(bpDF$ArmutchgQNTL)[levels(bpDF$ArmutchgQNTL)=="1.Quartil"] <- "1.Q"
 
 mosaicDF <- table(bpDF$MietechgrQNTL, bpDF$ArmutchgQNTL,dnn=c("Relative Mietpreisänderung","Änderung der Armutsquote"))
-mosaic(mosaicDF, gp = gpar(fill = fill_colors, col = 0))
-@
 
-<<Assoc, fig.cap='Assoziationsplot von $\\Delta_{r}Miete$ und $\\Delta Armut$ nach gewichteten Quartilen. Für die \\textit{Kategorie} Gentri besteht ein hoch signifikanter Zusammenhang zwischen Mietpreissteigerung und Armutssenkung.', fig.scap='Assoziationsplot von $\\Delta_{r}Miete$ und $\\Delta Armut$', fig.lp='fig:',fig.pos='H', fig.height=3, fig.width=4, crop=TRUE, fig.align='center'>>=
 assoc(mosaicDF,shade=TRUE) 
 @
 
@@ -247,7 +274,7 @@ OekoVerdraengungAMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
 OekoVerdraengungAMAP
 @
 
-<<OekoVerdraengungBMAP, fig.scap="Karte der ökonomischen Verdrängungsraten (Version B)", fig.cap="\\href{http://www.gmx.de}{Karte der geschätzten ökonomischen Verdrängungsraten nach Version B: Anteil der auf immobilienwirtschaftliche Aufwertung zurückzuführende jährliche Binnenfortzugsrate in \\%.}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
+<<OekoVerdraengungBMAP, fig.scap="Karte der ökonomischen Verdrängungsraten (Version B)", fig.cap="\\href{http://www.gmx.de}{Karte der geschätzten ökonomischen Verdrängungsraten nach Version B: Anteil der Binnenfortzüge, der auf immobilienwirtschaftliche Aufwertung zurückzuführenden ist in \\%.}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
 OekoVerdraengungBMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=OekoVerdraengungB, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
