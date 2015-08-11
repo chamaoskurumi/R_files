@@ -209,7 +209,7 @@ ZuzuegeUDARMAP
 %GentriAMAP
 %@
 
-<<IntraLOR,fig.height=3.8,fig.scap="Anteil der Intra-LOR Umzüge an allen Fortzügen in \\%", fig.cap="Zeitverlauf des Anteils der Umzüge innerhalb der LOR (Intra-LOR Umzüge) an allen Fortzügen in \\% nach \\textit{Kategorie}. Aufgrund einer fehlerhaften Lieferung durch das Amt für Statistik Berlin Brandenburg stehen keine Daten für Intra-LOR Umzüge für das Jahr 2007 zur Verfügung.", fig.lp='fig:',fig.pos='H'>>=
+<<IntraLOR,fig.height=3.8,fig.scap="Anteil der Intra-LOR Umzüge an allen Fortzügen in \\%", fig.cap="Zeitverlauf des Anteils der Umzüge innerhalb der LOR (Intra-LOR Umzüge) an allen Binnenumzügen in \\% nach \\textit{Kategorie}. Aufgrund einer fehlerhaften Lieferung durch das Amt für Statistik Berlin Brandenburg stehen keine Daten für Intra-LOR Umzüge für das Jahr 2007 zur Verfügung.", fig.lp='fig:',fig.pos='H'>>=
 INTRAdflongI  <- subset(INTRAdflong, STADTRAUM=="innere Stadt")
 
 INTRAdflongI <- INTRAdflongI[order(INTRAdflongI$ZEIT, INTRAdflongI$Gentri),]
@@ -274,7 +274,7 @@ OekoVerdraengungAMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
 OekoVerdraengungAMAP
 @
 
-<<OekoVerdraengungBMAP, fig.scap="Karte der ökonomischen Verdrängungsraten (Version B)", fig.cap="\\href{http://www.gmx.de}{Karte der geschätzten ökonomischen Verdrängungsraten nach Version B: Anteil der Binnenfortzüge, der auf immobilienwirtschaftliche Aufwertung zurückzuführenden ist in \\%.}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
+<<OekoVerdraengungBMAP, fig.scap="Karte der ökonomischen Verdrängungsraten (Version B)", fig.cap="\\href{http://www.gmx.de}{Karte der geschätzten ökonomischen Verdrängungsraten nach Version B: Anteil der auf immobilienwirtschaftliche Aufwertung zurückzuführenden Binnenfortzüge in \\%.}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
 OekoVerdraengungBMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=OekoVerdraengungB, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 

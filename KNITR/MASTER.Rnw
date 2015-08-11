@@ -43,7 +43,7 @@
 \setlength\dashlinegap{2pt}
 \setlength\arrayrulewidth{0.3pt}
 
-\interfootnotelinepenalty=10000
+\interfootnotelinepenalty=2000
 
 \bibliography{Bibliographie}
 

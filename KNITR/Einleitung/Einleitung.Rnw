@@ -73,6 +73,8 @@ Technicals
 
 Datenverarbeitung und Analyse in \R \texttt{spdep}
 
+ Die Daten wurden ausschließlich mit \R verarbeitet. Die hierfür verwendeten \R Skripte sind samt ihrer jeweiligen \textsf{Markdown} Notebooks im offenen Git repository \url{github.com/chamaoskurumi/R_files} einzusehen.
+
 Räumlichen RAutor und Instandhalter des Pakets ist Roger Bivand \url{cran.r-project.org/web/packages/spdep/spdep.pdf}
 Edzer Pebesma und Roger Bivand \texttt{sp} \url{cran.r-project.org/web/packages/sp/sp.pdf}
 Hadley Wickham \texttt{ggplot2} \url{ggplot2.org}
