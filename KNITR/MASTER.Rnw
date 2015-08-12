@@ -39,6 +39,8 @@
 \usepackage{etoolbox}
 \AtBeginEnvironment{table}{\addvspace{6mm}}\AtEndEnvironment{table}{\addvspace{1mm}}
 
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+
 \setlength\dashlinedash{0.4pt}
 \setlength\dashlinegap{2pt}
 \setlength\arrayrulewidth{0.3pt}
