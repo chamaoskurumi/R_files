@@ -2,11 +2,10 @@
 
 \usepackage{amsmath,amssymb,amsfonts,amsthm}    % Typical maths resource packages
 \usepackage{graphicx}                           % Packages to allow inclusion of graphics
-\usepackage{hyperref}                           % For creating hyperlinks in cross references
-\usepackage[ngerman]{babel}
+\usepackage[ngerman,english]{babel}
 \usepackage[backend=bibtex, style=authoryear-comp, language=ngerman, isbn=false, url=true, doi=false, eprint=false, natbib=true, citestyle=authoryear-comp]{biblatex}
 \usepackage[utf8]{inputenc}
-\usepackage{hyperref}
+\usepackage[pdfpagelabels,debug=true]{hyperref}            % For creating hyperlinks in cross references
 \usepackage{acronym}
 \usepackage{afterpage}
 \usepackage{booktabs}
@@ -40,12 +39,18 @@
 \AtBeginEnvironment{table}{\addvspace{6mm}}\AtEndEnvironment{table}{\addvspace{1mm}}
 
 \usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\microtypecontext{spacing=nonfrench}
 
 \setlength\dashlinedash{0.4pt}
 \setlength\dashlinegap{2pt}
 \setlength\arrayrulewidth{0.3pt}
 
 \interfootnotelinepenalty=2000
+%\sloppy
+\setlength{\emergencystretch}{2em}
+\hyphenpenalty=3500
+\doublehyphendemerits=9000
+\finalhyphendemerits=6000
 
 \bibliography{Bibliographie}
 
@@ -124,32 +129,25 @@ knit_hooks$set(crop=hook_pdfcrop)
 % -------------------------------
 % --- frontmatter: Title page ---
 % -------------------------------
-
-\thispagestyle{empty}
+\pagenumbering{roman}
+\pagestyle{empty}
+\selectlanguage{ngerman} 
 \input{Andere/Titelseite}
 
 % -----------------------------
 % --- frontmatter: Abstract ---
 % -----------------------------
-%\newpage
-%\input{Andere/Abstract}
+\newpage
+\input{Andere/Abstract}
 
 % -----------------------------
 % --- frontmatter: Contents ---
 % -----------------------------
 \newpage
 \pagenumbering{gobble}
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 \tableofcontents
 \clearpage
-
-% ----------------------------------------------------
-% --- frontmatter: List of Figures (not mandatory) ---
-% ----------------------------------------------------
-%\newpage
-%\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
-%\ohead[]{Abkürzungsverzeichnis}
-%\input{Andere/Abkuerzungen}
 
 % ----------------------------------------------------
 % --- frontmatter: List of Figures (not mandatory) ---
@@ -202,9 +200,7 @@ knit_hooks$set(crop=hook_pdfcrop)
 % literature
 \newpage
 \addcontentsline{toc}{section}{Literatur}
-
 \printbibliography
-
 
 % figures (not mandatory)
 \newpage

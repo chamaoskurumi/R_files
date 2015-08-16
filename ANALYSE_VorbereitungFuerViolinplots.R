@@ -1,5 +1,5 @@
-setwd("/home/dao/Desktop/MasterArbeit/R_files/KNITR/")
-load(file = "FINAL_WORKSPACE.Rdata")
+#setwd("/home/dao/Desktop/MasterArbeit/R_files/KNITR/")
+#load(file = "FINAL_WORKSPACE.Rdata")
 
 #### packages ####
 library("ggplot2")
@@ -99,7 +99,7 @@ p1Armutchg   <- ggplot(bpDF, aes(Gentri,
                                  Armutchg, 
                                  weight=E_E.2007,
                                  fill=Gentri)) + 
-  ylab(expression(paste(Delta,'Armut (%)')))+
+  ylab(expression(paste(Delta,'Armut (Prozentpunkte)')))+
   scale_y_continuous(breaks=pretty_breaks(n=brueche))+ 
   geom_violin(scale = "width") + bp_theme
 p1Armutchg <- p1Armutchg + geom_boxplot(width=.3)

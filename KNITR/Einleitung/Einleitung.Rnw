@@ -2,110 +2,39 @@
 
 \section{Einleitung}\label{sec:Einleitung}
 
-Etwa seit Beginn der globalen Banken- und Finanzkrise im Jahr 2007 "`boomt"' der Berliner Immobilienmarkt. \textit{ImmoScout24}, der Marktführer unter den Immobilienportalen im deutschsprachigen Raum, hat allen Grund die vorherrschende "`Goldgräberstimmung"' \citep{Immobilienscout242013} für Immobilienbesitzer*innen zu feiern. Bei den Kauf- wie Mietpreissteigerungen hat Berlin das bei Immobilieninvestor*innen sonst so beliebte London mittlerweile bei weitem abgehängt \citet[vgl.][]{Jurgens2013,Gabriel2015,GreaterLondonAuthority2014} und das stadtweite Immobilieninvestitionsvolumen vervielfachte sich mehrfach innerhalb kürzester Zeit. Allein zwischen 2010 und 2012 stieg laut den Daten des Immobiliendienstleisters \textit{CBRE} das Handelsvolumen Berliner Wohnimmobilienportfolios von 420 Millionen \euro\; auf 2,75 Millarden \euro\;\citep{Jurgens2013}. Für das hervorragende Investitionsklima sind nich zuletzt das von kontinuierlichen Zuwanderungsüberschüssen \citep[vgl.][S.~38]{BBU2015} getragene Nachfragewachstum, wie auch das relativ niedrige Ausgangsniveau der Berliner Immobilienpreise verantwortlich \citep[vgl.][]{Papon2015}. Das exorbitante Wachstum des Berliner Immobilienmarktes ist im Zuge der Krise als - im Vergleich zu anderen Metropolen etwas verzögerte - Integration in den globalisierten "`sekundären Kapitalkreislauf"'\citep{Harvey1978} zu interpretieren. 
+Etwa seit Beginn der globalen Banken- und Finanzkrise im Jahr 2007 "`boomt"' der Berliner Immobilienmarkt. \textit{ImmoScout24}, der Marktführer unter den Immobilienportalen im deutschsprachigen Raum, hat allen Grund die vorherrschende "`Goldgräberstimmung"' \citep{Immobilienscout242013} für Immobilienbesitzer*innen zu feiern. Bei den Kauf- wie Mietpreissteigerungen hat Berlin das bei Immobilieninvestor*innen sonst so beliebte London mittlerweile bei weitem abgehängt \citet[vgl.][]{Jurgens2013,Gabriel2015,GreaterLondonAuthority2014} und das stadtweite Immobilieninvestitionsvolumen vervielfachte sich mehrfach innerhalb kürzester Zeit. Allein zwischen 2010 und 2012 stieg laut den Daten des Immobiliendienstleisters \textit{CBRE} das Handelsvolumen Berliner Wohnimmobilienportfolios von 420 Millionen~\euro\, auf 2,75 Millarden~\euro\,\citep{Jurgens2013}. Für das hervorragende Investitionsklima sind nich zuletzt das von kontinuierlichen Zuwanderungsüberschüssen \citep[vgl.][S.~38]{BBU2015} getragene Nachfragewachstum, wie auch das relativ niedrige Ausgangsniveau der Berliner Immobilienpreise verantwortlich \citep[vgl.][]{Papon2015}. Das exorbitante Wachstum des Berliner Immobilienmarktes ist im Zuge der Krise als - im Vergleich zu anderen Metropolen etwas verzögerte - Integration in den globalisierten "`sekundären Kapitalkreislauf"'\citep{Harvey1978} zu interpretieren. 
 
-In den letzten Jahren wurde dieser "`boomende"' Markt für die meisten Berliner Mieter*innen vor allem durch die fast flächendeckende immobilienwirtschaftliche Aufwertung und die damit verbundenen Mietpreissteigerungen spürbar. Für die Mieter*innen mit unterdurchschnittlichen Einkommen verschärfte sich mit den Mietpreissteigerungen die Wohnungsnot, welche entscheidend durch die am Anfang der 2000er Jahre durchgeführte Privatisierung von ca. 230.000 kommunalen Wohnungen \citep{Holm2010} mitverursachte wurde. Das Angebot an verfügbaren, geschweige denn für Geringverdienende erschwinglichen Wohnungen, ist mitlerweile so gering, dass die stadtweite Wohnungsleerstandsquote in Berlin auf aktuell unter 3\% gefallen ist - und damit die von New York City deutlich unterbietet \citep[vgl.][]{Gaumer2015,BBU2015}.\footnote{ Für die innenstadtnahen Bezirke ist sogar von Leerstandsquoten von nur 1\% bis 2\% auszugehen \citep[vgl.][S.~52f.]{BBU2015}. Um diese Zahlen besser einordnen zu können: Nach Einschätzung der Berliner Senatsverwaltung für Stadtentwicklung setzt das "`Funktionieren des Wohnungsmarktes"' eine Mindestleerstandsquote von 3\% voraus \citep[S.~38]{SenatsverwaltungfurStadtentwicklung2002}. Bei den New Yorker Behörden wird bereits eine Wohnungsleerstandsquote von unter 5\% als "`rental market emergency"' \citep[S.~2607]{Wyly2010} bezeichnet.} 
+In den letzten Jahren wurde dieser "`boomende"' Markt für die meisten Berliner Mieter*innen vor allem durch die fast flächendeckende immobilienwirtschaftliche Aufwertung und die damit verbundenen Mietpreissteigerungen spürbar. Für die Mieter*innen mit unterdurchschnittlichen Einkommen verschärfte sich mit den Mietpreissteigerungen die Wohnungsnot, welche entscheidend durch die am Anfang der 2000er Jahre durchgeführte Privatisierung von ca. 230.000 kommunalen Wohnungen \citep{Holm2010} mitverursachte wurde. Das Angebot an verfügbaren, geschweige denn für Geringverdienende erschwinglichen Wohnungen, ist mittlerweile so gering, dass die stadtweite Wohnungsleerstandsquote in Berlin auf aktuell unter 3\% gefallen ist - und damit die von New York City deutlich unterbietet \citep[vgl.][]{Gaumer2015,BBU2015}.\footnote{ Für die innenstadtnahen Bezirke ist sogar von Leerstandsquoten von nur 1\% bis 2\% auszugehen \citep[vgl.][S.~52f.]{BBU2015}. Um diese Zahlen besser einordnen zu können: Nach Einschätzung von der \citep[S.~38]{SenatsverwaltungfurStadtentwicklung2002} setzt das "`Funktionieren des Wohnungsmarktes"' eine Mindestleerstandsquote von 3\% voraus. Bei den Behörden von New York City wird bereits eine Wohnungsleerstandsquote von unter 5\% als "`rental market emergency"' \citep[S.~2607]{Wyly2010} bezeichnet.} 
 
-Nach \citet{Smith1979,Smith1985,Smith1987} stehen immobilienwirtschaftliche Aufwertungsdynamiken wie diese in direktem Zusammenhang mit der Verdrängung von Bewohner*innen städtischer Nachbarschaften durch Haushalte von höherem sozioökonomischen Status. Dabei ist die Verdrängung kein unbeabsichtigter Nebeneffekt der Aufwertung, sondern "`notwendige Voraussetzung für den Erfolg der Investitionsstrategie"' \citep[S.~12]{Holm2011a}. In diesem Zusammenhang sieht \citet{Marcuse1992} den Kern von Gentrifizierungsprozessen. Marcuses Position ist jedoch in der Gentrizierungsliteratur keineswegs unumstritten. \citet[S.~9]{Glatter2007} vertritt beispielsweise die Meinung, dass die Verdrängung der Bewohner*innen "`nicht den Normalfall"' der Gentrifizierung darstelle. 
-Studien mit unterschiedlichen ergebnissen
-So entstand in der Literatur eine heftige Kontroverse über Form, Verlauf und Ausmaß von gentrifizierungsbedingter Verdrängung \citep[vgl.][]{Hamnett2010,Slater2010}.
-generell wenig studien
-
-fehlt für Berlin
-S.~10 Monitoring 2013 Abnahme "`sozialer Benachteiligung"' in Kreuzberg-Nordost und Neukölln-Nord
-Mit der immobilienwirtschaftlichen Aufwertung weiter Teile Berlins Gentrifizierungsprozesse  es mitlerweile in allen Medien
-Gentrifizierung
-soziale aufwertung
-Verdrängung
-was is schlimm dran
-
-
+Nach \citet{Smith1979,Smith1985,Smith1987} stehen Dynamiken immobilienwirtschaftlicher Aufwertung wie diese in direktem Zusammenhang mit sozialer Aufwertung, das heißt einem Bevölkerungsaustausch, bei dem die Bewohner*innen städtischer Nachbarschaften durch Haushalte von höherem sozioökonomischen Status verdrängt werden. Dabei ist die Verdrängung kein unbeabsichtigter Nebeneffekt immobilienwirtschaftlicher Aufwertung, sondern "`notwendige Voraussetzung für den Erfolg der Investitionsstrategie"' \citep[S.~12]{Holm2011a}. In diesem Zusammenhang sieht \citet{Marcuse1992} den Kern von Gentrifizierungsprozessen. Seine Position ist jedoch in der Gentrizierungsliteratur keineswegs unumstritten. \citet[S.~9]{Glatter2007} vertritt etwa die Meinung, dass die Verdrängung der Bewohner*innen "`nicht den Normalfall"' der Gentrifizierung darstelle. Dass aufwertungsbedingte Verdrängung für die unmittelbar Betroffenen ein Problem darstellt, darüber herrscht in der Literatur weitesgehend Einigkeit. \citet[S.~51]{Newman2006a} beschreiben die Konsequenzen für von Verdrängung Betroffene wie folgt:
 \begin{quote}
-"`Those who are forced to leave gentrifying neighbourhoods are torn from rich local social networks of information and cooperation (the ‘social capital’ much beloved by policy-makers); they are thrown into an ever more competitive housing market shaped by increasingly difficult trade-offs between affordability, overcrowding and commuting accessibility to jobs and services. All of the pressures of Gentrifizierung are deeply enmeshed with broader inequalities of class, race and ethnicity, and gender"' \citet[S.~51]{Newman2006a}
+"`Those who are forced to leave gentrifying neighbourhoods are torn from rich local social networks of information and cooperation (the ‘social capital’ much beloved by policy-makers); they are thrown into an ever more competitive housing market shaped by increasingly difficult trade-offs between affordability, overcrowding and commuting accessibility to jobs and services. All of the pressures of gentrification are deeply enmeshed with broader inequalities of class, race and ethnicity, and gender."' \
 \end{quote}
+\citet[S.~48]{Holm2011b} ergänzt, dass sich die "`sozialen Kosten"' von aufwertungsbedingter Verdrängung in Form von "`auflösende[n] Nachbarschaftsstrukturen, verstärkende[n] Segregationstendenzen und [die Verminderung] preiswerter Wohnungsangebote"' nicht nur auf individueller, sondern auch auf "`gesamtstädtischer und wohnungspolitischer Ebene"' manifestieren.
 
-"`Die Verdrängungseffekte markieren die sozialen Kosten der städtischen Neustrukturierung auf individueller, gesamtstädtischer und wohnungspolitischer Ebene: indem sich bestehende Nachbarschaftsstrukturen auflösen, Segregationstendenzen verstärken und preiswerte Wohnungsangebote verringern"' \citep[S.~48]{Holm2011b}
+\subsection{Problemstellung}
+Trotz der sozialen und politischen Dringlichkeit des Themas, gab es bisher nur wenige empirische Studien \citep[z.B.][]{Atkinson2000,Newman2006,Wyly2010,Freeman2005,Atkinson2011}, die versuchten Gentrifizierung als Verknüpfung von immobilienwirtschaftlicher und sozialer Aufwertung systematisch zu messen oder das Ausmaß und die Form aufwertungsbedingter Verdrängungseffekte stadtweit zu erfassen. In Deutschland wurde bisher gar keine stadtweite Studie durchgeführt, welche die empirische Verbindung zwischen Aufwertung und Verdrängung untersuchte. Angesichts der aktuell starken Dynamik des Berliner Immobilienmarktes, dem enorm gewachsenen medialen Interesse am Thema der Gentrifizierung und vor allem den von stadtpolitischen Protestbewegungen kritisierten negativen sozialen Auswirkungen von Aufwertung, erscheint der Bedarf ein einer empirischen Studie zur stadtweiten Messung von Gentrifizierung in Berlin als besonders akut.
 
-"`households suffer significant stress in relocating some distance away from the supporting
-networks of local family and friends. This can affect psycho-social health, educational
-outcomes, household dissolution and homelessness."' \citet[S.~5]{Atkinson 2011}
-
-Kaum Studien zu systematisch und stadtweit zu messen. Insbesondere 
+Deshalb setzt sich diese Studie das Ziel, mithilfe von Aggregatsdaten sowohl Gentrifizierungsgebiete in Berlin stadtweit auf Nachbarschaftsniveau zu identifizieren und vergleichend zu charakterisieren, als auch den für Gentrifizierungsprozesse wesentlichen Zusammenhang zwischen Aufwertung und Verdrängung zu messen. Verursachen Mietpreissteigerungen tatsächlich Verdrängung? 
 
 
-
-
-Ziel dieser Arbeit war es sowohl Gentrifizierungsgebiete in Berlin auf Nachbarschaftsniveau zu identifizieren und vergleichend zu charakterisieren, als auch den für Gentrifizierungsprozesse wesentlichen Zusammenhang zwischen Aufwertung und Verdrängung zu messen werden. 
-
-Mit der kleinräumigen, systematischen Erfassung von Aufwertung und Verdrängung versuchte diese Arbeit einerseits zur Schließung einer Lücke in der deutschen Gentrifizierungsliteratur beizutragen, sowie andererseits methodische Unzulänglichkeiten vergleichbarer internationaler Studien zu beheben. Mithilfe der teils weiterentwickelten, teils neu ausgearbeiteten Methodik konnten robuste Belege für den Zusammenhang zwischen immobilienwirtschaftlicher und sozialer Aufwertung, sowie für die Verknüpfung von Aufwertung und Verdrängung gesammelt werden. Im Wesentlichen entsprechen alle empirischen Ergebnisse dieser Arbeit den gängigen Theoremen der Gentrifizierungsforschung - und dies obwohl der informelle Wohnungsmarkt mitsamt der Dunkelziffer behördlich nicht erfasster Armut und wohnräumlicher Mobilität die Analyse vermutlich in unbekanntem Ausmaß verzerrt hat. Dass trotz dieser Verzerrungen, der unterschiedlichen Erhebungsmethoden und Kontexte die für Berlin geschätzten ökonomischen Verdrängungsraten in etwa den von \citet{Newman2006a} berechneten Raten für New York City entsprechen, ist bemerkenswert.
-
-Berliner Wohnungsmarkt
-
-"`Stadterneuerung"' 
-
-
-While some have acknowledged that displacement from gentrification has been both prevalent and socially harm ful (notably Sumka, 1979; Hartman, 1979; Le Gates and Hartman, 1986; Marcuse, 1986), little research has been conducted in Britain to measure its extent. \citep[S.~149f.]{Atkinson2000}
-
-\begin{quote} "`Those who are forced to leave gentrifying neighbourhoods are torn from rich local social networks of information and cooperation (the ‘social capital’ much beloved by policy-makers); they are thrown into an ever more competitive housing market shaped by increasingly difficult trade-offs between affordability, overcrowding and commuting accessibility to jobs and services. All of the pressures of gentrification are deeply enmeshed with broader inequalities of class, race and ethnicity, and gender"' \citep[S.~51]{Newman2006a}.\end{quote}
-
-Anspruch: 
-
-Auf der Grundlage von Daten aus dem Jahre 2003 charakterisierte \citet[S.~74]{Gebhardt2012} den Altbezirk Kreuzberg sowie Nord-Neukölln noch als Abwertungsgebiete mit teilweisen inselhaften Aufwertungstendenzen, welche hohe Wohnmobilität aufweisen und aus denen Teile der Mittelschicht in Randgebiete abwandern. Auch hier beobachten wir 2007-2012 eine hohe Wohnmobilität, jedoch mit flächendeckenden Aufwertungsprozessen.
-
- \begin{itemize}
-    \item What is the subject of the study? Describe the
-        economic/econometric problem.
-Gentrifizierung in Berlin
-    \item What is the purpose of the study (working hypothesis)? Systematisch Wo Gentrifizierung stattfindet, 
-    \item What do we already know about the subject (literature
-        review)? Use citations: shows that...
-        Alternative Forms of the Wald test are considered
-    \item What is the innovation of the study?
-    \item Provide an overview of your results.
- \end{itemize}
+Die Durchführung einer solchen Untersuchung ist jedoch methodisch außerordentlich herausfordernd. Praktisch alle Stadtforscher*innen, die sich zum Thema der Messung von Gentrifizierung geäußert haben, betonen wie schwierig die Messung zu operationalisieren ist \citep[z.B.][]{Atkinson2004,Newman2006a,Shaw2008,Freeman2005,Wyly2010}. Nach Meinung von \citep[S.~184]{Hamnett2010} und \citet[S.~299]{Slater2009} ist ein verlässlicher Nachweis von aufwertungsbezogener Verdrängung mit behördlichen Daten gar nicht zu erbringen. Um diese Herausforderung dennoch anzunehmen, wird die vom \textit{Gentrimap} Projekt \citet{Holm2012} verwendete deskriptive Methodik zur Bestimmung und Charakterisierung von Gentrifizierungsgebieten weiterentwickelt, sowie eine prozessbasierte, inferentielle Methodik zur Untersuchung von Kausalzusammenhängen bezüglich Aufwertung und Verdrängung neu ausgearbeitet. Die entwickelte inferentielle Methodik erlaubt unter anderem die erstmalige aggregatsdatenbasierte Schätzung ökonomischer Verdrängung. Im Folgenden wird der genauere Aufbau der Studie erklärt. 
     
-"`I would challenge [...] anyone to show how census data can provide convincing evidence of displacement. It can show that one class or housing tenure has grown and that another has declined but it cannot show displacement."' \citep[S.~184]{Hamnett2010}
+\subsection{Aufbau der Studie}
+In Kap.~\ref{Sec:Gentri} werden zunächst die Begriffsdefinitionen von Gentrifizierung, Aufwertung und Verdrängung gesetzt, sowie ihr theoretischer Zusammenhang entwickelt. Auf Grundlage der daran anschließenden Diskussion des aktuellen Forschungsstandes werden Forschungsfragen und entsprechende Unterschieds- wie auch Kausalhypothesen formuliert. Danach werden in Kap.~\ref{Sec:Daten} die später zur Analyse verwendeten kleinräumigen Aggregatsdaten bezüglich ihres Inhalts und ihrer Struktur ausführlich beschrieben und bewertet. Die zur Datenanalyse verwendeten Methoden werden in Kap.~\ref{sec:Methoden} erläutert: Zuerst wird die deskriptive Methodik vorgestellt, die bei der Operationalisierung der Unterschiedshypothesen zur Anwendung kommt. Dann wird die inferentielle Methodik erklärt, die zur prozessbasierten Überprüfung der Kausalhypothesen benützt wird. Mit Kap.~\ref{Sec:AnaGentri} beginnt der empirische Teil der Arbeit. Hier werden die Berliner Nachbarschaften in Gentrifizierungsgebiete, Kontrollgebiete und andere Gebiete klassifiziert, diese lokalisiert und im Hinblick auf die formulierten Unterschiedshypothesen vergleichend charakterisiert. In Kap.~\ref{Sec:AnaVermessung} werden die Kausalhypothesen, mithilfe derer insbesondere der Zusammenhang zwischen Aufwertung und Verdrängung erfasst werden soll, durch die Schätzung gewichteter \textit{Spatial Autoregressive Models (SAR)} infertiell überprüft. Kap.~\ref{Sec:ZufsgDisku} ordnet die Studie schließlich in den bisherigen Forschungsstand ein, fasst die empirischen Resultate knapp zusammen und nimmt zuletzt eine stadtpolitische Bewertung der Forschungsergebnisse vor.
+
+\subsection{Technische Hinweise}
+
+Bevor in Kap.~\ref{Sec:Gentri} damit begonnen wird, den konzeptionellen Rahmen der Studie zu formulieren, sollen einige technische Hinweise erfolgen. 
+
+Abbildungen und Tabellen, die sich im Anhang befinden, werden mit dem Präfix A bzw. B benannt. Zur besseren der 
+
+Zur besseren Karten auf der Homepage \url{amor.cms.hu-berlin.de/~schulzgu}. Die interaktiven Online-Karten sind auch direkt über den in den Abbildungsunterschriften der Karten in der PDF Version erreichbar. Die Website wurde in Zusammenarbeit mit Christian Behrens erstellt.
+
+Die Durchführung dieser Studie hing maßgeblich vom Zugang zu geeigneten, räumlich hoch auflösenden Daten ab. Glücklicherweise werden seit 2012 auf dem von der \textit{Senatsverwaltung für Wirtschaft, Technologie und Forschung} betreuten Datenportal \textit{Berlin Open Data}\footnote{ daten.berlin.de} Datensätze der öffentlichen Verwaltung kostenlos und unbürokratisch zur Verfügung gestellt. Fabian Beran und Andrej Holm der Wanderungsdaten. Auch \textit{JLL Research} sei an dieser Stelle für die freundlicherweise Mietpreisdaten 
+
+Die Daten wurden ausschließlich der freien Statistiksoftware \R (Version 3.2.1) verarbeitet und analysiert. Die hierfür verwendeten \R Skripte sind im offenen \textit{Git Repository} \url{github.com/chamaoskurumi/R_files} einzusehen. Auf Anfrage können die zur Analyse verwendeten Daten zur Verfügung gestellt und mithilfe der auf Git archivierten Syntaxen alle Ergebnisse dieser Arbeit in \R reproduziert werden. Von den vielen verwendeten \R Paketen seien an dieser Stelle die drei wichtigsten hervorgehoben: das zur Verarbeitung von räumlichen Daten essentielle, von Roger Bivand betreute Paket \texttt{sp}\footnote{\url{cran.r-project.org/web/packages/sp}}, das zur inferentiellen räumlichen Analyse hervorragende, von Edzer Pebesma und Roger Bivand programmierte Paket \texttt{spdep}\footnote{\url{cran.r-project.org/web/packages/spdep}} und das von Hadley Wickam entwickelte, rein zur Datenvisualisierung verwendete, mächtige Paket \texttt{ggplot2}\footnote{\url{ggplot2.org}}. 
 
 
-Verdrängung messen:
-Probleme: \citep{Slater2009} Verdrängung nicht messbar  "`there is no statistical data available for such a task"'
-Daten staatliche Behörden hätten aufgrund ihrer Gentrifizierung begünstigenden Rolle kein Interesse solche Daten zu sammeln und es gibt keine Daten um die die Kämpfe von Anwohner*innen gegen den Verdrängungsdruck erfassen 
-Slater pessimistisch
-
-Gentrimap beinhaltet keine Analyse von zwischen Aufwertungsprozessen und Wanderungsverhalten.
-
-Versuch Verdrängung in Berlin im Zweitraum zwischen 2007-2012 statistisch kleinräumlig zu erfassen und 
-
-"`it is essential to have conceptual clarity before research on displacement begins, and before any conclusions can be drawn"' \citep[S.~304]{Slater2009}
-
-Eine Analyse (von altgriech analysis „Auflösung“) ist eine systematische Untersuchung, bei der das untersuchte Objekt oder Subjekt in Bestandteile (Elemente) zerlegt und auf Grundlage von Kriterien erfasst werden. Anschließend werden diese geordnet, untersucht und ausgewertet. Insbesondere betrachtet man Beziehungen und Wirkungen (oft: Wechselwirkungen) zwischen den Elementen.
-
- und gleichzeitig sagt er \citet{Slater2015} über die Schwierigkeiten Gentrifizierungtheorie zu operationalisieren "`theories are always confronted with empirical difficulties. They should not be abandoned because of it."'
-
-Keine qualitativen Methoden, Zur Berechnung der Verdrängungsraten \citet[S.~27ff.]{Atkinson2011} keine differenzierung von faktoren. 
-
-Stadteweite, kleinformatige Zensusdaten Aufwertung wohnräumliche Mobilität
-Deskriptiv Explorative Datenanalyse: Charakterisierung  
-Inferenziell Räumlich Autoregressive Modelle
-
-Durch die statistische Modellierung des Zusammenhang zwischen immoblienwirtschaftlichen sowie sozialen Aufwertungsprozessen und wohnräumlicher Mobilität sollen empirische Erkenntnisse bezüglich der Existenz, Lokalisierung und Quantifizierung von Gentrifizierung und Verdrängung in Berlin gewonnen werden. \\
-Zunächst soll mit Hilfe stadtsoziologischer Theorie der konzeptionelle Rahmen für die Studie bestimmt und Begriffsdefinitionen gesetzt werden. Auf Grundlage des aktuellen Forschungsstandes werden Forschungsfragen entwickelt und Hypothesen formuliert. \\
-Im ersten Schritt sollen mit den Methoden explorativer Datenanalyse eine räumliche Identifizierung und Quantifizierung von Gentrifizierungprozessen in Berlin vorgenommen werden. Die identifizierten Aufwertungsgebiete werden in einem Vergleich mit entsprechenden Kontrollgebieten genauer charaktierisiert. In einem zweiten Schritt werden räumlich autoregressive Modelle (SAR) geschätzt um einerseits den Effekt immobilienwirtschaftlicher Aufwertungsdynamik auf die wohnräumliche Mobilität der Berliner Bevölkerung zu messen und andereseits um den Charakter und Ausmaß der Interaktion zwischen sozialer Aufwertungsdynamik und wohnräumlicher Mobilität zu bestimmen. Die Ergebnisse der Regressionsmodelle werden dann im Kontext Marcuses Verdrängungstypen intepretiert und analysiert.
-
-
-
-Technicals
-
-Senatsverwaltung für Wirtschaft, Technologie und Forschung.
-
-Seit 2012 behördliche Daten 
-Das Berliner Datenportal ist Bestandteil von Berlin.de, dem offiziellen Internetauftritt des Landes Berlin. Der Betrieb erfolgt in Public-Private-Partnership mit der BerlinOnline Stadtportal GmbH \& Co. KG
-
-Datenverarbeitung und Analyse in \R \texttt{spdep}
-
- Die Daten wurden ausschließlich mit \R verarbeitet. Die hierfür verwendeten \R Skripte sind im offenen Git repository \url{github.com/chamaoskurumi/R_files} einzusehen. Von den vielen zur Datenverarbeitung und Analyse verwendeten \R Pakete seien an dieser Stelle die drei wichtigsten hervorgehoben: das zur Verarbeitung von räumlichen Daten essentielle, von Roger Bivand betreute Paket \texttt{sp}\footnote{\url{cran.r-project.org/web/packages/spdep/spdep.pdf}}, das zur inferentiellen räumlichen Analyse herrvorragende, von Edzer Pebesma und Roger Bivand programmierte Paket \texttt{spdep}\footnote{\url{cran.r-project.org/web/packages/spdep/spdep.pdf}} und das von Hadley Wickam entwickelte, rein zur Datenvisualisierung verwendete, mächtige Paket \texttt{ggplot2}\footnote{\url{ggplot2.org}}. Auf Anfrage können die zur Analyse verwendeten Daten zur Verfügung gestellt werden. Mithilfe der auf Git  archivierten Syntaxen sind alle Ergebnisse dieser Arbeit in \R reproduzierbar.
-
-Abbildungen im Anhang mit dem Präfix A, Tabellen im Anhang mit dem Präfix B.
-
-Zur besseren Karten auf der Homepage \url{amor.cms.hu-berlin.de/~schulzgu}. Die interaktiven Online-Karten sind auch direkt über den in den Abbildungsunterschriften der Karten in der PDF Version erreichbar. 
  
+

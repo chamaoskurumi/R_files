@@ -855,10 +855,10 @@ table(bpDF$SanGebiet.2012, bpDF$Gentri)
 
 #### FortzügeR Vergleich ####
 
-wtd.mean(x=bpDF$FortzuegeR[bpDF$Gentri=="Gentri"], 
-         weights=bpDF$E_E.2007[bpDF$Gentri=="Gentri"])
-wtd.mean(x=bpDF$FortzuegeR[bpDF$Gentri=="Kontroll"], 
-         weights=bpDF$E_E.2007[bpDF$Gentri=="Kontroll"])
+wtd.mean(x=bpDF$FortzuegeR[bpDF$GentriA=="Gentri"], 
+         weights=bpDF$E_E.2007[bpDF$GentriA=="Gentri"])
+wtd.mean(x=bpDF$FortzuegeR[bpDF$GentriA=="Kontroll"], 
+         weights=bpDF$E_E.2007[bpDF$GentriA=="Kontroll"])
   
 wtd.mean(x=bpDF$FortzuegeR, 
            weights=bpDF$E_E.2007)
