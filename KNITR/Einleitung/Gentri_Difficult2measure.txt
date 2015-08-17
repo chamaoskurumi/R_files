@@ -1,0 +1,31 @@
+
+
+
+Auf der Grundlage von Daten aus dem Jahre 2003 charakterisierte \citet[S.~74]{Gebhardt2012} den Altbezirk Kreuzberg sowie Nord-Neukölln noch als Abwertungsgebiete mit teilweisen inselhaften Aufwertungstendenzen, welche hohe Wohnmobilität aufweisen und aus denen Teile der Mittelschicht in Randgebiete abwandern. Auch hier beobachten wir 2007-2012 eine hohe Wohnmobilität, jedoch mit flächendecke
+Versuch Verdrängung in Berlin im Zweitraum zwischen 2007-2012 statistisch kleinräumlig zu erfassen und 
+
+
+Keine qualitativen Methoden, Zur Berechnung der Verdrängungsraten \citet[S.~27ff.]{Atkinson2011} keine differenzierung von faktoren. 
+
+
+Im ersten Schritt sollen mit den Methoden explorativer Datenanalyse eine räumliche Identifizierung und Quantifizierung von Gentrifizierungprozessen in Berlin vorgenommen werden. Die identifizierten Aufwertungsgebiete werden in einem Vergleich mit entsprechenden Kontrollgebieten genauer charaktierisiert. In einem zweiten Schritt werden räumlich autoregressive Modelle (SAR) geschätzt um einerseits den Effekt immobilienwirtschaftlicher Aufwertungsdynamik auf die wohnräumliche Mobilität der Berliner Bevölkerung zu messen und andereseits um den Charakter und Ausmaß der Interaktion zwischen sozialer Aufwertungsdynamik und wohnräumlicher Mobilität zu bestimmen. Die Ergebnisse der Regressionsmodelle werden dann im Kontext Marcuses Verdrängungstypen intepretiert und analysiert.
+
+Eine Analyse (von altgriech analysis „Auflösung“) ist eine systematische Untersuchung, bei der das untersuchte Objekt oder Subjekt in Bestandteile (Elemente) zerlegt und auf Grundlage von Kriterien erfasst werden. Anschließend werden diese geordnet, untersucht und ausgewertet. Insbesondere betrachtet man Beziehungen und Wirkungen (oft: Wechselwirkungen) 
+
+"`I would challenge [...] anyone to show how census data can provide convincing evidence of displacement. It can show that one class or housing tenure has grown and that another has declined but it cannot show displacement."' \citep[S.~184]{Hamnett2010}
+
+"`Empirical measurement of displacement has generally proved difficult, not least because the interpretation of outward moves needs to distinguish between prevailing rates of population turnover and involuntary migration."'\citep[S.~112]{Atkinson2004}
+
+"`Estimating the scope and scale of displacement and exploring what happens to people who are displaced have proved elusive."'\citet{Newman2006a} 
+
+"`Unfortunately, displacement is difficult to quantify hence easily ignored."'\citet[S.~2604]{Wyly2010}
+
+Verdrängung messen:
+Probleme: \citep{Slater2009} Verdrängung nicht messbar  "`there is no statistical data available for such a task"'
+Daten staatliche Behörden hätten aufgrund ihrer Gentrifizierung begünstigenden Rolle kein Interesse solche Daten zu sammeln und es gibt keine Daten um die die Kämpfe von Anwohner*innen gegen den Verdrängungsdruck erfassen 
+Slater pessimistisch
+
+"`displacement is notoriously difficult to document on a statistically significant scale"'\citet[S.~6]{Shaw2008}
+
+\citet{Slater2015} über die Schwierigkeiten Gentrifizierungtheorie zu operationalisieren "`theories are always confronted with empirical difficulties. They should not be abandoned because of it."'
+
