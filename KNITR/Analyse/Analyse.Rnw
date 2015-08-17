@@ -393,7 +393,7 @@ Was die Armutsquote betrifft, so bedeutet der Rückgang der Armutsquote um 6,9~P
 
 Diese kurze, beispielhafte Analyse des sich (aktuell) in begehrter Lage befindlichen Reuterkiezes veranschaulichte, wie soziale und demographische Charakteristika vermutlich hohe Umzugsraten bedingen, sowie den Kiez attraktiv für immobilienwirtschatliche Aufwertung machen. Durch die Verbindung von ehemals günstigen Mietpreisen und gestiegener Attraktivität der Lage ist die starke immobilienwirtschaftliche Aufwertungsdynamik der letzten Jahre mit der rent-gap Theorie gut erklärbar. Die starke soziale Aufwertung im Kiez wurde sicherlich durch die hohen Umzugsraten beschleunigt und lässt entsprechend starke Verdrängungsprozesse vermuten. 
 
-\newpage
+%\newpage
 \section{Vermessung von Aufwertung und Verdrängung}\label{Sec:AnaVermessung}
 Das vorherige Kapitel lieferte empirische Anhaltspunkte für Verdrängung und deren Zusammenhang mit Aufwertungprozessen. Die darin verwendeten Methoden waren jedoch weder zur Isolierung und Quantifizierung einzelner Zusammenhänge geeignet, noch erlaubten sie genauere Rückschlüsse auf Ausmaß und Form von Verdrängung. Zu diesen Zwecken, d.h. zur Bearbeitung von H~3.1 bis H~3.2b, werden im Folgenden gewichtete SAR Modelle geschätzt und die Regressionskoeffizienten als direkte Effekte im Sinne einer prozessbasierten Inferenz interpretiert. Nach der Dokumentation und Erklärung der empirischen Modellspezifikationen (Kap.~\ref{Sec:AnaSARModellspezi}) folgt die ausführliche Darstellung und Interpretation der Regressionsergebnisse (Kap.~\ref{Sec:AnaSARErgebnisse}). Zuletzt wird das oben bereits beschriebene Beispiel des Reuterkiezes wieder aufgegriffen, um die Regressionsergebnisse zu veranschaulichen (Kap.~\ref{Sec:AnaSARBsp}).
 
