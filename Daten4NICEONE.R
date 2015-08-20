@@ -48,6 +48,8 @@ colnames(WIDE4NICEONE) <- c("RAUMID","RAUMID_NAME", MieteNAMESn,ArmutNAMESn,
                             "AlleinerzHH2012")
 names(WIDE4NICEONE)
 
+WIDE4NICEONE$Armutchg <- round(WIDE4NICEONE$Armutchg,1)
+
 write.csv(WIDE4NICEONE, "/home/dao/Dropbox/Daten4Christian/WIDE4NICEONE.csv")
 
 
