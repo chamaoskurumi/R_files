@@ -57,7 +57,7 @@ assoc(mosaicDF,shade=TRUE)
 @
 
 \newpage
-<<Miete.2007MAP, fig.cap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/#miete}{Karte von $Miete_{2007}$}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
+<<Miete.2007MAP, fig.cap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/\\#miete}{Karte von $Miete_{2007}$}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
 Miete.2007MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=Miete.2007, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR), 
@@ -68,7 +68,7 @@ Miete.2007MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
 Miete.2007MAP
 @
 
-<<Miete.2012MAP, fig.cap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/#miete}{Karte von $Miete_{2012}$}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
+<<Miete.2012MAP, fig.cap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/\\#miete}{Karte von $Miete_{2012}$}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
 Miete.2012MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=Miete.2012, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR), 
@@ -79,7 +79,7 @@ Miete.2012MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
 Miete.2012MAP
 @
 
-<<Armut.2007MAP, fig.cap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/#armut2007}{Karte von $Armut_{2007}$}", fig.height=5, fig.lp='fig:',fig.pos='H'>>=
+<<Armut.2007MAP, fig.cap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/\\#armut2007}{Karte von $Armut_{2007}$}", fig.height=5, fig.lp='fig:',fig.pos='H'>>=
 Armut.2007MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=Armut.2007, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR), 
@@ -90,7 +90,7 @@ Armut.2007MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
 Armut.2007MAP
 @
 
-<<Armut.2012MAP, fig.cap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/#armut2012}{Karte von $Armut_{2012}$}", fig.height=5, fig.lp='fig:',fig.pos='H'>>=
+<<Armut.2012MAP, fig.cap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/\\#armut2012}{Karte von $Armut_{2012}$}", fig.height=5, fig.lp='fig:',fig.pos='H'>>=
 Armut.2012MAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=Armut.2012, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR), 
@@ -156,7 +156,7 @@ grid.arrange(p1FortzuegeRI, p1ZuzuegeRI,
 \end{landscape}
 }
 
-<<FortzuegeRMAP,fig.height=5, fig.cap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/#binnenfortzuege}{Karte von \\textit{FortzügeB}}", fig.lp='fig:',fig.pos='H'>>=
+<<FortzuegeRMAP,fig.height=5, fig.cap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/\\#binnenfortzuege}{Karte von \\textit{FortzügeB}}", fig.lp='fig:',fig.pos='H'>>=
 FortzuegeRMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=FortzuegeR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
@@ -167,7 +167,7 @@ FortzuegeRMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
 FortzuegeRMAP
 @
 
-<<ZuzuegeRMAP,fig.cap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/#binnenzuzuege}{Karte von \\textit{ZuzügeB}}", fig.height=5, fig.lp='fig:', fig.pos='H'>>=
+<<ZuzuegeRMAP,fig.cap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/\\#binnenzuzuege}{Karte von \\textit{ZuzügeB}}", fig.height=5, fig.lp='fig:', fig.pos='H'>>=
 ZuzuegeRMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=ZuzuegeR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
@@ -178,7 +178,7 @@ ZuzuegeRMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
 ZuzuegeRMAP
 @
 
-<<FortzuegeUDARMAP,fig.cap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/#aussenfortzuege}{Karte von \\textit{FortzügeA}}", fig.height=5, fig.lp='fig:', fig.pos='H'>>=
+<<FortzuegeUDARMAP,fig.cap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/\\#aussenfortzuege}{Karte von \\textit{FortzügeA}}", fig.height=5, fig.lp='fig:', fig.pos='H'>>=
 FortzuegeUDARMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=FortzuegeUDAR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
@@ -189,7 +189,7 @@ FortzuegeUDARMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
 FortzuegeUDARMAP
 @
 
-<<ZuzuegeUDARMAP,fig.height=5, fig.cap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/#aussenzuzuege}{Karte von \\textit{ZuzügeA}}", fig.lp='fig:',fig.pos='H'>>=
+<<ZuzuegeUDARMAP,fig.height=5, fig.cap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/\\#aussenzuzuege}{Karte von \\textit{ZuzügeA}}", fig.lp='fig:',fig.pos='H'>>=
 ZuzuegeUDARMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=ZuzuegeUDAR, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
@@ -263,7 +263,7 @@ ResiduenEMAP
 @
 
 \newpage
-<<OekoVerdraengungAMAP, fig.scap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/#oekoverdraengung_a}{Karte der ökonomischen Verdrängungsraten (Version A)}", fig.cap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/#oekoverdraengung_a}{Karte der geschätzten ökonomischen Verdrängungsraten nach Version A: Anteil der zwischen 2007 und 2012 ökonomisch Verdrängten an der Gesamtbevölkerung in \\%.}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
+<<OekoVerdraengungAMAP, fig.scap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/\\#oekoverdraengung_a}{Karte der ökonomischen Verdrängungsraten (Version A)}", fig.cap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/\\#oekoverdraengung_a}{Karte der geschätzten ökonomischen Verdrängungsraten nach Version A: Anteil der zwischen 2007 und 2012 ökonomisch Verdrängten an der Gesamtbevölkerung in \\%.}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
 OekoVerdraengungAMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=OekoVerdraengungA, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
@@ -274,7 +274,7 @@ OekoVerdraengungAMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) +
 OekoVerdraengungAMAP
 @
 
-<<OekoVerdraengungBMAP, fig.scap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/#oekoverdraengung_b}{Karte der ökonomischen Verdrängungsraten (Version B)}", fig.cap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/#oekoverdraengung_b}{Karte der geschätzten ökonomischen Verdrängungsraten nach Version B: Anteil der Binnenfortzüge, der auf immobilienwirtschaftliche Aufwertung zurückzuführen ist in \\%.}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
+<<OekoVerdraengungBMAP, fig.scap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/\\#oekoverdraengung_b}{Karte der ökonomischen Verdrängungsraten (Version B)}", fig.cap="\\href{http://amor.cms.hu-berlin.de/~schulzgu/gentri/\\#oekoverdraengung_b}{Karte der geschätzten ökonomischen Verdrängungsraten nach Version B: Anteil der Binnenfortzüge, der auf immobilienwirtschaftliche Aufwertung zurückzuführen ist in \\%.}", fig.height=4.8, fig.lp='fig:',fig.pos='H'>>=
 OekoVerdraengungBMAP <- ggplot(LOR4reg.fort, aes(x=long, y=lat, group = id)) + 
   geom_polygon(aes(fill=OekoVerdraengungB, group=id)) + geom_path(color="grey", alpha=0.0, size=0.5) +
   scale_fill_gradientn(colours = c(lowCOLOR,midCOLOR,hiCOLOR,superhiCOLOR), 
